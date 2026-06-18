@@ -31,7 +31,7 @@ game files.
 The outer Git repository is intentionally a whitelist repository. It should track
 only:
 
-- this `AGENTS.md` and the root `.gitignore`
+- this `AGENTS.md`, the root `.gitignore`, and the root `.gitattributes`
 - `Japan_rework/` and `Japan_rework.mod`
 - `rance_jap_chinese/` and `rance_jap_chinese.mod`
 - `rance_jap_english/` and `rance_jap_english.mod`
