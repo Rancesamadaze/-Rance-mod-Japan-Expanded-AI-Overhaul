@@ -1,0 +1,23 @@
+1.[待检验] 战术卡报错
+已修复：将 common/combat_tactics.txt 中四个风林火山战术的身份判断改为 OWNER = { OR = { tag = JAP is_subject_of = JAP } }，避免 is_subject_of 在 Combatant scope 下报错。
+待检验：启动游戏或查看 error.log，确认以下旧报错不再出现：
+[20:08:32][1936.01.01.17][trigger.cpp:460]: common/combat_tactics.txt:816: is_subject_of: Invalid Scope, supported: Country, provided: Combatant
+[20:08:32][1936.01.01.17][trigger.cpp:460]: common/combat_tactics.txt:844: is_subject_of: Invalid Scope, supported: Country, provided: Combatant
+[20:08:32][1936.01.01.17][trigger.cpp:460]: common/combat_tactics.txt:874: is_subject_of: Invalid Scope, supported: Country, provided: Combatant
+[20:08:32][1936.01.01.17][trigger.cpp:460]: common/combat_tactics.txt:904: is_subject_of: Invalid Scope, supported: Country, provided: Combatant
+
+2.[待检验] 海军指挥官自动获得了特质，但是没有升级到指定等级
+已修复：将 common/on_actions/JAP_ai_general_on_actions.txt 的 on_unit_leader_created、on_unit_leader_promote_from_ranks_green、on_unit_leader_promote_from_ranks_veteran 三个入口包进 character = { ... }，让 add_skill_level 在 CHARACTER scope 下执行。
+待检验：进游戏确认新建/晋升的日本 AI 海军指挥官在获得特质的同时会升到当前难度指定等级。
+
+3.[待检验] 陆军将领的AI升级系统还需要加入几个特质
+已修复：二档额外加入装甲作战专家 panzer_expert；三档通过二档继承装甲作战专家 panzer_expert 和巧变专家 adaptable，并额外加入要塞克星 fortress_buster、伏击作战专家 ambusher、游击斗士 guerilla_fighter。
+待检验：进游戏确认日本 AI 陆军将领在 NORMAL 以上/高难对应档位获得新增特质，且没有因互斥或前置导致报错。
+4.[待检验] 给魅魔换个图像和特质吧
+图像已处理：将 E:\移动\素材\内阁\mimorework.png 复制为 asset_sources/government/mimo/JAP_rework_mimo_small_source.png，转换为 gfx/leaders/JAP/JAP_rework_mimo_small.dds；顾问角色只保留 small = GFX_JAP_rework_mimo_small，不再声明 large。界面注册按项目新标准保留 name = "GFX_..." 引号与小写 texturefile。
+特质已处理：将 JAP_rework_mimo_trait 显示名改为“魔闪的修罗”，并给魅魔顾问添加 desc = JAP_mimo_desc，描述文本来自截图。
+待检验：进游戏确认魅魔顾问头像正常显示，DDS 没有黑底、错位或缩放异常；同时确认顾问特质名与描述正常显示。
+5.[待检验] 陆军将领系统也为元帅加上特质吧
+已修复：在 common/scripted_effects/JAP_ai_general_scripted_effects.txt 中加入陆军元帅三档特质链。EN档为当前元帅添加后勤奇才 logistics_wizard、全面规划者 thorough_planner、知人善任 expert_delegator；HL档额外添加凌厉的攻击者 aggressive_assaulter、防守大师 defensive_doctrine；EXPH档额外添加魅力非凡 inspirational_leader、组织至上 organisational_leader。一次性 AI 陆军将领强化决议会同步处理当前元帅。
+已修复：在 common/on_actions/JAP_ai_general_on_actions.txt 中加入 on_army_leader_promoted，普通陆军将领晋升为元帅后会按当前日本 AI 难度档位补元帅特质。
+待检验：进游戏确认日本 AI 当前元帅在对应 AI 陆军将领强化决议执行后获得分档元帅特质；确认新晋陆军元帅触发 on_army_leader_promoted 后也获得对应档位元帅特质，且互斥特质不会造成报错。

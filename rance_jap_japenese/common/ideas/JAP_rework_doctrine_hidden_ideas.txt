@@ -1,0 +1,52 @@
+ideas = {
+    hidden_ideas = {
+        JAP_rance_improved_amphibious_designs_idea = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+            picture = generic_fascism_drift_bonus
+            equipment_bonus = {
+                amphibious_mechanized_equipment = {
+                    build_cost_ic = -0.15
+                    instant = yes
+                }
+            }
+
+            ai_will_do = {
+                factor = 0
+            }
+        }
+        JAP_rance_advanced_amphibious_designs_idea = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+            picture = generic_fascism_drift_bonus
+            equipment_bonus = {
+                amphibious_mechanized_equipment = {
+                    build_cost_ic = -0.15
+                    instant = yes
+                }
+                medium_tank_amphibious_chassis = {
+                    build_cost_ic = -0.10
+                    instant = yes
+                }
+                heavy_tank_amphibious_chassis = {
+                    build_cost_ic = -0.10
+                    instant = yes
+                }
+            }
+
+            ai_will_do = {
+                factor = 0
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+8377765 v1.19 update
+ common/ai_navy/fleet/JAP_fleet_templates.txt       |   5 +-
+ common/ai_strategy/JAP.txt                         | 317 ++++++++++++++++++---
+ common/ai_strategy/default.txt                     |  10 +-
+ .../JAP_alternate_strategy_plan.txt                |   1 +
+ common/ai_templates/templates_JAP.txt              |  89 ++++--
+ common/characters/JAP.txt                          |  31 ++
+ common/combat_tactics.txt                          |   4 +-
+ common/countries/cosmetic.txt                      |  38 ++-
+ common/decisions/JAP.txt                           |  53 +++-
+ common/decisions/_generic_decisions.txt            |  81 +++---
+ common/decisions/foreign_influence.txt             |   3 +
+ .../grand_doctrines/land_grand_doctrines.txt       |  16 ++
+ .../subdoctrines/land/armor_subdoctrines.txt       |  67 ++++-
+ .../land/combat_support_subdoctrines.txt           | 124 +++++---
+ .../subdoctrines/land/infantry_subdoctrines.txt    | 126 ++++++--
+ .../subdoctrines/land/operations_subdoctrines.txt  | 163 +++++++++--
+ common/ideas/_economic.txt                         | 204 ++++++++++++-
+ common/ideas/_manpower.txt                         | 246 +++++++++++++++-
+ common/national_focus/japan.txt                    | 201 +++++++++++--
+ common/peace_conference/ai_peace/JAP.txt           |  27 ++
+ common/raids/air_raids_custom.txt                  |  34 ++-
+ .../electronic_mechanical_engineering.txt          |   4 +
+ events/SEA_Japan.txt                               |  41 ++-
+ history/countries/JAP - Japan.txt                  |   2 +-
+ 24 files changed, 1662 insertions(+), 225 deletions(-)

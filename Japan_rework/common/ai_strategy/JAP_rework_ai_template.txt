@@ -1,0 +1,1052 @@
+# #common
+# JAP_template_before_1938 = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		always = yes
+# 	}
+# 	abort = {
+# 		date > 1938.6.1
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = infantry
+# 		value = 100
+# 	}
+# }
+# #easy
+# JAP_template_easy = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		date >1938.6.1
+#         Rance_nd_more_than_easy = no
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = infantry
+# 		value = 30
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = infantry_armor
+# 		value = 90
+# 	}
+    
+# 	# ai_strategy = {
+# 	# 	type = ai_wanted_divisions_factor
+# 	# 	value = 20
+# 	# }
+# }
+# #normal
+# JAP_template_normal = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		date >1938.6.1
+# 		Rance_nd_more_than_easy = yes
+#         Rance_nd_more_than_normal = no
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+#         type = role_ratio
+#         id = infantry
+#         value = 30
+#     }
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = medium_armor
+# 		value = 90
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = marine_armor
+# 		value = 60
+# 	}
+# 	# ai_strategy = {
+# 	# 	type = ai_wanted_divisions_factor
+# 	# 	value = 25
+# 	# }
+# }
+# #hard
+# JAP_template_hard = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		date >1938.6.1
+# 		Rance_nd_more_than_normal = yes 
+# 	}
+# 	abort_when_not_enabled = yes
+#     ai_strategy = {
+#         type = role_ratio
+#         id = infantry
+#         value = 30
+#     }
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = medium_armor
+# 		value = 60
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = marine_armor
+# 		value = 60
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = heavy_armor
+# 		value = 90
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = marine_heavy_armor
+# 		value = 90
+# 	}
+# }
+# JAP_template_ult = {
+#     enable = {
+# 		date >1940.6.1
+# 		Rance_nd_more_than_lunatic = yes 
+# 	}
+# 	abort_when_not_enabled = yes
+#     ai_strategy = {
+#         type = role_ratio
+#         id = land_crushier
+#         value = 120
+#     }
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = medium_armor
+# 		value = -30
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = marine_armor
+# 		value = -30
+# 	}
+# 	ai_strategy = {
+# 		type = role_ratio
+# 		id = heavy_armor
+# 		value = -60
+# 	}
+#     ai_strategy = {
+# 		type = role_ratio
+# 		id = marine_heavy_armor
+# 		value = -60
+# 	}
+# }
+
+# # --- 8.1 训练抑制：专属变量区分版 ---
+# # 逻辑：只要任一短缺即触发，全部充裕才解除
+# # =================================================================
+
+# # operations_JAP_reduce_infantry_training_due_to_shortage = {
+# #     allowed = {
+# #         original_tag = JAP
+# #     }
+
+# #     enable = {
+# #         OR = {
+# #             # 1. 步兵装备 (inf_)
+# #             AND = {
+# #                 set_temp_variable = { r_inf_ratio = num_equipment@infantry_equipment }
+# #                 divide_temp_variable = { r_inf_ratio = 1000 }
+# #                 add_to_temp_variable = { r_inf_ratio = num_equipment_in_armies_k@infantry_equipment }
+# #                 set_temp_variable = { r_inf_denom = num_target_equipment_in_armies_k@infantry_equipment }
+# #                 add_to_temp_variable = { r_inf_denom = 0.01 }
+# #                 divide_temp_variable = { r_inf_ratio = r_inf_denom }
+# #                 check_variable = { r_inf_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 2. 火炮 (art_)
+# #             AND = {
+# #                 set_temp_variable = { r_art_ratio = num_equipment@artillery_equipment }
+# #                 divide_temp_variable = { r_art_ratio = 1000 }
+# #                 add_to_temp_variable = { r_art_ratio = num_equipment_in_armies_k@artillery_equipment }
+# #                 set_temp_variable = { r_art_denom = num_target_equipment_in_armies_k@artillery_equipment }
+# #                 add_to_temp_variable = { r_art_denom = 0.01 }
+# #                 divide_temp_variable = { r_art_ratio = r_art_denom }
+# #                 check_variable = { r_art_ratio < Rance_non_critical_start_increase }
+# #             }
+# #             # 3. 反坦克炮 (at_)
+# #             AND = {
+# #                 set_temp_variable = { r_at_ratio = num_equipment@anti_tank_equipment }
+# #                 divide_temp_variable = { r_at_ratio = 1000 }
+# #                 add_to_temp_variable = { r_at_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+# #                 set_temp_variable = { r_at_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+# #                 add_to_temp_variable = { r_at_denom = 0.01 }
+# #                 divide_temp_variable = { r_at_ratio = r_at_denom }
+# #                 check_variable = { r_at_ratio < Rance_non_critical_start_increase }
+# #             }
+# #             # 4. 防空炮 (aa_)
+# #             AND = {
+# #                 set_temp_variable = { r_aa_ratio = num_equipment@anti_air_equipment }
+# #                 divide_temp_variable = { r_aa_ratio = 1000 }
+# #                 add_to_temp_variable = { r_aa_ratio = num_equipment_in_armies_k@anti_air_equipment }
+# #                 set_temp_variable = { r_aa_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+# #                 add_to_temp_variable = { r_aa_denom = 0.01 }
+# #                 divide_temp_variable = { r_aa_ratio = r_aa_denom }
+# #                 check_variable = { r_aa_ratio < Rance_non_critical_start_increase }
+# #             }
+# #         }
+# #     }
+
+# #     abort = {
+# #         AND = {
+# #             # 1. 步兵装备 (inf_)
+# #             AND = {
+# #                 set_temp_variable = { r_inf_ratio = num_equipment@infantry_equipment }
+# #                 divide_temp_variable = { r_inf_ratio = 1000 }
+# #                 add_to_temp_variable = { r_inf_ratio = num_equipment_in_armies_k@infantry_equipment }
+# #                 set_temp_variable = { r_inf_denom = num_target_equipment_in_armies_k@infantry_equipment }
+# #                 add_to_temp_variable = { r_inf_denom = 0.01 }
+# #                 divide_temp_variable = { r_inf_ratio = r_inf_denom }
+# #                 check_variable = { r_inf_ratio > Rance_critical_stop_decline }
+# #             }
+# #             # 2. 火炮 (art_)
+# #             AND = {
+# #                 set_temp_variable = { r_art_ratio = num_equipment@artillery_equipment }
+# #                 divide_temp_variable = { r_art_ratio = 1000 }
+# #                 add_to_temp_variable = { r_art_ratio = num_equipment_in_armies_k@artillery_equipment }
+# #                 set_temp_variable = { r_art_denom = num_target_equipment_in_armies_k@artillery_equipment }
+# #                 add_to_temp_variable = { r_art_denom = 0.01 }
+# #                 divide_temp_variable = { r_art_ratio = r_art_denom }
+# #                 check_variable = { r_art_ratio > Rance_non_critical_stop_decline }
+# #             }
+# #             # 3. 反坦克炮 (at_)
+# #             AND = {
+# #                 set_temp_variable = { r_at_ratio = num_equipment@anti_tank_equipment }
+# #                 divide_temp_variable = { r_at_ratio = 1000 }
+# #                 add_to_temp_variable = { r_at_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+# #                 set_temp_variable = { r_at_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+# #                 add_to_temp_variable = { r_at_denom = 0.01 }
+# #                 divide_temp_variable = { r_at_ratio = r_at_denom }
+# #                 check_variable = { r_at_ratio > Rance_non_critical_stop_decline }
+# #             }
+# #             # 4. 防空炮 (aa_)
+# #             AND = {
+# #                 set_temp_variable = { r_aa_ratio = num_equipment@anti_air_equipment }
+# #                 divide_temp_variable = { r_aa_ratio = 1000 }
+# #                 add_to_temp_variable = { r_aa_ratio = num_equipment_in_armies_k@anti_air_equipment }
+# #                 set_temp_variable = { r_aa_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+# #                 add_to_temp_variable = { r_aa_denom = 0.01 }
+# #                 divide_temp_variable = { r_aa_ratio = r_aa_denom }
+# #                 check_variable = { r_aa_ratio > Rance_non_critical_stop_decline }
+# #             }
+# #         }
+# #     }
+
+# #     ai_strategy = {
+# #         type = role_ratio
+# #         id = infantry
+# #         value = -15
+# #     }
+# # }
+
+# # # =================================================================
+# # --- 9.1 步兵装甲师训练抑制逻辑 (Infantry Armor Suppression) ---
+# # 判定标准：方案 A (任一短缺触发抑制，全部盈余才恢复)
+# # 触发阈值：Critical < 0.9 (Rance_critical_start_increase)
+# # 恢复阈值：Critical > 1.3 (Rance_critical_start_decline)
+# # =================================================================
+
+# # operations_JAP_reduce_infantry_armor_training_due_to_shortage = {
+# #     allowed = {
+# #         original_tag = JAP
+# #     }
+
+# #     enable = {
+# #             Rance_nd_more_than_easy = no
+# #             date > 1938.6.1
+# #         # 只要下列任一关键装备处于“开始增产”水位（库存跌破 90%）
+# #         OR = {
+# #             # 1. 中型坦克底盘 (mt_)
+# #             AND = {
+# #                 set_temp_variable = { r_mt_ratio = num_equipment@medium_tank_chassis }
+# #                 divide_temp_variable = { r_mt_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mt_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+# #                 set_temp_variable = { r_mt_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+# #                 add_to_temp_variable = { r_mt_denom = 0.01 }
+# #                 divide_temp_variable = { r_mt_ratio = r_mt_denom }
+# #                 check_variable = { r_mt_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 2. 中型坦克歼击车 (mtd_)
+# #             AND = {
+# #                 set_temp_variable = { r_mtd_ratio = num_equipment@medium_tank_destroyer_chassis }
+# #                 divide_temp_variable = { r_mtd_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtd_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 set_temp_variable = { r_mtd_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 add_to_temp_variable = { r_mtd_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtd_ratio = r_mtd_denom }
+# #                 check_variable = { r_mtd_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 3. 中型自行防空炮 (mtaa_)
+# #             AND = {
+# #                 set_temp_variable = { r_mtaa_ratio = num_equipment@medium_tank_aa_chassis }
+# #                 divide_temp_variable = { r_mtaa_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtaa_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 set_temp_variable = { r_mtaa_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 add_to_temp_variable = { r_mtaa_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtaa_ratio = r_mtaa_denom }
+# #                 check_variable = { r_mtaa_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 4. 直升机装备 (heli_)
+# #             AND = {
+# #                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+# #                 divide_temp_variable = { r_heli_ratio = 1000 }
+# #                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# #                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# #                 add_to_temp_variable = { r_heli_denom = 0.01 }
+# #                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+# #                 check_variable = { r_heli_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 5. 装甲支援车 (asv_)
+# #             AND = {
+# #                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+# #                 divide_temp_variable = { r_asv_ratio = 1000 }
+# #                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# #                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# #                 add_to_temp_variable = { r_asv_denom = 0.01 }
+# #                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+# #                 check_variable = { r_asv_ratio < Rance_critical_start_increase }
+# #             }
+# #         }
+# #     }
+
+# #     abort = {
+# #         # 全部进入“减产阶段”（库存超过 130%）才恢复正常招募比例
+# #         AND = {
+# #             # 1. 中型坦克底盘 (mt_)
+# #             AND = {
+# #                 set_temp_variable = { r_mt_ratio = num_equipment@medium_tank_chassis }
+# #                 divide_temp_variable = { r_mt_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mt_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+# #                 set_temp_variable = { r_mt_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+# #                 add_to_temp_variable = { r_mt_denom = 0.01 }
+# #                 divide_temp_variable = { r_mt_ratio = r_mt_denom }
+# #                 check_variable = { r_mt_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 2. 中型坦克歼击车 (mtd_)
+# #             AND = {
+# #                 set_temp_variable = { r_mtd_ratio = num_equipment@medium_tank_destroyer_chassis }
+# #                 divide_temp_variable = { r_mtd_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtd_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 set_temp_variable = { r_mtd_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 add_to_temp_variable = { r_mtd_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtd_ratio = r_mtd_denom }
+# #                 check_variable = { r_mtd_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 3. 中型自行防空炮 (mtaa_)
+# #             AND = {
+# #                 set_temp_variable = { r_mtaa_ratio = num_equipment@medium_tank_aa_chassis }
+# #                 divide_temp_variable = { r_mtaa_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtaa_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 set_temp_variable = { r_mtaa_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 add_to_temp_variable = { r_mtaa_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtaa_ratio = r_mtaa_denom }
+# #                 check_variable = { r_mtaa_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 4. 直升机装备 (heli_)
+# #             AND = {
+# #                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+# #                 divide_temp_variable = { r_heli_ratio = 1000 }
+# #                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# #                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# #                 add_to_temp_variable = { r_heli_denom = 0.01 }
+# #                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+# #                 check_variable = { r_heli_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 5. 装甲支援车 (asv_)
+# #             AND = {
+# #                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+# #                 divide_temp_variable = { r_asv_ratio = 1000 }
+# #                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# #                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# #                 add_to_temp_variable = { r_asv_denom = 0.01 }
+# #                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+# #                 check_variable = { r_asv_ratio > Rance_critical_start_decline }
+# #             }
+# #         }
+# #     }
+
+# #     ai_strategy = {
+# #         type = role_ratio
+# #         id = infantry_armor
+# #         value = -40
+# #     }
+# # }
+# # # # =================================================================
+# # # --- 10.1 中型装甲师训练抑制逻辑 (Medium Armor Suppression) ---
+# # # 判定标准：方案 A (任一短缺触发抑制，全部盈余才恢复)
+# # # 触发阈值：Critical < 0.9 (增产线)
+# # # 恢复阈值：Critical > 1.3 (减产线)
+# # # 涉及装备：中坦、中歼、中AA、直升机、装甲支援车、机械化装备
+# # # =================================================================
+
+# # # operations_JAP_reduce_medium_armor_training_due_to_shortage = {
+# # #     allowed = {
+# # #         original_tag = JAP
+# # #     }
+
+# # #     enable = {
+# # #         date > 1938.6.1
+# # #         # 只要下列任一关键装备处于“开始增产”状态（库存跌破 90% 目标）
+# # #         OR = {
+# # #             # 1. 中型坦克底盘 (mt)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mt_ratio = num_equipment@medium_tank_chassis }
+# # #                 divide_temp_variable = { r_mt_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mt_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+# # #                 set_temp_variable = { r_mt_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+# # #                 add_to_temp_variable = { r_mt_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mt_ratio = r_mt_denom }
+# # #                 check_variable = { r_mt_ratio < Rance_critical_start_increase }
+# # #             }
+# # #             # 2. 中型坦克歼击车 (mtd)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mtd_ratio = num_equipment@medium_tank_destroyer_chassis }
+# # #                 divide_temp_variable = { r_mtd_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mtd_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# # #                 set_temp_variable = { r_mtd_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# # #                 add_to_temp_variable = { r_mtd_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mtd_ratio = r_mtd_denom }
+# # #                 check_variable = { r_mtd_ratio < Rance_critical_start_increase }
+# # #             }
+# # #             # 3. 中型自行防空炮 (mtaa)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mtaa_ratio = num_equipment@medium_tank_aa_chassis }
+# # #                 divide_temp_variable = { r_mtaa_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mtaa_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# # #                 set_temp_variable = { r_mtaa_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# # #                 add_to_temp_variable = { r_mtaa_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mtaa_ratio = r_mtaa_denom }
+# # #                 check_variable = { r_mtaa_ratio < Rance_critical_start_increase }
+# # #             }
+# # #             # 4. 直升机装备 (heli)
+# # #             AND = {
+# # #                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+# # #                 divide_temp_variable = { r_heli_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# # #                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# # #                 add_to_temp_variable = { r_heli_denom = 0.01 }
+# # #                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+# # #                 check_variable = { r_heli_ratio < Rance_critical_start_increase }
+# # #             }
+# # #             # 5. 装甲支援车 (asv)
+# # #             AND = {
+# # #                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+# # #                 divide_temp_variable = { r_asv_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# # #                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# # #                 add_to_temp_variable = { r_asv_denom = 0.01 }
+# # #                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+# # #                 check_variable = { r_asv_ratio < Rance_critical_start_increase }
+# # #             }
+# # #             # 6. 机械化装备 (mech)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mech_ratio = num_equipment@mechanized_equipment }
+# # #                 divide_temp_variable = { r_mech_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mech_ratio = num_equipment_in_armies_k@mechanized_equipment }
+# # #                 set_temp_variable = { r_mech_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+# # #                 add_to_temp_variable = { r_mech_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mech_ratio = r_mech_denom }
+# # #                 check_variable = { r_mech_ratio < Rance_critical_start_increase }
+# # #             }
+# # #         }
+# # #     }
+
+# # #     abort = {
+# # #         # 只有当所有相关装备全部进入“减产阶段”（库存超过 130%）才解除抑制
+# # #         AND = {
+# # #             # 1. 中型坦克底盘 (mt)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mt_ratio = num_equipment@medium_tank_chassis }
+# # #                 divide_temp_variable = { r_mt_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mt_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+# # #                 set_temp_variable = { r_mt_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+# # #                 add_to_temp_variable = { r_mt_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mt_ratio = r_mt_denom }
+# # #                 check_variable = { r_mt_ratio > Rance_critical_start_decline }
+# # #             }
+# # #             # 2. 中型坦克歼击车 (mtd)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mtd_ratio = num_equipment@medium_tank_destroyer_chassis }
+# # #                 divide_temp_variable = { r_mtd_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mtd_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# # #                 set_temp_variable = { r_mtd_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# # #                 add_to_temp_variable = { r_mtd_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mtd_ratio = r_mtd_denom }
+# # #                 check_variable = { r_mtd_ratio > Rance_critical_start_decline }
+# # #             }
+# # #             # 3. 中型自行防空炮 (mtaa)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mtaa_ratio = num_equipment@medium_tank_aa_chassis }
+# # #                 divide_temp_variable = { r_mtaa_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mtaa_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# # #                 set_temp_variable = { r_mtaa_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# # #                 add_to_temp_variable = { r_mtaa_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mtaa_ratio = r_mtaa_denom }
+# # #                 check_variable = { r_mtaa_ratio > Rance_critical_start_decline }
+# # #             }
+# # #             # 4. 直升机装备 (heli)
+# # #             AND = {
+# # #                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+# # #                 divide_temp_variable = { r_heli_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# # #                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# # #                 add_to_temp_variable = { r_heli_denom = 0.01 }
+# # #                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+# # #                 check_variable = { r_heli_ratio > Rance_critical_start_decline }
+# # #             }
+# # #             # 5. 装甲支援车 (asv)
+# # #             AND = {
+# # #                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+# # #                 divide_temp_variable = { r_asv_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# # #                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# # #                 add_to_temp_variable = { r_asv_denom = 0.01 }
+# # #                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+# # #                 check_variable = { r_asv_ratio > Rance_critical_start_decline }
+# # #             }
+# # #             # 6. 机械化装备 (mech)
+# # #             AND = {
+# # #                 set_temp_variable = { r_mech_ratio = num_equipment@mechanized_equipment }
+# # #                 divide_temp_variable = { r_mech_ratio = 1000 }
+# # #                 add_to_temp_variable = { r_mech_ratio = num_equipment_in_armies_k@mechanized_equipment }
+# # #                 set_temp_variable = { r_mech_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+# # #                 add_to_temp_variable = { r_mech_denom = 0.01 }
+# # #                 divide_temp_variable = { r_mech_ratio = r_mech_denom }
+# # #                 check_variable = { r_mech_ratio > Rance_critical_start_decline }
+# # #             }
+# # #         }
+# # #     }
+
+# # #     ai_strategy = {
+# # #         type = role_ratio
+# # #         id = medium_armor
+# # #         value = -40
+# # #     }
+# # #     # ai_strategy = {
+# # # 	# 	type = ai_wanted_divisions_factor
+# # # 	# 	value = -10
+# # # 	# }
+    
+# # # }
+# # # # =================================================================
+# # # --- 10.2.1 两栖装甲师训练抑制逻辑 (Marine Armor Suppression) ---
+# # # 判定标准：方案 A (任一短缺触发抑制，全部盈余才恢复)
+# # # 触发阈值：Critical < 0.9 (增产线)
+# # # 恢复阈值：Critical > 1.3 (减产线)
+# # # 涉及装备：两栖中坦、中歼、中AA、直升机、装甲支援车、两栖机械化
+# # # =================================================================
+
+# # # operations_JAP_reduce_marine_armor_training_due_to_shortage = {
+# #     allowed = {
+# #         original_tag = JAP
+# #     }
+
+# #     enable = {
+# #         date > 1938.6.1
+# #         # 只要下列任一两栖关键组件处于“开始增产”状态（库存跌破 90% 目标）
+# #         OR = {
+# #             # 1. 两栖中型坦克底盘 (amt)
+# #             AND = {
+# #                 set_temp_variable = { r_amt_ratio = num_equipment@medium_tank_amphibious_chassis }
+# #                 divide_temp_variable = { r_amt_ratio = 1000 }
+# #                 add_to_temp_variable = { r_amt_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #                 set_temp_variable = { r_amt_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #                 add_to_temp_variable = { r_amt_denom = 0.01 }
+# #                 divide_temp_variable = { r_amt_ratio = r_amt_denom }
+# #                 check_variable = { r_amt_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 2. 中型坦克歼击车 (mtd)
+# #             AND = {
+# #                 set_temp_variable = { r_mtd_ratio = num_equipment@medium_tank_destroyer_chassis }
+# #                 divide_temp_variable = { r_mtd_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtd_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 set_temp_variable = { r_mtd_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 add_to_temp_variable = { r_mtd_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtd_ratio = r_mtd_denom }
+# #                 check_variable = { r_mtd_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 3. 中型自行防空炮 (mtaa)
+# #             AND = {
+# #                 set_temp_variable = { r_mtaa_ratio = num_equipment@medium_tank_aa_chassis }
+# #                 divide_temp_variable = { r_mtaa_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtaa_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 set_temp_variable = { r_mtaa_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 add_to_temp_variable = { r_mtaa_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtaa_ratio = r_mtaa_denom }
+# #                 check_variable = { r_mtaa_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 4. 直升机装备 (heli)
+# #             AND = {
+# #                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+# #                 divide_temp_variable = { r_heli_ratio = 1000 }
+# #                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# #                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# #                 add_to_temp_variable = { r_heli_denom = 0.01 }
+# #                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+# #                 check_variable = { r_heli_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 5. 装甲支援车 (asv)
+# #             AND = {
+# #                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+# #                 divide_temp_variable = { r_asv_ratio = 1000 }
+# #                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# #                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# #                 add_to_temp_variable = { r_asv_denom = 0.01 }
+# #                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+# #                 check_variable = { r_asv_ratio < Rance_critical_start_increase }
+# #             }
+# #             # 6. 两栖机械化装备 (amech)
+# #             AND = {
+# #                 set_temp_variable = { r_amech_ratio = num_equipment@amphibious_mechanized_equipment }
+# #                 divide_temp_variable = { r_amech_ratio = 1000 }
+# #                 add_to_temp_variable = { r_amech_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #                 set_temp_variable = { r_amech_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #                 add_to_temp_variable = { r_amech_denom = 0.01 }
+# #                 divide_temp_variable = { r_amech_ratio = r_amech_denom }
+# #                 check_variable = { r_amech_ratio < Rance_critical_start_increase }
+# #             }
+# #         }
+# #     }
+
+# #     abort = {
+# #         # 必须所有两栖相关装备全部进入“减产阶段”（库存超过 130%）才解除抑制
+# #         AND = {
+# #             # 1. 两栖中型坦克底盘 (amt)
+# #             AND = {
+# #                 set_temp_variable = { r_amt_ratio = num_equipment@medium_tank_amphibious_chassis }
+# #                 divide_temp_variable = { r_amt_ratio = 1000 }
+# #                 add_to_temp_variable = { r_amt_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #                 set_temp_variable = { r_amt_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #                 add_to_temp_variable = { r_amt_denom = 0.01 }
+# #                 divide_temp_variable = { r_amt_ratio = r_amt_denom }
+# #                 check_variable = { r_amt_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 2. 中型坦克歼击车 (mtd)
+# #             AND = {
+# #                 set_temp_variable = { r_mtd_ratio = num_equipment@medium_tank_destroyer_chassis }
+# #                 divide_temp_variable = { r_mtd_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtd_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 set_temp_variable = { r_mtd_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #                 add_to_temp_variable = { r_mtd_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtd_ratio = r_mtd_denom }
+# #                 check_variable = { r_mtd_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 3. 中型自行防空炮 (mtaa)
+# #             AND = {
+# #                 set_temp_variable = { r_mtaa_ratio = num_equipment@medium_tank_aa_chassis }
+# #                 divide_temp_variable = { r_mtaa_ratio = 1000 }
+# #                 add_to_temp_variable = { r_mtaa_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 set_temp_variable = { r_mtaa_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# #                 add_to_temp_variable = { r_mtaa_denom = 0.01 }
+# #                 divide_temp_variable = { r_mtaa_ratio = r_mtaa_denom }
+# #                 check_variable = { r_mtaa_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 4. 直升机装备 (heli)
+# #             AND = {
+# #                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+# #                 divide_temp_variable = { r_heli_ratio = 1000 }
+# #                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# #                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# #                 add_to_temp_variable = { r_heli_denom = 0.01 }
+# #                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+# #                 check_variable = { r_heli_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 5. 装甲支援车 (asv)
+# #             AND = {
+# #                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+# #                 divide_temp_variable = { r_asv_ratio = 1000 }
+# #                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# #                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# #                 add_to_temp_variable = { r_asv_denom = 0.01 }
+# #                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+# #                 check_variable = { r_asv_ratio > Rance_critical_start_decline }
+# #             }
+# #             # 6. 两栖机械化装备 (amech)
+# #             AND = {
+# #                 set_temp_variable = { r_amech_ratio = num_equipment@amphibious_mechanized_equipment }
+# #                 divide_temp_variable = { r_amech_ratio = 1000 }
+# #                 add_to_temp_variable = { r_amech_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #                 set_temp_variable = { r_amech_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #                 add_to_temp_variable = { r_amech_denom = 0.01 }
+# #                 divide_temp_variable = { r_amech_ratio = r_amech_denom }
+# #                 check_variable = { r_amech_ratio > Rance_critical_start_decline }
+# #             }
+# #         }
+# #     }
+
+# #     ai_strategy = {
+# #         type = role_ratio
+# #         id = marine_armor
+# #         value = -25
+# #     }
+# #     # ai_strategy = {
+# # 	# 	type = ai_wanted_divisions_factor
+# # 	# 	value = -10
+# # 	# }
+# # }
+
+# # =================================================================
+# # --- 11.1.1 重型装甲师训练抑制逻辑 (Heavy Armor Suppression) ---（策略已经调整，现在的效果是重装甲师不足时减少中装甲师训练）
+# # 判定标准：方案 A (任一短缺触发抑制，全部盈余才恢复)
+# # 触发阈值：Critical < 0.9 (增产线)
+# # 恢复阈值：Critical > 1.3 (减产线)
+# # 涉及装备：重坦、重歼、重AA、直升机、装甲支援车、机械化装备
+# # =================================================================
+
+# operations_JAP_reduce_heavy_armor_training_due_to_shortage = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+
+#     enable = {
+        
+#         Rance_nd_more_than_normal = yes
+#         date > 1938.6.1
+#         # 只要下列任一重型关键组件处于“开始增产”状态（库存跌破 90% 目标）
+#         OR = {
+#             # 1. 重型坦克底盘 (ht)
+#             AND = {
+#                 set_temp_variable = { r_ht_ratio = num_equipment@heavy_tank_chassis }
+#                 divide_temp_variable = { r_ht_ratio = 1000 }
+#                 add_to_temp_variable = { r_ht_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+#                 set_temp_variable = { r_ht_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+#                 add_to_temp_variable = { r_ht_denom = 0.01 }
+#                 divide_temp_variable = { r_ht_ratio = r_ht_denom }
+#                 check_variable = { r_ht_ratio < Rance_critical_start_increase }
+#             }
+#             # 2. 重型坦克歼击车 (htd)
+#             AND = {
+#                 set_temp_variable = { r_htd_ratio = num_equipment@heavy_tank_destroyer_chassis }
+#                 divide_temp_variable = { r_htd_ratio = 1000 }
+#                 add_to_temp_variable = { r_htd_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 set_temp_variable = { r_htd_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 add_to_temp_variable = { r_htd_denom = 0.01 }
+#                 divide_temp_variable = { r_htd_ratio = r_htd_denom }
+#                 check_variable = { r_htd_ratio < Rance_critical_start_increase }
+#             }
+#             # 3. 重型自行防空炮 (htaa)
+#             AND = {
+#                 set_temp_variable = { r_htaa_ratio = num_equipment@heavy_tank_aa_chassis }
+#                 divide_temp_variable = { r_htaa_ratio = 1000 }
+#                 add_to_temp_variable = { r_htaa_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 set_temp_variable = { r_htaa_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 add_to_temp_variable = { r_htaa_denom = 0.01 }
+#                 divide_temp_variable = { r_htaa_ratio = r_htaa_denom }
+#                 check_variable = { r_htaa_ratio < Rance_critical_start_increase }
+#             }
+#             # 4. 直升机装备 (heli)
+#             AND = {
+#                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+#                 divide_temp_variable = { r_heli_ratio = 1000 }
+#                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+#                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+#                 add_to_temp_variable = { r_heli_denom = 0.01 }
+#                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+#                 check_variable = { r_heli_ratio < Rance_critical_start_increase }
+#             }
+#             # 5. 装甲支援车 (asv)
+#             AND = {
+#                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+#                 divide_temp_variable = { r_asv_ratio = 1000 }
+#                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+#                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+#                 add_to_temp_variable = { r_asv_denom = 0.01 }
+#                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+#                 check_variable = { r_asv_ratio < Rance_critical_start_increase }
+#             }
+#             # 6. 机械化装备 (mech)
+#             AND = {
+#                 set_temp_variable = { r_mech_ratio = num_equipment@mechanized_equipment }
+#                 divide_temp_variable = { r_mech_ratio = 1000 }
+#                 add_to_temp_variable = { r_mech_ratio = num_equipment_in_armies_k@mechanized_equipment }
+#                 set_temp_variable = { r_mech_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+#                 add_to_temp_variable = { r_mech_denom = 0.01 }
+#                 divide_temp_variable = { r_mech_ratio = r_mech_denom }
+#                 check_variable = { r_mech_ratio < Rance_critical_start_increase }
+#             }
+#         }
+#     }
+
+#     abort = {
+#         # 只有当所有相关巨兽组件全部回升至减产水位（> 130%）才解除抑制
+#         AND = {
+#             # 1. 重型坦克底盘 (ht)
+#             AND = {
+#                 set_temp_variable = { r_ht_ratio = num_equipment@heavy_tank_chassis }
+#                 divide_temp_variable = { r_ht_ratio = 1000 }
+#                 add_to_temp_variable = { r_ht_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+#                 set_temp_variable = { r_ht_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+#                 add_to_temp_variable = { r_ht_denom = 0.01 }
+#                 divide_temp_variable = { r_ht_ratio = r_ht_denom }
+#                 check_variable = { r_ht_ratio > Rance_critical_start_decline }
+#             }
+#             # 2. 重型坦克歼击车 (htd)
+#             AND = {
+#                 set_temp_variable = { r_htd_ratio = num_equipment@heavy_tank_destroyer_chassis }
+#                 divide_temp_variable = { r_htd_ratio = 1000 }
+#                 add_to_temp_variable = { r_htd_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 set_temp_variable = { r_htd_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 add_to_temp_variable = { r_htd_denom = 0.01 }
+#                 divide_temp_variable = { r_htd_ratio = r_htd_denom }
+#                 check_variable = { r_htd_ratio > Rance_critical_start_decline }
+#             }
+#             # 3. 重型自行防空炮 (htaa)
+#             AND = {
+#                 set_temp_variable = { r_htaa_ratio = num_equipment@heavy_tank_aa_chassis }
+#                 divide_temp_variable = { r_htaa_ratio = 1000 }
+#                 add_to_temp_variable = { r_htaa_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 set_temp_variable = { r_htaa_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 add_to_temp_variable = { r_htaa_denom = 0.01 }
+#                 divide_temp_variable = { r_htaa_ratio = r_htaa_denom }
+#                 check_variable = { r_htaa_ratio > Rance_critical_start_decline }
+#             }
+#             # 4. 直升机装备 (heli)
+#             AND = {
+#                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+#                 divide_temp_variable = { r_heli_ratio = 1000 }
+#                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+#                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+#                 add_to_temp_variable = { r_heli_denom = 0.01 }
+#                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+#                 check_variable = { r_heli_ratio > Rance_critical_start_decline }
+#             }
+#             # 5. 装甲支援车 (asv)
+#             AND = {
+#                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+#                 divide_temp_variable = { r_asv_ratio = 1000 }
+#                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+#                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+#                 add_to_temp_variable = { r_asv_denom = 0.01 }
+#                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+#                 check_variable = { r_asv_ratio > Rance_critical_start_decline }
+#             }
+#             # 6. 机械化装备 (mech)
+#             AND = {
+#                 set_temp_variable = { r_mech_ratio = num_equipment@mechanized_equipment }
+#                 divide_temp_variable = { r_mech_ratio = 1000 }
+#                 add_to_temp_variable = { r_mech_ratio = num_equipment_in_armies_k@mechanized_equipment }
+#                 set_temp_variable = { r_mech_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+#                 add_to_temp_variable = { r_mech_denom = 0.01 }
+#                 divide_temp_variable = { r_mech_ratio = r_mech_denom }
+#                 check_variable = { r_mech_ratio > Rance_critical_start_decline }
+#             }
+#         }
+#     }
+#     ai_strategy = {
+#         type = role_ratio
+#         id = medium_armor
+#         value = -30
+#     }
+# }
+# # =================================================================
+# # --- 11.2.1 两栖重型装甲师训练抑制逻辑 (Marine Heavy Armor Suppression) ---  （策略已经调整，现在的效果是重装甲师不足时减少中装甲师训练）
+# # 判定标准：方案 A | 涉及装备：重型两栖坦克、重歼、重AA、直升机、支援车、两栖机械化
+# # 触发阈值：Critical < 0.9 (Rance_critical_start_increase)
+# # 恢复阈值：Critical > 1.3 (Rance_critical_start_decline)
+# # =================================================================
+
+# operations_JAP_reduce_marine_heavy_armor_training_due_to_shortage = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+
+#     enable = {
+#         Rance_nd_more_than_normal = yes
+#         date > 1938.6.1
+#         # 只要下列任一两栖重型关键组件处于“短缺/增产”水位 (0.9)
+#         OR = {
+#             # 1. 重型两栖坦克底盘 (hamt)
+#             AND = {
+#                 set_temp_variable = { r_hamt_ratio = num_equipment@heavy_tank_amphibious_chassis }
+#                 divide_temp_variable = { r_hamt_ratio = 1000 }
+#                 add_to_temp_variable = { r_hamt_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#                 set_temp_variable = { r_hamt_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#                 add_to_temp_variable = { r_hamt_denom = 0.01 }
+#                 divide_temp_variable = { r_hamt_ratio = r_hamt_denom }
+#                 check_variable = { r_hamt_ratio < Rance_critical_start_increase }
+#             }
+#             # 2. 重型坦克歼击车 (htd)
+#             AND = {
+#                 set_temp_variable = { r_htd_ratio = num_equipment@heavy_tank_destroyer_chassis }
+#                 divide_temp_variable = { r_htd_ratio = 1000 }
+#                 add_to_temp_variable = { r_htd_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 set_temp_variable = { r_htd_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 add_to_temp_variable = { r_htd_denom = 0.01 }
+#                 divide_temp_variable = { r_htd_ratio = r_htd_denom }
+#                 check_variable = { r_htd_ratio < Rance_critical_start_increase }
+#             }
+#             # 3. 重型自行防空炮 (htaa)
+#             AND = {
+#                 set_temp_variable = { r_htaa_ratio = num_equipment@heavy_tank_aa_chassis }
+#                 divide_temp_variable = { r_htaa_ratio = 1000 }
+#                 add_to_temp_variable = { r_htaa_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 set_temp_variable = { r_htaa_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 add_to_temp_variable = { r_htaa_denom = 0.01 }
+#                 divide_temp_variable = { r_htaa_ratio = r_htaa_denom }
+#                 check_variable = { r_htaa_ratio < Rance_critical_start_increase }
+#             }
+#             # 4. 直升机装备 (heli)
+#             AND = {
+#                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+#                 divide_temp_variable = { r_heli_ratio = 1000 }
+#                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+#                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+#                 add_to_temp_variable = { r_heli_denom = 0.01 }
+#                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+#                 check_variable = { r_heli_ratio < Rance_critical_start_increase }
+#             }
+#             # 5. 装甲支援车 (asv)
+#             AND = {
+#                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+#                 divide_temp_variable = { r_asv_ratio = 1000 }
+#                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+#                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+#                 add_to_temp_variable = { r_asv_denom = 0.01 }
+#                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+#                 check_variable = { r_asv_ratio < Rance_critical_start_increase }
+#             }
+#             # 6. 两栖机械化装备 (amech)
+#             AND = {
+#                 set_temp_variable = { r_amech_ratio = num_equipment@amphibious_mechanized_equipment }
+#                 divide_temp_variable = { r_amech_ratio = 1000 }
+#                 add_to_temp_variable = { r_amech_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+#                 set_temp_variable = { r_amech_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+#                 add_to_temp_variable = { r_amech_denom = 0.01 }
+#                 divide_temp_variable = { r_amech_ratio = r_amech_denom }
+#                 check_variable = { r_amech_ratio < Rance_critical_start_increase }
+#             }
+#         }
+#     }
+
+#     abort = {
+#         # 只有当所有相关巨兽组件全部进入“减产阶段” (1.3) 才解除抑制
+#         AND = {
+#             # 1. 重型两栖坦克底盘 (hamt)
+#             AND = {
+#                 set_temp_variable = { r_hamt_ratio = num_equipment@heavy_tank_amphibious_chassis }
+#                 divide_temp_variable = { r_hamt_ratio = 1000 }
+#                 add_to_temp_variable = { r_hamt_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#                 set_temp_variable = { r_hamt_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#                 add_to_temp_variable = { r_hamt_denom = 0.01 }
+#                 divide_temp_variable = { r_hamt_ratio = r_hamt_denom }
+#                 check_variable = { r_hamt_ratio > Rance_critical_start_decline }
+#             }
+#             # 2. 重型坦克歼击车 (htd)
+#             AND = {
+#                 set_temp_variable = { r_htd_ratio = num_equipment@heavy_tank_destroyer_chassis }
+#                 divide_temp_variable = { r_htd_ratio = 1000 }
+#                 add_to_temp_variable = { r_htd_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 set_temp_variable = { r_htd_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#                 add_to_temp_variable = { r_htd_denom = 0.01 }
+#                 divide_temp_variable = { r_htd_ratio = r_htd_denom }
+#                 check_variable = { r_htd_ratio > Rance_critical_start_decline }
+#             }
+#             # 3. 重型自行防空炮 (htaa)
+#             AND = {
+#                 set_temp_variable = { r_htaa_ratio = num_equipment@heavy_tank_aa_chassis }
+#                 divide_temp_variable = { r_htaa_ratio = 1000 }
+#                 add_to_temp_variable = { r_htaa_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 set_temp_variable = { r_htaa_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+#                 add_to_temp_variable = { r_htaa_denom = 0.01 }
+#                 divide_temp_variable = { r_htaa_ratio = r_htaa_denom }
+#                 check_variable = { r_htaa_ratio > Rance_critical_start_decline }
+#             }
+#             # 4. 直升机装备 (heli)
+#             AND = {
+#                 set_temp_variable = { r_heli_ratio = num_equipment@helicopter_equipment }
+#                 divide_temp_variable = { r_heli_ratio = 1000 }
+#                 add_to_temp_variable = { r_heli_ratio = num_equipment_in_armies_k@helicopter_equipment }
+#                 set_temp_variable = { r_heli_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+#                 add_to_temp_variable = { r_heli_denom = 0.01 }
+#                 divide_temp_variable = { r_heli_ratio = r_heli_denom }
+#                 check_variable = { r_heli_ratio > Rance_critical_start_decline }
+#             }
+#             # 5. 装甲支援车 (asv)
+#             AND = {
+#                 set_temp_variable = { r_asv_ratio = num_equipment@armored_support_vehicle }
+#                 divide_temp_variable = { r_asv_ratio = 1000 }
+#                 add_to_temp_variable = { r_asv_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+#                 set_temp_variable = { r_asv_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+#                 add_to_temp_variable = { r_asv_denom = 0.01 }
+#                 divide_temp_variable = { r_asv_ratio = r_asv_denom }
+#                 check_variable = { r_asv_ratio > Rance_critical_start_decline }
+#             }
+#             # 6. 两栖机械化装备 (amech)
+#             AND = {
+#                 set_temp_variable = { r_amech_ratio = num_equipment@amphibious_mechanized_equipment }
+#                 divide_temp_variable = { r_amech_ratio = 1000 }
+#                 add_to_temp_variable = { r_amech_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+#                 set_temp_variable = { r_amech_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+#                 add_to_temp_variable = { r_amech_denom = 0.01 }
+#                 divide_temp_variable = { r_amech_ratio = r_amech_denom }
+#                 check_variable = { r_amech_ratio > Rance_critical_start_decline }
+#             }
+#         }
+#     }
+#     ai_strategy = {
+#         type = role_ratio
+#         id = marine_armor
+#         value = -30
+#     }
+# }
+# # =================================================================
+# # --- 11.3.1 陆地巡洋舰训练抑制逻辑 (Land Cruiser Suppression) ---
+# # 判定标准：方案 A (底盘短缺触发抑制，极大盈余才恢复)
+# # 触发阈值：Critical < 0.9 (增产线)
+# # 恢复阈值：Critical > 1.3 (减产线)
+# # 涉及装备：陆地巡洋舰底盘 (land_cruiser_chassis)
+# # =================================================================
+
+# # operations_JAP_reduce_land_crushier_training_due_to_shortage = {
+# #     allowed = {
+# #         original_tag = JAP
+# #     }
+
+# #     enable = {
+# #         date > 1938.6.1
+# #         Rance_nd_more_than_lunatic = yes
+# #         # 只要陆地巡洋舰底盘处于“开始增产”状态（库存低于 90% 目标）
+# #         OR = {
+# #             # 1. 陆地巡洋舰底盘 (lc)
+# #             AND = {
+# #                 set_temp_variable = { r_lc_ratio = num_equipment@land_cruiser_chassis }
+# #                 divide_temp_variable = { r_lc_ratio = 1000 }
+# #                 add_to_temp_variable = { r_lc_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+# #                 set_temp_variable = { r_lc_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+# #                 add_to_temp_variable = { r_lc_denom = 0.01 }
+# #                 divide_temp_variable = { r_lc_ratio = r_lc_denom }
+# #                 check_variable = { r_lc_ratio < Rance_critical_start_increase }
+# #             }
+# #         }
+# #     }
+
+# #     abort = {
+# #         # 必须陆地巡洋舰底盘进入“减产阶段”（库存水位超过 130%）才解除抑制
+# #         AND = {
+# #             # 1. 陆地巡洋舰底盘 (lc)
+# #             AND = {
+# #                 set_temp_variable = { r_lc_ratio = num_equipment@land_cruiser_chassis }
+# #                 divide_temp_variable = { r_lc_ratio = 1000 }
+# #                 add_to_temp_variable = { r_lc_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+# #                 set_temp_variable = { r_lc_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+# #                 add_to_temp_variable = { r_lc_denom = 0.01 }
+# #                 divide_temp_variable = { r_lc_ratio = r_lc_denom }
+# #                 check_variable = { r_lc_ratio > Rance_critical_start_decline }
+# #             }
+# #         }
+# #     }
+
+# #     ai_strategy = {
+# #         type = role_ratio
+# #         id = land_crushier
+# #         value = -100
+# #     }
+# # }

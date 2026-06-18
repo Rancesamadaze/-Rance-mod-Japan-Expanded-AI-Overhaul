@@ -1,0 +1,28 @@
+JAP_imperial_headquarters_decisions = {
+	icon = GFX_decision_category_military_operation
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		has_completed_focus = JAP_the_imperial_defense_plan
+	}
+	available = {
+
+	}
+	visible_when_empty = yes
+}
+
+JAP_imperial_headquarters_landing_operations_decisions = {
+	icon = GFX_decision_category_military_operation
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		has_completed_focus = JAP_the_imperial_defense_plan
+		JAP_scripted_landing_enabled = yes
+	}
+	available = {
+
+	}
+	visible_when_empty = yes
+}

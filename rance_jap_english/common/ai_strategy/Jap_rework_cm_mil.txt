@@ -1,0 +1,8243 @@
+## 讲座派军事 AI
+##
+## 从皇道派军事 AI 迁移并扩展的讲座派军事模块。
+## 本文件用于讲座派专属基础倾向、朝鲜、满洲、中国、本土防卫、东南亚、南亚、东印度-澳新与太平洋策略。
+## 路线判定统一使用：Rance_is_jap_lecture_ai = yes
+## 后中国/战后外线门槛统一使用：has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+## 不包含北美远征、北方对苏和第二共产路线内容。
+## 基础战略倾向：讲座派默认把重心放在亚洲，不在基础盘提前拉回本土。
+JAP_lecture_area_priority_base_asia = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = 20
+	}
+}
+
+## 决战前外线基础倾向：中东和欧洲是讲座派战后主前线，但具体强度仍交给各军区策略。
+JAP_lecture_area_priority_base_middle_east = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = 10
+	}
+}
+
+JAP_lecture_area_priority_base_europe = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = 15
+	}
+}
+
+## 基础登陆倾向：只提供全局登陆意愿，不绑定具体登陆点。
+JAP_lecture_base_naval_invasion_focus = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_war = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 25
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 15
+	}
+}
+
+## 苏联边境隔离：除非苏联投降进度过半，讲座派日本不为苏联盟友填线。
+JAP_lecture_dont_defend_soviet_ally_borders_before_soviet_crisis = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		country_exists = JAP
+		tag = SOV
+		is_in_faction_with = JAP
+		has_war = yes
+		has_capitulated = no
+		surrender_progress < 0.5
+		JAP = {
+			has_war = yes
+			has_capitulated = no
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = JAP
+		value = 9999
+	}
+}
+
+## 讲座派早期外战：朝鲜、满洲、中国。只服务当前讲座派 AI 路线。
+
+## 朝鲜战区集结：内战后对朝作战时，在九州和本土西部准备登陆兵力。
+JAP_lecture_korea_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = {
+			original_tag = KOR
+		}
+		JAP_lecture_korea_theater_clear = no
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2101
+		ratio = 0.08
+		states = {
+			528 # 北九州
+			1018 # 南九州
+			529 # 山阳
+			531 # 关西
+		}
+		area = JAP_rework_korea_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 朝鲜登陆请求：朝鲜内战落点不固定，六个朝鲜州都按敌控状态单独给登陆需求。
+JAP_lecture_korea_gyeonggi_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		525 = { controller = { has_war_with = ROOT } } # 京畿
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 525 # 京畿
+		value = 45
+	}
+}
+
+JAP_lecture_korea_pyongan_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		527 = { controller = { has_war_with = ROOT } } # 平安-黄海
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 527 # 平安-黄海
+		value = 45
+	}
+}
+
+JAP_lecture_korea_hamgyong_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		1028 = { controller = { has_war_with = ROOT } } # 咸镜
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 1028 # 咸镜
+		value = 45
+	}
+}
+
+JAP_lecture_korea_gangwon_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		1029 = { controller = { has_war_with = ROOT } } # 江原
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 1029 # 江原
+		value = 45
+	}
+}
+
+JAP_lecture_korea_gyeongsang_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		1030 = { controller = { has_war_with = ROOT } } # 庆尚
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 1030 # 庆尚
+		value = 45
+	}
+}
+
+JAP_lecture_korea_chungcheong_jeolla_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		1031 = { controller = { has_war_with = ROOT } } # 忠清-全罗
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 1031 # 忠清-全罗
+		value = 45
+	}
+}
+
+## 朝鲜登陆窗口：有朝鲜登陆目标时提高登陆意愿与制海权重。
+JAP_lecture_korea_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		JAP_lecture_korea_landing_target_available = yes
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 90
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 35
+	}
+}
+
+## 朝鲜登陆后 rush：登陆后 30 天内向登陆州与邻近州补兵强推。
+JAP_lecture_korea_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		has_country_flag = {
+			flag = JAP_lecture_korea_landing_boost
+			days < 30
+		}
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			original_tag = KOR
+		}
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_korea_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_korea_landing_priority
+				}
+			}
+		}
+		value = 20
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			original_tag = KOR
+		}
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_korea_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_korea_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 朝鲜清场推进：登陆成功后或已有前线时，压完整个朝鲜半岛。
+JAP_lecture_korea_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_reclaim_lost_territories
+		any_enemy_country = { original_tag = KOR }
+		JAP_lecture_korea_enemy_presence = yes
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_korea_theater
+		value = 25
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_korea_theater
+		value = 18
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_korea_theater
+		ratio = 0
+		priority = 520
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 满洲战区集结：朝鲜北部通道打开后，以陆上强推处理满洲，不写大连登陆兜底。
+JAP_lecture_manchuria_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_conquer_the_army_remnants
+		any_enemy_country = { original_tag = MAN }
+		JAP_lecture_manchuria_land_staging_available = yes
+		JAP_lecture_manchuria_key_objectives_secured = no
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2201
+		ratio = 0.12
+		states = {
+			525 # 京畿
+			527 # 平安-黄海
+			1028 # 咸镜
+		}
+		area = JAP_rework_manchuria_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 满洲陆上强推：朝鲜通道可用后集中处理冀东、热河、辽宁、大连、吉林、辽北、松江与黑龙江。
+JAP_lecture_manchuria_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_conquer_the_army_remnants
+		any_enemy_country = { original_tag = MAN }
+		JAP_lecture_manchuria_land_staging_available = yes
+		JAP_lecture_manchuria_enemy_presence = yes
+		JAP_lecture_manchuria_key_objectives_secured = no
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_manchuria_theater
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			original_tag = MAN
+		}
+		state_trigger = {
+			OR = {
+				state = 609 # 冀东
+				state = 610 # 热河
+				state = 716 # 辽宁
+				state = 745 # 大连
+				state = 328 # 吉林
+				state = 714 # 黑龙江
+				state = 715 # 辽北
+				state = 717 # 松江
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			original_tag = MAN
+		}
+		state_trigger = {
+			OR = {
+				state = 609 # 冀东
+				state = 610 # 热河
+				state = 716 # 辽宁
+				state = 745 # 大连
+				state = 328 # 吉林
+				state = 714 # 黑龙江
+				state = 715 # 辽北
+				state = 717 # 松江
+			}
+		}
+		ratio = 0
+		priority = 560
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争兵力释放：本土未进入危机前，不让普通守备占用对华前线兵力。
+JAP_lecture_china_war_suppress_garrison_when_stable = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = -9999
+	}
+}
+
+## 对华战争主前线：释放出的兵力优先压到中国系敌国前线，并保持常态推进。
+JAP_lecture_china_war_main_front_pressure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		value = 40
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		ratio = 0.25
+		priority = 150
+		ordertype = front
+		execution_type = balanced
+
+		manual_attack = yes
+	}
+}
+
+## 对华战争持续总攻：保留 cyclic 历史命名，但除步枪不足保险外不再周期休整。
+JAP_lecture_china_war_cyclic_offensive = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		ratio = 0.25
+		priority = 650
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争华北开局：终结中国封建主义后，优先夺取北平、山东、河北、济南与青岛。
+JAP_lecture_china_war_north_china_opening_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		OR = {
+			608 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北平
+			597 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山东
+			614 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 河北
+			1038 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 济南
+			743 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 青岛
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 608 # 北平
+				state = 597 # 山东
+				state = 614 # 河北
+				state = 1038 # 济南
+				state = 743 # 青岛
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 608 # 北平
+				state = 597 # 山东
+				state = 614 # 河北
+				state = 1038 # 济南
+				state = 743 # 青岛
+			}
+		}
+		ratio = 0
+		priority = 300
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争山东登陆：与华北陆上推进并行，直接提高山东方向登陆需求。
+JAP_lecture_china_war_shandong_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		597 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山东
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 597 # 山东
+		value = 60
+	}
+}
+
+## 对华战争青岛登陆：与山东登陆同步规划，压出第二个华北沿海登陆点。
+JAP_lecture_china_war_qingdao_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		743 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 青岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 743 # 青岛
+		value = 60
+	}
+}
+
+## 对华战争上海登陆：作为并行第二战场，正面受阻前也可以提前规划。
+JAP_lecture_china_war_shanghai_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		613 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 上海
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 613 # 上海
+		value = 60
+	}
+}
+
+## 对华战争广州登陆：山东或上海任一方向得手后，开辟华南第二线。
+JAP_lecture_china_war_guangzhou_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		OR = {
+			597 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 山东
+			613 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 上海
+		}
+		592 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 广州
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 592 # 广州
+		value = 80
+	}
+}
+
+## 对华战争沿海登陆制海：山东、青岛、上海、广州任一登陆需求存在时，提高海军对登陆路线制海的重视。
+JAP_lecture_china_war_coastal_landing_dominance = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		OR = {
+			597 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山东
+			743 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 青岛
+			613 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 上海
+			592 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 广州
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 30
+	}
+}
+
+## 对华战争沿海登陆场推进：登陆后的短窗口内，向刚登陆州与邻近州补兵并强推。
+JAP_lecture_china_war_coastal_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		has_country_flag = {
+			flag = JAP_lecture_china_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_china_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_china_landing_priority
+				}
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_china_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_china_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争广州登陆场扩大：广州站稳后，优先扫清广东、南宁与广西。
+JAP_lecture_china_war_guangzhou_bridgehead_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		592 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 广州
+		OR = {
+			593 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 广东
+			594 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 南宁
+			599 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 广西
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 593 # 广东
+				state = 594 # 南宁
+				state = 599 # 广西
+			}
+		}
+		value = 25
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 593 # 广东
+				state = 594 # 南宁
+				state = 599 # 广西
+			}
+		}
+		ratio = 0
+		priority = 600
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争上海登陆场扩大：上海站稳后，向苏州、南京、江苏与浙江制造第二战场。
+JAP_lecture_china_war_shanghai_bridgehead_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		613 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 上海
+		OR = {
+			1034 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 苏州
+			1035 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 南京
+			598 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 江苏
+			596 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 浙江
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 1034 # 苏州
+				state = 1035 # 南京
+				state = 598 # 江苏
+				state = 596 # 浙江
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 1034 # 苏州
+				state = 1035 # 南京
+				state = 598 # 江苏
+				state = 596 # 浙江
+			}
+		}
+		ratio = 0
+		priority = 650
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争南京后推进：控制南京后，沿长江方向优先压向安徽。
+JAP_lecture_china_war_nanjing_to_anhui_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1035 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 南京
+		606 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 安徽
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 606 # 安徽
+		}
+		value = 20
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 606 # 安徽
+		}
+		ratio = 0
+		priority = 450
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争长江中游推进：安徽站稳后，继续向湖北打开武汉外围。
+JAP_lecture_china_war_anhui_to_hubei_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1035 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 南京
+		606 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 安徽
+		620 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 湖北
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 620 # 湖北
+		}
+		value = 25
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 620 # 湖北
+		}
+		ratio = 0
+		priority = 500
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争武汉攻势：湖北外围打开后，集中压向武汉胜利点。
+JAP_lecture_china_war_hubei_to_wuhan_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1035 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 南京
+		620 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 湖北
+		1036 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 武汉
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 1036 # 武汉
+		}
+		value = 35
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 1036 # 武汉
+		}
+		ratio = 0
+		priority = 600
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争武汉后西进门户：武汉得手后，打开重庆东侧的四川通路。
+JAP_lecture_china_war_wuhan_to_sichuan_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1036 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 武汉
+		605 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 四川
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 605 # 四川
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 605 # 四川
+		}
+		ratio = 0
+		priority = 550
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争常德侧翼：武汉后压住常德，避免重庆攻势南侧过薄。
+JAP_lecture_china_war_wuhan_to_changde_flank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1036 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 武汉
+		750 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 常德
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 750 # 常德
+		}
+		value = 15
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 750 # 常德
+		}
+		ratio = 0
+		priority = 380
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争重庆攻势：四川门户或常德侧翼打开后，集中压向重庆。
+JAP_lecture_china_war_chongqing_final_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1036 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 武汉
+		OR = {
+			605 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 四川
+			750 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 常德
+		}
+		1037 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 重庆
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 1037 # 重庆
+		}
+		value = 40
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 1037 # 重庆
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争重庆前终局持续冲击：保留 cyclic 历史命名，武汉后不再周期休整。
+JAP_lecture_china_war_chongqing_cyclic_offensive = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1036 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 武汉
+		1037 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 重庆
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			OR = {
+				state = 605 # 四川
+				state = 1037 # 重庆
+			}
+		}
+		ratio = 0
+		priority = 750
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 对华战争江南侧翼：南京得手后，压住江西，避免武汉方向南侧过薄。
+JAP_lecture_china_war_jiangxi_flank_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		1035 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 南京
+		600 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 江西
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 600 # 江西
+		}
+		value = 15
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		state_trigger = {
+			state = 600 # 江西
+		}
+		ratio = 0
+		priority = 300
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+
+## 对华战争保险：生产循环启动前后都允许用步枪库存给中国前线降速。
+JAP_lecture_china_war_low_infantry_equipment_careful_fronts = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		has_equipment = { infantry_equipment < 500 }
+	}
+	abort = {
+		OR = {
+			NOT = { Rance_is_jap_lecture_ai = yes }
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			NOT = {
+				any_enemy_country = {
+					is_literally_china = yes
+				}
+			}
+			has_equipment = { infantry_equipment > 2000 }
+		}
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		ratio = 0
+		priority = 800
+		ordertype = front
+		execution_type = careful
+	}
+}
+
+## 对华战争保险：步枪缺口极端恶化时，暂停中国前线主动推进。
+JAP_lecture_china_war_critical_infantry_equipment_pause_fronts = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+		NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+		any_enemy_country = {
+			is_literally_china = yes
+		}
+		has_equipment = { infantry_equipment < -5000 }
+	}
+	abort = {
+		OR = {
+			NOT = { Rance_is_jap_lecture_ai = yes }
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			NOT = {
+				any_enemy_country = {
+					is_literally_china = yes
+				}
+			}
+			has_equipment = { infantry_equipment > 500 }
+		}
+	}
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_literally_china = yes
+		}
+		ratio = 0
+		priority = 1200
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+		manual_attack = no
+	}
+}
+
+## 中国战后陆上前线休整脉冲：每 60 天最后 15 天压住非中国普通陆上前线。
+JAP_lecture_post_china_land_front_rest_pulse = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		has_war = yes
+		set_temp_variable = { jap_lecture_post_china_rest_days = global.num_days }
+		modulo_temp_variable = { jap_lecture_post_china_rest_days = 60 }
+		check_variable = { jap_lecture_post_china_rest_days > 44 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			has_war_with = FROM
+			NOT = { is_literally_china = yes }
+		}
+		ratio = 0
+		priority = 680
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+		manual_attack = yes
+	}
+}
+
+## 东南亚军区集结：在中国南方屯兵，服务东南亚军区内的前线需求。
+JAP_lecture_southeast_asia_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_staging_available = yes
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2301
+		ratio = 0.15
+		states = {
+			325 # 云南
+			599 # 广西
+			594 # 南宁
+			592 # 广州
+			593 # 广东
+			591 # 海南
+		}
+		area = JAP_rework_southeast_asia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 东南亚军区主推进：第一版用一条 area 级策略推到底，后续再按实测拆细。
+JAP_lecture_southeast_asia_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_enemy_presence = yes
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+		set_temp_variable = { jap_southeast_asia_push_days = global.num_days }
+		modulo_temp_variable = { jap_southeast_asia_push_days = 60 }
+		check_variable = { jap_southeast_asia_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_southeast_asia_theater
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_southeast_asia_theater
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_southeast_asia_theater
+		ratio = 0
+		priority = 520
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 东南亚登陆链：海南作为暹罗/马来亚方向门槛，马来亚作为勃固/仰光方向门槛。
+JAP_lecture_southeast_asia_siam_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 289 # 暹罗
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_southeast_asia_hainan_departure_available = yes
+			JAP_lecture_southeast_asia_staging_lost = no
+			JAP_lecture_southeast_asia_core_corridor_secured = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_southeast_asia_malaya_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 336 # 马来亚
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_southeast_asia_hainan_departure_available = yes
+			JAP_lecture_southeast_asia_staging_lost = no
+			JAP_lecture_southeast_asia_core_corridor_secured = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_southeast_asia_pegu_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 995 # 勃固
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_southeast_asia_malaya_departure_available = yes
+			JAP_lecture_southeast_asia_staging_lost = no
+			JAP_lecture_southeast_asia_core_corridor_secured = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+## 东南亚登陆需求：只提高三个指定目标，不压制 AI 额外选择的其他登陆点。
+JAP_lecture_southeast_asia_siam_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_siam_landing_available = yes
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 289 # 暹罗
+		value = 60
+	}
+}
+
+JAP_lecture_southeast_asia_malaya_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_malaya_landing_available = yes
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 336 # 马来亚
+		value = 60
+	}
+}
+
+JAP_lecture_southeast_asia_pegu_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_pegu_landing_available = yes
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 995 # 勃固
+		value = 60
+	}
+}
+
+## 东南亚登陆窗口：目标链可用且海军比例合格时，提高登陆和制海意愿。
+JAP_lecture_southeast_asia_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_landing_target_available = yes
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 40
+	}
+}
+
+## 东南亚登陆场推进：登陆后短窗口内向登陆州与邻近州补兵并强推。
+JAP_lecture_southeast_asia_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_southeast_asia_staging_lost = no
+		JAP_lecture_southeast_asia_core_corridor_secured = no
+		has_country_flag = {
+			flag = JAP_lecture_southeast_asia_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_southeast_asia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_southeast_asia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_southeast_asia_landing_priority
+				}
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_southeast_asia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_southeast_asia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_southeast_asia_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 南亚军区主战集结：喜马拉雅边境/勃固屯兵，服务印度次大陆与缅甸重合战区。
+JAP_lecture_south_asia_main_battle_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_main_objectives_secured = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2401
+		ratio = 0.15
+		states = {
+			322 # 那曲
+			757 # 日喀则
+			758 # 阿里
+			995 # 勃固
+		}
+		area = JAP_rework_south_asia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 南亚军区主战推进：主目标仍有敌情时，用中等需求推进全南亚军区。
+JAP_lecture_south_asia_main_battle_pressure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		JAP_lecture_south_asia_main_enemy_presence = yes
+		set_temp_variable = { jap_south_asia_main_push_days = global.num_days }
+		modulo_temp_variable = { jap_south_asia_main_push_days = 60 }
+		check_variable = { jap_south_asia_main_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_south_asia_theater
+		value = 25
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_south_asia_theater
+		value = 25
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_south_asia_theater
+		ratio = 0
+		priority = 500
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 南亚军区清理集结：主目标已清、只剩缅甸重合区或小飞地敌情时，保留低强度兵池。
+JAP_lecture_south_asia_cleanup_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		JAP_lecture_south_asia_main_enemy_presence = no
+		JAP_lecture_south_asia_cleanup_enemy_presence = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2401
+		ratio = 0.06
+		states = {
+			431 # 西孟加拉
+			435 # 比哈尔
+			438 # 联合省
+			429 # 孟买
+			427 # 海德拉巴
+			423 # 南马德拉斯
+		}
+		area = JAP_rework_south_asia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 南亚军区清理推进：只剩缅甸重合区或法属印度/果阿时，低强度清理且不压过东南亚主推进。
+JAP_lecture_south_asia_cleanup_pressure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		JAP_lecture_south_asia_main_enemy_presence = no
+		JAP_lecture_south_asia_cleanup_enemy_presence = yes
+		set_temp_variable = { jap_south_asia_cleanup_push_days = global.num_days }
+		modulo_temp_variable = { jap_south_asia_cleanup_push_days = 60 }
+		check_variable = { jap_south_asia_cleanup_push_days < 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_south_asia_theater
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_south_asia_theater
+		ratio = 0
+		priority = 360
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 南亚登陆链：勃固作为印度东西海岸与锡兰登陆的出发门槛。
+JAP_lecture_south_asia_west_bengal_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 431 # 西孟加拉
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_south_asia_pegu_departure_available = yes
+			JAP_lecture_south_asia_access_lost = no
+			JAP_lecture_south_asia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_south_asia_bombay_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 429 # 孟买
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_south_asia_pegu_departure_available = yes
+			JAP_lecture_south_asia_access_lost = no
+			JAP_lecture_south_asia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_south_asia_ceylon_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 422 # 锡兰
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_south_asia_pegu_departure_available = yes
+			JAP_lecture_south_asia_access_lost = no
+			JAP_lecture_south_asia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_south_asia_west_bengal_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_west_bengal_landing_available = yes
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 431 # 西孟加拉
+		value = 60
+	}
+}
+
+JAP_lecture_south_asia_bombay_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_bombay_landing_available = yes
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 429 # 孟买
+		value = 60
+	}
+}
+
+JAP_lecture_south_asia_ceylon_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_ceylon_landing_available = yes
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 422 # 锡兰
+		value = 60
+	}
+}
+
+JAP_lecture_south_asia_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_landing_target_available = yes
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 40
+	}
+}
+
+JAP_lecture_south_asia_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_south_asia_access_lost = no
+		JAP_lecture_south_asia_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_south_asia_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_south_asia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_south_asia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_south_asia_landing_priority
+				}
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_south_asia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_south_asia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_south_asia_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## Middle East-Egypt theater: prewar Levant staging, Suez rush, and Red Sea flank landing.
+JAP_lecture_middle_east_egypt_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_middle_east_egypt_theater_clear = no
+		JAP_lecture_middle_east_egypt_staging_available = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2402
+		ratio = 0.15
+		states = {
+			454 # Palestine
+			553 # Lebanon
+			554 # Damascus
+			455 # Jordan
+		}
+		area = JAP_rework_middle_east_egypt_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_middle_east_egypt_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_middle_east_egypt_staging_lost = no
+		JAP_lecture_middle_east_egypt_theater_clear = no
+		JAP_lecture_middle_east_egypt_enemy_presence = yes
+		set_temp_variable = { jap_middle_east_egypt_push_days = global.num_days }
+		modulo_temp_variable = { jap_middle_east_egypt_push_days = 60 }
+		check_variable = { jap_middle_east_egypt_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_middle_east_egypt_theater
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_middle_east_egypt_theater
+		state_trigger = {
+			OR = {
+				state = 454
+				state = 553
+				state = 554
+				state = 455
+				state = 453
+				state = 446
+				state = 907
+				state = 447
+				state = 457
+				state = 456
+				any_neighbor_state = {
+					OR = {
+						state = 454
+						state = 553
+						state = 554
+						state = 455
+						state = 453
+						state = 446
+						state = 907
+						state = 447
+						state = 457
+						state = 456
+					}
+				}
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_middle_east_egypt_theater
+		state_trigger = {
+			OR = {
+				state = 454
+				state = 553
+				state = 554
+				state = 455
+				state = 453
+				state = 446
+				state = 907
+				state = 447
+				state = 457
+				state = 456
+				any_neighbor_state = {
+					OR = {
+						state = 454
+						state = 553
+						state = 554
+						state = 455
+						state = 453
+						state = 446
+						state = 907
+						state = 447
+						state = 457
+						state = 456
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 620
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+JAP_lecture_middle_east_egypt_red_sea_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 457 # Eastern Desert
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_middle_east_egypt_red_sea_landing_available = yes
+			JAP_lecture_middle_east_egypt_staging_lost = no
+			JAP_lecture_middle_east_egypt_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_middle_east_egypt_red_sea_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_middle_east_egypt_red_sea_landing_available = yes
+		JAP_lecture_middle_east_egypt_staging_lost = no
+		JAP_lecture_middle_east_egypt_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 457 # Eastern Desert
+		value = 35
+	}
+}
+
+JAP_lecture_middle_east_egypt_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_middle_east_egypt_landing_target_available = yes
+		JAP_lecture_middle_east_egypt_staging_lost = no
+		JAP_lecture_middle_east_egypt_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 60
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 35
+	}
+}
+
+JAP_lecture_middle_east_egypt_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_middle_east_egypt_staging_lost = no
+		JAP_lecture_middle_east_egypt_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_middle_east_egypt_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_middle_east_egypt_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_middle_east_egypt_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_middle_east_egypt_landing_priority
+				}
+			}
+		}
+		value = 20
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_middle_east_egypt_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_middle_east_egypt_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_middle_east_egypt_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## Africa theater: keep a standing pool at Suez after the canal is secured.
+JAP_lecture_africa_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_africa_suez_available = yes
+		JAP_lecture_africa_suez_lost = no
+		JAP_lecture_africa_key_objectives_secured = no
+		JAP_lecture_africa_theater_clear = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2701
+		ratio = 0.1
+		states = { 446 } # Suez
+		area = JAP_rework_africa_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_africa_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_africa_suez_available = yes
+		JAP_lecture_africa_suez_lost = no
+		JAP_lecture_africa_key_objectives_secured = no
+		JAP_lecture_africa_theater_clear = no
+		JAP_lecture_africa_enemy_presence = yes
+		set_temp_variable = { jap_africa_push_days = global.num_days }
+		modulo_temp_variable = { jap_africa_push_days = 60 }
+		check_variable = { jap_africa_push_days < 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_africa_theater
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_africa_theater
+		state_trigger = {
+			is_on_continent = africa
+		}
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_africa_theater
+		state_trigger = {
+			is_on_continent = africa
+		}
+		ratio = 0
+		priority = 300
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## Mediterranean-Italy theater: Suez staging, Sicily/Lazio priority landings, and Italy mainland push.
+JAP_lecture_mediterranean_italy_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_suez_alexandria_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2403
+		ratio = 0.12
+		states = {
+			446 # Suez
+			447 # Alexandria
+		}
+		area = JAP_rework_mediterranean_italy_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_mediterranean_italy_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_staging_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		JAP_lecture_mediterranean_italy_enemy_presence = yes
+		set_temp_variable = { jap_mediterranean_italy_push_days = global.num_days }
+		modulo_temp_variable = { jap_mediterranean_italy_push_days = 60 }
+		check_variable = { jap_mediterranean_italy_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_mediterranean_italy_theater
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_mediterranean_italy_theater
+		state_trigger = {
+			OR = {
+				state = 156 # Calabria
+				state = 2 # Lazio
+				state = 157 # Abruzzo
+				state = 162 # Tuscany
+				state = 161 # Emilia-Romagna
+				state = 158 # Piedmont
+				state = 159 # Lombardy
+				state = 160 # Veneto
+				any_neighbor_state = {
+					OR = {
+						state = 156 # Calabria
+						state = 2 # Lazio
+						state = 157 # Abruzzo
+						state = 162 # Tuscany
+						state = 161 # Emilia-Romagna
+					}
+				}
+			}
+		}
+		value = 45
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_mediterranean_italy_theater
+		state_trigger = {
+			OR = {
+				state = 156 # Calabria
+				state = 2 # Lazio
+				state = 157 # Abruzzo
+				state = 162 # Tuscany
+				state = 161 # Emilia-Romagna
+				state = 158 # Piedmont
+				state = 159 # Lombardy
+				state = 160 # Veneto
+				any_neighbor_state = {
+					OR = {
+						state = 156 # Calabria
+						state = 2 # Lazio
+						state = 157 # Abruzzo
+						state = 162 # Tuscany
+						state = 161 # Emilia-Romagna
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 640
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+JAP_lecture_mediterranean_italy_sicily_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 115 # Sicily
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_sicily_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 150
+	}
+}
+
+JAP_lecture_mediterranean_italy_calabria_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 156 # Calabria
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_calabria_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 120
+	}
+}
+
+JAP_lecture_mediterranean_italy_lazio_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 2 # Lazio
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_lazio_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 180
+	}
+}
+
+JAP_lecture_mediterranean_italy_cyprus_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 183 # Cyprus
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_cyprus_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 30
+	}
+}
+
+JAP_lecture_mediterranean_italy_crete_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 182 # Crete
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_crete_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 30
+	}
+}
+
+JAP_lecture_mediterranean_italy_malta_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 116 # Malta
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_malta_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 30
+	}
+}
+
+JAP_lecture_mediterranean_italy_sardinia_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 114 # Sardinia
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_sardinia_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 30
+	}
+}
+
+JAP_lecture_mediterranean_italy_corsica_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 1 # Corsica
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_mediterranean_italy_corsica_landing_available = yes
+			JAP_lecture_mediterranean_italy_failed_staging_lost = no
+			JAP_lecture_mediterranean_italy_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 30
+	}
+}
+
+JAP_lecture_mediterranean_italy_sicily_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_sicily_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 115 # Sicily
+		value = 60
+	}
+}
+
+JAP_lecture_mediterranean_italy_calabria_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_calabria_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 156 # Calabria
+		value = 55
+	}
+}
+
+JAP_lecture_mediterranean_italy_lazio_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_lazio_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 2 # Lazio
+		value = 75
+	}
+}
+
+JAP_lecture_mediterranean_italy_cyprus_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_cyprus_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 183 # Cyprus
+		value = 15
+	}
+}
+
+JAP_lecture_mediterranean_italy_crete_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_crete_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 182 # Crete
+		value = 15
+	}
+}
+
+JAP_lecture_mediterranean_italy_malta_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_malta_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 116 # Malta
+		value = 20
+	}
+}
+
+JAP_lecture_mediterranean_italy_sardinia_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_sardinia_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 114 # Sardinia
+		value = 15
+	}
+}
+
+JAP_lecture_mediterranean_italy_corsica_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_corsica_landing_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 1 # Corsica
+		value = 15
+	}
+}
+
+JAP_lecture_mediterranean_italy_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_main_landing_target_available = yes
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 80
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 40
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 69 # 东地中海
+		value = 200
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 29 # 中地中海
+		value = 200
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 169 # 第勒尼安海
+		value = 200
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 202 # 爱琴海
+		value = 150
+	}
+}
+
+JAP_lecture_mediterranean_italy_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_mediterranean_italy_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_mediterranean_italy_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				}
+			}
+		}
+		value = 35
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_mediterranean_italy_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 720
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+JAP_lecture_mediterranean_italy_lazio_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_mediterranean_italy_failed_staging_lost = no
+		JAP_lecture_mediterranean_italy_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_mediterranean_italy_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_mediterranean_italy_theater
+		state_trigger = {
+			OR = {
+				AND = {
+					state = 2 # Lazio
+					has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				}
+				any_neighbor_state = {
+					state = 2 # Lazio
+					has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				}
+			}
+		}
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_mediterranean_italy_theater
+		state_trigger = {
+			OR = {
+				AND = {
+					state = 2 # Lazio
+					has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				}
+				any_neighbor_state = {
+					state = 2 # Lazio
+					has_state_flag = JAP_lecture_mediterranean_italy_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 740
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## Anatolia-Balkans theater: heavy Anatolian staging, Balkan land push, and auxiliary Aegean/Black Sea landings.
+JAP_lecture_anatolia_balkans_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2404
+		ratio = 0.2
+		states = {
+			49 # Ankara
+			340 # Bursa
+			347 # Izmit
+			797 # Istanbul
+			341 # Edirne
+		}
+		area = JAP_rework_anatolia_balkans_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_anatolia_balkans_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		JAP_lecture_anatolia_balkans_enemy_presence = yes
+		set_temp_variable = { jap_anatolia_balkans_push_days = global.num_days }
+		modulo_temp_variable = { jap_anatolia_balkans_push_days = 60 }
+		check_variable = { jap_anatolia_balkans_push_days < 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_anatolia_balkans_theater
+		value = 35
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_anatolia_balkans_theater
+		state_trigger = {
+			OR = {
+				state = 341 # Edirne
+				state = 184 # Thrace
+				state = 48 # Sofia
+				state = 731 # Central Macedonia
+				state = 106 # Macedonia
+				state = 47 # Attica
+				state = 803 # Southern Serbia
+				state = 107 # Serbia
+				state = 77 # Dobruja
+				state = 971 # Northern Dobruja
+				state = 46 # Muntenia
+				any_neighbor_state = {
+					OR = {
+						state = 341 # Edirne
+						state = 184 # Thrace
+						state = 48 # Sofia
+						state = 731 # Central Macedonia
+						state = 106 # Macedonia
+						state = 47 # Attica
+						state = 803 # Southern Serbia
+						state = 107 # Serbia
+						state = 77 # Dobruja
+						state = 971 # Northern Dobruja
+						state = 46 # Muntenia
+					}
+				}
+			}
+		}
+		value = 50
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_anatolia_balkans_theater
+		state_trigger = {
+			OR = {
+				state = 341 # Edirne
+				state = 184 # Thrace
+				state = 48 # Sofia
+				state = 731 # Central Macedonia
+				state = 106 # Macedonia
+				state = 47 # Attica
+				state = 803 # Southern Serbia
+				state = 107 # Serbia
+				state = 77 # Dobruja
+				state = 971 # Northern Dobruja
+				state = 46 # Muntenia
+				any_neighbor_state = {
+					OR = {
+						state = 341 # Edirne
+						state = 184 # Thrace
+						state = 48 # Sofia
+						state = 731 # Central Macedonia
+						state = 106 # Macedonia
+						state = 47 # Attica
+						state = 803 # Southern Serbia
+						state = 107 # Serbia
+						state = 77 # Dobruja
+						state = 971 # Northern Dobruja
+						state = 46 # Muntenia
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 660
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+JAP_lecture_anatolia_balkans_central_macedonia_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 731 # Central Macedonia
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_central_macedonia_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 130
+	}
+}
+
+JAP_lecture_anatolia_balkans_attica_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 47 # Attica
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_attica_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 95
+	}
+}
+
+JAP_lecture_anatolia_balkans_dobruja_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 77 # Dobruja
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_dobruja_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 90
+	}
+}
+
+JAP_lecture_anatolia_balkans_north_dobruja_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 971 # Northern Dobruja
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_north_dobruja_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 70
+	}
+}
+
+JAP_lecture_anatolia_balkans_aegean_islands_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 187 # Aegean Islands
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_aegean_islands_cleanup_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 40
+	}
+}
+
+JAP_lecture_anatolia_balkans_central_albania_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 44 # Central Albania
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_central_albania_cleanup_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 40
+	}
+}
+
+JAP_lecture_anatolia_balkans_dalmatia_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 103 # Dalmatia
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_dalmatia_cleanup_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 35
+	}
+}
+
+JAP_lecture_anatolia_balkans_montenegro_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 105 # Montenegro
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_anatolia_balkans_montenegro_cleanup_landing_available = yes
+			JAP_lecture_anatolia_balkans_failed_staging_lost = no
+			JAP_lecture_anatolia_balkans_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 35
+	}
+}
+
+JAP_lecture_anatolia_balkans_central_macedonia_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_central_macedonia_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 731 # Central Macedonia
+		value = 55
+	}
+}
+
+JAP_lecture_anatolia_balkans_attica_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_attica_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 47 # Attica
+		value = 40
+	}
+}
+
+JAP_lecture_anatolia_balkans_dobruja_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_dobruja_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 77 # Dobruja
+		value = 35
+	}
+}
+
+JAP_lecture_anatolia_balkans_north_dobruja_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_north_dobruja_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 971 # Northern Dobruja
+		value = 30
+	}
+}
+
+JAP_lecture_anatolia_balkans_aegean_islands_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_aegean_islands_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 187 # Aegean Islands
+		value = 20
+	}
+}
+
+JAP_lecture_anatolia_balkans_central_albania_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_central_albania_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 44 # Central Albania
+		value = 20
+	}
+}
+
+JAP_lecture_anatolia_balkans_dalmatia_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_dalmatia_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 103 # Dalmatia
+		value = 20
+	}
+}
+
+JAP_lecture_anatolia_balkans_montenegro_cleanup_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_montenegro_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 105 # Montenegro
+		value = 20
+	}
+}
+
+JAP_lecture_anatolia_balkans_main_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_main_landing_target_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 70
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 35
+	}
+}
+
+JAP_lecture_anatolia_balkans_cleanup_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_main_landing_target_available = no
+		JAP_lecture_anatolia_balkans_cleanup_landing_target_available = yes
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 35
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 25
+	}
+}
+
+JAP_lecture_anatolia_balkans_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_anatolia_balkans_failed_staging_lost = no
+		JAP_lecture_anatolia_balkans_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_anatolia_balkans_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_anatolia_balkans_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_anatolia_balkans_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_anatolia_balkans_landing_priority
+				}
+			}
+		}
+		value = 30
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_anatolia_balkans_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_anatolia_balkans_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_anatolia_balkans_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 720
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## Europe theater: keep a low-intensity continental support layer after Italy or Balkan footholds open.
+JAP_lecture_europe_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_europe_istanbul_staging_available = yes
+		JAP_lecture_europe_foothold_available = yes
+		JAP_lecture_europe_theater_clear = no
+		JAP_lecture_europe_enemy_presence = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2405
+		ratio = 0.15
+		states = {
+			797 # Istanbul
+		}
+		area = JAP_rework_europe_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_europe_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_europe_foothold_available = yes
+		JAP_lecture_europe_theater_clear = no
+		JAP_lecture_europe_enemy_presence = yes
+		set_temp_variable = { jap_europe_push_days = global.num_days }
+		modulo_temp_variable = { jap_europe_push_days = 60 }
+		check_variable = { jap_europe_push_days < 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_europe_theater
+		value = 20
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_europe_theater
+		state_trigger = {
+			is_on_continent = europe
+		}
+		value = 12
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_europe_theater
+		state_trigger = {
+			is_on_continent = europe
+		}
+		ratio = 0
+		priority = 350
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 东印度-澳新军区集结：接替东南亚军区后，沿用同一 buffer order_id，把兵力转到马六甲-新加坡。
+JAP_lecture_eia_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_handoff_ready = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		JAP_lecture_eia_cleanup_enemy_presence = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = {
+			336 # 马来亚
+			1021 # 新加坡
+		}
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_east_indies_australia_theater
+		value = 20
+	}
+}
+
+## 东印度-澳新清理集结：只剩小岛、内陆或零散目标时，保留低强度接替兵池。
+JAP_lecture_eia_cleanup_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_staging_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		JAP_lecture_eia_cleanup_enemy_presence = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = {
+			336 # 马来亚
+			1021 # 新加坡
+		}
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 东印度-澳新主动登陆网络：马六甲-新加坡接替后，按东印度门户、中部枢纽、澳新桥头堡分阶段开放目标。
+JAP_lecture_eia_sumatra_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 672 # 苏门答腊
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_sumatra_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_java_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 335 # 爪哇
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_java_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_lesser_sunda_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 667 # 小巽他群岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_lesser_sunda_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_east_timor_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 721 # 东帝汶
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_east_timor_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_northern_territory_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 520 # 北领地
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_northern_territory_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_western_australia_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 522 # 西澳大利亚
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_western_australia_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_sarawak_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 333 # 沙捞越
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_sarawak_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_kalimantan_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 334 # 加里曼丹
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_kalimantan_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_moluccas_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 668 # 摩鹿加群岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_moluccas_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_sulawesi_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 673 # 苏拉威西
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_sulawesi_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_west_papua_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 669 # 西巴布亚
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_west_papua_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_papua_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 523 # 巴布亚
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_papua_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_north_queensland_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 872 # 北昆士兰
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_north_queensland_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_new_south_wales_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 285 # 新南威尔士
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_new_south_wales_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_tasmania_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 518 # 塔斯马尼亚
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_tasmania_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_north_island_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 284 # 北岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_north_island_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_eia_south_island_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 723 # 南岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_eia_south_island_landing_available = yes
+			JAP_lecture_eia_access_lost = no
+			JAP_lecture_eia_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+## 东印度-澳新登陆需求：枢纽网络只抬当前地理闸门目标，避免一次性把所有岛屿变成高优先登陆点。
+JAP_lecture_eia_sumatra_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_sumatra_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 672 # 苏门答腊
+		value = 45
+	}
+}
+
+JAP_lecture_eia_java_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_java_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 335 # 爪哇
+		value = 45
+	}
+}
+
+JAP_lecture_eia_lesser_sunda_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_lesser_sunda_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 667 # 小巽他群岛
+		value = 25
+	}
+}
+
+JAP_lecture_eia_east_timor_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_east_timor_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 721 # 东帝汶
+		value = 25
+	}
+}
+
+JAP_lecture_eia_northern_territory_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_northern_territory_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 520 # 北领地
+		value = 45
+	}
+}
+
+JAP_lecture_eia_western_australia_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_western_australia_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 522 # 西澳大利亚
+		value = 45
+	}
+}
+
+JAP_lecture_eia_sarawak_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_sarawak_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 333 # 沙捞越
+		value = 45
+	}
+}
+
+JAP_lecture_eia_kalimantan_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_kalimantan_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 334 # 加里曼丹
+		value = 45
+	}
+}
+
+JAP_lecture_eia_moluccas_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_moluccas_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 668 # 摩鹿加群岛
+		value = 35
+	}
+}
+
+JAP_lecture_eia_sulawesi_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_sulawesi_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 673 # 苏拉威西
+		value = 35
+	}
+}
+
+JAP_lecture_eia_west_papua_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_west_papua_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 669 # 西巴布亚
+		value = 35
+	}
+}
+
+JAP_lecture_eia_papua_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_papua_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 523 # 巴布亚
+		value = 35
+	}
+}
+
+JAP_lecture_eia_north_queensland_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_north_queensland_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 872 # 北昆士兰
+		value = 45
+	}
+}
+
+JAP_lecture_eia_new_south_wales_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_new_south_wales_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 285 # 新南威尔士
+		value = 45
+	}
+}
+
+JAP_lecture_eia_tasmania_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_tasmania_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 518 # 塔斯马尼亚
+		value = 25
+	}
+}
+
+JAP_lecture_eia_north_island_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_north_island_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 284 # 北岛
+		value = 35
+	}
+}
+
+JAP_lecture_eia_south_island_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_south_island_landing_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 723 # 南岛
+		value = 25
+	}
+}
+
+## 东印度-澳新登陆窗口：有枢纽网络目标且制海压力可控时，统一提高登陆意愿。
+JAP_lecture_eia_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_landing_target_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 80
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 40
+	}
+}
+
+## 东印度-澳新登陆桥头堡：登陆后 30 天分级巩固登陆州与邻州，小岛低强度，大门户和澳新桥头堡高强度。
+JAP_lecture_eia_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_operational_access_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_eia_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_eia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_eia_landing_priority
+				}
+			}
+			OR = {
+				state = 667 # 小巽他群岛
+				state = 668 # 摩鹿加群岛
+				state = 721 # 东帝汶
+				state = 723 # 南岛
+				state = 518 # 塔斯马尼亚
+			}
+		}
+		value = 5
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_eia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_eia_landing_priority
+				}
+			}
+			OR = {
+				state = 667 # 小巽他群岛
+				state = 668 # 摩鹿加群岛
+				state = 721 # 东帝汶
+				state = 723 # 南岛
+				state = 518 # 塔斯马尼亚
+			}
+		}
+		ratio = 0
+		priority = 690
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_eia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_eia_landing_priority
+				}
+			}
+			NOT = {
+				OR = {
+					state = 667 # 小巽他群岛
+					state = 668 # 摩鹿加群岛
+					state = 721 # 东帝汶
+					state = 723 # 南岛
+					state = 518 # 塔斯马尼亚
+				}
+			}
+		}
+		value = 15
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_eia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_eia_landing_priority
+				}
+			}
+			OR = {
+				state = 520 # 北领地
+				state = 522 # 西澳大利亚
+				state = 872 # 北昆士兰
+				state = 285 # 新南威尔士
+				state = 284 # 北岛
+				any_neighbor_state = {
+					OR = {
+						state = 520 # 北领地
+						state = 522 # 西澳大利亚
+						state = 872 # 北昆士兰
+						state = 285 # 新南威尔士
+						state = 284 # 北岛
+					}
+				}
+			}
+			NOT = {
+				OR = {
+					state = 667 # 小巽他群岛
+					state = 668 # 摩鹿加群岛
+					state = 721 # 东帝汶
+					state = 723 # 南岛
+					state = 518 # 塔斯马尼亚
+				}
+			}
+		}
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_eia_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_eia_landing_priority
+				}
+			}
+			NOT = {
+				OR = {
+					state = 667 # 小巽他群岛
+					state = 668 # 摩鹿加群岛
+					state = 721 # 东帝汶
+					state = 723 # 南岛
+					state = 518 # 塔斯马尼亚
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 东印度主节点推进：登陆窗口结束后，用常态需求吃苏门答腊、爪哇、婆罗洲、摩鹿加、苏拉威西和新几内亚。
+JAP_lecture_eia_big_island_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_operational_access_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		JAP_lecture_eia_big_island_bridgehead_available = yes
+		JAP_lecture_eia_big_island_enemy_presence = yes
+		set_temp_variable = { jap_eia_big_island_push_days = global.num_days }
+		modulo_temp_variable = { jap_eia_big_island_push_days = 60 }
+		check_variable = { jap_eia_big_island_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				state = 672 # 苏门答腊
+				state = 335 # 爪哇
+				state = 333 # 沙捞越
+				state = 334 # 加里曼丹
+				state = 668 # 摩鹿加群岛
+				state = 673 # 苏拉威西
+				state = 669 # 西巴布亚
+				state = 523 # 巴布亚
+				any_neighbor_state = {
+					OR = {
+						state = 672 # 苏门答腊
+						state = 335 # 爪哇
+						state = 333 # 沙捞越
+						state = 334 # 加里曼丹
+						state = 668 # 摩鹿加群岛
+						state = 673 # 苏拉威西
+						state = 669 # 西巴布亚
+						state = 523 # 巴布亚
+					}
+				}
+			}
+		}
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				state = 672 # 苏门答腊
+				state = 335 # 爪哇
+				state = 333 # 沙捞越
+				state = 334 # 加里曼丹
+				state = 668 # 摩鹿加群岛
+				state = 673 # 苏拉威西
+				state = 669 # 西巴布亚
+				state = 523 # 巴布亚
+				any_neighbor_state = {
+					OR = {
+						state = 672 # 苏门答腊
+						state = 335 # 爪哇
+						state = 333 # 沙捞越
+						state = 334 # 加里曼丹
+						state = 668 # 摩鹿加群岛
+						state = 673 # 苏拉威西
+						state = 669 # 西巴布亚
+						state = 523 # 巴布亚
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 440
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 澳新大陆推进：已有澳新桥头堡后，才把澳大利亚和新西兰大陆前线抬到中等优先级。
+JAP_lecture_eia_australia_nz_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_operational_access_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		JAP_lecture_eia_australia_nz_bridgehead_available = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		set_temp_variable = { jap_eia_australia_nz_push_days = global.num_days }
+		modulo_temp_variable = { jap_eia_australia_nz_push_days = 60 }
+		check_variable = { jap_eia_australia_nz_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				state = 520 # 北领地
+				state = 522 # 西澳大利亚
+				state = 872 # 北昆士兰
+				state = 285 # 新南威尔士
+				state = 517 # 维多利亚
+				state = 284 # 北岛
+				state = 723 # 南岛
+				state = 518 # 塔斯马尼亚
+				state = 519 # 南澳大利亚
+				state = 521 # 昆士兰
+				state = 674 # 澳大利亚中部
+				state = 870 # 西北澳大利亚
+				state = 871 # 西南澳大利亚
+				state = 873 # 西南昆士兰
+			}
+		}
+		value = 20
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				state = 520 # 北领地
+				state = 522 # 西澳大利亚
+				state = 872 # 北昆士兰
+				state = 285 # 新南威尔士
+				state = 517 # 维多利亚
+				state = 284 # 北岛
+				state = 723 # 南岛
+				state = 518 # 塔斯马尼亚
+				state = 519 # 南澳大利亚
+				state = 521 # 昆士兰
+				state = 674 # 澳大利亚中部
+				state = 870 # 西北澳大利亚
+				state = 871 # 西南澳大利亚
+				state = 873 # 西南昆士兰
+			}
+		}
+		ratio = 0
+		priority = 480
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 东印度-澳新残余清理：主节点清完后，低强度处理小岛、内陆和零散敌控州。
+JAP_lecture_eia_cleanup_pressure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_operational_access_available = yes
+		JAP_lecture_eia_access_lost = no
+		JAP_lecture_eia_theater_clear = no
+		JAP_lecture_eia_cleanup_enemy_presence = yes
+		set_temp_variable = { jap_eia_cleanup_push_days = global.num_days }
+		modulo_temp_variable = { jap_eia_cleanup_push_days = 60 }
+		check_variable = { jap_eia_cleanup_push_days < 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				state = 667 # 小巽他群岛
+				state = 721 # 东帝汶
+				state = 1022 # 内婆罗洲
+				state = 518 # 塔斯马尼亚
+				state = 723 # 南岛
+				state = 519 # 南澳大利亚
+				state = 521 # 昆士兰
+				state = 674 # 澳大利亚中部
+				state = 870 # 西北澳大利亚
+				state = 871 # 西南澳大利亚
+				state = 873 # 西南昆士兰
+			}
+		}
+		value = 6
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_east_indies_australia_theater
+		state_trigger = {
+			OR = {
+				state = 667 # 小巽他群岛
+				state = 721 # 东帝汶
+				state = 1022 # 内婆罗洲
+				state = 518 # 塔斯马尼亚
+				state = 723 # 南岛
+				state = 519 # 南澳大利亚
+				state = 521 # 昆士兰
+				state = 674 # 澳大利亚中部
+				state = 870 # 西北澳大利亚
+				state = 871 # 西南澳大利亚
+				state = 873 # 西南昆士兰
+			}
+		}
+		ratio = 0
+		priority = 320
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 东印度-澳新本地弹性防备池：与军区集结共用 order_id，允许登陆和前线调用本地守备。
+JAP_lecture_eia_local_guard_sumatra_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_west_guard_enemy_presence = yes
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 672 } # 苏门答腊
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_java_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_west_guard_enemy_presence = yes
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 335 } # 爪哇
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_lesser_sunda_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_west_guard_enemy_presence = yes
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 667 } # 小巽他群岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_east_timor_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_west_guard_enemy_presence = yes
+		721 = { is_controlled_by_ROOT_or_ally = yes } # 东帝汶
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 721 } # 东帝汶
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_sarawak_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_east_guard_enemy_presence = yes
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 333 } # 沙捞越
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_kalimantan_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_east_guard_enemy_presence = yes
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 334 } # 加里曼丹
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_moluccas_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_east_guard_enemy_presence = yes
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 668 } # 摩鹿加群岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_sulawesi_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_east_guard_enemy_presence = yes
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 673 } # 苏拉威西
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_west_papua_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_east_guard_enemy_presence = yes
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 669 } # 西巴布亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_papua_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_east_guard_enemy_presence = yes
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 523 } # 巴布亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_northern_territory_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 520 } # 北领地
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_western_australia_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 522 } # 西澳大利亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_north_queensland_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 872 } # 北昆士兰
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_new_south_wales_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 285 } # 新南威尔士
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_victoria_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		517 = { is_controlled_by_ROOT_or_ally = yes } # 维多利亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 517 } # 维多利亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_north_island_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 284 } # 北岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_south_island_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		723 = { is_controlled_by_ROOT_or_ally = yes } # 南岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 723 } # 南岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_tasmania_main = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_main_phase = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		518 = { is_controlled_by_ROOT_or_ally = yes } # 塔斯马尼亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.15
+		states = { 518 } # 塔斯马尼亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_sumatra_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 672 } # 苏门答腊
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_java_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 335 } # 爪哇
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_lesser_sunda_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 667 } # 小巽他群岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_east_timor_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		721 = { is_controlled_by_ROOT_or_ally = yes } # 东帝汶
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 721 } # 东帝汶
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_sarawak_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 333 } # 沙捞越
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_kalimantan_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 334 } # 加里曼丹
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_moluccas_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 668 } # 摩鹿加群岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_sulawesi_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 673 } # 苏拉威西
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_west_papua_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 669 } # 西巴布亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_papua_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 523 } # 巴布亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_northern_territory_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 520 } # 北领地
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_western_australia_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 522 } # 西澳大利亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_north_queensland_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 872 } # 北昆士兰
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_new_south_wales_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 285 } # 新南威尔士
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_victoria_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		517 = { is_controlled_by_ROOT_or_ally = yes } # 维多利亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 517 } # 维多利亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_north_island_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 284 } # 北岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_south_island_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		723 = { is_controlled_by_ROOT_or_ally = yes } # 南岛
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 723 } # 南岛
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+JAP_lecture_eia_local_guard_tasmania_cleanup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_eia_local_guard_cleanup_phase = yes
+		518 = { is_controlled_by_ROOT_or_ally = yes } # 塔斯马尼亚
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2501
+		ratio = 0.04
+		states = { 518 } # 塔斯马尼亚
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 本土常态预备：只服务日本列岛，不参与亚洲外线调兵。
+JAP_lecture_home_islands_base_guard = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_war = yes
+		JAP_lecture_home_islands_warning = no
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2800
+		ratio = 0.05
+		states = {
+			282 # 关东
+			532 # 东海道
+			531 # 关西
+			528 # 北九州
+			1018 # 南九州
+			536 # 北海道
+		}
+		area = JAP_rework_home_islands_defense
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+## 本土预警预备：太平洋内环、满洲关键州或华东沿海出现敌情时，提高列岛预备队。
+JAP_lecture_home_islands_warning_guard = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_war = yes
+		JAP_lecture_home_islands_warning = yes
+		JAP_lecture_home_islands_crisis = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2800
+		ratio = 0.15
+		states = {
+			282 # 关东
+			532 # 东海道
+			531 # 关西
+			528 # 北九州
+			1018 # 南九州
+			536 # 北海道
+		}
+		area = JAP_rework_home_islands_defense
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_home_islands_defense
+		value = 60
+	}
+}
+
+## 本土危机预备：日本列岛 13 州任一敌控时，立刻转入本土收复优先。
+JAP_lecture_home_islands_crisis_guard = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_war = yes
+		JAP_lecture_home_islands_crisis = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2800
+		ratio = 0.25
+		states = {
+			282 # 关东
+			532 # 东海道
+			531 # 关西
+			528 # 北九州
+			1018 # 南九州
+			536 # 北海道
+		}
+		area = JAP_rework_home_islands_defense
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_home_islands_defense
+		value = 120
+	}
+}
+
+JAP_lecture_home_islands_crisis_front_control = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_war = yes
+		JAP_lecture_home_islands_crisis = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_home_islands_defense
+		state_trigger = {
+			JAP_lecture_is_home_islands_state = yes
+		}
+		value = 70
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_home_islands_defense
+		state_trigger = {
+			JAP_lecture_is_home_islands_state = yes
+		}
+		ratio = 0
+		priority = 900
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+JAP_lecture_home_islands_crisis_release_outer_operations = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_war = yes
+		JAP_lecture_home_islands_crisis = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			JAP_lecture_is_home_islands_state = no
+		}
+		value = -80
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			JAP_lecture_is_home_islands_state = no
+		}
+		value = -120
+	}
+
+	ai_strategy = {
+		type = garrison
+		value = -9999
+	}
+}
+
+## 太平洋军区集结：以九州作为本土囤兵池，服务菲律宾、中太平洋和夏威夷方向。
+JAP_lecture_pacific_theater_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_staging_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_key_objectives_secured = no
+		JAP_lecture_home_islands_compromised = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = {
+			528 # 北九州
+			1018 # 南九州
+		}
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_pacific_theater
+		value = 20
+	}
+}
+
+## 太平洋可调用弹性守备池：复用九州主囤兵 order_id，在旧岛链守备门槛下允许前线和登陆调用多余兵力。
+JAP_lecture_pacific_flexible_guard_iwo_jima = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_north_chain_guard_iwo_jima_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 645 } # 硫磺岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_saipan = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_north_chain_guard_saipan_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 646 } # 塞班岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_guam = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_north_chain_guard_guam_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 638 } # 关岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_wake = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_north_chain_guard_wake_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 632 } # 威克岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_midway = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_north_chain_guard_midway_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 631 } # 中途岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_hawaii = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_north_chain_guard_hawaii_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 629 } # 夏威夷
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_okinawa = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_okinawa_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 526 } # 冲绳
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_taiwan = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_taiwan_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 524 } # 台湾
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_manila = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_manila_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 327 } # 马尼拉
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_luzon = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_luzon_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 623 } # 吕宋
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_north_mindanao = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_north_mindanao_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 1026 } # 北棉兰老
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_davao = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_davao_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 627 } # 达沃
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_caroline = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_caroline_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 684 } # 加罗林群岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_pacific_flexible_guard_marshall = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_south_chain_guard_marshall_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2600
+		ratio = 0.10
+		states = { 633 } # 马绍尔群岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+## 太平洋主动登陆链：两条岛链从九州出发，逐跳汇合到威克岛、中途岛和夏威夷。
+JAP_lecture_pacific_iwo_jima_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 645 # 硫磺岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_iwo_jima_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_saipan_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 646 # 塞班岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_saipan_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_guam_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 638 # 关岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_guam_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_wake_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 632 # 威克岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_wake_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_midway_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 631 # 中途岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_midway_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_hawaii_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 629 # 夏威夷
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_hawaii_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_okinawa_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 526 # 冲绳
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_okinawa_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_taiwan_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 524 # 台湾
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_taiwan_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_manila_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 327 # 马尼拉
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_manila_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_luzon_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 623 # 吕宋
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_luzon_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_north_mindanao_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 1026 # 北棉兰老
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_north_mindanao_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_davao_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 627 # 达沃
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_davao_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_caroline_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 684 # 加罗林群岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_caroline_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_pacific_marshall_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 633 # 马绍尔群岛
+		JAP = {
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_pacific_marshall_landing_available = yes
+			JAP_lecture_pacific_access_lost = no
+			JAP_lecture_pacific_theater_clear = no
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+## 太平洋登陆需求：内环和菲律宾主节点更高，外岛次之，夏威夷晚期低强度请求。
+JAP_lecture_pacific_iwo_jima_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_iwo_jima_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 645 # 硫磺岛
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_saipan_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_saipan_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 646 # 塞班岛
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_guam_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_guam_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 638 # 关岛
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_wake_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_wake_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 632 # 威克岛
+		value = 40
+	}
+}
+
+JAP_lecture_pacific_midway_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_midway_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 631 # 中途岛
+		value = 40
+	}
+}
+
+JAP_lecture_pacific_hawaii_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_hawaii_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 629 # 夏威夷
+		value = 30
+	}
+}
+
+JAP_lecture_pacific_hawaii_landing_support_priority = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_hawaii_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 96 # 北天皇海山链
+		value = 150
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 177 # 西北太平洋
+		value = 150
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 114 # 北太平洋
+		value = 200
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 172 # 太平洋海脊
+		value = 150
+	}
+	ai_strategy = {
+		type = naval_invasion_support_priority
+		id = 105 # 夏威夷海脊
+		value = 200
+	}
+}
+
+JAP_lecture_pacific_okinawa_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_okinawa_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 526 # 冲绳
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_taiwan_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_taiwan_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 524 # 台湾
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_manila_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_manila_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 327 # 马尼拉
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_luzon_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_luzon_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 623 # 吕宋
+		value = 50
+	}
+}
+
+JAP_lecture_pacific_north_mindanao_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_north_mindanao_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 1026 # 北棉兰老
+		value = 40
+	}
+}
+
+JAP_lecture_pacific_davao_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_davao_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 627 # 达沃
+		value = 40
+	}
+}
+
+JAP_lecture_pacific_caroline_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_caroline_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 684 # 加罗林群岛
+		value = 40
+	}
+}
+
+JAP_lecture_pacific_marshall_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_marshall_landing_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 633 # 马绍尔群岛
+		value = 40
+	}
+}
+
+## 太平洋登陆窗口：任一逐跳目标可用且制海压力可控时，提高登陆意愿。
+JAP_lecture_pacific_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_landing_target_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 80
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 40
+	}
+}
+
+## 太平洋中等岛屿登陆后整理：只给小额短窗口，避免按大陆桥头堡抢兵。
+JAP_lecture_pacific_island_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_pacific_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_pacific_theater
+		state_trigger = {
+			OR = {
+				AND = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 526 # 冲绳
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 684 # 加罗林群岛
+						state = 629 # 夏威夷
+					}
+				}
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 526 # 冲绳
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 684 # 加罗林群岛
+						state = 629 # 夏威夷
+					}
+				}
+			}
+		}
+		value = 5
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_pacific_theater
+		state_trigger = {
+			OR = {
+				AND = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 526 # 冲绳
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 684 # 加罗林群岛
+						state = 629 # 夏威夷
+					}
+				}
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 526 # 冲绳
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 684 # 加罗林群岛
+						state = 629 # 夏威夷
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 690
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 太平洋台湾/菲律宾主节点登陆后整理：低于大陆登陆桥头堡，只补足主节点推进。
+JAP_lecture_pacific_main_node_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_pacific_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_pacific_theater
+		state_trigger = {
+			OR = {
+				AND = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 524 # 台湾
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+					}
+				}
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 524 # 台湾
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+					}
+				}
+			}
+		}
+		value = 10
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_pacific_theater
+		state_trigger = {
+			OR = {
+				AND = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 524 # 台湾
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+					}
+				}
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_pacific_landing_priority
+					OR = {
+						state = 524 # 台湾
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 700
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 太平洋常态推进：低于澳新与东南亚主推进，给菲律宾和中太平洋方向持续压力。
+JAP_lecture_pacific_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_theater_clear = no
+		JAP_lecture_pacific_enemy_presence = yes
+		set_temp_variable = { jap_pacific_push_days = global.num_days }
+		modulo_temp_variable = { jap_pacific_push_days = 60 }
+		check_variable = { jap_pacific_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_pacific_theater
+		state_trigger = {
+			OR = {
+				state = 526 # 冲绳
+				state = 524 # 台湾
+				state = 645 # 硫磺岛
+				state = 646 # 塞班岛
+				state = 638 # 关岛
+				state = 327 # 马尼拉
+				state = 623 # 吕宋
+				state = 625 # 萨马
+				state = 626 # 巴拉望
+				state = 628 # 西米沙鄢
+				state = 1026 # 北棉兰老
+				state = 627 # 达沃
+				state = 684 # 加罗林群岛
+				state = 633 # 马绍尔群岛
+				state = 632 # 威克岛
+				state = 631 # 中途岛
+				state = 629 # 夏威夷
+				any_neighbor_state = {
+					OR = {
+						state = 526 # 冲绳
+						state = 524 # 台湾
+						state = 645 # 硫磺岛
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 625 # 萨马
+						state = 626 # 巴拉望
+						state = 628 # 西米沙鄢
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+						state = 684 # 加罗林群岛
+						state = 633 # 马绍尔群岛
+						state = 632 # 威克岛
+						state = 631 # 中途岛
+						state = 629 # 夏威夷
+					}
+				}
+			}
+		}
+		value = 15
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_pacific_theater
+		state_trigger = {
+			OR = {
+				state = 526 # 冲绳
+				state = 524 # 台湾
+				state = 645 # 硫磺岛
+				state = 646 # 塞班岛
+				state = 638 # 关岛
+				state = 327 # 马尼拉
+				state = 623 # 吕宋
+				state = 625 # 萨马
+				state = 626 # 巴拉望
+				state = 628 # 西米沙鄢
+				state = 1026 # 北棉兰老
+				state = 627 # 达沃
+				state = 684 # 加罗林群岛
+				state = 633 # 马绍尔群岛
+				state = 632 # 威克岛
+				state = 631 # 中途岛
+				state = 629 # 夏威夷
+				any_neighbor_state = {
+					OR = {
+						state = 526 # 冲绳
+						state = 524 # 台湾
+						state = 645 # 硫磺岛
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 625 # 萨马
+						state = 626 # 巴拉望
+						state = 628 # 西米沙鄢
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+						state = 684 # 加罗林群岛
+						state = 633 # 马绍尔群岛
+						state = 632 # 威克岛
+						state = 631 # 中途岛
+						state = 629 # 夏威夷
+					}
+				}
+			}
+		}
+		ratio = 0
+		priority = 420
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+## 太平洋北/中太平洋主链守备：只守最近两级后路，威克岛以后按关键汇合节点保留。
+JAP_lecture_pacific_north_chain_guard_iwo_jima = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_north_chain_guard_iwo_jima_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2601
+		ratio = 0.02
+		states = { 645 } # 硫磺岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_saipan = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_north_chain_guard_saipan_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2601
+		ratio = 0.02
+		states = { 646 } # 塞班岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_guam = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_north_chain_guard_guam_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2601
+		ratio = 0.02
+		states = { 638 } # 关岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_wake = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_north_chain_guard_wake_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2601
+		ratio = 0.02
+		states = { 632 } # 威克岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_midway = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_north_chain_guard_midway_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2601
+		ratio = 0.02
+		states = { 631 } # 中途岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_hawaii = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_north_chain_guard_hawaii_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2601
+		ratio = 0.04
+		states = { 629 } # 夏威夷
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+## 太平洋南/菲律宾支链守备：冲绳、台湾和菲律宾主节点保留更高比例，外岛按普通小岛守备。
+JAP_lecture_pacific_south_chain_guard_okinawa = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_okinawa_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.03
+		states = { 526 } # 冲绳
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_taiwan = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_taiwan_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.03
+		states = { 524 } # 台湾
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_manila = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_manila_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.03
+		states = { 327 } # 马尼拉
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_luzon = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_luzon_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.03
+		states = { 623 } # 吕宋
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_north_mindanao = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_north_mindanao_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.03
+		states = { 1026 } # 北棉兰老
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_davao = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_davao_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.03
+		states = { 627 } # 达沃
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_caroline = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_caroline_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.02
+		states = { 684 } # 加罗林群岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_marshall = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_operational_access_available = yes
+		JAP_lecture_pacific_access_lost = no
+		JAP_lecture_pacific_south_chain_guard_marshall_needed = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2602
+		ratio = 0.02
+		states = { 633 } # 马绍尔群岛
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+## 太平洋完成后夏威夷常驻守备：重要目标全控后只保留低比例常驻兵力。
+JAP_lecture_pacific_hawaii_permanent_guard = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_pacific_key_objectives_secured = yes
+		JAP_lecture_home_islands_compromised = no
+		629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2603
+		ratio = 0.03
+		states = { 629 } # 夏威夷
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+## Lecture North America expedition: stage from Hawaii, land on the West Coast, then push the continent.
+JAP_lecture_north_america_hawaii_staging_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operation_ready = yes
+		JAP_lecture_north_america_west_coast_staging_available = no
+		JAP_lecture_north_america_theater_clear = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2604
+		ratio = 0.25
+		states = { 629 } # Hawaii
+		area = JAP_rework_north_america_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_north_america_theater
+		value = 30
+	}
+}
+
+JAP_lecture_north_america_usa_armor_score = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operation_ready = yes
+		country_exists = USA
+		has_war_with = USA
+		USA = { has_capitulated = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_armor_score
+		id = USA
+		value = 200
+	}
+}
+
+JAP_lecture_north_america_california_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 378 # California
+		JAP = {
+			JAP_lecture_north_america_california_landing_available = yes
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_north_america_oregon_landing_invade_target_owner = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war_with = JAP
+		controls_state = 385 # Oregon
+		JAP = {
+			JAP_lecture_north_america_oregon_landing_available = yes
+			enemies_naval_strength_ratio < 1.5
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_lecture_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 100
+	}
+}
+
+JAP_lecture_north_america_california_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_california_landing_available = yes
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 378 # California
+		value = 80
+	}
+}
+
+JAP_lecture_north_america_oregon_landing_request = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_oregon_landing_available = yes
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 385 # Oregon
+		value = 60
+	}
+}
+
+JAP_lecture_north_america_landing_window = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_landing_target_available = yes
+		enemies_naval_strength_ratio < 1.5
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_invasion_dominance_weight
+		value = 45
+	}
+}
+
+JAP_lecture_north_america_landing_followup = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operational_access_available = yes
+		JAP_lecture_north_america_theater_clear = no
+		has_country_flag = {
+			flag = JAP_lecture_north_america_landing_boost
+			days < 30
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_north_america_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_north_america_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_north_america_landing_priority
+				}
+			}
+		}
+		value = 35
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_north_america_theater
+		state_trigger = {
+			OR = {
+				has_state_flag = JAP_lecture_north_america_landing_priority
+				any_neighbor_state = {
+					has_state_flag = JAP_lecture_north_america_landing_priority
+				}
+			}
+		}
+		ratio = 0
+		priority = 720
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+		manual_attack = yes
+	}
+}
+
+JAP_lecture_north_america_california_staging_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operational_access_available = yes
+		JAP_lecture_north_america_theater_clear = no
+		JAP_lecture_north_america_california_staging_selected = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2604
+		ratio = 0.25
+		states = { 378 } # California
+		area = JAP_rework_north_america_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_north_america_oregon_staging_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operational_access_available = yes
+		JAP_lecture_north_america_theater_clear = no
+		JAP_lecture_north_america_oregon_staging_selected = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2604
+		ratio = 0.25
+		states = { 385 } # Oregon
+		area = JAP_rework_north_america_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_north_america_washington_staging_buffer = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operational_access_available = yes
+		JAP_lecture_north_america_theater_clear = no
+		JAP_lecture_north_america_washington_staging_selected = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 2604
+		ratio = 0.25
+		states = { 386 } # Washington
+		area = JAP_rework_north_america_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_lecture_north_america_theater_push = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_lecture_north_america_operational_access_available = yes
+		JAP_lecture_north_america_west_coast_staging_available = yes
+		JAP_lecture_north_america_theater_clear = no
+		JAP_lecture_north_america_enemy_presence = yes
+		set_temp_variable = { jap_north_america_push_days = global.num_days }
+		modulo_temp_variable = { jap_north_america_push_days = 60 }
+		check_variable = { jap_north_america_push_days < 15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = JAP_rework_north_america_theater
+		value = 35
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = JAP_rework_north_america_theater
+		value = 45
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_rework_north_america_theater
+		ratio = 0
+		priority = 650
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+		manual_attack = yes
+	}
+}

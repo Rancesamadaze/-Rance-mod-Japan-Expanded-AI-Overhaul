@@ -1,0 +1,127 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = rance_regular_units_to_japan_special_standard
+						option = ENABLED
+					}
+				}
+				every_country = {
+					set_technology = {
+						Rance_regular_units_to_japan_special_standard_tech = 1
+						popup = no
+					}
+				}
+			}
+
+			JAP = {
+				if = {
+					limit = { date < 1936.1.2 }
+					if = {
+						limit = {
+							has_game_rule = {
+								rule = rance_japan_starting_oob
+								option = VANILLA_OOB
+							}
+						}
+						load_oob = "JAP_1936_nsb_vanilla"
+						load_oob = "JAP_1936_naval_vanilla"
+						load_oob = "JAP_1936_air_bba_vanilla"
+					}
+					else = {
+						load_oob = "JAP_1936_nsb_rance"
+						load_oob = "JAP_1936_naval_rance"
+						load_oob = "JAP_1936_air_bba_rance"
+					}
+				}
+				JAP_ai_dynamic_grant_refresh_multipliers = yes
+				if = {
+					limit = { Rance_jap_return_to_peak_standard = yes }
+					set_grand_doctrine = rance_furinkazan
+					add_ideas = {
+						JAP_niten_ichiryu_army_rework_spirit
+						JAP_hagakure_army_rework_spirit
+						JAP_banri_ikku_division_command_rework_spirit
+					}
+					set_variable = { JAP_open_factory_max = 20 }
+				}
+				else = {
+					set_grand_doctrine = grand_battleplan
+				}
+				if = {
+					limit = {
+						date < 1936.2.1
+						NOT = { has_country_flag = JAP_ai_difficulty_game_rule_initialized }
+						OR = {
+							has_game_rule = {
+								rule = rance_japan_ai_difficulty
+								option = EASY
+							}
+							has_game_rule = {
+								rule = rance_japan_ai_difficulty
+								option = NORMAL
+							}
+							has_game_rule = {
+								rule = rance_japan_ai_difficulty
+								option = HARD
+							}
+							has_game_rule = {
+								rule = rance_japan_ai_difficulty
+								option = LUNATIC
+							}
+							has_game_rule = {
+								rule = rance_japan_ai_difficulty
+								option = EXTRA
+							}
+							has_game_rule = {
+								rule = rance_japan_ai_difficulty
+								option = PHANTASM
+							}
+						}
+					}
+					JAP_apply_preselected_ai_difficulty_from_game_rule = yes
+					set_country_flag = JAP_ai_difficulty_game_rule_initialized
+				}
+			}
+
+            every_possible_country = {
+                limit = {
+                    OR = {
+                        tag = PAK
+                        tag = RAJ
+                        tag = KAS
+                        tag = KHL
+                        tag = NWF
+                        tag = BLC
+                        tag = KLT
+                        tag = SIN
+                        tag = RJP
+                        tag = WIS
+                        tag = CIP
+                        tag = HYD
+                        tag = KOL
+                        tag = MYS
+                        tag = RAS
+                        tag = BAN
+                        tag = SKK
+                        tag = MPU
+                        tag = BRM
+                        tag = SIA
+                        tag = CAM
+                        tag = LAO
+                        tag = VIN
+                        tag = BHU
+                        tag = NEP
+                        tag = AFG
+                        tag = SRL
+                        tag = MLD
+                    }
+                }
+                # 将满足条件的 TAG 加入全局数组
+                add_to_array = { global.rance_south_asian_countries = THIS }
+            }
+        }
+	}
+}

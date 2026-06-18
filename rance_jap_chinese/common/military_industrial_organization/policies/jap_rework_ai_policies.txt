@@ -1,0 +1,19 @@
+JAP_mio_general_policy  = {
+	icon = GFX_mio_policy_mechanical_genius
+	allowed = { 
+		from = {
+			tag = JAP
+		}
+	}
+	available = { always = yes}
+	ai_will_do = {
+		factor = 1000
+	}
+	cost = 0
+	equipment_bonus = {
+		same_as_mio = {
+			reliability = 0.15
+			production_resource_need_factor = -0.55
+		}
+	}
+}

@@ -1,0 +1,1141 @@
+##AI禁止研究的科技
+rance_mod_jap_ai_dont_research = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		always = no
+	}
+	#start
+	# 1. 步兵与机动科技禁用 [cite: 610, 585]
+	ai_strategy = { type = research_weight_factor id = motorized_rocket_unit value = -1000 }
+	ai_strategy = { type = research_weight_factor id = armored_car1 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = armored_car2 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = armored_car3 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = armored_car_at_upgrade value = -1000 }
+
+	# 2. 空军科技禁用（运输机系列）[cite: 610, 586]
+	ai_strategy = { type = research_weight_factor id = bba_early_transport_plane value = -1000 }
+	ai_strategy = { type = research_weight_factor id = bba_improved_transport_plane value = -1000 }
+	ai_strategy = { type = research_weight_factor id = bba_strategic_airlifter value = -1000 }
+
+	# 3. 坦克科技禁用 [cite: 610, 587]
+	ai_strategy = { type = research_weight_factor id = advanced_light_tank_chassis value = -1000 }
+
+	# 4. 火炮与火箭技术禁用 [cite: 610, 603]
+	ai_strategy = { type = research_weight_factor id = rocket_artillery value = -1000 }
+	ai_strategy = { type = research_weight_factor id = rocket_artillery2 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = rocket_artillery3 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = rocket_artillery4 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = sp_artillery_rocket_assisted_projectiles_tech value = -1000 }
+	ai_strategy = { type = research_weight_factor id = sp_artillery_purpose_built_gun_motor_carriages_tech value = -1000 }
+
+	# 5. 工业科技禁用（含开采、合成、精炼及集中工业）[cite: 610, 611, 591, 592]
+	# 工业科技：由绝对禁止改为极低优先级 (0.25)
+	ai_strategy = { type = research_weight_factor id = excavation1 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = excavation2 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = excavation3 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = excavation4 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = excavation5 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = fuel_silos value = -1000 }
+	ai_strategy = { type = research_weight_factor id = fuel_refining value = -1000 }
+	ai_strategy = { type = research_weight_factor id = fuel_refining2 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = fuel_refining3 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = fuel_refining4 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = fuel_refining5 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = synth_oil_experiments value = -1000 }
+	ai_strategy = { type = research_weight_factor id = oil_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = improved_oil_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = advanced_oil_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = modern_oil_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = rubber_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = improved_rubber_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = advanced_rubber_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = modern_rubber_processing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = concentrated_industry value = -1000 }
+	
+
+
+	# 6. 海军配件科技禁用 (由于未来可能解封，故独立注释并设置) [cite: 611, 592, 593]
+	# 注意：仅保留 BBA 版本的空投/扫雷技术条目
+	ai_strategy = { type = research_weight_factor id = basic_naval_mines value = -1000 }
+	ai_strategy = { type = research_weight_factor id = submarine_mine_laying value = -1000 }
+	ai_strategy = { type = research_weight_factor id = improved_submarine_mine_laying value = -1000 }
+	ai_strategy = { type = research_weight_factor id = improved_naval_mines value = -1000 }
+	ai_strategy = { type = research_weight_factor id = degaussing value = -1000 }
+	ai_strategy = { type = research_weight_factor id = advanced_naval_mines value = -1000 }
+	ai_strategy = { type = research_weight_factor id = airdrop_mines_bba value = -1000 }
+	ai_strategy = { type = research_weight_factor id = airsweep_mines_bba value = -1000 }
+
+	# 7. 特种部队与学说禁用 [cite: 611, 613, 595, 596]
+	# v1.19 moved special forces branches from research techs to doctrines.
+
+	# 8. 支援装备及特殊项目禁用 [cite: 613, 596, 597]
+	ai_strategy = { type = research_weight_factor id = sp_armored_maintenance_tech value = -1000 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_motorized_military_police_tech value = -1000 }
+	ai_strategy = { type = research_weight_factor id = tech_military_police2 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = tech_military_police3 value = -1000 }
+	ai_strategy = { type = research_weight_factor id = tech_military_police4 value = -1000 }
+	#end
+
+}
+##时间研究权重部分
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1936 动态权重管理
+# 逻辑：第一批权重 8 (最高优先级)，第二批权重 4，第三批权重 2。
+# 当某批次科技全部研究完成时，对应的策略块将自动废除 (Abort)。
+#----------------------------------------------------------------------------------------------------
+
+# 1936年 第一批科技 (权重: 8)
+rance_mod_ai_1936_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1936.1.1
+		
+	}
+	abort = {
+		# 当下列第一批核心科技全部拥有时，该权重策略失效
+		has_tech = electronic_mechanical_engineering # 电子机械工程 [cite: 170]
+		has_tech = mechanical_computing               # 机械计算 [cite: 170]
+		has_tech = construction1                      # 1型建设技术 [cite: 172]
+		has_tech = support_weapons                    # 支援武器1 [cite: 167]
+	}
+
+	ai_strategy = { type = research_weight_factor id = electronic_mechanical_engineering value = 8000 }
+	ai_strategy = { type = research_weight_factor id = mechanical_computing value = 8000 }
+	ai_strategy = { type = research_weight_factor id = construction1 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = support_weapons value = 8000 }
+}
+
+# 1936年 第二批科技 (权重: 4)
+rance_mod_ai_1936_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1936.1.1
+		
+	}
+	abort = {
+		# 当下列第二批科技全部拥有时失效
+		has_tech = radio                      # 无线电技术 [cite: 170]
+		has_tech = dispersed_industry         # 分散式工业技术 [cite: 171]
+	}
+
+	ai_strategy = { type = research_weight_factor id = radio value = 400 }
+	ai_strategy = { type = research_weight_factor id = dispersed_industry value = 400 }
+}
+
+# 1936年 第三批科技 (权重: 2)
+rance_mod_ai_1936_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1936.1.1
+		
+	}
+	abort = {
+		# 当下列第三批辅助/长线科技全部拥有时失效
+		has_tech = tech_maintenance_company   # 维修连技术 [cite: 175]
+		has_tech = tech_field_hospital         # 战地医院技术 [cite: 175]
+		has_tech = tech_logistics_company     # 后勤连技术 [cite: 175]
+		has_tech = range_improvements         # 航程强化技术 [cite: 168]
+		has_tech = iw_large_airframe          # 战间期大型机机体 [cite: 168]
+		has_tech = basic_medium_airframe      # 基础中型机机体 [cite: 167]
+		has_tech = basic_large_airframe       # 基础大型机机体 [cite: 168]
+		has_tech = sonar                      # 基础声呐 [cite: 173]
+		has_tech = basic_heavy_armor_scheme   # 基础重型装甲方案 [cite: 173]
+		has_tech = basic_heavy_tank_chassis   # 基础重型坦克底盘 [cite: 169]
+	}
+
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company value = 20 }
+	ai_strategy = { type = research_weight_factor id = tech_field_hospital value = 20 }
+	ai_strategy = { type = research_weight_factor id = tech_logistics_company value = 20 }
+	ai_strategy = { type = research_weight_factor id = range_improvements value = 20 }
+	ai_strategy = { type = research_weight_factor id = iw_large_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_medium_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_large_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = sonar value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_heavy_armor_scheme value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_heavy_tank_chassis value = 20 }
+}
+
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1937 动态权重管理
+# 逻辑：第一批权重 8 (工业核心)，第二批权重 4 (战术急需)，第三批权重 2 (海军与辅助)。
+# 所有科技 ID 均对应 V1.17.x 全 DLC 环境。
+#----------------------------------------------------------------------------------------------------
+
+# 1937年 第一批科技 (权重: 8) - 侧重工业升级
+rance_mod_ai_1937_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1937.1.1
+		
+	}
+	abort = {
+		# 当下列工业核心科技全部研究完成时，该策略块失效
+		has_tech = construction2               # 2型建设技术 [cite: 172]
+		has_tech = dispersed_industry2        # 分散式工业技术2型 [cite: 171]
+		has_tech = improved_machine_tools      # 改进型机床技术 [cite: 171]
+	}
+
+	ai_strategy = { type = research_weight_factor id = construction2 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = dispersed_industry2 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = improved_machine_tools value = 8000 }
+}
+
+# 1937年 第二批科技 (权重: 4) - 侧重反坦克能力
+rance_mod_ai_1937_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1937.1.1
+		
+	}
+	abort = {
+		has_tech = antitank1                   # 1型反坦克炮技术 [cite: 170]
+	}
+
+	ai_strategy = { type = research_weight_factor id = antitank1 value = 400 }
+}
+
+# 1937年 第三批科技 (权重: 2) - 侧重海军配件、中坦起步与战略后勤
+rance_mod_ai_1937_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1937.1.1
+		
+	}
+	abort = {
+		# 当下列所有海军配件、底盘及后勤科技全部拥有时失效
+		has_tech = basic_light_shell           # 基础轻型炮弹技术 [cite: 172]
+		has_tech = basic_heavy_shell           # 基础重型炮弹技术 [cite: 172]
+		has_tech = magnetic_detonator          # 磁性引信技术 [cite: 172]
+		has_tech = basic_depth_charges         # 基础深水炸弹技术 [cite: 173]
+		has_tech = improved_sonar              # 改进型声呐技术 [cite: 173]
+		has_tech = improved_depth_charges      # 改进型深水炸弹技术 [cite: 173]
+		has_tech = basic_medium_tank_chassis   # 基础中型坦克底盘技术 [cite: 169]
+		has_tech = armored_train               # 装甲列车技术 [cite: 176]
+	}
+
+	ai_strategy = { type = research_weight_factor id = basic_light_shell value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_heavy_shell value = 20 }
+	ai_strategy = { type = research_weight_factor id = magnetic_detonator value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_depth_charges value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_sonar value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_depth_charges value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_medium_tank_chassis value = 20 }
+	ai_strategy = { type = research_weight_factor id = armored_train value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1938 动态权重管理
+# 逻辑：第一批权重 8 (急需技术)，第二批权重 4 (战术进阶)，第三批权重 2 (全面增强)。
+# 采用日期触发与 has_tech 判定废除 (Abort) 机制。
+#----------------------------------------------------------------------------------------------------
+
+# 1938年 第一批科技 (权重: 8)
+rance_mod_ai_1938_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1938.1.1
+		
+	}
+	abort = {
+		# 当下列第一批核心科技全部拥有时失效
+		has_tech = antitank1                   # 1型反坦克炮 [cite: 170]
+		has_tech = computing_machine           # 计算机器 [cite: 171]
+		has_tech = support_weapons2            # 支援武器2 [cite: 166]
+		has_tech = basic_heavy_tank_chassis   # 基础重型坦克底盘 [cite: 169]
+		has_tech = basic_medium_tank_chassis  # 基础中型坦克底盘 [cite: 169]
+	}
+
+	ai_strategy = { type = research_weight_factor id = antitank1 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = computing_machine value = 8000 }
+	ai_strategy = { type = research_weight_factor id = support_weapons2 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = basic_heavy_tank_chassis value = 8000 }
+	ai_strategy = { type = research_weight_factor id = basic_medium_tank_chassis value = 8000 }
+}
+
+# 1938年 第二批科技 (权重: 4)
+rance_mod_ai_1938_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1938.1.1
+		
+	}
+	abort = {
+		# 当下列第二批进阶科技全部拥有时失效
+		has_tech = cavity_magnatron                  # 腔磁控管 [cite: 170]
+		has_tech = improved_radio                    # 改进型无线电 [cite: 170]
+		has_tech = infantry_weapons2                 # 步枪强化1 [cite: 166]
+		has_tech = improved_heavy_armor_scheme       # 改进型重型装甲方案 [cite: 173]
+		has_tech = sp_armored_engineer_tech          # 装甲工程兵 
+		has_tech = sp_helicopter_artillery_observers_tech # 直升机炮兵观察员 
+		has_tech = tech_maintenance_company2         # 高级维修连2 [cite: 175]
+		has_tech = sp_helicopter_med_evac_tech       # 直升机医疗疏散 
+	}
+
+	ai_strategy = { type = research_weight_factor id = cavity_magnatron value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_radio value = 400 }
+	ai_strategy = { type = research_weight_factor id = infantry_weapons2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_armor_scheme value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_engineer_tech value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_helicopter_artillery_observers_tech value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_helicopter_med_evac_tech value = 400 }
+}
+
+# 1938年 第三批科技 (权重: 2)
+rance_mod_ai_1938_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1938.1.1
+		
+	}
+	abort = {
+		# 当下列所有海军、坦克附件及辅助科技全部拥有时失效
+		has_tech = antiair1                          # 1型防空炮 [cite: 170]
+		has_tech = improved_infantry_weapons         # 1940步枪 [cite: 166]
+		has_tech = damage_control_1                  # 1型损管 [cite: 172]
+		has_tech = fire_control_methods_1            # 1型火控方法 [cite: 172]
+		has_tech = improved_light_battery            # 改进型轻型舰炮 [cite: 172]
+		has_tech = improved_heavy_battery            # 改进型重型舰炮 [cite: 172]
+		has_tech = improved_ship_hull_light          # 改进型轻型船体 [cite: 173]
+		has_tech = improved_ship_hull_cruiser        # 改进型巡洋舰船体 [cite: 173]
+		has_tech = improved_ship_hull_heavy          # 改进型重型船体 [cite: 173]
+		has_tech = improved_ship_hull_carrier        # 改进型航母船体 [cite: 173]
+		has_tech = armor_tech_1                      # 基础装甲技术 [cite: 169]
+		has_tech = engine_tech_1                     # 基础发动机技术 [cite: 169]
+		has_tech = railway_gun                       # 铁道炮 [cite: 175]
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair1 value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_infantry_weapons value = 20 }
+	ai_strategy = { type = research_weight_factor id = damage_control_1 value = 20 }
+	ai_strategy = { type = research_weight_factor id = fire_control_methods_1 value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_light_battery value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_battery value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_light value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_cruiser value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_heavy value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_carrier value = 20 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_1 value = 20 }
+	ai_strategy = { type = research_weight_factor id = engine_tech_1 value = 20 }
+	ai_strategy = { type = research_weight_factor id = railway_gun value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1939 动态权重管理
+# 逻辑：第一批权重 8 (全面爆发急需)，第二批权重 4 (海空军主力补强)，第三批权重 2 (进阶辅助与底盘)。
+# 适用版本：V1.17.x 全 DLC 环境 
+#----------------------------------------------------------------------------------------------------
+
+# 1939年 第一批科技 (权重: 8) - 侧重反坦克、工业产能与步兵现代化
+rance_mod_ai_1939_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1939.1.1
+		
+	}
+	abort = {
+		# 当下列核心科技全部研究完成时失效 [cite: 166, 167, 170, 171, 172]
+		has_tech = antitank2                   # 2型反坦克炮
+		has_tech = antitank3                   # 3型反坦克炮
+		has_tech = improved_small_airframe      # 改进型小型机机体
+		has_tech = construction3               # 3型建设技术
+		has_tech = dispersed_industry3         # 分散式工业技术3型
+		has_tech = advanced_machine_tools      # 先进机床技术
+		has_tech = improved_infantry_weapons   # 1940步枪
+		has_tech = mechanised_infantry         # 机械化步兵
+	}
+
+	ai_strategy = { type = research_weight_factor id = antitank2 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = antitank3 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = improved_small_airframe value = 8000 }
+	ai_strategy = { type = research_weight_factor id = construction3 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = dispersed_industry3 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = advanced_machine_tools value = 8000 }
+	ai_strategy = { type = research_weight_factor id = improved_infantry_weapons value = 8000 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry value = 8000 }
+}
+
+# 1939年 第二批科技 (权重: 4) - 侧重海军船体更新与支援部队升级
+rance_mod_ai_1939_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1939.1.1
+		
+	}
+	abort = {
+		# 当下列海空补强与支援连科技全部拥有时失效 [cite: 168, 170, 172, 173, 175]
+		has_tech = antiair1                    # 1型防空炮
+		has_tech = aa_hmg                      # 航空重机枪自卫
+		has_tech = aa_cannon_1                 # 1型航空机炮自卫
+		has_tech = survivability_studies       # 飞机生存性强化
+		has_tech = improved_fire_control_system # 改进型火控系统
+		has_tech = improved_light_battery      # 改进型轻型舰炮
+		has_tech = improved_heavy_battery      # 改进型重型舰炮
+		has_tech = improved_ship_hull_light    # 改进型轻型船体
+		has_tech = improved_ship_hull_cruiser  # 改进型巡洋舰船体
+		has_tech = improved_ship_hull_heavy    # 改进型重型船体
+		has_tech = improved_ship_hull_carrier  # 改进型航母船体
+		has_tech = improved_ship_hull_submarine # 改进型潜艇船体
+		has_tech = tech_engineers2             # 高级工程兵2
+		has_tech = tech_recon2                 # 高级侦察2
+		has_tech = tech_maintenance_company2   # 高级维修连2
+		has_tech = tech_field_hospital2        # 高级战地医院2
+		has_tech = tech_logistics_company2     # 高级后勤连2
+		has_tech = wartime_train               # 战时列车
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair1 value = 400 }
+	ai_strategy = { type = research_weight_factor id = aa_hmg value = 400 }
+	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 400 }
+	ai_strategy = { type = research_weight_factor id = survivability_studies value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_fire_control_system value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_light_battery value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_battery value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_light value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_cruiser value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_heavy value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_carrier value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_ship_hull_submarine value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_engineers2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_recon2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_field_hospital2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_logistics_company2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = wartime_train value = 400 }
+}
+
+# 1939年 第三批科技 (权重: 2) - 侧重装甲底盘演进与海军特种配件
+rance_mod_ai_1939_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1939.1.1
+		
+	}
+	abort = {
+		# 当下列所有进阶科技全部研究完成时失效 [cite: 167, 168, 169, 170, 173]
+		has_tech = antiair2                    # 2型防空炮
+		has_tech = heavy_bombs                 # 重型炸弹
+		has_tech = air_torpedoe_2              # 2型航空鱼雷
+		has_tech = engines_3                   # 3型航空活塞引擎
+		has_tech = improved_large_airframe     # 改进型大型机机体
+		has_tech = improved_medium_airframe    # 改进型中型机机体
+		has_tech = basic_submarine_snorkel     # 基础潜艇通气管
+		has_tech = advanced_sonar              # 先进型声呐
+		has_tech = advanced_depth_charges      # 先进型深水炸弹
+		has_tech = armor_tech_2                # 改进型装甲技术
+		has_tech = engine_tech_2               # 改进型发动机技术
+		has_tech = improved_medium_tank_chassis # 改进型中型坦克底盘
+		has_tech = improved_heavy_tank_chassis # 改进型重型坦克底盘
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = heavy_bombs value = 20 }
+	ai_strategy = { type = research_weight_factor id = air_torpedoe_2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = engines_3 value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_large_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_medium_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_submarine_snorkel value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_sonar value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_depth_charges value = 20 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = engine_tech_2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_medium_tank_chassis value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_tank_chassis value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1940 动态权重管理
+# 优化：去除了 enable 块中冗余的 always = yes 判定。
+# 逻辑：第一批权重 8 (核心竞争力)，第二批权重 4 (战术强化)，第三批权重 2 (后期奇迹)。
+#----------------------------------------------------------------------------------------------------
+
+# 1940年 第一批科技 (权重: 8)
+rance_mod_ai_1940_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1940.1.1
+	}
+	abort = {
+		has_tech = antitank3                   
+		has_tech = antitank4                   
+		has_tech = improved_computing_machine  
+		has_tech = mechanised_infantry         
+		has_tech = improved_medium_tank_chassis 
+		has_tech = improved_heavy_tank_chassis 
+	}
+
+	ai_strategy = { type = research_weight_factor id = antitank3 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = antitank4 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = improved_computing_machine value = 8000 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry value = 8000 }
+	ai_strategy = { type = research_weight_factor id = improved_medium_tank_chassis value = 8000 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_tank_chassis value = 8000 }
+}
+
+# 1940年 第二批科技 (权重: 4)
+rance_mod_ai_1940_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1940.1.1
+	}
+	abort = {
+		has_tech = antiair2                    
+		has_tech = engines_3                   
+		has_tech = air_torpedoe_2              
+		has_tech = heavy_bombs                 
+		has_tech = improved_large_airframe     
+		has_tech = improved_medium_airframe    
+		has_tech = centimetric_radar           
+		has_tech = advanced_fire_control_system 
+		has_tech = support_weapons3            
+		has_tech = improved_infantry_weapons_2 
+		has_tech = amphibious_mechanized_infantry 
+		has_tech = improved_dp_light_battery   
+		has_tech = advanced_ship_torpedo_launcher 
+		has_tech = mtg_landing_craft           
+		has_tech = sp_aip_engine_improved_tech 
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = engines_3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = air_torpedoe_2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = heavy_bombs value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_large_airframe value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_medium_airframe value = 400 }
+	ai_strategy = { type = research_weight_factor id = centimetric_radar value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_fire_control_system value = 400 }
+	ai_strategy = { type = research_weight_factor id = support_weapons3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_infantry_weapons_2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = amphibious_mechanized_infantry value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_dp_light_battery value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_ship_torpedo_launcher value = 400 }
+	ai_strategy = { type = research_weight_factor id = mtg_landing_craft value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_aip_engine_improved_tech value = 400 }
+}
+
+# 1940年 第三批科技 (权重: 2)
+rance_mod_ai_1940_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1940.1.1
+	}
+	abort = {
+		has_tech = damage_control_2            
+		has_tech = fire_control_methods_2      
+		has_tech = super_heavy_tank_chassis    
+	}
+
+	ai_strategy = { type = research_weight_factor id = damage_control_2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = fire_control_methods_2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = super_heavy_tank_chassis value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1941 动态权重管理
+# 逻辑：第一批权重 8，第二批权重 4 (已加入先进喷火)，第三批权重 2。
+# 优化：已去除 enable 块中冗余的 always = yes。
+#----------------------------------------------------------------------------------------------------
+
+# 1941年 第一批科技 (权重: 8) - 侧重工业与反坦极限
+rance_mod_ai_1941_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1941.1.1
+	}
+	abort = {
+		has_tech = antitank5                   
+		has_tech = construction4               
+		has_tech = dispersed_industry4         
+		has_tech = assembly_line_production    
+	}
+
+	ai_strategy = { type = research_weight_factor id = antitank5 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = construction4 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = dispersed_industry4 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = assembly_line_production value = 8000 }
+}
+
+# 1941年 第二批科技 (权重: 4) - 新增先进装甲喷火技术
+rance_mod_ai_1941_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1941.1.1
+	}
+	abort = {
+		has_tech = antiair3                          
+		has_tech = sp_shock_hardening_techniques     
+		has_tech = phased_array                      
+		has_tech = advanced_radio                    
+		has_tech = amphibious_mechanized_infantry    
+		has_tech = super_heavy_tank_chassis          
+		has_tech = sp_armored_advanced_flamethrower_tech # 先进装甲喷火技术
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_shock_hardening_techniques value = 400 }
+	ai_strategy = { type = research_weight_factor id = phased_array value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_radio value = 400 }
+	ai_strategy = { type = research_weight_factor id = amphibious_mechanized_infantry value = 400 }
+	ai_strategy = { type = research_weight_factor id = super_heavy_tank_chassis value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_advanced_flamethrower_tech value = 400 }
+}
+
+# 1941年 第三批科技 (权重: 2) - 海军防御补强
+rance_mod_ai_1941_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1941.1.1
+	}
+	abort = {
+		has_tech = damage_control_3            
+		has_tech = fire_control_methods_3      
+	}
+
+	ai_strategy = { type = research_weight_factor id = damage_control_3 value = 20 }
+	ai_strategy = { type = research_weight_factor id = fire_control_methods_3 value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1942 动态权重管理
+# 逻辑：第一批权重 8 (计算与步兵核心)，第二批权重 4 (战术项目与支援升级)，第三批权重 2 (先进底盘与海军组件)。
+# 优化：enable 块保持洗练，无 redundant 的 always = yes。
+#----------------------------------------------------------------------------------------------------
+
+# 1942年 第一批科技 (权重: 8) - 侧重先进计算能力与步兵武器巅峰
+rance_mod_ai_1942_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1942.1.1
+	}
+	abort = {
+		# 当下列计算与步兵巅峰科技全部研究完成时失效
+		has_tech = advanced_computing_machine   # 先进计算机器
+		has_tech = advanced_infantry_weapons    # 1942步枪
+	}
+
+	ai_strategy = { type = research_weight_factor id = advanced_computing_machine value = 8000 }
+	ai_strategy = { type = research_weight_factor id = advanced_infantry_weapons value = 8000 }
+}
+
+# 1942年 第二批科技 (权重: 4) - 侧重特殊项目、雷达与精锐支援连升级
+rance_mod_ai_1942_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1942.1.1
+	}
+	abort = {
+		# 当下列防空、雷达及全套高级支援连科技全部拥有时失效
+		has_tech = antiair4                          # 4型防空炮
+		has_tech = sp_variable_time_fuze_shells      # 无线电近炸引信 (特殊项目)
+		has_tech = reinforced_wings_mothership       # 强化机翼/母舰相关
+		has_tech = monopulse_radar                   # 单脉冲雷达
+		has_tech = support_weapons4                  # 支援武器4
+		has_tech = infantry_at                       # 反坦武器强化
+		has_tech = mechanised_infantry2              # 机械化步兵2
+		has_tech = tech_engineers3                   # 高级工程兵3
+		has_tech = tech_recon3                       # 高级侦察3
+		has_tech = tech_field_hospital3              # 高级战地医院3
+		has_tech = tech_logistics_company3           # 高级后勤连3
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair4 value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_variable_time_fuze_shells value = 400 }
+	ai_strategy = { type = research_weight_factor id = reinforced_wings_mothership value = 400 }
+	ai_strategy = { type = research_weight_factor id = monopulse_radar value = 400 }
+	ai_strategy = { type = research_weight_factor id = support_weapons4 value = 400 }
+	ai_strategy = { type = research_weight_factor id = infantry_at value = 400 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_engineers3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_recon3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_field_hospital3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = tech_logistics_company3 value = 400 }
+}
+
+# 1942年 第三批科技 (权重: 2) - 侧重先进装甲底盘与海军特种作战
+rance_mod_ai_1942_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1942.1.1
+	}
+	abort = {
+		# 当下列先进坦克底盘与海军特种配件全部拥有时失效
+		has_tech = advanced_medium_tank_chassis      # 先进中型坦克底盘
+		has_tech = advanced_heavy_tank_chassis       # 先进重型坦克底盘
+		has_tech = improved_light_shell              # 改进型轻型炮弹
+		has_tech = improved_heavy_shell              # 改进型重型炮弹
+		has_tech = homing_torpedo                    # 声自导鱼雷
+		has_tech = sp_improved_repair_ship           # 改进型修理船 (特殊项目)
+		has_tech = sp_improved_support_ship          # 改进型支援船 (特殊项目)
+	}
+
+	ai_strategy = { type = research_weight_factor id = advanced_medium_tank_chassis value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_heavy_tank_chassis value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_light_shell value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_shell value = 20 }
+	ai_strategy = { type = research_weight_factor id = homing_torpedo value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_improved_repair_ship value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_improved_support_ship value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1943 动态权重管理
+# 逻辑：第一批权重 8 (工业与空军极限)，第二批权重 4 (先进装备与海权补强)，第三批权重 2 (坦克技术与陆巡特殊项目)。
+# 优化：enable 块保持洗练，严格校对 V1.17.x 全 DLC 科技 ID。
+#----------------------------------------------------------------------------------------------------
+
+# 1943年 第一批科技 (权重: 8) - 侧重工业巅峰与最先进小型机体
+rance_mod_ai_1943_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1943.1.1
+	}
+	abort = {
+		# 当下列核心工业与空军科技全部研究完成时失效
+		has_tech = antiair5                   # 5型防空炮
+		has_tech = advanced_small_airframe     # 先进小型机机体
+		has_tech = streamlined_line            # 流水线优化
+		has_tech = dispersed_industry5         # 分散式工业5型
+		has_tech = construction5               # 5型建设技术
+	}
+
+	ai_strategy = { type = research_weight_factor id = antiair5 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = advanced_small_airframe value = 8000 }
+	ai_strategy = { type = research_weight_factor id = streamlined_line value = 8000 }
+	ai_strategy = { type = research_weight_factor id = dispersed_industry5 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = construction5 value = 8000 }
+}
+
+# 1943年 第二批科技 (权重: 4) - 侧重先进海空军配件、夜视仪与两栖机械化
+rance_mod_ai_1943_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1943.1.1
+	}
+	abort = {
+		# 当下列先进对抗、海军船体与辅助科技全部拥有时失效
+		has_tech = aa_cannon_3                         # 3型航空机炮
+		has_tech = engines_4                           # 4型航空活塞引擎
+		has_tech = night_vision                        # 夜视仪
+		has_tech = infantry_at2                        # 反坦2
+		has_tech = amphibious_mechanized_infantry_2    # 两栖机械化步兵2
+		has_tech = advanced_ship_hull_light            # 先进轻型船体
+		has_tech = advanced_ship_hull_cruiser          # 先进巡洋舰船体
+		has_tech = advanced_ship_hull_heavy            # 先进重型船体
+		has_tech = advanced_ship_hull_carrier          # 先进航母船体
+		has_tech = advanced_ship_hull_submarine        # 先进潜艇船体
+		has_tech = modern_depth_charges                # 现代深水炸弹
+		has_tech = modern_sonar                        # 现代声呐
+		has_tech = improved_submarine_snorkel          # 改进型潜艇通气管
+		has_tech = sp_aip_engine_advanced_tech         # 先进AIP引擎 (特殊项目)
+		has_tech = advanced_medium_tank_chassis        # 先进中型坦克底盘
+		has_tech = advanced_heavy_tank_chassis         # 先进重型坦克底盘
+	}
+
+	ai_strategy = { type = research_weight_factor id = aa_cannon_3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = engines_4 value = 400 }
+	ai_strategy = { type = research_weight_factor id = night_vision value = 400 }
+	ai_strategy = { type = research_weight_factor id = infantry_at2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = amphibious_mechanized_infantry_2 value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_ship_hull_light value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_ship_hull_cruiser value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_ship_hull_heavy value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_ship_hull_carrier value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_ship_hull_submarine value = 400 }
+	ai_strategy = { type = research_weight_factor id = modern_depth_charges value = 400 }
+	ai_strategy = { type = research_weight_factor id = modern_sonar value = 400 }
+	ai_strategy = { type = research_weight_factor id = improved_submarine_snorkel value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_aip_engine_advanced_tech value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_medium_tank_chassis value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_heavy_tank_chassis value = 400 }
+}
+
+# 1943年 第三批科技 (权重: 2) - 侧重装甲强化与“陆地巡洋舰”特殊项目
+rance_mod_ai_1943_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1943.1.1
+	}
+	abort = {
+		# 当下列装甲技术与陆地巡洋舰相关特殊项目全部拥有时失效
+		has_tech = armor_tech_3                                     # 先进装甲技术
+		has_tech = engine_tech_3                                    # 先进发动机技术
+		has_tech = sp_armored_lc_naval_engine_conversion_tech       # 陆巡：船用引擎改装
+		has_tech = sp_armored_lc_transmission_improvements_tech     # 陆巡：传动系统改进
+		has_tech = sp_armored_lc_specialized_field_manuals_tech     # 陆巡：专用作战手册
+		has_tech = sp_armored_lc_high_impact_obliterator_cannon_tech # 陆巡：高冲击湮灭炮
+	}
+
+	ai_strategy = { type = research_weight_factor id = armor_tech_3 value = 20 }
+	ai_strategy = { type = research_weight_factor id = engine_tech_3 value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_lc_naval_engine_conversion_tech value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_lc_transmission_improvements_tech value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_lc_specialized_field_manuals_tech value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_lc_high_impact_obliterator_cannon_tech value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1944 动态权重管理
+# 逻辑：第一批权重 8 (空优与陆军精锐)，第二批权重 4 (海空主力升级)，第三批权重 2 (核能、火箭与主战底盘)。
+# 优化：enable 块无 redundant 的 always = yes。
+#----------------------------------------------------------------------------------------------------
+
+# 1944年 第一批科技 (权重: 8) - 侧重决战空优与步兵/机械化巅峰
+rance_mod_ai_1944_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1944.1.1
+	}
+	abort = {
+		# 当下列决战核心科技全部研究完成时失效
+		has_tech = advanced_small_airframe     # 先进小型机机体
+		has_tech = air_torpedoe_3              # 3型航空鱼雷
+		has_tech = advanced_infantry_weapons2  # 步枪强化3
+		has_tech = mechanised_infantry3         # 机械化步兵3
+	}
+
+	ai_strategy = { type = research_weight_factor id = advanced_small_airframe value = 8000 }
+	ai_strategy = { type = research_weight_factor id = air_torpedoe_3 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = advanced_infantry_weapons2 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry3 value = 8000 }
+}
+
+# 1944年 第二批科技 (权重: 4) - 侧重中大型机体更新与微型战斗机/先进动力
+rance_mod_ai_1944_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1944.1.1
+	}
+	abort = {
+		# 当下列海空主力升级科技全部拥有时失效
+		has_tech = advanced_medium_airframe    # 先进中型机机体
+		has_tech = advanced_large_airframe     # 先进大型机机体
+		has_tech = miniature_fighters          # 微型战斗机
+		has_tech = engines_4                   # 4型航空活塞引擎
+		has_tech = sp_aip_engine_advanced_tech # 先进AIP引擎 (特殊项目)
+	}
+
+	ai_strategy = { type = research_weight_factor id = advanced_medium_airframe value = 400 }
+	ai_strategy = { type = research_weight_factor id = advanced_large_airframe value = 400 }
+	ai_strategy = { type = research_weight_factor id = miniature_fighters value = 400 }
+	ai_strategy = { type = research_weight_factor id = engines_4 value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_aip_engine_advanced_tech value = 400 }
+}
+
+# 1944年 第三批科技 (权重: 2) - 侧重核武、火箭技术、主战坦克及海军巅峰配件
+rance_mod_ai_1944_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1944.1.1
+	}
+	abort = {
+		# 当下列奇迹武器与主战坦克相关科技全部拥有时失效
+		has_tech = atomic_research                                  # 原子能研究
+		has_tech = experimental_rockets                             # 实验性火箭
+		has_tech = sp_rockets_improved_guidance                     # 火箭：改进型制导
+		has_tech = sp_rockets_dual_chamber_rocket_engine_1          # 火箭：双室火箭发动机1
+		has_tech = sp_rockets_rocket_bomber                         # 火箭：火箭轰炸机
+		has_tech = advanced_light_battery                           # 先进轻型舰炮
+		has_tech = advanced_dp_light_battery                        # 先进两用轻型舰炮
+		has_tech = advanced_heavy_battery                           # 先进重型舰炮
+		has_tech = modern_ship_torpedo_launcher                     # 现代舰载鱼雷发射管
+		has_tech = mtg_tank_landing_craft                           # 坦克登陆舰 (MTG)
+		has_tech = sp_standard_tenshioned_replenishment_alongside_method # 标准张力横向补给法
+		has_tech = armor_tech_4                                     # 现代装甲技术
+		has_tech = engine_tech_4                                    # 现代发动机技术
+		has_tech = main_battle_tank_chassis                         # 主战坦克底盘
+		has_tech = sp_armored_lc_weapon_fire_control_tech           # 陆巡：武器火控技术
+	}
+
+	ai_strategy = { type = research_weight_factor id = atomic_research value = 20 }
+	ai_strategy = { type = research_weight_factor id = experimental_rockets value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_rockets_improved_guidance value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_rockets_dual_chamber_rocket_engine_1 value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_rockets_rocket_bomber value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_light_battery value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_dp_light_battery value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_heavy_battery value = 20 }
+	ai_strategy = { type = research_weight_factor id = modern_ship_torpedo_launcher value = 20 }
+	ai_strategy = { type = research_weight_factor id = mtg_tank_landing_craft value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_standard_tenshioned_replenishment_alongside_method value = 20 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_4 value = 20 }
+	ai_strategy = { type = research_weight_factor id = engine_tech_4 value = 20 }
+	ai_strategy = { type = research_weight_factor id = main_battle_tank_chassis value = 20 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_lc_weapon_fire_control_tech value = 20 }
+}
+#----------------------------------------------------------------------------------------------------
+# 日本 AI 科研策略：1945 动态权重管理
+# 逻辑：第一批权重 8 (现代核心与全军支援巅峰)，第二批权重 4 (海空打击最终形态)，第三批权重 2 (末日特殊项目)。
+# 优化：enable 块无 redundant 的 always = yes，对应 V1.17.x 科技树。
+#----------------------------------------------------------------------------------------------------
+
+# 1945年 第一批科技 (权重: 8) - 侧重现代小型机、主战坦克及最高级支援连
+rance_mod_ai_1945_res_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1945.1.1
+	}
+	abort = {
+		# 当下列现代战争核心科技全部研究完成时失效
+		has_tech = modern_small_airframe       # 现代小型机机体
+		has_tech = main_battle_tank_chassis    # 主战坦克底盘
+		has_tech = tech_engineers4             # 先进工程兵4
+		has_tech = tech_recon4                 # 先进侦察4
+		has_tech = tech_field_hospital4        # 先进战地医院4
+		has_tech = tech_logistics_company4     # 先进后勤连4
+	}
+
+	ai_strategy = { type = research_weight_factor id = modern_small_airframe value = 8000 }
+	ai_strategy = { type = research_weight_factor id = main_battle_tank_chassis value = 8000 }
+	ai_strategy = { type = research_weight_factor id = tech_engineers4 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = tech_recon4 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = tech_field_hospital4 value = 8000 }
+	ai_strategy = { type = research_weight_factor id = tech_logistics_company4 value = 8000 }
+}
+
+# 1945年 第二批科技 (权重: 4) - 侧重中大型现代机体、机载机库与火箭轰炸
+rance_mod_ai_1945_res_2 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1945.1.1
+	}
+	abort = {
+		# 当下列先进海空打击科技全部拥有时失效
+		has_tech = modern_medium_airframe      # 现代中型机机体
+		has_tech = modern_large_airframe       # 现代大型机机体
+		has_tech = aerial_hangars              # 航空机库 (模块)
+		has_tech = aa_cannon_3                 # 3型航空机炮
+		has_tech = sp_rockets_improved_rocket_bomber # 改进型火箭轰炸机 (特殊项目)
+	}
+
+	ai_strategy = { type = research_weight_factor id = modern_medium_airframe value = 400 }
+	ai_strategy = { type = research_weight_factor id = modern_large_airframe value = 400 }
+	ai_strategy = { type = research_weight_factor id = aerial_hangars value = 400 }
+	ai_strategy = { type = research_weight_factor id = aa_cannon_3 value = 400 }
+	ai_strategy = { type = research_weight_factor id = sp_rockets_improved_rocket_bomber value = 400 }
+}
+
+# 1945年 第三批科技 (权重: 2) - 侧重火箭动力巅峰与二代夜视技术
+rance_mod_ai_1945_res_3 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		date > 1945.1.1
+	}
+	abort = {
+		# 当下列末日级特殊项目与夜视技术全部拥有时失效
+		has_tech = sp_rockets_dual_chamber_rocket_engine_2 # 双室火箭发动机2
+		has_tech = night_vision2                           # 夜视仪2
+	}
+
+	ai_strategy = { type = research_weight_factor id = sp_rockets_dual_chamber_rocket_engine_2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = night_vision2 value = 20 }
+}
+##专门科研
+##反坦克
+rance_mod_jap_ai_anti_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_completed_focus = JAP_reform_the_army
+	}
+	abort = {
+		has_tech = antitank5
+	}
+	ai_strategy = {
+		type = research_tech
+		id = antitank1
+		value = 8000
+	}
+	ai_strategy = {
+		type = research_tech
+		id = antitank2
+		value = 8000
+	}
+	ai_strategy = {
+		type = research_tech
+		id = antitank3
+		value = 8000
+	}
+	ai_strategy = {
+		type = research_tech
+		id = antitank4
+		value = 8000
+	}
+	ai_strategy = {
+		type = research_tech
+		id = antitank5
+		value = 8000
+	}
+}
+##海军军备计划加急
+rance_mod_jap_naval_armaments_tech = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_completed_focus = JAP_form_the_kido_butai
+	}
+	abort = {
+		has_completed_focus = JAP_naval_armaments_program
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = improved_ship_hull_carrier
+		value = 400
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = improved_ship_hull_cruiser
+		value = 400
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = improved_ship_hull_heavy
+		value = 400
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = improved_ship_hull_light
+		value = 400
+	}
+	
+}
+#海军火控
+rance_mod_japan_no_fire_control = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		NOT = {
+			has_completed_focus = JAP_sea_heavier_naval_guns
+		}
+	}
+	abort = {
+		has_completed_focus = JAP_sea_heavier_naval_guns
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fire_control_methods_1
+		value = -1000
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fire_control_methods_2
+		value = -1000
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fire_control_methods_3
+		value = -1000
+	}
+}
+rance_mod_jap_now_fire_control = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_completed_focus = JAP_sea_heavier_naval_guns
+	}
+	abort = {
+		has_tech = fire_control_methods_3
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fire_control_methods_1
+		value = 20
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fire_control_methods_2
+		value = 20
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fire_control_methods_3
+		value = 20
+	}
+}
+rance_mod_jap_now_sunguan = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_completed_focus = JAP_form_the_kido_butai
+	}
+	abort = {
+		has_tech = damage_control_3
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = damage_control_1
+		value = 400
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = damage_control_2
+		value = 400
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = damage_control_3
+		value = 400
+	}
+}

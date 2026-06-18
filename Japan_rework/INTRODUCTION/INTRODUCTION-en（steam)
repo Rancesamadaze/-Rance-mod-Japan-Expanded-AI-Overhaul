@@ -1,0 +1,76 @@
+[h1]Quick Start[/h1]
+A Japan mod made by a Chinese player who probably drank too much. I like Japanese beer.
+
+This mod adjusts and partly reworks several vanilla Japan routes to make the flow smoother, while adding decision systems, special units, Japanese doctrines, Officer Corps spirits, and a configurable challenge AI.
+
+This mod is designed with all DLC enabled. Missing key DLC may cause errors or broken features.
+
+[h1]Content Expansion[/h1]
+[list]
+[*]Rebalanced focus time, rewards, structure, and mutual exclusivity so the army, navy, and air force can develop more evenly.
+[*]Reworked Japan's MIOs (Military Industrial Organizations) with a more unified layout.
+[*]Added two groups of Japanese special units and dedicated regimental support companies.
+[*]Improved several advisors and zaibatsu company traits.
+[*]Added route-specific Trade, Conscription, Economy, and Occupation Laws, plus faction charters for some factions.
+[*]Added decision series for the Ministry of Colonial Affairs, Ministry of Munitions, Ministry of Commerce and Industry, and Imperial General Headquarters.
+[*]The Imperial General Headquarters decisions provide strategic and landing operations, reduce island-hopping micromanagement, and use surprise-attack mechanics to break defenses.
+[*]More strength control is available through custom game rules.
+[/list]
+
+[h1]AI Enhancement[/h1]
+AI difficulty has six levels: Easy, Normal, Hard, Lunatic, Extra, and Phantasm. Phantasm is unfinished. The naming style is inspired by Touhou Project.
+
+Difficulty mainly changes AI division templates and extra bonuses. Choose a level that fits your own skill and the other mods you use. Even with the default weakened values, this mod is still slightly stronger than vanilla Japan, so a pure vanilla challenge is not recommended; helper mods or other focus-tree expansion mods are better.
+
+The AI's economy management, frontline control, land/naval/air equipment designs, and division templates have been heavily improved, though flaws remain. I am happiest with the production-control and frontline-control systems, especially the multi-front settings. Modders interested in AI behavior are welcome to look at the code.
+
+Not every route has a challenge-ready AI yet. Please check the route list below and select the matching route in custom rules. The historical route is not finished. Before challenging a route, try playing it yourself or watching an observe game, because the AI's scripted strategy depends on its normal expansion flow.
+
+The AI can also serve as a teammate. In completed routes, however, it will not actively join ally wars, so Japan can keep its preemptive-strike mechanics. Please wait for Japan to declare war by itself.
+
+[h1]Routes[/h1]
+[b]Completed:[/b]
+[list]
+[*]Lecture Group route, easter egg: Mao Zedong. This route was mainly made as nostalgia and in-jokes for Chinese players, so foreign players may find it strange.
+[*]Kodoha route, easter egg: Kaguya.
+[/list]
+
+Both completed routes join existing major factions, annex countries, and focus more on large Eurasian land wars. Future routes will add special subject and puppet mechanics.
+
+[b]Planned:[/b]
+[list]
+[*]Labor-Farmer Buddhist State route, easter egg: Byakuren Hijiri.
+[*]Historical route, easter eggs: Daiteikoku characters.
+[*]Democratic route, easter eggs undecided: Sanae Kochiya or the Yorigami Sisters.
+[*]Rance route, a fully fictional new route.
+[/list]
+
+[h1]Basic Environment[/h1]
+To control balance and support some other mods, this mod uses its own gameplay environment. You may feel that industry is more abundant than in vanilla.
+
+I am not familiar with foreign players' usual mod setups, so the numbers may not always fit perfectly. With six difficulties and many custom rules, though, there should usually be a workable challenge setting.
+
+General doctrines, mainly land doctrines, have been simplified and rebalanced to lower overall number inflation and keep major-power doctrine strength closer together.
+
+[h1]Compatibility[/h1]
+For AI challenges, this mod's AI is not compatible with most AI enhancement mods. Special compatibility currently exists only for Rookie's MOD.
+
+If you only want to play Japan yourself, it should work with most mods, except major design-system changes such as naval rework mods. Some functions may still be affected by other mods.
+
+[h1]Anime Content[/h1]
+Anime-style content is one of my main motivations for making this mod. I do not plan to add a switch to hide it, even if it may affect immersion.
+
+[h1]Translation[/h1]
+Because of my limited ability, localization and this mod description are translated with AI assistance. Please leave a comment if you have suggestions for better wording.
+
+[h1]Balance[/h1]
+Numbers still need tuning. Balance is only considered for the default special rules and AI difficulty below Lunatic.
+
+[h1]Reports and Suggestions[/h1]
+I have limited free time and development capacity, so testing is not extensive. Please report problems in the comments and I will fix them when possible.
+
+Suggestions for special advisors, events, mechanics, or other ideas that improve immersion when playing Japan are welcome. Collaboration is welcome too.
+
+Foreign mods are not yet included in the descriptor compatibility list. If you want initial compatibility with a mod, leave a comment; I can add basic descriptor compatibility, but cannot guarantee perfect results.
+
+Development began in late 2025.

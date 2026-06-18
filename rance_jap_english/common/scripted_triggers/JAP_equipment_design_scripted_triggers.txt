@@ -1,0 +1,317 @@
+# Equipment design creation checks.
+# Each trigger checks the lowest design flag for its chassis or equipment family.
+
+# Army vehicle chassis
+JAP_has_cr_medium_tank_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_tank_chassis_1
+    }
+}
+
+JAP_has_cr_medium_tank_destroyer_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_1
+    }
+}
+
+JAP_has_cr_medium_tank_artillery_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_1
+    }
+}
+
+JAP_has_cr_medium_tank_aa_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_tank_aa_chassis_1
+    }
+}
+
+JAP_has_cr_medium_tank_amphibious_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_1
+    }
+}
+
+JAP_has_cr_medium_tank_flame_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_tank_flame_chassis_1
+    }
+}
+
+JAP_has_cr_heavy_tank_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_heavy_tank_chassis_1
+    }
+}
+
+JAP_has_cr_heavy_tank_destroyer_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_1
+    }
+}
+
+JAP_has_cr_heavy_tank_artillery_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_1
+    }
+}
+
+JAP_has_cr_heavy_tank_aa_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_1
+    }
+}
+
+JAP_has_cr_heavy_tank_amphibious_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_1
+    }
+}
+
+JAP_has_cr_modern_tank_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_modern_tank_chassis_1
+    }
+}
+
+JAP_has_cr_modern_tank_destroyer_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_modern_tank_destroyer_chassis_1
+    }
+}
+
+JAP_has_cr_modern_tank_artillery_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_modern_tank_artillery_chassis_1
+    }
+}
+
+JAP_has_cr_modern_tank_aa_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_modern_tank_aa_chassis_1
+    }
+}
+
+JAP_has_cr_land_cruiser_chassis_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_land_cruiser_chassis_1
+    }
+}
+
+# Aircraft airframes
+JAP_has_cr_small_plane_airframe_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_small_plane_airframe_1
+    }
+}
+
+JAP_has_cr_small_plane_cas_airframe_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_small_plane_cas_airframe_1
+    }
+}
+
+JAP_has_cr_cv_small_plane_airframe_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_cv_small_plane_airframe_1
+    }
+}
+
+JAP_has_cr_cv_small_plane_naval_bomber_airframe_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
+    }
+}
+
+JAP_has_cr_medium_plane_fighter_airframe_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_1
+    }
+}
+
+JAP_has_cr_large_plane_maritime_patrol_plane_airframe_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_2
+    }
+}
+
+JAP_has_cr_strat_bomber_intercontinental_equipment_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_strat_bomber_intercontinental_equipment_1
+    }
+}
+
+# Mechanized and special equipment
+JAP_has_cr_mechanized_equipment_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_mechanized_equipment_1
+    }
+}
+
+JAP_has_cr_amphibious_mechanized_equipment_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_amphibious_mechanized_equipment_1
+    }
+}
+
+JAP_has_cr_mothership_equipment_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_mothership_equipment_0
+    }
+}
+
+# Naval hulls
+JAP_has_cr_ship_hull_carrier_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_carrier_1
+    }
+}
+
+JAP_has_cr_ship_hull_escort_carrier_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_escort_carrier
+    }
+}
+
+JAP_has_cr_ship_hull_mega_carrier_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_mega_carrier
+    }
+}
+
+JAP_has_cr_ship_hull_heavy_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_heavy_2
+    }
+}
+
+JAP_has_cr_ship_hull_super_heavy_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_super_heavy_1
+    }
+}
+
+JAP_has_cr_ship_hull_torpedo_cruiser_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_torpedo_cruiser
+    }
+}
+
+JAP_has_cr_ship_hull_cruiser_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_cruiser_2
+    }
+}
+
+JAP_has_cr_ship_hull_light_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_light_2
+    }
+}
+
+JAP_has_cr_ship_hull_cruiser_submarine_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_cruiser_submarine
+    }
+}
+
+JAP_has_cr_ship_hull_fleet_submarine_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_fleet_submarine
+    }
+}
+
+JAP_has_cr_ship_hull_carrier_submarine_design = {
+    JAP = {
+        has_country_flag = JAP_has_cr_ship_hull_carrier_submarine
+    }
+}
+
+# AI template equipment design composite checks
+JAP_has_cr_infantry_tank_template_equipment_design = {
+    JAP_has_cr_medium_tank_chassis_design = yes
+    JAP_has_cr_medium_tank_destroyer_chassis_design = yes
+    JAP_has_cr_medium_tank_artillery_chassis_design = yes
+    JAP_has_cr_medium_tank_aa_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_special_infantry_tank_template_equipment_design = {
+    JAP_has_cr_medium_tank_chassis_design = yes
+    JAP_has_cr_medium_tank_destroyer_chassis_design = yes
+    JAP_has_cr_medium_tank_artillery_chassis_design = yes
+    JAP_has_cr_medium_tank_aa_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_heavy_tank_aa_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_mechanized_tank_template_equipment_design = {
+    JAP_has_cr_mechanized_equipment_design = yes
+    JAP_has_cr_medium_tank_chassis_design = yes
+    JAP_has_cr_medium_tank_destroyer_chassis_design = yes
+    JAP_has_cr_medium_tank_artillery_chassis_design = yes
+    JAP_has_cr_medium_tank_aa_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_heavy_tank_aa_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_amphibious_mechanized_template_equipment_design = {
+    JAP_has_cr_amphibious_mechanized_equipment_design = yes
+    JAP_has_cr_medium_tank_amphibious_chassis_design = yes
+    JAP_has_cr_medium_tank_destroyer_chassis_design = yes
+    JAP_has_cr_medium_tank_artillery_chassis_design = yes
+    JAP_has_cr_medium_tank_aa_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_heavy_tank_aa_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_mechanized_heavy_tank_template_equipment_design = {
+    JAP_has_cr_mechanized_equipment_design = yes
+    JAP_has_cr_heavy_tank_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_heavy_tank_artillery_chassis_design = yes
+    JAP_has_cr_heavy_tank_aa_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_heavy_amphibious_mechanized_template_equipment_design = {
+    JAP_has_cr_amphibious_mechanized_equipment_design = yes
+    JAP_has_cr_heavy_tank_amphibious_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_heavy_tank_artillery_chassis_design = yes
+    JAP_has_cr_heavy_tank_aa_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_land_crushier_template_equipment_design = {
+    JAP_has_cr_amphibious_mechanized_equipment_design = yes
+    JAP_has_cr_heavy_tank_amphibious_chassis_design = yes
+    JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+    JAP_has_cr_heavy_tank_artillery_chassis_design = yes
+    JAP_has_cr_heavy_tank_aa_chassis_design = yes
+    JAP_has_cr_land_cruiser_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_marine_modern_mechanized_tank_template_equipment_design = {
+    JAP_has_cr_amphibious_mechanized_equipment_design = yes
+    JAP_has_cr_modern_tank_chassis_design = yes
+    JAP_has_cr_modern_tank_destroyer_chassis_design = yes
+    JAP_has_cr_modern_tank_artillery_chassis_design = yes
+    JAP_has_cr_modern_tank_aa_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}
+
+JAP_has_cr_land_cruiser_marine_modern_mechanized_tank_template_equipment_design = {
+    JAP_has_cr_amphibious_mechanized_equipment_design = yes
+    JAP_has_cr_modern_tank_chassis_design = yes
+    JAP_has_cr_modern_tank_destroyer_chassis_design = yes
+    JAP_has_cr_modern_tank_artillery_chassis_design = yes
+    JAP_has_cr_modern_tank_aa_chassis_design = yes
+    JAP_has_cr_land_cruiser_chassis_design = yes
+    JAP_has_cr_medium_tank_flame_chassis_design = yes
+}

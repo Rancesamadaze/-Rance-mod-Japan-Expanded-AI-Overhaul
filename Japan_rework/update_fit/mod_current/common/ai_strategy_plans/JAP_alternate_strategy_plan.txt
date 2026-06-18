@@ -1,0 +1,1126 @@
+# JAP_manchukuo_player_historical_plan = {
+# 	name = "Historical Japan Plan for Player manchukuo"
+# 	desc = "Build up manchukuo to help out, otherwise historical"
+
+# 	allowed = {
+# 		original_tag = JAP
+# 	}
+# 	enable = {
+# 		is_historical_focus_on = yes
+# 		MAN = {
+# 			is_ai = no
+# 		}
+# 		has_game_rule = {
+# 			rule = JAP_ai_behavior
+# 			option = DEFAULT
+# 		}
+# 	}
+# 	abort = {
+# 		MAN = {
+# 			NOT = { is_ally_with = JAP }
+# 		}
+# 	}
+
+# 	ai_national_focuses = {
+
+# 		# Do ASAP
+# 		JAP_the_koiso_cabinet # 70 
+# 		JAP_found_the_boeitai # 35 
+# 		JAP_advance_one_hundred_million_fireballs # 70 
+# 		JAP_the_war_has_not_necessarily_developed_focus # 35 
+# 		JAP_the_surrender_broadcast # 70
+
+# 		# 1936
+# 		JAP_ministry_of_commerce_and_industry # 35
+# 		JAP_ministry_of_colonial_affairs # 35
+# 		JAP_promulgate_the_military_ministers_system # 35 - 270 days mission starts here
+# 		JAP_hokushin_ron # 35
+# 		JAP_manchuria_five_year_plan # 35
+# 		JAP_the_imperial_defense_plan # 21
+# 		JAP_expand_kawagoe_army_arsenal # 35
+# 		JAP_establish_showa_aircraft_idnsutry # 35	
+# 		JAP_eastern_road_and_steel_expansion # 35
+# 		JAP_revisit_the_thirteen_demands # 35
+# 		JAP_establish_mongol_military_government # 35
+
+# 		# 1937
+# 		JAP_establish_manchuria_airplane_manufacturing_company # 35
+# 		JAP_construct_the_sui_ho_dam # 35
+# 		JAP_the_harakiri_debate # 14
+# 		JAP_konoes_first_cabinet # 35
+# 		JAP_reinforce_the_beijing_garrison # 70 attack on the 16th of July, 9 days later than historical
+# 		JAP_sea_national_spiritual_mobliization_movement # 35
+# 		JAP_form_the_central_economic_council # 35
+# 		JAP_expand_the_showa_research_association # 70
+# 		JAP_increase_armament_spending # 35
+# 		JAP_imperial_headquarters_liasion_conference # 35
+
+# 		# 1938
+# 		JAP_expand_hiratsuka_navy_arsenal # 35
+# 		JAP_new_order_in_east_asia # 35
+# 		JAP_sea_state_general_mobilization_law # 35
+# 		JAP_enact_religious_organizations_law # 35
+# 		JAP_new_order_movement # 70
+# 		JAP_strategic_offensives # 35
+# 		JAP_sea_guide_the_zaibatsus # 35
+# 		JAP_approach_mitsubishi #70
+
+# 		# 1939
+# 		JAP_rely_on_supremacy_of_the_will # 35
+# 		JAP_enact_the_national_conscription_law # 35
+# 		JAP_approach_yasuda #70(35)
+# 		JAP_fund_the_riken_institute # 70
+# 		JAP_prepare_the_southern_front # 35
+# 		JAP_balanced_naval_approach # 70(35)
+# 		JAP_form_the_great_japan_industrial_patriotic_association # 70
+
+# 		# 1940
+		
+# 		JAP_form_cabinet_intelligence_bureau # 35
+# 		JAP_form_the_kido_butai # 35
+# 		JAP_naval_armaments_program #35
+# 		JAP_reorganize_the_united_autonomous_government # 35
+# 		JAP_invest_in_senbu # 35
+# 		JAP_intensify_anti_guerilla_operations # 35
+# 		JAP_imperial_rule_assistance_association # 35 12th October
+# 		JAP_reorganized_national_government # 35
+# 		JAP_sea_greater_east_asian_co_properity_sphere # 70 June 1940, historically later
+# 		JAP_nanshin_ron # 35
+
+# 		# 1941
+# 		JAP_issue_the_senjinkun_military_code # 35
+# 		JAP_develop_new_fighters # 70
+# 		JAP_mengjiang_united_autonomous_government # 35
+# 		JAP_sea_tripartite_pact # 35 if bypassed, potentially moves later attack dates 35 das forward
+# 		JAP_soviet_japanese_neutrality_pact #35 April 1941
+# 		JAP_demand_tonkinese_bases # 35 September 1941
+# 		JAP_issue_the_shinmin_no_michi_manifesto # 35
+# 		JAP_occupy_indochina # 35
+# 		JAP_sea_pressure_siam # 35
+# 		JAP_strike_the_southern_road # 70
+# 		JAP_unsinkable_aircraft_carriers # 35
+
+# 		# 1942
+# 		JAP_expand_navy_technical_department # 70
+# 		JAP_isolate_oceania # 70 Mai 1942
+# 		JAP_sea_national_defense_state # 70
+# 		JAP_7075_aluminium_alloy # 35
+# 		JAP_escort_efficiency # 35
+# 		JAP_sea_long_operational_range #70 get Longe Range Zeros for the war in the pacific
+
+# 		# 1943
+# 		JAP_formalize_the_tonarigumi # 35
+# 		JAP_ichioku_isshin # 35
+# 		JAP_tojos_premiership # 35
+# 		JAP_modern_bombers # 70
+# 		JAP_develop_the_chinese_resources # 70
+		
+# 		JAP_establish_manchuria_airplane_manufacturing_company # 35
+# 		JAP_approach_sumitomo #70(35)
+# 		JAP_instill_the_spirit_of_bushido # 70
+# 		JAP_fix_flawed_naval_designs # 35
+
+# 		# 1944
+# 		JAP_crackdown_on_foreign_agents # 35
+# 		JAP_build_up_korean_industries # 35
+# 		JAP_army_weapons_administration_headquarters # 70
+# 		JAP_adopt_new_assault_doctrine # 70
+# 		JAP_develop_lethal_infantry_equipment # 70
+# 		JAP_expand_the_irago_proving_ground # 70
+
+# 		# 1945
+# 		JAP_prepare_the_northern_front # 35
+# 		JAP_utilize_ainu_expertise # 35
+# 		JAP_kantokuen # 70
+# 		JAP_establish_synthetic_fuel_joint_venture # 35
+# 		JAP_strenghten_manchukuo_imperial_army # 70
+# 		JAP_the_persimmon_has_ripened # ahistorical attack Soviets really late 
+
+# 	}
+
+# 	ai_strategy = {
+# 		type = support
+# 		id = MAN			
+# 		value = 250
+# 	}
+
+# 	ideas = {
+
+# 		#Spirits of the Army, Airforce and Navy 
+# 		bold_attack_spirit = 5
+# 		tenacious_defense_spirit = 0
+# 		meticulous_preparation_spirit = 0
+# 		best_of_the_best_spirit = 0
+# 		academy_scholarships_spirit = 0
+# 		political_loyalty_spirit = 0.1
+# 		inventive_leadership_spirit = 1
+		
+# 		professional_officer_corps_spirit = 1
+# 		elevated_engineering_corps_spirit = 0
+# 		proper_heritage_spirit = 0
+# 		quick_improvisation_spirit = 0
+# 		state_serves_the_military_spirit = 1
+
+# 		static_warfare_spirit = 0
+# 		flexible_organization_spirit = 1
+# 		aggressive_reconnaisance_spirit = 0
+# 		reserve_officers_spirit = 0
+# 		victory_or_death_spirit = 1
+
+# 	}
+
+# 	# Keep small, as it is used as a factor for some things (such as research needs)
+# 	# Recommended around 1.0. Useful for relation between plans
+# 	weight = {
+# 		factor = 1.0
+# 		modifier = {
+# 			factor = 1.0
+# 		}
+# 	}
+
+# }
+
+# JAP_alternate_plan_communist = {
+# 	name = "Communist Japan Plan"
+# 	desc = "A red sun rises"
+
+# 	allowed = {
+# 		original_tag = JAP
+# 	}
+# 	enable = {
+# 		NOT = {
+# 			has_dlc = "No Compromise, No Surrender"
+# 		}
+# 		OR = {
+# 			has_country_flag = JAP_AI_RANDOM_COMMUNIST
+# 			has_game_rule = {
+# 				rule = JAP_ai_behavior
+# 				option = COMMUNIST
+# 			}
+# 		}
+# 	}
+# 	abort = {
+
+# 	}
+
+# 	ai_national_focuses = {
+# 		JAP_the_unthinkable_option
+# 		JAP_approach_the_young_officers
+# 		JAP_exchange_the_exiles
+# 		JAP_open_up_the_universities
+# 		#JAP_army_expansion_law
+# 		JAP_cast_the_die
+# 		JAP_nationalize_the_zaibatsus
+# 		JAP_red_brigades
+# 		JAP_public_works
+# 		JAP_the_fate_of_the_imperial_family
+# 		JAP_reeducation_campaign
+# 		JAP_rebuild_the_civil_service
+# 		JAP_people_owned_mines
+# 		#JAP_small_arms_modernization
+# 		#JAP_army_expansion
+# 		#JAP_supremacy_of_technology
+# 		#JAP_fighter_modernization
+# 		#JAP_agility_focus
+# 		#JAP_new_naval_estimates
+# 		JAP_communist_volunteers
+# 		JAP_tokyo_aluminum_plant
+# 		#JAP_carrier_warfare_experiments
+# 		#JAP_first_air_fleet
+# 		#JAP_the_zero
+# 		#JAP_unified_fighter_development
+# 		#JAP_expand_the_snlf
+# 		JAP_finish_the_fight
+# 		JAP_asian_communist_solidarity
+# 		#JAP_cruiser_modernization
+# 		#JAP_long_lance_torpedoes
+# 		#JAP_torpedo_cruisers
+# 	}
+
+# 	ideas = {
+
+# 		#Spirits of the Army, Airforce and Navy 
+# 		bold_attack_spirit = 5
+# 		tenacious_defense_spirit = 0
+# 		meticulous_preparation_spirit = 0
+# 		best_of_the_best_spirit = 0
+# 		academy_scholarships_spirit = 0
+# 		political_loyalty_spirit = 0.1
+# 		inventive_leadership_spirit = 1
+		
+# 		professional_officer_corps_spirit = 1
+# 		elevated_engineering_corps_spirit = 0
+# 		proper_heritage_spirit = 0
+# 		quick_improvisation_spirit = 0
+# 		state_serves_the_military_spirit = 1
+
+# 		static_warfare_spirit = 0
+# 		flexible_organization_spirit = 1
+# 		aggressive_reconnaisance_spirit = 0
+# 		reserve_officers_spirit = 0
+# 		victory_or_death_spirit = 1
+
+# 	}
+
+# 	# Keep small, as it is used as a factor for some things (such as research needs)
+# 	# Recommended around 1.0. Useful for relation between plans
+# 	weight = {
+# 		factor = 1.0
+# 		modifier = {
+# 			factor = 1.0
+# 		}
+# 	}
+
+# }
+
+#3讲座派国策
+JAP_alternate_plan_communist_tsr = {
+	name = "Communist Japan Plan"
+	desc = "A red sun rises"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_dlc = "No Compromise, No Surrender"
+		OR = {
+			has_country_flag = JAP_AI_RANDOM_COMMUNIST
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = COMMUNIST
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		#经济1
+		JAP_ministry_of_commerce_and_industry
+		JAP_continue_takahashi_korekiyos_policies
+		# JAP_approach_mitsui
+		#政治1(内战)
+		JAP_secretly_rebuild_the_party
+		JAP_anti_militarist_speeches_in_the_diet
+		JAP_organize_the_student_movements
+		JAP_raise_support_within_the_proletarian_class
+		JAP_seek_yakuza_support
+		JAP_organize_underground_resistance
+		JAP_mountain_village_operation_units
+		JAP_sway_disillusioned_young_officers
+		JAP_return_of_the_manchukuo_exiles
+		JAP_revoke_the_peace_preservation_law
+		#政治2（维稳）
+		JAP_a_red_sun_rises_for_a_new_era
+		JAP_the_lecture_group_ascendant
+		JAP_sea_fate_of_the_imperial_family
+		JAP_the_ie_system_and_socialism
+		JAP_fukumotoism
+		#军事1（基础）
+		JAP_the_imperial_defense_plan
+		JAP_expand_kawagoe_army_arsenal
+		JAP_establish_showa_aircraft_idnsutry
+		#外交1
+		JAP_raise_the_red_flag_high
+		JAP_socialism_in_one_state
+		JAP_reclaim_lost_territories
+		#经济2
+		
+		JAP_fund_the_riken_institute
+		JAP_hold_a_peoples_tribunal
+		JAP_social_and_cultural_revolution
+		JAP_overhaul_the_education_system
+		#外交2
+		JAP_extensive_army_maneuvers
+		JAP_conquer_the_army_remnants
+		
+		
+		#陆军1
+		JAP_reform_the_army
+		JAP_rethink_armor_doctrine
+		JAP_prepare_the_northern_front
+		#外交3
+		JAP_put_an_end_to_chinese_feudalism
+		JAP_the_pacific_union_of_soviet_socialist_republics
+		JAP_cede_leadership_to_mao
+		JAP_jcp_join_the_comintern
+		#外交4
+		JAP_spread_revolutionary_flames_to_south_asia
+		JAP_spread_revolutionary_flames_to_west_asia
+		
+		#陆军2
+		
+		JAP_instill_the_spirit_of_bushido
+		JAP_army_weapons_administration_headquarters
+		JAP_pivot_towards_defensive_measures
+		JAP_foreign_tank_modernization_cooperation
+		JAP_the_ultimate_tank
+
+		#海军1
+		JAP_expand_hiratsuka_navy_arsenal
+		JAP_prepare_the_southern_front
+		JAP_focus_on_aircraft_carriers
+		JAP_form_the_kido_butai
+		JAP_naval_armaments_program
+		
+		
+		#空军1
+		JAP_develop_new_fighters
+		JAP_escort_efficiency
+		JAP_sea_sturdy_aircraft
+		JAP_adopt_new_air_doctrine
+		#外交6
+		JAP_the_indochinese_soviet
+		JAP_the_south_pacific_soviet
+		JAP_the_oceanian_soviet
+		JAP_transformation_of_nature
+		JAP_a_red_dawn_over_asia
+		#政治4
+		JAP_redistribute_land_and_wealth
+		JAP_sea_nationalize_the_zaibatsus
+		JAP_a_functionalist_housing_policy
+		JAP_ganbarou
+		#外交5
+		JAP_soviet_research_exchange
+		JAP_soviet_economic_exchange
+		JAP_dominate_comintern
+		#经济3
+		JAP_ministry_of_colonial_affairs
+		JAP_establish_nippon_hassoden
+		JAP_new_industrial_city_development_policy
+		JAP_establish_housing_corporation
+		JAP_the_five_great_cities
+		JAP_central_agricultural_association
+		JAP_resource_security
+		
+		#海军2
+		JAP_assure_superior_naval_quality
+		JAP_fix_flawed_naval_designs
+		
+		#空军2
+		JAP_sea_unify_the_air_forces
+		JAP_end_the_interservice_rivalry
+		JAP_improved_radio_communications
+		JAP_combined_arms
+		#政治5
+		JAP_further_urban_investments
+		JAP_the_first_five_year_plan
+		JAP_form_pioneer_organizations
+
+
+		##剩下的是后期策略
+		#陆军3
+		JAP_rely_on_supremacy_of_the_will
+		JAP_sea_mountaineers
+		JAP_jungle_adaptation
+		JAP_strenghten_the_supply_lines
+		#海军3
+		JAP_establish_the_mine_warfare_force
+		JAP_seek_strength_in_numbers
+		
+		JAP_secure_the_sea_lanes
+		#空军3
+		JAP_improve_the_type_91_aerial_torpedo
+		JAP_sea_long_operational_range
+		JAP_project_z_bomber_project
+		#海军4
+		JAP_ship_management_committee
+		JAP_yokosuka_naval_air_technical_arsenal
+		JAP_sea_battleship_initiative
+		JAP_sea_heavier_naval_guns
+		JAP_nationalize_suzuka_naval_arsenal
+		JAP_nationalize_fujinagata_shipyards
+		
+		
+		
+		
+
+
+
+		
+
+	}
+
+	ideas = {
+
+		#Spirits of the Army, Airforce and Navy 
+		# bold_attack_spirit = 5
+		# tenacious_defense_spirit = 0
+		# meticulous_preparation_spirit = 0
+		# best_of_the_best_spirit = 0
+		# academy_scholarships_spirit = 0
+		# political_loyalty_spirit = 0.1
+		# inventive_leadership_spirit = 1
+		
+		# professional_officer_corps_spirit = 1
+		# elevated_engineering_corps_spirit = 0
+		# proper_heritage_spirit = 0
+		# quick_improvisation_spirit = 0
+		# state_serves_the_military_spirit = 1
+
+		# static_warfare_spirit = 0
+		# flexible_organization_spirit = 1
+		# aggressive_reconnaisance_spirit = 0
+		# reserve_officers_spirit = 0
+		# victory_or_death_spirit = 1
+		professional_officer_corps_spirit = 5
+		grand_battleplan_army_spirit = 5
+		logistical_focus_spirit = 5
+		instilled_aggression_spirit = 5
+		fleet_interoperability_navy_spirit = 5
+		night_fighting_spirit = 5
+		industry_liasons_spirit = 5
+		centralized_control_spirit = 5
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+JAP_alternate_plan_communist_2_tsr = {
+	name = "The Second Communist Japan Plan"
+	desc = "A red sun rises"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_dlc = "No Compromise, No Surrender"
+		OR = {
+			has_country_flag = JAP_AI_RANDOM_COMMUNIST_2
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = COMMUNIST_2
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+
+		# Do ASAP
+		JAP_a_red_sun_rises_for_a_new_era # 35 
+		JAP_the_labor_farmer_faction_ascendant # 35 
+		JAP_sea_fate_of_the_imperial_family # 70
+		JAP_war_communism # 70
+		JAP_the_courage_to_defend_the_revolution # 35
+		JAP_incorporate_buddhist_socialism # 35
+		JAP_a_free_asia_pacific # 70 
+
+		# If they selected the right path 
+		JAP_kikues_new_model # 35
+		JAP_women_in_industry # 35
+		
+		# 1936
+		JAP_ministry_of_commerce_and_industry # 35
+		JAP_continue_takahashi_korekiyos_policies # 35
+		JAP_seek_yakuza_support # 70
+		JAP_secretly_rebuild_the_party # 70
+		JAP_anti_militarist_speeches_in_the_diet # 35
+		JAP_organize_the_student_movements # 35
+		JAP_raise_support_within_the_proletarian_class # 35
+		JAP_organize_underground_resistance # 35
+
+		# 1937
+		JAP_mountain_village_operation_units # 35
+		JAP_sway_disillusioned_young_officers  #35
+		JAP_return_of_the_manchukuo_exiles # 35
+		JAP_revoke_the_peace_preservation_law # 35
+		JAP_organize_the_fifth_column # 70
+		JAP_the_imperial_defense_plan # 21
+		JAP_expand_kawagoe_army_arsenal # 35
+		JAP_rely_on_supremacy_of_the_will # 35
+		JAP_enact_the_national_conscription_law # 35
+		JAP_establish_showa_aircraft_idnsutry # 35
+
+		# 1938
+		JAP_social_and_cultural_revolution # 35
+		JAP_hold_a_peoples_tribunal # 35
+		JAP_overhaul_the_education_system # 70
+		JAP_a_functionalist_housing_policy # 35
+		JAP_sea_nationalize_the_zaibatsus # 70
+
+		# 1939
+		JAP_cooperate_with_anarchists # 35
+		JAP_the_uno_school_of_economics # 70
+		JAP_form_national_cooperatives # 35
+		JAP_further_rural_investments # 35
+		JAP_adopt_syndicalist_ideas # 70
+		JAP_raise_the_red_flag_high # 35
+		JAP_guide_the_lesser_states # 35
+		JAP_demand_submission_from_breawakay_states # 35
+
+		# 1940
+		JAP_the_pan_asian_revolutionary_front # 35
+		JAP_ignite_the_korean_peninsula # 35
+		JAP_educate_the_peasants # 35
+		JAP_a_common_currency_for_all_of_asia # 35
+		JAP_protect_the_manchurians # 35 
+		JAP_redistribute_land_and_wealth # 35
+		JAP_ganbarou # 70
+
+		# 1941
+		JAP_guide_the_chinese # 35
+		JAP_the_minitry_of_pan_asian_development # 35
+		JAP_development_for_the_undeveloped # 35
+		JAP_a_pan_asian_diet # 70
+
+		# 1942
+		
+
+		# 1943
+
+
+		# 1944
+
+
+		# 1945
+
+	}
+
+	ideas = {
+
+		#Spirits of the Army, Airforce and Navy 
+		bold_attack_spirit = 5
+		tenacious_defense_spirit = 0
+		meticulous_preparation_spirit = 0
+		best_of_the_best_spirit = 0
+		academy_scholarships_spirit = 0
+		political_loyalty_spirit = 0.1
+		inventive_leadership_spirit = 1
+		
+		professional_officer_corps_spirit = 1
+		elevated_engineering_corps_spirit = 0
+		proper_heritage_spirit = 0
+		quick_improvisation_spirit = 0
+		state_serves_the_military_spirit = 1
+
+		static_warfare_spirit = 0
+		flexible_organization_spirit = 1
+		aggressive_reconnaisance_spirit = 0
+		reserve_officers_spirit = 0
+		victory_or_death_spirit = 1
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+JAP_alternate_plan_strike_north = {
+	name = "Neutrality Japan Plan"
+	desc = "Japan pushes north"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		NOT = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+		OR = {
+			has_country_flag = JAP_AI_RANDOM_NEUTRALITY
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = NEUTRALITY
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		
+	
+	}
+
+	ideas = {
+
+		#Spirits of the Army, Airforce and Navy 
+		bold_attack_spirit = 5
+		tenacious_defense_spirit = 0
+		meticulous_preparation_spirit = 0
+		best_of_the_best_spirit = 0
+		academy_scholarships_spirit = 0
+		political_loyalty_spirit = 0.1
+		inventive_leadership_spirit = 1
+		
+		professional_officer_corps_spirit = 1
+		elevated_engineering_corps_spirit = 0
+		proper_heritage_spirit = 0
+		quick_improvisation_spirit = 0
+		state_serves_the_military_spirit = 1
+
+		static_warfare_spirit = 0
+		flexible_organization_spirit = 1
+		aggressive_reconnaisance_spirit = 0
+		reserve_officers_spirit = 0
+		victory_or_death_spirit = 1
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+JAP_alternate_plan_kodoha_tsr = {
+	name = "Neutrality Japan Plan"
+	desc = "Japan pushes north"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_dlc = "No Compromise, No Surrender"
+		OR = {
+			has_country_flag = JAP_AI_RANDOM_NEUTRALITY
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = NEUTRALITY
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		#皇道派
+		# 初期经济建设
+		JAP_ministry_of_commerce_and_industry
+		JAP_continue_takahashi_korekiyos_policies
+		JAP_ministry_of_colonial_affairs
+		JAP_fund_the_riken_institute
+
+		# 皇道派夺权与昭和维新
+		JAP_revere_the_emperor_destroy_the_traitors
+		JAP_establish_the_gunbatsu
+		JAP_grand_army_purge
+		JAP_remove_the_weeds_from_the_crop
+		JAP_sea_the_showa_restoration
+		JAP_embrace_kokutai
+		JAP_indoctrination_in_the_military_academy
+		JAP_subdue_the_kwantung_army
+
+		# 军事起步与华北铺垫
+		JAP_the_imperial_defense_plan
+		JAP_expand_kawagoe_army_arsenal
+		JAP_establish_showa_aircraft_idnsutry
+		JAP_reform_the_army
+		JAP_revisit_the_thirteen_demands
+		JAP_establish_mongol_military_government
+		JAP_reinforce_the_beijing_garrison
+
+		# 皇权巩固与反财阀
+		JAP_empower_the_emperor
+		JAP_ikki_kitas_state_socialist_ideals
+		JAP_oppose_the_zaibatsus
+
+		# 锦旗外交与皇国精神
+		JAP_the_imperial_colors
+		JAP_the_enemy_of_our_enemy
+		JAP_sea_supremacy_of_will
+		JAP_societal_bushido
+		JAP_politicize_the_education_system
+		JAP_the_spirit_of_the_imperial_nation
+		JAP_propagandize_the_nihon_shoki
+		JAP_the_yamato_spirit
+		JAP_kaguya_princess
+		JAP_kaguya_eientei
+
+		# 陆军强化与装甲路线
+		JAP_prepare_the_northern_front
+		JAP_instill_the_spirit_of_bushido
+		JAP_army_weapons_administration_headquarters
+		JAP_rethink_armor_doctrine
+		JAP_foreign_tank_modernization_cooperation
+		JAP_the_ultimate_tank
+		JAP_give_it_your_all_for_the_emperor
+
+		# 初期海空军
+		JAP_develop_new_fighters
+		JAP_expand_hiratsuka_navy_arsenal
+		JAP_prepare_the_southern_front
+		JAP_focus_on_aircraft_carriers
+		JAP_form_the_kido_butai
+		JAP_naval_armaments_program
+
+		#空军二段
+		JAP_escort_efficiency
+		JAP_sea_sturdy_aircraft
+		JAP_adopt_new_air_doctrine
+		JAP_sea_unify_the_air_forces
+		JAP_end_the_interservice_rivalry
+		##南进
+		JAP_nanshin_ron
+		JAP_demand_tonkinese_bases
+		JAP_occupy_indochina
+		JAP_occupy_siam
+		JAP_strike_the_southern_road
+
+		
+		##战时政治线
+		JAP_the_great_spiritual_evil
+		JAP_prepare_for_the_final_war
+		JAP_children_of_the_sun
+		JAP_the_footsteps_of_jimmu
+		JAP_the_jeweled_spear_has_struck
+		
+		##经济线最终阶段
+		JAP_establish_nippon_hassoden
+		JAP_new_industrial_city_development_policy
+		JAP_establish_housing_corporation
+		JAP_the_five_great_cities
+		JAP_central_agricultural_association
+		JAP_resource_security
+		JAP_pivot_towards_defensive_measures
+
+		# 北进决战
+		JAP_hakko_ichiu
+		JAP_a_truly_righteous_army
+		JAP_sonnou_joui
+		JAP_hokushin_ron
+		JAP_utilize_ainu_expertise
+		JAP_kantokuen
+		JAP_a_green_persimmon
+
+		# 后期补点至联合作战
+		JAP_assure_superior_naval_quality
+		JAP_fix_flawed_naval_designs
+		JAP_improved_radio_communications
+		JAP_combined_arms
+		##剩下的是后期随便点的国策
+		JAP_ship_management_committee
+		JAP_nationalize_suzuka_naval_arsenal
+		JAP_supremacy_of_the_kempeitai
+		JAP_sea_mountaineers
+		JAP_jungle_adaptation
+		JAP_modern_bombers
+		JAP_improve_the_type_91_aerial_torpedo
+		JAP_yokosuka_naval_air_technical_arsenal
+		JAP_establish_the_mine_warfare_force
+		JAP_sea_heavier_naval_guns
+		JAP_seek_strength_in_numbers
+		JAP_secure_the_sea_lanes
+		JAP_7075_aluminium_alloy
+		JAP_sea_jet_prototypes
+		JAP_rely_on_supremacy_of_the_will
+		JAP_adopt_new_assault_doctrine
+		JAP_develop_lethal_infantry_equipment
+		JAP_develop_sophisticated_artillery_equipment
+		JAP_expand_the_irago_proving_ground
+		JAP_sea_battleship_initiative
+		JAP_sea_long_operational_range
+		JAP_project_z_bomber_project
+		JAP_the_divine_wind
+		JAP_strenghten_the_supply_lines
+
+	}
+
+	ideas = {
+
+		#Spirits of the Army, Airforce and Navy 
+		bold_attack_spirit = 5
+		tenacious_defense_spirit = 0
+		meticulous_preparation_spirit = 0
+		best_of_the_best_spirit = 0
+		academy_scholarships_spirit = 0
+		political_loyalty_spirit = 0.1
+		inventive_leadership_spirit = 1
+		
+		professional_officer_corps_spirit = 1
+		elevated_engineering_corps_spirit = 0
+		proper_heritage_spirit = 0
+		quick_improvisation_spirit = 0
+		state_serves_the_military_spirit = 1
+
+		static_warfare_spirit = 0
+		flexible_organization_spirit = 1
+		aggressive_reconnaisance_spirit = 0
+		reserve_officers_spirit = 0
+		victory_or_death_spirit = 1
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+JAP_alternate_plan_democratic = {
+	name = "Democracy Japan Plan"
+	desc = "Japan goes democratic"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		NOT = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+		OR = {
+			has_country_flag = JAP_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		JAP_strengthen_civilian_government
+		JAP_research_spending
+		JAP_ally_with_the_zaibatsus
+		JAP_purge_the_militarists
+		JAP_pre_emptive_coup
+		#1937
+		JAP_the_showa_constitution
+		#JAP_army_expansion_law
+		#JAP_new_naval_estimates
+		JAP_rekindle_the_old_alliance
+		JAP_west_pacific_treaty_organization #backup if Britain non-democratic
+		#JAP_cruiser_modernization
+		#1938
+		#JAP_carrier_warfare_experiments
+		#JAP_small_arms_modernization
+		#JAP_supremacy_of_technology
+		#JAP_first_air_fleet
+		#JAP_fighter_modernization
+		#1939
+		#JAP_range_focus
+		#JAP_bomber_modernization
+		#JAP_strategic_bomber_effort
+		JAP_pacific_guardian
+		JAP_the_korean_question
+		#1940
+		#JAP_modern_artillery
+		#JAP_armored_divisions
+		JAP_liberate_manchuria
+		JAP_anti_communist_bulwark
+		JAP_anti_communist_volunteers
+		#1941
+		JAP_ultimate_deterrence
+		#JAP_modern_escorts
+	}
+
+	ideas = {
+
+		#Spirits of the Army, Airforce and Navy 
+		bold_attack_spirit = 5
+		tenacious_defense_spirit = 0
+		meticulous_preparation_spirit = 0
+		best_of_the_best_spirit = 0
+		academy_scholarships_spirit = 0
+		political_loyalty_spirit = 0.1
+		inventive_leadership_spirit = 1
+		
+		professional_officer_corps_spirit = 1
+		elevated_engineering_corps_spirit = 0
+		proper_heritage_spirit = 0
+		quick_improvisation_spirit = 0
+		state_serves_the_military_spirit = 1
+
+		static_warfare_spirit = 0
+		flexible_organization_spirit = 1
+		aggressive_reconnaisance_spirit = 0
+		reserve_officers_spirit = 0
+		victory_or_death_spirit = 1
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+JAP_alternate_plan_democratic_tsr = {
+	name = "Democracy Japan Plan"
+	desc = "Japan goes democratic"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_dlc = "No Compromise, No Surrender"
+		OR = {
+			has_country_flag = JAP_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+
+		# Do ASAP
+
+		JAP_organize_a_general_election # 35
+
+		# These are autocompleted 
+		JAP_rikken_seiyukai_victory # 0
+		JAP_rikken_minseito_victory # 0
+		
+		# 1936
+		JAP_ministry_of_commerce_and_industry # 35
+		JAP_continue_takahashi_korekiyos_policies # 35
+		JAP_build_an_anti_army_coalition # 35
+		JAP_seek_yakuza_support # 70
+		JAP_ensure_cross_party_support # 35
+		JAP_gather_royal_pacifists_support # 35
+		JAP_sway_the_navy_moderates # 35
+		JAP_bribe_generals # 35
+
+		# 1937
+		JAP_expand_the_metropolitan_police # 70
+		JAP_divert_military_funds # 35
+		JAP_ministry_of_colonial_affairs # 35
+		JAP_revoke_the_peace_preservation_law # 35
+		JAP_implement_army_reforms # 70
+		JAP_appoint_new_generals # 35
+		JAP_a_new_take_on_state_shintoism # 70
+
+		# 1938
+		JAP_crush_the_spirit_of_gekokujo # 70
+		JAP_the_imperial_defense_plan # 21 - Should be bypassed 
+		JAP_expand_kawagoe_army_arsenal # 35
+		JAP_reform_the_army # 35
+		JAP_rethink_armor_doctrine # 70
+		JAP_enact_the_national_conscription_law # 35
+		JAP_establish_showa_aircraft_idnsutry # 35
+
+		# 1939
+		
+		# Two Versions Depending on who they picked:
+		# Minseito 
+		JAP_promote_meritocracy # 35
+		JAP_experimental_housing_solutions # 35
+		JAP_minshu_shugi # 35
+		JAP_machida_chuuji_focus # 35
+
+		# Seiyukai 
+		JAP_embrace_amakudari # 35
+		JAP_agricultural_protectionism # 35
+		JAP_minpon_shugi # 35
+		JAP_ichiro_hatoyama_focus # 35
+		JAP_form_the_ldp # 70
+
+		JAP_draft_the_showa_constitution # 35
+		JAP_ensure_civil_liberties # 35
+		JAP_crush_the_internal_factions # 70
+
+		# 1940
+		JAP_democratic_womens_suffrage # 35
+		JAP_launch_the_income_doubling_plan # 35
+		JAP_taiheyo_belt # 70
+		JAP_shinkansen # 70
+		JAP_reform_the_education_system # 70
+		JAP_democratic_research_slot # 70
+
+		# 1941
+		JAP_democratic_women_in_the_workforce # 35
+		JAP_democratic_work_with_the_zaibatsus # 35
+		JAP_lifetime_employment # 35
+		JAP_modernize_agriculture # 35
+		JAP_civilian_nuclear_reactor_investments # 70
+		JAP_democratic_war_with_manchukuo # 70
+		JAP_pursue_international_trade # 35
+		JAP_seek_foreign_investments # 35
+
+		# 1942
+		JAP_democratic_war_with_china # 70
+		JAP_create_greater_east_asian_treaty_organization # 35
+		JAP_closer_ties_with_the_usa # 35
+		JAP_form_greater_east_asian_currency_union # 70
+		JAP_form_greater_east_asian_customs_union # 35
+		JAP_an_integrated_union # 70
+
+		# 1943
+		JAP_free_colonized_asian_countries # 70
+
+		# 1944
+
+
+		# 1945
+
+	}
+
+	ideas = {
+
+		#Spirits of the Army, Airforce and Navy 
+		bold_attack_spirit = 5
+		tenacious_defense_spirit = 0
+		meticulous_preparation_spirit = 0
+		best_of_the_best_spirit = 0
+		academy_scholarships_spirit = 0
+		political_loyalty_spirit = 0.1
+		inventive_leadership_spirit = 1
+		
+		professional_officer_corps_spirit = 1
+		elevated_engineering_corps_spirit = 0
+		proper_heritage_spirit = 0
+		quick_improvisation_spirit = 0
+		state_serves_the_military_spirit = 1
+
+		static_warfare_spirit = 0
+		flexible_organization_spirit = 1
+		aggressive_reconnaisance_spirit = 0
+		reserve_officers_spirit = 0
+		victory_or_death_spirit = 1
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

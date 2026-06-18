@@ -1,0 +1,203 @@
+##日共讲座派法案
+
+JAP_rework_lecture_group_compliance_law = {
+	icon = 17
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = foreign_civilian_oversight
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = JAP_raise_the_red_flag_high
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.3
+		compliance_gain 				= 0.2
+		required_garrison_factor 		= 0.15
+		resistance_damage_to_garrison	= 0.25
+		# local_factories 				= 0.2
+		# local_resources 				= 0.2
+	}
+
+	ai_will_do = {
+		base = 1000
+		modifier = {
+			compliance < 30
+			factor = 10
+		}
+		modifier = {
+			compliance > 29
+			factor = 0.1
+		}
+	}
+}
+
+JAP_rework_lecture_group_infrastructure_law = {
+	icon = 17
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = foreign_civilian_oversight
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = JAP_raise_the_red_flag_high
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.2
+		compliance_gain 				= 0.05
+		required_garrison_factor 		= -0.1
+		# local_factories 				= 0.2
+		# local_resources 				= 0.2
+		state_production_speed_infrastructure_factor = 0.25
+	}
+
+	ai_will_do = {
+		base = 1000
+		modifier = {
+			compliance > 30
+			free_building_slots = {
+				building = infrastructure
+				size > 2
+			}
+			free_building_slots = {
+				building = industrial_complex
+				size > 4
+			}
+			factor = 10
+		}
+		modifier = {
+			OR = {
+				compliance < 31
+				free_building_slots = {
+					building = infrastructure
+					size < 3
+				}
+				free_building_slots = {
+					building = industrial_complex
+					size < 5
+				}
+			}
+			factor = 0.1
+		}
+	}
+}
+JAP_rework_lecture_group_industrial_construction_law = {
+	icon = 17
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = foreign_civilian_oversight
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = JAP_raise_the_red_flag_high
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.2
+		compliance_gain 				= 0.05
+		required_garrison_factor 		= -0.1
+		# local_factories 				= 0.2
+		# local_resources 				= 0.2
+		state_production_speed_buildings_factor = 0.15
+		
+	}
+
+	ai_will_do = {
+		base = 1000
+		modifier = {
+			compliance > 30
+			free_building_slots = {
+				building = infrastructure
+				size < 3
+			}
+			free_building_slots = {
+				building = industrial_complex
+				size > 4
+			}
+			factor = 10
+		}
+		modifier = {
+			OR = {
+				compliance < 31
+				free_building_slots = {
+					building = infrastructure
+					size > 2
+				}
+				free_building_slots = {
+					building = industrial_complex
+					size < 5
+				}
+			}
+			factor = 0.1
+		}
+	}
+}
+JAP_rework_lecture_group_output_law = {
+	icon = 17
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = foreign_civilian_oversight
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = JAP_raise_the_red_flag_high
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.2
+		compliance_gain 				= 0.05
+		required_garrison_factor 		= -0.1
+		local_factories 				= 0.25
+		local_resources 				= 0.2
+	}
+
+	ai_will_do = {
+		base = 1000
+		modifier = {
+			compliance > 30
+			free_building_slots = {
+				building = industrial_complex
+				size < 5
+			}
+			factor = 10
+		}
+		modifier = {
+			OR = {
+				compliance < 31
+				free_building_slots = {
+					building = industrial_complex
+					size > 4
+				}
+			}
+			factor = 0.1
+		}
+	}
+}
+
+JAP_rework_kaguya_industrial_extraction_law = {
+	icon = 17
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = foreign_civilian_oversight
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = JAP_kaguya_princess
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.2
+		compliance_gain 				= 0
+		required_garrison_factor 		= 0.05
+		local_factories 				= 0.3
+		local_resources 				= 0.1
+		local_supplies 					= 0.2
+		recruitable_population 			= 0.015
+	}
+
+	ai_will_do = {
+		base = 2000
+	}
+}

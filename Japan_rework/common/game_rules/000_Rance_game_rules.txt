@@ -1,0 +1,224 @@
+# Japan Rework custom game rules.
+#
+# The rule group for this mod is localized by:
+# RULE_GROUP_RANCE_JAPAN_REWORK
+#
+# Add future rules with:
+#
+# rance_example_rule = {
+# 	name = "RANCE_EXAMPLE_RULE"
+# 	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+#
+# 	default = {
+# 		name = DEFAULT
+# 		text = "RULE_OPTION_DEFAULT"
+# 		desc = "RANCE_EXAMPLE_RULE_DEFAULT_DESC"
+# 		allow_achievements = yes
+# 	}
+# }
+
+rance_japan_return_to_peak = {
+	name = "RANCE_JAPAN_RETURN_TO_PEAK"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_JAPAN_RETURN_TO_PEAK_DISABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_JAPAN_RETURN_TO_PEAK_ENABLED_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_regular_units_to_japan_special_standard = {
+	name = "RANCE_REGULAR_UNITS_TO_JAPAN_SPECIAL_STANDARD"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_REGULAR_UNITS_TO_JAPAN_SPECIAL_STANDARD_DISABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_REGULAR_UNITS_TO_JAPAN_SPECIAL_STANDARD_ENABLED_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_japan_starting_oob = {
+	name = "RANCE_JAPAN_STARTING_OOB"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = MOD_OOB
+		text = "RULE_OPTION_RANCE_JAPAN_STARTING_OOB_MOD"
+		desc = "RANCE_JAPAN_STARTING_OOB_MOD_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = VANILLA_OOB
+		text = "RULE_OPTION_RANCE_JAPAN_STARTING_OOB_VANILLA"
+		desc = "RANCE_JAPAN_STARTING_OOB_VANILLA_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_japan_ai_difficulty = {
+	name = "RANCE_JAPAN_AI_DIFFICULTY"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_IN_GAME"
+		desc = "RANCE_JAPAN_AI_DIFFICULTY_DEFAULT_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = EASY
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_EASY"
+		desc = "Rance_jap_nandu_event.1.d.a"
+		allow_achievements = no
+	}
+
+	option = {
+		name = NORMAL
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_NORMAL"
+		desc = "Rance_jap_nandu_event.2.d.a"
+		allow_achievements = no
+	}
+
+	option = {
+		name = HARD
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_HARD"
+		desc = "Rance_jap_nandu_event.3.d.a"
+		allow_achievements = no
+	}
+
+	option = {
+		name = LUNATIC
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_LUNATIC"
+		desc = "Rance_jap_nandu_event.4.d.a"
+		allow_achievements = no
+	}
+
+	option = {
+		name = EXTRA
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_EXTRA"
+		desc = "Rance_jap_nandu_event.5.d.a"
+		allow_achievements = no
+	}
+
+	option = {
+		name = PHANTASM
+		text = "RULE_OPTION_RANCE_AI_DIFFICULTY_PHANTASM"
+		desc = "Rance_jap_nandu_event.6.d.a"
+		allow_achievements = no
+	}
+}
+
+rance_japan_scripted_landing = {
+	name = "RANCE_JAPAN_SCRIPTED_LANDING"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_JAPAN_SCRIPTED_LANDING_ENABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_JAPAN_SCRIPTED_LANDING_DISABLED_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_japan_ai_boss_mode = {
+	name = "RANCE_JAPAN_AI_BOSS_MODE"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_JAPAN_AI_BOSS_MODE_DISABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_JAPAN_AI_BOSS_MODE_ENABLED_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_japan_player_ai_cheats = {
+	name = "RANCE_JAPAN_PLAYER_AI_CHEATS"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_JAPAN_PLAYER_AI_CHEATS_DISABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_JAPAN_PLAYER_AI_CHEATS_ENABLED_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_japan_ai_land_air_dynamic_supply = {
+	name = "RANCE_JAPAN_AI_LAND_AIR_DYNAMIC_SUPPLY"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_JAPAN_AI_LAND_AIR_DYNAMIC_SUPPLY_ENABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_JAPAN_AI_LAND_AIR_DYNAMIC_SUPPLY_DISABLED_DESC"
+		allow_achievements = no
+	}
+}
+
+rance_japan_ai_navy_dynamic_supply = {
+	name = "RANCE_JAPAN_AI_NAVY_DYNAMIC_SUPPLY"
+	group = "RULE_GROUP_RANCE_JAPAN_REWORK"
+
+	default = {
+		name = ENABLED
+		text = "RULE_OPTION_RANCE_YES"
+		desc = "RANCE_JAPAN_AI_NAVY_DYNAMIC_SUPPLY_ENABLED_DESC"
+		allow_achievements = yes
+	}
+
+	option = {
+		name = DISABLED
+		text = "RULE_OPTION_RANCE_NO"
+		desc = "RANCE_JAPAN_AI_NAVY_DYNAMIC_SUPPLY_DISABLED_DESC"
+		allow_achievements = no
+	}
+}

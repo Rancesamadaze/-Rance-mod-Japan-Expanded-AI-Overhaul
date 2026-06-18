@@ -1,0 +1,29 @@
+ideas = {
+	country = {
+		rance_sp_soeed = {
+			picture  = JAP_advanced_weapons_programs
+			name = rance_sp_speed_name
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				special_project_speed_factor = 1
+			}
+		}
+
+		JAP_us_mainland_invasion_preparation_idea = {
+			picture = generic_naval_invasion
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.25
+				amphibious_invasion = 0.20
+			}
+		}
+	}
+}

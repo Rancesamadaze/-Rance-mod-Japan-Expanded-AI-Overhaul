@@ -1,0 +1,63 @@
+# JAP rework AI PP and XP control strategies.
+# Production strategies were split into domain files:
+# Template strategy: common/ai_strategy/JAP_rework_ai_template.txt
+# Army equipment production strategy: common/ai_strategy/JAP_rework_ai_land_production.txt
+# Air production strategy: common/ai_strategy/JAP_rework_ai_air_production.txt
+# Navy production strategy: common/ai_strategy/JAP_rework_ai_navy_production.txt
+
+operations_JAP_dont_waste_xp = {
+
+	allowed = {
+		original_tag = JAP
+	}
+
+	enable = {
+		always = yes
+	}
+
+	abort = {
+		always = no
+	}
+	#
+	ai_strategy = {
+		type = land_xp_spend_priority
+		id = division_template
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = land_xp_spend_priority
+		id = upgrade_xp_cutoff
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = air_xp_spend_priority
+		id = upgrade_xp_cutoff
+		value = 9999
+	}
+
+	# ai_strategy = {
+	# 	type = navy_xp_spend_priority
+	# 	id = upgrade_xp_cutoff
+	# 	value = 9999
+	# }
+
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = idea
+		value = 100
+	}
+    ai_strategy = {
+		type = pp_spend_priority
+		id = decision
+		value = 100
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = admiral
+		value = 100
+	}
+
+}

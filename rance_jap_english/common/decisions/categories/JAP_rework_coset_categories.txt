@@ -1,0 +1,78 @@
+JAP_rework_coset_categories = {
+
+	icon = GFX_decision_category_JAP_state_shintoism
+	priority = 200
+	allowed = {
+		always = yes
+	}
+	visible = {
+		is_ai = no
+	}
+	available = {
+		
+	} 
+	visible_when_empty = yes
+}
+
+JAP_rework_ai_categories = {
+	icon = GFX_decision_category_JAP_state_shintoism
+	priority = 195
+	allowed = {
+		always = yes
+		tag = JAP
+	}
+	visible = {
+		Rance_is_jap_ai = yes
+	}
+	available = {
+
+	}
+	
+}
+JAP_rework_ai_gov = {
+	icon = GFX_decision_category_JAP_state_shintoism
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		is_ai = yes
+	}
+	available = {
+		is_ai = yes
+	}
+}
+JAP_rework_equipment_designs = {
+	icon = GFX_decision_category_generic_industry
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		OR = {
+			Rance_is_jap_ai = yes
+			has_completed_focus = JAP_the_imperial_defense_plan
+		}
+	}
+	available = {
+		
+	}
+	visible_when_empty = yes
+}
+JAP_rework_for_void_landing_decisions = {
+	icon = GFX_decision_category_JAP_state_shintoism
+		allowed = {
+		tag = JAP
+	}
+	visible = {
+		Rance_is_jap_ai = yes
+	}
+	available = {
+		OR = {
+			is_ai = no
+			Rance_nd_more_than_easy = yes
+		}
+		has_navy_size = {
+			size  > 100
+		}
+	}
+
+}

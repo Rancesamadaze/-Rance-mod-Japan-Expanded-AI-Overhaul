@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"name": "Japan_rework",
+			"path": "."
+		},
+		{
+			"name": "Hearts of Iron IV",
+			"path": "D:/SteamLibrary/steamapps/common/Hearts of Iron IV"
+		},
+		{
+			"name": "rookie_basic",
+			"path": "../rookie_basic"
+		},
+		{
+			"path": "../rookie_ENG"
+		},
+		{
+			"path": "../rookie_GER"
+		},
+		{
+			"path": "../rookie_ITA"
+		},
+		{
+			"path": "../rookie_SOV"
+		},
+		{
+			"path": "D:/hoi4参考mod/钢四MOD写作/参考/帝国军工"
+		},
+		{
+			"path": "../sheep's mod"
+		}
+	],
+	"settings": {}
+}

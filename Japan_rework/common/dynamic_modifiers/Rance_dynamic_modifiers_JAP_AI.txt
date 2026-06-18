@@ -1,0 +1,33 @@
+# Rance_jap_ai_dm = {
+#     icon = GFX_idea_JAP_ai_buff
+	
+#     enable = {
+#         always = yes
+#     }
+    
+#     # 基础科研与生产效率
+#     research_speed_factor = Rance_jai_research_speed_factor
+#     production_factory_start_efficiency_factor = Rance_jai_prod_start_eff_factor
+#     production_factory_efficiency_gain_factor = Rance_jai_prod_eff_gain_factor
+#     production_lack_of_resource_penalty_factor = Rance_jai_res_penalty_factor
+#     industrial_capacity_dockyard = Rance_jai_industrial_capacity_dockyard
+# 	industrial_capacity_factory = Rance_jai_industrial_capacity_factory
+#     # 资源与特种部队
+#     special_forces_cap = Rance_jai_sf_cap
+#     special_forces_cap_flat = Rance_jai_sf_cap_flat
+    
+#     # 建筑速度修正 (注意：rail_way 建议核对是否为 railway，此处按你给出的 key 编写)
+#     production_speed_naval_base_factor = Rance_jai_naval_base_speed_factor
+#     production_speed_air_base_factor = Rance_jai_air_base_speed_factor
+#     production_speed_supply_node_factor = Rance_jai_supply_node_speed_factor
+#     production_speed_rail_way_factor = Rance_jai_rail_way_speed_factor
+#     production_speed_naval_headquarters_factor = Rance_jai_naval_hq_speed_factor
+#     production_speed_anti_air_building_factor = Rance_jai_aa_speed_factor
+#     production_speed_radar_station_factor = Rance_jai_radar_speed_factor
+#     production_speed_rocket_site_factor = Rance_jai_rocket_speed_factor
+#     line_change_production_efficiency_factor = Rance_jai_line_change_eff_factor
+#     army_fuel_consumption_factor = Rance_jai_fuel_cost	 
+#     navy_fuel_consumption_factor = Rance_jai_fuel_cost	 
+#     air_fuel_consumption_factor = Rance_jai_fuel_cost	 
+
+# }

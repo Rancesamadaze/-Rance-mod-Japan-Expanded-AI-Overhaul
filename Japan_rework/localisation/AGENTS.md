@@ -1,0 +1,11 @@
+# Localisation Agents Notes
+
+- Encoding and line-ending rules inherit from the root `AGENTS.md`: localization `.yml` files use UTF-8 with BOM, while this `AGENTS.md` and other general notes use UTF-8 without BOM and LF unless an existing documented exception applies.
+- For English or Japanese work on a localization file that shares a name with a vanilla file, start from a clone of the corresponding vanilla foreign-language file, then compare the vanilla Simplified Chinese file with the mod Simplified Chinese file to identify only the mod-specific additions or changes that must be ported.
+- If a same-name vanilla file differs only because a few script references need changed tooltip text, prefer moving those references to project-owned keys in an existing focus-specific localization file instead of maintaining a full foreign-language clone of the large vanilla file.
+- Preserve existing mod wording and intent when porting differences. Do not overwrite a localized mod line merely because the vanilla baseline has different phrasing.
+- For game terms, UI concepts, equipment, traits, doctrines, buildings, modifiers, and other HOI4 terminology, confirm the established wording in vanilla foreign-language localization or the official wiki before writing. Do not invent a translation from scratch.
+- For culture-specific expressions, historical references, idioms, poems, haiku, religious or political terms, and similar flavor text, verify the accepted translation or romanization with online sources before final wording.
+- For character-related names and titles, first use the project character references required by the root `AGENTS.md`, then verify the correct English or Japanese rendering online when needed.
+- If a phrase is genuinely hard to translate, or translation would seriously damage the expression, especially for idioms, poems, haiku, or stylized Chinese prose, consider preserving the Japanese original or retaining the Chinese text instead of forcing a weak English rendering.
+- Treat `localisation/simp_chinese/JAP_ai_navy_ship_grant_l_simp_chinese.yml` as protected naval meta-effect localization. Do not translate it, create English/Japanese placeholder files for it, or edit its wording during ordinary localization batches; handle it only when the user explicitly starts the dedicated English/Japanese naval meta-effect mod pass.

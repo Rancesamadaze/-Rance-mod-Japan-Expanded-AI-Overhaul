@@ -1,0 +1,848 @@
+JAP_ministry_of_colonial_affairs_decisions = {
+	JAP_manchuria_five_year_plan = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			NOT = { has_completed_focus = JAP_manchuria_five_year_plan }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			OR = {
+				has_subject = MAN
+				any_controlled_state = {
+					is_core_of = MAN
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					has_subject = MAN
+					any_controlled_state = {
+						is_core_of = MAN
+						is_fully_controlled_by = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_manchuria_five_year_plan
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_establish_manchuria_airplane_manufacturing_company = {
+		icon = generic_factory
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_manchuria_five_year_plan
+			NOT = { has_completed_focus = JAP_establish_manchuria_airplane_manufacturing_company }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			OR = {
+				has_subject = MAN
+				any_controlled_state = {
+					is_core_of = MAN
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					has_subject = MAN
+					any_controlled_state = {
+						is_core_of = MAN
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_establish_manchuria_airplane_manufacturing_company
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_eastern_road_and_steel_expansion = {
+		icon = generic_construction
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_manchuria_five_year_plan
+			NOT = { has_completed_focus = JAP_eastern_road_and_steel_expansion }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			328 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			OR = {
+				AND = {
+					527 = {
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+					1028 = {
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				KOR = {
+					is_ally_with = ROOT
+				}
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					328 = {
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				NOT = {
+					OR = {
+						AND = {
+							527 = {
+								state_is_fully_controlled_by_ROOT_or_subject = yes
+							}
+							1028 = {
+								state_is_fully_controlled_by_ROOT_or_subject = yes
+							}
+						}
+						KOR = {
+							is_ally_with = ROOT
+						}
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_eastern_road_and_steel_expansion
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_sea_promote_japanese_settlement = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_eastern_road_and_steel_expansion
+			has_completed_focus = JAP_establish_manchuria_airplane_manufacturing_company
+			NOT = { has_completed_focus = JAP_sea_promote_japanese_settlement }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			715 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			610 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			328 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { 715 = { state_is_fully_controlled_by_ROOT_or_subject = yes } }
+				NOT = { 610 = { state_is_fully_controlled_by_ROOT_or_subject = yes } }
+				NOT = { 328 = { state_is_fully_controlled_by_ROOT_or_subject = yes } }
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_sea_promote_japanese_settlement
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_construct_the_sui_ho_dam = {
+		icon = generic_construction
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_eastern_road_and_steel_expansion
+			has_completed_focus = JAP_establish_manchuria_airplane_manufacturing_company
+			NOT = { has_completed_focus = JAP_construct_the_sui_ho_dam }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			716 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				716 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_construct_the_sui_ho_dam
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_the_shuilikeng_power_plant = {
+		icon = generic_construction
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			NOT = { has_completed_focus = JAP_the_shuilikeng_power_plant }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			524 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				524 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_the_shuilikeng_power_plant
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_improve_agricultural_output = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_the_shuilikeng_power_plant
+			NOT = { has_completed_focus = JAP_improve_agricultural_output }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			524 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				524 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_improve_agricultural_output
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_develop_the_south_seas_mandate = {
+		icon = generic_naval
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			NOT = { has_completed_focus = JAP_develop_the_south_seas_mandate }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			647 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				647 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_develop_the_south_seas_mandate
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_increase_crop_yields = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_develop_the_south_seas_mandate
+			NOT = { has_completed_focus = JAP_increase_crop_yields }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			count_triggers = {
+				amount = 4
+				controls_state = 645
+				controls_state = 648
+				controls_state = 646
+				controls_state = 684
+				controls_state = 647
+				controls_state = 633
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				count_triggers = {
+					amount = 4
+					controls_state = 645
+					controls_state = 648
+					controls_state = 646
+					controls_state = 684
+					controls_state = 647
+					controls_state = 633
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_increase_crop_yields
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_develop_the_chinese_resources = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			has_completed_focus = JAP_reinforce_the_beijing_garrison
+			NOT = { has_completed_focus = JAP_develop_the_chinese_resources }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			has_tech = excavation1
+			605 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			325 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			597 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			614 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			602 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+		}
+		cancel_trigger = {
+			NOT = {
+				has_tech = excavation1
+				605 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				325 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				597 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				614 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				602 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_develop_the_chinese_resources
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_sea_exploit_southern_resource_area = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			has_completed_focus = JAP_nanshin_ron
+			NOT = { has_completed_focus = JAP_sea_exploit_southern_resource_area }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			has_tech = excavation1
+			OR = {
+				333 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				672 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				334 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				1023 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				1024 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				669 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			}
+			336 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			671 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			1021 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+		}
+		cancel_trigger = {
+			NOT = {
+				has_tech = excavation1
+				OR = {
+					333 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					672 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					334 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					1023 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					1024 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					669 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				}
+				336 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				671 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				1021 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_sea_exploit_southern_resource_area
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_sea_establish_the_northern_resource_area = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			OR = {
+				has_completed_focus = JAP_a_green_persimmon
+				has_completed_focus = JAP_the_persimmon_has_ripened
+			}
+			NOT = { has_completed_focus = JAP_sea_establish_the_northern_resource_area }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			has_tech = excavation1
+			564 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			OR = {
+				657 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				408 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				560 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				409 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				has_tech = excavation1
+				564 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				OR = {
+					657 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					408 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					560 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+					409 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_sea_establish_the_northern_resource_area
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_upgrade_the_oriental_development_company = {
+		icon = generic_factory
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_improve_agricultural_output
+			has_completed_focus = JAP_increase_crop_yields
+			NOT = { has_completed_focus = JAP_upgrade_the_oriental_development_company }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_upgrade_the_oriental_development_company
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_build_up_korean_industries = {
+		icon = generic_factory
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			NOT = { has_completed_focus = JAP_build_up_korean_industries }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			OR = {
+				has_subject = KOR
+				any_controlled_state = {
+					is_core_of = KOR
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					has_subject = KOR
+					any_controlled_state = {
+						is_core_of = KOR
+						is_fully_controlled_by = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_build_up_korean_industries
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_increase_agricultural_export = {
+		icon = generic_industry
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_build_up_korean_industries
+			NOT = { has_completed_focus = JAP_increase_agricultural_export }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			OR = {
+				has_subject = KOR
+				any_controlled_state = {
+					is_core_of = KOR
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					has_subject = KOR
+					any_controlled_state = {
+						is_core_of = KOR
+						is_fully_controlled_by = ROOT
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_increase_agricultural_export
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_hydroelectric_dams_in_korea = {
+		icon = generic_construction
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_build_up_korean_industries
+			NOT = { has_completed_focus = JAP_hydroelectric_dams_in_korea }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			1029 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				1029 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_hydroelectric_dams_in_korea
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_prepare_for_peninsular_warfare = {
+		icon = generic_military
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_build_up_korean_industries
+			NOT = { has_completed_focus = JAP_prepare_for_peninsular_warfare }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			OR = {
+				controls_state = 527
+				controls_state = 1028
+				AND = {
+					has_subject = KOR
+					KOR = {
+						OR = {
+							controls_state = 527
+							controls_state = 1028
+						}
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					controls_state = 527
+					controls_state = 1028
+					AND = {
+						has_subject = KOR
+						KOR = {
+							OR = {
+								controls_state = 527
+								controls_state = 1028
+							}
+						}
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_prepare_for_peninsular_warfare
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_establish_the_japanese_korean_army = {
+		icon = generic_military
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_prepare_for_peninsular_warfare
+			NOT = { has_completed_focus = JAP_establish_the_japanese_korean_army }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			OR = {
+				controls_state = 525
+				has_subject = KOR
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					controls_state = 525
+					has_subject = KOR
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_establish_the_japanese_korean_army
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}

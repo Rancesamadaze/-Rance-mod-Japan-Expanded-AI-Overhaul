@@ -1,0 +1,39 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_JAP_ai_buff"
+		texturefile = "gfx/ideas/JAP/JAP_ai_buff.png"
+	}
+	spriteType = {
+		name = "GFX_idea_JAP_axis_economic_integration"
+		texturefile = "gfx/ideas/JAP/JAP_axis_economic_integration.png"
+	}
+	spriteType = {
+		name = "GFX_idea_JAP_comintern_industrial_integration"
+		texturefile = "gfx/ideas/JAP/JAP_comintern_industrial_integration.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_JAP_comintern_mutual_trade"
+		texturefile = "gfx/ideas/JAP/JAP_comintern_mutual_trade.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_JAP_vanguard_of_the_proletariat"
+		texturefile = "gfx/ideas/JAP/JAP_vanguard_of_the_proletariat.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_JAP_kodoha_yamato_spirit_conscription"
+		texturefile = "gfx/ideas/JAP/JAP_kodoha_yamato_spirit_conscription.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_JAP_kaguya_eternity_idea"
+		texturefile = "gfx/ideas/JAP/JAP_kaguya_eternity_idea.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_JAP_kaguya_momentary_idea"
+		texturefile = "gfx/ideas/JAP/JAP_kaguya_momentary_idea.png"
+	}
+}

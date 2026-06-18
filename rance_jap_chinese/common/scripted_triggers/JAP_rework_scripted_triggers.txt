@@ -1,0 +1,360 @@
+#检查难度
+Rance_nd_more_than_easy = {
+	custom_trigger_tooltip = {
+		tooltip = rance_nandu_more_than_easy.tt
+        JAP = {
+            check_variable = {
+		var = variable_rance_nandu
+		value = 1
+		compare = greater_than
+	}
+        }
+	}
+}
+# 判定难度是否大于 Normal (即为 Hard, Lunatic, Extra, Phantasm)
+Rance_nd_more_than_normal = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_more_than_normal.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 2
+                compare = greater_than
+            }
+        }
+    }
+}
+
+# 判定难度是否大于 Hard (即为 Lunatic, Extra, Phantasm)
+Rance_nd_more_than_hard = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_more_than_hard.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 3
+                compare = greater_than
+            }
+        }
+    }
+}
+
+# 判定难度是否大于 Lunatic (即为 Extra, Phantasm)
+Rance_nd_more_than_lunatic = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_more_than_lunatic.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 4
+                compare = greater_than
+            }
+        }
+    }
+}
+
+# 判定难度是否大于 Extra (即为 Phantasm)
+Rance_nd_more_than_extra = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_more_than_extra.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 5
+                compare = greater_than
+            }
+        }
+    }
+}
+
+# 精确判定当前难度是否为 EASY
+Rance_nd_is_easy = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_is_easy.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 1
+                compare = equals
+            }
+        }
+    }
+}
+
+# 精确判定当前难度是否为 NORMAL
+Rance_nd_is_normal = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_is_normal.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 2
+                compare = equals
+            }
+        }
+    }
+}
+
+# 精确判定当前难度是否为 HARD
+Rance_nd_is_hard = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_is_hard.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 3
+                compare = equals
+            }
+        }
+    }
+}
+
+# 精确判定当前难度是否为 LUNATIC
+Rance_nd_is_lunatic = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_is_lunatic.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 4
+                compare = equals
+            }
+        }
+    }
+}
+
+# 精确判定当前难度是否为 EXTRA
+Rance_nd_is_extra = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_is_extra.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 5
+                compare = equals
+            }
+        }
+    }
+}
+
+# 精确判定当前难度是否为 PHANTASM
+Rance_nd_is_phantasm = {
+    custom_trigger_tooltip = {
+        tooltip = rance_nandu_is_phantasm.tt
+        JAP = {
+            check_variable = {
+                var = variable_rance_nandu
+                value = 6
+                compare = equals
+            }
+        }
+    }
+}
+
+# 判定日本国策是否使用重回巅峰标准版奖励
+Rance_jap_return_to_peak_standard = {
+    custom_trigger_tooltip = {
+        tooltip = Rance_jap_return_to_peak_standard.tt
+        has_game_rule = {
+            rule = rance_japan_return_to_peak
+            option = ENABLED
+        }
+    }
+}
+
+#我是日本AI
+Rance_is_jap_ai = {
+    custom_trigger_tooltip = {
+        tooltip = rance_is_jap_ai.tt
+        OR = {
+            is_ai = yes
+            has_game_rule = {
+                rule = rance_japan_player_ai_cheats
+                option = ENABLED
+            }
+        }
+        tag = JAP
+    }
+}
+#判定是否为讲座派路线AI
+Rance_is_jap_lecture_ai = {
+    custom_trigger_tooltip = {
+        tooltip = Rance_is_jap_lecture_ai.tt
+        tag = JAP
+         OR = {
+			has_country_flag = JAP_AI_RANDOM_COMMUNIST
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = COMMUNIST
+			}
+		}
+        is_ai = yes
+    }
+    
+}
+
+#判定是否为皇道派路线AI
+Rance_is_jap_kodoha_ai = {
+    custom_trigger_tooltip = {
+        tooltip = Rance_is_jap_kodoha_ai.tt
+        tag = JAP
+        OR = {
+            has_country_flag = JAP_AI_RANDOM_NEUTRALITY
+            has_game_rule = {
+                rule = JAP_ai_behavior
+                option = NEUTRALITY
+            }
+        }
+        is_ai = yes
+    }
+    
+}
+
+# 判定是否为菜鸟模组国家
+is_rookie_country = {
+    custom_trigger_tooltip = {
+        tooltip = is_rookie_country.tt
+        ROOT = {
+            OR = {
+                tag = GER
+                tag = SOV
+                tag = ITA
+                tag = ENG
+                tag = TUR
+            }
+        }
+    }
+}
+
+# 判定日本政局是否已尘埃落定
+JAP_dust_has_settled = {
+    custom_trigger_tooltip = {
+        tooltip = JAP_dust_has_settled.tt
+        OR = {
+            AND = {
+                has_completed_focus = JAP_okadas_military_purge_speech
+                OR = {
+                    has_completed_focus = JAP_organize_a_general_election
+                    has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
+                }
+            }
+            has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+            has_completed_focus = JAP_sea_purge_the_kodoha_faction
+        }
+    }
+}
+
+# AI template v2 phase checks.
+JAP_ai_template_stage_opening_infantry = {
+    NOT = { has_country_flag = JAP_ai_template_experimental_armor_created }
+    NOT = { has_country_flag = JAP_ai_template_regular_armor_created }
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_experimental_armor = {
+    has_country_flag = JAP_ai_template_experimental_armor_created
+    NOT = { has_country_flag = JAP_ai_template_regular_armor_created }
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_regular_armor_easy = {
+    has_country_flag = JAP_ai_template_regular_armor_created
+    Rance_nd_is_easy = yes
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_regular_armor_normal = {
+    has_country_flag = JAP_ai_template_regular_armor_created
+    Rance_nd_is_normal = yes
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_regular_armor_hard = {
+    has_country_flag = JAP_ai_template_regular_armor_created
+    Rance_nd_is_hard = yes
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_regular_armor_lunatic = {
+    has_country_flag = JAP_ai_template_regular_armor_created
+    Rance_nd_is_lunatic = yes
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_regular_armor_extra = {
+    has_country_flag = JAP_ai_template_regular_armor_created
+    OR = {
+        Rance_nd_is_extra = yes
+        Rance_nd_is_phantasm = yes
+    }
+    NOT = { has_country_flag = JAP_ai_template_land_cruiser_created }
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_land_cruiser = {
+    has_country_flag = JAP_ai_template_land_cruiser_created
+    NOT = { has_country_flag = JAP_ai_land_production_modern_tank_template_created }
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_modern_tank = {
+    has_country_flag = JAP_ai_land_production_modern_tank_template_created
+    NOT = { has_country_flag = JAP_ai_template_modern_land_cruiser_created }
+}
+
+JAP_ai_template_stage_modern_land_cruiser = {
+    has_country_flag = JAP_ai_template_modern_land_cruiser_created
+}
+
+JAP_ai_has_irregular_divisions_to_cleanup = {
+    any_country_division = {
+        OR = {
+            division_has_majority_template = infantry
+            division_has_majority_template = cavalry
+            division_has_majority_template = mountaineers
+            division_has_majority_template = light_armor
+            division_has_majority_template = militia
+            division_has_majority_template = irregular_infantry
+        }
+    }
+}
+
+# Training suppression helpers synced with template phase transitions.
+JAP_ai_template_should_suppress_mechanized_tank = {
+    has_country_flag = JAP_ai_land_production_modern_tank_template_created
+}
+
+JAP_ai_template_should_suppress_amphibious_mechanized = {
+    has_country_flag = JAP_ai_land_production_modern_tank_template_created
+}
+
+JAP_ai_template_should_suppress_mechanized_heavy_tank = {
+    OR = {
+        has_country_flag = JAP_ai_template_land_cruiser_created
+        has_country_flag = JAP_ai_land_production_modern_tank_template_created
+    }
+}
+
+JAP_ai_template_should_suppress_heavy_amphibious_mechanized = {
+    OR = {
+        has_country_flag = JAP_ai_template_land_cruiser_created
+        has_country_flag = JAP_ai_land_production_modern_tank_template_created
+    }
+}
+
+JAP_ai_template_should_suppress_land_crushier = {
+    has_country_flag = JAP_ai_land_production_modern_tank_template_created
+}

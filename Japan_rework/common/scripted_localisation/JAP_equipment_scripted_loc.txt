@@ -1,0 +1,1346 @@
+# Equipment design scripted localisation.
+# Returns the created design level by checking equipment creation flags.
+# Branches are ordered from low to high and lower branches explicitly exclude higher flags.
+
+# 步兵与普通火炮装备
+defined_text = {
+    name = GetJAP_cr_infantry_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = infantry_weapons
+                NOT = {
+                    has_tech = infantry_weapons1
+                    has_tech = improved_infantry_weapons
+                    has_tech = advanced_infantry_weapons
+                }
+            }
+        }
+        localization_key = 0
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = infantry_weapons1
+                NOT = {
+                    has_tech = improved_infantry_weapons
+                    has_tech = advanced_infantry_weapons
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = improved_infantry_weapons
+                NOT = {
+                    has_tech = advanced_infantry_weapons
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = advanced_infantry_weapons
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_artillery_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = gw_artillery
+                NOT = {
+                    has_tech = artillery1
+                    has_tech = artillery4
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = artillery1
+                NOT = {
+                    has_tech = artillery4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = artillery4
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_anti_tank_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = interwar_antitank
+                NOT = {
+                    has_tech = antitank2
+                    has_tech = antitank5
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = antitank2
+                NOT = {
+                    has_tech = antitank5
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = antitank5
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_anti_air_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = interwar_antiair
+                NOT = {
+                    has_tech = antiair2
+                    has_tech = antiair5
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = antiair2
+                NOT = {
+                    has_tech = antiair5
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_tech = antiair5
+            }
+        }
+        localization_key = 3
+    }
+}
+
+# 陆军车辆底盘
+defined_text = {
+    name = GetJAP_cr_heavy_tank_aa_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_2
+                    has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_aa_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_heavy_tank_amphibious_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_2
+                    has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_heavy_tank_artillery_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_2
+                    has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_heavy_tank_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_chassis_2
+                    has_country_flag = JAP_has_cr_heavy_tank_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_heavy_tank_destroyer_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_2
+                    has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_land_cruiser_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_land_cruiser_chassis_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_tank_aa_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_aa_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_aa_chassis_2
+                    has_country_flag = JAP_has_cr_medium_tank_aa_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_aa_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_aa_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_aa_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_tank_amphibious_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_2
+                    has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_tank_artillery_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_2
+                    has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_artillery_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_tank_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_chassis_0
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_chassis_1
+                    has_country_flag = JAP_has_cr_medium_tank_chassis_2
+                    has_country_flag = JAP_has_cr_medium_tank_chassis_3
+                }
+            }
+        }
+        localization_key = 0
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_chassis_2
+                    has_country_flag = JAP_has_cr_medium_tank_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_tank_destroyer_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_2
+                    has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_tank_flame_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_flame_chassis_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_tank_flame_chassis_2
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_tank_flame_chassis_2
+            }
+        }
+        localization_key = 2
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_modern_tank_aa_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_modern_tank_aa_chassis_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_modern_tank_artillery_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_modern_tank_artillery_chassis_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_modern_tank_destroyer_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_modern_tank_destroyer_chassis_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_modern_tank_chassis
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_modern_tank_chassis_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+# 航空器机体
+defined_text = {
+    name = GetJAP_cr_cv_small_plane_airframe
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_cv_small_plane_airframe_2
+                    has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                    has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                    has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
+            }
+        }
+        localization_key = 4
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_cv_small_plane_naval_bomber_airframe
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
+                    has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                    has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                    has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
+            }
+        }
+        localization_key = 4
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_large_plane_maritime_patrol_plane_airframe
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_3
+                    has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_4
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_4
+            }
+        }
+        localization_key = 4
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_medium_plane_fighter_airframe
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_2
+                    has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_3
+                    has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_4
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_3
+                    has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_4
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_medium_plane_fighter_airframe_4
+            }
+        }
+        localization_key = 4
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_small_plane_airframe
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_airframe_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_airframe_2
+                    has_country_flag = JAP_has_cr_small_plane_airframe_3
+                    has_country_flag = JAP_has_cr_small_plane_airframe_4
+                    has_country_flag = JAP_has_cr_small_plane_airframe_5
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_airframe_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_airframe_3
+                    has_country_flag = JAP_has_cr_small_plane_airframe_4
+                    has_country_flag = JAP_has_cr_small_plane_airframe_5
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_airframe_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_airframe_4
+                    has_country_flag = JAP_has_cr_small_plane_airframe_5
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_airframe_4
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_airframe_5
+                }
+            }
+        }
+        localization_key = 4
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_airframe_5
+            }
+        }
+        localization_key = 5
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_small_plane_cas_airframe
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_cas_airframe_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_2
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_3
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_4
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_5
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_cas_airframe_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_3
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_4
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_5
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_cas_airframe_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_4
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_5
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_cas_airframe_4
+                NOT = {
+                    has_country_flag = JAP_has_cr_small_plane_cas_airframe_5
+                }
+            }
+        }
+        localization_key = 4
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_small_plane_cas_airframe_5
+            }
+        }
+        localization_key = 5
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_strat_bomber_intercontinental_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_strat_bomber_intercontinental_equipment_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+# 机动与特殊装备
+defined_text = {
+    name = GetJAP_cr_amphibious_mechanized_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_amphibious_mechanized_equipment_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_amphibious_mechanized_equipment_2
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_amphibious_mechanized_equipment_2
+            }
+        }
+        localization_key = 2
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_mechanized_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_mechanized_equipment_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_mechanized_equipment_2
+                    has_country_flag = JAP_has_cr_mechanized_equipment_3
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_mechanized_equipment_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_mechanized_equipment_3
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_mechanized_equipment_3
+            }
+        }
+        localization_key = 3
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_mothership_equipment
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_mothership_equipment_0
+            }
+        }
+        localization_key = 0
+    }
+}
+
+# 海军舰体
+defined_text = {
+    name = GetJAP_cr_ship_hull_carrier
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_carrier_1
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_carrier_2
+                    has_country_flag = JAP_has_cr_ship_hull_carrier_3
+                    has_country_flag = JAP_has_cr_ship_hull_carrier_modern
+                }
+            }
+        }
+        localization_key = 1
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_carrier_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_carrier_3
+                    has_country_flag = JAP_has_cr_ship_hull_carrier_modern
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_carrier_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_carrier_modern
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_carrier_modern
+            }
+        }
+        localization_key = modern
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_carrier_submarine
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_carrier_submarine
+            }
+        }
+        localization_key = carrier_submarine
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_cruiser
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_cruiser_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_cruiser_3
+                    has_country_flag = JAP_has_cr_ship_hull_cruiser_4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_cruiser_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_cruiser_4
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_cruiser_4
+            }
+        }
+        localization_key = 4
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_cruiser_submarine
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_cruiser_submarine
+            }
+        }
+        localization_key = cruiser_submarine
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_escort_carrier
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_escort_carrier
+            }
+        }
+        localization_key = escort_carrier
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_fleet_submarine
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_fleet_submarine
+            }
+        }
+        localization_key = fleet_submarine
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_heavy
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_heavy_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_heavy_3
+                    has_country_flag = JAP_has_cr_ship_hull_heavy_4
+                    has_country_flag = JAP_has_cr_ship_hull_heavy_modern
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_heavy_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_heavy_4
+                    has_country_flag = JAP_has_cr_ship_hull_heavy_modern
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_heavy_4
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_heavy_modern
+                }
+            }
+        }
+        localization_key = 4
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_heavy_modern
+            }
+        }
+        localization_key = modern
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_light
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_light_2
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_light_3
+                    has_country_flag = JAP_has_cr_ship_hull_light_4
+                }
+            }
+        }
+        localization_key = 2
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_light_3
+                NOT = {
+                    has_country_flag = JAP_has_cr_ship_hull_light_4
+                }
+            }
+        }
+        localization_key = 3
+    }
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_light_4
+            }
+        }
+        localization_key = 4
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_mega_carrier
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_mega_carrier
+            }
+        }
+        localization_key = mega_carrier
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_super_heavy
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_super_heavy_1
+            }
+        }
+        localization_key = 1
+    }
+}
+
+defined_text = {
+    name = GetJAP_cr_ship_hull_torpedo_cruiser
+    
+    text = {
+        trigger = {
+            JAP = {
+                has_country_flag = JAP_has_cr_ship_hull_torpedo_cruiser
+            }
+        }
+        localization_key = torpedo_cruiser
+    }
+}

@@ -1,0 +1,479 @@
+leader_traits = {
+
+	# --- 独立化后的原 JAP 专用特质 ---
+
+	JAP_custom_mitsubishi_president = {
+		random = no
+		sprite = 13
+		political_power_factor = -0.05
+		production_speed_dockyard_factor = 0.075
+		production_speed_arms_factory_factor = 0.075
+		industrial_capacity_factory = 0.075
+		industrial_capacity_dockyard = 0.075
+	}
+	JAP_custom_mitsubishi_president_2 = {
+		random = no
+		sprite = 13
+		#political_power_factor = -0.05
+		production_speed_dockyard_factor = 0.1
+		production_speed_arms_factory_factor = 0.1
+		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
+	}
+	JAP_custom_jnr_president = {
+		random = no
+		sprite = 13 
+		supply_node_range = 0.1
+		production_speed_rail_way_factor = 1
+		production_speed_supply_node_factor = 1
+	}
+
+	JAP_custom_riken_director = {
+		random = no
+		sprite = 13 
+		research_speed_factor = 0.1
+	}
+
+	JAP_custom_financial_genius = {
+		random = no
+		sprite = 13 
+		consumer_goods_factor = -0.2
+		production_speed_industrial_complex_factor = 0.15
+		industrial_capacity_factory = -0.05
+		industrial_capacity_dockyard = -0.05
+		production_speed_dockyard_factor = -0.05
+		production_speed_arms_factory_factor = -0.05
+	}
+
+	JAP_okinori_kaya_trait = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.2
+		economy_cost_factor = -0.2
+		political_power_factor = 0.05
+	}
+
+	# --- 独立化的通用特质 (已重命名为 JAP 专用 ID) ---
+
+	# 原 devoted_communist -> 赤色革命先锋
+	JAP_custom_devoted_revolutionary = {
+		random = no
+		sprite = 13
+		industrial_capacity_factory = 0.1
+		resistance_activity = -0.1
+		compliance_gain = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# 原 naval_architect -> 帝国海军造船官
+	JAP_custom_naval_architect = {
+		sprite = 10
+		random = no
+		production_speed_dockyard_factor = 0.15
+		production_speed_fuel_silo_factor = 0.1
+		production_speed_naval_base_factor = 0.1
+		production_speed_naval_headquarters_factor = 0.1
+		production_speed_naval_supply_hub_factor = 0.1
+		industrial_capacity_dockyard = 0.1
+		ai_will_do = { factor = 1 }
+	}
+
+	# 原 civilian_airway_company -> 航空先驱
+	JAP_custom_civil_aviation_pioneer = {
+		random = no
+		supply_combat_penalties_on_core_factor = -0.15
+		air_range_factor = 0.1
+		supply_node_range = 0.1
+		equipment_bonus = {
+			transport_plane_equipment = { instant = yes build_cost_ic = -0.15 }
+			mio_cat_eq_all_small_plane = { instant = yes build_cost_ic = -0.10 }
+			mio_cat_eq_all_medium_plane = { instant = yes build_cost_ic = -0.10 }
+			mio_cat_eq_all_large_plane = { instant = yes build_cost_ic = -0.10 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	# 原 industrial_conglomerate -> 国家产业综合体
+	JAP_custom_industrial_conglomerate = {
+		random = no
+		political_power_factor = -0.1
+		production_speed_buildings_factor = 0.15
+		ai_will_do = { factor = 1 }
+	}
+
+	# 原 armament_zaibatsu -> 帝国军需财阀
+	JAP_custom_armament_zaibatsu = {
+		random = no
+		political_power_factor = -0.1
+		production_speed_dockyard_factor = 0.1
+		production_speed_arms_factory_factor = 0.1
+		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
+		ai_will_do = { factor = 1 }
+	}
+
+	# 原 mining_zaibatsu -> 帝国矿业财阀
+	JAP_custom_mining_zaibatsu = {
+		random = no
+		political_power_factor = -0.1
+		local_resources_factor = 0.15
+		production_factory_max_efficiency_factor = 0.15
+		production_factory_start_efficiency_factor = 0.2
+		ai_will_do = { factor = 1 }
+	}
+	#佐佐木
+		JAP_kozo_the_ogre_trait_rework_trait = {
+    random = no
+    sprite = 13
+    political_power_factor = 0.25
+    conscription_factor = 0.1
+    communism_drift = 0.2
+	stability_factor = 0.15
+ }
+#松冈
+	COG_trade_unionist_J_rework_trait = { 
+	random = no
+	sprite = 10 
+	
+	# 核心效果更新
+	communism_drift = 0.1
+	production_factory_max_efficiency_factor = 0.15
+	production_lack_of_resource_penalty_factor = -0.2
+ }
+#斯大林特工
+	HUN_stalinist_agent_J_rework_trait = {
+	random = no
+	sprite = 15
+	
+	# 修改后的防御与槽位数值
+	intelligence_agency_defense = 0.2
+	operative_slot = 2
+	
+	# 新增的效果项
+	operation_outcome = 0.25
+	own_operative_detection_chance = -15
+	own_operative_detection_chance_factor = -0.15
+	intel_network_gain_factor = 0.15 
+}
+##福本
+JAP_marxist_theoretician_J_rework_trait = {
+	random = no
+	sprite = 13
+
+	# 强化后的各项修正数值
+	political_power_factor = 0.10
+	research_speed_factor = 0.075
+	consumer_goods_factor = -0.15
+	communism_drift = 0.15
+	ai_will_do = {
+		factor = 1
+	}
+}
+##小川乡太郎
+JAP_gotaro_ogawa_trait = {
+	random = no
+	sprite = 13
+	production_speed_industrial_complex_factor = 0.15
+	research_speed_factor = 0.075
+	ai_will_do = {
+		factor = 1
+	}
+}
+##柳川平助
+JAP_heisuke_yanagawa_trait = {
+	random = no
+	sprite = 13
+	army_org_factor = 0.075
+	army_morale_factor = 0.075
+	war_support_factor = 0.075
+	ai_will_do = {
+		factor = 1
+	}
+}
+##(高野实？)
+veteran_trade_unionist_J_rework_trait = {
+	random = no
+	sprite = 13
+	
+	# 修改后的工厂产出与建筑速度
+	industrial_capacity_factory = 0.10
+	production_speed_buildings_factor = 0.10
+	
+	# 修改后的稳定度与政治点修正
+	stability_factor = 0.1
+	political_power_factor = -0.05
+	ai_will_do = {
+		factor = 1
+	}
+}
+jap_custom_zaibatsu_bank = {
+	random = no
+	ai_will_do = { factor = 1 }
+}
+#计划经济委员会
+JAP_communism_central_committe = {
+	random = no
+	ai_will_do = { factor = 1}
+	production_speed_buildings_factor = 0.1
+	industrial_capacity_factory = 0.05
+	industrial_capacity_dockyard = 0.05
+	production_factory_max_efficiency_factor = 0.1
+	production_factory_efficiency_gain_factor = -0.05
+	consumer_goods_factor = -0.1
+}
+#魅魔特质
+JAP_rework_mimo_trait = {
+	random = no
+	sprite = 14
+	automatic_grant_medal_chance = 0.5
+	experience_gain_army_unit_factor = 0.25
+}
+#利克特质
+JAP_rework_lik_trait = {
+	random = no
+	sprite = 7
+	army_attack_factor = 0.1
+	army_attack_speed_factor = 0.1
+	experience_gain_army = 0.4
+}
+#葛特巴特质
+JAP_rework_goteborg_trait = {
+	random = no
+	sprite = 9
+	army_defence_factor = 0.1
+	max_dig_in = 5
+	experience_gain_army = 0.4
+}
+#乌鲁泽特质
+JAP_rework_uruz_trait = {
+	random = no
+	sprite = 5
+	max_planning = 0.1
+	planning_speed = 0.15
+}
+#玛利亚特质
+JAP_rework_maria_trait = {
+	random = no
+	sprite = 8
+	army_armor_attack_factor = 0.15
+	army_armor_defence_factor = 0.15			
+}
+#射命丸文特质
+JAP_rework_aya_trait = {
+	random = no
+	sprite = 1
+	experience_gain_air = 0.4
+	air_superiority_efficiency = 0.1
+	air_maximum_speed_factor = 0.1
+}
+#天子特质
+JAP_rework_tianzi_trait = {
+	random = no
+	sprite = 1
+	experience_gain_air = 0.4
+	air_weather_penalty = -0.2
+	navy_weather_penalty = -0.2
+}
+#博丽灵梦特质
+JAP_rework_reimu_trait = {
+	random = no
+	sprite = 1
+	air_cas_present_factor = 0.1
+	army_bonus_air_superiority_factor = 0.1
+	enemy_army_bonus_air_superiority_factor = -0.1
+}
+#灵乌路空特质
+JAP_rework_akong_trait = {
+	random = no
+	sprite = 1
+	air_strategic_bomber_bombing_factor = 0.25
+	ground_attack_factor = 0.15
+	air_attack_factor = 0.05
+}
+#雾雨魔理沙特质
+JAP_rework_marisa_trait = {
+	random = no
+	sprite = 3
+	navy_capital_ship_attack_factor = 0.15
+	navy_capital_ship_defence_factor = 0.15
+	navy_screen_attack_factor = 0.15
+	navy_screen_defence_factor = 0.15
+	experience_gain_navy = 0.40
+	#数值与原版舰队决战奇才相同
+}
+#爱丽丝·玛格特罗伊德特质
+JAP_rework_alice_trait = {
+	random = no
+	sprite = 4
+	navy_carrier_air_attack_factor = 0.1
+	navy_carrier_air_targetting_factor = 0.05
+	naval_strike_targetting_factor = 0.05
+	navy_carrier_air_agility_factor = 0.15
+	experience_gain_navy = 0.40
+	#微调自原版海军航空
+}
+#蕾蒂雅·阿道夫
+JAP_rework_retia_trait = {
+	random = no
+	sprite = 3
+	navy_capital_ship_attack_factor = 0.15
+	navy_capital_ship_defence_factor = 0.15
+	#对标原版主力舰作战
+}
+#卡特琳
+JAP_rework_catlin_trait = {
+	random = no
+	sprite = 3
+	navy_screen_attack_factor = 0.15
+	navy_screen_defence_factor = 0.2
+}
+
+#征酱：烈焰升腾客串超级AI
+JAP_rework_changzheng_political_super_ai_trait = {
+	random = no
+	sprite = 13
+
+	political_power_gain = 2
+	political_power_factor = 0.5
+	stability_factor = 0.3
+	war_support_factor = 0.3
+	stability_weekly = 0.05
+	war_support_weekly = 0.05
+	compliance_gain = 0.3
+	resistance_activity = -0.3
+	communism_drift = 0.25
+	drift_defence_factor = 0.5
+	intelligence_agency_defense = 2
+	enemy_operative_detection_chance_factor = 0.5
+	enemy_operative_capture_chance_factor = 0.5
+	ai_will_do = { factor = 1 }
+}
+
+JAP_rework_changzheng_industrial_super_ai_trait = {
+	random = no
+	sprite = 15
+
+	research_speed_factor = 0.25
+	consumer_goods_factor = -0.2
+	production_speed_buildings_factor = 0.25
+	industrial_capacity_factory = 0.5
+	industrial_capacity_dockyard = 0.5
+	production_factory_max_efficiency_factor = 0.25
+	production_factory_efficiency_gain_factor = 0.5
+	factory_energy_consumption = -0.5
+	ai_will_do = { factor = 1 }
+}
+
+JAP_rework_changzheng_military_super_ai_trait = {
+	random = no
+	sprite = 14
+
+	army_attack_factor = 0.25
+	army_defence_factor = 0.25
+	army_core_attack_factor = 0.15
+	army_core_defence_factor = 0.15
+	army_org_factor = 0.2
+	army_morale_factor = 0.2
+	army_speed_factor = 0.1
+	planning_speed = 0.25
+	max_planning = 0.25
+	supply_consumption_factor = -0.3 
+
+	air_mission_efficiency = 0.3
+	air_superiority_efficiency = 0.25
+	air_range_factor = 0.25
+	navy_org_factor = 0.25
+	naval_damage_factor = 0.25
+	naval_defense_factor = 0.25
+	naval_speed_factor = 0.2
+	navy_visibility = -0.2
+
+	ai_will_do = { factor = 1 }
+}
+
+#辉夜：月之公主
+JAP_rework_kaguya_lunar_princess_trait = {
+	random = no
+	sprite = 13
+
+	compliance_gain = 0.2
+	political_power_gain = 0.25
+	war_support_factor = 0.15
+	stability_weekly = 0.05
+	generate_wargoal_tension = -0.5
+	subversive_activites_upkeep = -0.5
+}
+
+#辉夜：五个难题神宝
+JAP_rework_kaguya_brilliant_dragon_bullet_trait = {
+	random = no
+	sprite = 13
+	naval_damage_factor = 0.1
+	industrial_capacity_dockyard = 0.1
+	ai_will_do = { factor = 1 }
+}
+
+JAP_rework_kaguya_buddhist_diamond_trait = {
+	random = no
+	sprite = 13
+	consumer_goods_factor = -0.1
+	production_factory_max_efficiency_factor = 0.1
+	ai_will_do = { factor = 1 }
+}
+
+JAP_rework_kaguya_salamander_shield_trait = {
+	random = no
+	sprite = 13
+	army_defence_factor = 0.075
+	ai_will_do = { factor = 1 }
+}
+
+JAP_rework_kaguya_life_spring_infinity_trait = {
+	random = no
+	sprite = 13
+	supply_consumption_factor = -0.1
+	supply_node_range = 0.15
+	ai_will_do = { factor = 1 }
+}
+
+JAP_rework_kaguya_hourai_jewel_branch_trait = {
+	random = no
+	sprite = 13
+	air_superiority_efficiency = 0.1
+	ai_will_do = { factor = 1 }
+}
+
+#永琳：月之头脑
+JAP_rework_erin_trait = {
+	random = no
+	sprite = 13
+
+	production_factory_max_efficiency_factor = 0.15
+	research_speed_factor = 0.1
+	experience_loss_factor = -0.33
+}
+
+#铃仙：理论顾问占位特质
+JAP_rework_reisen_trait = {
+	random = no
+	sprite = 15
+
+	initiative_factor = 0.1
+	coordination_bonus = 0.1
+	experience_gain_army_unit_factor = 0.15
+	intelligence_agency_defense = 6
+}
+
+#帝：高层军事顾问占位特质
+JAP_rework_tewi_trait = {
+	random = no
+	sprite = 3
+
+	naval_hit_chance = 0.15
+	critical_receive_chance = -0.1
+	naval_critical_score_chance_factor = 0.1
+}
+
+}

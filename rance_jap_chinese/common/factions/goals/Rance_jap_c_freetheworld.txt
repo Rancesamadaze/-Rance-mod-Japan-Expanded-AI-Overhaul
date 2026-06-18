@@ -1,0 +1,55 @@
+rance_jap_c_freeworld = {
+	name = rance_jap_c_freeworld_name
+	description = rance_jap_c_freeworld_desc
+	is_manifest = yes
+	ratio_progress = {
+		total_amount_collection = game:all_states
+		completed_amount_collection = collection:Rance_States_owned_by_c
+		scale = {
+			stability_factor = 0.15
+			war_support_factor = 0.15
+			political_power_factor = 0.15
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1 
+			subversive_activites_upkeep = -1
+		}
+		progress_sections = {
+			rance_com_fg_ps_1 = {
+				max = 0.33
+				modifier = {
+					army_core_attack_factor = 0.1
+					supply_combat_penalties_on_core_factor = -0.1
+					army_core_defence_factor = 0.1
+					resistance_target_on_our_occupied_states = 0.2
+					resistance_growth_on_our_occupied_states = 0.2
+					resistance_decay_on_our_occupied_states = -0.2
+				}
+			}
+			rance_com_fg_ps_2 = {
+				min = 0.33
+				max = 0.66
+				modifier = {
+					compliance_gain = 0.05
+					industrial_capacity_factory = 0.05
+					industrial_capacity_dockyard = 0.05 
+				}
+			}
+			rance_com_fg_ps_3 = {
+				min=0.66
+				modifier = {
+					compliance_gain = 0.1
+					industrial_capacity_factory = 0.1
+					industrial_capacity_dockyard = 0.1
+				}
+			}
+			rance_com_fg_ps_4 = {
+				min = 0.8
+				modifier = {
+					supply_node_range = 0.15
+					army_attack_against_major_factor = 0.1        
+                    army_defence_against_major_factor = 0.1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,4130 @@
+# JAP AI land production scripted triggers
+
+# Expected scope: JAP country scope
+# Current production model has two modes:
+# - Expansion mode uses stockpile_ratio, i.e. stockpile / used equipment, where used includes deployed and training equipment.
+# - Replenishment mode uses deployed-army fill ratio: (stockpile / 1000 + equipment in armies k) / (target equipment in armies k + 0.01).
+
+# Replenishment mode gating: only high_demand equipment that is valid for current difficulty/design/stage participates.
+
+JAP_ai_land_production_infantry_equipment_is_effective_high_demand = {
+	always = yes
+}
+
+JAP_ai_land_production_mechanized_equipment_is_effective_high_demand = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_mechanized_equipment_design = yes
+}
+
+JAP_ai_land_production_amphibious_mechanized_equipment_is_effective_high_demand = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_amphibious_mechanized_equipment_design = yes
+}
+
+JAP_ai_land_production_medium_tank_chassis_is_effective_high_demand = {
+	JAP_has_cr_medium_tank_chassis_design = yes
+}
+
+JAP_ai_land_production_heavy_tank_chassis_is_effective_high_demand = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_chassis_design = yes
+}
+
+JAP_ai_land_production_modern_tank_chassis_is_effective_high_demand = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+}
+
+JAP_ai_land_production_medium_tank_amphibious_chassis_is_effective_high_demand = {
+	Rance_nd_more_than_normal = yes
+	JAP_has_cr_medium_tank_amphibious_chassis_design = yes
+}
+
+JAP_ai_land_production_heavy_tank_amphibious_chassis_is_effective_high_demand = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_amphibious_chassis_design = yes
+}
+
+JAP_ai_land_production_land_cruiser_chassis_is_effective_high_demand = {
+	Rance_nd_more_than_lunatic = yes
+	JAP_has_cr_land_cruiser_chassis_design = yes
+}
+
+JAP_ai_land_production_should_start_replenishment_mode = {
+	OR = {
+		AND = {
+			JAP_ai_land_production_infantry_equipment_is_effective_high_demand = yes
+			JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_mechanized_equipment_is_effective_high_demand = yes
+			JAP_ai_template_mechanized_equipment_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_amphibious_mechanized_equipment_is_effective_high_demand = yes
+			JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_medium_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_medium_tank_chassis_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_heavy_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_heavy_tank_chassis_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_modern_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_modern_tank_chassis_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_medium_tank_amphibious_chassis_is_effective_high_demand = yes
+			JAP_ai_template_medium_tank_amphibious_chassis_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_heavy_tank_amphibious_chassis_is_effective_high_demand = yes
+			JAP_ai_template_heavy_tank_amphibious_chassis_should_start_equipment_suppression = yes
+		}
+		AND = {
+			JAP_ai_land_production_land_cruiser_chassis_is_effective_high_demand = yes
+			JAP_ai_template_land_cruiser_chassis_should_start_equipment_suppression = yes
+		}
+	}
+}
+
+JAP_ai_land_production_should_stop_replenishment_mode = {
+	AND = {
+		OR = {
+			JAP_ai_land_production_infantry_equipment_is_effective_high_demand = no
+			JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_mechanized_equipment_is_effective_high_demand = no
+			JAP_ai_template_mechanized_equipment_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_amphibious_mechanized_equipment_is_effective_high_demand = no
+			JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_medium_tank_chassis_is_effective_high_demand = no
+			JAP_ai_template_medium_tank_chassis_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_heavy_tank_chassis_is_effective_high_demand = no
+			JAP_ai_template_heavy_tank_chassis_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_modern_tank_chassis_is_effective_high_demand = no
+			JAP_ai_template_modern_tank_chassis_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_medium_tank_amphibious_chassis_is_effective_high_demand = no
+			JAP_ai_template_medium_tank_amphibious_chassis_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_heavy_tank_amphibious_chassis_is_effective_high_demand = no
+			JAP_ai_template_heavy_tank_amphibious_chassis_should_stop_equipment_suppression = yes
+		}
+		OR = {
+			JAP_ai_land_production_land_cruiser_chassis_is_effective_high_demand = no
+			JAP_ai_template_land_cruiser_chassis_should_stop_equipment_suppression = yes
+		}
+	}
+}
+
+# Equipment production flag triggers. Names are consumed by JAP_ai_land_production_update_equipment_flags.
+# Start triggers keep equipment availability gates; stop triggers remain ungated so existing flags can clear cleanly.
+
+# infantry_equipment
+JAP_ai_land_production_infantry_equipment_should_start_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_infantry_equipment_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_infantry_equipment_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_infantry_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# mechanized_equipment
+JAP_ai_land_production_mechanized_equipment_should_start_increase = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_mechanized_equipment_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_mechanized_equipment_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_mechanized_equipment_should_start_decline = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_mechanized_equipment_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_mechanized_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = mechanized_equipment
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# amphibious_mechanized_equipment
+JAP_ai_land_production_amphibious_mechanized_equipment_should_start_increase = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_amphibious_mechanized_equipment_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_amphibious_mechanized_equipment_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_amphibious_mechanized_equipment_should_start_decline = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_amphibious_mechanized_equipment_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_amphibious_mechanized_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = amphibious_mechanized_equipment
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# medium_tank_chassis
+JAP_ai_land_production_medium_tank_chassis_should_start_increase = {
+	JAP_has_cr_medium_tank_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_chassis_should_start_decline = {
+	JAP_has_cr_medium_tank_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_chassis
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# heavy_tank_chassis
+JAP_ai_land_production_heavy_tank_chassis_should_start_increase = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_chassis_should_start_decline = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_chassis
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# modern_tank_chassis
+JAP_ai_land_production_modern_tank_chassis_should_start_increase = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_chassis_should_start_decline = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_chassis
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# medium_tank_amphibious_chassis
+JAP_ai_land_production_medium_tank_amphibious_chassis_should_start_increase = {
+	Rance_nd_more_than_normal = yes
+	JAP_has_cr_medium_tank_amphibious_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_amphibious_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_amphibious_chassis_should_start_decline = {
+	Rance_nd_more_than_normal = yes
+	JAP_has_cr_medium_tank_amphibious_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_amphibious_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_amphibious_chassis
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# heavy_tank_amphibious_chassis
+JAP_ai_land_production_heavy_tank_amphibious_chassis_should_start_increase = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_amphibious_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_amphibious_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_amphibious_chassis_should_start_decline = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_amphibious_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_amphibious_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_amphibious_chassis
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# land_cruiser_chassis
+JAP_ai_land_production_land_cruiser_chassis_should_start_increase = {
+	Rance_nd_more_than_lunatic = yes
+	JAP_has_cr_land_cruiser_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio < 0.12
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio < 0.08
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_land_cruiser_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio > 0.25
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio > 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_land_cruiser_chassis_should_start_decline = {
+	Rance_nd_more_than_lunatic = yes
+	JAP_has_cr_land_cruiser_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_high_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio > 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio > 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_land_cruiser_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_high_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio < 0.22
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = land_cruiser_chassis
+							ratio < 0.18
+						}
+				}
+			}
+		}
+	}
+}
+
+# support_equipment
+JAP_ai_land_production_support_equipment_should_start_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@support_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_support_equipment_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@support_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_support_equipment_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@support_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_support_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@support_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = support_equipment
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# helicopter_equipment
+JAP_ai_land_production_helicopter_equipment_should_start_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_helicopter_equipment_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_helicopter_equipment_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_helicopter_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = helicopter_equipment
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# armored_support_vehicle
+JAP_ai_land_production_armored_support_vehicle_should_start_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_armored_support_vehicle_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_armored_support_vehicle_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_armored_support_vehicle_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = armored_support_vehicle
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# medium_tank_destroyer_chassis
+JAP_ai_land_production_medium_tank_destroyer_chassis_should_start_increase = {
+	JAP_has_cr_medium_tank_destroyer_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_destroyer_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_destroyer_chassis_should_start_decline = {
+	JAP_has_cr_medium_tank_destroyer_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_destroyer_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_destroyer_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# heavy_tank_destroyer_chassis
+JAP_ai_land_production_heavy_tank_destroyer_chassis_should_start_increase = {
+	JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_destroyer_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_destroyer_chassis_should_start_decline = {
+	JAP_has_cr_heavy_tank_destroyer_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_destroyer_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_destroyer_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# modern_tank_destroyer_chassis
+JAP_ai_land_production_modern_tank_destroyer_chassis_should_start_increase = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_destroyer_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_destroyer_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_destroyer_chassis_should_start_decline = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_destroyer_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_destroyer_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_destroyer_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_destroyer_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_destroyer_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# medium_tank_artillery_chassis
+JAP_ai_land_production_medium_tank_artillery_chassis_should_start_increase = {
+	JAP_has_cr_medium_tank_artillery_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_artillery_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_artillery_chassis_should_start_decline = {
+	JAP_has_cr_medium_tank_artillery_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_artillery_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_artillery_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# heavy_tank_artillery_chassis
+JAP_ai_land_production_heavy_tank_artillery_chassis_should_start_increase = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_artillery_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_artillery_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_artillery_chassis_should_start_decline = {
+	Rance_nd_more_than_hard = yes
+	JAP_has_cr_heavy_tank_artillery_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_artillery_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_artillery_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# modern_tank_artillery_chassis
+JAP_ai_land_production_modern_tank_artillery_chassis_should_start_increase = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_artillery_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_artillery_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_artillery_chassis_should_start_decline = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_artillery_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_artillery_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_artillery_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_artillery_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_artillery_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_artillery_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# medium_tank_aa_chassis
+JAP_ai_land_production_medium_tank_aa_chassis_should_start_increase = {
+	JAP_has_cr_medium_tank_aa_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_aa_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_aa_chassis_should_start_decline = {
+	JAP_has_cr_medium_tank_aa_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_aa_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_aa_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# heavy_tank_aa_chassis
+JAP_ai_land_production_heavy_tank_aa_chassis_should_start_increase = {
+	JAP_has_cr_heavy_tank_aa_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_aa_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_aa_chassis_should_start_decline = {
+	JAP_has_cr_heavy_tank_aa_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_heavy_tank_aa_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = heavy_tank_aa_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# modern_tank_aa_chassis
+JAP_ai_land_production_modern_tank_aa_chassis_should_start_increase = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_aa_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_aa_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_aa_chassis_should_start_decline = {
+	Rance_nd_more_than_easy = yes
+	JAP_has_cr_modern_tank_aa_chassis_design = yes
+	has_country_flag = JAP_ai_land_production_modern_tank_template_created
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_modern_tank_aa_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@modern_tank_aa_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_aa_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_aa_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = modern_tank_aa_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# medium_tank_flame_chassis
+JAP_ai_land_production_medium_tank_flame_chassis_should_start_increase = {
+	JAP_has_cr_medium_tank_flame_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_start_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio < 0.08
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio < 0.06
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_flame_chassis_should_stop_increase = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_stop_increase }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio > 0.20
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio > 0.15
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_flame_chassis_should_start_decline = {
+	JAP_has_cr_medium_tank_flame_chassis_design = yes
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_medium_tank_flame_chassis_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = medium_tank_flame_chassis
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# artillery_equipment
+JAP_ai_land_production_artillery_equipment_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@artillery_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@artillery_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@artillery_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = artillery_equipment
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = artillery_equipment
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_artillery_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@artillery_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@artillery_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@artillery_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = artillery_equipment
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = artillery_equipment
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# anti_tank_equipment
+JAP_ai_land_production_anti_tank_equipment_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@anti_tank_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = anti_tank_equipment
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = anti_tank_equipment
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_anti_tank_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@anti_tank_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = anti_tank_equipment
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = anti_tank_equipment
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# anti_air_equipment
+JAP_ai_land_production_anti_air_equipment_should_start_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@anti_air_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_air_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio > JAP_ai_land_production_low_demand_start_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = anti_air_equipment
+							ratio > 0.40
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = anti_air_equipment
+							ratio > 0.35
+						}
+				}
+			}
+		}
+	}
+}
+
+JAP_ai_land_production_anti_air_equipment_should_stop_decline = {
+	OR = {
+		AND = {
+			has_country_flag = JAP_ai_land_production_replenishment_mode
+			set_temp_variable = { r_ratio = num_equipment@anti_air_equipment }
+			divide_temp_variable = { r_ratio = 1000 }
+			add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_air_equipment }
+			set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+			add_to_temp_variable = { r_denom = 0.01 }
+			divide_temp_variable = { r_ratio = r_denom }
+
+			check_variable = { r_ratio < JAP_ai_land_production_low_demand_stop_decline }
+		}
+		AND = {
+			NOT = { has_country_flag = JAP_ai_land_production_replenishment_mode }
+			OR = {
+				AND = {
+					has_war = no
+					stockpile_ratio = {
+							archetype = anti_air_equipment
+							ratio < 0.30
+						}
+				}
+				AND = {
+					has_war = yes
+					stockpile_ratio = {
+							archetype = anti_air_equipment
+							ratio < 0.25
+						}
+				}
+			}
+		}
+	}
+}
+
+# AI template training suppression: high_demand equipment fill checks.
+
+JAP_ai_template_infantry_equipment_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_mechanized_equipment_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_mechanized_equipment_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_medium_tank_chassis_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_medium_tank_chassis_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_heavy_tank_chassis_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_heavy_tank_chassis_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_modern_tank_chassis_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@modern_tank_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_modern_tank_chassis_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@modern_tank_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_medium_tank_amphibious_chassis_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_medium_tank_amphibious_chassis_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_heavy_tank_amphibious_chassis_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_heavy_tank_amphibious_chassis_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+JAP_ai_template_land_cruiser_chassis_should_start_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio < JAP_ai_land_production_template_suppression_start }
+}
+
+JAP_ai_template_land_cruiser_chassis_should_stop_equipment_suppression = {
+	set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+	divide_temp_variable = { r_ratio = 1000 }
+	add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_land_production_template_suppression_stop }
+}
+
+# AI template expansion desire: deployed fill checks, excluding infantry equipment.
+
+JAP_ai_template_mechanized_equipment_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@mechanized_equipment }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_mechanized_equipment_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@mechanized_equipment }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_amphibious_mechanized_equipment_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_amphibious_mechanized_equipment_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_medium_tank_chassis_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@medium_tank_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_medium_tank_chassis_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@medium_tank_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_heavy_tank_chassis_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@heavy_tank_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_heavy_tank_chassis_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@heavy_tank_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_modern_tank_chassis_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@modern_tank_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_modern_tank_chassis_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@modern_tank_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@modern_tank_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@modern_tank_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_medium_tank_amphibious_chassis_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_medium_tank_amphibious_chassis_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_heavy_tank_amphibious_chassis_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_heavy_tank_amphibious_chassis_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_land_cruiser_chassis_deployed_fill_above_expansion_start = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@land_cruiser_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_start }
+}
+
+JAP_ai_template_land_cruiser_chassis_deployed_fill_above_expansion_stop = {
+	set_temp_variable = { r_target = num_target_equipment_in_armies_k@land_cruiser_chassis }
+	check_variable = { r_target > 0 }
+	set_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+	set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+	add_to_temp_variable = { r_denom = 0.01 }
+	divide_temp_variable = { r_ratio = r_denom }
+
+	check_variable = { r_ratio > JAP_ai_template_expansion_desire_stop }
+}
+
+JAP_ai_template_should_start_expansion_desire = {
+	OR = {
+		AND = {
+			JAP_ai_land_production_mechanized_equipment_is_effective_high_demand = yes
+			JAP_ai_template_mechanized_equipment_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_amphibious_mechanized_equipment_is_effective_high_demand = yes
+			JAP_ai_template_amphibious_mechanized_equipment_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_medium_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_medium_tank_chassis_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_heavy_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_heavy_tank_chassis_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_modern_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_modern_tank_chassis_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_medium_tank_amphibious_chassis_is_effective_high_demand = yes
+			JAP_ai_template_medium_tank_amphibious_chassis_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_heavy_tank_amphibious_chassis_is_effective_high_demand = yes
+			JAP_ai_template_heavy_tank_amphibious_chassis_deployed_fill_above_expansion_start = yes
+		}
+		AND = {
+			JAP_ai_land_production_land_cruiser_chassis_is_effective_high_demand = yes
+			JAP_ai_template_land_cruiser_chassis_deployed_fill_above_expansion_start = yes
+		}
+	}
+}
+
+JAP_ai_template_should_keep_expansion_desire = {
+	OR = {
+		AND = {
+			JAP_ai_land_production_mechanized_equipment_is_effective_high_demand = yes
+			JAP_ai_template_mechanized_equipment_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_amphibious_mechanized_equipment_is_effective_high_demand = yes
+			JAP_ai_template_amphibious_mechanized_equipment_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_medium_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_medium_tank_chassis_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_heavy_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_heavy_tank_chassis_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_modern_tank_chassis_is_effective_high_demand = yes
+			JAP_ai_template_modern_tank_chassis_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_medium_tank_amphibious_chassis_is_effective_high_demand = yes
+			JAP_ai_template_medium_tank_amphibious_chassis_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_heavy_tank_amphibious_chassis_is_effective_high_demand = yes
+			JAP_ai_template_heavy_tank_amphibious_chassis_deployed_fill_above_expansion_stop = yes
+		}
+		AND = {
+			JAP_ai_land_production_land_cruiser_chassis_is_effective_high_demand = yes
+			JAP_ai_template_land_cruiser_chassis_deployed_fill_above_expansion_stop = yes
+		}
+	}
+}
+
+JAP_ai_template_should_stop_expansion_desire = {
+	NOT = { JAP_ai_template_should_keep_expansion_desire = yes }
+}
+
+# AI template training suppression: template-level checks.
+
+JAP_ai_template_basic_infantry_should_start_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+}
+
+JAP_ai_template_basic_infantry_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_infantry_should_start_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+}
+
+JAP_ai_template_infantry_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_experimental_infantry_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_medium_tank_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_experimental_infantry_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_medium_tank_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_infantry_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_medium_tank_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_infantry_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_medium_tank_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_special_infantry_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_medium_tank_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_special_infantry_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_medium_tank_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_mechanized_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_medium_tank_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_mechanized_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_medium_tank_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_amphibious_mechanized_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_medium_tank_amphibious_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_amphibious_mechanized_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_medium_tank_amphibious_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_mechanized_heavy_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_heavy_tank_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_mechanized_heavy_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_heavy_tank_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_heavy_amphibious_mechanized_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_heavy_tank_amphibious_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_heavy_amphibious_mechanized_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_heavy_tank_amphibious_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_land_crushier_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_heavy_tank_amphibious_chassis_should_start_equipment_suppression = yes
+		JAP_ai_template_land_cruiser_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_land_crushier_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_heavy_tank_amphibious_chassis_should_stop_equipment_suppression = yes
+	JAP_ai_template_land_cruiser_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_marine_modern_mech_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_modern_tank_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_marine_modern_mech_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_modern_tank_chassis_should_stop_equipment_suppression = yes
+}
+
+JAP_ai_template_lc_marine_modern_mech_tank_should_start_equipment_suppression = {
+	OR = {
+		JAP_ai_template_infantry_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_amphibious_mechanized_equipment_should_start_equipment_suppression = yes
+		JAP_ai_template_modern_tank_chassis_should_start_equipment_suppression = yes
+		JAP_ai_template_land_cruiser_chassis_should_start_equipment_suppression = yes
+	}
+}
+
+JAP_ai_template_lc_marine_modern_mech_tank_should_stop_equipment_suppression = {
+	JAP_ai_template_infantry_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_amphibious_mechanized_equipment_should_stop_equipment_suppression = yes
+	JAP_ai_template_modern_tank_chassis_should_stop_equipment_suppression = yes
+	JAP_ai_template_land_cruiser_chassis_should_stop_equipment_suppression = yes
+}

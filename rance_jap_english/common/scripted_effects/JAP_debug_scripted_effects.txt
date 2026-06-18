@@ -1,0 +1,128 @@
+JAP_debug_grant_all_land_equipment_designs = {
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		JAP_rework_land_cruiser_1 = 1
+		motorised_infantry = 1
+		tech_trucks = 1
+		mechanised_infantry = 1
+		mechanised_infantry2 = 1
+		mechanised_infantry3 = 1
+		amphibious_mechanized_infantry = 1
+		mtg_tank_landing_craft = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+		interwar_artillery = 1
+		artillery1 = 1
+		artillery2 = 1
+		artillery3 = 1
+		artillery4 = 1
+		artillery5 = 1
+		interwar_antiair = 1
+		antiair1 = 1
+		antiair2 = 1
+		antiair3 = 1
+		antiair4 = 1
+		antiair5 = 1
+		interwar_antitank = 1
+		antitank1 = 1
+		antitank2 = 1
+		antitank3 = 1
+		antitank4 = 1
+		antitank5 = 1
+		sp_armored_advanced_flamethrower_tech = 1
+		sp_armored_lc_naval_engine_conversion_tech = 1
+		sp_armored_lc_transmission_improvements_tech = 1
+		sp_armored_lc_specialized_field_manuals_tech = 1
+		sp_armored_lc_high_impact_obliterator_cannon_tech = 1
+		sp_armored_lc_weapon_fire_control_tech = 1
+		popup = no
+	}
+
+	set_country_flag = JAP_has_cr_infantry_tank_template_equipment_design
+	set_country_flag = JAP_has_cr_special_infantry_tank_template_equipment_design
+	set_country_flag = JAP_has_cr_mechanized_tank_template_equipment_design
+	set_country_flag = JAP_has_cr_amphibious_mechanized_template_equipment_design
+	set_country_flag = JAP_has_cr_mechanized_heavy_tank_template_equipment_design
+	set_country_flag = JAP_has_cr_heavy_amphibious_mechanized_template_equipment_design
+	set_country_flag = JAP_has_cr_land_crushier_template_equipment_design
+	set_country_flag = JAP_has_cr_marine_modern_mechanized_tank_template_equipment_design
+	set_country_flag = JAP_has_cr_land_cruiser_marine_modern_mechanized_tank_template_equipment_design
+
+	JAP_cr_prototype_medium_tank_jap = yes
+	JAP_cr_basic_medium_tank_jap_97 = yes
+	JAP_cr_improved_medium_tank_jap_97_kai = yes
+	JAP_cr_improved_medium_tank_jap_type_3 = yes
+	JAP_cr_improved_medium_tank_jap_type_3_kai = yes
+	JAP_cr_advanced_medium_tank_jap_type_5 = yes
+	JAP_cr_modern_tank_jap_type_61 = yes
+	JAP_cr_modern_td_jap_type_61 = yes
+	JAP_cr_modern_art_jap_type_61 = yes
+	JAP_cr_modern_aa_jap_type_61 = yes
+
+	JAP_cr_basic_medium_td_jap_ho_ni_1 = yes
+	JAP_cr_improved_medium_td_jap_ho_ni_1_kai = yes
+	JAP_cr_improved_medium_td_jap_ho_ni_3 = yes
+	JAP_cr_advanced_medium_td_jap_ho_ni_3_kai = yes
+	JAP_cr_advanced_medium_td_jap_na_to = yes
+
+	JAP_cr_basic_medium_art_jap_type_1 = yes
+	JAP_cr_improved_medium_art_jap_type_3 = yes
+	JAP_cr_improved_medium_art_jap_type_4 = yes
+	JAP_cr_advanced_medium_art_jap_type_5 = yes
+
+	JAP_cr_basic_medium_aa_jap_type_1_kai = yes
+	JAP_cr_improved_medium_aa_jap_type_2_kai = yes
+	JAP_cr_advanced_medium_aa_jap_type_3 = yes
+
+	JAP_cr_basic_heavy_tank_jap_95 = yes
+	JAP_cr_improved_heavy_tank_jap_iwakuro = yes
+	JAP_cr_improved_heavy_tank_jap_iwakuro_kai = yes
+	JAP_cr_advanced_heavy_tank_jap_o_i = yes
+
+	JAP_cr_basic_heavy_td_jap_type_3 = yes
+	JAP_cr_improved_heavy_td_jap_ho_ri = yes
+	JAP_cr_advanced_heavy_td_jap_type_3 = yes
+
+	JAP_cr_basic_heavy_art_jap_type_1 = yes
+	JAP_cr_improved_heavy_art_jap_type_3 = yes
+	JAP_cr_advanced_heavy_art_jap_type_5 = yes
+
+	JAP_cr_basic_heavy_aa_jap_type_1 = yes
+	JAP_cr_improved_heavy_aa_jap_type_2 = yes
+	JAP_cr_advanced_heavy_aa_jap_type_3 = yes
+
+	JAP_cr_basic_amphibious_medium_tank_jap_97 = yes
+	JAP_cr_improved_amphibious_medium_tank_jap_type_3 = yes
+	JAP_cr_advanced_medium_tank_jap_type_5_amphibious = yes
+	JAP_cr_basic_amphibious_heavy_tank_jap_95 = yes
+	JAP_cr_improved_amphibious_heavy_tank_jap_type_5 = yes
+	JAP_cr_advanced_amphibious_heavy_tank_jap_takeru = yes
+
+	JAP_cr_basic_medium_flame_tank_jap_s_ki = yes
+	JAP_cr_improved_medium_flame_tank_jap_ka_ha = yes
+	JAP_cr_jap_land_cruiser_hoshiguma = yes
+
+	JAP_cr_mechanized_equipment_1 = yes
+	JAP_cr_mechanized_equipment_2 = yes
+	JAP_cr_mechanized_equipment_3 = yes
+	JAP_cr_amphibious_mechanized_equipment_1 = yes
+	JAP_cr_amphibious_mechanized_equipment_2 = yes
+}

@@ -1,0 +1,122 @@
+JAP_apply_rance_ai_difficulty_easy_settings = {
+	set_variable = { variable_rance_nandu = 1 }
+	set_variable = { JAP_scripted_landing_raid_threshold = 15 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+	set_variable = { JAP_open_factory_max = 10 }
+	if = {
+		limit = { Rance_jap_return_to_peak_standard = yes }
+		set_variable = { JAP_open_factory_max = 20 }
+	}
+}
+
+JAP_apply_rance_ai_difficulty_normal_settings = {
+	set_variable = { variable_rance_nandu = 2 }
+	set_variable = { JAP_scripted_landing_raid_threshold = 10 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+	set_variable = { JAP_open_factory_max = 20 }
+	if = {
+		limit = { Rance_jap_return_to_peak_standard = yes }
+		set_variable = { JAP_open_factory_max = 40 }
+	}
+}
+
+JAP_apply_rance_ai_difficulty_hard_settings = {
+	set_variable = { variable_rance_nandu = 3 }
+	set_variable = { JAP_scripted_landing_raid_threshold = 7 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+	set_variable = { JAP_open_factory_max = 30 }
+	if = {
+		limit = { Rance_jap_return_to_peak_standard = yes }
+		set_variable = { JAP_open_factory_max = 60 }
+	}
+}
+
+JAP_apply_rance_ai_difficulty_lunatic_settings = {
+	set_variable = { variable_rance_nandu = 4 }
+	set_variable = { JAP_scripted_landing_raid_threshold = 5 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+	set_variable = { JAP_open_factory_max = 40 }
+	if = {
+		limit = { Rance_jap_return_to_peak_standard = yes }
+		set_variable = { JAP_open_factory_max = 80 }
+	}
+}
+
+JAP_apply_rance_ai_difficulty_extra_settings = {
+	set_variable = { variable_rance_nandu = 5 }
+	set_variable = { JAP_scripted_landing_raid_threshold = 4 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+	set_variable = { JAP_open_factory_max = 50 }
+	if = {
+		limit = { Rance_jap_return_to_peak_standard = yes }
+		set_variable = { JAP_open_factory_max = 100 }
+	}
+}
+
+JAP_apply_rance_ai_difficulty_phantasm_settings = {
+	set_variable = { variable_rance_nandu = 6 }
+	set_variable = { JAP_scripted_landing_raid_threshold = 3 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+	set_variable = { JAP_open_factory_max = 60 }
+	if = {
+		limit = { Rance_jap_return_to_peak_standard = yes }
+		set_variable = { JAP_open_factory_max = 120 }
+	}
+}
+
+JAP_apply_preselected_ai_difficulty_from_game_rule = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = rance_japan_ai_difficulty
+				option = EASY
+			}
+		}
+		JAP_apply_rance_ai_difficulty_easy_settings = yes
+	}
+	else_if = {
+		limit = {
+			has_game_rule = {
+				rule = rance_japan_ai_difficulty
+				option = NORMAL
+			}
+		}
+		JAP_apply_rance_ai_difficulty_normal_settings = yes
+	}
+	else_if = {
+		limit = {
+			has_game_rule = {
+				rule = rance_japan_ai_difficulty
+				option = HARD
+			}
+		}
+		JAP_apply_rance_ai_difficulty_hard_settings = yes
+	}
+	else_if = {
+		limit = {
+			has_game_rule = {
+				rule = rance_japan_ai_difficulty
+				option = LUNATIC
+			}
+		}
+		JAP_apply_rance_ai_difficulty_lunatic_settings = yes
+	}
+	else_if = {
+		limit = {
+			has_game_rule = {
+				rule = rance_japan_ai_difficulty
+				option = EXTRA
+			}
+		}
+		JAP_apply_rance_ai_difficulty_extra_settings = yes
+	}
+	else_if = {
+		limit = {
+			has_game_rule = {
+				rule = rance_japan_ai_difficulty
+				option = PHANTASM
+			}
+		}
+		JAP_apply_rance_ai_difficulty_phantasm_settings = yes
+	}
+}

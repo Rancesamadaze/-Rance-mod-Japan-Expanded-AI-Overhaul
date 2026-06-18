@@ -1,0 +1,417 @@
+# 日本 AI 特遣舰队模板
+# 说明：本次整理只调整注释与空白；模板键、任务、数量和 role 保持不变。
+# 注意：同一 composition 中不拆分同舰种多 role，避免 AI 组舰时产生不稳定匹配。
+
+# 主力打击舰队：机动部队编组
+Rance_JAP_KidoButai = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 100
+    }
+
+    keep_updated = yes
+
+    # 执行主力打击任务。
+    mission = { naval_strike }
+
+    # 最小可用编制。
+    min_composition = {
+        carrier = {
+            amount = 4
+            role = 7 # 正规航母：赤城、翔鹤、信浓、白龙
+        }
+        battleship = {
+            amount = 6
+        }
+        light_cruiser = {
+            amount = 10
+            role = 1 # 特遣轻巡
+        }
+        destroyer = {
+            amount = 30
+        }
+    }
+
+    # 最优/最大理想编制。
+    optimal_composition = {
+        carrier = {
+            amount = 4
+            role = 7 # 战略主力航母
+        }
+
+        # 巨舰大炮
+        battleship = {
+            amount = 6
+        }
+
+        # 巡洋舰支柱
+        heavy_cruiser = {
+            amount = 5
+            role = 6 # 特殊/雷击巡洋舰
+        }
+        light_cruiser = {
+            amount = 30
+            role = 1 # 特遣输出轻巡
+        }
+
+        # 屏卫驱逐群
+        destroyer = {
+            amount = 30
+        }
+    }
+}
+
+Rance_JAP_NavalInvasionSupport = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    mission = { naval_invasion_support }
+
+    min_composition = {
+        carrier = {
+            amount = 4
+            role = 7
+        }
+        battleship = {
+            amount = 6
+        }
+        heavy_cruiser = {
+            amount = 5
+            role = 6
+        }
+        light_cruiser = {
+            amount = 30
+            role = 1
+        }
+        destroyer = {
+            amount = 30
+        }
+    }
+
+    optimal_composition = {
+        carrier = {
+            amount = 4
+            role = 7
+        }
+        battleship = {
+            amount = 6
+        }
+        heavy_cruiser = {
+            amount = 5
+            role = 6
+        }
+        light_cruiser = {
+            amount = 30
+            role = 1
+        }
+        destroyer = {
+            amount = 30
+        }
+    }
+}
+
+# 超大型主力打击舰队：巨型机动部队编组
+Rance_JAP_mega_KidoButai = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    keep_updated = yes
+
+    # 执行主力打击任务。
+    mission = { naval_strike }
+
+    # 最小可用编制。
+    min_composition = {
+        carrier = {
+            amount = 2
+            role = 6
+        }
+        battleship = {
+            amount = 4
+        }
+        light_cruiser = {
+            amount = 10
+            role = 1
+        }
+        destroyer = {
+            amount = 30
+        }
+    }
+
+    # 最优/最大理想编制。
+    optimal_composition = {
+        carrier = {
+            amount = 2
+            role = 6 # 特殊巨型舰/冰航母
+        }
+
+        # 巨舰大炮
+        battleship = {
+            amount = 10
+        }
+
+        # 巡洋舰支柱
+        heavy_cruiser = {
+            amount = 8
+            role = 6 # 特殊/雷击巡洋舰
+        }
+        light_cruiser = {
+            amount = 40
+            role = 1 # 特遣输出轻巡
+        }
+
+        # 屏卫驱逐群
+        destroyer = {
+            amount = 40
+        }
+    }
+}
+
+# 巡逻侦察舰队：侦察群编组
+Rance_JAP_PatrolReconForce = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 10 # 高优先级侦察模板
+    }
+
+    # 执行巡逻任务。
+    mission = { naval_patrol }
+
+    # 最小可用编制：1 艘 role 3 轻巡。
+    min_composition = {
+        light_cruiser = {
+            amount = 1
+            role = 3 # 巡逻轻巡
+        }
+    }
+
+    # 最优理想编制：维持 1 艘，避免 AI 合并成大舰队。
+    optimal_composition = {
+        light_cruiser = {
+            amount = 1
+            role = 3
+        }
+    }
+}
+
+#巡逻制海舰队：制海威慑群编组
+Rance_JAP_PatrolDominanceForce = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        base = 1
+    }
+
+    # 执行巡逻任务。
+    mission = { naval_patrol }
+
+    # 最小可用编制。
+    min_composition = {
+        carrier = {
+            amount = 4
+            role = 7 # 战略主力航母
+        }
+
+        # 巨舰大炮
+        battleship = {
+            amount = 6
+        }
+
+        # 巡洋舰支柱
+        heavy_cruiser = {
+            amount = 5
+            role = 6 # 特殊/雷击巡洋舰
+        }
+        light_cruiser = {
+            amount = 30
+            role = 1 # 特遣输出轻巡
+        }
+
+        # 屏卫驱逐群
+        destroyer = {
+            amount = 30
+        }
+    }
+
+    # 最优/最大理想编制。
+    optimal_composition = {
+        carrier = {
+            amount = 4
+            role = 7 # 战略主力航母
+        }
+
+        # 巨舰大炮
+        battleship = {
+            amount = 6
+        }
+
+        # 巡洋舰支柱
+        heavy_cruiser = {
+            amount = 5
+            role = 6 # 特殊/雷击巡洋舰
+        }
+        light_cruiser = {
+            amount = 30
+            role = 1 # 特遣输出轻巡
+        }
+
+        # 屏卫驱逐群
+        destroyer = {
+            amount = 30
+        }
+    }
+}
+
+# 水面破交舰队：袭击群编组
+Rance_JAP_ConvoySurfaceRaiding = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    # 执行袭击商船任务。
+    mission = { convoy_raiding }
+
+    # 最小可用编制：精干水面袭击群。
+    min_composition = {
+        carrier = {
+            amount = 1
+            role = 3 # 巡逻/轻型航母
+        }
+        heavy_cruiser = {
+            amount = 1
+            role = 1 # 标准输出重巡
+        }
+        light_cruiser = {
+            amount = 2
+            role = 6 # 特殊/袭击轻巡
+        }
+        destroyer = {
+            amount = 6
+            role = 6 # 高爆发雷击驱逐
+        }
+    }
+
+    # 最优理想编制：维持与最小编制一致的规模。
+    optimal_composition = {
+        carrier = {
+            amount = 1
+            role = 3
+        }
+        heavy_cruiser = {
+            amount = 1
+            role = 1
+        }
+        light_cruiser = {
+            amount = 2
+            role = 6
+        }
+        destroyer = {
+            amount = 6
+            role = 6
+        }
+    }
+}
+
+# 潜艇袭击舰队：深海猎杀群编组
+Rance_JAP_Sub_Raiding_Force = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    # 执行袭击商船任务。
+    mission = { convoy_raiding }
+
+    # 最小可用编制：4 艘常规袭击潜艇。
+    min_composition = {
+        submarine = {
+            amount = 4
+        }
+    }
+
+    # 最优理想编制：维持 10 艘一组。
+    optimal_composition = {
+        submarine = {
+            amount = 10
+        }
+    }
+}
+
+# 护航舰队：护航群编组
+Rance_JAP_ConvoyEscort = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        factor = 5
+    }
+
+    # 执行护航任务。
+    mission = { convoy_escort }
+
+    # 最小可用编制：护航主力与反潜驱逐混编。
+    min_composition = {
+        carrier = {
+            amount = 1
+            role = 3 # 巡逻/轻型航母
+        }
+        heavy_cruiser = {
+            amount = 1
+            role = 1 # 标准重巡
+        }
+        light_cruiser = {
+            amount = 2
+            role = 6 # 袭击/特殊轻巡
+        }
+        destroyer = {
+            amount = 6
+            role = 8 # 护航/反潜专用驱逐
+        }
+    }
+
+    # 最优理想编制：维持 6 艘 role 8 护航/反潜驱逐。
+    optimal_composition = {
+        carrier = {
+            amount = 1
+            role = 3
+        }
+        heavy_cruiser = {
+            amount = 1
+            role = 1
+        }
+        light_cruiser = {
+            amount = 2
+            role = 6
+        }
+        destroyer = {
+            amount = 6
+            role = 8
+        }
+    }
+}

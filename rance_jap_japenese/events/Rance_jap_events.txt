@@ -1,0 +1,290 @@
+add_namespace = Rance_jap_event
+add_namespace = Rance_jap_nandu_event
+##难度选择部分
+##AI难度选择1(前三档难度)
+country_event = {
+	
+	id = Rance_jap_event.1
+	picture = GFX_rance_nandu_set
+	title = Rance_jap_event.1.t
+	desc = Rance_jap_event.1.d
+	is_triggered_only = yes
+	##查看easy难度效果
+	option = {
+		name = Rance_jap_event.1.d.a
+		country_event = {
+			id = Rance_jap_nandu_event.1
+		}
+	}
+	#查看normal难度效果
+	option = {
+		name = Rance_jap_event.1.d.b
+		country_event = {
+			id = Rance_jap_nandu_event.2
+		}
+	}
+	#查看hard难度效果
+	option = {
+		name = Rance_jap_event.1.d.c
+		country_event = {
+			id = Rance_jap_nandu_event.3
+		}
+	}
+	#进入AI难度选择2（后三档难度）
+	option = {
+		name = Rance_jap_event.1.d.d
+		country_event = {
+			id = Rance_jap_event.2
+		}
+	}
+}
+#
+##easy
+country_event = {
+    id = Rance_jap_nandu_event.1
+    picture = GFX_rance_nandu_set
+    title = Rance_jap_nandu_event.1.t
+    desc = Rance_jap_nandu_event.1.d
+    is_triggered_only = yes
+    option = {
+        name = Rance_jap_nandu_event.1.d.a 
+        hidden_effect = {
+            JAP = {
+                set_variable = {
+                    variable_rance_nandu = 1
+                }
+                set_variable = {
+                    JAP_scripted_landing_raid_threshold = 15
+                }
+                JAP_scripted_landing_refresh_raid_remaining = yes
+                set_variable = {
+                    JAP_open_factory_max = 10
+                }
+                if = {
+                    limit = { Rance_jap_return_to_peak_standard = yes }
+                    set_variable = {
+                        JAP_open_factory_max = 20
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = Rance_jap_nandu_event.r
+        country_event = Rance_jap_event.1
+    }
+}
+##normal
+country_event = {
+    id = Rance_jap_nandu_event.2
+    picture = GFX_rance_nandu_set
+    title = Rance_jap_nandu_event.2.t
+    desc = Rance_jap_nandu_event.2.d
+    is_triggered_only = yes
+    option = {
+        name = Rance_jap_nandu_event.2.d.a 
+        hidden_effect = {
+            JAP = {
+                set_variable = {
+                    variable_rance_nandu = 2
+                }
+                set_variable = {
+                    JAP_scripted_landing_raid_threshold = 10
+                }
+                JAP_scripted_landing_refresh_raid_remaining = yes
+                set_variable = {
+                    JAP_open_factory_max = 20
+                }
+                if = {
+                    limit = { Rance_jap_return_to_peak_standard = yes }
+                    set_variable = {
+                        JAP_open_factory_max = 40
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = Rance_jap_nandu_event.r
+        country_event = Rance_jap_event.1
+    }
+}
+#hard
+country_event = {
+    id = Rance_jap_nandu_event.3
+    picture = GFX_rance_nandu_set
+    title = Rance_jap_nandu_event.3.t
+    desc = Rance_jap_nandu_event.3.d
+    is_triggered_only = yes
+    option = {
+        name = Rance_jap_nandu_event.3.d.a 
+        hidden_effect = {
+            JAP = {
+                set_variable = {
+                    variable_rance_nandu = 3
+                }
+                set_variable = {
+                    JAP_scripted_landing_raid_threshold = 7
+                }
+                JAP_scripted_landing_refresh_raid_remaining = yes
+                set_variable = {
+                    JAP_open_factory_max = 30
+                }
+                if = {
+                    limit = { Rance_jap_return_to_peak_standard = yes }
+                    set_variable = {
+                        JAP_open_factory_max = 60
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = Rance_jap_nandu_event.r
+        country_event = Rance_jap_event.1
+    }
+}
+##AI难度选择（后三档难度）
+country_event = {
+	
+	id = Rance_jap_event.2
+	picture = GFX_rance_nandu_set
+	title = Rance_jap_event.2.t
+	desc = Rance_jap_event.2.d
+	is_triggered_only = yes
+	##查看Lunatic难度效果
+	option = {
+		name = Rance_jap_event.2.d.a
+		country_event = {
+			id = Rance_jap_nandu_event.4
+		}
+	}
+	#查看Extra难度效果
+	option = {
+		name = Rance_jap_event.2.d.b
+		country_event = {
+			id = Rance_jap_nandu_event.5
+		}
+	}
+	#查看Phantasm难度效果
+	option = {
+		name = Rance_jap_event.2.d.c
+		country_event = {
+			id = Rance_jap_nandu_event.6
+		}
+	}
+	#返回AI难度选择1（前三档难度）
+	option = {
+		name = Rance_jap_event.2.d.d
+		country_event = {
+			id = Rance_jap_event.1
+		}
+	}
+}
+## Lunatic
+country_event = {
+    id = Rance_jap_nandu_event.4
+    picture = GFX_rance_nandu_set
+    title = Rance_jap_nandu_event.4.t
+    desc = Rance_jap_nandu_event.4.d
+    is_triggered_only = yes
+    option = {
+        name = Rance_jap_nandu_event.4.d.a 
+        hidden_effect = {
+            JAP = {
+                set_variable = {
+                    variable_rance_nandu = 4
+                }
+                set_variable = {
+                    JAP_scripted_landing_raid_threshold = 5
+                }
+                JAP_scripted_landing_refresh_raid_remaining = yes
+                set_variable = {
+                    JAP_open_factory_max = 40
+                }
+                if = {
+                    limit = { Rance_jap_return_to_peak_standard = yes }
+                    set_variable = {
+                        JAP_open_factory_max = 80
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = Rance_jap_nandu_event.r
+        country_event = Rance_jap_event.1
+    }
+}
+
+## Extra
+country_event = {
+    id = Rance_jap_nandu_event.5
+    picture = GFX_rance_nandu_set
+    title = Rance_jap_nandu_event.5.t
+    desc = Rance_jap_nandu_event.5.d
+    is_triggered_only = yes
+    option = {
+        name = Rance_jap_nandu_event.5.d.a 
+        hidden_effect = {
+            JAP = {
+                set_variable = {
+                    variable_rance_nandu = 5
+                }
+                set_variable = {
+                    JAP_scripted_landing_raid_threshold = 4
+                }
+                JAP_scripted_landing_refresh_raid_remaining = yes
+                set_variable = {
+                    JAP_open_factory_max = 50
+                }
+                if = {
+                    limit = { Rance_jap_return_to_peak_standard = yes }
+                    set_variable = {
+                        JAP_open_factory_max = 100
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = Rance_jap_nandu_event.r
+        country_event = Rance_jap_event.1
+    }
+}
+
+## Phantasm
+country_event = {
+    id = Rance_jap_nandu_event.6
+    picture = GFX_rance_nandu_set
+    title = Rance_jap_nandu_event.6.t
+    desc = Rance_jap_nandu_event.6.d
+    is_triggered_only = yes
+    option = {
+        name = Rance_jap_nandu_event.6.d.a 
+        hidden_effect = {
+            JAP = {
+                set_variable = {
+                    variable_rance_nandu = 6
+                }
+                set_variable = {
+                    JAP_scripted_landing_raid_threshold = 3
+                }
+                JAP_scripted_landing_refresh_raid_remaining = yes
+                set_variable = {
+                    JAP_open_factory_max = 60
+                }
+                if = {
+                    limit = { Rance_jap_return_to_peak_standard = yes }
+                    set_variable = {
+                        JAP_open_factory_max = 120
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = Rance_jap_nandu_event.r
+        country_event = Rance_jap_event.1
+    }
+}

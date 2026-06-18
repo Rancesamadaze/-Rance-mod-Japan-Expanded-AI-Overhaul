@@ -1,0 +1,3605 @@
+diff --git a/common/ai_navy/fleet/JAP_fleet_templates.txt b/common/ai_navy/fleet/JAP_fleet_templates.txt
+index 505937b..d30f4c3 100644
+--- a/common/ai_navy/fleet/JAP_fleet_templates.txt
++++ b/common/ai_navy/fleet/JAP_fleet_templates.txt
+@@ -1,13 +1,12 @@
+ JAP_dominance_fleet_1 = {
+ 	required_taskforces = {
+ 		JAP_KidoButai_1 = 1
+-		JAP_PatrolDominanceForce_1 = 2
+-		JAP_PatrolReconForce_1 = 3
++		JAP_PatrolDominanceForce_1 = 1
++		JAP_PatrolReconForce_1 = 6
+ 		JAP_NavalInvasionSupport_1 = 1
+ 	}	
+ 	optional_taskforces = {
+ 		JAP_StrikeForce_1 = 1
+-		JAP_PatrolReconForce_1 = 3
+ 		JAP_PatrolDominanceForce_1 = 1
+ 	}
+ }
+diff --git a/common/ai_strategy/JAP.txt b/common/ai_strategy/JAP.txt
+index ef595ed..a9b4e72 100644
+--- a/common/ai_strategy/JAP.txt
++++ b/common/ai_strategy/JAP.txt
+@@ -657,6 +657,65 @@ strike_usa = {
+ 	}
+ }
+ 
++strike_phi = {
++	allowed = {
++		original_tag = JAP
++	}
++	enable = {
++		is_historical_focus_on = yes
++		OR = {
++			OR = {
++				has_war_with = PHI
++				623 = { controller = { has_war_with = JAP } }
++			}
++
++			AND = {
++				has_completed_focus = JAP_strike_the_southern_road
++				date > 1941.10.27 
++			}
++		}
++	}
++	
++	abort_when_not_enabled = yes
++
++	abort = {
++		OR = {
++			623 = { is_controlled_by = JAP }
++			623 = { 
++				controller = { 
++					is_ally_with = JAP 
++				} 
++			}
++			PHI = { has_capitulated = yes }
++		}
++	}
++
++	ai_strategy = {
++		type = strike_force_home_base
++		id = 78 # Philippine Sea 
++	}
++
++	ai_strategy = {
++		type = strike_force_home_base
++		id = 75 # South China Sea 
++	}
++
++	ai_strategy = {
++		type = invade
++		id = PHI
++		value = 300
++	}
++
++	ai_strategy = {
++		type = area_priority
++		id = just_philippines
++		value = 250 
++	}
++
++	
++
++}
++
+ # "I can run wild for six months… after that, I have no expectation of success"
+ jap_hush_yamamoto_its_gonna_be_ok = {
+ 	allowed = {
+@@ -764,7 +823,7 @@ JAP_leave_raj_a_bit = {
+ 	ai_strategy = {
+ 		type = invade
+ 		id = RAJ
+-		value = -200
++		value = -250
+ 	}
+ }
+ 
+@@ -937,7 +996,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIK = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = SIK
+@@ -945,7 +1004,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIK = {
+ 			SIK = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 			AND = {
+@@ -960,7 +1019,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIK = {
+ 				SIK = {
+ 					OR = {
+ 						is_in_faction_with = SOU
+-						is_puppet_of = SOU
++						is_subject_of = SOU
+ 					}
+ 				}
+ 			}
+@@ -973,7 +1032,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIK = {
+ 			SIK = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 			AND = {
+@@ -988,7 +1047,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIK = {
+ 				SIK = {
+ 					OR = {
+ 						is_in_faction_with = SOU
+-						is_puppet_of = SOU
++						is_subject_of = SOU
+ 					}
+ 				}
+ 			}
+@@ -1011,7 +1070,7 @@ all_china_must_prosper_in_my_prosperity_sphere_XSM = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = XSM
+@@ -1019,7 +1078,7 @@ all_china_must_prosper_in_my_prosperity_sphere_XSM = {
+ 			XSM = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1030,7 +1089,7 @@ all_china_must_prosper_in_my_prosperity_sphere_XSM = {
+ 		XSM = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1051,7 +1110,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GXC = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = GXC
+@@ -1059,7 +1118,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GXC = {
+ 			GXC = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1070,7 +1129,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GXC = {
+ 		GXC = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1091,7 +1150,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SHX = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = SHX
+@@ -1099,7 +1158,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SHX = {
+ 			SHX = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1110,7 +1169,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SHX = {
+ 		SHX = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1131,7 +1190,7 @@ all_china_must_prosper_in_my_prosperity_sphere_YUN = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = YUN
+@@ -1139,7 +1198,7 @@ all_china_must_prosper_in_my_prosperity_sphere_YUN = {
+ 			YUN = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1150,7 +1209,7 @@ all_china_must_prosper_in_my_prosperity_sphere_YUN = {
+ 		YUN = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1172,7 +1231,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SND = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = SND
+@@ -1180,7 +1239,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SND = {
+ 			SND = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1191,7 +1250,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SND = {
+ 		SND = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1213,7 +1272,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GDC = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = GDC
+@@ -1221,7 +1280,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GDC = {
+ 			GDC = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1232,7 +1291,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GDC = {
+ 		GDC = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1254,7 +1313,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIC = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = SIC
+@@ -1262,7 +1321,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIC = {
+ 			SIC = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1273,7 +1332,7 @@ all_china_must_prosper_in_my_prosperity_sphere_SIC = {
+ 		SIC = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1295,7 +1354,7 @@ all_china_must_prosper_in_my_prosperity_sphere_XIC = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = XIC
+@@ -1303,7 +1362,7 @@ all_china_must_prosper_in_my_prosperity_sphere_XIC = {
+ 			XIC = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1314,7 +1373,7 @@ all_china_must_prosper_in_my_prosperity_sphere_XIC = {
+ 		XIC = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1336,7 +1395,7 @@ all_china_must_prosper_in_my_prosperity_sphere_NXM = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = NXM
+@@ -1344,7 +1403,7 @@ all_china_must_prosper_in_my_prosperity_sphere_NXM = {
+ 			NXM = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1355,7 +1414,7 @@ all_china_must_prosper_in_my_prosperity_sphere_NXM = {
+ 		NXM = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1377,7 +1436,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GSM = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = GSM
+@@ -1385,7 +1444,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GSM = {
+ 			GSM = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1396,7 +1455,7 @@ all_china_must_prosper_in_my_prosperity_sphere_GSM = {
+ 		GSM = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1418,7 +1477,7 @@ all_china_must_prosper_in_my_prosperity_sphere_HBC = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = HBC
+@@ -1426,7 +1485,7 @@ all_china_must_prosper_in_my_prosperity_sphere_HBC = {
+ 			HBC = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1437,7 +1496,7 @@ all_china_must_prosper_in_my_prosperity_sphere_HBC = {
+ 		HBC = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1459,7 +1518,7 @@ all_china_must_prosper_in_my_prosperity_sphere_PRC = {
+ 			NOT = { country_exists = CHI }
+ 			CHI = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 		country_exists = PRC
+@@ -1467,7 +1526,7 @@ all_china_must_prosper_in_my_prosperity_sphere_PRC = {
+ 			PRC = {
+ 				OR = {
+ 					is_in_faction_with = JAP
+-					is_puppet_of = JAP
++					is_subject_of = JAP
+ 				}
+ 			}
+ 		}
+@@ -1478,7 +1537,7 @@ all_china_must_prosper_in_my_prosperity_sphere_PRC = {
+ 		PRC = {
+ 			OR = {
+ 				is_in_faction_with = JAP
+-				is_puppet_of = JAP
++				is_subject_of = JAP
+ 			}
+ 		}
+ 	}
+@@ -1834,6 +1893,27 @@ jap_early_invasions_are_risky_and_best_wait_for_later = {
+ 	}
+ }
+ 
++JAP_prepare_for_naval_invasion_capability = {
++	allowed = {
++		original_tag = JAP
++	}
++	enable = {
++		is_historical_focus_on = yes
++		date > 1939.10.1
++	}
++	abort = {
++		JAP = {
++			exists = no 
++		}
++	}
++
++	ai_strategy = {
++		type = research_weight_factor
++		id = mtg_landing_craft  # Make sure we can do larger invasions
++		value = 100
++	}
++}
++
+ jap_doesnt_care_about_relation = {
+ 	allowed = {
+ 		original_tag = JAP
+@@ -2143,6 +2223,64 @@ JAP_hold_up_in_china = { #We got this far but there are bigger targets to worry
+ 
+ }
+ 
++JAP_invade_guam = {
++	allowed = {
++		original_tag = JAP
++	}
++
++	enable = {
++		is_historical_focus_on = yes
++		OR = {
++			has_war_with = USA
++			638 = { controller = { has_war_with = JAP } }
++		}
++		OR = {
++			has_completed_focus = JAP_strike_the_southern_road
++			date > 1941.10.21 #should give ~50 inavsion time window to dec 8 historical
++		}
++		date > 1941.1.1
++	}
++
++	abort_when_not_enabled = yes
++
++	abort = {
++		638 = { 
++			controller = {
++				OR = {
++					original_tag = JAP
++					is_ally_with = JAP
++				}
++			}
++		}
++	}
++
++	ai_strategy = {
++		type = area_priority
++		id = guam_area
++		value = 280
++	}
++
++	ai_strategy = {
++		type = invade
++		id = USA
++		value = 220
++	}
++
++	ai_strategy = {
++		type = invasion_unit_request
++		area = guam_area
++		state = 638
++		value = 400
++	}
++
++
++	ai_strategy = {
++		type = naval_invasion_focus
++		value = 400
++	}
++
++}
++
+ JAP_invade_andaman = {
+ 	allowed = {
+ 		original_tag = JAP
+@@ -2240,11 +2378,11 @@ JAP_get_the_rubber_islands = {
+ 
+ JAP_invade_burma = {
+ 	enable = {
+-		SIA = { is_in_faction_with = JAP }
++		SIA = { is_ally_with = JAP }
+ 		336 = {
+ 			controller = {
+ 				OR = {
+-					is_in_faction_with = JAP
++					is_ally_with = JAP
+ 					original_tag = JAP
+ 				}
+ 			}
+@@ -2269,6 +2407,18 @@ JAP_invade_burma = {
+ 	    value = 100
+ 	}
+ 
++	ai_strategy = {
++	    type = invasion_unit_request
++	    state = 997
++	    value = 60
++	}
++
++	ai_strategy = {
++	    type = invasion_unit_request
++	    state = 995 
++	    value = 50 
++	}
++
+ 	ai_strategy = {
+ 		type = naval_invasion_focus
+ 		value = 200
+@@ -2277,6 +2427,85 @@ JAP_invade_burma = {
+ 
+ }
+ 
++JAP_avoid_hong_kong_invasion_if_no_need = {
++
++	allowed = {
++		original_tag = JAP
++	}
++	enable = {
++		# IF at peace with ENG 
++		NOT = { has_war_with = ENG }
++	}
++	
++	abort = {
++		OR = {
++			focus_progress = {
++				focus = JAP_strike_the_southern_road
++				progress > 0 
++			}	
++			has_war_with = ENG
++		}
++	}
++
++	ai_strategy = {
++		type = force_concentration_target_weight
++		state = 326 #  Hong Kong
++		value = -100 # 
++	}
++	ai_strategy = {
++		type = force_concentration_target_weight
++		state = 326 #  Hong Kong
++		value = -100 # 
++	}
++
++	ai_strategy = {
++		type = invade
++		id = ENG
++		value = -220
++	}
++
++}
++
++JAP_avoid_macau_invasion_if_no_need = {
++
++	allowed = {
++		original_tag = JAP
++	}
++	enable = {
++		# IF at peace with POR 
++		NOT = { has_war_with = POR }
++	}
++	
++	abort = {
++		OR = {
++			focus_progress = {
++				focus = JAP_occupy_macau
++				progress > 0 
++			}	
++			has_war_with = POR
++		}
++	}
++
++	ai_strategy = {
++		type = force_concentration_target_weight
++		state = 729 #  Macau
++		value = -100 
++	}
++	ai_strategy = {
++		type = force_concentration_target_weight
++		state = 729 #  Macau
++		value = -100 
++	}
++
++	ai_strategy = {
++		type = invade
++		id = POR
++		value = -220
++	}
++
++}
++
++
+ JAP_how_about_some_more_cv_planes = {
+ 	allowed = {
+ 		original_tag = JAP
+diff --git a/common/ai_strategy/default.txt b/common/ai_strategy/default.txt
+index 81319f3..ee725e7 100644
+--- a/common/ai_strategy/default.txt
++++ b/common/ai_strategy/default.txt
+@@ -590,7 +590,10 @@ default_paratroopers_production = {
+ default_major_SF_para = {
+ 	enable = {
+ 		is_major = yes
+-		has_tech = special_forces_paratroopers
++		OR = {
++			has_doctrine = paratroopers_1
++			has_doctrine = paratroopers_2
++		}
+ 	}
+ 	abort_when_not_enabled = yes
+ 	ai_strategy = {
+@@ -603,7 +606,10 @@ default_major_SF_para = {
+ default_major_SF_marines = {
+ 	enable = {
+ 		is_major = yes
+-		has_tech = special_forces_marines
++		OR = {
++			has_doctrine = marines_1
++			has_doctrine = marines_2
++		}
+ 	}
+ 	abort_when_not_enabled = yes
+ 	ai_strategy = {
+diff --git a/common/ai_strategy_plans/JAP_alternate_strategy_plan.txt b/common/ai_strategy_plans/JAP_alternate_strategy_plan.txt
+index 9679085..6c55e06 100644
+--- a/common/ai_strategy_plans/JAP_alternate_strategy_plan.txt
++++ b/common/ai_strategy_plans/JAP_alternate_strategy_plan.txt
+@@ -97,6 +97,7 @@ JAP_manchukuo_player_historical_plan = {
+ 		JAP_issue_the_shinmin_no_michi_manifesto # 35
+ 		JAP_occupy_indochina # 35
+ 		JAP_sea_pressure_siam # 35
++		JAP_occupy_siam # 35 IF Siam is in a faction blocking pressure Siam, they will instead attempt to invade Siam 
+ 		JAP_strike_the_southern_road # 70
+ 		JAP_unsinkable_aircraft_carriers # 35
+ 
+diff --git a/common/ai_templates/templates_JAP.txt b/common/ai_templates/templates_JAP.txt
+index be535f5..a9cc209 100644
+--- a/common/ai_templates/templates_JAP.txt
++++ b/common/ai_templates/templates_JAP.txt
+@@ -48,8 +48,13 @@ armor_JAP = {
+ 				artillery = 1
+ 			}
+ 			
++			regimental_support = {
++				anti_air_battery = 1
++				fire_support = 1
++			}
++
+ 			regiments = {
+-				light_armor = 5
++				light_armor = 3
+ 				cavalry = 4
+ 			}
+ 		}
+@@ -151,10 +156,16 @@ armor_JAP = {
+ 				light_tank_recon = 1
+ 				maintenance_company = 1
+ 				logistics_company = 1
++				signal_company = 1
++			}
++
++			regimental_support = {
++				anti_tank_battery = 1
++				mot_fire_support = 1
+ 			}
+ 			
+ 			regiments = {
+-				medium_armor = 6
++				medium_armor = 4
+ 				motorized = 5
+ 			}
+ 		}
+@@ -181,13 +192,20 @@ armor_JAP = {
+ 				engineer = 1
+ 				light_tank_recon = 1
+ 				maintenance_company = 1
++				signal_company = 1
+ 				logistics_company = 1
+ 			}
++
++			regimental_support = {
++				anti_tank_battery = 1
++				mot_fire_support = 1
++			}
+ 			
+ 			regiments = {
+ 				modern_armor = 4
+-				mechanized = 3
+-				medium_sp_artillery_brigade = 2
++				mechanized = 5
++				medium_sp_artillery_brigade = 1
++				medium_sp_anti_air_brigade = 1
+ 			}
+ 		}
+ 	}
+@@ -233,8 +251,13 @@ infantry_JAP = {
+ 			
+ 			support = {
+ 				engineer = 1
+-				recon = 1 
+-				artillery = 1
++				recon = 1
++				artillery = 1 
++			}
++			
++			regimental_support = {				
++				fire_support = 1
++				field_guns = 2
+ 			}
+ 			
+ 			regiments = {
+@@ -285,7 +308,12 @@ infantry_JAP = {
+ 				engineer = 1
+ 				recon = 1
+ 				artillery = 1
+-				anti_tank = 1
++			}
++
++			regimental_support = {
++				fire_support = 1
++				anti_tank_battery = 1
++				anti_air_battery = 1
+ 			}
+ 			
+ 			regiments = {
+@@ -330,13 +358,16 @@ mountaineers_JAP = {
+ 			support = {
+ 				engineer = 1
+ 				artillery = 1
+-				anti_tank = 1
+ 				logistics_company = 1
+ 			}
++
++			regimental_support = {
++				anti_tank_battery = 1
++				anti_air_battery = 1
++			}
+ 			
+ 			regiments = {
+-				mountaineers = 8
+-				artillery_brigade = 2
++				mountaineers = 9
+ 			}
+ 		}
+ 	}
+@@ -376,13 +407,18 @@ marines_JAP = {
+ 			
+ 			support = {
+ 				engineer = 1
+-				artillery = 1
+-				recon = 1
+ 				logistics_company = 1
++				recon = 1
++				artillery = 1
+ 			}
+ 			
++			regimental_support = {
++				anti_air_battery = 1
++				fire_support = 1
++			}
++
+ 			regiments = {
+-				marine = 10
++				marine = 9
+ 			}
+ 		}
+ 	}
+@@ -406,9 +442,15 @@ marines_JAP = {
+ 			support = {
+ 				recon = 1
+ 				engineer = 1
++				logistics_company = 1
+ 				artillery = 1
+ 			}
+ 			
++			regimental_support = {
++				anti_air_battery = 1
++				fire_support = 1
++			}
++
+ 			regiments = {
+ 				amphibious_armor = 2
+ 				marine = 8
+@@ -450,12 +492,14 @@ paratrooper_JAP = {
+ 			
+ 			support = {
+ 				engineer = 1
+-				artillery = 1
+-				anti_tank = 1
+ 			}
+ 			
++			regimental_support = {
++				field_guns = 2
++			}
++
+ 			regiments = {
+-				paratrooper = 5 
++				paratrooper = 8
+ 			}
+ 		}
+ 	}
+@@ -494,6 +538,10 @@ garrison_JAP = {
+ 		}
+ 		
+ 		target_template = {
++
++			support = {
++				engineer = 1
++			}
+ 			
+ 			regiments = {
+ 				infantry = 6
+@@ -536,3 +584,12 @@ garrison_JAP = {
+ 	#military_police
+ 	#light_sp_anti_air_brigade
+ 	#light_sp_artillery_brigade
++
++	# SUPPORT (REGIMENTAL):
++# - anti_air
++# - anti_tank
++# - field_guns
++# - fire_support
++# - mot_fire_support
++# - rocket_battery
++
+diff --git a/common/characters/JAP.txt b/common/characters/JAP.txt
+index 1c596cb..ad8cc4b 100644
+--- a/common/characters/JAP.txt
++++ b/common/characters/JAP.txt
+@@ -206,6 +206,37 @@ characters = {
+ 
+ 		gender = female
+ 
++		advisor = {
++			slot = political_advisor
++			idea_token = JAP_yamakawa_kikue
++
++			allowed = {
++				original_tag = JAP
++			}
++
++			visible = {
++				NOT = {
++					has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
++					has_completed_focus = JAP_organize_a_general_election
++					has_completed_focus = JAP_sea_purge_the_kodoha_faction
++				}
++			}
++
++			available = {
++				has_country_leader = {
++					ruling_only = yes 
++					character = JAP_hitoshi_yamakawa
++				}	
++			}
++
++			traits = {
++				ARG_feminist_revolutionary
++			}
++			ai_will_do = {
++				base = 1
++			}
++		}
++
+ 		portraits = {
+ 			civilian = {
+ 				large = GFX_portrait_JAP_yamakawa_kikue
+diff --git a/common/combat_tactics.txt b/common/combat_tactics.txt
+index 6a3b6c2..93fe8df 100644
+--- a/common/combat_tactics.txt
++++ b/common/combat_tactics.txt
+@@ -1050,7 +1050,7 @@ tactic_sf_barrage = { #Slow moving assault using heavy artillery barrage and art
+ 		has_artillery_ratio > 0.1
+ 	}
+ 	
+-	active = no
++	active = yes
+ 	display_phase = street_fighting
+ 	
+ 	base =  {
+@@ -1166,7 +1166,7 @@ tactic_sf_ambush = { #countered by mouse holing
+ 		phase = street_fighting
+ 	}
+ 	
+-	active = no
++	active = yes
+ 	display_phase = street_fighting
+ 	
+ 	base =  {
+diff --git a/common/countries/cosmetic.txt b/common/countries/cosmetic.txt
+index 9500cd5..b048355 100644
+--- a/common/countries/cosmetic.txt
++++ b/common/countries/cosmetic.txt
+@@ -14,8 +14,28 @@ RAJ_FREE = {
+ }
+ 
+ INS_HOL = {
+-    color = rgb { 203 138 74 }
+-    color_ui = rgb { 255 179 96 }
++    color = rgb { 176 90 70 }
++    color_ui = rgb { 176 90 70 }
++}
++
++INS_HOL_FLAG = {
++    color = rgb { 176 90 70 }
++    color_ui = rgb { 176 90 70 }
++}
++
++INS_UNION = {
++	color = rgb { 240  166  139 }
++	color_ui = rgb { 240  166  139 }
++}
++
++INS_REP_UNION = {
++    color = rgb { 176 24 35 }
++    color_ui = rgb { 176 24 35 }
++}
++
++INS_aslia = {
++	color = rgb { 101 163 145 }
++	color_ui = rgb { 101 163 145 }
+ }
+ 
+ HUN_EMPIRE = {
+@@ -1532,6 +1552,11 @@ BEL_european_union_leader = {
+ 	color_ui = rgb { 0 51 153 }
+ }
+ 
++HND_UNIFIED = {
++	color = rgb { 204 102 0 }
++	color_ui = rgb { 128 64 0 }
++}
++
+ JOR_emirate = {
+ 	color = rgb { 201 56 93 }
+ 	color_ui = rgb { 255 73 121 }
+@@ -1827,6 +1852,15 @@ JAP_pacific_union = {
+ 	color_ui = rgb { 230 184 0 }
+ }
+ 
++SIA_thailand = { #Mandate 1, Phibun, historical
++	color = rgb { 90 80 180 } 
++	color_ui = rgb { 90 80 180 }
++}
++
++SIA_great_thai_empire = { #Mandate 1, Phibun, historical
++	color = rgb { 252 253 254 } 
++	color_ui = rgb { 252 253 254 }
++}
+ CZE_puppet = {	
+ 	color = rgb { 54 167 156 }
+ 	color_ui = rgb { 70 217 203 }
+diff --git a/common/decisions/JAP.txt b/common/decisions/JAP.txt
+index fa02048..3d6cad1 100644
+--- a/common/decisions/JAP.txt
++++ b/common/decisions/JAP.txt
+@@ -2036,6 +2036,10 @@ JAP_pacific_guardian = {
+ 					has_full_control_of_state = 671
+ 					has_full_control_of_state = 286
+ 					has_full_control_of_state = 741
++					has_full_control_of_state = 1066 
++					has_full_control_of_state = 1067 
++					has_full_control_of_state = 1068 
++					has_full_control_of_state = 1069 
+ 				}
+ 			}
+ 		}
+@@ -11257,6 +11261,10 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 				state = 670
+ 				state = 741
+ 				state = 286
++				state = 1066 
++				state = 1067 
++				state = 1068 
++				state = 1069 
+ 			}
+ 		}
+ 
+@@ -11296,7 +11304,18 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 			286 = {
+ 				is_controlled_by_ROOT_or_subject = yes
+ 			}
+-
++			1066 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
++			1067 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
++			1068 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
++			1069 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
+ 		}
+ 
+ 		complete_effect = {
+@@ -11312,6 +11331,7 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 							state = 671
+ 							state = 1017
+ 							state = 670
++							state = 1069 
+ 						}
+ 					}
+ 					transfer_state_to = VIN
+@@ -11324,6 +11344,9 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 						OR = {
+ 							state = 741
+ 							state = 286
++							state = 1066 
++							state = 1067 
++							state = 1068 
+ 						}
+ 					}
+ 					transfer_state_to = CAM
+@@ -11389,6 +11412,7 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 				state = 671
+ 				state = 1017
+ 				state = 286
++				state = 1066 
+ 			}
+ 		}
+ 
+@@ -11416,6 +11440,9 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 			286 = {
+ 				is_controlled_by_ROOT_or_subject = yes
+ 			}
++			1066 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
+ 
+ 		}
+ 
+@@ -11432,6 +11459,7 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 							state = 671
+ 							state = 1017
+ 							state = 286
++							state = 1066
+ 						}
+ 					}
+ 					transfer_state_to = VIN
+@@ -11487,6 +11515,7 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 		highlight_states = {
+ 			highlight_state_targets = {
+ 				state = 741
++				state = 1067
+ 			}
+ 		}
+ 
+@@ -11522,6 +11551,10 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 					transfer_state_to = CAM
+ 					add_core_of = CAM
+ 				}
++				1067 = {
++					transfer_state_to = CAM
++					add_core_of = CAM
++				}
+ 
+ 				set_autonomy = {
+ 					target = CAM
+@@ -11568,6 +11601,8 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 		highlight_states = {
+ 			highlight_state_targets = {
+ 				state = 670
++				state = 1068 
++				state = 1069 
+ 			}
+ 		}
+ 
+@@ -11593,6 +11628,14 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 				is_controlled_by_ROOT_or_subject = yes
+ 			}
+ 
++			1068 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
++
++			1069 = {
++				is_controlled_by_ROOT_or_subject = yes
++			}
++
+ 		}
+ 
+ 		complete_effect = {
+@@ -11606,6 +11649,14 @@ JAP_the_co_prosperity_sphere_decisions = {
+ 					transfer_state_to = LAO
+ 					add_core_of = LAO
+ 				}
++				1068 = {
++					transfer_state_to = LAO
++					add_core_of = LAO
++				}
++				1069 = {
++					transfer_state_to = LAO
++					add_core_of = LAO
++				}
+ 
+ 				set_autonomy = {
+ 					target = LAO
+diff --git a/common/decisions/_generic_decisions.txt b/common/decisions/_generic_decisions.txt
+index 6c957ca..d7fd57d 100644
+--- a/common/decisions/_generic_decisions.txt
++++ b/common/decisions/_generic_decisions.txt
+@@ -580,13 +580,7 @@ propaganda_efforts = {
+ 				#has_tech = radio
+ 				has_completed_focus = BRA_radio_nacional
+ 			}
+-			ELSE = {
+-				threat > 0.25
+-				has_tech = radio
+-			}
+-		
+-
+-			IF = {
++			ELSE_IF = {
+ 				limit = {
+ 					tag = AFG
+ 				}
+@@ -1932,15 +1926,13 @@ war_measures = {
+ 		allowed = {
+ 			has_dlc = "Arms Against Tyranny"
+ 			NOT = {
+-				OR = {
+-					tag = ENG #has a focus
+-					tag = USA #has a focus
+-					tag = SOV #has a focus
+-					tag = JAP #has a focus
+-					tag = AST #has a focus
+-					tag = FRA #has a focus
+-					tag = GER #has a focus
+-				}
++				tag = ENG #has a focus
++				tag = USA #has a focus
++				tag = SOV #has a focus
++				tag = JAP #has a focus
++				tag = AST #has a focus
++				tag = FRA #has a focus
++				tag = GER #has a focus
+ 			}
+ 		}
+ 
+@@ -1955,13 +1947,11 @@ war_measures = {
+ 					has_dlc = "Trial of Allegiance"
+ 				}
+ 				NOT = {
+-					OR = {
+-						tag = CHL #has a focus
+-						tag = BRA #has a focus
+-						tag = ARG #has a focus
+-						tag = URG #has a focus
+-						tag = PAR #has a focus
+-					}
++					tag = CHL #has a focus
++					tag = BRA #has a focus
++					tag = ARG #has a focus
++					tag = URG #has a focus
++					tag = PAR #has a focus
+ 				}
+ 			}
+ 			IF = {
+@@ -1969,11 +1959,9 @@ war_measures = {
+             		has_dlc = "Graveyard of Empires"
+ 				}
+ 				NOT = {
+-					OR = {
+-						tag = PER #has a focus
+-						tag = IRQ #has a focus
+-						tag = RAJ #has a focus
+-					}
++					tag = PER #has a focus
++					tag = IRQ #has a focus
++					tag = RAJ #has a focus
+ 				}
+ 			}
+ 			IF = {
+@@ -1981,13 +1969,26 @@ war_measures = {
+ 					has_dlc = "Gotterdammerung"
+ 				}
+ 				NOT = {
+-					OR = {
+-						tag = BEL #has a focus
+-						tag = COG #has a focus
+-					}
++					tag = BEL #has a focus
++					tag = COG #has a focus
++				}
++			}
++			IF = {
++				limit = {
++					has_dlc = "No Compromise, No Surrender"
++				}
++				NOT = {
++					tag = PHI #has a focus
++				}
++			}
++			IF = {
++				limit = {
++					has_dlc = "Thunder at Our Gates"
++				}
++				NOT = {
++					tag = INS #has a focus
+ 				}
+ 			}
+-			PHI_SEA = no
+ 		}
+ 
+ 		fire_only_once = yes
+@@ -2022,10 +2023,14 @@ war_measures = {
+ 			modifier = {
+ 				factor = 0
+ 				NOT = {
+-					has_tech = special_forces_mountaineers
+-					has_tech = special_forces_marines
+-					has_tech = special_forces_paratroopers
+-					has_tech = special_forces_rangers
++					has_doctrine = mountaineers_1
++					has_doctrine = mountaineers_2
++					has_doctrine = marines_1
++					has_doctrine = marines_2
++					has_doctrine = paratroopers_1
++					has_doctrine = paratroopers_2
++					has_doctrine = rangers_1
++					has_doctrine = rangers_2
+ 				}
+ 			}
+ 		}
+@@ -3823,4 +3828,4 @@ generic_refit_civilian_ships_category = {
+ 			}
+ 		}
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/common/decisions/foreign_influence.txt b/common/decisions/foreign_influence.txt
+index fd4e7f2..d12ad95 100644
+--- a/common/decisions/foreign_influence.txt
++++ b/common/decisions/foreign_influence.txt
+@@ -255,6 +255,9 @@ foreign_influence = {
+ 				is_puppet_of = ROOT
+ 				NOT = { has_government = democratic }
+ 			}
++			NOT = {
++				has_dlc = "Thunder at Our Gates"
++			}
+ 		}
+ 
+ 		target_array = subjects
+diff --git a/common/doctrines/grand_doctrines/land_grand_doctrines.txt b/common/doctrines/grand_doctrines/land_grand_doctrines.txt
+index a6eb266..d44026c 100644
+--- a/common/doctrines/grand_doctrines/land_grand_doctrines.txt
++++ b/common/doctrines/grand_doctrines/land_grand_doctrines.txt
+@@ -95,6 +95,10 @@ new_mobile_warfare = {
+         {
+             #Operations
+ 	        planning_speed = 0.2
++            category_regimental_support_battalions = {
++                max_organisation = 10
++                breakthrough = 0.1
++            }
+             enable_tactic = tactic_backhand_blow   
+ 
+             effect = {
+@@ -202,6 +206,10 @@ superior_firepower = {
+             category_army = {
+                 default_morale = 0.1
+             }
++            category_regimental_support_battalions = {
++                soft_attack = 0.05
++                hard_attack = 0.05
++            }
+ 
+             effect = {
+                 if = {
+@@ -297,6 +305,10 @@ grand_battleplan = {
+         {
+             #Artillery/Support
+             coordination_bonus = 0.1
++            category_regimental_support_battalions = {
++                defense = 0.1
++                entrenchment = 0.2
++            }
+             enable_tactic = tactic_overwhelming_fire
+ 
+             effect = {
+@@ -389,6 +401,10 @@ mass_assault = {
+             #Infantry
+             enable_tactic = tactic_human_wave_tactics
+             additional_brigade_column_size = 1
++            category_regimental_support_battalions = {
++                supply_consumption = -0.02
++                default_morale = 0.1
++            }
+ 
+             effect = {
+                 if = {
+diff --git a/common/doctrines/subdoctrines/land/armor_subdoctrines.txt b/common/doctrines/subdoctrines/land/armor_subdoctrines.txt
+index 7b70479..31a73ea 100644
+--- a/common/doctrines/subdoctrines/land/armor_subdoctrines.txt
++++ b/common/doctrines/subdoctrines/land/armor_subdoctrines.txt
+@@ -54,6 +54,10 @@ armored_spearhead = {
+                 default_morale = 0.1
+                 max_organisation = 3
+             }
++			category_self_propelled_anti_air_regimental_support = {			
++                max_organisation = 10
++                air_attack = 0.05
++			}
+         }
+         tactical_reconnaissance = {
+         #4
+@@ -68,7 +72,7 @@ armored_spearhead = {
+                 max_organisation = 3
+                 breakthrough = 0.2
+             }
+-             category_tanks= {
++            category_tanks= {
+                 max_organisation = 3
+                 breakthrough = 0.2
+             }
+@@ -151,6 +155,7 @@ armored_spearhead_no_lar = {
+         }
+     }
+ }
++
+ armored_infantry_support = {
+     track = armor
+     name = SUBDOCTRINE_ARMORED_INFANTRY_SUPPORT
+@@ -191,7 +196,6 @@ armored_infantry_support = {
+         }
+     }
+ 
+-    #TODO jack look if you can make a script effect for production bonuses
+ 
+     rewards = {
+         mobile_reserves = {
+@@ -205,6 +209,7 @@ armored_infantry_support = {
+                 soft_attack = 0.1
+             }
+         }
++		
+         armored_cohorts = {
+         #2
+             medium_armor = {
+@@ -213,7 +218,12 @@ armored_infantry_support = {
+             heavy_armor = {
+                 max_organisation = 5
+             }
++			category_tank_destroyer_regimental_support = {			
++                max_organisation = 5
++				ap_attack = 0.1
++			}
+         }
++		
+         maintenance_routines = {
+         #3
+             armored_maintenance = {
+@@ -224,12 +234,14 @@ armored_infantry_support = {
+                 }
+             }
+         }
++		
+         fuel_rationing = {
+         #4
+             heavy_armor = {
+                 supply_consumption = -0.08
+             }
+         }
++		
+         mobile_armored_strongpoints = {
+         #5
+             category_all_infantry = {
+@@ -238,6 +250,10 @@ armored_infantry_support = {
+             heavy_armor = {
+                 breakthrough = 0.1
+             }
++			heavy_sp_anti_air_support = {
++				max_organisation = 5
++				air_attack = 0.1
++			}
+         }
+     }
+ }
+@@ -323,6 +339,7 @@ streamlined_deployment = {
+             category_all_armor = {
+                 default_morale = 0.05
+                 max_organisation = 3
++				breakthrough = 0.1
+             }
+         }
+     }
+@@ -365,6 +382,7 @@ mobile_defense = {
+         battalion_mult = {
+             category = category_all_armor
+             entrenchment = 0.02
++			add = yes
+         }
+     }
+     category_all_armor = {
+@@ -379,6 +397,7 @@ mobile_defense = {
+                 soft_attack = 0.1
+             }
+         }
++		
+         advance_under_fire = {
+             light_armor = {
+                 breakthrough = 0.1
+@@ -389,6 +408,7 @@ mobile_defense = {
+                 default_morale = 0.1
+             }
+         }
++		
+         attached_support = {
+             assault_engineer = {
+                 max_organisation = 10
+@@ -399,8 +419,12 @@ mobile_defense = {
+             armored_signal = {
+                 max_organisation = 10
+             }
+-
++			category_self_propelled_anti_air_regimental_support = {			
++                max_organisation = 10
++                air_attack = 0.05
++			}
+         }
++		
+         combined_anti_armor = {
+             anti_tank = {
+                 battalion_mult = {
+@@ -410,8 +434,13 @@ mobile_defense = {
+ 
+                 }
+             }
+-
++			category_tank_destroyer_regimental_support = {			
++                max_organisation = 5
++                hard_attack = 0.05
++				ap_attack = 0.15
++			}
+         }
++		
+         tank_on_tank_engagement = {
+             category_all_armor = {
+                 hard_attack = 0.1
+@@ -508,6 +537,14 @@ armored_cavalry = {
+                 max_organisation = 2
+                 soft_attack = 0.05
+             }
++            anti_tank_battery = {
++                ap_attack = 0.10
++            }
++            mot_fire_support = {
++                max_organisation = 5
++                soft_attack = 0.05
++                default_morale = 0.1
++            }
+         }
+         sustained_deployments = {
+             armored_car = {
+@@ -529,7 +566,7 @@ armored_cavalry = {
+             motorized = {
+                 max_organisation = 5
+                 soft_attack = 0.05
+-                default_morale = 0.1 
++                default_morale = 0.1
+             }
+         }
+     }
+@@ -617,6 +654,10 @@ armored_cavalry_no_lar = {
+                 max_organisation = 2
+                 soft_attack = 0.05
+             }
++            anti_tank_battery = {
++                max_organisation = 2
++                ap_attack = 0.05
++            }
+         }
+         sustained_deployments = {
+             light_armor = {
+@@ -628,12 +669,17 @@ armored_cavalry_no_lar = {
+             mechanized = {
+                 max_organisation = 5
+                 soft_attack = 0.05
+-                default_morale = 0.1 
++                default_morale = 0.1
+             }
+             motorized = {
+                 max_organisation = 5
+                 soft_attack = 0.05
+-                default_morale = 0.1 
++                default_morale = 0.1
++            }
++            mot_fire_support = {
++                max_organisation = 5
++                soft_attack = 0.05
++                default_morale = 0.1
+             }
+         }
+     }
+@@ -703,10 +749,15 @@ tank_destroyer_force = {
+                 battalion_mult = {
+                     category = category_tank_destroyers
+                     hard_attack = 0.1
+-                    ap_attack = 0.2
++                    ap_attack = 0.1
+ 
+                 }
+             }
++			category_tank_destroyer_regimental_support = {			
++                max_organisation = 5
++				hard_attack = 0.1
++				ap_attack = 0.1
++			}
+         }
+ 
+ 
+diff --git a/common/doctrines/subdoctrines/land/combat_support_subdoctrines.txt b/common/doctrines/subdoctrines/land/combat_support_subdoctrines.txt
+index 033a4ab..c7b2877 100644
+--- a/common/doctrines/subdoctrines/land/combat_support_subdoctrines.txt
++++ b/common/doctrines/subdoctrines/land/combat_support_subdoctrines.txt
+@@ -33,11 +33,10 @@ fire_concentration = {
+ 
+     category_line_artillery = {
+         defense = 0.05
+-    }
+-    category_line_artillery = {
+         max_organisation = 5
+     }
+ 
++
+      rewards = {
+         
+         predicted_fire = {
+@@ -48,8 +47,7 @@ fire_concentration = {
+         }
+ 
+         standing_barrage = {
+-        #2
+-            
++        #2            
+             artillery_brigade = {
+                 combat_width = -0.8
+             }
+@@ -57,18 +55,30 @@ fire_concentration = {
+                 combat_width = -0.8
+             }
+         }
++		
+         artillery_groups = {
+         #3
+-            category_line_artillery = {
+-                breakthrough = 0.1
+-            }
+-        }
++           category_regimental_support_artillery = {
++                soft_attack = 0.05			   
++                breakthrough = 0.1			   
++		   }
++		   category_support_artillery = {
++                soft_attack = 0.05			   
++                breakthrough = 0.1	
++		   }
++		   category_line_artillery  = {
++                soft_attack = 0.05			   
++                breakthrough = 0.1	
++		   }
++        }
++		
+         dedicated_air_support = {
+         #4
+             category_anti_air = {
+                 air_attack = 0.1
+             }
+         }
++		
+         weakpoint_studies = {
+         #5
+             anti_tank_brigade = {
+@@ -114,15 +124,18 @@ anti_tank_frontline = {
+     rewards = {
+         pakfront = {
+         #1
+-            anti_tank_brigade = {
+-                defense = 0.2
++			anti_tank_brigade = {
+                 ap_attack = 0.1
+-                soft_attack = 0.2
+-            }
++			}
++            anti_tank_battery = {
++                ap_attack = 0.2
++                hard_attack = 0.2				
++			}
+         }
+         emplacement_rotation = {
+         #2
+             anti_tank_brigade = {
++                defense = 0.2
+                 max_organisation = 10
+             }
+         }
+@@ -131,6 +144,7 @@ anti_tank_frontline = {
+             anti_tank_brigade = {
+                 ap_attack = 0.1
+                 hard_attack = 0.1
++                soft_attack = 0.2
+             }
+         }
+         offensive_deployments = {
+@@ -201,6 +215,10 @@ flying_batteries = {
+             mot_artillery_brigade = {
+                 max_organisation = 10
+             }
++			mot_fire_support = {
++                max_organisation = 10		
++                soft_attack = 0.1		
++			}
+         }
+         counter_battery_tasks = {
+             
+@@ -225,8 +243,12 @@ flying_batteries = {
+             armored_signal = {
+                 battalion_mult = {
+                     category = category_line_artillery
+-                    initiative = 0.02
+                     supply_consumption = -0.01
++					add = yes
++                }
++				 battalion_mult = {
++                    category = category_line_artillery
++                    initiative = 0.02
+                 }
+             }
+ 
+@@ -382,7 +404,10 @@ mobile_recon_and_assault = {
+                 maximum_speed = 0.1
+                 default_morale = 0.1
+             }
+-
++			mot_fire_support = {
++                max_organisation = 10		
++                soft_attack = 0.1		
++			}
+         }
+         long_range_reconnaissance = {
+             category_recon = {
+@@ -426,6 +451,12 @@ mobile_recon_and_assault = {
+                 recon = 0.2
+                 breakthrough = 0.1
+             }
++			category_tank_destroyer_regimental_support = {
++                breakthrough = 0.2				
++			}
++			category_self_propelled_anti_air_regimental_support = {
++                breakthrough = 0.2		
++			}
+         }
+     }
+ }
+@@ -518,6 +549,13 @@ mobile_recon_and_assault_no_lar = {
+                 recon = 0.2
+                 breakthrough = 0.1
+             }
++			
++			category_tank_destroyer_regimental_support = {
++                breakthrough = 0.2				
++			}
++			category_self_propelled_anti_air_regimental_support = {
++                breakthrough = 0.2		
++			}
+         }
+     }
+ }
+@@ -602,32 +640,35 @@ self_propelled_support = {
+                 maximum_speed = 0.3
+             }
+         }
+-        multirole_support_vehicles = {
+-            category_self_propelled_artillery = {
+-                hard_attack = 0.05
+-            }
+-            category_self_propelled_anti_air = {
+-                soft_attack = 0.1
+-                hard_attack = 0.05
+-            }
+-            category_tank_destroyers = {
+-                soft_attack = 0.1
+-            }
++        multirole_support_vehicles = {			
++			category_tank_destroyer_regimental_support = {
++                max_organisation = 10
++                hard_attack = 0.1
++                breakthrough = 0.2				
++			}
++			category_self_propelled_anti_air_regimental_support = {
++                max_organisation = 10
++				air_attack = 0.1
++                breakthrough = 0.2		
++			}
+         }
+         shoot_and_scoot = {
+             category_self_propelled_artillery = {
+-                max_organisation = 10
+-                default_morale = 0.2
++                max_organisation = 5
++                default_morale = 0.15
++                soft_attack = 0.05
+             }
+             category_self_propelled_anti_air = {
+-                max_organisation = 10
+-                default_morale = 0.2
++                max_organisation = 5
++                default_morale = 0.15
++				air_attack = 0.05
+             }
+             category_tank_destroyers = {
+-                max_organisation = 10
+-                hard_attack = 0.15
+-                default_morale = 0.2
++                max_organisation = 5
++                default_morale = 0.15
++                hard_attack = 0.05
+             }
++			
+         }
+ 
+     }
+@@ -723,7 +764,7 @@ siege_artillery = {
+                 max_organisation = 10
+                 defense = 0.2
+             }
+-
++			
+         }
+         urban_strongpoint_sieges = {
+ 
+@@ -740,6 +781,12 @@ siege_artillery = {
+                     attack = 0.2
+                 }
+             }
++			fire_support = {
++                soft_attack = 0.1
++			}
++			category_regimental_support_artillery = {
++                soft_attack = 0.1				
++			}
+         }
+         mobile_artillery_command = {
+             category_support_artillery = {
+@@ -817,7 +864,8 @@ field_engineering = {
+                 max_organisation = 5
+                 battalion_mult = {
+                     category = category_all_infantry
+-                    entrenchment = 0.02
++                    entrenchment = 0.1					
++					add = yes
+                 }
+             }
+             maintenance_company = {
+@@ -846,6 +894,10 @@ field_engineering = {
+                     soft_attack = 0.05
+                 }
+             }
++			field_guns = {				
++				soft_attack = 0.1
++				defense = 0.1
++			}
+         }
+         smoke_projector_training = {
+             engineer = {
+@@ -870,6 +922,10 @@ field_engineering = {
+             maintenance_company = {
+                 max_organisation = 5
+             }
++			fire_support = {
++                max_organisation = 5
++				breakthrough = 0.1				
++			}
+         }
+ 
+     }
+diff --git a/common/doctrines/subdoctrines/land/infantry_subdoctrines.txt b/common/doctrines/subdoctrines/land/infantry_subdoctrines.txt
+index 08a3821..136e164 100644
+--- a/common/doctrines/subdoctrines/land/infantry_subdoctrines.txt
++++ b/common/doctrines/subdoctrines/land/infantry_subdoctrines.txt
+@@ -26,6 +26,9 @@ mobile_infantry = {
+ 
+     # EFFECTS
+     enable_tactic = tactic_overwhelming_fire
++    category_all_infantry = {
++        breakthrough = 0.1
++    }
+     effect = {
+         add_tech_bonus = {
+             bonus = 0.5
+@@ -50,6 +53,9 @@ mobile_infantry = {
+         decisive_operations = {
+             category_vehicle_infantry = {
+                 max_organisation = 20
++            }
++			category_regimental_support_artillery = {
++                soft_attack = 0.15
+             }
+         }
+         delegated_authority = {
+@@ -63,6 +69,10 @@ mobile_infantry = {
+                 max_organisation = 10
+                 maximum_speed = 0.2
+             }
++			mot_fire_support = {
++                max_organisation = 5				
++				soft_attack = 0.1
++			}
+         }
+ 
+     }
+@@ -108,6 +118,10 @@ defensive_postures = {
+     rewards = {
+         improvised_fighting_position = {
+             dig_in_speed_factor = 0.05
++			fire_support = {
++                supply_consumption = -0.01	
++                soft_attack = 0.2			
++			}
+         }
+         elastic_operations = {
+             category_all_infantry = {
+@@ -124,6 +138,9 @@ defensive_postures = {
+             category_all_infantry = {
+                 soft_attack = 0.1
+             }
++			category_regimental_support_artillery = {
++                soft_attack = 0.2				
++			}
+         }
+         field_construction_training = {
+             dig_in_speed_factor = 0.15
+@@ -197,6 +214,12 @@ large_unit_tactics = {
+                 max_organisation = 10
+                 soft_attack = 0.1
+             }
++			fire_support = {
++                breakthrough = 0.1			
++			}
++			category_regimental_support_artillery = {
++                soft_attack = 0.1			
++			}
+             army_morale = 0.1
+             
+         }
+@@ -257,17 +280,20 @@ assault_infantry = {
+                     soft_attack = 0.2
+                 }
+             }
++            field_guns = {
++				soft_attack = 0.2
++            }
+         }
+         organic_battalion_fire_support = {
+         #2
+-            category_support_artillery = {
+-                soft_attack = 0.05
++            category_regimental_support_artillery = {
++                soft_attack = 0.1
+             }
+-            anti_tank = {
++            anti_tank_battery = {
+                 ap_attack = 0.1
+                 hard_attack = 0.1
+             }
+-            anti_air = {
++            anti_air_battery = {
+                 air_attack = 0.1
+             }
+ 
+@@ -277,7 +303,18 @@ assault_infantry = {
+         #3
+             category_support_artillery = {
+                 max_organisation = 20
+-                soft_attack = 0.1
++                soft_attack = 0.05
++            }
++			
++			anti_tank = {
++                max_organisation = 20
++                ap_attack = 0.05
++                hard_attack = 0.05
++			}
++			
++			anti_air = {
++                max_organisation = 20
++                air_attack = 0.05
+             }
+ 
+         }
+@@ -315,6 +352,9 @@ assault_infantry = {
+             category_support_artillery = {
+                 supply_consumption = -0.02
+             }
++            category_regimental_support_artillery = {
++                supply_consumption = -0.01
++            }
+             light_flame_tank = {
+                 battalion_mult = {
+                     category = category_all_infantry
+@@ -387,6 +427,7 @@ mounted_infantry = {
+                 defense = 0.1
+             }
+         }
++		
+         mounted_skirmish_groups = {
+             recon = {
+                 max_organisation = 10
+@@ -406,14 +447,15 @@ mounted_infantry = {
+                 max_organisation = 5
+             }
+         }
++		
+         anti_mechanized_cavalry_groups = {
+             category_cavalry = {
+                 hard_attack = 0.2
+                 ap_attack = 0.2
+-            }
+-
+-        
+-}        beasts_of_war = {
++            }        
++		}    
++		
++		beasts_of_war = {
+             category_cavalry = {
+                 maximum_speed = 0.5 
+                 max_strength = 0.05 
+@@ -471,7 +513,7 @@ commandos = {
+     # EFFECTS
+ 
+     rewards = {
+-        isolated_combat_elements = { 
++        isolated_combat_elements = {
+             category_light_infantry = {
+                 supply_consumption = -0.01
+                 reliability = 0.05
+@@ -482,9 +524,13 @@ commandos = {
+             helicopter_brigade = {
+                 casualty_trickleback = 0.05
+             }
+-             helicopter_field_hospital = {
++            helicopter_field_hospital = {
+                 casualty_trickleback = 0.05
+-            }           
++            }			
++            category_regimental_support_artillery = {
++                supply_consumption = -0.01
++                soft_attack = 0.05
++            }
+ 
+         }
+         security_zone_operations = {
+@@ -527,6 +573,12 @@ commandos = {
+                     soft_attack = 0.1
+                 }
+             }
++            anti_tank_battery = {
++                battalion_mult = {
++                    category = category_light_infantry
++                    hard_attack = 0.1
++                }
++            }
+             
+             infantry = {
+                 desert = {
+@@ -553,7 +605,15 @@ commandos = {
+                 soft_attack = 0.1
+                 breakthrough = 0.1
+             }
+-            
++            category_regimental_support_artillery = {
++                breakthrough = 0.15
++            }
++			fire_support = {
++                breakthrough = 0.15
++			}
++			mot_fire_support = {
++                breakthrough = 0.15
++			}
+ 
+         }
+     }
+@@ -663,7 +723,23 @@ peoples_war = {
+     xp_type = army
+ 
+     available = {
+-        has_government = communism
++        if = {
++            limit = {
++                NOT = {
++                    original_tag = INS
++                }
++            }
++            has_government = communism
++        }
++        else = {
++            OR = {
++                has_government = communism
++                AND = {
++                    original_tag = INS
++                    has_completed_focus = INS_underground_revolution
++                }
++            }
++        }
+     }
+     visible = {
+         has_dlc = "No Compromise, No Surrender"
+@@ -704,6 +780,7 @@ peoples_war = {
+             }
+ 
+         }
++		
+         destruction_over_land_gains = {
+         #2
+             mastery = 50
+@@ -713,18 +790,20 @@ peoples_war = {
+             militia = {
+                 equipment_capture_factor = 0.01
+             }
++			field_guns = {
++				soft_attack = 0.15				
++			}
+         }
++		
+         quick_decision_offensive_warfare = {
+         #3
+             militia = {
+-               initiative = 0.01
++               initiative = 0.015
+                max_organisation = 10
+                breakthrough = 0.2
+-            }
+-            
+-
+-
++            } 
+         }
++		
+         people_not_things = {
+         #4
+             mastery = 50
+@@ -770,12 +849,18 @@ great_war_infantry = {
+     rewards = {
+         traverse_digging = {
+             dig_in_speed_factor = 0.05
++			fire_support = {
++                soft_attack = 0.1		
++                defense = 0.1
++			}
+             engineer = {
+                 battalion_mult = {
+                     category = category_light_infantry
+                     entrenchment = 0.05
++					add = yes
+                 }
+             }
++			
+             
+         }
+         sapping_operations = {
+@@ -795,6 +880,9 @@ great_war_infantry = {
+                     breakthrough = 0.05
+                 }
+             }
++			category_regimental_support_artillery = {
++                soft_attack = 0.2				
++			}
+         }
+         field_fortification_emphasis = {
+             category_light_infantry = {
+diff --git a/common/doctrines/subdoctrines/land/operations_subdoctrines.txt b/common/doctrines/subdoctrines/land/operations_subdoctrines.txt
+index 9217003..bbf507d 100644
+--- a/common/doctrines/subdoctrines/land/operations_subdoctrines.txt
++++ b/common/doctrines/subdoctrines/land/operations_subdoctrines.txt
+@@ -45,6 +45,10 @@ mission_type_tactics = {
+             category_all_infantry = {
+                 default_morale = 0.1
+             }
++			category_regimental_support_artillery = {
++				max_organisation = 5
++				soft_attack = 0.05
++			}
+         }
+         flexible_command = {
+         #2
+@@ -60,7 +64,6 @@ mission_type_tactics = {
+         }
+         flexible_combat_formations = {
+         #4
+-
+             category_all_infantry = {
+                 breakthrough = 0.1
+                 max_organisation = 10
+@@ -89,7 +92,20 @@ last_stand = {
+     xp_type = army
+ 
+     available = {
+-        has_defensive_war = yes
++        if = {
++            limit = {
++                NOT = {
++                    original_tag = INS
++                }
++            }
++            has_defensive_war = yes
++        }
++        else = {
++            OR = {
++                has_defensive_war = yes
++                has_country_flag = INS_revolution_has_started
++            }
++        }
+     }
+     # EFFECTS
+     conscription = 0.05
+@@ -126,8 +142,12 @@ last_stand = {
+         breaking_out = {
+         #5
+             category_army = {
+-                soft_attack = 0.2
++                soft_attack = 0.15
+             }
++			category_regimental_support_artillery = {
++				max_organisation = 5
++				soft_attack = 0.1
++			}
+         }
+     }
+ }
+@@ -170,7 +190,9 @@ infiltration_tactics = {
+                 breakthrough = 0.10
+                 max_organisation = 5
+             }
+-
++			fire_support = {
++				soft_attack = 0.1
++			}
+         }
+         nightly_assaults = {
+         #2
+@@ -291,18 +313,25 @@ grand_assault = {
+             category_army = {
+                 breakthrough = 0.15
+             }
++			fire_support = {
++				soft_attack = 0.1
++			}
+         }
+         combined_arms_integration = {
+         #3
+             army_bonus_air_superiority_factor = 0.05 
+             coordination_bonus = 0.1
+-            category_tanks = {
+-                max_organisation = 4
+-            }
+-
+-            anti_air = {
++			category_tank_destroyer_regimental_support = {
++                max_organisation = 5				
++			}
++            anti_air_battery = {
++                max_organisation = 5	
+                 air_attack = 0.1
+             }
++			mot_fire_support = {
++                max_organisation = 5	
++				soft_attack = 0.1
++			}
+         }
+         forward_command_posts = {
+        #4
+@@ -310,6 +339,7 @@ grand_assault = {
+                 battalion_mult = {
+                     category = category_all_infantry 
+                     supply_consumption = -0.05
++					add = yes
+                 }
+             }
+             category_recon = {
+@@ -411,8 +441,6 @@ deep_battle = {
+             army_intel_to_others = -10.0
+             airforce_intel_to_others = -5.0
+             army_intel_factor = 0.05
+-
+-
+         }
+         breakthrough_priority = {
+         #4
+@@ -430,6 +458,10 @@ deep_battle = {
+             armored_car = {
+                 max_organisation = 4
+             }
++			mot_fire_support = {
++                max_organisation = 5
++				soft_attack = 0.1				
++			}
+         }
+         operational_depth_control = {
+         #5
+@@ -449,6 +481,10 @@ deep_battle = {
+                     add = yes
+                 }
+             }
++			category_regimental_support_artillery = {
++                max_organisation = 5
++				soft_attack = 0.1	
++			}
+         }
+     }
+ }
+@@ -748,9 +784,11 @@ rapid_domination = {
+             category_support_artillery = {
+                 soft_attack = 0.05
+             }
+-
+-
++			category_regimental_support_artillery = {
++				breakthrough = 0.1
++			}
+         }
++		
+         advanced_firebases = {
+         #2
+             category_support_artillery = {
+@@ -762,8 +800,12 @@ rapid_domination = {
+                     add = yes
+                 }
+             }
++			category_regimental_support_artillery = {
++				soft_attack = 0.1
++			}
+ 
+         }
++		
+         centralized_fire_control = {
+         #3
+             signal_company = {
+@@ -772,9 +814,8 @@ rapid_domination = {
+                     soft_attack = 0.1
+                 }
+             }
+-
+-
+         }
++		
+         regimental_combat_teams = {
+         #4
+             category_support_battalions = {
+@@ -782,6 +823,7 @@ rapid_domination = {
+                 soft_attack = 0.1
+             }
+         }
++		
+         shock_and_awe = {
+         #5
+             category_army = {
+@@ -791,8 +833,7 @@ rapid_domination = {
+                 soft_attack = 0.1
+                 hard_attack = 0.1
+             }
+-            army_bonus_air_superiority_factor = 0.1 
+-           
++            army_bonus_air_superiority_factor = 0.1          
+             
+         }
+     }
+@@ -862,4 +903,90 @@ expeditionary_warfare = {
+             org_loss_when_moving = -0.2
+         }
+     }
+-}
+\ No newline at end of file
++}
++
++dispersed_operations = {
++    track = operations
++    name = SUBDOCTRINE_DISPERSED_OPERATIONS
++    description = SUBDOCTRINE_DISPERSED_OPERATIONS_DESC
++    icon = GFX_doctrine_dispersed_operations_medium
++
++    xp_cost = 100
++    xp_type = army
++
++    available = {
++
++    }
++
++    visible = {
++        has_dlc = "Thunder at Our Gates"
++    }
++
++    ai_will_do = {
++        base = 1
++        modifier = {
++            factor = 40
++            original_tag = SOV
++        }
++    }
++
++    # EFFECTS
++    enemy_army_bonus_air_superiority_factor = -0.10
++    land_reinforce_rate = 0.05
++
++    rewards = {
++
++        camouflage_discipline = {
++        #1
++            enemy_army_bonus_air_superiority_factor = -0.15
++			logistics_company = {			
++				battalion_mult = {
++					category = category_all_infantry
++					entrenchment = 0.1
++					add = yes
++				}
++			}
++        }
++		
++        hardened_logistics = {
++        #2
++            logistics_company = {
++                max_organisation = 5
++            }
++			no_supply_grace = 24
++        }
++
++       local_air_defense = {
++        #3            
++            anti_air_battery = {
++                air_attack = 0.20
++            }
++            anti_air = {
++                air_attack = 0.20
++            }
++            category_self_propelled_anti_air_regimental_support = {
++                air_attack = 0.20
++            }
++        }
++		
++        scattered_formations = {
++        #4            
++			cas_damage_reduction = 0.05
++        }
++
++        independent_operations = {
++        #5
++            category_all_infantry = {	
++				initiative = 0.01
++                breakthrough = 0.1
++                max_organisation = 5
++            }
++			category_all_armor = {
++				initiative = 0.01
++                breakthrough = 0.1
++                max_organisation = 2
++			}
++			out_of_supply_factor = -0.15
++        }
++    }
++}
+diff --git a/common/ideas/_economic.txt b/common/ideas/_economic.txt
+index 7f00324..ac9fcc0 100644
+--- a/common/ideas/_economic.txt
++++ b/common/ideas/_economic.txt
+@@ -118,6 +118,27 @@ ideas = {
+ 			default = yes
+ 
+ 			cancel_if_invalid = no
++
++			on_add = {
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = civilian_economy }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_economy_law > 0 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_economy_law = 0 }
++				}
++			}
+ 		}
+ 
+ 		low_economic_mobilisation = {
+@@ -226,6 +247,25 @@ ideas = {
+ 					}
+ 					USA_congress_large_opposition = yes
+ 				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = low_economic_mobilisation }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_economy_law > 1 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_economy_law = 1 }
++				}
+ 			}
+ 
+ 			cost = 150
+@@ -372,6 +412,25 @@ ideas = {
+ 					}
+ 					USA_congress_large_opposition = yes
+ 				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = partial_economic_mobilisation }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_economy_law > 2 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_economy_law = 2 }
++				}
+ 			}
+ 			ai_will_do = {
+    				factor = 2
+@@ -576,6 +635,25 @@ ideas = {
+ 					}
+ 					USA_congress_large_opposition = yes
+ 				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = war_economy }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_economy_law > 3 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_economy_law = 3 }
++				}
+ 			}
+ 			ai_will_do = {
+    				base = 3
+@@ -762,6 +840,25 @@ ideas = {
+ 					}
+ 					USA_congress_large_opposition = yes
+ 				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = tot_economic_mobilisation }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_economy_law > 4 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_economy_law = 4 }
++				}
+ 			}
+ 			ai_will_do = {
+    				base = 1
+@@ -1182,6 +1279,29 @@ ideas = {
+ 					is_in_faction_with = GER
+ 				}
+    			}
++
++   			on_add = {
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = free_trade }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_trade_law > -1 } }
++
++
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++					else = {
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_trade_law = -1 }
++				}
++   			}
+ 		}
+ 
+ 		export_focus = {
+@@ -1261,6 +1381,29 @@ ideas = {
+ 					has_idea = uncontrolled_exports #Poland should try and escape this as soon as they can
+ 				}
+    			}
++
++   			on_add = {
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = export_focus }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_trade_law > 0 } }
++
++
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++					else = {
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_trade_law = 0 }
++				}
++   			}
+ 		}
+ 
+ 		limited_exports = {
+@@ -1379,13 +1522,45 @@ ideas = {
+ 					}
+ 				}
+    			}
++
++   			on_add = {
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = limited_exports }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_trade_law > 1 } }
++
++
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++					else = {
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_trade_law = 1 }
++				}
++   			}
+ 		}
+ 
+ 		autarkic_economy = {
+ 			visible = {
+-				original_tag = GER
+-				has_completed_focus = GER_autarky_efforts
+-				NOT = { has_completed_focus = GER_autarky_achieved }
++				OR = {
++					AND = {
++						original_tag = GER
++						has_completed_focus = GER_autarky_efforts
++						NOT = { has_completed_focus = GER_autarky_achieved }
++					}
++					AND = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = AST
++						has_completed_focus = AST_autarky
++					}
++				}
+ 			}
+ 
+ 			available = {
+@@ -1586,6 +1761,29 @@ ideas = {
+ 					}
+ 				}
+    			}
++
++   			on_add = {
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = closed_economy }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_trade_law > 2 } }
++
++
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++					else = {
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_trade_law = 2 }
++				}
++   			}
+ 		}
+ 
+ 		special_economic_zones = {
+diff --git a/common/ideas/_manpower.txt b/common/ideas/_manpower.txt
+index 5b6ecfe..ab920a9 100644
+--- a/common/ideas/_manpower.txt
++++ b/common/ideas/_manpower.txt
+@@ -19,6 +19,32 @@ ideas = {
+ 			}
+ 
+ 			cancel_if_invalid = no
++			on_add = {
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_disarmed_nation
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = disarmed_nation }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > -1 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = -1 }
++				}
++			}
+ 		}
+ 
+ 		volunteer_only = {
+@@ -110,6 +136,33 @@ ideas = {
+ 			default = yes
+ 
+ 			cancel_if_invalid = no
++
++			on_add = {
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_volunteer_only
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = volunteer_only }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > 0 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = 0 }
++				}
++			}
+ 		}
+ 
+ 		limited_conscription = {
+@@ -126,10 +179,19 @@ ideas = {
+ 				if = {
+ 					limit = {
+ 						original_tag = AST
+-						has_dlc = "Together for Victory"
++						NOT = {
++							has_dlc = "Thunder at Our Gates"
++						}
+ 					}
+ 					has_completed_focus = AST_citizen_military_forces
+ 				}
++				if = {
++					limit = {
++						original_tag = AST
++						has_dlc = "Thunder at Our Gates"
++					}
++					AST_conscription_level_limited_conscription = yes
++				}
+ 				if = {
+ 					limit = {
+ 						original_tag = CAN
+@@ -320,6 +382,32 @@ ideas = {
+ 				}
+ 			}
+ 
++			on_add = {
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_limited_conscription
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = limited_conscription }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > 1 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = 1 }
++				}
++			}
+ 			cancel_if_invalid = no
+ 		}
+ 
+@@ -394,10 +482,17 @@ ideas = {
+ 				if = {
+ 					limit = {
+ 						original_tag = AST
+-						has_dlc = "Together for Victory"
+ 					}
+-					has_completed_focus = AST_citizen_military_forces
+-					has_completed_focus = AST_fight_work_or_perish
++					IF = {
++						limit = {
++							has_dlc = "Thunder at Our Gates"
++						}
++						AST_conscription_level_extensive_conscription = yes
++					}
++					ELSE = {
++						has_completed_focus = AST_citizen_military_forces
++						has_completed_focus = AST_fight_work_or_perish
++					}
+ 				}
+ 				if = {
+ 					limit = {
+@@ -609,6 +704,33 @@ ideas = {
+ 			}
+ 
+ 			cancel_if_invalid = no
++
++			on_add = {
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_extensive_conscription
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = extensive_conscription }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > 2 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = 2 }
++				}
++			}
+ 		}
+ 
+ 		service_by_requirement = {
+@@ -662,10 +784,17 @@ ideas = {
+ 				if = {
+ 					limit = {
+ 						original_tag = AST
+-						has_dlc = "Together for Victory"
+ 					}
+-					has_completed_focus = AST_citizen_military_forces
+-					has_completed_focus = AST_fight_work_or_perish
++					IF = {
++						limit = {
++							has_dlc = "Thunder at Our Gates"
++						}
++						AST_conscription_level_service_by_requirement = yes
++					}
++					ELSE = {
++						has_completed_focus = AST_citizen_military_forces
++						has_completed_focus = AST_fight_work_or_perish
++					}
+ 				}
+ 
+ 				if = {
+@@ -886,6 +1015,33 @@ ideas = {
+ 			}
+ 
+ 			cancel_if_invalid = no
++
++			on_add = {
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_service_by_requirement
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = service_by_requirement }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > 3 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = 3 }
++				}
++			}
+ 		}
+ 
+ 		all_adults_serve = {
+@@ -909,10 +1065,17 @@ ideas = {
+ 				if = {
+ 					limit = {
+ 						original_tag = AST
+-						has_dlc = "Together for Victory"
+ 					}
+-					has_completed_focus = AST_citizen_military_forces
+-					has_completed_focus = AST_fight_work_or_perish
++					IF = {
++						limit = {
++							has_dlc = "Thunder at Our Gates"
++						}
++						AST_conscription_level_all_adults_serve = yes
++					}
++					ELSE = {
++						has_completed_focus = AST_citizen_military_forces
++						has_completed_focus = AST_fight_work_or_perish
++					}
+ 				}
+ 
+ 				if = {
+@@ -1104,6 +1267,31 @@ ideas = {
+ 					}
+ 					add_ideas = FIN_militarized_society
+ 				}
++
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_all_adults_serve
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = all_adults_serve }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > 4 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = 4 }
++				}
+ 			}
+ 
+ 			cost = 150
+@@ -1141,10 +1329,17 @@ ideas = {
+ 				if = {
+ 					limit = {
+ 						original_tag = AST
+-						has_dlc = "Together for Victory"
+ 					}
+-					has_completed_focus = AST_citizen_military_forces
+-					has_completed_focus = AST_fight_work_or_perish
++					IF = {
++						limit = {
++							has_dlc = "Thunder at Our Gates"
++						}
++						AST_conscription_level_scraping_the_barrel = yes
++					}
++					ELSE = {
++						has_completed_focus = AST_citizen_military_forces
++						has_completed_focus = AST_fight_work_or_perish
++					}
+ 				}
+ 
+ 				if = {
+@@ -1322,6 +1517,31 @@ ideas = {
+ 					}
+ 					add_ideas = FIN_militarized_society
+ 				}
++
++				if = {
++					limit = { SIA_should_add_national_savings_bond = yes }
++					SIA_refresh_nsb_spirit = yes
++					add_ideas = idea_SIA_nsb_scraping_the_barrel
++				}
++
++				if = {
++					limit = {
++						has_dlc = "Thunder at Our Gates"
++						original_tag = SIA
++						NOT = { has_idea = scraping_the_barrel }
++					}
++					if = {
++						limit = { check_variable = { SIA_current_manpower_law > 5 } }
++						SIA_decrease_military_approval = yes
++						SIA_increase_civilian_approval = yes
++					}
++					else = {
++						SIA_increase_military_approval = yes
++						SIA_decrease_civilian_approval = yes
++					}
++
++					set_variable = { SIA_current_manpower_law = 5 }
++				}
+ 			}
+ 
+ 			cost = 150
+diff --git a/common/national_focus/japan.txt b/common/national_focus/japan.txt
+index 64e06bd..7f09859 100644
+--- a/common/national_focus/japan.txt
++++ b/common/national_focus/japan.txt
+@@ -5463,7 +5463,11 @@ focus_tree = {
+ 		}
+ 
+ 		bypass = {
+-
++			524 = {
++				NOT = {
++					is_owned_and_controlled_by = ROOT
++				}
++			}
+ 		}
+ 
+ 		cancel_if_invalid = yes
+@@ -12940,6 +12944,9 @@ focus_tree = {
+ 				635 = {
+ 					state_is_fully_controlled_by_ROOT_or_subject = yes
+ 				}
++				1071 = {
++					state_is_fully_controlled_by_ROOT_or_subject = yes
++				}
+ 				#726 = {
+ 				#	state_is_fully_controlled_by_ROOT_or_subject = yes
+ 				#}
+@@ -12981,6 +12988,7 @@ focus_tree = {
+ 						state = 726
+ 						state = 648
+ 						state = 645
++						state = 1071
+ 					}
+ 					state_is_fully_controlled_by_ROOT_or_subject = yes
+ 					air_base < 2 
+@@ -13011,6 +13019,7 @@ focus_tree = {
+ 						state = 726
+ 						state = 648
+ 						state = 645
++						state = 1071
+ 					}
+ 					state_is_fully_controlled_by_ROOT_or_subject = yes
+ 					any_province_building_level = {
+@@ -13058,6 +13067,7 @@ focus_tree = {
+ 							state = 726
+ 							state = 648
+ 							state = 645
++							state = 1071
+ 						}
+ 						state_is_fully_controlled_by_ROOT_or_subject = yes
+ 						radar_station < 1
+@@ -13486,6 +13496,8 @@ focus_tree = {
+ 					amount = 6
+ 				}
+ 			}
++
++			INS_cancel_hol_ally_strategy_entirely_effect = yes
+ 			
+ 			unlock_decision_category_tooltip = prospect_for_resources
+ 				
+@@ -13756,6 +13768,70 @@ focus_tree = {
+ 					}
+ 				}
+ 			}
++
++			hidden_trigger = {
++				IF = {
++					limit = {
++						is_ai = yes 
++					}
++
++					OR = {
++						# Either Siam doesn't hold it 
++						NOT = {
++							286 = { 
++								CONTROLLER = { 
++									original_tag = SIA
++								} 
++							}
++							670 = { 
++								CONTROLLER = { 
++									original_tag = SIA
++								} 
++							}
++							1017 = { 
++								CONTROLLER = { 
++									original_tag = SIA
++								} 
++							}
++							741 = { 
++								CONTROLLER = { 
++									original_tag = SIA
++								} 
++							}
++						}
++
++						# Siam holds it and we have decided on our approach tpwards them first 
++						AND = {
++							OR = {
++								286 = { 
++									CONTROLLER = { 
++										original_tag = SIA
++									} 
++								}
++								670 = { 
++									CONTROLLER = { 
++										original_tag = SIA
++									} 
++								}
++								1017 = { 
++									CONTROLLER = { 
++										original_tag = SIA
++									} 
++								}
++								741 = { 
++									CONTROLLER = { 
++										original_tag = SIA
++									} 
++								}
++							}
++							OR = {
++								has_completed_focus = JAP_sea_pressure_siam
++								has_completed_focus = JAP_occupy_siam
++							}
++						}
++					}
++				}
++			}	
+ 			
+ 		}
+ 
+@@ -13913,6 +13989,14 @@ focus_tree = {
+ 		}
+ 
+ 		available = {
++			if = {
++				limit = {
++					has_dlc = "Thunder at Our Gates"
++				}
++				is_ai = no #I am not AI
++			}
++
++
+ 			is_subject = no
+ 			is_faction_leader = yes
+ 			SIA = {
+@@ -13921,7 +14005,9 @@ focus_tree = {
+ 				is_in_faction = no
+ 				NOT = {
+ 					has_war_with = ROOT
++					
+ 				}
++				has_rule = can_join_factions
+ 			}
+ 		}
+ 
+@@ -14011,12 +14097,35 @@ focus_tree = {
+ 			}
+ 
+ 			custom_effect_tooltip = generic_skip_one_line_tt
++			if = {
++				limit = {
++					has_non_aggression_pact_with = SIA
++				}
+ 
+-			create_wargoal = {
+-				type = annex_everything
+-				target = SIA
+-				expire = 0
+-			}	
++				diplomatic_relation = { 
++					country = SIA
++					relation = non_aggression_pact 
++					active = no 
++				}
++			}
++
++			if = {
++				limit = {
++					is_ai = yes
++					is_historical_focus_on = yes
++				}
++				declare_war_on = {
++					target = SIA
++					type = annex_everything
++				}
++			}
++			else = {
++				create_wargoal = {
++					type = annex_everything
++					target = SIA
++					expire = 0
++				}	
++			}
+ 
+ 		}
+ 	}
+@@ -14227,6 +14336,7 @@ focus_tree = {
+ 						}
+ 					}
+ 				}
++				INS_cancel_hol_ally_strategy_entirely_effect = yes
+ 			}
+ 			IF = {
+ 				limit = {
+@@ -18756,10 +18866,13 @@ focus_tree = {
+ 		}
+ 
+ 		available = {
+-			has_country_leader = {
+-				ruling_only = yes
+-				character = JAP_yamakawa_kikue
+-			}	
++			OR = {
++				has_idea = JAP_yamakawa_kikue
++				has_country_leader = {
++					ruling_only = yes
++					character = JAP_yamakawa_kikue
++				}
++			}
+ 		}
+ 
+ 		bypass = {
+@@ -18804,10 +18917,13 @@ focus_tree = {
+ 		}
+ 
+ 		available = {
+-			has_country_leader = {
+-				ruling_only = yes
+-				character = JAP_yamakawa_kikue
+-			}	
++			OR = {
++				has_idea = JAP_yamakawa_kikue
++				has_country_leader = {
++					ruling_only = yes
++					character = JAP_yamakawa_kikue
++				}
++			}
+ 		}
+ 
+ 		bypass = {
+@@ -29343,8 +29459,23 @@ focus_tree = {
+ 					name = JAP_sea_mountaineers
+ 					cost_reduction = 0.25
+ 					uses = 2
+-					category = cat_mountaineers_doctrine
++					category = special_forces_doctrine
+ 				}
++				custom_effect_tooltip = mountaineer_subdoctrines_default_add_mastery_bonus_effect_tooltip
++				hidden_effect = {
++					add_mastery_bonus = {
++						name = JAP_sea_mountaineers
++						bonus = 0.1
++						days = 240
++						sub_doctrine = mountaineers_1
++					}
++					add_mastery_bonus = {
++						name = JAP_sea_mountaineers
++						bonus = 0.1
++						days = 240
++						sub_doctrine = mountaineers_2
++					}
++				}				
+ 				custom_effect_tooltip = generic_skip_one_line_tt
+ 			}
+ 
+@@ -29414,8 +29545,23 @@ focus_tree = {
+ 					name = JAP_jungle_adaptation
+ 					cost_reduction = 0.25
+ 					uses = 2
+-					category = cat_rangers_doctrine
++					category = special_forces_doctrine
+ 				}
++				custom_effect_tooltip = ranger_subdoctrines_default_add_mastery_bonus_effect_tooltip
++				hidden_effect = {
++					add_mastery_bonus = {
++						name = JAP_jungle_adaptation
++						bonus = 0.1
++						days = 240
++						sub_doctrine = rangers_1
++					}
++					add_mastery_bonus = {
++						name = JAP_jungle_adaptation
++						bonus = 0.1
++						days = 240
++						sub_doctrine = rangers_2
++					}
++				}				
+ 				custom_effect_tooltip = generic_skip_one_line_tt
+ 			}
+ 
+@@ -31222,9 +31368,24 @@ focus_tree = {
+ 				add_potential_special_forces_tree = yes
+ 				add_doctrine_cost_reduction = {
+ 					name = JAP_expand_the_snlf
+-					cost_reduction = 0.5
++					cost_reduction = 0.25
+ 					uses = 1
+-					category = cat_marines_doctrine
++					category = special_forces_doctrine
++				}
++				custom_effect_tooltip = marine_subdoctrines_default_add_mastery_bonus_effect_tooltip
++				hidden_effect = {
++					add_mastery_bonus = {
++						name = JAP_expand_the_snlf
++						bonus = 0.1
++						days = 240
++						sub_doctrine = marines_1
++					}
++					add_mastery_bonus = {
++						name = JAP_expand_the_snlf
++						bonus = 0.1
++						days = 240
++						sub_doctrine = marines_2
++					}
+ 				}
+ 			}
+ 			
+@@ -31857,6 +32018,10 @@ focus_tree = {
+ 			JAP_add_or_modify_army_and_naval_air_services = yes
+ 			add_to_variable = { JAP_airforce_sortie_efficiency = 0.1 tooltip = sortie_efficiency_tt }
+ 
++			custom_effect_tooltip = generic_skip_one_line_tt
++
++			custom_effect_tooltip = JAP_form_the_kido_butai_tt
++
+ 		}
+ 
+ 	}
+diff --git a/common/peace_conference/ai_peace/JAP.txt b/common/peace_conference/ai_peace/JAP.txt
+index d50970a..0d13918 100644
+--- a/common/peace_conference/ai_peace/JAP.txt
++++ b/common/peace_conference/ai_peace/JAP.txt
+@@ -143,4 +143,31 @@ peace_ai_desires = {
+         ai_desire = 200 
+     }
+ 
++    # If Japan defeats themselves in a civil war, they want to take the states for themselves 
++    JAP_wants_all_of_japan = {
++        peace_action_type = take_states
++        enable = {
++            original_tag = JAP  # Negotiatior is Japan
++            FROM = { tag = ROOT }  # And the negotiator is also taking for themselves
++            FROM.FROM.FROM = { 
++                is_core_of = JAP # Japanese Core Territory
++            }  
++        }
++
++        ai_desire = 200  # 200 percent higher desire
++    }
++
++    # If Japan defeats themselves in a civil war, they don't want to puppet etc
++    JAP_wants_all_of_japan_2 = {
++        peace_action_type = { puppet liberate force_government }
++        enable = {
++            original_tag = JAP  # Negotiatior is Japan
++            FROM.FROM.FROM = { 
++                is_core_of = JAP # Japanese Core Territory
++            }  
++        }
++
++        ai_desire = -200  # 200 percent lower desire
++    }
++
+ }
+diff --git a/common/raids/air_raids_custom.txt b/common/raids/air_raids_custom.txt
+index 5b079b4..aa3fc9d 100644
+--- a/common/raids/air_raids_custom.txt
++++ b/common/raids/air_raids_custom.txt
+@@ -2953,7 +2953,23 @@ types = {
+ 
+ 		success_factors = {
+ 			success = {
+-				base = 0.85
++				base = 0.75
++
++				completed_kido_butai_focus = {
++				    
++			        # MTTH block
++			        formula = {
++			            base = 0
++			            modifier = {
++			                has_completed_focus = JAP_form_the_kido_butai
++			                add = 1
++			            }
++			        }
++				    
++				    weight = 0.1
++				    can_actor_affect = yes # If true, this modifier will be included in the list of measures the actor country can take to increase the success chance of the raid
++				    can_target_affect = no # If true, this modifier will be included in the list of countermeasures the target country can take to decreases the success chance of the raid
++				}
+ 
+ 				# Raiding unit modifiers
+ 				experience = {
+@@ -3003,6 +3019,22 @@ types = {
+ 			critical = {
+ 				base = 0.1
+ 
++					completed_kido_butai_focus = {
++					    
++				        # MTTH block
++				        formula = {
++				            base = 0
++				            modifier = {
++				                has_completed_focus = JAP_form_the_kido_butai
++				                add = 1
++				            }
++				        }
++					    
++					    weight = 0.05 
++					    can_actor_affect = yes # If true, this modifier will be included in the list of measures the actor country can take to increase the success chance of the raid
++					    can_target_affect = no # If true, this modifier will be included in the list of countermeasures the target country can take to decreases the success chance of the raid
++					}
++
+ 			}
+ 		}
+ 
+diff --git a/common/technologies/electronic_mechanical_engineering.txt b/common/technologies/electronic_mechanical_engineering.txt
+index 755c833..cee5039 100644
+--- a/common/technologies/electronic_mechanical_engineering.txt
++++ b/common/technologies/electronic_mechanical_engineering.txt
+@@ -1415,6 +1415,10 @@ technologies = {
+ 			soft_attack = 0.1
+ 		}
+ 		
++		rocket_battery = {
++			soft_attack = 0.1
++		}
++
+ 		research_cost = 1
+ 		start_year = 1943
+ 		
+diff --git a/events/SEA_Japan.txt b/events/SEA_Japan.txt
+index a57517a..ed557e9 100644
+--- a/events/SEA_Japan.txt
++++ b/events/SEA_Japan.txt
+@@ -605,16 +605,25 @@ country_event = {
+ 	is_triggered_only = yes
+ 
+ 	fire_only_once = yes
+-	
++
+ 	# We will be stronger together 
+ 	option = { 
+ 		name = SEA_japan_foreign_policy.4.a
++		trigger = {
++			NOT = { has_active_mission = SIA_limited_war_indochina }
++		}
+ 		ai_chance = {
+ 			base = 70
+ 			modifier = {
+ 				strength_ratio = { tag = JAP ratio < 0.8 }
+ 				factor = 1.5
+ 			}
++
++			modifier = {
++				has_dlc = "Thunder at Our Gates"
++				is_historical_focus_on = yes
++				factor = 0
++			}
+ 		}
+ 
+ 		FROM = {
+@@ -632,11 +641,26 @@ country_event = {
+ 			}
+ 		}
+ 
++		#Make sure reluctant submission is triggered via this event
++		if = {
++			limit = {
++				has_dlc = "Thunder at Our Gates"
++				NOT = { 
++					has_completed_focus = SIA_standing_our_ground 
++					has_completed_focus = SIA_reluctant_submission
++				}
++			} 
++			complete_national_focus = SIA_reluctant_submission
++		}
++
+ 	}
+ 
+ 	# That would go against our principals of neutrality!
+ 	option = { 
+ 		name = SEA_japan_foreign_policy.4.b
++		trigger = {
++			NOT = { has_active_mission = SIA_limited_war_indochina }
++		}
+ 		ai_chance = {
+ 			base = 30
+ 			modifier = {
+@@ -666,6 +690,14 @@ country_event = {
+ 		}
+ 
+ 	}
++
++	option = { 
++		name = SEA_japan_foreign_policy.4.c
++		trigger = { has_active_mission = SIA_limited_war_indochina }
++
++		JAP = { SIA = { country_event = { id = SEA_japan_foreign_policy.4 days = 181 } } } #Scoping to JAP first for loc to work with FROM
++		custom_effect_tooltip = SEA_japan_foreign_policy.4.c_tt
++	}
+ }
+ 
+ # Siam Accept our Offer - event for JAP
+@@ -756,6 +788,12 @@ country_event = {
+ 		name = SEA_japan_foreign_policy.7.a
+ 		ai_chance = {
+ 			base = 90
++
++			modifier = {
++				is_historical_focus_on = yes
++				has_dlc = "Thunder at Our Gates"
++				factor = 0
++			}
+ 		}
+ 
+ 		FROM = {
+@@ -807,7 +845,6 @@ country_event = {
+ 				}
+ 			}
+ 		}
+-
+ 	}
+ }
+ 
+diff --git a/history/countries/JAP - Japan.txt b/history/countries/JAP - Japan.txt
+index 59fad81..a959065 100644
+--- a/history/countries/JAP - Japan.txt	
++++ b/history/countries/JAP - Japan.txt	
+@@ -428,7 +428,7 @@ IF = {
+ 	set_garrison_strength = 1.0
+ }
+ 
+-
++store_core_states_on_game_start = yes
+ 
+ ###########################
+ ### Starting Technology ###

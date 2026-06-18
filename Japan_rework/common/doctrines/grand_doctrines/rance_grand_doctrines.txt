@@ -1,0 +1,261 @@
+rance_furinkazan = {
+    folder = land
+
+    name = RANCE_GRAND_DOCTRINE_FURINKAZAN
+    description = RANCE_GRAND_DOCTRINE_FURINKAZAN_DESC
+    icon = GFX_doctrine_rance_furinkazan_medium
+    visible = {
+        OR = {
+            tag = JAP
+            is_subject_of = JAP
+        }
+    }
+    available = {
+        Rance_jap_return_to_peak_standard = yes
+    }
+
+    xp_cost = 100
+    xp_type = army
+
+    ai_will_do = {
+        base = 100
+    }
+
+    tracks = {
+        infantry
+        combat_support
+        armor
+        operations
+    }
+
+    # EFFECTS
+    max_planning = 0.15
+    command_power_gain = 1
+    planning_decay_rate_factor = -0.10
+    category_regimental_support_battalions = {
+        max_organisation = 10
+    }
+
+    milestones = {
+        {
+            # Infantry - Forest
+            enable_tactic = tactic_rance_steady_as_forest
+            additional_brigade_column_size = 1
+            category_all_infantry = {
+                max_organisation = 10
+                defense = 0.15
+                soft_attack = 0.10
+            }
+            experience_loss_factor = -0.10
+            supply_consumption_factor = -0.1
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = infantry_milestone_var
+                        }
+                    }
+                    set_variable = { infantry_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { infantry_milestone_var = 1 }
+                }
+            }
+        }
+        {
+            # Combat Support - Mountain
+            enable_tactic = tactic_rance_immovable_as_mountain
+            category_army = {
+                default_morale = 0.2
+            }
+            coordination_bonus = 0.10
+            max_dig_in = 8
+
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = support_milestone_var
+                        }
+                    }
+                    set_variable = { support_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { support_milestone_var = 1 }
+                }
+            }
+        }
+        {
+            # Armor - Fire
+            enable_tactic = tactic_rance_raiding_as_fire
+            category_all_armor = {
+                max_organisation = 10
+                breakthrough = 0.10
+                hard_attack = 0.10
+            }
+
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = armor_milestone_var
+                        }
+                    }
+                    set_variable = { armor_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { armor_milestone_var = 1 }
+                }
+            }
+        }
+        {
+            # Operations - Wind
+            enable_tactic = tactic_rance_swift_as_wind
+            land_reinforce_rate = 0.10
+            no_supply_grace = 72
+            planning_speed = 0.25
+            pocket_penalty = -0.15
+            army_attack_speed_factor = 0.10
+            effect = {
+                if = {
+                    limit = {
+                        NOT = {
+                            has_variable = operations_milestone_var
+                        }
+                    }
+                    set_variable = { operations_milestone_var = 1 }
+                }
+                else = {
+                    add_to_variable = { operations_milestone_var = 1 }
+                }
+            }
+        }
+    }
+}
+
+#之后再调
+# rance_kantai_kessen = {
+#     folder = naval
+
+#     name = RANCE_GRAND_DOCTRINE_KANTAI_KESSEN
+#     description = RANCE_GRAND_DOCTRINE_KANTAI_KESSEN_DESC
+#     icon = GFX_doctrine_rance_kantai_kessen_medium
+#     visible = {
+#         OR = {
+#             tag = JAP
+#             is_subject_of = JAP
+#         }
+#     }
+#     available = {
+#         Rance_jap_return_to_peak_standard = yes
+#     }
+
+#     xp_cost = 100
+#     xp_type = navy
+
+#     ai_will_do = {
+#         base = 100
+#     }
+
+#     tracks = {
+#         submarines
+#         screens
+#         carriers
+#         capital_ships
+#     }
+
+#     # EFFECTS
+#     carrier = {
+#         max_organisation = 15
+#     }
+#     battleship = {
+#         max_organisation = 15
+#     }
+#     naval_detection = 0.10
+#     navy_max_range_factor = 0.15
+#     navy_fuel_consumption_factor = -0.10
+#     strike_force_movement_org_loss = -0.20
+
+#     milestones = {
+#         {
+#             # Submarines - Torpedo Vanguard
+#             submarine_attack = 0.15
+#             naval_torpedo_hit_chance_factor = 0.15
+#             naval_torpedo_reveal_chance_factor = -0.15
+#             naval_torpedo_screen_penetration_factor = 0.10
+#             effect = {
+#                 if = {
+#                     limit = {
+#                         NOT = {
+#                             has_variable = submarines_milestone_var
+#                         }
+#                     }
+#                     set_variable = { submarines_milestone_var = 1 }
+#                 }
+#                 else = {
+#                     add_to_variable = { submarines_milestone_var = 1 }
+#                 }
+#             }
+#         }
+#         {
+#             # Screens - Torpedo Squadrons
+#             navy_screen_attack_factor = 0.15
+#             navy_screen_defence_factor = 0.15
+#             screening_efficiency = 0.10
+#             navy_anti_air_attack_factor = 0.10
+#             effect = {
+#                 if = {
+#                     limit = {
+#                         NOT = {
+#                             has_variable = screens_milestone_var
+#                         }
+#                     }
+#                     set_variable = { screens_milestone_var = 1 }
+#                 }
+#                 else = {
+#                     add_to_variable = { screens_milestone_var = 1 }
+#                 }
+#             }
+#         }
+#         {
+#             # Carriers - First Strike
+#             sortie_efficiency = 0.35
+#             naval_strike_targetting_factor = 0.15
+#             navy_carrier_air_agility_factor = 0.15
+#             carrier_capacity_penalty_reduction = -0.15
+#             effect = {
+#                 if = {
+#                     limit = {
+#                         NOT = {
+#                             has_variable = carriers_milestone_var
+#                         }
+#                     }
+#                     set_variable = { carriers_milestone_var = 1 }
+#                 }
+#                 else = {
+#                     add_to_variable = { carriers_milestone_var = 1 }
+#                 }
+#             }
+#         }
+#         {
+#             # Capital Ships - Decisive Battle Line
+#             navy_capital_ship_attack_factor = 0.20
+#             navy_capital_ship_defence_factor = 0.20
+#             naval_critical_score_chance_factor = 0.15
+#             naval_enemy_fleet_size_ratio_penalty_factor = 0.20
+#             effect = {
+#                 if = {
+#                     limit = {
+#                         NOT = {
+#                             has_variable = capital_ships_milestone_var
+#                         }
+#                     }
+#                     set_variable = { capital_ships_milestone_var = 1 }
+#                 }
+#                 else = {
+#                     add_to_variable = { capital_ships_milestone_var = 1 }
+#                 }
+#             }
+#         }
+#     }
+# }

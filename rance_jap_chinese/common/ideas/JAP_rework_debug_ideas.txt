@@ -1,0 +1,17 @@
+ideas = {
+	country = {
+		JAP_debug_military_leader_cost_factor = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				military_leader_cost_factor = -1
+			}
+		}
+	}
+}

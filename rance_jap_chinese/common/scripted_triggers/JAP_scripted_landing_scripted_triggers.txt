@@ -1,0 +1,83 @@
+JAP_scripted_landing_enabled = {
+	has_game_rule = {
+		rule = rance_japan_scripted_landing
+		option = ENABLED
+	}
+}
+
+JAP_scripted_landing_naval_strength_available = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_scripted_landing_naval_strength_available_tt
+		OR = {
+			AND = {
+				check_variable = {
+					var = variable_rance_nandu
+					value = 1
+					compare = equals
+				}
+				enemies_naval_strength_ratio < 1
+			}
+			AND = {
+				OR = {
+					check_variable = {
+						var = variable_rance_nandu
+						value = 2
+						compare = equals
+					}
+					check_variable = {
+						var = variable_rance_nandu
+						value = 3
+						compare = equals
+					}
+				}
+				enemies_naval_strength_ratio < 1.5
+			}
+			AND = {
+				OR = {
+					check_variable = {
+						var = variable_rance_nandu
+						value = 4
+						compare = equals
+					}
+					check_variable = {
+						var = variable_rance_nandu
+						value = 5
+						compare = equals
+					}
+				}
+				enemies_naval_strength_ratio < 2
+			}
+			check_variable = {
+				var = variable_rance_nandu
+				value = 6
+				compare = equals
+			}
+		}
+	}
+}
+
+JAP_scripted_landing_capacity_available = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_scripted_landing_capacity_available_tt
+		check_variable = { JAP_naval_invasion_capacity > 0 }
+	}
+}
+
+JAP_scripted_landing_target_not_recently_landed = {
+	NOT = { has_state_flag = JAP_scripted_landing_recent_landing_target }
+}
+
+JAP_scripted_landing_eia_plan_slot_available = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_scripted_landing_eia_plan_slot_available_tt
+		check_variable = { JAP_scripted_landing_eia_active_plans < JAP_scripted_landing_eia_active_plan_limit }
+	}
+}
+
+JAP_scripted_landing_raid_ready = {
+	check_variable = {
+		var = JAP_scripted_landing_since_last_raid
+		value = JAP_scripted_landing_raid_threshold
+		compare = greater_than_or_equals
+	}
+}

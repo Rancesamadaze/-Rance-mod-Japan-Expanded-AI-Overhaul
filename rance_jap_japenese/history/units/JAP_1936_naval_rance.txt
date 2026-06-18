@@ -1,0 +1,324 @@
+﻿# history/units/JAP_1936.txt
+
+units = {
+    ### 1. 連合艦隊 (Dai 1 Kantai) - 主力制海与偵察 ###
+    fleet = {
+        name = "連合艦隊 (Rance_JAP_Dominance)"
+        naval_base = 9998  # 横須賀
+        
+        # 核心机动部隊 (Rance_JAP_KidoButai) - 満足最小状态要求
+        task_force = {
+            name = "第一机动艦隊"
+            location = 9998
+            
+            # Role 7: 主力航母 (赤城型) - 需求 4
+            ship = { name = "赤城" definition = carrier equipment = { ship_hull_carrier_1 = { amount = 1 owner = JAP version_name = "赤城型" } } }
+            ship = { name = "加賀" definition = carrier equipment = { ship_hull_carrier_1 = { amount = 1 owner = JAP version_name = "赤城型" } } }
+            ship = { name = "蒼龍" definition = carrier equipment = { ship_hull_carrier_1 = { amount = 1 owner = JAP version_name = "赤城型" } } }
+            ship = { name = "飛龍" definition = carrier equipment = { ship_hull_carrier_1 = { amount = 1 owner = JAP version_name = "赤城型" } } }
+            
+            # Role 1: 标准戦列艦 (長門型) - 需求 6
+            ship = { name = "長門" pride_of_the_fleet = yes definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = JAP version_name = "長門型" } } }
+            ship = { name = "陸奥" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = JAP version_name = "長門型" } } }
+            ship = { name = "扶桑" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = JAP version_name = "長門型" } } }
+            ship = { name = "山城" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = JAP version_name = "長門型" } } }
+            ship = { name = "伊勢" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = JAP version_name = "長門型" } } }
+            ship = { name = "日向" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = JAP version_name = "長門型" } } }
+            
+            # Role 1: 特遣軽巡 (夕張型) - 调整为 20 艘 (使用 JAP_CL_HISTORICAL 命名组)
+            ship = { name = "夕張" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "能代" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "矢矧" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "酒匂" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "香取" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "鹿島" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "香椎" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "柏原" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "阿賀野" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "大淀" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "铃谷" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "熊野" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "岩木" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "馬渊" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "高瀬" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "米代" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "雄物" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "子吉" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "久慈" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+            ship = { name = "鶴见" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "夕張型" } } }
+
+            # Role 2: 肉盾軽巡 (太田型) - 调整为 20 艘 (使用 JAP_CITIES 命名组)
+            ship = { name = "太田" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "菊池" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "大分" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "熊本" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "大津" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "東京" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "横浜" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "大阪" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "名古屋" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "札幌" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "神戸" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "京都" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "福冈" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "川崎" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "埼玉" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "広島" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "仙台" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "北九州" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "千葉" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+            ship = { name = "世田谷" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "太田型" } } }
+
+            # Role 6: 雷撃駆逐 (雪風型) - 调整为 30 艘 (使用 JAP_DD_HISTORICAL 命名组)
+            ship = { name = "雪風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "不知火" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "黑潮" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "親潮" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "早潮" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "夏潮" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "初風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "天津風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "時津風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "浦風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "磯風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "浜風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "谷風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "野分" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "嵐" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "萩風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "舞風" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "秋雲" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "巻雲" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "風雲" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "長波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "巻波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "高波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "大波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "清波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "玉波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "涼波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "藤波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "早波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+            ship = { name = "浜波" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+
+            # Role 2: 肉盾駆逐 (夕雲型) - 调整为 30 艘 (使用 JAP_DE_HISTORICAL 命名组)
+            ship = { name = "夕雲" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "占守" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "八丈" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "国后" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "石垣" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "択捉" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "隠岐" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "佐渡" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "松輪" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "福江" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "対馬" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "六連" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "若宫" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "干珠" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "平戸" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "天草" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "満珠" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "笠戸" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "壱岐" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "松" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "竹" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "梅" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "桃" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "桑" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "桐" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "杉" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "牧" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "樅" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "櫟" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+            ship = { name = "榧" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "夕雲型" } } }
+        }
+
+        # 制海威慑群 (Rance_JAP_PatrolDominanceForce) - 需求 1
+        task_force = {
+            name = "制海威慑群"
+            location = 9998
+            ship = { name = "鳳翔" definition = carrier equipment = { ship_hull_escort_carrier = { amount = 1 owner = JAP version_name = "龍驤型" } } }
+            ship = { name = "青葉" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "青葉型" } } }
+            # Role 6: 袭撃軽巡 (使用 JAP_NATURE)
+			ship = { name = "桃-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+			ship = { name = "櫟-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+            # Role 6: 雷撃駆逐 (需求 6)
+			ship = { name = "磯風-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "浜風-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "谷風-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "野分-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "嵐-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "萩風-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+        }
+
+        # 8支偵察小组 (Rance_JAP_PatrolReconForce) - 需求 8 (使用 JAP_CITIES)
+		task_force = { name = "偵察组 1" location = 9998 ship = { name = "大分-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+		task_force = { name = "偵察组 2" location = 9998 ship = { name = "熊本-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+        task_force = { name = "偵察组 3" location = 9998 ship = { name = "江戸川" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+        task_force = { name = "偵察组 4" location = 9998 ship = { name = "足立" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+        task_force = { name = "偵察组 5" location = 9998 ship = { name = "鹿児島" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+        task_force = { name = "偵察组 6" location = 9998 ship = { name = "船橋" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+        task_force = { name = "偵察组 7" location = 9998 ship = { name = "八王子" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+        task_force = { name = "偵察组 8" location = 9998 ship = { name = "川口" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "小丸型" } } } }
+    }
+
+    ### 2. 破交艦隊 (Rance_JAP_SurfaceRaidingFleet) - 高雄 ###
+fleet = {
+        name = "南方破交艦隊"
+        naval_base = 12068 # 高雄/台湾
+        
+        # 袭撃群 1：核心打撃群
+        task_force = {
+            name = "袭撃群 1"
+            location = 12068
+            # Role 3: 軽型航母
+            ship = { name = "瑞鳳" definition = carrier equipment = { ship_hull_escort_carrier = { amount = 1 owner = JAP version_name = "龍驤型" } } }
+            # Role 1: 标准重巡 (使用利根型占位)
+            ship = { name = "利根" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "青葉型" } } }
+            # Role 6: 袭撃軽巡 (使用 JAP_NATURE)
+            ship = { name = "檜" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+            ship = { name = "柳" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+            # Role 6: 高爆发雷撃駆逐 (雪風型 - 使用 JAP_DD_HISTORICAL)
+			ship = { name = "舞風-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "野分-3" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "嵐-3" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "萩風-3" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "谷風-3" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "浜風-3" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+        }
+
+        # 袭撃群 2：外围袭扰群
+        task_force = {
+            name = "袭撃群 2"
+            location = 12068
+            # Role 3: 軽型航母
+            ship = { name = "祥鳳" definition = carrier equipment = { ship_hull_escort_carrier = { amount = 1 owner = JAP version_name = "龍驤型" } } }
+            # Role 1: 标准重巡
+            ship = { name = "筑摩" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "青葉型" } } }
+            # Role 6: 袭撃軽巡
+            ship = { name = "榎" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+			ship = { name = "牧-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+            # Role 6: 高爆发雷撃駆逐 (雪風型)
+			ship = { name = "秋雲-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "夕雲-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "巻雲-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "風雲-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "長波-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+			ship = { name = "巻波-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "雪風型" } } }
+        }
+    }
+
+ fleet = {
+        name = "深海潜行群"
+        naval_base = 1092 # 広島/呉
+        
+        # 猎杀组 1
+        task_force = {
+            name = "猎杀组 1"
+            location = 1092
+            ship = { name = "伊-19" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-20" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-21" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-22" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+        }
+
+        # 猎杀组 2
+        task_force = {
+            name = "猎杀组 2"
+            location = 1092
+            ship = { name = "伊-23" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-24" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-25" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-26" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+        }
+
+        # 猎杀组 3
+        task_force = {
+            name = "猎杀组 3"
+            location = 1092
+            ship = { name = "伊-27" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-28" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-29" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-30" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+        }
+
+        # 猎杀组 4
+        task_force = {
+            name = "猎杀组 4"
+            location = 1092
+            ship = { name = "伊-31" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-32" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-33" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-34" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+        }
+
+        # 猎杀组 5
+        task_force = {
+            name = "猎杀组 5"
+            location = 1092
+            ship = { name = "伊-35" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-36" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-37" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-38" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+        }
+
+        # 猎杀组 6
+        task_force = {
+            name = "猎杀组 6"
+            location = 1092
+            ship = { name = "伊-39" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-40" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-41" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+            ship = { name = "伊-42" definition = submarine equipment = { ship_hull_cruiser_submarine = { amount = 1 owner = JAP version_name = "伊19" } } }
+        }
+    }
+ ### 4. 護航艦隊 (Rance_JAP_EscortFleet) ###
+   ### 4. 護航艦隊 (Rance_JAP_EscortFleet) ###
+    fleet = {
+        name = "連合護航艦隊"
+        naval_base = 9859  # 大凑
+        
+        # 護航群 1 (10 艘)
+        task_force = {
+            name = "護航群 1"
+            location = 9859
+            # Role 3: 護航航母 (龍驤型)
+            ship = { name = "千岁" definition = carrier equipment = { ship_hull_escort_carrier = { amount = 1 owner = JAP version_name = "龍驤型" } } }
+            # Role 1: 标准重巡 (青葉型)
+            ship = { name = "阿苏" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "青葉型" } } }
+            # Role 6: 袭撃軽巡 (川内型)
+            ship = { name = "欅" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+			ship = { name = "桑-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+            
+            # Role 8: 護航型駆逐 (睦月型 - 职能锁定 ASW) - 调整后共 6 艘
+			ship = { name = "涼波-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+			ship = { name = "高波-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "睦月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "如月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "皋月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "水无月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+        }
+
+        # 護航群 2 (10 艘)
+        task_force = {
+            name = "護航群 2"
+            location = 9859
+            # Role 3: 護航航母 (龍驤型)
+            ship = { name = "千代田" definition = carrier equipment = { ship_hull_escort_carrier = { amount = 1 owner = JAP version_name = "龍驤型" } } }
+            # Role 1: 标准重巡 (青葉型)
+            ship = { name = "津軽" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "青葉型" } } }
+            # Role 6: 袭撃軽巡 (川内型)
+            ship = { name = "椿" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+			ship = { name = "樅-2" definition = light_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = JAP version_name = "川内型" } } }
+            
+            # Role 8: 護航型駆逐 (睦月型) - 调整后共 6 艘
+			ship = { name = "藤波-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+			ship = { name = "早波-2" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "弥生" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "卯月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "文月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+            ship = { name = "長月" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = JAP version_name = "睦月型" } } }
+        }
+    }
+}

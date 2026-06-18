@@ -1,0 +1,263 @@
+JAP_rework_coset_categories = {
+	# JAP_rcs_0 = {
+	# 	icon = GFX_decision_generic_decision
+	# 	complete_effect = {
+	# 		set_faction_manifest = rance_jap_c_freeworld
+	# 	}
+	# }
+
+	#model
+	# JAP_rcs_x = {
+	# 	icon = GFX_decision_generic_decision
+	# 	visible = {
+	# 		has_country_flag = JAP_setting_on
+	# 	}
+	# 	complete_effect = {
+
+
+	# 	}
+	# }
+	#显示与隐藏
+	JAP_rcs_1 = {
+		icon = generic_research
+		visible = {
+		NOT = {has_country_flag = JAP_setting_on}
+		}
+		complete_effect = {
+		set_country_flag = JAP_setting_on
+	}
+	priority = 99
+	}
+	JAP_rcs_2 = {
+		icon = generic_research
+		visible = {
+			has_country_flag = JAP_setting_on
+		}
+		complete_effect = {
+			clr_country_flag = JAP_setting_on
+		}
+		priority = 98
+	}
+	JAP_rcs_4 = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			has_country_flag = JAP_setting_on
+			NOT = {
+				tag = JAP
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_technology = {
+					JAP_rework_land_cruiser_1 = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = JAP_rcs_4_effect_tt
+		}
+	}
+	#让干饭英别提前搞事
+	# JAP_rcs_5 = {
+	# 	icon = GFX_decision_generic_decision
+	# 	visible = {
+	# 		has_country_flag = JAP_setting_on
+	# 	}
+	# 	complete_effect = {
+	# 			every_faction_member = {
+	# 				ENG = {
+	# 					remove_wargoal = {
+	# 							target = PREV # PREV 在这里指向当前正在遍历的阵营成员
+	# 							type = all
+    #         				}
+	# 					}
+	# 				}
+
+
+
+
+	# 	}
+	# }
+	#来点特殊项目加成
+	JAP_rcs_6 = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			has_country_flag = JAP_setting_on
+			NOT = {
+				tag = JAP
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = rance_sp_soeed
+			add_breakthrough_points = {
+				specialization = specialization_land
+				value = 5
+			}
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 5
+			}
+			add_breakthrough_points = {
+				specialization = specialization_naval
+				value = 5
+			}
+			add_breakthrough_points = {
+				specialization = specialization_nuclear
+				value = 5
+			}
+		}
+	}
+	#开局难度设置
+	JAP_rcs_7 = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			date < 1936.2.1
+			has_country_flag = JAP_setting_on
+		}
+		available = {
+			OR = {
+				JAP = {
+					is_ai = yes
+				}
+				tag = JAP
+			}
+		}
+		complete_effect = {
+			country_event = {
+				id = Rance_jap_event.1
+			}
+		}
+		priority = 97
+	}
+    #清除AI难度设置
+	JAP_rcs_8 = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			has_country_flag = JAP_setting_on
+			date < 1936.2.1
+			JAP = {
+				check_variable = {
+				var = variable_rance_nandu
+				value = 0
+				compare = greater_than
+			}
+			}
+		}
+		available = {
+			OR = {
+				JAP = {
+					is_ai = yes
+				}
+				tag = JAP
+			}
+		}
+		complete_effect = {
+			JAP = {
+				set_variable = { variable_rance_nandu = 0 }
+				set_variable = { JAP_open_factory_max = 10 }
+				if = {
+					limit = { Rance_jap_return_to_peak_standard = yes }
+					set_variable = { JAP_open_factory_max = 20 }
+				}
+			}
+
+		}
+
+	}
+	#适配菜鸟宽度
+	# JAP_rcs_11 = {
+	# 	allowed = {
+	# 		always = yes
+	# 	}
+	# 	visible = {
+	# 		date < 1936.2.1
+	# 		has_country_flag = JAP_setting_on
+	# 	}
+	# 	available = {
+	# 		is_ai = no
+	# 	}
+	# 	fire_only_once = yes
+	# 	complete_effect = {
+	# 		JAP = {
+	# 			set_technology = {
+	# 				JAP_for_rookies = 1
+	# 				popup = no
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# #暂时设定，减少所有人补给
+	# JAP_rcs_10 = {
+	# 	icon = GFX_decision_generic_decision
+	# 	visible = {
+	# 		has_country_flag = JAP_setting_on
+	# 	}
+	# 	available = {
+
+	# 	}
+	# 	fire_only_once = yes
+	# 	complete_effect = {
+	# 		every_country = {
+	# 			add_ideas = JAP_rework_defult_balance_supply
+	# 		}
+	# 	}
+	# }
+	#根据日本AI难度给当前玩家国家发放作弊BUFF
+	JAP_rcs_player_cheat_buff_by_jap_ai_difficulty = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			NOT = {
+				tag = JAP
+			}
+			JAP = {
+				is_ai = yes
+			}
+			has_country_flag = JAP_setting_on
+			date > 1936.2.1
+		}
+		available = {
+			date > 1936.3.1
+		}
+		fire_only_once = yes
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = { Rance_nd_more_than_easy = yes }
+				}
+				add_ideas = Rance_jap_ai_buff_easy
+			}
+			else_if = {
+				limit = {
+					Rance_nd_more_than_easy = yes
+					NOT = { Rance_nd_more_than_normal = yes }
+				}
+				add_ideas = Rance_jap_ai_buff_normal
+			}
+			else_if = {
+				limit = {
+					Rance_nd_more_than_normal = yes
+					NOT = { Rance_nd_more_than_hard = yes }
+				}
+				add_ideas = Rance_jap_ai_buff_hard
+			}
+			else_if = {
+				limit = {
+					Rance_nd_more_than_hard = yes
+					NOT = { Rance_nd_more_than_lunatic = yes }
+				}
+				add_ideas = Rance_jap_ai_buff_lunatic
+			}
+			else_if = {
+				limit = {
+					Rance_nd_more_than_lunatic = yes
+					NOT = { Rance_nd_more_than_extra = yes }
+				}
+				add_ideas = Rance_jap_ai_buff_extra
+			}
+			else = {
+				add_ideas = Rance_jap_ai_buff_phantasm
+			}
+		}
+	}
+	##
+}

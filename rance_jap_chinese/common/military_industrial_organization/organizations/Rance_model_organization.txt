@@ -1,0 +1,6326 @@
+## Rance MIO template organizations
+## Infantry tank template
+## This template only reuses the node positions and link structure of vanilla infantry tank MIO.
+## Branch meanings, trait names, and bonuses are project-defined.
+##
+## Planned equipment totals:
+## armor_value +0.25
+## maximum_speed +0.10
+## defense +0.05
+## reliability +0.10
+## soft_attack +0.15
+## hard_attack +0.15
+## ap_attack +0.15
+## breakthrough +0.15
+## build_cost_ic -0.10
+## fuel_capacity +0.15
+##
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Default production_bonus totals:
+## production_capacity_factor +0.05
+## production_cost_factor -0.05
+## production_efficiency_cap_factor +0.05
+## production_efficiency_gain_factor +0.10
+## production_resource_need_factor -0.25
+##
+## Armor manufacturer template planning
+## Planned node count:
+## 10 traits
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Final equipment_bonus totals:
+## reliability +0.10
+##
+## Final production_bonus totals:
+## production_conversion_speed_factor +0.30
+## production_cost_factor -0.10
+## production_capacity_factor +0.20
+## production_efficiency_gain_factor +0.20
+## production_efficiency_cap_factor +0.10
+## production_resource_need_factor -0.25
+##
+## High agility fighter aircraft manufacturer template planning
+## Vanilla full-path totals ignoring mutual exclusivity:
+## equipment_bonus:
+## air_agility +0.4
+## air_range +0.15
+## maximum_speed +0.4
+## air_defence +0.15
+## air_attack +0.15
+## reliability +0.10
+## fuel_consumption_factor +0.10
+##
+## production_bonus:
+## production_resource_penalty_factor -0.05
+## production_capacity_factor +0.05
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.05
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## air_agility +0.4
+## air_range +0.15
+## maximum_speed +0.4
+## air_defence +0.15
+## air_attack +0.15
+## air_bombing +0.00
+## naval_strike_attack +0.00
+## naval_strike_targetting +0.00
+## air_ground_attack +0.00
+## air_visibility_factor +0.00
+## reliability +0.10
+## fuel_consumption +0.00
+## fuel_consumption_factor +0.10
+## strategic_attack +0.00
+## thrust +0.10
+## build_cost_ic -0.1
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.05
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.05
+## production_resource_need_factor -0.25
+##
+## Heavy aircraft manufacturer template planning
+## Vanilla full-path totals ignoring mutual exclusivity and equipment-type limits:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+##
+## equipment_bonus:
+## air_bombing +0.20
+## air_agility +0.00
+## air_defence +0.25
+## reliability +0.10
+## air_range +0.20
+## naval_strike_attack +0.05
+## naval_strike_targetting +0.05
+## sub_detection +0.05
+## surface_detection +0.05
+## air_attack +0.05
+## fuel_consumption +0.05
+##
+## production_bonus:
+## production_efficiency_gain_factor +0.05
+## production_resource_penalty_factor -0.10
+## production_capacity_factor +0.15
+## production_resource_need_factor -0.15
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## air_bombing +0.3
+## air_agility +0.2
+## maximum_speed +0.2
+## air_defence +0.4
+## reliability +0.10
+## air_range +0.20
+## naval_strike_attack +0.1
+## naval_strike_targetting +0.1
+## air_visibility_factor -0.1
+## sub_detection +0.1
+## surface_detection +0.1
+## air_attack +0.3
+## fuel_consumption +0.05
+## thrust +0.1
+## build_cost_ic -0.1
+##
+## Suggested production_bonus totals:
+## production_efficiency_gain_factor +0.10
+## production_capacity_factor +0.1
+## production_resource_need_factor -0.25
+## production_efficiency_cap_factor +0.1
+## production_cost_factor -0.1
+##
+## Naval aircraft manufacturer template planning
+## Vanilla full-path totals ignoring mutual exclusivity and equipment-type limits:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+##
+## equipment_bonus:
+## naval_strike_attack +0.20
+## naval_strike_targetting +0.10
+## reliability +0.15
+## surface_detection +0.10
+## sub_detection +0.10
+## air_range +0.15
+## maximum_speed +0.15
+## air_defence +0.15
+## air_agility +0.10
+## air_attack +0.05
+## air_ground_attack +0.05
+## fuel_consumption -0.05
+##
+## production_bonus:
+## production_capacity_factor +0.05
+## production_cost_factor -0.10
+## production_resource_need_factor +0.10
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## naval_strike_attack +0.20
+## naval_strike_targetting +0.15
+## reliability +0.15
+## surface_detection +0.10
+## sub_detection +0.10
+## air_range +0.1
+## maximum_speed +0.4
+## air_defence +0.2
+## air_agility +0.4
+## air_attack +0.10
+## thrust +0.1
+## build_cost_ic -0.1
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.1
+## production_efficiency_cap_factor +0.1
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## Medium aircraft manufacturer template planning
+## Planning notes:
+## - original vanilla template selected directly in IDE
+## - skip vanilla total-stat summary for this pass
+## - enter planning through placeholder fields first
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## surface_detection +0.1
+## sub_detection +0.1
+## air_ground_attack +0.2
+## air_bombing +0.15
+## naval_strike_attack +0.1
+## naval_strike_targetting +0.1
+## air_attack +0.25
+## air_defence +0.25
+## air_agility +0.3
+## air_range +0.15
+## maximum_speed +0.3
+## reliability +0.1
+## thrust +0.1
+## build_cost_ic -0.1
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.1
+## production_efficiency_cap_factor +0.1
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.05
+## production_resource_need_factor -0.25
+##
+## CAS aircraft manufacturer template planning
+## Vanilla totals considering mutual exclusivity:
+## equipment_bonus range:
+## air_ground_attack +0.28 ~ +0.45
+## air_defence +0.15 ~ +0.18
+## air_attack +0.05 ~ +0.08
+## air_range +0.00 ~ +0.05
+## air_agility +0.00 ~ +0.05
+## maximum_speed -0.03
+## reliability +0.10
+##
+## production_bonus:
+## production_efficiency_gain_factor +0.05
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## air_ground_attack +0.45
+## air_defence +0.2
+## air_attack +0.1
+## air_range +0.2
+## air_agility +0.1
+## maximum_speed +0.1
+## reliability +0.10
+## air_visibility_factor -0.2
+## thrust +0.1
+## build_cost_ic -0.1
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.1
+## production_efficiency_cap_factor +0.1
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.1
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Battle line ship manufacturer template planning
+## Vanilla totals considering mutual exclusivity and ignoring equipment-type limits:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+##
+## production_bonus:
+## production_capacity_factor +0.05
+##
+## equipment_bonus range:
+## armor_value +0.05 ~ +0.20
+## build_cost_ic +0.00 ~ +0.10
+## naval_speed +0.00 ~ +0.05
+## anti_air_attack +0.15
+## lg_attack +0.10 ~ +0.15
+## lg_armor_piercing +0.00 ~ +0.10
+## hg_attack +0.00 ~ +0.10
+## hg_armor_piercing +0.00 ~ +0.10
+## naval_light_gun_hit_chance_factor +0.025
+## naval_torpedo_enemy_critical_chance_factor -0.05
+## max_strength +0.10
+##
+## Planning notes:
+## - use the upper bound of the vanilla mutually exclusive routes
+## - ignore ship-type differences during template planning
+## - treat this as a battle-line gun-and-protection template, not a literal copy of vanilla route identity
+## - vanilla uses max_strength and it should be treated as a valid naval planning field in this project
+## - include common naval comparison fields in the planning block even when they are currently left at zero
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## armor_value +0.20
+## naval_speed +0.1
+## naval_range +0.1
+## anti_air_attack +0.15
+## lg_attack +0.10
+## lg_armor_piercing +0.10
+## hg_attack +0.10
+## hg_armor_piercing +0.10
+## naval_light_gun_hit_chance_factor +0.1
+## naval_heavy_gun_hit_chance_factor +0.1
+## naval_torpedo_damage_reduction_factor -0.1
+## naval_torpedo_enemy_critical_chance_factor -0.1
+## max_strength +0.15
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Escort fleet manufacturer template planning
+## Vanilla totals considering mutual exclusivity:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+##
+## production_bonus:
+## production_capacity_factor +0.10
+##
+## equipment_bonus range:
+## sub_detection +0.10
+## sub_attack +0.05
+## mines_sweeping +0.05
+## naval_speed +0.05
+## anti_air_attack +0.25 ~ +0.30
+## lg_attack +0.15 ~ +0.20
+##
+## Planning notes:
+## - keep template allowed as `always = no`
+## - original escort template is a stable anti-sub / anti-air / light-gun platform
+## - compared with vanilla, project templates should still use the default organization and production baselines
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## sub_detection +0.2
+## sub_attack +0.2
+## mines_sweeping +0.1
+## naval_speed +0.2
+## naval_range +0.2
+## surface_detection +0.2
+## anti_air_attack +0.25
+## lg_attack +0.2
+## lg_armor_piercing +0.1
+## torpedo_attack +0.1
+## naval_torpedo_hit_chance_factor +0.1
+## build_cost_ic -0.15
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Task force ship manufacturer template planning
+## Planning notes:
+## - fill the naval values directly in this block during planning
+## - keep common naval comparison fields visible even when they are still zero
+## - keep template baseline values for organization growth and production
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## armor_value +0.15
+## max_strength +0.2
+## naval_torpedo_damage_reduction_factor -0.1
+## naval_torpedo_enemy_critical_chance_factor -0.1
+## naval_speed +0.1
+## naval_range +0.1
+## surface_detection +0.1
+## sub_detection +0.1
+## anti_air_attack +0.15
+## lg_attack +0.1
+## lg_armor_piercing +0.1
+## naval_light_gun_hit_chance_factor +0.1
+## torpedo_attack +0.1
+## sub_attack +0.1
+## naval_torpedo_hit_chance_factor +0.1
+## build_cost_ic -0.1
+## carrier_size +1
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Raider ship manufacturer template planning
+## Planning notes:
+## - skip vanilla total-stat summary for this pass
+## - use placeholder totals for user-side second pass
+## - do not include submarine-specific stats in this template plan
+## - planned equipment scope should be surface raiders only
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## lg_attack +0.10
+## lg_armor_piercing +0.05
+## hg_attack +0.10
+## hg_armor_piercing +0.05
+## torpedo_attack +0.15
+## anti_air_attack +0.1
+## naval_speed +0.20
+## naval_range +0.20
+## surface_detection +0.15
+## sub_detection +0.15
+## surface_visibility -0.20
+## naval_torpedo_hit_chance_factor +0.2
+## fuel_consumption -0.10
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Carrier raider ship manufacturer template planning
+## Planning notes:
+## - start from raider ship manufacturer placeholder totals
+## - add carrier and screen ship placeholder fields for user-side second pass
+## - do not include submarine equipment scope or submarine-only stats
+## - include carrier detection placeholders even though they are uncommon fields
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## lg_attack +0.1
+## lg_armor_piercing +0.05
+## hg_attack +0.05
+## hg_armor_piercing +0.05
+## torpedo_attack +0.15
+## sub_attack +0.00
+## anti_air_attack +0.15
+## naval_speed +0.20
+## naval_range +0.20
+## surface_detection +0.15
+## sub_detection +0.15
+## surface_visibility -0.25
+## mines_planting +0.00
+## mines_sweeping +0.00
+## naval_light_gun_hit_chance_factor +0.00
+## naval_heavy_gun_hit_chance_factor +0.00
+## naval_torpedo_hit_chance_factor +0.15
+## naval_torpedo_damage_reduction_factor +0.00
+## naval_torpedo_enemy_critical_chance_factor +0.00
+## convoy_raiding_coordination +0.00
+## patrol_coordination +0.00
+## search_and_destroy_coordination +0.00
+## carrier_size +1
+## naval_weather_penalty_factor +0.00
+## fuel_consumption -0.10
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Submarine manufacturer template planning
+## Planning notes:
+## - based on vanilla submarine manufacturer identity, but without preserving mutually exclusive route structure
+## - use project default organization and production baselines
+## - focus on stealth, long-range raiding, torpedo attacks, limited mine warfare, and pressure-hull reliability
+## - vanilla submarine MIO uses max_strength, so treat it as a valid naval planning field
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## lg_attack +0.00
+## lg_armor_piercing +0.00
+## hg_attack +0.00
+## hg_armor_piercing +0.00
+## torpedo_attack +0.15
+## sub_attack +0.00
+## anti_air_attack +0.00
+## max_strength +0.15
+## naval_speed +0.15
+## naval_range +0.20
+## surface_detection +0.15
+## sub_detection +0.00
+## surface_visibility -0.1
+## sub_visibility -0.25
+## mines_planting +0.15
+## mines_sweeping +0.00
+## naval_light_gun_hit_chance_factor +0.00
+## naval_heavy_gun_hit_chance_factor +0.00
+## naval_torpedo_hit_chance_factor +0.2
+## naval_torpedo_damage_reduction_factor +0.00
+## naval_torpedo_enemy_critical_chance_factor +0.00
+## convoy_raiding_coordination +0.00
+## patrol_coordination +0.00
+## search_and_destroy_coordination +0.00
+## carrier_size +0.00
+## submarine_carrier_size +2
+## naval_weather_penalty_factor +0.00
+## fuel_consumption -0.10
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Artillery manufacturer template planning
+## Planning notes:
+## - use common + specialization planning instead of one universal equipment pool
+## - common bonuses apply to all artillery-family equipment
+## - anti-tank specialization applies to anti_tank_equipment
+## - anti-air specialization applies to anti_air_equipment
+## - artillery specialization applies to artillery_equipment and rocket_artillery_equipment
+## - artillery hard_attack may use a high absolute value because artillery base hard attack is very low
+## - production lane should stay production-facing
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Common equipment_bonus totals:
+## soft_attack +0.15
+## hard_attack +0.00
+## air_attack +0.00
+## ap_attack +0.05
+## breakthrough +0.15
+## defense +0.15
+## reliability +0.10
+## build_cost_ic -0.1
+##
+## Anti-tank specialization equipment_bonus totals:
+## limit_to_equipment_type = { anti_tank_equipment }
+## ap_attack +0.10
+## hard_attack +0.20
+## soft_attack +0.00
+## breakthrough +0.00
+##
+## Anti-air specialization equipment_bonus totals:
+## limit_to_equipment_type = { anti_air_equipment }
+## air_attack +0.20
+## soft_attack +0.00
+## hard_attack +0.1
+## breakthrough +0.00
+##
+## Artillery and rocket artillery specialization equipment_bonus totals:
+## limit_to_equipment_type = { artillery_equipment rocket_artillery_equipment }
+## soft_attack +0.15
+## hard_attack +1.5
+## breakthrough +0.0
+## build_cost_ic +0.00
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Infantry equipment manufacturer template planning
+## Vanilla totals considering mutual exclusivity:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+## military_industrial_organization_design_team_assign_cost -0.30
+##
+## production_bonus:
+## production_efficiency_cap_factor +0.06
+## production_efficiency_gain_factor -0.02 ~ +0.08
+## production_cost_factor -0.03
+##
+## equipment_bonus range:
+## soft_attack +0.025 ~ +0.135
+## hard_attack +0.13 ~ +0.18
+## ap_attack +0.25 ~ +0.50
+## breakthrough +0.08 ~ +0.18
+## defense +0.075
+## reliability +0.08
+## build_cost_ic +0.13 ~ +0.18
+##
+## Planning notes:
+## - use project default organization and production baselines
+## - avoid vanilla mutually exclusive routes in the template unless a later design explicitly needs choices
+## - infantry equipment should focus on small-arms firepower, anti-armor ammunition, handling, reliability, and cost control
+## - keep `hardness`, `armor_value`, and `air_attack` out of the active plan because infantry equipment usually has no useful base value for them
+## - include `maximum_speed` as a visible placeholder because it is listed for infantry equipment, but keep it at zero unless a specific design concept needs it
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## reliability +0.10
+## maximum_speed +0.00
+## defense +0.15
+## breakthrough +0.15
+## soft_attack +0.15
+## hard_attack +0.15
+## ap_attack +0.50
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Support equipment manufacturer template planning
+## Vanilla support-equipment-only totals considering mutual exclusivity:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.10 ~ +0.16
+## military_industrial_organization_funds_gain +0.10
+##
+## equipment_bonus range:
+## reliability -0.10 ~ +0.00
+##
+## production_bonus range:
+## production_resource_need_factor -0.25 ~ -0.05
+## production_efficiency_cap_factor +0.00 ~ +0.05
+## production_efficiency_gain_factor +0.05
+## production_capacity_factor +0.00 ~ +0.05
+##
+## Planning notes:
+## - project template only applies to support_equipment, not infantry_equipment
+## - ignore vanilla right-side infantry weapon branch for this template
+## - support equipment has very few meaningful equipment stats; focus on reliability, build cost, production, and resource economy
+## - avoid negative reliability from vanilla scrap-melting route unless the user explicitly wants a harsher economy tradeoff
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## reliability +0.15
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Motorized and mechanized equipment manufacturer template planning
+## Vanilla totals considering mutual exclusivity and equipment-type limits:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+##
+## equipment_bonus range:
+## maximum_speed -0.02 ~ +0.05
+## reliability -0.07 ~ +0.05
+## defense -0.02 ~ +0.06
+## breakthrough +0.035 ~ +0.105
+## hardness +0.00 ~ +0.10
+## armor_value +0.00 ~ +0.05
+## soft_attack +0.00 ~ +0.035
+## hard_attack +0.00 ~ +0.02
+## ap_attack +0.00 ~ +0.10
+## build_cost_ic -0.05 ~ +0.06
+## fuel_consumption -0.05 ~ +0.05
+##
+## Planning notes:
+## - project template applies to motorized_equipment, mechanized_equipment, amphibious_mechanized_equipment, and motorized_rocket_equipment
+## - use one common equipment_bonus plan across all four equipment types instead of equipment-type specialization at this stage
+## - include the applicable fields listed in the project equipment stat reference so later edits do not need another lookup pass
+## - keep the template free of vanilla mutually exclusive routes unless a later design explicitly needs choices
+## - balance the identity between transport mobility, mechanized protection, mounted fire support, and production economy
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## maximum_speed +0.1
+## reliability +0.15
+## defense +0.15
+## breakthrough +0.10
+## hardness +0.10
+## armor_value +0.10
+## soft_attack +0.10
+## hard_attack +0.05
+## ap_attack +0.10
+## air_attack +0.00
+## fuel_consumption -0.10
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Helicopter manufacturer template planning
+## Vanilla full-path totals ignoring mutual exclusivity:
+## equipment_bonus:
+## maximum_speed +0.20
+## reliability +0.10
+## defense +0.05
+## hardness +0.05
+## armor_value +0.10
+## build_cost_ic -0.10
+##
+## production_bonus:
+## production_cost_factor -0.05
+## production_efficiency_gain_factor +0.10
+##
+## Planning notes:
+## - project template applies to helicopter_equipment and requires Gotterdammerung like the vanilla archetype
+## - project equipment stat reference does not currently have a dedicated helicopter section, so use vanilla helicopter equipment definition and vanilla MIO usage as the planning source
+## - helicopter_equipment defines maximum_speed, reliability, defense, breakthrough, hardness, armor_value, ap_attack, air_attack, build_cost_ic, and fuel_consumption
+## - keep air_attack as a zero placeholder because vanilla helicopter equipment has a zero base value
+## - use project default organization and production baselines instead of preserving vanilla's small seven-node route scale
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## maximum_speed +0.2
+## reliability +0.3
+## defense +0.15
+## breakthrough +0.15
+## hardness +0.00
+## armor_value +0.15
+## ap_attack +0.15
+## air_attack +0.00
+## fuel_consumption -0.10
+## build_cost_ic -0.15
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Train manufacturer template planning
+## Vanilla train and railway-gun totals considering mutual exclusivity and excluding support_equipment:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.10
+## military_industrial_organization_funds_gain +0.25
+## military_industrial_organization_size_up_requirement -0.25
+## military_industrial_organization_design_team_assign_cost -1
+## military_industrial_organization_design_team_change_cost -1
+##
+## equipment_bonus range:
+## train_equipment:
+## armor_value +0.00 ~ +0.10
+## air_attack +0.10
+## railway_gun_equipment:
+## reliability +0.10
+##
+## production_bonus range:
+## production_capacity_factor +0.05 plus railway_gun_equipment +0.10
+## production_efficiency_cap_factor +0.15
+## production_efficiency_gain_factor +0.15
+## production_cost_factor -0.05 ~ +0.00
+## production_resource_need_factor -0.25
+## production_resource_penalty_factor -0.10 ~ +0.05
+##
+## Planning notes:
+## - project template applies only to train_equipment and railway_gun_equipment
+## - support_equipment from vanilla generic_train_organization is intentionally excluded
+## - use common organization, equipment, and production baselines rather than specialization pools
+## - railway_gun_attack is treated as valid for railway_gun_equipment in the project reference
+## - do not preserve vanilla mutual exclusivity by default
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## armor_value +0.2
+## air_attack +0.2
+## railway_gun_attack +0.20
+## reliability +0.15
+## maximum_speed +0.10
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Assault gun manufacturer template planning
+## Vanilla full-path totals ignoring mutual exclusivity and equipment-type limits:
+## equipment_bonus:
+## soft_attack +0.39
+## hard_attack +0.20
+## armor_value +0.22
+## reliability +0.15
+## maximum_speed +0.10
+## breakthrough +0.30
+## defense +0.25
+##
+## production_bonus:
+## production_resource_penalty_factor -0.15
+##
+## Planning notes:
+## - project template applies to light_tank_artillery_chassis, medium_tank_artillery_chassis, heavy_tank_artillery_chassis, and modern_tank_artillery_chassis
+## - use one common equipment_bonus plan across all assault gun chassis instead of light / medium / heavy specialization pools
+## - keep the template free of vanilla mutually exclusive routes unless a later design explicitly needs choices
+## - focus on direct-fire assault firepower, stabilized fighting compartments, armor protection, reliability, and production economy
+## - include related armored-vehicle placeholder fields even when kept at zero for this pass
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## soft_attack +0.45
+## hard_attack +0
+## ap_attack +0.00
+## air_attack +0.00
+## armor_value +0.3
+## hardness +0.00
+## reliability +0.2
+## maximum_speed +0.10
+## breakthrough +0.1
+## defense +0.1
+## fuel_capacity +0.15
+## build_cost_ic -0.10
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.10
+## production_efficiency_cap_factor +0.10
+## production_efficiency_gain_factor +0.10
+## production_cost_factor -0.10
+## production_resource_need_factor -0.25
+##
+## ============================================================
+##
+## Medium tank manufacturer template planning
+## Vanilla full-path totals ignoring mutual exclusivity:
+## organization_modifier:
+## military_industrial_organization_research_bonus +0.05
+##
+## equipment_bonus:
+## breakthrough +0.15
+## hard_attack +0.05
+## ap_attack +0.10
+## armor_value +0.05
+## defense +0.05
+## reliability +0.10
+## maximum_speed +0.05
+##
+## production_bonus:
+## production_capacity_factor +0.15
+##
+## Planning notes:
+## - project template applies to mio_cat_eq_all_medium_tank
+## - use one common equipment_bonus plan for all medium tank equipment in the category
+## - do not preserve vanilla armor / engine mutual exclusivity by default
+## - focus on balanced medium-tank firepower, turret handling, armor layout, reliability, mobility, and production economy
+## - include related tank placeholder fields even when kept at zero for this pass
+##
+## Final totals under template rules:
+## Default organization_modifier totals:
+## military_industrial_organization_research_bonus +0.15
+## military_industrial_organization_funds_gain +0.15
+## military_industrial_organization_size_up_requirement -0.15
+##
+## Suggested equipment_bonus totals:
+## soft_attack +0.10 (infantry tank +0.15)
+## hard_attack +0.10 (infantry tank +0.15)
+## ap_attack +0.10 (infantry tank +0.15)
+## air_attack +0.00 (infantry tank +0.00)
+## armor_value +0.15 (infantry tank +0.25)
+## hardness +0.00 (infantry tank +0.00)
+## reliability +0.15 (infantry tank +0.10)
+## maximum_speed +0.2 (infantry tank +0.10)
+## breakthrough +0.3 (infantry tank +0.15)
+## defense +0.05 (infantry tank +0.05)
+## fuel_capacity +0.10 (infantry tank +0.15)
+## build_cost_ic -0.15 (infantry tank -0.10)
+##
+## Suggested production_bonus totals:
+## production_capacity_factor +0.15 (infantry tank +0.05)
+## production_efficiency_cap_factor +0.10 (infantry tank +0.05)
+## production_efficiency_gain_factor +0.10 (infantry tank +0.10)
+## production_cost_factor -0.10 (infantry tank -0.05)
+## production_resource_need_factor -0.25 (infantry tank -0.25)
+##
+## ============================================================
+##
+
+## Infantry tank template
+## Manual layout finalized.
+
+Rance_model_infantry_tank_organization = {
+    icon = GFX_idea_generic_tank_manufacturer_3
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = { armor }
+    research_categories = { mio_cat_tech_all_armor_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_infantry_tank_mobility_protection
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_infantry_tank_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_infantry_tank_assault_firepower
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_infantry_tank_initial_trait
+
+        limit_to_equipment_type = {
+            armor
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_development_bureau
+        name = Rance_model_mio_trait_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_operational_mobility
+        name = Rance_model_mio_trait_operational_mobility
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            fuel_capacity = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reliability_control
+        name = Rance_model_mio_trait_reliability_control
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.10
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_fire_group
+        name = Rance_model_mio_trait_support_fire_group
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_development_bureau }
+
+        equipment_bonus = {
+            soft_attack = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_hard_target_fire_group
+        name = Rance_model_mio_trait_hard_target_fire_group
+        icon = GFX_generic_mio_trait_icon_hard_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_development_bureau }
+
+        equipment_bonus = {
+            hard_attack = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_line_expansion_program
+        name = Rance_model_mio_trait_line_expansion_program
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_hull_armor_basis
+        name = Rance_model_mio_trait_hull_armor_basis
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 1 y = 2 }
+
+        all_parents = { Rance_mio_trait_operational_mobility Rance_mio_trait_reliability_control }
+
+        equipment_bonus = {
+            armor_value = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_production_rhythm_optimization
+        name = Rance_model_mio_trait_production_rhythm_optimization
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_line_expansion_program }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_tooling
+        name = Rance_model_mio_trait_standardized_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_line_expansion_program }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_breakthrough_group
+        name = Rance_model_mio_trait_assault_breakthrough_group
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 7 y = 2 }
+
+        all_parents = { Rance_mio_trait_support_fire_group Rance_mio_trait_hard_target_fire_group }
+
+        equipment_bonus = {
+            breakthrough = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_armor_scheme
+        name = Rance_model_mio_trait_reinforced_armor_scheme
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_hull_armor_basis }
+
+        equipment_bonus = {
+            armor_value = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armor_piercing_ammunition
+        name = Rance_model_mio_trait_armor_piercing_ammunition
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_assault_breakthrough_group }
+
+        equipment_bonus = {
+            ap_attack = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_economy_material_program
+        name = Rance_model_mio_trait_economy_material_program
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = { Rance_mio_trait_production_rhythm_optimization Rance_mio_trait_standardized_tooling Rance_mio_trait_reinforced_armor_scheme Rance_mio_trait_armor_piercing_ammunition}
+
+        equipment_bonus = {
+            build_cost_ic = -0.1
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.05
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Medium tank manufacturer template
+## Smart layout finalized.
+
+Rance_model_medium_tank_manufacturer_organization = {
+    icon = GFX_idea_generic_tank_manufacturer_2
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = { mio_cat_eq_all_medium_tank }
+    research_categories = { mio_cat_tech_medium_armor_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_medium_tank_protection_mobility
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_medium_tank_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_medium_tank_turret_firepower
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_medium_tank_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_medium_tank_development_bureau
+        name = Rance_model_mio_trait_medium_tank_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_sloped_side_armor_layout
+        name = Rance_model_mio_trait_sloped_side_armor_layout
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_tank_development_bureau }
+
+        equipment_bonus = {
+            armor_value = 0.05
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_suspension_group
+        name = Rance_model_mio_trait_improved_suspension_group
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_tank_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_medium_tank_line_expansion
+        name = Rance_model_mio_trait_medium_tank_line_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_tank_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_power_traverse_turret
+        name = Rance_model_mio_trait_power_traverse_turret
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_tank_development_bureau }
+
+        equipment_bonus = {
+            breakthrough = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_specialist_shells
+        name = Rance_model_mio_trait_specialist_shells
+        icon = GFX_generic_mio_trait_icon_hard_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_tank_development_bureau }
+
+        equipment_bonus = {
+            hard_attack = 0.10
+            ap_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_balanced_running_gear
+        name = Rance_model_mio_trait_balanced_running_gear
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 1 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_sloped_side_armor_layout
+            Rance_mio_trait_improved_suspension_group
+        }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            breakthrough = 0.05
+            fuel_capacity = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_turret_forging_tooling
+        name = Rance_model_mio_trait_turret_forging_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_medium_tank_line_expansion }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_armor_assembly
+        name = Rance_model_mio_trait_standardized_armor_assembly
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_medium_tank_line_expansion }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_advanced_turret_controls
+        name = Rance_model_mio_trait_advanced_turret_controls
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 7 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_power_traverse_turret
+            Rance_mio_trait_specialist_shells
+        }
+
+        equipment_bonus = {
+            soft_attack = 0.05
+            breakthrough = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_mobile_defense_layout
+        name = Rance_model_mio_trait_mobile_defense_layout
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_balanced_running_gear }
+
+        equipment_bonus = {
+            armor_value = 0.10
+            reliability = 0.05
+            fuel_capacity = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_gun_metallurgy
+        name = Rance_model_mio_trait_improved_gun_metallurgy
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_advanced_turret_controls }
+
+        equipment_bonus = {
+            soft_attack = 0.05
+            ap_attack = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_medium_tank_material_economy
+        name = Rance_model_mio_trait_medium_tank_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_mobile_defense_layout
+            Rance_mio_trait_turret_forging_tooling
+            Rance_mio_trait_standardized_armor_assembly
+            Rance_mio_trait_improved_gun_metallurgy
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.15
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Armor manufacturer template
+## This template reuses the node layout of vanilla generic_armored_car_organization.
+## The lowest two branch pairs are trimmed to one node each.
+
+Rance_model_armor_manufacturer_organization = {
+    icon = GFX_idea_generic_tank_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = { armor }
+    research_categories = { mio_cat_tech_all_armor_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_armor_manufacturer
+        x = 4
+    }
+
+    initial_trait = {
+        name = Rance_model_armor_manufacturer_initial_trait
+
+        limit_to_equipment_type = {
+            armor
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_manufacturer_foundation
+        name = Rance_model_mio_trait_manufacturer_foundation
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 1 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_quality_control_loop
+        name = Rance_model_mio_trait_quality_control_loop
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 4 y = 0 }
+        relative_position_id = Rance_mio_trait_manufacturer_foundation
+
+        equipment_bonus = {
+            reliability = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_conversion_line_alpha
+        name = Rance_model_mio_trait_conversion_line_alpha
+        icon = GFX_generic_mio_trait_icon_conversion_speed
+
+        position = { x = 0 y = 2 }
+        relative_position_id = Rance_mio_trait_manufacturer_foundation
+
+        any_parent = { Rance_mio_trait_manufacturer_foundation }
+
+        production_bonus = {
+            production_conversion_speed_factor = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_output_staging
+        name = Rance_model_mio_trait_output_staging
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 0 y = 2 }
+        relative_position_id = Rance_mio_trait_quality_control_loop
+
+        any_parent = { Rance_mio_trait_quality_control_loop }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_components
+        name = Rance_model_mio_trait_standardized_components
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 2 y = 1 }
+        relative_position_id = Rance_mio_trait_manufacturer_foundation
+
+        all_parents = { Rance_mio_trait_manufacturer_foundation Rance_mio_trait_quality_control_loop }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_tooling_ceiling
+        name = Rance_model_mio_trait_tooling_ceiling
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 0 y = 2 }
+        relative_position_id = Rance_mio_trait_standardized_components
+
+        all_parents = {
+            Rance_mio_trait_conversion_line_alpha
+            Rance_mio_trait_standardized_components
+            Rance_mio_trait_output_staging
+        }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_economy_program
+        name = Rance_model_mio_trait_economy_program
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 0 y = 1 }
+        relative_position_id = Rance_mio_trait_tooling_ceiling
+
+        any_parent = { Rance_mio_trait_tooling_ceiling }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_output_expansion
+        name = Rance_model_mio_trait_output_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 2 y = 0 }
+        relative_position_id = Rance_mio_trait_quality_control_loop
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_conversion_line_beta
+        name = Rance_model_mio_trait_conversion_line_beta
+        icon = GFX_generic_mio_trait_icon_conversion_speed
+
+        position = { x = 0 y = 2 }
+        relative_position_id = Rance_mio_trait_output_expansion
+
+        all_parents = { Rance_mio_trait_quality_control_loop Rance_mio_trait_output_expansion }
+
+        production_bonus = {
+            production_conversion_speed_factor = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_output_refinement
+        name = Rance_model_mio_trait_output_refinement
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 0 y = 2 }
+        relative_position_id = Rance_mio_trait_conversion_line_beta
+
+        any_parent = { Rance_mio_trait_conversion_line_beta }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+}
+
+## Infantry equipment manufacturer template
+## Smart layout finalized.
+
+Rance_model_infantry_equipment_manufacturer_organization = {
+    icon = GFX_idea_generic_infantry_equipment_manufacturer_2
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        infantry_equipment
+    }
+
+    research_categories = { infantry_weapons }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_infantry_equipment_handling_quality
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_infantry_equipment_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_infantry_equipment_firepower_ammunition
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_infantry_equipment_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_infantry_equipment_development_bureau
+        name = Rance_model_mio_trait_infantry_equipment_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_drum_pattern_sights
+        name = Rance_model_mio_trait_drum_pattern_sights
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_infantry_equipment_development_bureau }
+
+        equipment_bonus = {
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_stocks
+        name = Rance_model_mio_trait_reinforced_stocks
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_infantry_equipment_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.05
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_rifle_line_tooling
+        name = Rance_model_mio_trait_rifle_line_tooling
+        icon = GFX_generic_mio_department_icon_infantry_production
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_infantry_equipment_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_small_arms_bullet_design
+        name = Rance_model_mio_trait_improved_small_arms_bullet_design
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_infantry_equipment_development_bureau }
+
+        equipment_bonus = {
+            soft_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armor_piercing_rounds
+        name = Rance_model_mio_trait_armor_piercing_rounds
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_infantry_equipment_development_bureau }
+
+        equipment_bonus = {
+            ap_attack = 0.20
+            hard_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_field_handling_drills
+        name = Rance_model_mio_trait_field_handling_drills
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_drum_pattern_sights }
+
+        equipment_bonus = {
+            breakthrough = 0.05
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_rifle_parts_flow
+        name = Rance_model_mio_trait_standardized_rifle_parts_flow
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_rifle_line_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_mass_rifle_assembly
+        name = Rance_model_mio_trait_mass_rifle_assembly
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_rifle_line_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_automatic_fire_package
+        name = Rance_model_mio_trait_automatic_fire_package
+        icon = GFX_generic_mio_department_icon_infantry_offense
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_armor_piercing_rounds }
+
+        equipment_bonus = {
+            soft_attack = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_durable_action_group
+        name = Rance_model_mio_trait_durable_action_group
+        icon = GFX_generic_mio_department_icon_infantry_quality
+
+        position = { x = 2 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_field_handling_drills
+            Rance_mio_trait_reinforced_stocks
+        }
+
+        equipment_bonus = {
+            reliability = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_anti_armor_ammunition
+        name = Rance_model_mio_trait_heavy_anti_armor_ammunition
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 6 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_improved_small_arms_bullet_design
+            Rance_mio_trait_automatic_fire_package
+        }
+
+        equipment_bonus = {
+            ap_attack = 0.30
+            hard_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_infantry_equipment_material_economy
+        name = Rance_model_mio_trait_infantry_equipment_material_economy
+        icon = GFX_generic_mio_department_icon_infantry_materials
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_durable_action_group
+            Rance_mio_trait_standardized_rifle_parts_flow
+            Rance_mio_trait_mass_rifle_assembly
+            Rance_mio_trait_heavy_anti_armor_ammunition
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Support equipment manufacturer template
+## Smart layout finalized.
+
+Rance_model_support_equipment_manufacturer_organization = {
+    icon = GFX_idea_generic_infantry_equipment_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        support_equipment
+    }
+
+    research_categories = { support_tech }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_support_equipment_integrated_production
+        x = 4
+    }
+
+    initial_trait = {
+        name = Rance_model_support_equipment_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_equipment_development_bureau
+        name = Rance_model_mio_trait_support_equipment_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_quality_material_blend
+        name = Rance_model_mio_trait_support_quality_material_blend
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_support_equipment_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_line_expansion
+        name = Rance_model_mio_trait_support_line_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_support_equipment_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_assembly_rhythm
+        name = Rance_model_mio_trait_support_assembly_rhythm
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_support_quality_material_blend }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_component_standards
+        name = Rance_model_mio_trait_support_component_standards
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_support_line_expansion }
+
+        equipment_bonus = {
+            reliability = 0.05
+        }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_material_recycling
+        name = Rance_model_mio_trait_support_material_recycling
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 3 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_support_assembly_rhythm
+            Rance_mio_trait_support_component_standards
+        }
+
+        production_bonus = {
+            production_resource_need_factor = -0.25
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_support_equipment_cost_control
+        name = Rance_model_mio_trait_support_equipment_cost_control
+        icon = GFX_generic_mio_department_icon_support_materials
+
+        position = { x = 5 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_support_assembly_rhythm
+            Rance_mio_trait_support_component_standards
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+        }
+    }
+}
+
+## Motorized and mechanized equipment manufacturer template
+## Smart layout finalized.
+
+Rance_model_motorized_mechanized_manufacturer_organization = {
+    icon = GFX_idea_generic_motorized_equipment_manufacturer_3
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        motorized_equipment
+        mechanized_equipment
+        amphibious_mechanized_equipment
+        motorized_rocket_equipment
+    }
+
+    research_categories = {
+        mio_cat_tech_all_motorized_mechanized
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_motorized_mechanized_mobility_reliability
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_motorized_mechanized_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_motorized_mechanized_protection_firepower
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_motorized_mechanized_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_motorized_mechanized_development_bureau
+        name = Rance_model_mio_trait_motorized_mechanized_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_all_wheel_drive_layout
+        name = Rance_model_mio_trait_all_wheel_drive_layout
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_motorized_mechanized_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            fuel_consumption = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_field_service_drivetrain
+        name = Rance_model_mio_trait_field_service_drivetrain
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_motorized_mechanized_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.05
+            fuel_consumption = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_vehicle_line_expansion
+        name = Rance_model_mio_trait_vehicle_line_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_motorized_mechanized_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armored_cargo_body
+        name = Rance_model_mio_trait_armored_cargo_body
+        icon = GFX_generic_mio_trait_icon_hardness
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_motorized_mechanized_development_bureau }
+
+        equipment_bonus = {
+            hardness = 0.05
+            armor_value = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_mounted_weapon_stations
+        name = Rance_model_mio_trait_mounted_weapon_stations
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_motorized_mechanized_development_bureau }
+
+        equipment_bonus = {
+            soft_attack = 0.05
+            hard_attack = 0.05
+            ap_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_suspension_group
+        name = Rance_model_mio_trait_reinforced_suspension_group
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 1 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_all_wheel_drive_layout
+            Rance_mio_trait_field_service_drivetrain
+        }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            reliability = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_chassis_tooling
+        name = Rance_model_mio_trait_standardized_chassis_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_vehicle_line_expansion }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_vehicle_component_standards
+        name = Rance_model_mio_trait_vehicle_component_standards
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_vehicle_line_expansion }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_bulletproof_crew_compartment
+        name = Rance_model_mio_trait_bulletproof_crew_compartment
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 7 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_armored_cargo_body
+            Rance_mio_trait_mounted_weapon_stations
+        }
+
+        equipment_bonus = {
+            reliability = 0.05
+            hardness = 0.05
+            armor_value = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_integrated_fire_support_mounts
+        name = Rance_model_mio_trait_integrated_fire_support_mounts
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_bulletproof_crew_compartment }
+
+        equipment_bonus = {
+            defense = 0.10
+            soft_attack = 0.05
+            ap_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_operational_transport_drills
+        name = Rance_model_mio_trait_operational_transport_drills
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_reinforced_suspension_group }
+
+        equipment_bonus = {
+            defense = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_transport_material_economy
+        name = Rance_model_mio_trait_transport_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_operational_transport_drills
+            Rance_mio_trait_standardized_chassis_tooling
+            Rance_mio_trait_vehicle_component_standards
+            Rance_mio_trait_integrated_fire_support_mounts
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Helicopter manufacturer template
+## Smart layout finalized.
+
+Rance_model_helicopter_manufacturer_organization = {
+    icon = GFX_idea_generic_helicopter_1
+
+    allowed = {
+        always = no
+        has_dlc = "Gotterdammerung"
+    }
+
+    equipment_type = { helicopter_equipment }
+    research_categories = { helicopter_tech }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_helicopter_rotor_mobility
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_helicopter_production_certification
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_helicopter_protection_firepower
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_helicopter_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_helicopter_development_bureau
+        name = Rance_model_mio_trait_helicopter_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_tandem_lift_frame
+        name = Rance_model_mio_trait_tandem_lift_frame
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_helicopter_development_bureau }
+
+        equipment_bonus = {
+            defense = 0.05
+            armor_value = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_side_venting_exhaust
+        name = Rance_model_mio_trait_side_venting_exhaust
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_helicopter_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.10
+            fuel_consumption = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_helicopter_line_expansion
+        name = Rance_model_mio_trait_helicopter_line_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_helicopter_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armored_cockpit_frame
+        name = Rance_model_mio_trait_armored_cockpit_frame
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_helicopter_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.05
+            armor_value = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_pintle_hardpoint_mounts
+        name = Rance_model_mio_trait_pintle_hardpoint_mounts
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_helicopter_development_bureau }
+
+        equipment_bonus = {
+            breakthrough = 0.05
+            ap_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_turboshaft_engine
+        name = Rance_model_mio_trait_improved_turboshaft_engine
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 1 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_tandem_lift_frame
+            Rance_mio_trait_side_venting_exhaust
+        }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            fuel_consumption = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_rotor_assembly_tooling
+        name = Rance_model_mio_trait_rotor_assembly_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_helicopter_line_expansion }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_component_certification_standards
+        name = Rance_model_mio_trait_component_certification_standards
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_helicopter_line_expansion }
+
+        equipment_bonus = {
+            reliability = 0.05
+        }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_close_support_avionics
+        name = Rance_model_mio_trait_close_support_avionics
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 7 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_armored_cockpit_frame
+            Rance_mio_trait_pintle_hardpoint_mounts
+        }
+
+        equipment_bonus = {
+            defense = 0.05
+            ap_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_rotor_control_servos
+        name = Rance_model_mio_trait_rotor_control_servos
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_improved_turboshaft_engine }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            reliability = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_crashworthy_lift_airframe
+        name = Rance_model_mio_trait_crashworthy_lift_airframe
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_close_support_avionics }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            reliability = 0.05
+            defense = 0.05
+            breakthrough = 0.05
+            armor_value = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_helicopter_material_economy
+        name = Rance_model_mio_trait_helicopter_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_rotor_control_servos
+            Rance_mio_trait_rotor_assembly_tooling
+            Rance_mio_trait_component_certification_standards
+            Rance_mio_trait_crashworthy_lift_airframe
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.15
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Train manufacturer template
+## Smart layout finalized.
+
+Rance_model_train_manufacturer_organization = {
+    icon = GFX_idea_generic_build_infrastructure
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        train_equipment
+        railway_gun_equipment
+    }
+
+    research_categories = { train_tech }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_train_armored_logistics
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_train_production_stock
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_train_railway_artillery
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_train_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_train_development_bureau
+        name = Rance_model_mio_trait_train_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_material_improvements
+        name = Rance_model_mio_trait_material_improvements
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_train_development_bureau }
+
+        equipment_bonus = {
+            armor_value = 0.05
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_additional_flak_wagons
+        name = Rance_model_mio_trait_additional_flak_wagons
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_train_development_bureau }
+
+        equipment_bonus = {
+            air_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_joint_stock_scheme
+        name = Rance_model_mio_trait_joint_stock_scheme
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_train_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_simplified_rail_carrier
+        name = Rance_model_mio_trait_simplified_rail_carrier
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_train_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            build_cost_ic = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_barrel_lining
+        name = Rance_model_mio_trait_improved_barrel_lining
+        icon = GFX_generic_mio_department_icon_tank_general_at
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_train_development_bureau }
+
+        equipment_bonus = {
+            reliability = 0.05
+            railway_gun_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_axle_fitting
+        name = Rance_model_mio_trait_improved_axle_fitting
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 1 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_material_improvements
+            Rance_mio_trait_additional_flak_wagons
+        }
+
+        equipment_bonus = {
+            reliability = 0.05
+            maximum_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carriage_assembly_tooling
+        name = Rance_model_mio_trait_carriage_assembly_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_joint_stock_scheme }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_machine_assembly_flow
+        name = Rance_model_mio_trait_machine_assembly_flow
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_joint_stock_scheme }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_railway_fire_direction
+        name = Rance_model_mio_trait_railway_fire_direction
+        icon = GFX_generic_mio_department_icon_tank_general_at
+
+        position = { x = 7 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_simplified_rail_carrier
+            Rance_mio_trait_improved_barrel_lining
+        }
+
+        equipment_bonus = {
+            railway_gun_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armor_plating
+        name = Rance_model_mio_trait_armor_plating
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_improved_axle_fitting }
+
+        equipment_bonus = {
+            armor_value = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_flak_train_platform
+        name = Rance_model_mio_trait_heavy_flak_train_platform
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_railway_fire_direction }
+
+        equipment_bonus = {
+            armor_value = 0.05
+            air_attack = 0.10
+            railway_gun_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_train_material_economy
+        name = Rance_model_mio_trait_train_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_armor_plating
+            Rance_mio_trait_carriage_assembly_tooling
+            Rance_mio_trait_machine_assembly_flow
+            Rance_mio_trait_heavy_flak_train_platform
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.05
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Assault gun manufacturer template
+## Smart layout finalized.
+
+Rance_model_assault_gun_manufacturer_organization = {
+    icon = GFX_idea_generic_tank_manufacturer_3
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        light_tank_artillery_chassis
+        medium_tank_artillery_chassis
+        heavy_tank_artillery_chassis
+        modern_tank_artillery_chassis
+    }
+
+    research_categories = {
+        mio_cat_tech_all_armor_and_modules
+        mio_cat_all_artillery_equipment
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_assault_gun_protection_mobility
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_assault_gun_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_assault_gun_direct_fire
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_assault_gun_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_gun_development_bureau
+        name = Rance_model_mio_trait_assault_gun_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_sloped_casemate_layout
+        name = Rance_model_mio_trait_sloped_casemate_layout
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_assault_gun_development_bureau }
+
+        equipment_bonus = {
+            armor_value = 0.10
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_assault_tracks
+        name = Rance_model_mio_trait_reinforced_assault_tracks
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_assault_gun_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            fuel_capacity = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_gun_line_expansion
+        name = Rance_model_mio_trait_assault_gun_line_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_assault_gun_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_short_howitzer_mount
+        name = Rance_model_mio_trait_short_howitzer_mount
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_assault_gun_development_bureau }
+
+        equipment_bonus = {
+            soft_attack = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_direct_fire_sighting
+        name = Rance_model_mio_trait_direct_fire_sighting
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_assault_gun_development_bureau }
+
+        equipment_bonus = {
+            soft_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_low_slung_fighting_compartment
+        name = Rance_model_mio_trait_low_slung_fighting_compartment
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 1 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_sloped_casemate_layout
+            Rance_mio_trait_reinforced_assault_tracks
+        }
+
+        equipment_bonus = {
+            armor_value = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_gun_barrel_tooling
+        name = Rance_model_mio_trait_assault_gun_barrel_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_assault_gun_line_expansion }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_gun_component_standards
+        name = Rance_model_mio_trait_assault_gun_component_standards
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_assault_gun_line_expansion }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_ammunition_rack_optimization
+        name = Rance_model_mio_trait_ammunition_rack_optimization
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 7 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_short_howitzer_mount
+            Rance_mio_trait_direct_fire_sighting
+        }
+
+        equipment_bonus = {
+            soft_attack = 0.15
+            reliability = 0.05
+            fuel_capacity = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_breakthrough_drills
+        name = Rance_model_mio_trait_assault_breakthrough_drills
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 1 y = 3 }
+
+        any_parent = { Rance_mio_trait_low_slung_fighting_compartment }
+
+        equipment_bonus = {
+            maximum_speed = 0.05
+            breakthrough = 0.05
+            fuel_capacity = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_stabilized_assault_mount
+        name = Rance_model_mio_trait_stabilized_assault_mount
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 7 y = 3 }
+
+        any_parent = { Rance_mio_trait_ammunition_rack_optimization }
+
+        equipment_bonus = {
+            soft_attack = 0.10
+            armor_value = 0.10
+            reliability = 0.05
+            breakthrough = 0.05
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assault_gun_material_economy
+        name = Rance_model_mio_trait_assault_gun_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_assault_breakthrough_drills
+            Rance_mio_trait_assault_gun_barrel_tooling
+            Rance_mio_trait_assault_gun_component_standards
+            Rance_mio_trait_stabilized_assault_mount
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Artillery manufacturer template
+## Smart layout finalized.
+
+Rance_model_artillery_manufacturer_organization = {
+    icon = GFX_idea_generic_artillery_manufacturer_2
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        artillery_equipment
+        anti_tank_equipment
+        anti_air_equipment
+        rocket_artillery_equipment
+    }
+
+    research_categories = {
+        mio_cat_all_artillery_equipment
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_artillery_carriage_design
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_artillery_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_artillery_fire_control
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_artillery_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_artillery_development_bureau
+        name = Rance_model_mio_trait_artillery_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_mobile_carriage_design
+        name = Rance_model_mio_trait_mobile_carriage_design
+        icon = GFX_generic_mio_trait_icon_breakthrough
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_artillery_development_bureau }
+
+        equipment_bonus = {
+            breakthrough = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_stable_firing_platform
+        name = Rance_model_mio_trait_stable_firing_platform
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_artillery_development_bureau }
+
+        equipment_bonus = {
+            defense = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_barrel_forging_tooling
+        name = Rance_model_mio_trait_barrel_forging_tooling
+        icon = GFX_generic_mio_department_icon_artillery_production
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_artillery_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_sliding_breech_block
+        name = Rance_model_mio_trait_sliding_breech_block
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_artillery_development_bureau }
+
+        equipment_bonus = {
+            soft_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_direct_fire_sighting
+        name = Rance_model_mio_trait_direct_fire_sighting
+        icon = GFX_generic_mio_trait_icon_ap_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_artillery_development_bureau }
+
+        equipment_bonus = {
+            ap_attack = 0.05
+            breakthrough = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_hydraulic_recoil_system
+        name = Rance_model_mio_trait_hydraulic_recoil_system
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 1 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_mobile_carriage_design
+            Rance_mio_trait_stable_firing_platform
+        }
+
+        equipment_bonus = {
+            reliability = 0.10
+            defense = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_gun_assembly
+        name = Rance_model_mio_trait_standardized_gun_assembly
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_barrel_forging_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_lightweight_barrel_economy
+        name = Rance_model_mio_trait_lightweight_barrel_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_barrel_forging_tooling }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_general_ammunition_refinement
+        name = Rance_model_mio_trait_general_ammunition_refinement
+        icon = GFX_generic_mio_trait_icon_soft_attack
+
+        position = { x = 7 y = 2 }
+
+        all_parents = {
+            Rance_mio_trait_sliding_breech_block
+            Rance_mio_trait_direct_fire_sighting
+        }
+
+        equipment_bonus = {
+            soft_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_ammunition_material_simplification
+        name = Rance_model_mio_trait_ammunition_material_simplification
+        icon = GFX_generic_mio_department_icon_artillery_materials
+
+        position = { x = 4 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_hydraulic_recoil_system
+            Rance_mio_trait_standardized_gun_assembly
+            Rance_mio_trait_lightweight_barrel_economy
+            Rance_mio_trait_general_ammunition_refinement
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_anti_tank_direct_fire_package
+        name = Rance_model_mio_trait_anti_tank_direct_fire_package
+        icon = GFX_generic_mio_department_icon_anti_tank
+
+        position = { x = 1 y = 4 }
+
+        any_parent = { Rance_mio_trait_ammunition_material_simplification }
+
+        limit_to_equipment_type = {
+            anti_tank_equipment
+        }
+
+        equipment_bonus = {
+            ap_attack = 0.10
+            hard_attack = 0.20
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_anti_air_targeting_package
+        name = Rance_model_mio_trait_anti_air_targeting_package
+        icon = GFX_generic_mio_department_icon_anti_air
+
+        position = { x = 4 y = 4 }
+
+        any_parent = { Rance_mio_trait_ammunition_material_simplification }
+
+        limit_to_equipment_type = {
+            anti_air_equipment
+        }
+
+        equipment_bonus = {
+            air_attack = 0.20
+            hard_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_artillery_trajectory_package
+        name = Rance_model_mio_trait_heavy_artillery_trajectory_package
+        icon = GFX_generic_mio_department_icon_artillery
+
+        position = { x = 7 y = 4 }
+
+        any_parent = { Rance_mio_trait_ammunition_material_simplification }
+
+        limit_to_equipment_type = {
+            artillery_equipment
+            rocket_artillery_equipment
+        }
+
+        equipment_bonus = {
+            soft_attack = 0.15
+            hard_attack = 1.50
+        }
+    }
+}
+
+## High agility fighter aircraft manufacturer template
+## Smart layout finalized.
+
+Rance_model_high_agility_fighter_aircraft_manufacturer_organization = {
+    icon = GFX_idea_generic_air_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = { mio_cat_eq_only_light_fighter }
+    research_categories = { mio_cat_all_light_fighter_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_high_agility_airframe_maneuver
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_high_agility_fighter_production
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_high_agility_interception_power
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_high_agility_fighter_aircraft_manufacturer_initial_trait
+
+        limit_to_equipment_type = {
+            mio_cat_eq_only_light_fighter
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_fighter_development_bureau
+        name = Rance_model_mio_trait_fighter_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_airframe_quality_control
+        name = Rance_model_mio_trait_airframe_quality_control
+        icon = GFX_generic_mio_trait_icon_air_defence
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_fighter_development_bureau }
+
+        equipment_bonus = {
+            air_defence = 0.15
+            reliability = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_wing_maneuver_design
+        name = Rance_model_mio_trait_wing_maneuver_design
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_fighter_development_bureau }
+
+        equipment_bonus = {
+            air_agility = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_line_expansion_program
+        name = Rance_model_mio_trait_line_expansion_program
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_fighter_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_engine_power_train
+        name = Rance_model_mio_trait_engine_power_train
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_fighter_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            thrust = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_output_fuel_mix
+        name = Rance_model_mio_trait_high_output_fuel_mix
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_fighter_development_bureau }
+
+        equipment_bonus = {
+            maximum_speed = 0.15
+            fuel_consumption_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_production_rhythm_optimization
+        name = Rance_model_mio_trait_production_rhythm_optimization
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_line_expansion_program }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_tooling
+        name = Rance_model_mio_trait_standardized_tooling
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_line_expansion_program }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_light_weapon_package
+        name = Rance_model_mio_trait_light_weapon_package
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_wing_maneuver_design }
+
+        equipment_bonus = {
+            air_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_short_wing_tuning
+        name = Rance_model_mio_trait_short_wing_tuning
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_engine_power_train }
+
+        equipment_bonus = {
+            air_agility = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_interceptor_airframe_scheme
+        name = Rance_model_mio_trait_interceptor_airframe_scheme
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 0 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_airframe_quality_control
+            Rance_mio_trait_light_weapon_package
+        }
+
+        equipment_bonus = {
+            air_agility = 0.10
+            maximum_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_economy_material_program
+        name = Rance_model_mio_trait_economy_material_program
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 3 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_production_rhythm_optimization
+            Rance_mio_trait_standardized_tooling
+        }
+
+        production_bonus = {
+            production_resource_need_factor = -0.25
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_cost_control_program
+        name = Rance_model_mio_trait_cost_control_program
+        icon = GFX_generic_mio_trait_icon_build_cost_ic
+
+        position = { x = 5 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_production_rhythm_optimization
+            Rance_mio_trait_standardized_tooling
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_intercept_geometry
+        name = Rance_model_mio_trait_intercept_geometry
+        icon = GFX_generic_mio_trait_icon_air_range
+
+        position = { x = 8 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_short_wing_tuning
+            Rance_mio_trait_high_output_fuel_mix
+        }
+
+        equipment_bonus = {
+            air_attack = 0.05
+            air_range = 0.05
+            maximum_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_final_interceptor_package
+        name = Rance_model_mio_trait_final_interceptor_package
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_interceptor_airframe_scheme
+            Rance_mio_trait_economy_material_program
+            Rance_mio_trait_cost_control_program
+            Rance_mio_trait_intercept_geometry
+        }
+
+        equipment_bonus = {
+            air_range = 0.10
+            air_attack = 0.05
+            air_agility = 0.05
+            maximum_speed = 0.05
+        }
+    }
+}
+
+## Heavy aircraft manufacturer template
+## Smart layout finalized.
+
+Rance_model_heavy_aircraft_manufacturer_organization = {
+    icon = GFX_idea_generic_air_manufacturer_2
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        mio_cat_eq_only_strategic_bomber
+        large_plane_maritime_patrol_plane_airframe
+        transport_plane_equipment
+    }
+
+    research_categories = { mio_cat_all_heavy_aircraft_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_heavy_aircraft_airframe_endurance
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_heavy_aircraft_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_heavy_aircraft_payload_mission
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_heavy_aircraft_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_aircraft_development_bureau
+        name = Rance_model_mio_trait_heavy_aircraft_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_pressure_hull
+        name = Rance_model_mio_trait_long_range_pressure_hull
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_heavy_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_range = 0.10
+            air_visibility_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_wing_box
+        name = Rance_model_mio_trait_reinforced_wing_box
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_heavy_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_defence = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_airframe_tooling
+        name = Rance_model_mio_trait_heavy_airframe_tooling
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_heavy_aircraft_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_modular_bomb_bay
+        name = Rance_model_mio_trait_modular_bomb_bay
+        icon = GFX_generic_mio_trait_icon_strategic_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_heavy_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_bombing = 0.10
+            naval_strike_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_maritime_patrol_sensors
+        name = Rance_model_mio_trait_maritime_patrol_sensors
+        icon = GFX_generic_mio_trait_icon_detection
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_heavy_aircraft_development_bureau }
+
+        equipment_bonus = {
+            sub_detection = 0.10
+            surface_detection = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_distributed_flight_controls
+        name = Rance_model_mio_trait_distributed_flight_controls
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_reinforced_wing_box }
+
+        equipment_bonus = {
+            air_agility = 0.10
+            maximum_speed = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_precision_bombing_computer
+        name = Rance_model_mio_trait_precision_bombing_computer
+        icon = GFX_generic_mio_trait_icon_strategic_attack
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_modular_bomb_bay }
+
+        equipment_bonus = {
+            air_bombing = 0.10
+            naval_strike_targetting = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_turbo_compound_engine_bank
+        name = Rance_model_mio_trait_turbo_compound_engine_bank
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_long_range_pressure_hull }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            thrust = 0.10
+            fuel_consumption = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_durable_component_standards
+        name = Rance_model_mio_trait_durable_component_standards
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_heavy_airframe_tooling }
+
+        equipment_bonus = {
+            reliability = 0.05
+            air_defence = 0.05
+        }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_assembly_flow
+        name = Rance_model_mio_trait_heavy_assembly_flow
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_heavy_airframe_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_remote_turret_fire_grid
+        name = Rance_model_mio_trait_remote_turret_fire_grid
+        icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_maritime_patrol_sensors }
+
+        equipment_bonus = {
+            air_attack = 0.20
+            air_defence = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_fortress_airframe_layout
+        name = Rance_model_mio_trait_fortress_airframe_layout
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 0 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_turbo_compound_engine_bank
+            Rance_mio_trait_distributed_flight_controls
+        }
+
+        equipment_bonus = {
+            air_defence = 0.15
+            air_range = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_mission_control_integration
+        name = Rance_model_mio_trait_mission_control_integration
+        icon = GFX_generic_mio_trait_icon_unique
+
+        position = { x = 8 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_precision_bombing_computer
+            Rance_mio_trait_remote_turret_fire_grid
+        }
+
+        equipment_bonus = {
+            air_bombing = 0.10
+            air_agility = 0.10
+            naval_strike_attack = 0.05
+            air_attack = 0.10
+            air_visibility_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_material_economy
+        name = Rance_model_mio_trait_long_range_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_fortress_airframe_layout
+            Rance_mio_trait_durable_component_standards
+            Rance_mio_trait_heavy_assembly_flow
+            Rance_mio_trait_mission_control_integration
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Naval aircraft manufacturer template
+## Smart layout finalized.
+
+Rance_model_naval_aircraft_manufacturer_organization = {
+    icon = GFX_idea_generic_air_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        small_plane_naval_bomber_airframe
+        cv_small_plane_airframe
+        cv_small_plane_cas_airframe
+        cv_small_plane_naval_bomber_airframe
+    }
+
+    research_categories = { mio_cat_all_naval_bomber_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_naval_aircraft_deck_handling
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_naval_aircraft_carrier_production
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_naval_aircraft_maritime_strike
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_naval_aircraft_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_naval_aircraft_development_bureau
+        name = Rance_model_mio_trait_naval_aircraft_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_folding_wing_layout
+        name = Rance_model_mio_trait_folding_wing_layout
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_naval_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_agility = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_arrestor_gear
+        name = Rance_model_mio_trait_reinforced_arrestor_gear
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_naval_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_defence = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_airframe_tooling
+        name = Rance_model_mio_trait_carrier_airframe_tooling
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_naval_aircraft_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_internal_torpedo_mounts
+        name = Rance_model_mio_trait_internal_torpedo_mounts
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_naval_aircraft_development_bureau }
+
+        equipment_bonus = {
+            naval_strike_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_maritime_search_radar
+        name = Rance_model_mio_trait_maritime_search_radar
+        icon = GFX_generic_mio_trait_icon_detection
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_naval_aircraft_development_bureau }
+
+        equipment_bonus = {
+            surface_detection = 0.10
+            sub_detection = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_lift_wing_profile
+        name = Rance_model_mio_trait_high_lift_wing_profile
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_folding_wing_layout }
+
+        equipment_bonus = {
+            air_agility = 0.15
+            air_range = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_compact_airframe_tuning
+        name = Rance_model_mio_trait_compact_airframe_tuning
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_reinforced_arrestor_gear }
+
+        equipment_bonus = {
+            maximum_speed = 0.10
+            air_agility = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_corrosion_proof_materials
+        name = Rance_model_mio_trait_corrosion_proof_materials
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_carrier_airframe_tooling }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_engine_standardization
+        name = Rance_model_mio_trait_carrier_engine_standardization
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_carrier_airframe_tooling }
+
+        equipment_bonus = {
+            maximum_speed = 0.20
+            thrust = 0.10
+            air_agility = 0.10
+        }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_speed_release_gear
+        name = Rance_model_mio_trait_high_speed_release_gear
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_internal_torpedo_mounts }
+
+        equipment_bonus = {
+            naval_strike_targetting = 0.10
+            maximum_speed = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_forward_gun_package
+        name = Rance_model_mio_trait_forward_gun_package
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_maritime_search_radar }
+
+        equipment_bonus = {
+            air_attack = 0.10
+            naval_strike_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_deck_survivability_package
+        name = Rance_model_mio_trait_deck_survivability_package
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_high_lift_wing_profile
+            Rance_mio_trait_compact_airframe_tuning
+        }
+
+        equipment_bonus = {
+            air_defence = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_deck_assembly_flow
+        name = Rance_model_mio_trait_deck_assembly_flow
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 4 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_corrosion_proof_materials
+            Rance_mio_trait_carrier_engine_standardization
+        }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_coordinated_strike_profile
+        name = Rance_model_mio_trait_coordinated_strike_profile
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_high_speed_release_gear
+            Rance_mio_trait_forward_gun_package
+        }
+
+        equipment_bonus = {
+            naval_strike_attack = 0.05
+            naval_strike_targetting = 0.05
+            air_range = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_naval_aircraft_material_economy
+        name = Rance_model_mio_trait_naval_aircraft_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_deck_survivability_package
+            Rance_mio_trait_deck_assembly_flow
+            Rance_mio_trait_coordinated_strike_profile
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Medium aircraft manufacturer template
+## Smart layout finalized.
+
+Rance_model_medium_aircraft_manufacturer_organization = {
+    icon = GFX_idea_generic_air_manufacturer_3
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        mio_cat_eq_all_medium_plane
+        transport_plane_equipment
+    }
+
+    research_categories = { mio_cat_all_medium_aircraft_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_medium_aircraft_platform_performance
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_medium_aircraft_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_medium_aircraft_mission_payload
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_medium_aircraft_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_medium_aircraft_development_bureau
+        name = Rance_model_mio_trait_medium_aircraft_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_wing_box_medium
+        name = Rance_model_mio_trait_reinforced_wing_box_medium
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_defence = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_twin_tail_control_layout
+        name = Rance_model_mio_trait_twin_tail_control_layout
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_agility = 0.10
+            maximum_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_medium_airframe_tooling
+        name = Rance_model_mio_trait_medium_airframe_tooling
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_aircraft_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_ground_support_bay
+        name = Rance_model_mio_trait_ground_support_bay
+        icon = GFX_generic_mio_trait_icon_air_ground_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_ground_attack = 0.10
+            air_bombing = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_patrol_sensor_station
+        name = Rance_model_mio_trait_patrol_sensor_station
+        icon = GFX_generic_mio_trait_icon_detection
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_medium_aircraft_development_bureau }
+
+        equipment_bonus = {
+            surface_detection = 0.10
+            sub_detection = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_refined_engine_program_medium
+        name = Rance_model_mio_trait_refined_engine_program_medium
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_reinforced_wing_box_medium }
+
+        equipment_bonus = {
+            maximum_speed = 0.15
+            thrust = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_fuselage_balance
+        name = Rance_model_mio_trait_long_range_fuselage_balance
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_twin_tail_control_layout }
+
+        equipment_bonus = {
+            air_range = 0.10
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_modular_fixture_standards
+        name = Rance_model_mio_trait_modular_fixture_standards
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_medium_airframe_tooling }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+            production_efficiency_gain_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_assembly_rhythm_control
+        name = Rance_model_mio_trait_assembly_rhythm_control
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_medium_airframe_tooling }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+            production_efficiency_gain_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_flexible_weapon_stations
+        name = Rance_model_mio_trait_flexible_weapon_stations
+        icon = GFX_generic_mio_department_icon_plane_medium_combat
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_ground_support_bay }
+
+        equipment_bonus = {
+            air_ground_attack = 0.10
+            air_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_naval_attack_plotting
+        name = Rance_model_mio_trait_naval_attack_plotting
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_patrol_sensor_station }
+
+        equipment_bonus = {
+            naval_strike_attack = 0.10
+            naval_strike_targetting = 0.10
+            air_range = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_speed_defensive_profile
+        name = Rance_model_mio_trait_high_speed_defensive_profile
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_refined_engine_program_medium
+            Rance_mio_trait_long_range_fuselage_balance
+        }
+
+        equipment_bonus = {
+            air_defence = 0.15
+            air_agility = 0.10
+            maximum_speed = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_coordinated_bomber_defense
+        name = Rance_model_mio_trait_coordinated_bomber_defense
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_flexible_weapon_stations
+            Rance_mio_trait_naval_attack_plotting
+        }
+
+        equipment_bonus = {
+            air_bombing = 0.10
+            air_attack = 0.15
+            air_agility = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_medium_aircraft_material_economy
+        name = Rance_model_mio_trait_medium_aircraft_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_high_speed_defensive_profile
+            Rance_mio_trait_modular_fixture_standards
+            Rance_mio_trait_assembly_rhythm_control
+            Rance_mio_trait_coordinated_bomber_defense
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.05
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## CAS aircraft manufacturer template
+## Smart layout finalized.
+
+Rance_model_cas_aircraft_manufacturer_organization = {
+    icon = GFX_idea_generic_air_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        small_plane_cas_airframe
+        cv_small_plane_cas_airframe
+    }
+
+    research_categories = { mio_cat_all_cas_and_modules }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_cas_aircraft_low_altitude_survival
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_cas_aircraft_attack_production
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_cas_aircraft_ground_strike
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_cas_aircraft_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_cas_aircraft_development_bureau
+        name = Rance_model_mio_trait_cas_aircraft_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_low_altitude_attack_profile
+        name = Rance_model_mio_trait_low_altitude_attack_profile
+        icon = GFX_generic_mio_trait_icon_defense
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_cas_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_defence = 0.05
+            air_visibility_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armored_cockpit_firewall
+        name = Rance_model_mio_trait_armored_cockpit_firewall
+        icon = GFX_generic_mio_trait_icon_reliability
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_cas_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_defence = 0.05
+            reliability = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_cas_airframe_tooling
+        name = Rance_model_mio_trait_cas_airframe_tooling
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_cas_aircraft_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_hardpoint_layout
+        name = Rance_model_mio_trait_reinforced_hardpoint_layout
+        icon = GFX_generic_mio_department_icon_plane_cas_combat
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_cas_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_ground_attack = 0.10
+            air_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_precision_attack_sights
+        name = Rance_model_mio_trait_precision_attack_sights
+        icon = GFX_generic_mio_trait_icon_air_ground_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_cas_aircraft_development_bureau }
+
+        equipment_bonus = {
+            air_ground_attack = 0.05
+            air_visibility_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_dive_recovery_controls
+        name = Rance_model_mio_trait_dive_recovery_controls
+        icon = GFX_generic_mio_trait_icon_air_agility
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_low_altitude_attack_profile }
+
+        equipment_bonus = {
+            air_agility = 0.05
+            maximum_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_rocket_assisted_attack_run
+        name = Rance_model_mio_trait_rocket_assisted_attack_run
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_precision_attack_sights }
+
+        equipment_bonus = {
+            air_ground_attack = 0.10
+            air_agility = 0.05
+            thrust = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_protected_fuel_reserves
+        name = Rance_model_mio_trait_protected_fuel_reserves
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_armored_cockpit_firewall }
+
+        equipment_bonus = {
+            air_range = 0.10
+            air_defence = 0.05
+            air_visibility_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_attack_loads
+        name = Rance_model_mio_trait_standardized_attack_loads
+        icon = GFX_generic_mio_trait_icon_air_ground_attack
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_cas_airframe_tooling }
+
+        equipment_bonus = {
+            air_ground_attack = 0.05
+        }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_field_repair_standards
+        name = Rance_model_mio_trait_field_repair_standards
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_cas_airframe_tooling }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_ordnance_racks
+        name = Rance_model_mio_trait_heavy_ordnance_racks
+        icon = GFX_generic_mio_department_icon_plane_cas_combat
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_reinforced_hardpoint_layout }
+
+        equipment_bonus = {
+            air_ground_attack = 0.10
+            thrust = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_battlefield_loiter_pattern
+        name = Rance_model_mio_trait_battlefield_loiter_pattern
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_dive_recovery_controls
+            Rance_mio_trait_protected_fuel_reserves
+        }
+
+        equipment_bonus = {
+            air_range = 0.10
+            air_defence = 0.05
+            reliability = 0.05
+            air_visibility_factor = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_suppressive_forward_guns
+        name = Rance_model_mio_trait_suppressive_forward_guns
+        icon = GFX_generic_mio_trait_icon_air_attack
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_heavy_ordnance_racks
+            Rance_mio_trait_rocket_assisted_attack_run
+        }
+
+        equipment_bonus = {
+            air_ground_attack = 0.05
+            air_attack = 0.05
+            maximum_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_close_support_material_economy
+        name = Rance_model_mio_trait_close_support_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_battlefield_loiter_pattern
+            Rance_mio_trait_standardized_attack_loads
+            Rance_mio_trait_field_repair_standards
+            Rance_mio_trait_suppressive_forward_guns
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Battle line ship manufacturer template
+## Smart layout finalized.
+
+Rance_model_battle_line_ship_manufacturer_organization = {
+    icon = GFX_idea_generic_naval_manufacturer_2
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        mio_cat_eq_all_battleship
+        mio_cat_eq_all_cruiser
+    }
+
+    research_categories = {
+        mio_cat_tech_all_capital_ship_and_modules
+        mio_cat_tech_all_cruiser_and_modules
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_battle_line_hull_protection
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_battle_line_shipyard_production
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_battle_line_gunnery_control
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_battle_line_ship_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_battle_line_foundation
+        name = Rance_model_mio_trait_battle_line_foundation
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_armor_belt_scheme
+        name = Rance_model_mio_trait_armor_belt_scheme
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_battle_line_foundation }
+
+        equipment_bonus = {
+            armor_value = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_hardened_bulkhead_grid
+        name = Rance_model_mio_trait_hardened_bulkhead_grid
+        icon = GFX_generic_mio_trait_icon_naval_torpedo_damage_reduction_factor
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_battle_line_foundation }
+
+        equipment_bonus = {
+            naval_torpedo_enemy_critical_chance_factor = -0.10
+            naval_torpedo_damage_reduction_factor = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_battle_line_shipyard_expansion
+        name = Rance_model_mio_trait_battle_line_shipyard_expansion
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_battle_line_foundation }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_secondary_battery_network
+        name = Rance_model_mio_trait_secondary_battery_network
+        icon = GFX_generic_mio_trait_icon_lg_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_battle_line_foundation }
+
+        equipment_bonus = {
+            lg_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_primary_battery_scheme
+        name = Rance_model_mio_trait_primary_battery_scheme
+        icon = GFX_generic_mio_trait_icon_hg_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_battle_line_foundation }
+
+        equipment_bonus = {
+            hg_attack = 0.05
+            naval_heavy_gun_hit_chance_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_hydrodynamic_hull_lines
+        name = Rance_model_mio_trait_hydrodynamic_hull_lines
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_armor_belt_scheme }
+
+        equipment_bonus = {
+            naval_speed = 0.05
+            naval_range = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_reinforced_main_citadel
+        name = Rance_model_mio_trait_reinforced_main_citadel
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_hardened_bulkhead_grid }
+
+        equipment_bonus = {
+            armor_value = 0.10
+            max_strength = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_battle_line_command_workflow
+        name = Rance_model_mio_trait_battle_line_command_workflow
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 4 y = 2 }
+
+        any_parent = { Rance_mio_trait_battle_line_shipyard_expansion }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.10
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_anti_air_battery_layout
+        name = Rance_model_mio_trait_anti_air_battery_layout
+        icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_secondary_battery_network }
+
+        equipment_bonus = {
+            anti_air_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_semi_armor_piercing_shell_suite
+        name = Rance_model_mio_trait_semi_armor_piercing_shell_suite
+        icon = GFX_generic_mio_trait_icon_lg_attack
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_primary_battery_scheme }
+
+        equipment_bonus = {
+            lg_attack = 0.05
+            lg_armor_piercing = 0.10
+            hg_attack = 0.05
+            hg_armor_piercing = 0.10
+            naval_heavy_gun_hit_chance_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_combat_command_center
+        name = Rance_model_mio_trait_combat_command_center
+        icon = GFX_generic_mio_trait_icon_max_strength
+
+        position = { x = 1 y = 3 }
+
+        all_parents = { Rance_mio_trait_hydrodynamic_hull_lines Rance_mio_trait_reinforced_main_citadel }
+
+        equipment_bonus = {
+            naval_range = 0.05
+            max_strength = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_secondary_fire_control_grid
+        name = Rance_model_mio_trait_secondary_fire_control_grid
+        icon = GFX_generic_mio_department_icon_ship_capital_ship_offense
+
+        position = { x = 7 y = 3 }
+
+        all_parents = { Rance_mio_trait_anti_air_battery_layout Rance_mio_trait_semi_armor_piercing_shell_suite }
+
+        equipment_bonus = {
+            anti_air_attack = 0.10
+            naval_light_gun_hit_chance_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_battle_line_material_simplification
+        name = Rance_model_mio_trait_battle_line_material_simplification
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_combat_command_center
+            Rance_mio_trait_battle_line_command_workflow
+            Rance_mio_trait_secondary_fire_control_grid
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Task force ship manufacturer template
+## Smart layout finalized.
+
+Rance_model_task_force_ship_manufacturer_organization = {
+    icon = GFX_idea_generic_naval_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        mio_cat_eq_all_carrier
+        mio_cat_eq_all_cruiser
+        mio_cat_eq_all_destroyer
+    }
+
+    research_categories = {
+        mio_cat_tech_all_carrier_and_modules
+        mio_cat_tech_all_cruiser_and_modules
+        mio_cat_tech_all_destroyer_and_modules
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_task_force_mobility_screen
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_task_force_fitting_operations
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_task_force_strike_control
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_task_force_ship_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_task_force_foundation
+        name = Rance_model_mio_trait_task_force_foundation
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_operations
+        name = Rance_model_mio_trait_long_range_operations
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_task_force_foundation }
+
+        equipment_bonus = {
+            naval_range = 0.05
+            surface_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_speed_operations
+        name = Rance_model_mio_trait_high_speed_operations
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_task_force_foundation }
+
+        equipment_bonus = {
+            naval_speed = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_task_force_fitting_works
+        name = Rance_model_mio_trait_task_force_fitting_works
+        icon = GFX_generic_mio_department_icon_ship_general_production
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_task_force_foundation }
+
+        equipment_bonus = {
+            max_strength = 0.05
+        }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_task_force_anti_air_control
+        name = Rance_model_mio_trait_task_force_anti_air_control
+        icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_task_force_foundation }
+
+        equipment_bonus = {
+            anti_air_attack = 0.05
+            naval_light_gun_hit_chance_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_torpedo_strike_package
+        name = Rance_model_mio_trait_torpedo_strike_package
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_task_force_foundation }
+
+        equipment_bonus = {
+            torpedo_attack = 0.05
+            naval_torpedo_hit_chance_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_task_force_search_network
+        name = Rance_model_mio_trait_task_force_search_network
+        icon = GFX_generic_mio_trait_icon_surface_detection
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_long_range_operations }
+
+        equipment_bonus = {
+            surface_detection = 0.05
+            sub_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_splinter_protection_grid
+        name = Rance_model_mio_trait_splinter_protection_grid
+        icon = GFX_generic_mio_trait_icon_armor_value
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_high_speed_operations }
+
+        equipment_bonus = {
+            armor_value = 0.15
+            naval_torpedo_damage_reduction_factor = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_task_force_operations_center
+        name = Rance_model_mio_trait_task_force_operations_center
+        icon = GFX_generic_mio_trait_icon_max_strength
+
+        position = { x = 4 y = 2 }
+
+        any_parent = { Rance_mio_trait_task_force_fitting_works }
+
+        equipment_bonus = {
+            max_strength = 0.10
+        }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.05
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_edge_aa_mounts
+        name = Rance_model_mio_trait_carrier_edge_aa_mounts
+        icon = GFX_generic_mio_department_icon_ship_carrier_offense
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_task_force_anti_air_control }
+
+        equipment_bonus = {
+            anti_air_attack = 0.10
+            carrier_size = 1
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_rapid_response_gunnery
+        name = Rance_model_mio_trait_rapid_response_gunnery
+        icon = GFX_generic_mio_department_icon_ship_general_offense
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_torpedo_strike_package }
+
+        equipment_bonus = {
+            lg_attack = 0.10
+            naval_light_gun_hit_chance_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_underway_supply_group
+        name = Rance_model_mio_trait_underway_supply_group
+        icon = GFX_generic_mio_trait_icon_fuel_consumption
+
+        position = { x = 1 y = 3 }
+
+        all_parents = { Rance_mio_trait_task_force_search_network Rance_mio_trait_splinter_protection_grid }
+
+        equipment_bonus = {
+            naval_range = 0.05
+            max_strength = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_escort_hunter_package
+        name = Rance_model_mio_trait_escort_hunter_package
+        icon = GFX_generic_mio_trait_icon_sub_detection
+
+        position = { x = 7 y = 3 }
+
+        all_parents = { Rance_mio_trait_carrier_edge_aa_mounts Rance_mio_trait_rapid_response_gunnery }
+
+        equipment_bonus = {
+            torpedo_attack = 0.05
+            sub_attack = 0.10
+            sub_detection = 0.05
+            lg_armor_piercing = 0.10
+            naval_torpedo_hit_chance_factor = 0.05
+            naval_torpedo_enemy_critical_chance_factor = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_task_force_material_simplification
+        name = Rance_model_mio_trait_task_force_material_simplification
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_underway_supply_group
+            Rance_mio_trait_task_force_operations_center
+            Rance_mio_trait_escort_hunter_package
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Raider ship manufacturer template
+## Smart layout finalized.
+
+Rance_model_raider_ship_manufacturer_organization = {
+    icon = GFX_idea_generic_naval_manufacturer_3
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        capital_ship
+        screen_ship
+    }
+
+    research_categories = {
+        mio_cat_tech_all_capital_ship_and_modules
+        mio_cat_tech_all_screen_ship_and_modules
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_raider_ship_ocean_hunting
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_raider_ship_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_raider_ship_strike_battery
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_raider_ship_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_raider_ship_development_bureau
+        name = Rance_model_mio_trait_raider_ship_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_raiding_hull
+        name = Rance_model_mio_trait_long_range_raiding_hull
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_raider_ship_development_bureau }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            surface_visibility = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_efficient_cruising_machinery
+        name = Rance_model_mio_trait_efficient_cruising_machinery
+        icon = GFX_generic_mio_trait_icon_fuel_consumption
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_raider_ship_development_bureau }
+
+        equipment_bonus = {
+            naval_speed = 0.05
+            fuel_consumption = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_raider_shipyard_tooling
+        name = Rance_model_mio_trait_raider_shipyard_tooling
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_raider_ship_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_heavy_raider_battery
+        name = Rance_model_mio_trait_heavy_raider_battery
+        icon = GFX_generic_mio_trait_icon_hg_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_raider_ship_development_bureau }
+
+        equipment_bonus = {
+            hg_attack = 0.10
+            hg_armor_piercing = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_screen_killer_battery
+        name = Rance_model_mio_trait_screen_killer_battery
+        icon = GFX_generic_mio_trait_icon_lg_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_raider_ship_development_bureau }
+
+        equipment_bonus = {
+            lg_attack = 0.10
+            lg_armor_piercing = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_extended_operation_stores
+        name = Rance_model_mio_trait_extended_operation_stores
+        icon = GFX_generic_mio_department_icon_ship_general_engine
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_efficient_cruising_machinery }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            naval_speed = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_torpedo_attack_run
+        name = Rance_model_mio_trait_torpedo_attack_run
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_heavy_raider_battery }
+
+        equipment_bonus = {
+            torpedo_attack = 0.10
+            naval_torpedo_hit_chance_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_concealed_raider_profile
+        name = Rance_model_mio_trait_concealed_raider_profile
+        icon = GFX_generic_mio_trait_icon_surface_visibility
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_long_range_raiding_hull }
+
+        equipment_bonus = {
+            surface_visibility = -0.10
+            surface_detection = 0.05
+            sub_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_modular_raider_fittings
+        name = Rance_model_mio_trait_modular_raider_fittings
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_raider_shipyard_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_raider_assembly
+        name = Rance_model_mio_trait_standardized_raider_assembly
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_raider_shipyard_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_close_defense_mounts
+        name = Rance_model_mio_trait_close_defense_mounts
+        icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_screen_killer_battery }
+
+        equipment_bonus = {
+            anti_air_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_independent_ocean_hunter
+        name = Rance_model_mio_trait_independent_ocean_hunter
+        icon = GFX_generic_mio_trait_icon_surface_detection
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_concealed_raider_profile
+            Rance_mio_trait_extended_operation_stores
+        }
+
+        equipment_bonus = {
+            naval_speed = 0.10
+            surface_detection = 0.10
+            sub_detection = 0.10
+            surface_visibility = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_coordinated_raider_strike
+        name = Rance_model_mio_trait_coordinated_raider_strike
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_torpedo_attack_run
+            Rance_mio_trait_close_defense_mounts
+        }
+
+        equipment_bonus = {
+            torpedo_attack = 0.05
+            naval_torpedo_hit_chance_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_raider_material_economy
+        name = Rance_model_mio_trait_raider_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_independent_ocean_hunter
+            Rance_mio_trait_modular_raider_fittings
+            Rance_mio_trait_standardized_raider_assembly
+            Rance_mio_trait_coordinated_raider_strike
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Carrier raider ship manufacturer template
+## Smart layout finalized.
+
+Rance_model_carrier_raider_ship_manufacturer_organization = {
+    icon = GFX_idea_generic_naval_manufacturer_3
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        carrier
+        screen_ship
+    }
+
+    research_categories = {
+        mio_cat_tech_all_carrier_and_modules
+        mio_cat_tech_all_screen_ship_and_modules
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_carrier_raider_ocean_hunting
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_carrier_raider_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_carrier_raider_strike_group
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_carrier_raider_ship_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_development_bureau
+        name = Rance_model_mio_trait_carrier_raider_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_long_range_hull
+        name = Rance_model_mio_trait_carrier_raider_long_range_hull
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_development_bureau }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            surface_visibility = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_efficient_cruising_machinery
+        name = Rance_model_mio_trait_carrier_raider_efficient_cruising_machinery
+        icon = GFX_generic_mio_trait_icon_fuel_consumption
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_development_bureau }
+
+        equipment_bonus = {
+            naval_speed = 0.05
+            fuel_consumption = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_shipyard_tooling
+        name = Rance_model_mio_trait_carrier_raider_shipyard_tooling
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_raider_carrier_flight_deck_group
+        name = Rance_model_mio_trait_raider_carrier_flight_deck_group
+        icon = GFX_generic_mio_department_icon_ship_carrier_offense
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_development_bureau }
+
+        equipment_bonus = {
+            carrier_size = 1
+            anti_air_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_raider_carrier_screen_killer_battery
+        name = Rance_model_mio_trait_raider_carrier_screen_killer_battery
+        icon = GFX_generic_mio_trait_icon_lg_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_development_bureau }
+
+        equipment_bonus = {
+            lg_attack = 0.10
+            lg_armor_piercing = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_concealed_task_profile
+        name = Rance_model_mio_trait_carrier_raider_concealed_task_profile
+        icon = GFX_generic_mio_trait_icon_surface_visibility
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_long_range_hull }
+
+        equipment_bonus = {
+            surface_visibility = -0.10
+            surface_detection = 0.05
+            sub_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_search_air_group
+        name = Rance_model_mio_trait_carrier_raider_search_air_group
+        icon = GFX_generic_mio_trait_icon_surface_detection
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_efficient_cruising_machinery }
+
+        equipment_bonus = {
+            surface_detection = 0.05
+            sub_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_modular_carrier_raider_fittings
+        name = Rance_model_mio_trait_modular_carrier_raider_fittings
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_shipyard_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_carrier_raider_assembly
+        name = Rance_model_mio_trait_standardized_carrier_raider_assembly
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_carrier_raider_shipyard_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_torpedo_attack_run
+        name = Rance_model_mio_trait_carrier_raider_torpedo_attack_run
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_raider_carrier_flight_deck_group }
+
+        equipment_bonus = {
+            torpedo_attack = 0.10
+            naval_torpedo_hit_chance_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_raider_heavy_support_battery
+        name = Rance_model_mio_trait_raider_heavy_support_battery
+        icon = GFX_generic_mio_trait_icon_hg_attack
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_raider_carrier_screen_killer_battery }
+
+        equipment_bonus = {
+            hg_attack = 0.05
+            hg_armor_piercing = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_independent_carrier_raider_group
+        name = Rance_model_mio_trait_independent_carrier_raider_group
+        icon = GFX_generic_mio_trait_icon_surface_detection
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_carrier_raider_concealed_task_profile
+            Rance_mio_trait_carrier_raider_search_air_group
+        }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            naval_speed = 0.10
+            surface_visibility = -0.10
+            surface_detection = 0.05
+            sub_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_coordinated_carrier_raider_strike
+        name = Rance_model_mio_trait_coordinated_carrier_raider_strike
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_carrier_raider_torpedo_attack_run
+            Rance_mio_trait_raider_heavy_support_battery
+        }
+
+        equipment_bonus = {
+            torpedo_attack = 0.05
+            naval_torpedo_hit_chance_factor = 0.05
+            naval_speed = 0.05
+            anti_air_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_carrier_raider_material_economy
+        name = Rance_model_mio_trait_carrier_raider_material_economy
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_independent_carrier_raider_group
+            Rance_mio_trait_modular_carrier_raider_fittings
+            Rance_mio_trait_standardized_carrier_raider_assembly
+            Rance_mio_trait_coordinated_carrier_raider_strike
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Submarine manufacturer template
+## Smart layout finalized.
+
+Rance_model_submarine_manufacturer_organization = {
+    icon = GFX_idea_generic_naval_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        ship_hull_submarine
+    }
+
+    research_categories = {
+        mio_cat_tech_all_submarine_and_modules
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_submarine_stealth_endurance
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_submarine_production_preparation
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_submarine_torpedo_raiding
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_submarine_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_submarine_development_bureau
+        name = Rance_model_mio_trait_submarine_development_bureau
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_submarine_hull
+        name = Rance_model_mio_trait_long_range_submarine_hull
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_submarine_development_bureau }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            sub_visibility = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_efficient_diesel_electric_drive
+        name = Rance_model_mio_trait_efficient_diesel_electric_drive
+        icon = GFX_generic_mio_trait_icon_fuel_consumption
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_submarine_development_bureau }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            fuel_consumption = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_submarine_pressure_hull_tooling
+        name = Rance_model_mio_trait_submarine_pressure_hull_tooling
+        icon = GFX_generic_mio_department_icon_ship_submarine_production
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_submarine_development_bureau }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_decalin_fueled_torpedo
+        name = Rance_model_mio_trait_decalin_fueled_torpedo
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_submarine_development_bureau }
+
+        equipment_bonus = {
+            torpedo_attack = 0.05
+            naval_torpedo_hit_chance_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_advanced_periscope_sonar
+        name = Rance_model_mio_trait_advanced_periscope_sonar
+        icon = GFX_generic_mio_trait_icon_surface_detection
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_submarine_development_bureau }
+
+        equipment_bonus = {
+            surface_detection = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_anechoic_tile_coating
+        name = Rance_model_mio_trait_anechoic_tile_coating
+        icon = GFX_generic_mio_trait_icon_sub_visibility
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_long_range_submarine_hull }
+
+        equipment_bonus = {
+            surface_visibility = -0.10
+            sub_visibility = -0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_capacity_mine_storage
+        name = Rance_model_mio_trait_high_capacity_mine_storage
+        icon = GFX_generic_mio_trait_icon_mines
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_advanced_periscope_sonar }
+
+        equipment_bonus = {
+            mines_planting = 0.15
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_deep_diving_pressure_hull
+        name = Rance_model_mio_trait_deep_diving_pressure_hull
+        icon = GFX_generic_mio_department_icon_ship_submarine_survivability
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_efficient_diesel_electric_drive }
+
+        equipment_bonus = {
+            max_strength = 0.10
+            sub_visibility = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_modular_pressure_hull_assembly
+        name = Rance_model_mio_trait_modular_pressure_hull_assembly
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 3 y = 2 }
+
+        any_parent = { Rance_mio_trait_submarine_pressure_hull_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_standardized_submarine_sections
+        name = Rance_model_mio_trait_standardized_submarine_sections
+        icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+        position = { x = 5 y = 2 }
+
+        any_parent = { Rance_mio_trait_submarine_pressure_hull_tooling }
+
+        production_bonus = {
+            production_efficiency_gain_factor = 0.05
+            production_efficiency_cap_factor = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_large_torpedo_banks
+        name = Rance_model_mio_trait_large_torpedo_banks
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_decalin_fueled_torpedo }
+
+        equipment_bonus = {
+            torpedo_attack = 0.10
+            naval_torpedo_hit_chance_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_silent_ocean_raider
+        name = Rance_model_mio_trait_silent_ocean_raider
+        icon = GFX_generic_mio_trait_icon_sub_visibility
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_anechoic_tile_coating
+            Rance_mio_trait_deep_diving_pressure_hull
+        }
+
+        equipment_bonus = {
+            naval_speed = 0.05
+            surface_detection = 0.05
+            sub_visibility = -0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_submarine_carrier_conversion
+        name = Rance_model_mio_trait_submarine_carrier_conversion
+        icon = GFX_generic_mio_department_icon_ship_submarine_conversion
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_large_torpedo_banks
+            Rance_mio_trait_high_capacity_mine_storage
+        }
+
+        equipment_bonus = {
+            submarine_carrier_size = 2
+            naval_speed = 0.10
+            max_strength = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_submarine_material_economy
+        name = Rance_model_mio_trait_submarine_material_economy
+        icon = GFX_generic_mio_department_icon_ship_submarine_materials
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_silent_ocean_raider
+            Rance_mio_trait_modular_pressure_hull_assembly
+            Rance_mio_trait_standardized_submarine_sections
+            Rance_mio_trait_submarine_carrier_conversion
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.10
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}
+
+## Escort fleet manufacturer template
+## Smart layout skeleton.
+## Smart layout finalized.
+
+Rance_model_escort_fleet_manufacturer_organization = {
+    icon = GFX_idea_generic_naval_manufacturer_1
+
+    allowed = {
+        always = no
+    }
+
+    equipment_type = {
+        screen_ship
+    }
+
+    research_categories = {
+        mio_cat_tech_all_screen_ship_and_modules
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_escort_fleet_screen_patrol
+        x = 1
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_escort_fleet_mass_production
+        x = 4
+    }
+
+    tree_header_text = {
+        text = Rance_mio_header_ra_escort_fleet_fire_control
+        x = 7
+    }
+
+    initial_trait = {
+        name = Rance_model_escort_fleet_manufacturer_initial_trait
+    }
+
+    trait = {
+        token = Rance_mio_trait_escort_asw_foundation
+        name = Rance_model_mio_trait_escort_asw_foundation
+        icon = GFX_generic_mio_department_icon_facilities
+
+        position = { x = 4 y = 0 }
+
+        organization_modifier = {
+            military_industrial_organization_research_bonus = 0.15
+            military_industrial_organization_funds_gain = 0.15
+            military_industrial_organization_size_up_requirement = -0.15
+        }
+
+        equipment_bonus = {
+            sub_detection = 0.10
+            sub_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_high_speed_mine_hunting_gear
+        name = Rance_model_mio_trait_high_speed_mine_hunting_gear
+        icon = GFX_generic_mio_trait_icon_sub_visibility
+
+        position = { x = 0 y = 1 }
+
+        any_parent = { Rance_mio_trait_escort_asw_foundation }
+
+        equipment_bonus = {
+            sub_detection = 0.05
+            mines_sweeping = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_hydrodynamic_escort_hull
+        name = Rance_model_mio_trait_hydrodynamic_escort_hull
+        icon = GFX_generic_mio_trait_icon_maximum_speed
+
+        position = { x = 2 y = 1 }
+
+        any_parent = { Rance_mio_trait_escort_asw_foundation }
+
+        equipment_bonus = {
+            naval_speed = 0.10
+            surface_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_mass_escort_production
+        name = Rance_model_mio_trait_mass_escort_production
+        icon = GFX_generic_mio_trait_icon_production_capacity
+
+        position = { x = 4 y = 1 }
+
+        any_parent = { Rance_mio_trait_escort_asw_foundation }
+
+        production_bonus = {
+            production_capacity_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_escort_fire_group
+        name = Rance_model_mio_trait_escort_fire_group
+        icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+        position = { x = 6 y = 1 }
+
+        any_parent = { Rance_mio_trait_escort_asw_foundation }
+
+        equipment_bonus = {
+            anti_air_attack = 0.10
+            lg_attack = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_anti_sub_torpedo_suite
+        name = Rance_model_mio_trait_anti_sub_torpedo_suite
+        icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+        position = { x = 8 y = 1 }
+
+        any_parent = { Rance_mio_trait_escort_asw_foundation }
+
+        equipment_bonus = {
+            sub_attack = 0.15
+            torpedo_attack = 0.10
+            naval_torpedo_hit_chance_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_long_range_escort_configuration
+        name = Rance_model_mio_trait_long_range_escort_configuration
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 0 y = 2 }
+
+        any_parent = { Rance_mio_trait_high_speed_mine_hunting_gear }
+
+        equipment_bonus = {
+            naval_speed = 0.10
+            naval_range = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_escort_search_radar_network
+        name = Rance_model_mio_trait_escort_search_radar_network
+        icon = GFX_generic_mio_trait_icon_sub_detection
+
+        position = { x = 2 y = 2 }
+
+        any_parent = { Rance_mio_trait_hydrodynamic_escort_hull }
+
+        equipment_bonus = {
+            naval_range = 0.10
+            surface_detection = 0.15
+            sub_detection = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_escort_workflow_standardization
+        name = Rance_model_mio_trait_escort_workflow_standardization
+        icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+        position = { x = 4 y = 2 }
+
+        any_parent = { Rance_mio_trait_mass_escort_production }
+
+        production_bonus = {
+            production_efficiency_cap_factor = 0.10
+            production_efficiency_gain_factor = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_area_anti_air_screen
+        name = Rance_model_mio_trait_area_anti_air_screen
+        icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+        position = { x = 6 y = 2 }
+
+        any_parent = { Rance_mio_trait_escort_fire_group }
+
+        equipment_bonus = {
+            anti_air_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_stabilized_escort_mounts
+        name = Rance_model_mio_trait_stabilized_escort_mounts
+        icon = GFX_generic_mio_department_icon_ship_screen_ship_offense
+
+        position = { x = 8 y = 2 }
+
+        any_parent = { Rance_mio_trait_anti_sub_torpedo_suite }
+
+        equipment_bonus = {
+            anti_air_attack = 0.05
+            lg_attack = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_underway_supply_group
+        name = Rance_model_mio_trait_underway_supply_group
+        icon = GFX_generic_mio_trait_icon_naval_range
+
+        position = { x = 1 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_long_range_escort_configuration
+            Rance_mio_trait_escort_search_radar_network
+        }
+
+        equipment_bonus = {
+            naval_range = 0.05
+            max_strength = 0.05
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_improved_light_gun_integration
+        name = Rance_model_mio_trait_improved_light_gun_integration
+        icon = GFX_generic_mio_trait_icon_lg_attack
+
+        position = { x = 7 y = 3 }
+
+        all_parents = {
+            Rance_mio_trait_area_anti_air_screen
+            Rance_mio_trait_stabilized_escort_mounts
+        }
+
+        equipment_bonus = {
+            lg_attack = 0.05
+            lg_armor_piercing = 0.10
+        }
+    }
+
+    trait = {
+        token = Rance_mio_trait_escort_material_simplification
+        name = Rance_model_mio_trait_escort_material_simplification
+        icon = GFX_generic_mio_trait_icon_resources
+
+        position = { x = 4 y = 4 }
+
+        all_parents = {
+            Rance_mio_trait_underway_supply_group
+            Rance_mio_trait_escort_workflow_standardization
+            Rance_mio_trait_improved_light_gun_integration
+        }
+
+        equipment_bonus = {
+            build_cost_ic = -0.15
+        }
+
+        production_bonus = {
+            production_cost_factor = -0.10
+            production_resource_need_factor = -0.25
+        }
+    }
+}

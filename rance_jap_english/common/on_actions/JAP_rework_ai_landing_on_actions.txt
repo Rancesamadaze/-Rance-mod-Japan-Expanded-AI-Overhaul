@@ -1,0 +1,458 @@
+on_actions = {
+	## 日本路线 AI 登陆后处理：记录关键登陆点，供 AI strategy 做短期登陆场推进。
+	on_naval_invasion = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+					}
+				}
+				ROOT = {
+					JAP_scripted_landing_record_successful_regular_landing = yes
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_reclaim_lost_territories
+						any_enemy_country = {
+							original_tag = KOR
+						}
+					}
+					OR = {
+						state = 525 # 京畿
+						state = 527 # 平安-黄海
+						state = 1028 # 咸镜
+						state = 1029 # 江原
+						state = 1030 # 庆尚
+						state = 1031 # 忠清-全罗
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_korea_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_korea_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+						NOT = { has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics }
+						any_enemy_country = {
+							is_literally_china = yes
+						}
+					}
+					OR = {
+						state = 597 # 山东
+						state = 743 # 青岛
+						state = 613 # 上海
+						state = 592 # 广州
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_china_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_china_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						any_enemy_country = {
+							is_literally_china = yes
+						}
+					}
+					OR = {
+						state = 597 # 山东
+						state = 743 # 青岛
+						state = 613 # 上海
+						state = 592 # 广州
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_china_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_china_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						JAP_kodoha_north_america_operational_access_available = yes
+						JAP_kodoha_north_america_theater_clear = no
+					}
+					OR = {
+						state = 378 # 加利福尼亚
+						state = 385 # 俄勒冈
+						state = 386 # 华盛顿
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_north_america_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_north_america_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						JAP_lecture_north_america_operational_access_available = yes
+						JAP_lecture_north_america_theater_clear = no
+					}
+					OR = {
+						state = 378 # California
+						state = 385 # Oregon
+						state = 386 # Washington
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_north_america_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_north_america_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						has_country_flag = JAP_china_war_substantially_ended_flag
+					}
+					OR = {
+						state = 289 # 暹罗
+						state = 336 # 马来亚
+						state = 995 # 勃固
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_southeast_asia_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_southeast_asia_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						has_country_flag = JAP_china_war_substantially_ended_flag
+					}
+					OR = {
+						state = 431 # 西孟加拉
+						state = 429 # 孟买
+						state = 422 # 锡兰
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_south_asia_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_south_asia_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						has_country_flag = JAP_china_war_substantially_ended_flag
+						JAP_kodoha_eia_operational_access_available = yes
+					}
+					OR = {
+						state = 672 # 苏门答腊
+						state = 335 # 爪哇
+						state = 667 # 小巽他群岛
+						state = 721 # 东帝汶
+						state = 333 # 沙捞越
+						state = 334 # 加里曼丹
+						state = 668 # 摩鹿加群岛
+						state = 673 # 苏拉威西
+						state = 669 # 西巴布亚
+						state = 523 # 巴布亚
+						state = 520 # 北领地
+						state = 522 # 西澳大利亚
+						state = 872 # 北昆士兰
+						state = 285 # 新南威尔士
+						state = 518 # 塔斯马尼亚
+						state = 284 # 北岛
+						state = 723 # 南岛
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_eia_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_eia_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						has_country_flag = JAP_china_war_substantially_ended_flag
+						JAP_kodoha_pacific_operational_access_available = yes
+						JAP_kodoha_pacific_theater_clear = no
+					}
+					OR = {
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 629 # 夏威夷
+						state = 526 # 冲绳
+						state = 524 # 台湾
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+						state = 684 # 加罗林群岛
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_pacific_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_pacific_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+					}
+					OR = {
+						state = 289 # 暹罗
+						state = 336 # 马来亚
+						state = 995 # 勃固
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_southeast_asia_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_southeast_asia_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+					}
+					OR = {
+						state = 431 # 西孟加拉
+						state = 429 # 孟买
+						state = 422 # 锡兰
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_south_asia_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_south_asia_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+					}
+					state = 457 # Eastern Desert
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_middle_east_egypt_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_middle_east_egypt_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+						JAP_lecture_mediterranean_italy_failed_staging_lost = no
+						JAP_lecture_mediterranean_italy_theater_clear = no
+					}
+					OR = {
+						state = 115 # Sicily
+						state = 156 # Calabria
+						state = 2 # Lazio
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_mediterranean_italy_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_mediterranean_italy_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+						JAP_lecture_anatolia_balkans_failed_staging_lost = no
+						JAP_lecture_anatolia_balkans_theater_clear = no
+					}
+					OR = {
+						state = 731 # Central Macedonia
+						state = 47 # Attica
+						state = 77 # Dobruja
+						state = 971 # Northern Dobruja
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_anatolia_balkans_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_anatolia_balkans_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+						JAP_lecture_eia_operational_access_available = yes
+					}
+					OR = {
+						state = 672 # 苏门答腊
+						state = 335 # 爪哇
+						state = 667 # 小巽他群岛
+						state = 721 # 东帝汶
+						state = 333 # 沙捞越
+						state = 334 # 加里曼丹
+						state = 668 # 摩鹿加群岛
+						state = 673 # 苏拉威西
+						state = 669 # 西巴布亚
+						state = 523 # 巴布亚
+						state = 520 # 北领地
+						state = 522 # 西澳大利亚
+						state = 872 # 北昆士兰
+						state = 285 # 新南威尔士
+						state = 518 # 塔斯马尼亚
+						state = 284 # 北岛
+						state = 723 # 南岛
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_eia_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_eia_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+						JAP_lecture_pacific_operational_access_available = yes
+						JAP_lecture_pacific_theater_clear = no
+					}
+					OR = {
+						state = 646 # 塞班岛
+						state = 638 # 关岛
+						state = 629 # 夏威夷
+						state = 526 # 冲绳
+						state = 524 # 台湾
+						state = 327 # 马尼拉
+						state = 623 # 吕宋
+						state = 1026 # 北棉兰老
+						state = 627 # 达沃
+						state = 684 # 加罗林群岛
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_lecture_pacific_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_lecture_pacific_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = JAP
+						Rance_is_jap_kodoha_ai = yes
+						has_country_flag = JAP_china_war_substantially_ended_flag
+						JAP_kodoha_northern_east_staging_available = yes
+						JAP_kodoha_northern_east_theater_clear = no
+						JAP_kodoha_home_islands_compromised = no
+					}
+					OR = {
+						state = 408 # 符拉迪沃斯托克
+						state = 409 # 哈巴罗夫斯克
+					}
+				}
+				ROOT = {
+					set_country_flag = JAP_kodoha_northern_east_landing_boost
+				}
+				set_state_flag = {
+					flag = JAP_kodoha_northern_east_landing_priority
+					days = 30
+					value = 1
+				}
+			}
+		}
+	}
+}

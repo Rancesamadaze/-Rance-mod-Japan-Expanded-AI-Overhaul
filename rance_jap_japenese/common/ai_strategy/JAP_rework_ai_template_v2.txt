@@ -1,0 +1,683 @@
+### JAP AI template strategy v2
+### Base phase blocks provide positive role_ratio values.
+### Suppression blocks use equal negative values only when a matching positive value exists in the current phase.
+### Old template strategy blocks are intentionally left untouched for manual retirement.
+
+JAP_ai_template_v2_opening_infantry = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_opening_infantry = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_basic_infantry
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 100
+	}
+}
+
+JAP_ai_template_v2_experimental_armor = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_experimental_armor = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_basic_infantry
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_experimental_infantry_tank
+		value = 30
+	}
+}
+
+JAP_ai_template_v2_regular_armor_easy = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_regular_armor_easy = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry_tank
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+}
+
+JAP_ai_template_v2_regular_armor_normal = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_regular_armor_normal = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_tank
+		value = 100
+	}
+}
+
+JAP_ai_template_v2_regular_armor_hard = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_regular_armor_hard = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_tank
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_amphibious_mechanized
+		value = 150
+	}
+}
+
+JAP_ai_template_v2_regular_armor_lunatic = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_regular_armor_lunatic = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_tank
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_amphibious_mechanized
+		value = 150
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_heavy_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_heavy_amphibious_mechanized
+		value = 100
+	}
+}
+
+JAP_ai_template_v2_regular_armor_extra = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_regular_armor_extra = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_tank
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_amphibious_mechanized
+		value = 150
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_heavy_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_heavy_amphibious_mechanized
+		value = 100
+	}
+}
+
+JAP_ai_template_v2_land_cruiser = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_land_cruiser = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_tank
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_amphibious_mechanized
+		value = 150
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_land_crushier
+		value = 200
+	}
+}
+
+JAP_ai_template_v2_modern_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_modern_tank = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_marine_modern_mech_tank
+		value = 200
+	}
+}
+
+JAP_ai_template_v2_modern_land_cruiser = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_modern_land_cruiser = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = 50
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_lc_marine_modern_mech_tank
+		value = 200
+	}
+}
+
+JAP_ai_template_v2_suppress_basic_infantry_100 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_opening_infantry = yes
+			JAP_ai_template_stage_experimental_armor = yes
+		}
+		has_country_flag = JAP_ai_template_basic_infantry_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_basic_infantry
+		value = -100
+	}
+}
+
+JAP_ai_template_v2_suppress_infantry_100 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_opening_infantry = yes
+			JAP_ai_template_stage_experimental_armor = yes
+		}
+		has_country_flag = JAP_ai_template_infantry_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = -100
+	}
+}
+
+JAP_ai_template_v2_suppress_infantry_50 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_regular_armor_easy = yes
+			JAP_ai_template_stage_regular_armor_normal = yes
+			JAP_ai_template_stage_regular_armor_hard = yes
+			JAP_ai_template_stage_regular_armor_lunatic = yes
+			JAP_ai_template_stage_regular_armor_extra = yes
+			JAP_ai_template_stage_land_cruiser = yes
+			JAP_ai_template_stage_modern_tank = yes
+			JAP_ai_template_stage_modern_land_cruiser = yes
+		}
+		has_country_flag = JAP_ai_template_infantry_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry
+		value = -50
+	}
+}
+
+JAP_ai_template_v2_suppress_experimental_infantry_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_experimental_armor = yes
+		has_country_flag = JAP_ai_template_experimental_infantry_tank_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_experimental_infantry_tank
+		value = -30
+	}
+}
+
+JAP_ai_template_v2_suppress_infantry_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_regular_armor_easy = yes
+		has_country_flag = JAP_ai_template_infantry_tank_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_infantry_tank
+		value = -100
+	}
+}
+
+JAP_ai_template_v2_suppress_special_infantry_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_regular_armor_easy = yes
+			JAP_ai_template_stage_regular_armor_normal = yes
+			JAP_ai_template_stage_regular_armor_hard = yes
+			JAP_ai_template_stage_regular_armor_lunatic = yes
+			JAP_ai_template_stage_regular_armor_extra = yes
+			JAP_ai_template_stage_land_cruiser = yes
+			JAP_ai_template_stage_modern_tank = yes
+			JAP_ai_template_stage_modern_land_cruiser = yes
+		}
+		has_country_flag = JAP_ai_template_special_infantry_tank_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_special_infantry_tank
+		value = -50
+	}
+}
+
+JAP_ai_template_v2_suppress_mechanized_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_regular_armor_normal = yes
+			JAP_ai_template_stage_regular_armor_hard = yes
+			JAP_ai_template_stage_regular_armor_lunatic = yes
+			JAP_ai_template_stage_regular_armor_extra = yes
+			JAP_ai_template_stage_land_cruiser = yes
+		}
+		OR = {
+			has_country_flag = JAP_ai_template_mechanized_tank_equipment_suppressed
+			has_country_flag = JAP_ai_template_mechanized_tank_phase_suppressed
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_tank
+		value = -100
+	}
+}
+
+JAP_ai_template_v2_suppress_amphibious_mechanized = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_regular_armor_hard = yes
+			JAP_ai_template_stage_regular_armor_lunatic = yes
+			JAP_ai_template_stage_regular_armor_extra = yes
+			JAP_ai_template_stage_land_cruiser = yes
+		}
+		OR = {
+			has_country_flag = JAP_ai_template_amphibious_mechanized_equipment_suppressed
+			has_country_flag = JAP_ai_template_amphibious_mechanized_phase_suppressed
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_amphibious_mechanized
+		value = -150
+	}
+}
+
+JAP_ai_template_v2_suppress_mechanized_heavy_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_regular_armor_lunatic = yes
+			JAP_ai_template_stage_regular_armor_extra = yes
+		}
+		OR = {
+			has_country_flag = JAP_ai_template_mechanized_heavy_tank_equipment_suppressed
+			has_country_flag = JAP_ai_template_mechanized_heavy_tank_phase_suppressed
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_mechanized_heavy_tank
+		value = -50
+	}
+}
+
+JAP_ai_template_v2_suppress_heavy_amphibious_mechanized = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP_ai_template_stage_regular_armor_lunatic = yes
+			JAP_ai_template_stage_regular_armor_extra = yes
+		}
+		OR = {
+			has_country_flag = JAP_ai_template_heavy_amphibious_mechanized_equipment_suppressed
+			has_country_flag = JAP_ai_template_heavy_amphibious_mechanized_phase_suppressed
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_heavy_amphibious_mechanized
+		value = -100
+	}
+}
+
+JAP_ai_template_v2_suppress_land_crushier = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_land_cruiser = yes
+		OR = {
+			has_country_flag = JAP_ai_template_land_crushier_equipment_suppressed
+			has_country_flag = JAP_ai_template_land_crushier_phase_suppressed
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_land_crushier
+		value = -200
+	}
+}
+
+JAP_ai_template_v2_suppress_marine_modern_mech_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_modern_tank = yes
+		has_country_flag = JAP_ai_template_marine_modern_mech_tank_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_marine_modern_mech_tank
+		value = -200
+	}
+}
+
+JAP_ai_template_v2_suppress_lc_marine_modern_mech_tank = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_template_stage_modern_land_cruiser = yes
+		has_country_flag = JAP_ai_template_lc_marine_modern_mech_tank_equipment_suppressed
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = JAP_lc_marine_modern_mech_tank
+		value = -200
+	}
+}
+
+JAP_ai_template_v2_wanted_divisions_base_normal = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_ai = yes
+		has_country_flag = JAP_ai_land_production_loop_active
+		Rance_nd_is_normal = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 20
+	}
+}
+
+JAP_ai_template_v2_wanted_divisions_base_hard = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_ai = yes
+		has_country_flag = JAP_ai_land_production_loop_active
+		Rance_nd_is_hard = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 40
+	}
+}
+
+JAP_ai_template_v2_wanted_divisions_base_lunatic = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_ai = yes
+		has_country_flag = JAP_ai_land_production_loop_active
+		Rance_nd_is_lunatic = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 60
+	}
+}
+
+JAP_ai_template_v2_wanted_divisions_base_extra = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_ai = yes
+		has_country_flag = JAP_ai_land_production_loop_active
+		Rance_nd_is_extra = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 90
+	}
+}
+
+JAP_ai_template_v2_wanted_divisions_base_phantasm = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_ai = yes
+		has_country_flag = JAP_ai_land_production_loop_active
+		Rance_nd_is_phantasm = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 120
+	}
+}
+
+JAP_ai_template_v2_wanted_divisions_equipment_sufficient = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_ai = yes
+		has_country_flag = JAP_ai_land_production_loop_active
+		has_country_flag = JAP_ai_template_expansion_desire_active
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 100
+	}
+}

@@ -1,0 +1,14 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_JAP_niten_ichiryu_army_rework_spirit"
+		texturefile = "gfx/interface/officer_corp/spirits/spirit_idea_JAP_niten_ichiryu.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_JAP_hagakure_army_rework_spirit"
+		texturefile = "gfx/interface/officer_corp/spirits/spirit_idea_JAP_hagakure.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_JAP_banri_ikku_division_command_rework_spirit"
+		texturefile = "gfx/interface/officer_corp/spirits/spirit_idea_JAP_banri_ikku.dds"
+	}
+}

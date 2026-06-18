@@ -1,0 +1,643 @@
+# JAP_rework_for_void_landing_decisions = {
+# 	#控制硫磺岛时虚空登陆关岛
+# 	JAP_rework_void_to_guandao = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		visible = {
+# 			638 = {
+# 				controller = {
+# 					has_war_with = JAP
+# 				}
+# 			}
+# 		}
+# 		available = {
+# 			645 = {
+# 				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 100
+# 		}
+# 		cancel_trigger = {
+# 			638 = {
+# 				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+# 			}
+# 		}
+# 		days_remove = 30
+# 		remove_effect = {
+# 			638 = {
+# 				JAP_void_landing_small = yes
+# 			}
+# 		}
+# 	}
+# 	# 路径建议: common/decisions/JAP_island_hopping.txt
+#     # 1. 进军威克岛 (前置：控制关岛 638)
+# JAP_rework_void_to_wake = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+#     visible = {
+#         632 = { # 威克岛
+#             controller = {
+#                 has_war_with = JAP
+#             }
+#         }
+#     }
+#     available = {
+#         638 = { # 关岛
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = {
+#         factor = 100
+#     }
+#     # 如果在30天内已经打下了威克岛，则取消任务
+#     cancel_trigger = {
+#         632 = {
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         632 = {
+#             JAP_void_landing_small = yes
+#         }
+#     }
+# }
+
+# # 2. 进军中途岛 (前置：控制威克岛 632)
+# JAP_rework_void_to_midway = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+#     visible = {
+#         631 = { # 中途岛
+#             controller = {
+#                 has_war_with = JAP
+#             }
+#         }
+#     }
+#     available = {
+#         632 = { # 威克岛
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = {
+#         factor = 100
+#     }
+#     cancel_trigger = {
+#         631 = {
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         631 = {
+#             JAP_void_landing_small = yes
+#         }
+#     }
+# }
+
+# # 3. 进军约翰斯顿环礁 (前置：控制中途岛 631)
+# JAP_rework_void_to_johnston = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+#     visible = {
+#         630 = { # 约翰斯顿环礁
+#             controller = {
+#                 has_war_with = JAP
+#             }
+#         }
+#     }
+#     available = {
+#         631 = { # 中途岛
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = {
+#         factor = 100
+#     }
+#     cancel_trigger = {
+#         630 = {
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         630 = {
+#             JAP_void_landing_small = yes
+#         }
+#     }
+# }
+
+# # 4. 决战夏威夷 (前置：控制约翰斯顿环礁 630)
+# JAP_rework_void_to_hawaii = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+#     visible = {
+#         629 = { # 夏威夷
+#             controller = {
+#                 has_war_with = JAP
+#             }
+#         }
+#     }
+#     available = {
+#         630 = { # 约翰斯顿环礁
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = {
+#         factor = 100
+#     }
+#     cancel_trigger = {
+#         629 = {
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         629 = {
+#             JAP_void_landing_big = yes
+#         }
+#     }
+# }
+# # 路径建议: common/decisions/JAP_island_hopping_south.txt
+
+# # --- 第二岛链序列：南进与大洋洲 ---
+
+# # 1. 进军吕宋 (前置：控制台湾 524) - 使用 BIG 效果
+# JAP_rework_void_to_luzon = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         623 = { # 吕宋
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         524 = { # 台湾
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         623 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         623 = { JAP_void_landing_big = yes }
+#     }
+# }
+
+# # 2. 进军达沃 (前置：控制吕宋 623)
+# JAP_rework_void_to_davao = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         627 = { # 达沃
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         623 = { # 吕宋
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         627 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         627 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 3. 进军苏拉维西 (前置：控制达沃 627)
+# JAP_rework_void_to_sulawesi = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         673 = { # 苏拉维西
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         627 = { # 达沃
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         673 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         673 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 4. 进军巴布亚 (前置：控制苏拉维西 673)
+# JAP_rework_void_to_papua = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         523 = { # 巴布亚
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         673 = { # 苏拉维西
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         523 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         523 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 5. 进军新南威尔士 (前置：控制巴布亚 523) - 使用 BIG 效果
+# JAP_rework_void_to_nsw = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         285 = { # 新南威尔士
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         523 = { # 巴布亚
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         285 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         285 = { JAP_void_landing_big = yes }
+#     }
+# }
+
+# # 6. 进军新西兰 (前置：控制新南威尔士 285)
+# JAP_rework_void_to_nz = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         284 = { # 新西兰
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         285 = { # 新南威尔士
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         284 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         284 = { JAP_void_landing_small = yes }
+#     }
+# }
+# # 路径建议: common/decisions/JAP_island_hopping_west_south.txt
+
+# # --- 第三岛链序列：东南亚至西澳大利亚 ---
+
+# # 1. 进军占婆 (前置：控制台湾 524)
+# JAP_rework_void_to_champa = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         286 = { # 占婆/中南半岛东部
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         524 = { # 台湾
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         286 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         286 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 2. 进军暹罗 (前置：控制占婆 286)
+# JAP_rework_void_to_siam = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         289 = { # 暹罗
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         286 = { # 占婆
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         289 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         289 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 3. 进军新加坡 (前置：控制暹罗 289) - 使用 BIG 效果
+# JAP_rework_void_to_singapore = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         1021 = { # 新加坡
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         289 = { # 暹罗
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         1021 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         1021 = { JAP_void_landing_big = yes }
+#     }
+# }
+
+# # 4. 进军文莱 (前置：控制新加坡 1021)
+# JAP_rework_void_to_brunei = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         1023 = { # 文莱
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         1021 = { # 新加坡
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         1023 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         1023 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 5. 进军爪哇 (前置：控制文莱 1023)
+# JAP_rework_void_to_java = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         335 = { # 爪哇
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         1023 = { # 文莱
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         335 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         335 = { JAP_void_landing_small = yes }
+#     }
+# }
+
+# # 6. 进军西澳大利亚 (前置：控制爪哇 335)
+# JAP_rework_void_to_west_australia = {
+#     allowed = { original_tag = JAP }
+#     visible = {
+#         522 = { # 西澳大利亚
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+#     available = {
+#         335 = { # 爪哇
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#     ai_will_do = { factor = 100 }
+#     cancel_trigger = {
+#         522 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+#     days_remove = 30
+#     remove_effect = {
+#         522 = { JAP_void_landing_small = yes }
+#     }
+# }
+# #登陆朝鲜
+#     #JAP_create_infantry_template = yes
+#     JAP_rework_void_to_korea = {
+#         allowed = {
+#             original_tag = JAP
+#         }
+#         visible = {
+#             1030 = {
+#                 controller = {
+#                     has_war_with = JAP
+#                 }
+#             }
+#         }
+#         available = {
+#             528 = {
+#                 state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#             }
+#         }
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         complete_effect = {
+#             JAP_create_infantry_template = yes
+#         }
+#         cancel_trigger = {
+#             1030 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+#         days_remove = 20
+#         remove_effect = {
+#             1030 = { JAP_void_landing_infantry = yes}
+#         }
+#     }
+#     # 突袭西海岸 (前置：控制夏威夷 629) - 同时对加利福尼亚(378)与俄勒冈(385)发动 BIG 效果
+# JAP_rework_void_to_west_coast = {
+#     allowed = { original_tag = JAP }
+    
+#     visible = {
+#         OR = {
+#             378 = { # 加利福尼亚
+#                 controller = { has_war_with = JAP }
+#             }
+#             385 = { # 俄勒冈
+#                 controller = { has_war_with = JAP }
+#             }
+#         }
+#     }
+    
+#     available = {
+#         629 = { # 夏威夷
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+    
+#     ai_will_do = { factor = 100 }
+    
+#     # 当两个目标州都被我方或盟友完全控制时，决议自动取消
+#     cancel_trigger = {
+#         378 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#         385 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+    
+#     days_remove = 60 # 跨太平洋大规模进攻，设定为45天准备期
+    
+#     remove_effect = {
+#         # 对加利福尼亚施加虚空登陆效果（若仍由敌人控制）
+#         378 = { 
+#             if = {
+#                 limit = { controller = { has_war_with = JAP } }
+#                 JAP_void_landing_big = yes 
+#             }
+#         }
+#         # 对俄勒冈施加虚空登陆效果（若仍由敌人控制）
+#         385 = { 
+#             if = {
+#                 limit = { controller = { has_war_with = JAP } }
+#                 JAP_void_landing_big = yes 
+#             }
+#         }
+#     }
+# }
+# # 进军佛罗里达 (前置：控制巴拿马运河 685) - 使用 BIG 效果
+# JAP_rework_void_to_florida = {
+#     allowed = { original_tag = JAP }
+    
+#     visible = {
+#         366 = { # 佛罗里达
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+    
+#     available = {
+#         685 = { # 巴拿马运河
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+    
+#     ai_will_do = { factor = 100 }
+    
+#     # 如果在登陆前已经打下了佛罗里达，则任务取消
+#     cancel_trigger = {
+#         366 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+    
+#     days_remove = 30 # 虽然距离较近，但考虑到侧翼补给，维持30天准备期
+    
+#     remove_effect = {
+#         366 = { JAP_void_landing_big = yes }
+#     }
+# }
+# # 进军西西里 (前置：同时控制亚历山大 447、苏伊士 446、开罗 907) - 使用 BIG 效果
+# JAP_rework_void_to_sicily = {
+#     allowed = { original_tag = JAP }
+    
+#     visible = {
+#         115 = { # 西西里
+#             controller = { has_war_with = JAP }
+#         }
+#     }
+    
+#     available = {
+#         # 必须同时控制埃及三角区
+#         447 = { # 亚历山大
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#         446 = { # 苏伊士
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#         907 = { # 开罗
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+    
+#     ai_will_do = { factor = 100 }
+    
+#     # 夺取西西里后任务完成
+#     cancel_trigger = {
+#         115 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+    
+#     days_remove = 30 # 跨海大登陆准备期
+    
+#     remove_effect = {
+#         115 = { JAP_void_landing_big = yes }
+#     }
+# }
+# # 突袭英伦本土 (前置：控制诺曼底 15) - 同时对萨塞克斯(127)与约克(130)发动 BIG 效果
+# JAP_rework_void_to_england_mainland = {
+#     allowed = { original_tag = JAP }
+    
+#     visible = {
+#         OR = {
+#             127 = { # 萨塞克斯
+#                 controller = { has_war_with = JAP }
+#             }
+#             130 = { # 约克
+#                 controller = { has_war_with = JAP }
+#             }
+#         }
+#     }
+    
+#     available = {
+#         15 = { # 诺曼底
+#             state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+#         }
+#     }
+    
+#     ai_will_do = { factor = 100 }
+    
+#     # 当目标州都被控制时取消任务
+#     cancel_trigger = {
+#         127 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#         130 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+#     }
+    
+#     days_remove = 60 # 跨海突击准备期
+    
+#     remove_effect = {
+#         # 对萨塞克斯施加效果
+#         127 = { 
+#             if = {
+#                 limit = { controller = { has_war_with = JAP } }
+#                 JAP_void_landing_big = yes 
+#             }
+#         }
+#         # 对约克施加效果
+#         130 = { 
+#             if = {
+#                 limit = { controller = { has_war_with = JAP } }
+#                 JAP_void_landing_big = yes 
+#             }
+#         }
+#     }
+# }
+# }

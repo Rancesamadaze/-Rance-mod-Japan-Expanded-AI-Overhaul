@@ -1,0 +1,763 @@
+JAP_imperial_influence_dm = {
+	icon = GFX_idea_JAP_imperial_influence
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	custom_modifier_tooltip = JAP_imperial_influence_dm_tt
+}
+
+ # Fake NS to show the modifiers Imperial Influence in the NS window (for non-monarchist)
+JAP_imperial_influence_communist_dm = {
+	icon = GFX_idea_JAP_imperial_influence_communist
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	custom_modifier_tooltip = JAP_imperial_influence_dm_tt
+}
+
+JAP_state_shinotism_dm = {
+	icon = GFX_idea_state_shintoism
+	enable = { always = yes }
+	remove_trigger = {
+		has_government = communism
+	}
+
+	surrender_limit = JAP_state_shinotism_surrender_limit
+	war_support_factor = JAP_state_shinotism_war_support_factor
+	pocket_penalty = JAP_state_shinotism_pocket_penalty
+	stability_factor = JAP_state_shinotism_stability_factor
+	justify_war_goal_time = JAP_state_shinotism_justify_war_goal_time
+	research_speed_factor = JAP_state_shinotism_research_speed_factor
+
+}
+
+JAP_showa_statism_modifier = {
+	icon = GFX_idea_JAP_showa_statism
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			has_government = communism
+			has_government = democratic
+		}
+	}
+
+	stability_factor = JAP_showa_statism_stability_factor
+	conscription_factor = JAP_showa_statism_conscription_factor
+	consumer_goods_factor = JAP_showa_statism_consumer_goods_factor
+	political_power_factor = JAP_showa_statism_political_power_factor
+	fascism_drift = JAP_showa_statism_fascism_drift
+	monthly_population = JAP_showa_statism_monthly_population
+	industrial_capacity_dockyard = JAP_showa_statism_industrial_capacity_dockyard
+	industrial_capacity_factory = JAP_showa_statism_industrial_capacity_factory
+	weekly_casualties_war_support = JAP_showa_statism_weekly_casualties_war_support
+	weekly_convoys_war_support = JAP_showa_statism_weekly_convoys_war_support
+	weekly_bombing_war_support = JAP_showa_statism_weekly_bombing_war_support
+	industry_repair_factor = JAP_showa_statism_industry_repair_factor
+	operative_slot = JAP_showa_statism_operative_slot
+
+}
+
+JAP_the_imperial_way_dm = {
+	icon = GFX_idea_JAP_the_imperial_way
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			has_government = communism
+			has_government = democratic
+		}
+	}
+
+	war_support_factor = JAP_the_imperial_way_war_support_factor
+	drift_defence_factor = JAP_the_imperial_way_drift_defence_factor
+	conscription_factor = JAP_the_imperial_way_conscription_factor
+	political_advisor_cost_factor = JAP_the_imperial_way_political_advisor_cost_factor
+	stability_factor = JAP_the_imperial_way_stability_factor
+	army_core_defence_factor = JAP_the_imperial_way_army_core_defence_factor
+	army_core_attack_factor = JAP_the_imperial_way_army_core_attack_factor
+	consumer_goods_factor = JAP_the_imperial_way_consumer_goods_factor
+	offensive_war_stability_factor = JAP_the_imperial_way_offensive_war_stability_factor
+
+}
+
+JAP_civilian_cabinet_modifier = {
+	icon = GFX_idea_JAP_the_civilian_cabinet
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+		}
+	}
+
+	political_advisor_cost_factor = JAP_civilian_cabinet_political_advisor_cost_factor
+	high_command_cost_factor = JAP_civilian_cabinet_high_command_cost_factor
+	army_chief_cost_factor = JAP_civilian_cabinet_army_chief_cost_factor 
+	mobilization_laws_cost_factor = JAP_civilian_cabinet_mobilization_laws_cost_factor
+	consumer_goods_factor = JAP_civilian_cabinet_consumer_goods_factor
+	resource_trade_cost_bonus_per_factory = JAP_civilian_cabinet_resource_trade_cost_bonus_per_factory
+	military_leader_cost_factor = JAP_civilian_cabinet_military_leader_cost_factor
+	political_power_factor = JAP_civilian_cabinet_political_power_factor
+	stability_factor = JAP_civilian_cabinet_stability_factor
+	war_support_factor = JAP_civilian_cabinet_war_support_factor
+	military_industrial_organization_research_bonus = JAP_civilian_cabinet_military_industrial_organization_research_bonus
+	conscription = JAP_civilian_cabinet_conscription
+	unit_leader_as_advisor_cp_cost_factor = JAP_civilian_cabinet_unit_leader_as_advisor_cp_cost_factor
+	army_leader_start_defense_level = JAP_civilian_cabinet_army_leader_start_defense_level
+	justify_war_goal_time = JAP_civilian_cabinet_justify_war_goal_time
+	democratic_drift = JAP_civilian_cabinet_democratic_drift
+
+}
+
+JAP_communist_party_modifier = {
+	icon = GFX_idea_JAP_the_japanese_communist_party
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+		}
+	}
+
+	communism_drift = JAP_communist_party_communism_drift 
+	political_power_factor = JAP_communist_party_political_power_factor
+	conscription_factor = JAP_communist_party_conscription_factor
+	research_speed_factor = JAP_communist_party_research_speed_factor
+	offensive_war_stability_factor = JAP_communist_party_offensive_war_stability_factor
+	annex_cost_factor = JAP_communist_party_annex_cost_factor
+	puppet_cost_factor = JAP_communist_party_puppet_cost_factor
+	defensive_war_stability_factor = JAP_communist_party_defensive_war_stability_factor
+	operative_slot = JAP_communist_party_operative_slot
+	enemy_operative_detection_chance_factor = JAP_communist_party_enemy_operative_detection_chance_factor
+	enemy_operative_intel_extraction_rate = JAP_communist_party_enemy_operative_intel_extraction_rate
+	enemy_operative_capture_chance_factor = JAP_communist_party_enemy_operative_capture_chance_factor
+	army_core_defence_factor = JAP_communist_party_army_core_defence_factor
+	weekly_manpower = JAP_communist_party_weekly_manpower
+	stability_weekly = JAP_communist_party_stability_weekly
+	send_volunteer_size = JAP_communist_send_volunteer_size
+	custom_modifier_tooltip = JAP_mao_guerrilla_tactic_ult_cus_tt
+		
+
+
+}
+
+JAP_rounouha_modifier = {
+	icon = GFX_idea_JAP_rounou_ha
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+		}
+	}
+
+	communism_drift = JAP_communist_party_communism_drift 
+	political_power_factor = JAP_communist_party_political_power_factor
+	conscription_factor = JAP_communist_party_conscription_factor
+	research_speed_factor = JAP_communist_party_research_speed_factor
+	offensive_war_stability_factor = JAP_communist_party_offensive_war_stability_factor
+	annex_cost_factor = JAP_communist_party_annex_cost_factor
+	puppet_cost_factor = JAP_communist_party_puppet_cost_factor
+	defensive_war_stability_factor = JAP_communist_party_defensive_war_stability_factor
+	operative_slot = JAP_communist_party_operative_slot
+	enemy_operative_detection_chance_factor = JAP_communist_party_enemy_operative_detection_chance_factor
+	enemy_operative_intel_extraction_rate = JAP_communist_party_enemy_operative_intel_extraction_rate
+	enemy_operative_capture_chance_factor = JAP_communist_party_enemy_operative_capture_chance_factor
+	army_core_defence_factor = JAP_communist_party_army_core_defence_factor
+	weekly_manpower = JAP_communist_party_weekly_manpower
+
+}
+
+JAP_educating_the_peasants_modifier = { # Educating the Peasants NS
+	enable = { always = yes }
+	icon = GFX_idea_generic_research_bonus
+	research_speed_factor = JAP_educating_the_peasants_modifier_research_speed_factor
+}
+#帝国陆军
+JAP_imperial_army_dm = {
+	icon = GFX_idea_JAP_imperial_army
+	enable = { always = yes }
+
+	custom_modifier_tooltip = JAP_japanese_armor_doctrine_tt
+
+	
+	army_infantry_attack_factor = JAP_army_army_infantry_attack_factor
+	army_infantry_defence_factor = JAP_army_army_infantry_defence_factor
+	army_morale_factor = JAP_army_army_morale_factor
+	army_defence_factor = JAP_army_army_defence_factor
+	special_forces_defence_factor = JAP_army_special_forces_defence_factor
+	initiative_factor = JAP_army_initiative_factor
+	army_artillery_attack_factor = JAP_army_army_army_artillery_attack_factor
+	supply_consumption_factor = JAP_army_supply_consumption_factor
+	acclimatization_cold_climate_gain_factor = JAP_army_acclimatization_cold_climate_gain_factor
+	acclimatization_hot_climate_gain_factor = JAP_army_acclimatization_hot_climate_gain_factor
+	army_core_attack_factor = JAP_army_army_core_attack_factor
+	army_core_defence_factor = JAP_army_army_core_defence_factor
+	planning_speed = JAP_army_planning_speed
+	army_armor_attack_factor = JAP_army_army_armor_attack_factor
+	terrain_penalty_reduction = JAP_army_terrain_penalty_reduction
+	
+	army_armor_defence_factor = JAP_army_army_armor_defence_factor
+	motorized_defence_factor = JAP_army_motorized_defence_factor
+	mechanized_defence_factor = JAP_army_mechanized_defence_factor
+
+	army_armor_speed_factor = JAP_army_army_armor_speed_factor
+	motorized_attack_factor = JAP_army_motorized_attack_factor
+	mechanized_attack_factor = JAP_army_mechanized_attack_factor
+	attrition = JAP_army_attrition
+    supply_node_range = JAP_army_supply_node_range
+    out_of_supply_factor = JAP_army_out_of_supply_factor
+    supply_combat_penalties_on_core_factor = JAP_army_supply_combat_penalties_on_core_factor
+    no_supply_grace = JAP_army_no_supply_grace
+	army_attack_speed_factor = JAP_army_attack_speed_factor
+	max_planning = JAP_max_planning_factor
+	###自定义tt
+	#irago
+	custom_modifier_tooltip = Jap_rance_irago_custom_tt #irago
+	custom_modifier_tooltip = JAP_army_weapons_administration_headquarters_cus_tt #陆军总部
+	custom_modifier_tooltip = JAP_divert_naval_guns_to_the_army_cus_tt #舰炮移交陆军
+	custom_modifier_tooltip = JAP_ul_lc_cus_tt
+}
+
+# Different because different name, MAKE SURE MODIFIERS ABOVE AND BELOW ARE THE SAME 
+# 国家陆军动态修正（确保与上方修正同步）
+JAP_national_army_dm = {
+	icon = GFX_idea_JAP_imperial_army
+	enable = { always = yes }
+
+	custom_modifier_tooltip = JAP_japanese_armor_doctrine_tt
+
+	# ... 原有内容保持不变 ...
+	army_infantry_attack_factor = JAP_army_army_infantry_attack_factor
+	army_morale_factor = JAP_army_army_morale_factor
+	army_defence_factor = JAP_army_army_defence_factor
+	special_forces_defence_factor = JAP_army_special_forces_defence_factor
+	initiative_factor = JAP_army_initiative_factor
+	army_artillery_attack_factor = JAP_army_army_army_artillery_attack_factor
+	supply_consumption_factor = JAP_army_supply_consumption_factor
+	acclimatization_cold_climate_gain_factor = JAP_army_acclimatization_cold_climate_gain_factor
+	acclimatization_hot_climate_gain_factor = JAP_army_acclimatization_hot_climate_gain_factor
+	army_core_attack_factor = JAP_army_army_core_attack_factor
+	army_core_defence_factor = JAP_army_army_core_defence_factor
+	planning_speed = JAP_army_planning_speed
+	army_armor_attack_factor = JAP_army_army_armor_attack_factor
+	terrain_penalty_reduction = JAP_army_terrain_penalty_reduction
+	# 新增防御修正内容
+	army_armor_defence_factor = JAP_army_army_armor_defence_factor
+	motorized_defence_factor = JAP_army_motorized_defence_factor
+	mechanized_defence_factor = JAP_army_mechanized_defence_factor
+
+	army_armor_speed_factor = JAP_army_army_armor_speed_factor
+	motorized_attack_factor = JAP_army_motorized_attack_factor
+	mechanized_attack_factor = JAP_army_mechanized_attack_factor
+
+	attrition = JAP_army_attrition
+    supply_node_range = JAP_army_supply_node_range
+    out_of_supply_factor = JAP_army_out_of_supply_factor
+    supply_combat_penalties_on_core_factor = JAP_army_supply_combat_penalties_on_core_factor
+    no_supply_grace = JAP_army_no_supply_grace
+	army_attack_speed_factor = JAP_army_attack_speed_factor
+	max_planning = JAP_max_planning_factor
+
+	custom_modifier_tooltip = Jap_rance_irago_custom_tt
+	custom_modifier_tooltip = JAP_army_weapons_administration_headquarters_cus_tt #陆军总部
+	custom_modifier_tooltip = JAP_divert_naval_guns_to_the_army_cus_tt #舰炮移交陆军
+	custom_modifier_tooltip = JAP_ul_lc_cus_tt
+}
+
+JAP_imperial_navy_dm = {
+	icon = GFX_idea_JAP_imperial_navy
+	enable = { always = yes }
+	
+	# --- 原有修正保持不变 ---
+	naval_torpedo_hit_chance_factor = JAP_navy_naval_torpedo_hit_chance_factor
+	ships_at_battle_start = JAP_navy_ships_at_battle_start
+	navy_max_range_factor = JAP_navy_navy_max_range_factor
+	naval_detection = JAP_navy_naval_detection
+	naval_accidents_chance = JAP_navy_naval_accidents_chance
+	convoy_escort_efficiency = JAP_navy_convoy_escort_efficiency
+	naval_coordination = JAP_navy_naval_coordination
+	naval_invasion_prep_speed = JAP_navy_naval_invasion_prep_speed
+	amphibious_invasion = JAP_navy_amphibious_invasion
+	naval_heavy_gun_hit_chance_factor = JAP_navy_naval_heavy_gun_hit_chance_factor
+	navy_anti_air_attack_factor = JAP_navy_navy_anti_air_attack_factor
+	naval_mine_hit_chance = JAP_navy_naval_mine_hit_chance
+	naval_mines_damage_factor = JAP_navy_naval_mines_damage_factor
+	navy_org_factor = JAP_navy_navy_org_factor
+	experience_gain_navy_unit_factor = JAP_navy_experience_gain_navy_unit_factor
+	repair_speed_factor = JAP_navy_repair_speed_factor
+	refit_speed = JAP_navy_refit_speed
+	naval_ship_recovery_chance = JAP_navy_naval_ship_recovery_chance
+	carrier_traffic = JAP_carrier_traffic
+	navy_capital_ship_defence_factor = JAP_navy_capital_ship_defence_factor
+	critical_receive_chance = JAP_critical_receive_chance
+	naval_damage_factor = JAP_naval_damage_factor
+	naval_defense_factor = JAP_naval_defense_factor
+	navy_carrier_air_attack_factor = JAP_navy_carrier_air_attack_factor
+	navy_carrier_air_targetting_factor = JAP_navy_carrier_air_targetting_factor
+	navy_carrier_air_agility_factor = JAP_navy_carrier_air_agility_factor
+	screening_efficiency = JAP_screening_efficiency
+	carrier_sortie_hours_delay = JAP_carrier_sortie_hours_delay
+	carrier_night_traffic = JAP_carrier_night_traffic
+	air_carrier_night_penalty_reduction_factor = JAP_air_carrier_night_penalty_reduction_factor
+	naval_enemy_fleet_size_ratio_penalty_factor =JAP_naval_enemy_fleet_size_ratio_penalty_factor 
+	naval_torpedo_screen_penetration_factor =JAP_naval_torpedo_screen_penetration_factor
+	positioning = JAP_positioning
+	naval_invasion_capacity = JAP_naval_invasion_capacity
+	naval_invasion_division_cap = JAP_naval_invasion_division_cap
+	naval_invasion_prep_days = JAP_naval_invasion_prep_days
+	
+	custom_modifier_tooltip = JAP_naval_armaments_program_cus_a_tt
+    custom_modifier_tooltip = JAP_naval_armaments_program_cus_b_tt
+    custom_modifier_tooltip = JAP_naval_armaments_program_cus_c_tt
+	custom_modifier_tooltip = JAP_secure_the_sea_lanes_cus_tt
+}
+# Different because different name, MAKE SURE MODIFIERS ABOVE AND BELOW ARE THE SAME 
+JAP_japanese_navy_dm = {
+	icon = GFX_idea_JAP_imperial_navy
+	enable = { always = yes }
+	
+	naval_torpedo_hit_chance_factor = JAP_navy_naval_torpedo_hit_chance_factor
+	ships_at_battle_start = JAP_navy_ships_at_battle_start
+	navy_max_range_factor = JAP_navy_navy_max_range_factor
+	naval_detection = JAP_navy_naval_detection
+	naval_accidents_chance = JAP_navy_naval_accidents_chance
+	convoy_escort_efficiency = JAP_navy_convoy_escort_efficiency
+	naval_coordination = JAP_navy_naval_coordination
+	naval_invasion_prep_speed = JAP_navy_naval_invasion_prep_speed
+	amphibious_invasion = JAP_navy_amphibious_invasion
+	naval_heavy_gun_hit_chance_factor = JAP_navy_naval_heavy_gun_hit_chance_factor
+	navy_anti_air_attack_factor = JAP_navy_navy_anti_air_attack_factor
+	naval_mine_hit_chance = JAP_navy_naval_mine_hit_chance
+	naval_mines_damage_factor = JAP_navy_naval_mines_damage_factor
+	navy_org_factor = JAP_navy_navy_org_factor
+	experience_gain_navy_unit_factor = JAP_navy_experience_gain_navy_unit_factor
+	repair_speed_factor = JAP_navy_repair_speed_factor
+	refit_speed = JAP_navy_refit_speed
+	naval_ship_recovery_chance = JAP_navy_naval_ship_recovery_chance
+	carrier_traffic = JAP_carrier_traffic
+	navy_capital_ship_defence_factor = JAP_navy_capital_ship_defence_factor
+	critical_receive_chance = JAP_critical_receive_chance
+	naval_damage_factor = JAP_naval_damage_factor
+	naval_defense_factor = JAP_naval_defense_factor
+	navy_carrier_air_attack_factor = JAP_navy_carrier_air_attack_factor
+	navy_carrier_air_targetting_factor = JAP_navy_carrier_air_targetting_factor
+	navy_carrier_air_agility_factor = JAP_navy_carrier_air_agility_factor
+	carrier_sortie_hours_delay = JAP_carrier_sortie_hours_delay
+	carrier_night_traffic = JAP_carrier_night_traffic
+	air_carrier_night_penalty_reduction_factor = JAP_air_carrier_night_penalty_reduction_factor
+	navy_capital_ship_attack_factor = JAP_navy_capital_ship_attack_factor
+	naval_enemy_fleet_size_ratio_penalty_factor =JAP_naval_enemy_fleet_size_ratio_penalty_factor 
+	naval_torpedo_screen_penetration_factor =JAP_naval_torpedo_screen_penetration_factor
+	positioning = JAP_positioning
+	naval_invasion_capacity = JAP_naval_invasion_capacity
+	naval_invasion_division_cap = JAP_naval_invasion_division_cap
+	naval_invasion_prep_days = JAP_naval_invasion_prep_days
+
+##cus
+	custom_modifier_tooltip = JAP_naval_armaments_program_cus_a_tt
+    custom_modifier_tooltip = JAP_naval_armaments_program_cus_b_tt
+    custom_modifier_tooltip = JAP_naval_armaments_program_cus_c_tt
+	custom_modifier_tooltip = JAP_secure_the_sea_lanes_cus_tt
+	#naval_torpedo_screen_penetration_factor = JAP_navy_naval_torpedo_screen_penetration_factor
+}
+
+JAP_army_and_naval_air_services_dm = {
+	icon = GFX_idea_JAP_air_services
+	enable = { always = yes }
+
+	custom_modifier_tooltip = JAP_separate_air_services_tt
+
+	custom_modifier_tooltip = JAP_develop_new_fighters_cus_tt #新型战斗机
+	custom_modifier_tooltip = JAP_lightweight_fighters_rework_tt
+	custom_modifier_tooltip = JAP_z_projrct_aircraft_cus_tt #空母和洲际轰炸
+
+	air_nav_efficiency = JAP_airforce_air_nav_efficiency
+	air_wing_xp_loss_when_killed_factor = JAP_airforce_air_wing_xp_loss_when_killed_factor
+	air_untrained_pilots_penalty_factor = JAP_airforce_air_untrained_pilots_penalty_factor
+	air_cas_efficiency = JAP_airforce_air_cas_efficiency
+	sortie_efficiency = JAP_airforce_sortie_efficiency
+	air_escort_efficiency = JAP_airforce_air_escort_efficiency
+	air_power_projection_factor = JAP_airforce_air_power_projection_factor
+	air_superiority_efficiency = JAP_airforce_air_superiority_efficiency
+	air_range_factor = JAP_airforce_air_range_factor
+	air_defence_factor = JAP_airforce_air_defence_factor
+	mines_planting_by_air_factor = JAP_airforce_mines_planting_by_air_factor
+	port_strike = JAP_airforce_port_strike
+	air_mission_efficiency = JAP_airforce_air_mission_efficiency
+	#navy_carrier_air_attack_factor = JAP_airforce_navy_carrier_air_attack_factor
+	#navy_carrier_air_targetting_factor = JAP_airforce_navy_carrier_air_targetting_factor
+	air_accidents_factor = JAP_airforce_air_accidents_factor
+	air_detection = JAP_air_detection
+	naval_strike_attack_factor = JAP_naval_strike_attack_factor
+	air_ace_generation_chance_factor = JAP_air_ace_generation_chance_factor
+	
+}
+
+# Different because different name, MAKE SURE MODIFIERS ABOVE AND BELOW ARE THE SAME (but don't include separate air services)
+JAP_japanese_airforce_dm = {
+	icon = GFX_idea_JAP_air_services
+	enable = { always = yes }
+
+	custom_modifier_tooltip = JAP_lightweight_fighters_rework_tt
+	custom_modifier_tooltip = JAP_develop_new_fighters_cus_tt #新型战斗机
+	custom_modifier_tooltip = JAP_z_projrct_aircraft_cus_tt
+
+	air_nav_efficiency = JAP_airforce_air_nav_efficiency
+	air_wing_xp_loss_when_killed_factor = JAP_airforce_air_wing_xp_loss_when_killed_factor
+	air_untrained_pilots_penalty_factor = JAP_airforce_air_untrained_pilots_penalty_factor
+	air_cas_efficiency = JAP_airforce_air_cas_efficiency
+	sortie_efficiency = JAP_airforce_sortie_efficiency
+	air_escort_efficiency = JAP_airforce_air_escort_efficiency
+	air_power_projection_factor = JAP_airforce_air_power_projection_factor
+	air_superiority_efficiency = JAP_airforce_air_superiority_efficiency
+	air_range_factor = JAP_airforce_air_range_factor
+	air_defence_factor = JAP_airforce_air_defence_factor
+	mines_planting_by_air_factor = JAP_airforce_mines_planting_by_air_factor
+	port_strike = JAP_airforce_port_strike
+	air_mission_efficiency = JAP_airforce_air_mission_efficiency
+	#navy_carrier_air_attack_factor = JAP_airforce_navy_carrier_air_attack_factor
+	#navy_carrier_air_targetting_factor = JAP_airforce_navy_carrier_air_targetting_factor
+	air_accidents_factor = JAP_airforce_air_accidents_factor
+	air_detection = JAP_air_detection
+	naval_strike_attack_factor = JAP_naval_strike_attack_factor
+}
+
+JAP_early_industrialization_efforts_dm = {
+	icon = GFX_idea_JAP_japanese_economy
+	enable = { always = yes }
+
+	custom_modifier_tooltip = JAP_convoy_production_cost_tt
+
+	industry_air_damage_factor = JAP_industry_industry_air_damage_factor 
+	production_lack_of_resource_penalty_factor = JAP_industry_lack_of_resource_penalty_factor
+	research_speed_factor = JAP_industry_research_speed_factor
+	consumer_goods_factor = JAP_industry_consumer_goods_factor
+	production_speed_industrial_complex_factor = JAP_industry_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = JAP_industry_production_speed_arms_factory_factor
+	production_speed_dockyard_factor = JAP_industry_production_speed_dockyard_factor
+	production_speed_buildings_factor = JAP_industry_production_speed_buildings_factor
+	factory_energy_consumption = JAP_industry_factory_energy_consumption
+	industrial_capacity_dockyard = JAP_industry_industrial_capacity_dockyard
+	industrial_capacity_factory = JAP_industry_industrial_capacity_factory
+	local_resources_factor = JAP_industry_local_resources_factor
+	local_resources_coal_factor = JAP_industry_local_resources_coal_factor
+	convoy_retreat_speed = JAP_industry_convoy_retreat_speed
+	production_factory_max_efficiency_factor = JAP_industry_production_factory_max_efficiency_factor
+	production_factory_efficiency_gain_factor = JAP_industry_production_factory_efficiency_gain_factor
+	special_project_speed_factor = JAP_industry_special_project_speed_factor
+	line_change_production_efficiency_factor = JAP_industry_line_change_production_efficiency_factor
+
+}
+
+JAP_the_economic_mirale_dm = {
+	icon = GFX_idea_JAP_japanese_economy
+	enable = { always = yes }
+
+	custom_modifier_tooltip = JAP_convoy_production_cost_tt
+
+	industry_air_damage_factor = JAP_industry_industry_air_damage_factor 
+	production_lack_of_resource_penalty_factor = JAP_industry_lack_of_resource_penalty_factor
+	research_speed_factor = JAP_industry_research_speed_factor
+	consumer_goods_factor = JAP_industry_consumer_goods_factor
+	production_speed_industrial_complex_factor = JAP_industry_production_speed_industrial_complex_factor
+	production_speed_arms_factory_factor = JAP_industry_production_speed_arms_factory_factor
+	production_speed_dockyard_factor = JAP_industry_production_speed_dockyard_factor
+	production_speed_buildings_factor = JAP_industry_production_speed_buildings_factor
+	factory_energy_consumption = JAP_industry_factory_energy_consumption
+	industrial_capacity_dockyard = JAP_industry_industrial_capacity_dockyard
+	industrial_capacity_factory = JAP_industry_industrial_capacity_factory
+	local_resources_factor = JAP_industry_local_resources_factor
+	local_resources_coal_factor = JAP_industry_local_resources_coal_factor
+	convoy_retreat_speed = JAP_industry_convoy_retreat_speed
+	production_factory_max_efficiency_factor = JAP_industry_production_factory_max_efficiency_factor
+	production_factory_efficiency_gain_factor = JAP_industry_production_factory_efficiency_gain_factor
+	special_project_speed_factor = JAP_industry_special_project_speed_factor
+	line_change_production_efficiency_factor = JAP_industry_line_change_production_efficiency_factor
+
+}
+
+JAP_east_asia_co_prosperity_sphere_dm = {
+	icon = GFX_idea_JAP_east_asian_co_prosperity
+	enable = { always = yes }
+	remove_trigger = {
+		has_government = communism
+	}
+
+	autonomy_manpower_share_from_subjects = JAP_east_asia_co_prosperity_sphere_autonomy_manpower_share_from_subjects
+	resources_to_overlord_factor = JAP_east_asia_co_prosperity_sphere_resources_to_overlord_factor
+	production_speed_rail_way_factor = JAP_east_asia_co_prosperity_sphere_production_speed_rail_way_factor
+	production_speed_supply_node_factor = JAP_east_asia_co_prosperity_sphere_production_speed_supply_node_factor
+	research_speed_factor = JAP_east_asia_co_prosperity_sphere_research_speed_factor
+	non_core_manpower = JAP_east_asia_co_prosperity_sphere_non_core_manpower
+
+}
+
+JAP_first_strike_principle_dm = {
+	icon = GFX_idea_generic_japanese_conflict 
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { 
+			NOT = {
+				has_idea = JAP_first_strike_principle_1
+			}
+			NOT = {
+				has_idea = JAP_first_strike_principle_2
+			}
+			NOT = {
+				has_idea = JAP_first_strike_principle_3
+			}
+		}
+	}
+
+	custom_modifier_tooltip = JAP_first_strike_principle_dm_tt
+}
+
+JAP_kantai_kessen_dm = {
+	icon = GFX_idea_generic_navy_cruiser_warfare 
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { 
+			NOT = {
+				has_idea = JAP_kantai_kessen_1
+			}
+			NOT = {
+				has_idea = JAP_kantai_kessen_2
+			}
+			NOT = {
+				has_idea = JAP_kantai_kessen_3
+			}
+		}
+	}
+
+	custom_modifier_tooltip = JAP_kantai_kessen_dm_tt
+}
+
+JAP_advanced_weapon_projects_dm = {
+	icon = GFX_idea_JAP_advanced_weapons_programs 
+	enable = { always = yes }
+	production_speed_land_facility_factor = JAP_advanced_weapons_production_speed_land_facility_factor
+	production_speed_air_facility_factor = JAP_advanced_weapons_production_speed_air_facility_factor
+	special_project_speed_factor = JAP_special_project_speed_factor
+	sp_tag_jet_speed_factor = JAP_advanced_weapons_sp_tag_jet_speed_factor
+	sp_tag_rocket_speed_factor = JAP_advanced_weapons_sp_tag_rocket_speed_factor
+	sp_tag_tank_speed_factor = JAP_advanced_weapons_sp_tag_tank_speed_factor
+	sp_tag_artillery_speed_factor = JAP_advanced_weapons_sp_tag_artillery_speed_factor
+	sp_tag_surface_ship_speed_factor = JAP_advanced_weapons_sp_tag_surface_ship_speed_factor
+	sp_commercial_nuclear_reactor_speed_factor = JAP_advanced_weapons_sp_commercial_nuclear_reactor_speed_factor
+	sp_nuclear_warheads_speed_factor = JAP_advanced_weapons_sp_nuclear_warheads_speed_factor
+	sp_nuclear_bomb_speed_factor = JAP_advanced_weapons_sp_nuclear_bomb_speed_factor
+	production_speed_nuclear_reactor_factor = JAP_advanced_weapons_production_speed_nuclear_reactor_factor
+	sp_air_intercontinental_bomber_speed_factor = JAP_advanced_weapons_sp_air_intercontinental_bomber_speed_factor
+	sp_air_mothership_aircraft_speed_factor = JAP_advanced_weapons_sp_air_mothership_aircraft_speed_factor
+	sp_nuclear_engines_speed_factor = JAP_advanced_weapons_sp_nuclear_engines_speed_factor
+	sp_land_super_heavy_railway_gun_speed_factor = JAP_advanced_weapons_sp_land_super_heavy_railway_gun_speed_factor
+}
+
+JAP_industrial_relocation_resources = {
+	enable = { always = yes }
+	icon = GFX_idea_ARG_economic_reactivation
+
+	remove_trigger = {
+		is_subject = yes
+	}
+
+	country_resource_oil = JAP_industrial_relocation_resources_country_resource_oil
+	country_resource_tungsten = JAP_industrial_relocation_resources_country_resource_tungsten
+	country_resource_chromium = JAP_industrial_relocation_resources_country_resource_chromium
+	country_resource_rubber = JAP_industrial_relocation_resources_country_resource_rubber
+}
+
+### STATE MODIFIERS ###
+
+JAP_operation_MO_military_offensive = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_japanese_offensive
+
+	breakthrough_factor = 0.1
+	army_attack_factor = 0.1
+}
+
+JAP_resource_extraction_investments_dm = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_generic_construction
+
+	local_resources = 0.05
+	local_building_slots = 1
+
+}
+
+JAP_chinese_offensive_military_offensive = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_japanese_offensive
+
+	breakthrough_factor = 0.05
+	army_attack_factor = 0.1
+}
+
+JAP_regional_development = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_generic_construction
+
+	state_production_speed_buildings_factor = 0.1
+}
+
+JAP_regional_development_reduced = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_generic_construction
+
+	state_production_speed_buildings_factor = 0.1
+	local_factories = 0.1
+}
+
+JAP_regional_development_standard = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_generic_construction
+
+	state_production_speed_buildings_factor = 0.1
+	local_factories = 0.2
+}
+
+JAP_shoko_special_charter = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_generic_construction
+
+	state_production_speed_buildings_factor = 0.1
+}
+
+JAP_intense_anti_guerilla_operation = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_desperate_defense
+
+	local_factory_sabotage = -0.3
+	local_resources = 0.05
+	resistance_damage_to_garrison = -0.15
+	resistance_garrison_penetration_chance = -0.15
+	resistance_target = -0.25
+	local_manpower = -0.25
+	local_factories = -0.1
+	compliance_growth = -0.2
+
+}
+
+KOR_resistance_against_colonial_rule_dm = { #STATE MODIFIER
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = { 
+			OWNER = { 
+				original_tag = KOR 
+				is_subject_of = JAP
+			} 
+			OWNER = { original_tag = JAP } 
+		}
+	}
+
+	icon = GFX_modifiers_generic_resistance
+
+	#local_factory_sabotage = 0.05
+	local_resources = -0.05
+	local_factories = -0.05
+	state_production_speed_buildings_factor = -0.1
+	resistance_target = 0.1
+	compliance_growth = -0.02
+
+}
+
+JAP_taiheyo_belt_modifier = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_taiheiyo_belt
+
+	state_production_speed_buildings_factor = 0.1
+}
+
+JAP_state_under_army_control = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_army_control
+
+	custom_modifier_tooltip	= JAP_state_under_army_control_tt
+	state_production_speed_buildings_factor = -0.05
+	conscription_factor = -0.1
+}
+
+JAP_state_under_rebel_control = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_rebel_control
+
+	custom_modifier_tooltip = JAP_state_under_rebel_control_tt
+	state_production_speed_buildings_factor = -0.05
+	
+}
+
+JAP_state_infiltrated_by_the_jcp = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_GER_socialist_movement
+
+	custom_modifier_tooltip	= JAP_state_infiltrated_by_the_jcp_tt
+	
+}
+
+JAP_state_supporting_resistance_modifier = {
+	enable = { always = yes  }
+	icon = GFX_modifiers_bul_macedonian_revolutionaries
+	resistance_damage_to_garrison = 0.15
+	resistance_activity = 0.2
+	resistance_growth = 0.5
+	resistance_target = 0.8
+	compliance_growth = -0.1
+}
+
+JAP_pro_japanese_sentiment_in_state = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_japanese_offensive
+
+	breakthrough_factor = 0.1
+	army_attack_factor = 0.1
+}
+
+JAP_ainu_revoluton_theory_implemented_dm = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_indigenous_socialism
+
+	local_resources = 0.1
+	local_building_slots = 1
+	local_manpower = 0.25
+	state_production_speed_buildings_factor = 0.1
+
+}
+
+JAP_urban_investments_modifier = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_JAP_taiheiyo_belt
+
+	state_production_speed_buildings_factor = 0.1
+	local_manpower = 0.1
+	
+}
+
+BRM_blown_up_oil_fields = {
+	enable = { always = yes }
+	icon = GFX_modifiers_sabotaged_resource
+
+	state_resources_factor = -0.95
+}

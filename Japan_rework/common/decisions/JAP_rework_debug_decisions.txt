@@ -1,0 +1,166 @@
+JAP_rework_debug_decisions = {
+
+	JAP_debug_dynamic_state_text_tokyo = {
+		icon = GFX_decision_generic_decision
+		priority = 999
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			671 = {
+				save_event_target_as = JAP_debug_dynamic_state_text_target
+				ROOT = {
+					country_event = { id = JAP_debug_dynamic_state_text.1 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_dynamic_state_text_hokkaido = {
+		icon = GFX_decision_generic_decision
+		priority = 998
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			536 = {
+				save_event_target_as = JAP_debug_dynamic_state_text_target
+				ROOT = {
+					country_event = { id = JAP_debug_dynamic_state_text.1 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_dynamic_state_text_direct_control = {
+		icon = GFX_decision_generic_decision
+		priority = 997
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			country_event = { id = JAP_debug_dynamic_state_text.2 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_add_10_skill_levels_to_army_leaders = {
+		icon = GFX_decision_generic_decision
+		priority = 996
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		complete_effect = {
+			every_army_leader = {
+				add_skill_level = 10
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	JAP_debug_add_military_leader_cost_factor = {
+		icon = GFX_decision_generic_decision
+		priority = 995
+
+		visible = {
+			NOT = { has_idea = JAP_debug_military_leader_cost_factor }
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			add_ideas = JAP_debug_military_leader_cost_factor
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_remove_military_leader_cost_factor = {
+		icon = GFX_decision_generic_decision
+		priority = 994
+
+		visible = {
+			has_idea = JAP_debug_military_leader_cost_factor
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			remove_ideas = JAP_debug_military_leader_cost_factor
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_complete_ultimate_tank_and_grant_land_equipment_designs = {
+		icon = GFX_decision_generic_special_project
+		priority = 993
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+		fire_only_once = yes
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_complete_ultimate_tank_and_grant_land_equipment_designs_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_completed_focus = JAP_the_ultimate_tank }
+					}
+					complete_national_focus = JAP_the_ultimate_tank
+				}
+				JAP_debug_grant_all_land_equipment_designs = yes
+				set_country_flag = JAP_debug_completed_ultimate_tank_and_granted_land_equipment_designs
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

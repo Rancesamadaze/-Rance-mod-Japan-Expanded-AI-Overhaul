@@ -1,0 +1,22 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_doctrine_rance_furinkazan_medium"
+        texturefile = "gfx/interface/doctrines/icons/rance_furinkazan.dds"
+        alwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_doctrine_rance_kantai_kessen_medium"
+        texturefile = "gfx/interface/doctrines/icons/rance_kantai_kessen.dds"
+        alwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_doctrine_jap_rance_air_sea_joint_assault_medium"
+        texturefile = "gfx/interface/doctrines/icons/jap_rance_air_sea_joint_assault.dds"
+        alwaystransparent = yes
+    }
+    spriteType = {
+        name = "GFX_doctrine_jap_rance_mountain_ranger_assault_medium"
+        texturefile = "gfx/interface/doctrines/icons/jap_rance_mountain_ranger_assault.dds"
+        alwaystransparent = yes
+    }
+}

@@ -1,0 +1,204 @@
+technologies = {
+	JAP_irago_artillery = {
+		allow = {
+			always = no
+		}
+
+		Rance_JAP_A_medium_artillery_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_A_heavy_artillery_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_A_medium_artillery_armor_support = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_A_heavy_artillery_armor_support = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_medium_artillery_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_heavy_artillery_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_modern_artillery_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_modern_artillery_armor_support = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_A_medium_anti_air_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_A_heavy_anti_air_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_A_medium_anti_air_armor_support = {
+			hard_attack = 0.1
+		}
+		Rance_JAP_A_heavy_anti_air_armor_support = {
+			hard_attack = 0.1
+		}
+		Rance_JAP_M_medium_anti_air_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_heavy_anti_air_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_modern_anti_air_armor = {
+			hard_attack = 0.25
+		}
+		Rance_JAP_M_modern_anti_air_armor_support = {
+			hard_attack = 0.1
+		}
+		Rance_JAP_A_medium_tankdestroyer = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_A_heavy_tankdestroyer = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_A_medium_tankdestroyer_support = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_A_heavy_tankdestroyer_support = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_M_medium_tankdestroyer = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_M_heavy_tankdestroyer = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_M_modern_tankdestroyer = {
+			soft_attack = 0.15
+		}
+		Rance_JAP_M_modern_tankdestroyer_support = {
+			soft_attack = 0.15
+		}
+	}
+	JAP_mountaineers_s_tech = {
+		allow = {
+			always = no
+		}
+		
+		medium_flame_tank = {
+			mountain = {
+				attack = 0.05 
+			}
+			hills = {
+				attack = 0.05 
+			}
+		}
+		
+		
+	}
+
+	# 森林/丛林加成科技
+	JAP_jungle_s_tech = {
+		allow = {
+			always = no
+		}
+		
+		medium_flame_tank = {
+			forest = {
+				attack = 0.05 
+			}
+			jungle = {
+				attack = 0.05 
+			}
+		}
+		
+		
+	}
+	###毛泽东游击战
+	JAP_mao_guerrilla_tactic = {
+	
+        
+        
+        allow = {
+            always = no
+        }
+
+        
+
+       
+       
+            category_all_infantry = {
+                initiative = 0.1                
+                equipment_capture_factor = 0.1   
+            }
+    }
+	#陆地巡洋舰
+	#终极坦克奖励
+	JAP_rework_land_cruiser_1 = {
+		allow = { 
+			always = no 
+		}
+		land_cruiser = {
+		forest = {
+			attack = 0.1
+			defence = 0.1
+			movement = 0.1
+		}
+		hills = {
+			attack = 0.1
+			defence = 0.1
+			movement = 0.1
+		}
+		mountain = 	{
+			attack = 0.1
+			defence = 0.1
+			movement = 0.1
+		}
+		jungle = {
+			attack = 0.1
+			defence = 0.1
+			movement = 0.1
+		}
+		marsh = {
+			attack = 0.1
+			defence = 0.1
+			movement = 0.1
+		}
+		urban = {
+			attack = 0.1
+			defence = 0.1
+		}
+		river = { 
+			attack = 0.1
+			defence = 0.1
+			movement = 0.1
+		}
+		amphibious = { 
+			attack = 0.1
+		}
+			reliability = 0.75
+			supply_consumption = -0.5
+			maximum_speed  = 0.5
+			armor_value = 1
+			}
+	}
+	JAP_for_rookies = {
+		allow = {
+			always = no
+		}
+		category_army = {
+			combat_width = 0.11
+			soft_attack = 0.11
+			hard_attack = 0.11
+			air_attack = 0.11
+			max_strength = 0.11
+			breakthrough = 0.11
+			defense = 0.11
+		}
+		artillery_brigade = {
+			combat_width = 0.5
+			soft_attack = 0.5
+			hard_attack = 0.5
+			defense = 0.5
+			max_strength = 0.5
+			defense = 0.5
+		}
+	}
+}

@@ -1,0 +1,2133 @@
+JAP_ministry_of_commerce_and_industry_decisions = {
+	# Zaibatsu focus coordination
+	JAP_approach_mitsui = {
+		icon = GFX_decision_JAP_zaibatsu_faction
+		cost = 50
+		days_remove = 70
+		fire_only_once = yes
+		visible = {
+			JAP_zaibatsu_approach_focus_path_available = yes
+			JAP_zaibatsu_approach_focus_not_bypassed = yes
+			NOT = { has_completed_focus = JAP_approach_mitsui }
+		}
+		available = {
+			JAP_zaibatsu_approach_focus_available = yes
+			JAP_shoko_zaibatsu_focus_decision_not_in_progress = yes
+		}
+		cancel_trigger = {
+			OR = {
+				JAP_zaibatsu_approach_focus_available = no
+				JAP_zaibatsu_approach_focus_not_bypassed = no
+				has_completed_focus = JAP_approach_mitsui
+			}
+		}
+		complete_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			set_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			complete_national_focus = JAP_approach_mitsui
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_approach_mitsubishi = {
+		icon = GFX_decision_JAP_zaibatsu_faction
+		cost = 50
+		days_remove = 70
+		fire_only_once = yes
+		visible = {
+			JAP_zaibatsu_approach_focus_path_available = yes
+			JAP_zaibatsu_approach_focus_not_bypassed = yes
+			NOT = { has_completed_focus = JAP_approach_mitsubishi }
+		}
+		available = {
+			JAP_zaibatsu_approach_focus_available = yes
+			JAP_shoko_zaibatsu_focus_decision_not_in_progress = yes
+		}
+		cancel_trigger = {
+			OR = {
+				JAP_zaibatsu_approach_focus_available = no
+				JAP_zaibatsu_approach_focus_not_bypassed = no
+				has_completed_focus = JAP_approach_mitsubishi
+			}
+		}
+		complete_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			set_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			complete_national_focus = JAP_approach_mitsubishi
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_approach_sumitomo = {
+		icon = GFX_decision_JAP_zaibatsu_faction
+		cost = 50
+		days_remove = 70
+		fire_only_once = yes
+		visible = {
+			JAP_zaibatsu_approach_focus_path_available = yes
+			JAP_zaibatsu_approach_focus_not_bypassed = yes
+			NOT = { has_completed_focus = JAP_approach_sumitomo }
+		}
+		available = {
+			JAP_zaibatsu_approach_focus_available = yes
+			JAP_shoko_zaibatsu_focus_decision_not_in_progress = yes
+		}
+		cancel_trigger = {
+			OR = {
+				JAP_zaibatsu_approach_focus_available = no
+				JAP_zaibatsu_approach_focus_not_bypassed = no
+				has_completed_focus = JAP_approach_sumitomo
+			}
+		}
+		complete_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			set_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			complete_national_focus = JAP_approach_sumitomo
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_approach_yasuda = {
+		icon = GFX_decision_JAP_zaibatsu_faction
+		cost = 50
+		days_remove = 70
+		fire_only_once = yes
+		visible = {
+			JAP_zaibatsu_approach_focus_path_available = yes
+			JAP_zaibatsu_approach_focus_not_bypassed = yes
+			NOT = { has_completed_focus = JAP_approach_yasuda }
+		}
+		available = {
+			JAP_zaibatsu_approach_focus_available = yes
+			JAP_shoko_zaibatsu_focus_decision_not_in_progress = yes
+		}
+		cancel_trigger = {
+			OR = {
+				JAP_zaibatsu_approach_focus_available = no
+				JAP_zaibatsu_approach_focus_not_bypassed = no
+				has_completed_focus = JAP_approach_yasuda
+			}
+		}
+		complete_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			set_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+			complete_national_focus = JAP_approach_yasuda
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	# Phase 1: Kanto development
+	JAP_shoko_develop_kanto = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		available = {
+			has_full_control_of_state = 282
+		}
+		complete_effect = {
+			282 = {
+				# 关东
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_kanto_infra_pre = building_level@infrastructure }
+				set_variable = { JAP_shoko_kanto_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_kanto_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				282 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_kanto_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_kanto_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 282 }
+		}
+		available = {
+			has_full_control_of_state = 282
+			282 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_kanto_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_kanto_infra_pre }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_kanto_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_kanto_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			282 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_kanto_infra_pre
+				clear_variable = JAP_shoko_kanto_civ_target
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_kanto_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				282 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_kanto_infra_pre
+					clear_variable = JAP_shoko_kanto_civ_target
+				}
+			}
+			else = {
+				282 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_kanto_infra_pre
+					clear_variable = JAP_shoko_kanto_civ_target
+				}
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_kanto_construction_completed
+		}
+		cancel_effect = {
+			282 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_kanto_infra_pre
+				clear_variable = JAP_shoko_kanto_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_tokaido = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		available = {
+			has_full_control_of_state = 532
+		}
+		complete_effect = {
+			532 = {
+				# 东海道
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_tokaido_infra_pre = building_level@infrastructure }
+				set_variable = { JAP_shoko_tokaido_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_tokaido_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				532 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_tokaido_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_tokaido_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 532 }
+		}
+		available = {
+			has_full_control_of_state = 532
+			532 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_tokaido_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_tokaido_infra_pre }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_tokaido_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_tokaido_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			532 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_facility
+					level = 1
+					instant_build = yes
+					province = 10125
+				}
+				clear_variable = JAP_shoko_tokaido_infra_pre
+				clear_variable = JAP_shoko_tokaido_civ_target
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_tokaido_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				532 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_facility
+						level = 1
+						instant_build = yes
+						province = 10125
+					}
+					clear_variable = JAP_shoko_tokaido_infra_pre
+					clear_variable = JAP_shoko_tokaido_civ_target
+				}
+			}
+			else = {
+				532 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_tokaido_infra_pre
+					clear_variable = JAP_shoko_tokaido_civ_target
+				}
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_tokaido_construction_completed
+		}
+		cancel_effect = {
+			532 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_tokaido_infra_pre
+				clear_variable = JAP_shoko_tokaido_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_kansai = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		available = {
+			has_full_control_of_state = 531
+		}
+		complete_effect = {
+			531 = {
+				# 关西
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_kansai_infra_pre = building_level@infrastructure }
+				set_variable = { JAP_shoko_kansai_mil_target = building_level@arms_factory }
+				add_to_variable = { JAP_shoko_kansai_mil_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				531 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = no
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_kansai_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_kansai_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_mil_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 531 }
+		}
+		available = {
+			has_full_control_of_state = 531
+			531 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_kansai_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_kansai_infra_pre }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_kansai_mil_requirement_tt
+					check_variable = { building_level@arms_factory > JAP_shoko_kansai_mil_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			531 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = land_facility
+					level = 1
+					instant_build = yes
+					province = 7072
+				}
+				clear_variable = JAP_shoko_kansai_infra_pre
+				clear_variable = JAP_shoko_kansai_mil_target
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_kansai_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				531 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = land_facility
+						level = 1
+						instant_build = yes
+						province = 7072
+					}
+					clear_variable = JAP_shoko_kansai_infra_pre
+					clear_variable = JAP_shoko_kansai_mil_target
+				}
+			}
+			else = {
+				531 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_kansai_infra_pre
+					clear_variable = JAP_shoko_kansai_mil_target
+				}
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_kansai_construction_completed
+		}
+		cancel_effect = {
+			531 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_kansai_infra_pre
+				clear_variable = JAP_shoko_kansai_mil_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_sanyo = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		available = {
+			has_full_control_of_state = 529
+		}
+		complete_effect = {
+			529 = {
+				# 山阳
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_sanyo_infra_pre = building_level@infrastructure }
+				set_variable = { JAP_shoko_sanyo_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_sanyo_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				529 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_sanyo_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_sanyo_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 529 }
+		}
+		available = {
+			has_full_control_of_state = 529
+			529 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_sanyo_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_sanyo_infra_pre }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_sanyo_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_sanyo_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			529 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_sanyo_infra_pre
+				clear_variable = JAP_shoko_sanyo_civ_target
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_sanyo_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				529 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_sanyo_infra_pre
+					clear_variable = JAP_shoko_sanyo_civ_target
+				}
+			}
+			else = {
+				529 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_sanyo_infra_pre
+					clear_variable = JAP_shoko_sanyo_civ_target
+				}
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_sanyo_construction_completed
+		}
+		cancel_effect = {
+			529 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_sanyo_infra_pre
+				clear_variable = JAP_shoko_sanyo_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_north_kyushu = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		available = {
+			has_full_control_of_state = 528
+		}
+		complete_effect = {
+			528 = {
+				# 北九州
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_north_kyushu_infra_pre = building_level@infrastructure }
+				set_variable = { JAP_shoko_north_kyushu_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_north_kyushu_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				528 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_north_kyushu_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_north_kyushu_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 528 }
+		}
+		available = {
+			has_full_control_of_state = 528
+			528 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_north_kyushu_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_north_kyushu_infra_pre }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_north_kyushu_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_north_kyushu_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			528 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_north_kyushu_infra_pre
+				clear_variable = JAP_shoko_north_kyushu_civ_target
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_north_kyushu_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				528 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_north_kyushu_infra_pre
+					clear_variable = JAP_shoko_north_kyushu_civ_target
+				}
+			}
+			else = {
+				528 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_north_kyushu_infra_pre
+					clear_variable = JAP_shoko_north_kyushu_civ_target
+				}
+			}
+			# Phase 1 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_north_kyushu_construction_completed
+		}
+		cancel_effect = {
+			528 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_north_kyushu_infra_pre
+				clear_variable = JAP_shoko_north_kyushu_civ_target
+			}
+		}
+	}
+
+	# Phase 2: Hokuriku development
+	JAP_shoko_develop_hokuriku = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 535
+		}
+		complete_effect = {
+			535 = {
+				# 北陆
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_hokuriku_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_hokuriku_infra_target = 1 }
+				set_variable = { JAP_shoko_hokuriku_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_hokuriku_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				535 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_hokuriku_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_hokuriku_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 535 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 535
+			535 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_hokuriku_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_hokuriku_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_hokuriku_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_hokuriku_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			535 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_hokuriku_infra_target
+				clear_variable = JAP_shoko_hokuriku_civ_target
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_hokuriku_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				535 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_hokuriku_infra_target
+					clear_variable = JAP_shoko_hokuriku_civ_target
+				}
+			}
+			else = {
+				535 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_hokuriku_infra_target
+					clear_variable = JAP_shoko_hokuriku_civ_target
+				}
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_hokuriku_construction_completed
+		}
+		cancel_effect = {
+			535 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_hokuriku_infra_target
+				clear_variable = JAP_shoko_hokuriku_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_koshinetsu = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 534
+		}
+		complete_effect = {
+			534 = {
+				# 甲信越
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_koshinetsu_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_koshinetsu_infra_target = 1 }
+				set_variable = { JAP_shoko_koshinetsu_dockyard_target = building_level@dockyard }
+				add_to_variable = { JAP_shoko_koshinetsu_dockyard_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				534 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_koshinetsu_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_koshinetsu_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_navy_battleship
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 534 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 534
+			534 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_koshinetsu_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_koshinetsu_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_koshinetsu_dockyard_requirement_tt
+					check_variable = { building_level@dockyard > JAP_shoko_koshinetsu_dockyard_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			534 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_koshinetsu_infra_target
+				clear_variable = JAP_shoko_koshinetsu_dockyard_target
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_koshinetsu_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				534 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_koshinetsu_infra_target
+					clear_variable = JAP_shoko_koshinetsu_dockyard_target
+				}
+			}
+			else = {
+				534 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_koshinetsu_infra_target
+					clear_variable = JAP_shoko_koshinetsu_dockyard_target
+				}
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_koshinetsu_construction_completed
+		}
+		cancel_effect = {
+			534 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_koshinetsu_infra_target
+				clear_variable = JAP_shoko_koshinetsu_dockyard_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_sanin = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 1020
+		}
+		complete_effect = {
+			1020 = {
+				# 山阴
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_sanin_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_sanin_infra_target = 1 }
+				set_variable = { JAP_shoko_sanin_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_sanin_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				1020 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_sanin_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_sanin_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 1020 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 1020
+			1020 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_sanin_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_sanin_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_sanin_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_sanin_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			1020 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				JAP_upgrade_state_category_non_island = yes
+				clear_variable = JAP_shoko_sanin_infra_target
+				clear_variable = JAP_shoko_sanin_civ_target
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_sanin_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				1020 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					JAP_upgrade_state_category_non_island = yes
+					clear_variable = JAP_shoko_sanin_infra_target
+					clear_variable = JAP_shoko_sanin_civ_target
+				}
+			}
+			else = {
+				1020 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_sanin_infra_target
+					clear_variable = JAP_shoko_sanin_civ_target
+				}
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_sanin_construction_completed
+		}
+		cancel_effect = {
+			1020 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_sanin_infra_target
+				clear_variable = JAP_shoko_sanin_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_shikoku = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 530
+		}
+		complete_effect = {
+			530 = {
+				# 四国
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_shikoku_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_shikoku_infra_target = 1 }
+				set_variable = { JAP_shoko_shikoku_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_shikoku_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				530 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_shikoku_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_shikoku_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 530 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 530
+			530 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_shikoku_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_shikoku_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_shikoku_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_shikoku_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			530 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_shikoku_infra_target
+				clear_variable = JAP_shoko_shikoku_civ_target
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_shikoku_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				530 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_shikoku_infra_target
+					clear_variable = JAP_shoko_shikoku_civ_target
+				}
+			}
+			else = {
+				530 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_shikoku_infra_target
+					clear_variable = JAP_shoko_shikoku_civ_target
+				}
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_shikoku_construction_completed
+		}
+		cancel_effect = {
+			530 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_shikoku_infra_target
+				clear_variable = JAP_shoko_shikoku_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_south_kyushu = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 1018
+		}
+		complete_effect = {
+			1018 = {
+				# 南九州
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_south_kyushu_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_south_kyushu_infra_target = 1 }
+				set_variable = { JAP_shoko_south_kyushu_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_south_kyushu_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				1018 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_south_kyushu_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_south_kyushu_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 1018 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 1018
+			1018 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_south_kyushu_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_south_kyushu_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_south_kyushu_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_south_kyushu_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			1018 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				JAP_upgrade_state_category_non_island = yes
+				clear_variable = JAP_shoko_south_kyushu_infra_target
+				clear_variable = JAP_shoko_south_kyushu_civ_target
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_south_kyushu_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				1018 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					JAP_upgrade_state_category_non_island = yes
+					clear_variable = JAP_shoko_south_kyushu_infra_target
+					clear_variable = JAP_shoko_south_kyushu_civ_target
+				}
+			}
+			else = {
+				1018 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_south_kyushu_infra_target
+					clear_variable = JAP_shoko_south_kyushu_civ_target
+				}
+			}
+			# Phase 2 completion flag for scripted stage checks.
+			set_country_flag = JAP_shoko_south_kyushu_construction_completed
+		}
+		cancel_effect = {
+			1018 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_south_kyushu_infra_target
+				clear_variable = JAP_shoko_south_kyushu_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_tohoku = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 1019
+			has_full_control_of_state = 533
+		}
+		complete_effect = {
+			1019 = {
+				# 南东北
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_south_tohoku_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_south_tohoku_infra_target = 1 }
+				set_variable = { JAP_shoko_south_tohoku_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_south_tohoku_civ_target = 1 }
+			}
+			533 = {
+				# 北东北
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_north_tohoku_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_north_tohoku_infra_target = 1 }
+				set_variable = { JAP_shoko_north_tohoku_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_north_tohoku_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				1019 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+				533 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_south_tohoku_mission
+			activate_mission = JAP_shoko_develop_north_tohoku_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_south_tohoku_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 1019 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 1019
+			1019 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_south_tohoku_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_south_tohoku_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_south_tohoku_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_south_tohoku_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			1019 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_south_tohoku_infra_target
+				clear_variable = JAP_shoko_south_tohoku_civ_target
+			}
+			set_country_flag = JAP_shoko_south_tohoku_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				1019 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_south_tohoku_infra_target
+					clear_variable = JAP_shoko_south_tohoku_civ_target
+				}
+			}
+			else = {
+				1019 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_south_tohoku_infra_target
+					clear_variable = JAP_shoko_south_tohoku_civ_target
+				}
+			}
+			set_country_flag = JAP_shoko_south_tohoku_construction_completed
+		}
+		cancel_effect = {
+			1019 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_south_tohoku_infra_target
+				clear_variable = JAP_shoko_south_tohoku_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_north_tohoku_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 533 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 533
+			533 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_north_tohoku_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_north_tohoku_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_north_tohoku_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_north_tohoku_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			533 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_north_tohoku_infra_target
+				clear_variable = JAP_shoko_north_tohoku_civ_target
+			}
+			set_country_flag = JAP_shoko_north_tohoku_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				533 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_north_tohoku_infra_target
+					clear_variable = JAP_shoko_north_tohoku_civ_target
+				}
+			}
+			else = {
+				533 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_north_tohoku_infra_target
+					clear_variable = JAP_shoko_north_tohoku_civ_target
+				}
+			}
+			set_country_flag = JAP_shoko_north_tohoku_construction_completed
+		}
+		cancel_effect = {
+			533 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_north_tohoku_infra_target
+				clear_variable = JAP_shoko_north_tohoku_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_hokkaido = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 536
+		}
+		complete_effect = {
+			536 = {
+				# 北海道
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_hokkaido_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_hokkaido_infra_target = 1 }
+				set_variable = { JAP_shoko_hokkaido_civ_target = building_level@industrial_complex }
+				add_to_variable = { JAP_shoko_hokkaido_civ_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				536 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_hokkaido_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_hokkaido_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_construct_civ_factory
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 536 }
+		}
+		visible = {
+			JAP_shoko_phase_1_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 536
+			536 = {
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_hokkaido_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_hokkaido_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_hokkaido_civ_requirement_tt
+					check_variable = { building_level@industrial_complex > JAP_shoko_hokkaido_civ_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			536 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				JAP_upgrade_state_category_non_island = yes
+				clear_variable = JAP_shoko_hokkaido_infra_target
+				clear_variable = JAP_shoko_hokkaido_civ_target
+			}
+			set_country_flag = JAP_shoko_hokkaido_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				536 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					JAP_upgrade_state_category_non_island = yes
+					clear_variable = JAP_shoko_hokkaido_infra_target
+					clear_variable = JAP_shoko_hokkaido_civ_target
+				}
+			}
+			else = {
+				536 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_hokkaido_infra_target
+					clear_variable = JAP_shoko_hokkaido_civ_target
+				}
+			}
+			set_country_flag = JAP_shoko_hokkaido_construction_completed
+		}
+		cancel_effect = {
+			536 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_hokkaido_infra_target
+				clear_variable = JAP_shoko_hokkaido_civ_target
+			}
+		}
+	}
+
+	JAP_shoko_develop_shanghai = {
+		icon = generic_construction
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			JAP_shoko_phase_2_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 613
+			613 = {
+				OR = {
+					is_core_of = JAP
+					compliance > 50
+				}
+			}
+		}
+		complete_effect = {
+			613 = {
+				# 上海
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				set_variable = { JAP_shoko_shanghai_infra_target = building_level@infrastructure }
+				add_to_variable = { JAP_shoko_shanghai_infra_target = 1 }
+				set_variable = { JAP_shoko_shanghai_dockyard_target = building_level@dockyard }
+				add_to_variable = { JAP_shoko_shanghai_dockyard_target = 1 }
+			}
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				613 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = no
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = no
+					}
+				}
+			}
+			activate_mission = JAP_shoko_develop_shanghai_mission
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_shoko_develop_shanghai_mission = {
+		allowed = {
+			always = no
+		}
+		icon = generic_navy_battleship
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			NOT = { has_full_control_of_state = 613 }
+		}
+		visible = {
+			JAP_shoko_phase_2_completed = yes
+		}
+		available = {
+			has_full_control_of_state = 613
+			613 = {
+				OR = {
+					is_core_of = JAP
+					compliance > 50
+				}
+				OR = {
+					infrastructure > 4
+					custom_trigger_tooltip = {
+						tooltip = JAP_shoko_develop_shanghai_infra_requirement_tt
+						check_variable = { building_level@infrastructure > JAP_shoko_shanghai_infra_target }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = JAP_shoko_develop_shanghai_dockyard_requirement_tt
+					check_variable = { building_level@dockyard > JAP_shoko_shanghai_dockyard_target }
+				}
+			}
+		}
+		days_mission_timeout = 240
+		fire_only_once = yes
+		is_good = no
+		complete_effect = {
+			613 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				clear_variable = JAP_shoko_shanghai_infra_target
+				clear_variable = JAP_shoko_shanghai_dockyard_target
+			}
+			set_country_flag = JAP_shoko_shanghai_construction_completed
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					Rance_is_jap_ai = yes
+				}
+				613 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = energy_infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_shanghai_infra_target
+					clear_variable = JAP_shoko_shanghai_dockyard_target
+				}
+			}
+			else = {
+				613 = {
+					remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					clear_variable = JAP_shoko_shanghai_infra_target
+					clear_variable = JAP_shoko_shanghai_dockyard_target
+				}
+			}
+			set_country_flag = JAP_shoko_shanghai_construction_completed
+		}
+		cancel_effect = {
+			613 = {
+				remove_dynamic_modifier = { modifier = JAP_shoko_special_charter }
+				clear_variable = JAP_shoko_shanghai_infra_target
+				clear_variable = JAP_shoko_shanghai_dockyard_target
+			}
+		}
+	}
+}

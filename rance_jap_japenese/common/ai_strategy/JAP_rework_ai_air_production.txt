@@ -1,0 +1,596 @@
+
+JAP_rework_default_air = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = { 
+		type = air_factory_balance 
+		value = 33
+	}
+}
+
+# 日本自有空军部署比例：替代原版/rookie_basic default.txt 的泛用空军 unit_ratio。
+# 不使用负数 unit_ratio，避免 AI 因部署目标被压低而不再部署飞机。
+JAP_rework_air_unit_ratio_baseline = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        always = yes
+    }
+    abort = {
+        always = no
+    }
+
+    ai_strategy = {
+        type = unit_ratio
+        id = fighter
+        value = 500
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = cas
+        value = 20
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = strategic_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = heavy_fighter
+        value = 1
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = cv_fighter
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = cv_naval_bomber
+        value = 5
+    }
+}
+
+# 日本专用海军巡逻轰炸机部署比例：作为通用空军分配层的一部分，保持正数部署目标。
+JAP_rework_maritime_patrol_plane_unit_ratio = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        has_dlc = "By Blood Alone"
+        has_navy_size = {
+            size > 1
+        }
+        JAP_has_cr_large_plane_maritime_patrol_plane_airframe_design = yes
+    }
+    abort = {
+        or = {
+            NOT = { has_dlc = "By Blood Alone" }
+            NOT = {
+                has_navy_size = {
+                    size > 1
+                }
+            }
+            NOT = { JAP_has_cr_large_plane_maritime_patrol_plane_airframe_design = yes }
+        }
+    }
+
+    ai_strategy = {
+        type = unit_ratio
+        id = maritime_patrol_plane
+        value = 2
+    }
+}
+# 当前已有机种高库存时降低空军工厂占比：33 + (-23) = 10
+# 海军巡逻轰炸机、洲际轰炸机、空天母舰未创建设计时不参与全机种库存判定。
+JAP_rework_air_factory_balance_all_high_stock_reduce = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+        JAP_ai_air_production_cas_above_high_threshold = yes
+        JAP_ai_air_production_heavy_fighter_above_high_threshold = yes
+        or = {
+            NOT = { JAP_has_cr_large_plane_maritime_patrol_plane_airframe_design = yes }
+            JAP_ai_air_production_maritime_patrol_plane_above_high_threshold = yes
+        }
+        or = {
+            NOT = { JAP_has_cr_strat_bomber_intercontinental_equipment_design = yes }
+            JAP_ai_air_production_intercontinental_bomber_above_high_threshold = yes
+        }
+        or = {
+            NOT = { JAP_has_cr_mothership_equipment_design = yes }
+            JAP_ai_air_production_mothership_above_high_threshold = yes
+        }
+    }
+    abort = {
+        or = {
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+            JAP_ai_air_production_cas_below_low_threshold = yes
+            JAP_ai_air_production_heavy_fighter_below_low_threshold = yes
+            and = {
+                JAP_has_cr_large_plane_maritime_patrol_plane_airframe_design = yes
+                JAP_ai_air_production_maritime_patrol_plane_below_low_threshold = yes
+            }
+            and = {
+                JAP_has_cr_strat_bomber_intercontinental_equipment_design = yes
+                JAP_ai_air_production_intercontinental_bomber_below_low_threshold = yes
+            }
+            and = {
+                JAP_has_cr_mothership_equipment_design = yes
+                JAP_ai_air_production_mothership_below_low_threshold = yes
+            }
+        }
+    }
+
+    ai_strategy = {
+        type = air_factory_balance
+        value = -23
+    }
+}
+#AI不造哪些飞机
+JAP_rework_air_banned_production = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        always = yes
+    
+    }
+    abort = {
+        always = no
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = tactical_bomber
+        value = -9999
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = naval_bomber
+        value = -9999
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cv_cas
+        value = -9999
+    }
+    ai_strategy = {
+        type = build_airplane
+        id = air_transport
+        value = -9999
+    }
+}
+#实验：空天母舰生产策略(减产)
+JAP_rework_mothership_production_reduce = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        is_special_project_completed = sp:sp_air_mothership_aircraft
+        JAP_ai_air_production_mothership_above_high_threshold = yes
+    }
+    abort = {
+        JAP_ai_air_production_mothership_below_reduce_stop_threshold = yes
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = mothership_equipment
+        value = -999
+    }
+    ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = mothership_equipment
+		value = -999
+	}
+
+}
+# 实验：空天母舰增产策略
+# 说明：当空天母舰净库存（总数 - 部署数）低于 100 时触发，开启高权重生产模式。
+JAP_rework_mothership_production_increase = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    enable = {
+        # 必须完成特定特殊项目后启用 
+        is_special_project_completed = sp:sp_air_mothership_aircraft
+        num_of_military_factories > 200 # 工业门槛：确保只有当工业实力足够时才考虑增产
+        # 触发阈值：净库存少于 100 架时启动紧急生产
+        JAP_ai_air_production_mothership_below_low_threshold = yes
+    }
+
+    abort = {
+        # 中止阈值：当净库存回升至 500 架以上时，停止此增产策略（与减产逻辑下限对接）
+        JAP_ai_air_production_mothership_above_increase_stop_threshold = yes
+    }
+
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = mothership_equipment
+        value = 20
+    }
+    ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = mothership_equipment
+		value = 10
+	}
+}
+#轻型战斗机增产
+JAP_rework_fighter_production_increase = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        num_of_military_factories > 100
+        JAP_ai_air_production_fighter_below_low_threshold = yes
+    }
+    abort = {
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = 40
+    }
+    
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = fighter
+        value = 20
+    }
+    # ai_strategy = {
+    #     type = equipment_variant_production_factor
+    #     id = small_plane_airframe
+    #     value = 30
+    # }
+    # ai_strategy = {
+    #     type = equipment_production_min_factories_archetype
+    #     id = small_plane_airframe
+    #     value = 45
+    # }
+}
+# 轻型战斗机减产
+# 说明：当全军总量（库存 + 部署）超过 10000 时，大幅削减权重。
+JAP_rework_fighter_production_reduce = {
+    allowed = {
+        original_tag = JAP
+    }
+
+    enable = {
+        # 超过 10000 架时开启减产
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+    }
+
+    abort = {
+        # 当总量跌破 7000 时，必须停止减产以防空军枯竭
+        JAP_ai_air_production_fighter_below_reduce_stop_threshold = yes
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = -40
+    }
+    
+    # ai_strategy = {
+    #     type = equipment_production_min_factories
+    #     id = fighter
+    #     value = -999 # 同时削减保底工厂分配数
+    # }
+}
+# CAS 增产逻辑 (协同版)
+# 触发：军工 > 100 且 战斗机充足 (> Rance_fighter_high_threshold) 且 CAS 极少 (< 1000)
+JAP_rework_cas_production_increase = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        # 工业门槛判定
+        num_of_military_factories > 100
+        
+        # 战斗机总量判定 (需脱离增产阶段)
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+
+        # CAS 总量判定
+        JAP_ai_air_production_cas_below_low_threshold = yes
+    }
+
+    abort = {
+        # 中止判定：CAS 补齐(>2500) OR 战斗机告急(< Rance_fighter_low_threshold) OR 工业滑坡
+        or = {
+            JAP_ai_air_production_cas_above_increase_stop_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+            num_of_military_factories < 101
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = 30 # 根据要求调整为 30
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = cas
+        value = 30 # 根据要求调整为 30
+    }
+}
+
+# CAS 减产逻辑 (协同版)
+# 触发：CAS 规模过大(>6000) OR 战斗机急需增产(< Rance_fighter_low_threshold)
+JAP_rework_cas_production_reduce = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        or = {
+            JAP_ai_air_production_cas_above_high_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+        }
+    }
+
+    abort = {
+        # 中止判定：CAS 跌破 4000 且 战斗机已恢复 (> Rance_fighter_high_threshold)
+        and = {
+            JAP_ai_air_production_cas_below_reduce_stop_threshold = yes
+            JAP_ai_air_production_fighter_above_high_threshold = yes
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = cas
+        value = -99 # 强制撤走保底工厂，确保资源回流轻战
+    }
+    ai_strategy = {
+        type = build_airplane
+        id = cas
+        value = -99999
+    }
+}
+# 重型战斗机增产逻辑
+# 触发：军工 > 200 且 战斗机充足 (> Rance_fighter_high_threshold) 且 重战稀缺 (< 500)
+JAP_rework_heavy_fighter_production_increase = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        # 工业门槛判定：需达到 200 厂以上
+        num_of_military_factories > 200
+        
+        # 核心限制：只有轻型战斗机完全脱离增产区间 (> Rance_fighter_high_threshold) 才允许开启重战生产
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+
+        # 重型战斗机总量判定
+        JAP_ai_air_production_heavy_fighter_below_low_threshold = yes
+    }
+
+    abort = {
+        # 中止判定：重战补齐(> 1500) OR 轻型机告急(< Rance_fighter_low_threshold) OR 工业滑坡(< 201)
+        or = {
+            JAP_ai_air_production_heavy_fighter_above_increase_stop_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+            num_of_military_factories < 201
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = heavy_fighter
+        value = 25
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = heavy_fighter
+        value = 25
+    }
+}
+# 重型战斗机减产逻辑
+# 触发：重战规模过载(> 3000) OR 轻型机急需增产(< Rance_fighter_low_threshold)
+JAP_rework_heavy_fighter_production_reduce = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        # 判定：重战溢出(> 3000) OR 轻型机进入增产阶段(< Rance_fighter_low_threshold)
+        or = {
+            JAP_ai_air_production_heavy_fighter_above_high_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+        }
+    }
+
+    abort = {
+        # 中止判定：重战跌破 2000 且 轻型机已补齐(> Rance_fighter_high_threshold)
+        and = {
+            JAP_ai_air_production_heavy_fighter_below_reduce_stop_threshold = yes
+            JAP_ai_air_production_fighter_above_high_threshold = yes
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = heavy_fighter
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = heavy_fighter
+        value = -99 # 强制撤走保底工厂，确保资源回流轻战
+    }
+    ai_strategy = {
+        type = build_airplane
+        id = heavy_fighter
+        value = -99999
+    }
+}
+#海军舰载机保底
+JAP_always_cv_production = {
+    allowed = {
+        original_tag = JAP
+    }
+    enable = {
+        num_of_military_factories > 100
+    }
+    abort = {
+        AND = {
+            var:num_equipment@cv_small_plane_airframe = {
+                check_variable = { num_equipment@cv_small_plane_airframe > 500 }
+
+            }
+            var:num_equipment@cv_small_plane_naval_bomber_airframe = {
+                check_variable = { num_equipment@cv_small_plane_naval_bomber_airframe > 500 }
+            }
+        }
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = cv_naval_bomber
+        value = 5
+    }
+    ai_strategy = {
+         type = equipment_production_min_factories
+        id = cv_fighter
+        value = 5
+    }
+}
+# 海军巡逻轰炸机增产逻辑
+# 说明：当军工充足、轻型战斗机库存高于充足线，且海巡总量（库存 + 已部署）低于 200 时启用；
+#       当海巡补到 400 以上，或轻型战斗机跌破告急线时停止，并提供 15 保底工厂。
+JAP_rework_maritime_patrol_plane_production_increase = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        num_of_military_factories > 100
+
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+
+        JAP_ai_air_production_maritime_patrol_plane_below_low_threshold = yes
+    }
+
+    abort = {
+        or = {
+            JAP_ai_air_production_maritime_patrol_plane_above_increase_stop_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = maritime_patrol_plane
+        value = 15
+    }
+}
+# 海军巡逻轰炸机减产逻辑
+# 说明：当海巡总量（库存 + 已部署）超过 800，或轻型战斗机跌破告急线时启用；
+#       当海巡低于 600 且轻型战斗机恢复到充足线以上时停止，并强制削减生产倾向。
+JAP_rework_maritime_patrol_plane_production_reduce = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        or = {
+            JAP_ai_air_production_maritime_patrol_plane_above_high_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+        }
+    }
+
+    abort = {
+        and = {
+            JAP_ai_air_production_maritime_patrol_plane_below_reduce_stop_threshold = yes
+            JAP_ai_air_production_fighter_above_high_threshold = yes
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = maritime_patrol_plane
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = maritime_patrol_plane
+        value = -99 # 强制撤走保底工厂，确保资源回流轻战
+    }
+    ai_strategy = {
+        type = build_airplane
+        id = maritime_patrol_plane
+        value = -99999
+    }
+}
+
+# 洲际轰炸机增产逻辑
+# 说明：当军工充足、轻型战斗机库存高于充足线，且洲际轰炸机总量（库存 + 已部署）低于 200 时启用；
+#       当洲际轰炸机补到 400 以上，或轻型战斗机跌破告急线时停止，并提供 15 保底工厂。
+JAP_rework_intercontinental_bomber_production_increase = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        num_of_military_factories > 100
+
+        JAP_ai_air_production_fighter_above_high_threshold = yes
+
+        JAP_ai_air_production_intercontinental_bomber_below_low_threshold = yes
+    }
+
+    abort = {
+        or = {
+            JAP_ai_air_production_intercontinental_bomber_above_increase_stop_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = strategic_bomber
+        value = 15
+    }
+}
+
+# 洲际轰炸机减产逻辑
+# 说明：当洲际轰炸机总量（库存 + 已部署）超过 800，或轻型战斗机跌破告急线时启用；
+#       当洲际轰炸机低于 600 且轻型战斗机恢复到充足线以上时停止，并强制削减生产倾向。
+JAP_rework_intercontinental_bomber_production_reduce = {
+    allowed = { original_tag = JAP }
+
+    enable = {
+        or = {
+            JAP_ai_air_production_intercontinental_bomber_above_high_threshold = yes
+            JAP_ai_air_production_fighter_below_low_threshold = yes
+        }
+    }
+
+    abort = {
+        and = {
+            JAP_ai_air_production_intercontinental_bomber_below_reduce_stop_threshold = yes
+            JAP_ai_air_production_fighter_above_high_threshold = yes
+        }
+    }
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = strategic_bomber
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = strategic_bomber
+        value = -99 # 强制撤走保底工厂，确保资源回流轻战
+    }
+    ai_strategy = {
+        type = build_airplane
+        id = strategic_bomber
+        value = -99999
+    }
+}

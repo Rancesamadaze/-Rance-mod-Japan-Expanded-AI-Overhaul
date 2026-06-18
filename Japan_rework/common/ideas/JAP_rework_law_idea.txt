@@ -1,0 +1,256 @@
+ideas = {
+	economy = {
+		law = yes
+		use_list_view = yes
+		#共产国际工业一体化
+		JAP_comintern_industrial_integration = {
+			cost = 100
+			removal_cost = -1
+			allowed_to_remove = {
+				is_ai = no
+			}
+			picture = GFX_idea_JAP_comintern_industrial_integration
+			allowed = {
+				tag = JAP
+			}
+			visible = {
+				OR = {
+				has_completed_focus = JAP_the_lecture_group_ascendant
+				Rance_is_jap_lecture_ai = yes
+				}
+			}
+			available = {
+				OR = {
+					has_completed_focus = JAP_soviet_economic_exchange
+					AND = {
+						Rance_is_jap_lecture_ai = yes
+					}
+				}
+				
+			}
+			ai_will_do = {
+				factor = 999999
+			}
+			#特点：高消费品，高建造速度，以及宝贵的5上限，因为扶助苏联轻工业，同时获得苏联重工业的帮助
+			modifier = {
+				consumer_goods_expected_value = 0.25      
+				production_speed_arms_factory_factor = 0.3
+				production_speed_dockyard_factor = 0.3
+				production_speed_infrastructure_factor = 0.2
+				conversion_cost_civ_to_mil_factor= -0.5
+				conversion_cost_mil_to_civ_factor = -0.5
+				factory_energy_consumption = 0.25
+				production_factory_max_efficiency_factor = 0.05
+			}
+		
+		}
+		JAP_rework_national_defense_state = {
+
+			picture = JAP_national_defense_state
+
+			visible = {
+				OR = {
+					has_completed_focus = JAP_prepare_for_the_final_war
+					has_completed_focus = JAP_sea_national_defense_state
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+
+			available = {
+				OR = {
+					has_completed_focus = JAP_prepare_for_the_final_war
+					has_completed_focus = JAP_sea_national_defense_state
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 999999
+			}
+
+			cost = 100
+			removal_cost = -1
+			allowed_to_remove = {
+				is_ai = no
+			}
+
+			modifier = {
+				consumer_goods_expected_value = 0.1
+				production_speed_arms_factory_factor = 0.35
+				production_speed_dockyard_factor = 0.2
+				conversion_cost_civ_to_mil_factor = -0.5
+				conversion_cost_mil_to_civ_factor = -0.5
+				factory_energy_consumption = 0.25
+			}
+			cancel_if_invalid = no
+		}
+	}
+	trade_laws = {
+		law = yes
+		use_list_view = yes
+		JAP_axis_economic_integration = {
+			allowed = {
+				tag = JAP
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			visible = {
+				has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+			}
+			available = {
+				OR = {
+					Rance_is_jap_kodoha_ai = yes
+					has_completed_focus = JAP_the_enemy_of_our_enemy
+				}
+				
+			}
+			ai_will_do = {
+				factor = 99999
+			}
+			picture = GFX_idea_JAP_axis_economic_integration
+			cost = 50
+			removal_cost = -1
+			allowed_to_remove = {
+				is_ai = no
+			}
+
+			modifier = {
+				min_export = 0.5
+				faction_trade_opinion_factor = 0.5
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_dockyard = 0.10
+				production_speed_buildings_factor = 0.10
+				research_speed_factor = 0.1
+				cic_construction_boost_factor = 0.05
+			}
+
+			cancel_if_invalid = no
+		}
+			JAP_comintern_mutual_trade = {
+			allowed = {
+				tag = JAP
+			}
+			visible = {
+				OR = {
+				has_completed_focus = JAP_the_lecture_group_ascendant
+				Rance_is_jap_lecture_ai = yes
+				}
+			}
+			available = {
+				OR = {
+					has_completed_focus = JAP_soviet_economic_exchange
+					AND = {
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+					}
+				}
+				
+			}
+			ai_will_do = {
+				factor = 999999
+			}
+			picture = GFX_idea_JAP_comintern_mutual_trade
+			cost = 100
+			removal_cost = -1
+			allowed_to_remove = {
+				is_ai = no
+			}
+
+			modifier = {
+				#军工产出略强于自贸，海军和科研略弱于自贸
+				min_export = 0.5
+				faction_trade_opinion_factor = 0.5
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.10
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.075
+				cic_construction_boost_factor = 0.05
+			}
+
+			cancel_if_invalid = no
+
+		}
+	}
+	mobilization_laws = {
+		law = yes
+		use_list_view = yes
+		JAP_vanguard_of_the_proletariat = {
+			allowed = {
+				tag = JAP
+			}
+			visible = {
+				OR = {
+				has_completed_focus = JAP_the_lecture_group_ascendant
+				Rance_is_jap_lecture_ai = yes
+				}
+			}
+			available = {
+				OR = {
+					has_completed_focus = JAP_form_pioneer_organizations
+					AND = {
+						Rance_is_jap_lecture_ai = yes
+						has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+					}
+				}
+				
+			}
+			ai_will_do = {
+				factor = 999999
+			}
+			cost = 100
+			removal_cost = -1
+			level = 4
+			allowed_to_remove = {
+				is_ai = no
+			}
+			picture = GFX_idea_JAP_vanguard_of_the_proletariat
+			modifier = {
+				#极少的人口系数，加长的训练时间以及强大的增益
+				conscription = 0.02
+				max_planning_factor = 0.075
+				training_time_army_factor = 0.1
+			}
+			cancel_if_invalid = no
+		}
+		JAP_kodoha_yamato_spirit_conscription = {
+			allowed = {
+				tag = JAP
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			visible = {
+				OR = {
+					has_completed_focus = JAP_the_yamato_spirit
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+			available = {
+				OR = {
+					has_completed_focus = JAP_the_yamato_spirit
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+			ai_will_do = {
+				factor = 999999
+			}
+			cost = 150
+			removal_cost = -1
+			level = 3
+			allowed_to_remove = {
+				is_ai = no
+			}
+			picture = GFX_idea_JAP_kodoha_yamato_spirit_conscription
+			modifier = {
+				conscription = 0.2
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				army_core_attack_factor = 0.025
+				army_core_defence_factor = 0.025
+				training_time_army_factor = 0.05
+			}
+			cancel_if_invalid = no
+		}
+	}
+}

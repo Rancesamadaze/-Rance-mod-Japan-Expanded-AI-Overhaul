@@ -1,0 +1,738 @@
+##讲座派外交
+##对苏友好
+JAP_cm_befriend_with_sov = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = communism
+		SOV = {
+			has_government = communism
+		}
+		not = {
+			has_war_with = SOV
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = SOV
+		value = 1000
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOV
+		value = 300
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = SOV
+		value = 300
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SOV
+		value = 300
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SOV
+		value = 300
+	}
+	# ai_strategy = {
+	# 	type = befriend
+	# 	id = SOV
+	# 	value = 300
+	# }
+}
+##同样的，苏联对日共友好
+JAP_cm_sove_help_jap = {
+	allowed = {
+		tag = SOV
+	}
+	enable = {
+		has_government = communism
+		JAP = {
+			has_government = communism
+		}
+		not = {
+			has_war_with = JAP
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		value = 300
+	}
+	# ai_strategy = {
+	# 	type = befriend
+	# 	id = JAP
+	# 	value = 300
+	# }
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 300
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = JAP
+		value = 300
+	}
+}
+##对中友好
+JAP_cm_befriend_prc = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = communism
+		PRC = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = PRC
+		value = 300
+	}
+	ai_strategy = {
+		type = support
+		id = PRC
+		value = 300
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = PRC
+		value = 300
+	}
+}
+#中对日共友好
+JAP_cm_prc_friend_jap = {
+	allowed = {
+		tag = PRC
+	}
+	enable = {
+		has_government = communism
+		JAP = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = 300
+	}
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 300
+	}
+	# ai_strategy = {
+	# 	type = befriend
+	# 	id = JAP
+	# 	value = 300
+	# }
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 300
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = JAP
+		value = 300
+	}
+}
+#中共和日共友好后，与光头敌对
+JAP_cm_prc_fight_chi = {
+	allowed = {
+		tag = 	PRC
+	}
+	enable = {
+		has_government = communism
+		JAP = {
+			has_government = communism
+		}
+		PRC = {
+			is_in_faction_with = JAP
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = antagonize
+		id = CHI
+		value = 300
+	}
+
+}
+#非中共盟友战争牵连压制：日共不主动加入、不响应非中共盟友战争。
+JAP_cm_reject_non_prc_ally_war_calls = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		country_exists = JAP
+		has_war = yes
+		is_in_faction_with = JAP
+		NOT = { tag = JAP }
+		NOT = { tag = PRC }
+		JAP = {
+			has_government = communism
+		}
+	}
+	enable_reverse = {
+		JAP = {
+			original_tag = JAP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		target = call_allies
+		value = -99999
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = JAP
+		target = join_allies
+		value = -99999
+	}
+}
+#我求你了中共老爷别瞎宣战军阀了
+# JAP_cm_prc_avoid_war = {
+# 	allowed = {
+# 		tag = PRC
+# 	}
+# 	enable = {
+# 		always = yes
+# 	}
+# 	abort = {
+# 		JAP = {
+# 			has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+# 		}
+# 	}
+# 	reversed = yes
+# 	enable_reverse = {
+# 		JAP = {
+# 			NOT = {
+# 				has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+# 			}
+# 		}
+# 	}
+# 	ai_strategy = {
+# 		type = alliance
+# 		id = PRC
+# 		value = 500
+# 	}
+# }
+#同样的，德国与日共合作
+JAP_cm_ger_friend_jap = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		has_government = fascism
+		NOT = { has_war_with = JAP }
+		NOT = { has_completed_focus = GER_war_with_the_ussr }
+		NOT = { has_war_with = SOV }
+		JAP = {
+			has_government = communism
+		}
+		ENG = {
+			OR = {
+				has_government = democratic
+				has_government = fascism
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 1333 #抵消菜鸟德国对日本的敌意
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 1333
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		value = 1333
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = -1333
+	}
+	# ai_strategy = {
+	# 	type = befriend
+	# 	id = JAP
+	# 	value = 3333
+	# }
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 1333
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = JAP
+		value = 300
+	}
+	#别帮校长
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI
+		value = -3333
+	}
+	ai_strategy = {
+		type = antagonize
+		id = CHI
+		value = 300
+	}
+	ai_strategy = {
+		type = avoid_starting_wars
+		id = CHI
+		value = 500
+	}
+}
+##同样的，意大利与日共合作
+# 意大利与日共合作
+JAP_cm_ita_friend_jap = {
+    allowed = {
+        tag = ITA
+    }
+    enable = {
+        has_government = fascism
+        NOT = {
+            has_war_with = JAP
+        }
+        JAP = {
+            has_government = communism
+        }
+        ENG = {
+            OR = {
+                has_government = democratic
+                has_government = fascism
+            }
+        }
+		GER = {
+			NOT = { has_completed_focus = GER_war_with_the_ussr }
+			NOT = { has_war_with = SOV }
+		}
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+		type = support
+		id = JAP
+		value = 1333 #抵消菜鸟德国对日本的敌意
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 1333
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		value = 1333
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = -1333
+	}
+	# ai_strategy = {
+	# 	type = befriend
+	# 	id = JAP
+	# 	value = 3333
+	# }
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 1333
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = JAP
+		value = 300
+	}
+	#别帮校长
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI
+		value = -3333
+	}
+	ai_strategy = {
+		type = antagonize
+		id = CHI
+		value = 300
+	}
+	ai_strategy = {
+		type = avoid_starting_wars
+		id = CHI
+		value = 500
+	}
+}
+#日共与轴心敌对
+JAP_cm_jap_enemy_ger = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = communism
+		country_exists = GER
+		GER = {
+			has_government = fascism
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 300
+	}
+}
+
+JAP_cm_jap_enemy_ita = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = communism
+		country_exists = ITA
+		ITA = {
+			has_government = fascism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = ITA
+		value = 300
+	}
+}
+##主导共产国际后，结盟共产国家
+JAP_cm_jap_help_com_2 = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		country_exists = JAP
+		has_government = communism
+		NOT = { tag = JAP }
+		NOT = {
+			has_war_with = JAP
+		}
+		JAP = {
+			has_government = communism
+			has_completed_focus = JAP_dominate_comintern
+		}
+	}
+	abort_when_not_enabled = yes
+	enable_reverse = {
+		JAP = {
+			original_tag = JAP
+		}
+	}
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = 300
+	}
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 50
+	}
+}
+#援助共产国家
+JAP_cm_jap_help_com = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		country_exists = JAP
+		has_government = communism
+		NOT = { tag = JAP }
+		NOT = {
+			has_war_with = JAP
+		}
+		JAP = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	enable_reverse = {
+		JAP = {
+			original_tag = JAP
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 50
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 300
+	}
+}
+#后期敌对非共产
+JAP_cm_jap_conquer_non_com = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		country_exists = JAP
+		date > 1942.1.1
+		NOT = { tag = JAP }
+		NOT = {
+			has_government = communism
+		}
+		NOT = {
+			has_war_with = JAP
+		}
+		JAP = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	enable_reverse = {
+		JAP = {
+			original_tag = JAP
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = 6666
+	}
+	ai_strategy = {
+		type = conquer
+		id = JAP
+		value = 6666
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = JAP
+		value = 6666
+	}
+}
+#法共帮助日共
+JAP_cm_fra_help_jap = {
+	allowed = {
+		tag = FRA
+	}
+	enable = {
+		has_government = communism
+		NOT = {
+			has_war_with = JAP
+		}
+		JAP = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 300
+	}
+	ai_strategy = {
+		type = befriend
+		id = JAP
+		value = 300
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 300
+		}
+}
+#处理完暹罗处理拿着越南的国家（维希法国）
+# JAP_cm_war_on_visi = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		has_government = communism
+# 		has_completed_focus = JAP_the_indochinese_soviet
+# 		SIA = {
+# 			exists = no
+# 		}
+# 		country_exists = VIC
+		
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+# 		type = conquer
+# 		id = VIC
+# 		value = 999
+# 	}
+# 	ai_strategy = {
+# 		type = antagonize
+# 		id = VIC
+# 		value = 999
+# 	}
+	
+# }
+#让日共处理完暹罗再宣战别的国家
+# JAP_cm_jap_fight_al_after_SIA = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		SIA = {
+# 			NOT = {
+# 				OR = {
+# 			exists = no
+# 			has_capitulated = yes
+# 			}
+# 			}
+# 		}
+# 		JAP = {
+# 			has_government = communism
+# 			has_completed_focus = JAP_the_indochinese_soviet
+# 		}
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+# 		type = avoid_starting_wars
+# 		id = ENG
+# 		value = 500
+# 	}
+# 	ai_strategy = {
+# 		type = avoid_starting_wars
+# 		id = POR
+# 		value = 500
+# 	}
+# 	ai_strategy = {
+# 		type = avoid_starting_wars
+# 		id = FRA
+# 		value = 500
+# 	}
+
+# }
+# JAP_cm_jap_fight_al_after_SIA = {
+# 	allowed = {
+# 		tag = JAP  #对不是JAP的国家生效
+# 	}
+# 	enable = {
+# 		NOT = {
+# 			tag = SIA
+# 		}                #生效的国家必须不是暹罗
+# 	}
+# 	abort = {
+# 		OR = {
+# 			SIA = {
+			
+# 				OR = {
+# 			exists = no
+# 			has_capitulated = yes
+# 			}
+			
+# 		}
+# 		tag = SIA
+# 		}
+		
+# 	}
+# 	# abort_when_not_enabled = yes    #对暹罗不生效
+# 	reversed = yes
+# 	enable_reverse = {         #暹罗活着且日共完成印度支那苏维埃时启用代码
+# 		JAP = {
+# 			has_government = communism
+# 			has_completed_focus = JAP_the_indochinese_soviet
+# 		}
+# 		SIA = {
+# 			NOT = {
+# 				OR = {
+# 			exists = no
+# 			has_capitulated = yes
+# 			}
+# 			}
+# 		}
+# 	}
+	
+# 	ai_strategy = {                 #JAP对生效国家不宣战
+# 		type = declare_war
+# 		id = JAP
+# 		value = -999
+# 	}
+# }
+# ##上一条的保险
+# JAP_cm_assure_war_sia = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		has_government = communism
+# 		has_completed_focus = JAP_the_indochinese_soviet
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+# 		type = declare_war
+# 		id = SIA
+# 		value = 1099
+# 	}
+# }
+##牢苏不要提早加入战争
+# JAP_sov_not_join__war = {
+# 	allowed = {
+# 		tag = SOV
+# 	}
+# 	enable = {
+# 		has_government = communism
+# 		JAP = {
+# 			has_government = communism
+# 			is_in_faction_with = SOV
+# 		}
+# 		date < 1941.6.1
+# 		NOT = {
+# 			has_war_with = GER
+# 		}
+# 	}
+# }
+# JAP_allies_not_join_war = {
+# 	allowed = {
+# 		tag = SOV
+# 	}
+# 	enable = {
+# 		is_in_faction_with = SOV
+# 	}
+# 	abort_when_not_enabled = yes
+# 	reversed = yes
+# 	enable_reverse = {
+# 		date < 1941.6.1
+# 		SOV = {
+# 			NOT = {
+# 			has_war_with = GER
+# 		}
+# 		}
+		
+# 	}
+# 	ai_strategy = {
+# 		type = dont_join_wars_with
+# 		id = SOV
+# 		value = 500
+# 	}
+# }

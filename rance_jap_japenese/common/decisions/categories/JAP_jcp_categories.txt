@@ -1,0 +1,20 @@
+JAP_jcp_war_operations_category = {
+    # 图标：这里暂时使用原版通用的军事图标作为占位符。
+    # 如果您有自定义GFX，请替换为 "GFX_decision_category_jcp_war"
+    icon = GFX_decision_category_generic_army_support
+
+    # 优先级：设置为较高的数值，使其在决议面板中靠前显示
+    priority = 100
+
+    # 允许条件：仅允许日本使用
+    allowed = {
+        original_tag = JAP
+    }
+
+    # 可见性条件：仅在通过国策或其他方式激活了该类别，或者处于共产主义政体时显示
+    # 这里的逻辑是：如果该类别没有任何可用的决议，通常会自动隐藏，
+    # 但加上 visible 可以控制类别标题栏本身的显示逻辑。
+    visible = {
+        has_government = communism
+    }
+}

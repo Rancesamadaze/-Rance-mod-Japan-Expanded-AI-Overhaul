@@ -1,0 +1,165 @@
+# JAP AI air production scripted triggers
+
+# Expected scope: JAP country scope
+# Total formula: stockpile + deployed planes with the same aircraft archetype
+
+JAP_ai_air_production_fighter_below_low_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_airframe }
+
+	check_variable = { air_total < Rance_fighter_low_threshold }
+}
+
+JAP_ai_air_production_fighter_above_high_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_airframe }
+
+	check_variable = { air_total > Rance_fighter_high_threshold }
+}
+
+JAP_ai_air_production_fighter_below_reduce_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_airframe }
+
+	check_variable = { air_total < 7000 }
+}
+
+JAP_ai_air_production_cas_below_low_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_cas_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_cas_airframe }
+
+	check_variable = { air_total < Rance_cas_low_threshold }
+}
+
+JAP_ai_air_production_cas_above_high_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_cas_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_cas_airframe }
+
+	check_variable = { air_total > Rance_cas_high_threshold }
+}
+
+JAP_ai_air_production_cas_above_increase_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_cas_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_cas_airframe }
+
+	check_variable = { air_total > 2500 }
+}
+
+JAP_ai_air_production_cas_below_reduce_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@small_plane_cas_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@small_plane_cas_airframe }
+
+	check_variable = { air_total < 4000 }
+}
+
+JAP_ai_air_production_heavy_fighter_below_low_threshold = {
+	set_temp_variable = { air_total = num_equipment@medium_plane_fighter_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@medium_plane_fighter_airframe }
+
+	check_variable = { air_total < Rance_heavy_fighter_low_threshold }
+}
+
+JAP_ai_air_production_heavy_fighter_above_high_threshold = {
+	set_temp_variable = { air_total = num_equipment@medium_plane_fighter_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@medium_plane_fighter_airframe }
+
+	check_variable = { air_total > Rance_heavy_fighter_high_threshold }
+}
+
+JAP_ai_air_production_heavy_fighter_above_increase_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@medium_plane_fighter_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@medium_plane_fighter_airframe }
+
+	check_variable = { air_total > 1500 }
+}
+
+JAP_ai_air_production_heavy_fighter_below_reduce_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@medium_plane_fighter_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@medium_plane_fighter_airframe }
+
+	check_variable = { air_total < 2000 }
+}
+
+JAP_ai_air_production_maritime_patrol_plane_below_low_threshold = {
+	set_temp_variable = { air_total = num_equipment@large_plane_maritime_patrol_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@large_plane_maritime_patrol_plane_airframe }
+
+	check_variable = { air_total < Rance_maritime_patrol_plane_low_threshold }
+}
+
+JAP_ai_air_production_maritime_patrol_plane_above_high_threshold = {
+	set_temp_variable = { air_total = num_equipment@large_plane_maritime_patrol_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@large_plane_maritime_patrol_plane_airframe }
+
+	check_variable = { air_total > Rance_maritime_patrol_plane_high_threshold }
+}
+
+JAP_ai_air_production_maritime_patrol_plane_above_increase_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@large_plane_maritime_patrol_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@large_plane_maritime_patrol_plane_airframe }
+
+	check_variable = { air_total > 400 }
+}
+
+JAP_ai_air_production_maritime_patrol_plane_below_reduce_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@large_plane_maritime_patrol_plane_airframe }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@large_plane_maritime_patrol_plane_airframe }
+
+	check_variable = { air_total < 600 }
+}
+
+JAP_ai_air_production_intercontinental_bomber_below_low_threshold = {
+	set_temp_variable = { air_total = num_equipment@strat_bomber_intercontinental_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@strat_bomber_intercontinental_equipment }
+
+	check_variable = { air_total < Rance_intercontinental_bomber_low_threshold }
+}
+
+JAP_ai_air_production_intercontinental_bomber_above_high_threshold = {
+	set_temp_variable = { air_total = num_equipment@strat_bomber_intercontinental_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@strat_bomber_intercontinental_equipment }
+
+	check_variable = { air_total > Rance_intercontinental_bomber_high_threshold }
+}
+
+JAP_ai_air_production_intercontinental_bomber_above_increase_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@strat_bomber_intercontinental_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@strat_bomber_intercontinental_equipment }
+
+	check_variable = { air_total > 400 }
+}
+
+JAP_ai_air_production_intercontinental_bomber_below_reduce_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@strat_bomber_intercontinental_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@strat_bomber_intercontinental_equipment }
+
+	check_variable = { air_total < 600 }
+}
+
+JAP_ai_air_production_mothership_below_low_threshold = {
+	set_temp_variable = { air_total = num_equipment@mothership_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@mothership_equipment }
+
+	check_variable = { air_total < Rance_mothership_low_threshold }
+}
+
+JAP_ai_air_production_mothership_above_high_threshold = {
+	set_temp_variable = { air_total = num_equipment@mothership_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@mothership_equipment }
+
+	check_variable = { air_total > Rance_mothership_high_threshold }
+}
+
+JAP_ai_air_production_mothership_below_reduce_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@mothership_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@mothership_equipment }
+
+	check_variable = { air_total < 750 }
+}
+
+JAP_ai_air_production_mothership_above_increase_stop_threshold = {
+	set_temp_variable = { air_total = num_equipment@mothership_equipment }
+	add_to_temp_variable = { var = air_total value = num_deployed_planes_with_type@mothership_equipment }
+
+	check_variable = { air_total > 500 }
+}

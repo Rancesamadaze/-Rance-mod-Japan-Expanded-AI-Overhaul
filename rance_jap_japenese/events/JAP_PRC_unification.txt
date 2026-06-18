@@ -1,0 +1,139 @@
+add_namespace = jap_prc_union
+
+# ==========================================
+# 事件1：日本发出的统一邀请（发送给中共 PRC）
+# ==========================================
+country_event = {
+    id = jap_prc_union.1
+    title = jap_prc_union.1.t
+    desc = jap_prc_union.1.d
+    picture = GFX_report_event_chinese_soldiers_speech
+
+    is_triggered_only = yes
+
+    # 选项 A：同意统一
+    option = {
+        name = jap_prc_union.1.a
+        ai_chance = { factor = 100 }
+
+        # 1. 通知日本
+        JAP = { country_event = { id = jap_prc_union.2 } }
+
+        # 2. 让毛泽东下野，防止被系统判定死亡
+        retire_country_leader = yes 
+
+        # 3. 转移角色
+        every_character = {
+            
+            set_nationality = JAP
+        } # <--- 【修复点】之前这里少了这个大括号！
+
+        # 4. 被日本吞并
+        JAP = {
+            annex_country = {
+                target = PRC
+                transfer_troops = yes
+            }
+            add_cic = 50000
+        }
+    }
+
+    # 选项 B：拒绝 (AI 不选)
+    option = {
+        name = jap_prc_union.1.b # 修正命名规范
+        ai_chance = { factor = 0 }
+        # JAP = {
+        #     create_wargoal = { # 建议用 create_wargoal 而不是 add_wargoal
+        #         target = PRC
+        #         type = annex_everything
+        #     }
+        # }
+        JAP = {
+            every_owned_state = {
+                limit = {
+                    is_core_of = PRC
+                    CONTROLLER = { tag = JAP } # 确保日本当前实际控制该地
+                }
+                transfer_state_to = PRC
+            }
+        }
+    }
+}
+
+# ==========================================
+# 事件2：日本收到统一回复
+# ==========================================
+country_event = {
+    id = jap_prc_union.2
+    title = jap_prc_union.2.t
+    desc = jap_prc_union.2.d
+    picture = GFX_report_event_japanese_officers
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = jap_prc_union.2.a # 修正命名规范
+        add_political_power = 50
+    }
+}
+
+# ==========================================
+# 事件3：反国民党同盟邀请（触发给中共 PRC）
+# ==========================================
+country_event = {
+    id = jap_prc_union.3
+    # 【修复点】这里改成了对应的ID，确保能读取到你写的汉化文本
+    title = jap_prc_union.3.t 
+    desc = jap_prc_union.3.d
+    picture = GFX_report_event_chinese_soldiers
+
+    is_triggered_only = yes
+
+    # 选项 A：同意加入
+    option = {
+        name = jap_prc_union.3.a # 修正ID
+        ai_chance = { factor = 100 }
+
+        # 1. 退出原有阵营
+        if = {
+            limit = { is_in_faction = yes }
+            leave_faction = yes
+        }
+
+        # 2. 加入日本阵营
+        JAP = {
+            add_to_faction = PRC
+        }
+
+        # 3. 增加好感
+        
+
+        # 4. 通知日本
+        JAP = { country_event = { id = jap_prc_union.4 } }
+    }
+
+    # 选项 B：拒绝
+    option = {
+        name = jap_prc_union.3.b # 修正ID
+        ai_chance = { factor = 0 }
+        
+        
+    }
+}
+
+# ==========================================
+# 事件4：日本收到同盟回复
+# ==========================================
+country_event = {
+    id = jap_prc_union.4
+    title = jap_prc_union.4.t
+    desc = jap_prc_union.4.d
+    picture = GFX_report_event_japanese_officers
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = jap_prc_union.4.a
+        add_political_power = 25
+    }
+}

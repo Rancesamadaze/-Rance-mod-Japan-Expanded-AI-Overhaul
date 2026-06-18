@@ -1,0 +1,57 @@
+on_actions = {
+	on_unit_leader_created = {
+		effect = {
+			character = {
+				JAP_ai_general_apply_current_leader_by_owner_difficulty = yes
+				JAP_ai_admiral_apply_current_leader_by_owner_difficulty = yes
+			}
+		}
+	}
+
+	on_unit_leader_promote_from_ranks_green = {
+		effect = {
+			character = {
+				JAP_ai_general_apply_current_leader_by_owner_difficulty = yes
+				JAP_ai_admiral_apply_current_leader_by_owner_difficulty = yes
+			}
+		}
+	}
+
+	on_unit_leader_promote_from_ranks_veteran = {
+		effect = {
+			character = {
+				JAP_ai_general_apply_current_leader_by_owner_difficulty = yes
+				JAP_ai_admiral_apply_current_leader_by_owner_difficulty = yes
+			}
+		}
+	}
+
+	on_army_leader_promoted = {
+		effect = {
+			character = {
+				JAP_ai_field_marshal_apply_current_leader_by_owner_difficulty = yes
+			}
+		}
+	}
+
+	on_unit_leader_level_up = {
+		effect = {
+			if = {
+				limit = {
+					is_army_leader = yes
+					OWNER = {
+						has_idea = JAP_niten_ichiryu_army_rework_spirit
+					}
+				}
+				random = {
+					chance = 75
+					add_attack = 1
+				}
+				random = {
+					chance = 75
+					add_defense = 1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+## Shared Japan AI strategy
+
+JAP_dont_waste_PP = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = relation
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = guarantee
+		value = -9999
+	}
+	ai_strategy = {
+		type = pp_spend_priority
+		id = admiral
+		value = 100
+	}
+}

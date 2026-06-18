@@ -1,0 +1,118 @@
+﻿add_namespace = JAP_kodoha_events
+
+country_event = {
+    id = JAP_kodoha_events.1
+    title = JAP_kodoha_events.1.t
+    desc = JAP_kodoha_events.1.d
+
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = JAP_kodoha_events.1.a
+        ai_chance = {
+            factor = 0
+        }
+
+        custom_effect_tooltip = JAP_kodoha_events.1.a.tt
+
+        hidden_effect = {
+            set_country_flag = JAP_kodoha_admin_efficiency_penalty_flag
+
+            reduce_focus_completion_cost = {
+                focus = { JAP_grand_army_purge }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_remove_the_weeds_from_the_crop }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_sea_the_showa_restoration }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_embrace_kokutai }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_the_imperial_colors }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_politicize_the_education_system }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_the_spirit_of_the_imperial_nation }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_propagandize_the_nihon_shoki }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_the_yamato_spirit }
+                cost = 14
+            }
+        }
+    }
+
+    option = {
+        name = JAP_kodoha_events.1.b
+        ai_chance = {
+            factor = 0
+        }
+    }
+
+    option = {
+        name = JAP_kodoha_events.1.c
+        trigger = {
+            Rance_is_jap_ai = yes
+        }
+        ai_chance = {
+            factor = 100
+        }
+
+        custom_effect_tooltip = JAP_kodoha_events.1.c.tt
+
+        hidden_effect = {
+            reduce_focus_completion_cost = {
+                focus = { JAP_grand_army_purge }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_remove_the_weeds_from_the_crop }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_sea_the_showa_restoration }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_embrace_kokutai }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_the_imperial_colors }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_politicize_the_education_system }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_the_spirit_of_the_imperial_nation }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_propagandize_the_nihon_shoki }
+                cost = 14
+            }
+            reduce_focus_completion_cost = {
+                focus = { JAP_the_yamato_spirit }
+                cost = 14
+            }
+        }
+    }
+}

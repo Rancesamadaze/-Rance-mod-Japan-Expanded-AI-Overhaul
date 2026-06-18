@@ -1,0 +1,9 @@
+﻿l_japanese:
+ JAP_kodoha_events.1.t:0 "行政効率をめぐる選択"
+ JAP_kodoha_events.1.d:0 "我らの政権はいまだ安定していないが、世界は今まさに重大な転換点にある。旧例に固執すれば、来るべき戦争で後れを取るかもしれない。多少の代償を払ってでも、行政機構を改め、より高い効率を追求すべきだろうか。"
+ JAP_kodoha_events.1.a:0 "機枢を整え、迅速を旨とする"
+ JAP_kodoha_events.1.b:0 "旧制に従い、堅実を旨とする"
+ JAP_kodoha_events.1.c:0 "全部いただこう"
+ JAP_kodoha_events.1.a.tt:0 "後続の皇道派の重要国策に必要な日数が、それぞれ§G14§!日§G短縮§!される。\n§R代償として§!一部の国策報酬が弱体化する。"
+ JAP_kodoha_events.1.c.tt:0 "後続の皇道派の重要国策に必要な日数が、それぞれ§G14§!日§G短縮§!される。\n後続の国策報酬は§G弱体化しない§!。"
+ JAP_kodoha_admin_efficiency_penalty_flag:0 "行政効率優先方針を採用済み"

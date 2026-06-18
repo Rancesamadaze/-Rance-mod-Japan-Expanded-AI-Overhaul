@@ -1,0 +1,28 @@
+JAP_rework_war_readiness_construction_decisions = {
+	icon = GFX_decision_category_generic_industry
+	allowed = {
+		OR = {
+			tag = JAP
+			is_subject_of = JAP
+		}
+	}
+	visible = {
+		OR = {
+			Rance_is_jap_ai = yes
+			has_completed_focus = JAP_the_imperial_defense_plan
+			AND = {
+				is_subject_of = JAP
+				JAP = {
+					OR = {
+						Rance_is_jap_ai = yes
+						has_completed_focus = JAP_the_imperial_defense_plan
+					}
+				}
+			}
+		}
+	}
+	available = {
+
+	}
+	visible_when_empty = yes
+}

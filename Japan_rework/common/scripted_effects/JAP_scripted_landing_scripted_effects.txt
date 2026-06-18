@@ -1,0 +1,112 @@
+JAP_scripted_landing_refresh_raid_remaining = {
+	set_variable = {
+		var = JAP_scripted_landing_raid_remaining
+		value = JAP_scripted_landing_raid_threshold
+	}
+	subtract_from_variable = {
+		var = JAP_scripted_landing_raid_remaining
+		value = JAP_scripted_landing_since_last_raid
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = JAP_scripted_landing_raid_remaining
+				value = 0
+				compare = less_than
+			}
+		}
+		set_variable = { JAP_scripted_landing_raid_remaining = 0 }
+	}
+}
+
+JAP_scripted_landing_reset_raid_counter = {
+	set_variable = { JAP_scripted_landing_since_last_raid = 0 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+}
+
+JAP_scripted_landing_record_successful_regular_landing = {
+	add_to_variable = { JAP_scripted_landing_since_last_raid = 1 }
+	JAP_scripted_landing_refresh_raid_remaining = yes
+}
+
+JAP_scripted_landing_mark_recent_landing_target = {
+	set_state_flag = {
+		flag = JAP_scripted_landing_recent_landing_target
+		days = 45
+	}
+}
+
+JAP_scripted_landing_notify_target_controller_plan = {
+	controller = {
+		country_event = { id = JAP_imperial_headquarters_events.4 }
+		if = {
+			limit = { is_subject = yes }
+			overlord = {
+				country_event = { id = JAP_imperial_headquarters_events.4 }
+			}
+		}
+	}
+}
+
+JAP_scripted_landing_notify_target_controller_raid = {
+	controller = {
+		country_event = { id = JAP_imperial_headquarters_events.5 }
+		if = {
+			limit = { is_subject = yes }
+			overlord = {
+				country_event = { id = JAP_imperial_headquarters_events.5 }
+			}
+		}
+	}
+}
+
+JAP_scripted_landing_reserve_small_capacity = {
+	JAP_add_or_modify_imperial_navy = yes
+	add_to_variable = { JAP_naval_invasion_capacity = -1 }
+}
+
+JAP_scripted_landing_release_small_capacity = {
+	JAP_add_or_modify_imperial_navy = yes
+	add_to_variable = { JAP_naval_invasion_capacity = 1 }
+}
+
+JAP_scripted_landing_reserve_medium_capacity = {
+	JAP_add_or_modify_imperial_navy = yes
+	add_to_variable = { JAP_naval_invasion_capacity = -3 }
+}
+
+JAP_scripted_landing_release_medium_capacity = {
+	JAP_add_or_modify_imperial_navy = yes
+	add_to_variable = { JAP_naval_invasion_capacity = 3 }
+}
+
+JAP_scripted_landing_reserve_large_capacity = {
+	JAP_add_or_modify_imperial_navy = yes
+	add_to_variable = { JAP_naval_invasion_capacity = -5 }
+}
+
+JAP_scripted_landing_release_large_capacity = {
+	JAP_add_or_modify_imperial_navy = yes
+	add_to_variable = { JAP_naval_invasion_capacity = 5 }
+}
+
+JAP_scripted_landing_eia_reserve_plan_slot = {
+	add_to_variable = { JAP_scripted_landing_eia_active_plans = 1 }
+}
+
+JAP_scripted_landing_eia_release_plan_slot = {
+	subtract_from_variable = {
+		var = JAP_scripted_landing_eia_active_plans
+		value = 1
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = JAP_scripted_landing_eia_active_plans
+				value = 0
+				compare = less_than
+			}
+		}
+		set_variable = { JAP_scripted_landing_eia_active_plans = 0 }
+	}
+}

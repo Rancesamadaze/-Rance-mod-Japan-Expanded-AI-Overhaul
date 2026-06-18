@@ -1,0 +1,76 @@
+on_actions = {
+	##月度on_actions
+	on_monthly = {
+		effect = {
+			##讲座派阵营国策给队友发cic
+			if = {
+				limit = {
+					tag = JAP
+					has_completed_focus = JAP_soviet_economic_exchange
+				}
+				set_temp_variable = {
+					var = JAP_calculated_surplus_cic
+					value = num_of_civilian_factories
+				}
+				multiply_temp_variable = {
+					var = JAP_calculated_surplus_cic
+					value = 50
+				}
+				every_faction_member = {
+					limit = {
+						NOT = { tag = JAP }
+					}
+					add_cic = var:JAP_calculated_surplus_cic
+				}
+			}
+			# 关联国策：永远与须臾的罪人（JAP_kaguya_eternity）
+			if = {
+				limit = {
+					tag = JAP
+					has_completed_focus = JAP_kaguya_eternity
+					NOT = { has_idea = JAP_kaguya_eternity_power }
+					NOT = { has_idea = JAP_kaguya_momentary_power }
+				}
+				JAP = {
+					add_timed_idea = {
+						idea = JAP_kaguya_eternity_power
+						days = 5
+					}
+				}
+			}
+			## 陆军 AI 生产调控：每月根据战争/和平状态切换当前生效阈值
+			if = {
+				limit = {
+					tag = JAP
+				}
+				JAP = {
+					JAP_ai_dynamic_grant_refresh_multipliers = yes
+
+					if = {
+						limit = {
+							has_war = yes
+						}
+						set_variable = { var = JAP_ai_land_production_high_demand_start_increase value = JAP_ai_land_production_high_demand_war_start_increase }
+						set_variable = { var = JAP_ai_land_production_high_demand_stop_increase value = JAP_ai_land_production_high_demand_war_stop_increase }
+						set_variable = { var = JAP_ai_land_production_high_demand_start_decline value = JAP_ai_land_production_high_demand_war_start_decline }
+						set_variable = { var = JAP_ai_land_production_high_demand_stop_decline value = JAP_ai_land_production_high_demand_war_stop_decline }
+						set_variable = { var = JAP_ai_land_production_low_demand_start_increase value = JAP_ai_land_production_low_demand_war_start_increase }
+						set_variable = { var = JAP_ai_land_production_low_demand_stop_increase value = JAP_ai_land_production_low_demand_war_stop_increase }
+						set_variable = { var = JAP_ai_land_production_low_demand_start_decline value = JAP_ai_land_production_low_demand_war_start_decline }
+						set_variable = { var = JAP_ai_land_production_low_demand_stop_decline value = JAP_ai_land_production_low_demand_war_stop_decline }
+					}
+					else = {
+						set_variable = { var = JAP_ai_land_production_high_demand_start_increase value = JAP_ai_land_production_high_demand_peace_start_increase }
+						set_variable = { var = JAP_ai_land_production_high_demand_stop_increase value = JAP_ai_land_production_high_demand_peace_stop_increase }
+						set_variable = { var = JAP_ai_land_production_high_demand_start_decline value = JAP_ai_land_production_high_demand_peace_start_decline }
+						set_variable = { var = JAP_ai_land_production_high_demand_stop_decline value = JAP_ai_land_production_high_demand_peace_stop_decline }
+						set_variable = { var = JAP_ai_land_production_low_demand_start_increase value = JAP_ai_land_production_low_demand_peace_start_increase }
+						set_variable = { var = JAP_ai_land_production_low_demand_stop_increase value = JAP_ai_land_production_low_demand_peace_stop_increase }
+						set_variable = { var = JAP_ai_land_production_low_demand_start_decline value = JAP_ai_land_production_low_demand_peace_start_decline }
+						set_variable = { var = JAP_ai_land_production_low_demand_stop_decline value = JAP_ai_land_production_low_demand_peace_stop_decline }
+					}
+				}
+			}
+		}
+	}
+}

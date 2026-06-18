@@ -1,0 +1,30 @@
+﻿add_namespace = JAP_kaguya_events
+
+country_event = {
+    id = JAP_kaguya_events.1
+    title = JAP_kaguya_events.1.t
+    desc = JAP_kaguya_events.1.d
+
+    is_triggered_only = yes
+
+    hidden = no
+
+    option = {
+        name = JAP_kaguya_events.1.a
+        ai_chance = {
+            base = 100
+        }
+        custom_effect_tooltip = unlock_occupation_policy_JAP_rework_kaguya_industrial_extraction_law
+        add_country_leader_role = {
+            character = JAP_rework_kaguya
+            
+            country_leader = {
+                ideology = japan_militarism_ideology
+                desc = JAP_rework_kaguya_desc
+                expire = "1965.1.1.1"
+                traits = { JAP_rework_kaguya_lunar_princess_trait }
+            }
+            promote_leader = yes
+        }
+    }
+}

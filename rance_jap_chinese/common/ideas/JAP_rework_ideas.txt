@@ -1,0 +1,250 @@
+ideas = {
+	country = {
+		############################################################
+		############################################################
+		#################### JAP AI INITIAL BUFF ###################
+		#################### 日本AI初始BUFF区 #######################
+		############################################################
+		############################################################
+		# AI难度精神框架：固定民族精神版本
+		Rance_jap_ai_buff_easy = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				production_factory_start_efficiency_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.3
+				line_change_production_efficiency_factor = 0.25
+				production_speed_supply_node_factor = 0.25
+				production_speed_rail_way_factor = 0.25
+				army_fuel_consumption_factor = -0.25
+				navy_fuel_consumption_factor = -0.25
+				air_fuel_consumption_factor = -0.25
+				fuel_gain_factor = 2
+				base_fuel_gain_factor = 2
+				command_power_gain = 1
+				military_leader_cost_factor = -0.9
+				promote_cost_factor = -0.9
+			}
+		}
+		Rance_jap_ai_buff_normal = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.05
+				production_factory_start_efficiency_factor = 0.30
+				production_factory_efficiency_gain_factor = 0.5
+				production_lack_of_resource_penalty_factor = 0
+				line_change_production_efficiency_factor = 0.5
+				special_forces_cap = 10
+				special_forces_cap_flat = 1000
+				army_fuel_consumption_factor = -0.35
+				navy_fuel_consumption_factor = -0.35
+				air_fuel_consumption_factor = -0.35
+				fuel_gain_factor = 2
+				base_fuel_gain_factor = 2
+				production_speed_supply_node_factor = 0.5
+				production_speed_rail_way_factor = 0.5
+				command_power_gain = 1
+				military_leader_cost_factor = -0.9
+				promote_cost_factor = -0.9
+			}
+		}
+		Rance_jap_ai_buff_hard = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.1
+				production_factory_start_efficiency_factor = 0.45
+				production_factory_efficiency_gain_factor = 0.75
+				production_lack_of_resource_penalty_factor = 0
+				line_change_production_efficiency_factor = 0.75
+				special_forces_cap = 10
+				special_forces_cap_flat = 1000
+				army_fuel_consumption_factor = -0.5
+				navy_fuel_consumption_factor = -0.5
+				air_fuel_consumption_factor = -0.5
+				fuel_gain_factor = 2
+				base_fuel_gain_factor = 2
+				production_speed_supply_node_factor = 1.0
+				production_speed_rail_way_factor = 1.0
+				command_power_gain = 1
+				military_leader_cost_factor = -0.9
+				promote_cost_factor = -0.9
+			}
+		}
+		Rance_jap_ai_buff_lunatic = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.2
+				production_factory_start_efficiency_factor = 0.60
+				production_factory_efficiency_gain_factor = 1.5
+				production_lack_of_resource_penalty_factor = -0.25
+				line_change_production_efficiency_factor = 1.0
+				special_forces_cap = 10
+				special_forces_cap_flat = 1000
+				army_fuel_consumption_factor = -0.5
+				navy_fuel_consumption_factor = -0.5
+				air_fuel_consumption_factor = -0.5
+				fuel_gain_factor = 2
+				base_fuel_gain_factor = 2
+				production_speed_supply_node_factor = 2.0
+				production_speed_rail_way_factor = 2.0
+				command_power_gain = 1
+				military_leader_cost_factor = -0.9
+				promote_cost_factor = -0.9
+			}
+		}
+		Rance_jap_ai_buff_extra = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.25
+				production_factory_start_efficiency_factor = 0.75
+				production_factory_efficiency_gain_factor = 3.0
+				production_lack_of_resource_penalty_factor = -0.5
+				line_change_production_efficiency_factor = 1.0
+				special_forces_cap = 10
+				special_forces_cap_flat = 1000
+				army_fuel_consumption_factor = -0.5
+				navy_fuel_consumption_factor = -0.5
+				air_fuel_consumption_factor = -0.5
+				fuel_gain_factor = 2
+				base_fuel_gain_factor = 2
+				production_speed_supply_node_factor = 2.0
+				production_speed_rail_way_factor = 2.0
+				command_power_gain = 1
+				military_leader_cost_factor = -0.9
+				promote_cost_factor = -0.9
+			}
+		}
+		Rance_jap_ai_buff_phantasm = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.30
+				production_factory_start_efficiency_factor = 1.00
+				production_factory_efficiency_gain_factor = 5.0
+				production_lack_of_resource_penalty_factor = -0.75
+				line_change_production_efficiency_factor = 1.0
+				special_forces_cap = 10
+				special_forces_cap_flat = 1000
+				army_fuel_consumption_factor = -0.5
+				navy_fuel_consumption_factor = -0.5
+				air_fuel_consumption_factor = -0.5
+				fuel_gain_factor = 2
+				base_fuel_gain_factor = 2
+				production_speed_supply_node_factor = 5.0
+				production_speed_rail_way_factor = 5.0
+				command_power_gain = 1
+				military_leader_cost_factor = -0.9
+				promote_cost_factor = -0.9
+			}
+		}
+		# AI难度累计BUFF对照表（当前版本）
+		# 难度      科研   初始效率  效率成长  缺资源惩罚  转产保留  特种上限  特种固定  油耗    建筑速度
+		# EASY      0      0.15      0.3       0           0.25      0         0         -0.25   8项建筑各+0.25
+		# NORMAL    0.05   0.30      0.5       0           0.5       10        1000      -0.35   8项建筑各+0.5
+		# HARD      0.1    0.45      0.75      0           0.75      10        1000      -0.5    8项建筑各+1.0
+		# LUNATIC   0.2    0.60      1.5       -0.25       1.0       10        1000      -0.5    8项建筑各+2.0
+		# EXTRA     0.25   0.75      3.0       -0.5        1.0       10        1000      -0.5    8项建筑各+2.0
+		# PHANTASM  0.30   1.00      5.0       -0.75       1.0       10        1000      -0.5    8项建筑各+5.0
+		# 全部档位额外统一：每日指挥点数+1，指挥官花费-90%，晋升花费-90%
+		############################################################
+		############################################################
+		################## END OF JAP AI BUFF BLOCK ################
+		#################### 日本AI初始BUFF区结束 ###################
+		############################################################
+		############################################################
+		JAP_rework_maoism_static_idea = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_communism_drift_bonus
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = 0.15
+				command_power_gain = 0.5
+				max_command_power = 50
+				pocket_penalty = -0.15
+				equipment_capture_factor = 0.1
+				army_defence_factor = 0.075
+			}
+		}
+		JAP_kaguya_eternity_power = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_kaguya_eternity_idea
+			allowed_civil_war = {
+				always = yes
+			}
+			on_remove = {
+				add_timed_idea = {
+					idea = JAP_kaguya_momentary_power
+					days = 5
+				}
+			}
+			modifier = {
+				army_morale = 1
+				fuel_cost = -1
+				supply_consumption_factor = -1
+			}
+		}
+		JAP_kaguya_momentary_power = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_kaguya_momentary_idea
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				army_speed_factor = 1
+				production_speed_buildings_factor = 1
+				invasion_preparation = -1
+			}
+		}
+	}
+}

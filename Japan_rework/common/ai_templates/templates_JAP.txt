@@ -1,0 +1,545 @@
+# old_for_reference
+#
+# Source copied from: common/ai_templates/templates_JAP.txt
+# Purpose: preserve the old syntax and content as a reference while building a new division template file.
+#
+# templates_JAP target_template regiments battalion list:
+# - Rance_JAP_A_infantry
+# - Rance_JAP_A_mechanized
+# - Rance_JAP_M_infantry
+# - Rance_JAP_M_mechanized
+# - Rance_JAP_M_medium_armor
+# - Rance_JAP_M_heavy_armor
+# - Rance_JAP_M_modern_armor
+# - Rance_JAP_M_medium_artillery_armor
+# - Rance_JAP_M_heavy_artillery_armor
+# - Rance_JAP_M_modern_artillery_armor
+# - Rance_JAP_M_medium_tankdestroyer
+# - Rance_JAP_M_heavy_tankdestroyer
+# - Rance_JAP_M_modern_tankdestroyer
+# - Rance_JAP_M_medium_anti_air_armor
+# - Rance_JAP_M_heavy_anti_air_armor
+# - Rance_JAP_M_modern_anti_air_armor
+# - Rance_JAP_A_medium_armor
+# - Rance_JAP_A_heavy_armor
+# - Rance_JAP_A_medium_artillery_armor
+# - Rance_JAP_A_heavy_artillery_armor
+# - Rance_JAP_A_medium_tankdestroyer
+# - Rance_JAP_A_heavy_tankdestroyer
+# - Rance_JAP_A_medium_anti_air_armor
+# - Rance_JAP_A_heavy_anti_air_armor
+# - infantry
+# - artillery_brigade
+# - anti_tank_brigade
+# - anti_air_brigade
+# - medium_armor
+# - medium_tank_destroyer_brigade
+# - medium_sp_anti_air_brigade
+# - mechanized
+# - heavy_armor
+# - heavy_tank_destroyer_brigade
+# - heavy_sp_anti_air_brigade
+# - amphibious_mechanized
+# - amphibious_medium_armor
+# - amphibious_heavy_armor
+# - cavalry
+#
+# templates_JAP target_template support battalion list:
+# - artillery
+# - engineer
+# - field_hospital
+# - recon
+# - logistics_company
+# - signal_company
+# - medium_flame_tank
+# - helicopter_field_hospital
+# - helicopter_recon
+# - helicopter_transport
+# - armored_engineer
+# - helicopter_brigade
+# - land_cruiser
+# - military_police
+#
+# templates_JAP target_template regimental_support battalion list:
+# - Rance_JAP_M_modern_artillery_armor_support
+# - Rance_JAP_M_modern_tankdestroyer_support
+# - Rance_JAP_M_modern_anti_air_armor_support
+#
+# JAP_special_units custom battalion list:
+# - Rance_JAP_M_infantry # 海军特战队步兵
+# - Rance_JAP_M_mechanized # 海军特战队机械化
+# - Rance_JAP_M_medium_armor # 海军特战队中坦
+# - Rance_JAP_M_heavy_armor # 海军特战队重坦
+# - Rance_JAP_M_modern_armor # 海军特战队现代坦
+# - Rance_JAP_M_medium_artillery_armor # 海军特战队中自火
+# - Rance_JAP_M_heavy_artillery_armor # 海军特战队重自火
+# - Rance_JAP_M_modern_artillery_armor # 海军特战队现代自火
+# - Rance_JAP_M_modern_artillery_armor_support # 海军特战队现代自火支援
+# - Rance_JAP_M_medium_tankdestroyer # 海军特战队中坦歼
+# - Rance_JAP_M_heavy_tankdestroyer # 海军特战队重坦歼
+# - Rance_JAP_M_modern_tankdestroyer # 海军特战队现代坦歼
+# - Rance_JAP_M_modern_tankdestroyer_support # 海军特战队现代坦歼支援
+# - Rance_JAP_M_medium_anti_air_armor # 海军特战队中防空
+# - Rance_JAP_M_heavy_anti_air_armor # 海军特战队重防空
+# - Rance_JAP_M_modern_anti_air_armor # 海军特战队现代防空
+# - Rance_JAP_M_modern_anti_air_armor_support # 海军特战队现代防空支援
+#
+# JAP_army_units custom battalion list:
+# - Rance_JAP_A_infantry # 陆军步兵
+# - Rance_JAP_A_mechanized # 陆军机械化
+# - Rance_JAP_A_medium_armor # 陆军中坦
+# - Rance_JAP_A_heavy_armor # 陆军重坦
+# - Rance_JAP_A_medium_artillery_armor # 陆军中自火
+# - Rance_JAP_A_heavy_artillery_armor # 陆军重自火
+# - Rance_JAP_A_medium_tankdestroyer # 陆军中坦歼
+# - Rance_JAP_A_heavy_tankdestroyer # 陆军重坦歼
+# - Rance_JAP_A_medium_anti_air_armor # 陆军中防空
+# - Rance_JAP_A_heavy_anti_air_armor # 陆军重防空
+#
+#基础步兵师
+JAP_basic_infantry = {
+	available_for = {
+		JAP
+	}
+	role = JAP_basic_infantry
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_basic_infantry_default = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_A_infantry = 9
+			}
+			support = {
+				engineer = 1
+				artillery = 1
+			}
+			regimental_support = {
+				fire_support = 1
+				field_guns = 2
+			}
+		}
+	}
+}
+##步兵
+JAP_infantry = {
+	available_for = {
+		JAP
+	}
+	role = JAP_infantry
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_infantry_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_A_infantry = 15
+				artillery_brigade = 2
+				anti_air_brigade = 1
+				anti_tank_brigade = 1
+			}
+			support = {
+				engineer = 1
+				field_hospital = 1
+				recon = 1
+				logistics_company = 1
+				signal_company = 1
+			}
+			regimental_support = {
+				fire_support = 1
+				field_guns = 2
+				anti_air_battery = 1
+				anti_tank_battery = 1
+			}
+		}
+	}
+}
+#试验步坦师
+JAP_experimental_infantry_tank = {
+	available_for = {
+		JAP
+	}
+	## front_role_override = offence
+	role = JAP_experimental_infantry_tank
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_experimental_infantry_tank_default = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_infantry = 13
+				artillery_brigade = 1
+				anti_tank_brigade = 1
+				anti_air_brigade = 1
+				Rance_JAP_A_medium_armor = 3
+			}
+			support = {
+				engineer = 1
+				field_hospital = 1
+				recon = 1
+				logistics_company = 1
+				signal_company = 1
+			}
+			regimental_support = {
+				fire_support = 1
+				field_guns = 1
+				anti_air_battery = 1
+				anti_tank_battery = 1
+			}
+		}
+	}
+}
+#步坦
+JAP_infantry_tank = {
+	available_for = {
+		JAP
+	}
+	## front_role_override = offence
+	role = JAP_infantry_tank
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_infantry_tank_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_A_infantry = 8
+				Rance_JAP_A_medium_armor = 7
+				Rance_JAP_A_medium_tankdestroyer = 3
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_medium_anti_air_armor_support = 2
+				Rance_JAP_A_medium_artillery_armor_support = 1
+				Rance_JAP_A_medium_tankdestroyer_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 1
+			}
+		}
+	}
+}
+#特种步坦师
+JAP_special_infantry_tank = {
+	available_for = {
+		JAP
+	}
+	# front_role_override = offence
+	role = JAP_special_infantry_tank
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_special_infantry_tank_default = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_infantry = 10
+				Rance_JAP_A_medium_armor = 7
+				Rance_JAP_A_medium_tankdestroyer = 3
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_heavy_anti_air_armor_support = 1
+				Rance_JAP_A_medium_anti_air_armor_support = 1
+				Rance_JAP_A_medium_artillery_armor_support = 1
+				Rance_JAP_A_medium_tankdestroyer_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 1
+			}
+		}
+	}
+}
+#机坦
+JAP_mechanized_tank = {
+	available_for = {
+		JAP
+	}
+	role = JAP_mechanized_tank
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_mechanized_tank_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_A_mechanized = 8
+				Rance_JAP_A_medium_armor = 7
+				Rance_JAP_A_medium_tankdestroyer = 3
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_heavy_anti_air_armor_support = 1
+				Rance_JAP_A_medium_anti_air_armor_support = 1
+				Rance_JAP_A_medium_artillery_armor_support = 1
+				Rance_JAP_A_medium_tankdestroyer_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 1
+			}
+		}
+	}
+}
+#重机坦
+JAP_mechanized_heavy_tank = {
+	available_for = {
+		JAP
+	}
+	role = JAP_mechanized_heavy_tank
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_mechanized_heavy_armor_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_A_mechanized = 9
+				Rance_JAP_A_heavy_armor = 9
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_heavy_anti_air_armor_support = 2
+				Rance_JAP_A_heavy_artillery_armor_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 2
+			}
+		}
+	}
+}
+#两栖机坦
+JAP_amphibious_mechanized = {
+	available_for = {
+		JAP
+	}
+	role = JAP_amphibious_mechanized
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_amphibious_mechanized_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_mechanized = 8
+				Rance_JAP_M_medium_armor = 7
+				Rance_JAP_M_medium_tankdestroyer = 3
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_heavy_anti_air_armor_support = 1
+				Rance_JAP_A_medium_anti_air_armor_support = 1
+				Rance_JAP_A_medium_artillery_armor_support = 1
+				Rance_JAP_A_medium_tankdestroyer_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 1
+			}
+		}
+	}
+}
+#两栖重机坦
+JAP_heavy_amphibious_mechanized = {
+	available_for = {
+		JAP
+	}
+	role = JAP_heavy_amphibious_mechanized
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_heavy_amphibious_mechanized_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_mechanized = 9
+				Rance_JAP_M_heavy_armor = 9
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_heavy_anti_air_armor_support = 2
+				Rance_JAP_A_heavy_artillery_armor_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 2
+			}
+		}
+	}
+}
+#陆巡两栖重机坦
+JAP_land_crushier = {
+	available_for = {
+		JAP
+	}
+	role = JAP_land_crushier
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_land_crushier_defult = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_mechanized = 9
+				Rance_JAP_M_heavy_armor = 9
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_brigade = 1
+				helicopter_recon = 1
+				land_cruiser = 1
+				armored_engineer = 1
+			}
+			regimental_support = {
+				Rance_JAP_A_heavy_anti_air_armor_support = 2
+				Rance_JAP_A_heavy_artillery_armor_support = 1
+				Rance_JAP_A_heavy_tankdestroyer_support = 2
+			}
+		}
+	}
+}
+#海陆现代机坦师
+JAP_marine_modern_mechanized_tank = {
+	available_for = {
+		JAP
+	}
+	role = JAP_marine_modern_mech_tank
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_marine_modern_mechanized_tank_default = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_mechanized = 9
+				Rance_JAP_M_modern_armor = 9
+			}
+			regimental_support = {
+				Rance_JAP_M_modern_anti_air_armor_support = 2
+				Rance_JAP_M_modern_artillery_armor_support = 1
+				Rance_JAP_M_modern_tankdestroyer_support = 2
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_field_hospital = 1
+				helicopter_recon = 1
+				helicopter_transport = 1
+				armored_engineer = 1
+			}
+		}
+	}
+}
+#陆巡海陆现代机坦师
+JAP_land_cruiser_marine_modern_mechanized_tank = {
+	available_for = {
+		JAP
+	}
+	role = JAP_lc_marine_modern_mech_tank
+	## front_role_override = offence
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_land_cruiser_marine_modern_mechanized_tank_default = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_M_mechanized = 9
+				Rance_JAP_M_modern_armor = 9
+			}
+			regimental_support = {
+				Rance_JAP_M_modern_anti_air_armor_support = 2
+				Rance_JAP_M_modern_artillery_armor_support = 1
+				Rance_JAP_M_modern_tankdestroyer_support = 2
+			}
+			support = {
+				medium_flame_tank = 1
+				helicopter_brigade = 1
+				helicopter_recon = 1
+				land_cruiser = 1
+				armored_engineer = 1
+			}
+		}
+	}
+}
+#镇压
+JAP_suppression = {
+
+	role = JAP_suppression
+	upgrade_prio = {
+		base = 0.5
+		modifier = {
+			factor = 0
+			has_war = yes
+		}
+	}
+	JAP_suppression = {
+		upgrade_prio = {
+			base = 0
+		}
+
+		target_template = {
+
+			support = {
+				military_police = 1
+			}
+
+			regiments = {
+				cavalry = 25
+			}
+		}
+	}
+}

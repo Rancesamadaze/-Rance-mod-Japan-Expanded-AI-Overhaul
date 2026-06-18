@@ -1,0 +1,631 @@
+# ==========================================
+# 日本共产党（JCP）自定义决议文件
+# 对应类别定义：common/decisions/categories/JAP_jcp_categories.txt
+# ==========================================
+
+# 这里的 key 必须与类别定义文件中的 category_id 完全一致
+JAP_jcp_war_operations_category = {
+
+    # 决议ID：迫使关东军投降
+    # ------------------------------------------
+    JAP_force_kwantung_surrender = {
+        
+        # 图标：使用通用的边境战争或军事行动图标
+        icon = GFX_decision_generic_border_war
+
+        # 机制：仅触发一次，避免重复判定
+        fire_only_once = yes
+
+        # 可见性条件：
+        # 必须完成前置国策“清剿残余势力”(JAP_conquer_the_army_remnants)
+        visible = {
+            has_completed_focus = JAP_raise_the_red_flag_high
+        }
+
+        # 可用条件（点击条件）：
+        # 1. 处于与伪满洲国(MAN)的战争状态
+        # 2. 实际控制新京（省份ID: 4572）
+        available = {
+            has_war_with = MAN
+            controls_province = 4572
+        }
+
+        # 消耗：
+        # 象征性的政治点数花费，代表发布劝降通牒的行政成本
+        
+
+        # 完成效果：
+        complete_effect = {
+			JAP = {
+				annex_country = {
+					target = MAN
+					transfer_troops = yes
+				}
+			}
+}
+
+        # AI倾向：
+        # 只要条件满足，AI将倾向于立即点击此决议以结束战争
+        ai_will_do = {
+            factor = 100
+        }
+    }
+    # 决议ID：联合反封建通牒
+    JAP_joint_ultimatum_to_warlords = {
+        
+        # 图标：使用宣传或外交施压图标
+        icon = GFX_decision_generic_propaganda
+
+        # 仅触发一次
+        fire_only_once = yes
+
+        # 可见性：完成指定国策
+        visible = {
+            has_completed_focus = JAP_raise_the_red_flag_high
+        }
+
+        # 可用条件：
+        # 1. 与蒋介石政权(CHI)开战
+        # 2. 与中共(PRC)处于同一阵营
+        available = {
+            has_war_with = CHI
+            is_in_faction_with = PRC
+        }
+
+        # 花费
+        
+
+        # 完成效果
+        complete_effect = {
+           # 关键逻辑：遍历全世界每一个国家
+           every_country = {
+                limit = {
+                    # 1. 基础检查：国家必须存在
+                    exists = yes
+                    
+                    # 2. 自身排除：不发给自己(JAP)和盟友(PRC)
+                    NOT = { tag = JAP }
+                    NOT = { tag = PRC }
+
+                    # 3. 硬性排除：绝不发给新疆(SIK)
+                    # 即使SIK满足is_chinese_warlord条件，这一条也会将其过滤掉
+                    NOT = { tag = SIK }
+
+                    # 4. 目标筛选 (OR逻辑)
+                    # 满足以下任意一条即可成为目标
+                    OR = {
+                        is_chinese_warlord = yes  # 原版军阀定义 (通常含桂系、滇系、晋系、西北三马等)
+                        tag = MEN                 # 蒙疆联合自治政府
+                        tag = TIB                 # 西藏
+                    }
+                }
+                # 向筛选出的每一个军阀发送事件
+                country_event = { id = japan_jcp.11 }
+            }
+        }
+
+        ai_will_do = {
+            factor = 1000
+        }
+    }
+    # 决议ID：南京解放与国民党崩溃
+    JAP_liberate_nanjing_collapse = {
+        
+        # 图标：使用夺取城市或政府崩溃相关的图标
+        icon = GFX_decision_generic_capture_city_benefit
+
+        # 仅触发一次
+        fire_only_once = yes
+
+        # 可见性：完成指定国策
+        visible = {
+            has_completed_focus = JAP_raise_the_red_flag_high
+        }
+
+        # 可用条件：
+        available = {
+            # 1. 必须处于战争状态
+            has_war_with = CHI
+            
+            # 2. 必须与PRC同阵营
+            is_in_faction_with = PRC
+            
+            # 3. 自己 或者 盟友 控制南京（ID: 11913）
+            # 使用 OR 逻辑包裹
+            OR = {
+                controls_province = 11913
+                PRC = {
+                    controls_province = 11913
+                }
+            }
+        }
+        # 完成效果
+        complete_effect = {
+            
+
+            # # 核心逻辑：遍历所有CHI拥有的地区，将控制权移交给PRC
+            # every_state = {
+            #     limit = {
+            #         is_owned_by = CHI
+            #         # 可选：排除已经被其他人控制的地区？
+            #         # 通常"崩溃"意味着前线所有军队瓦解，地盘全部易手。
+            #         # 如果只想转移CHI自己控制的地盘，加 is_controlled_by = CHI
+            #         # 但为了确保"投降"效果，建议全部转移。
+            #     }
+                
+            #     # 切换作用域到PRC，执行"获得控制权"命令
+            #     # PREV 指代当前遍历到的 state
+            #     PRC = {
+            #         set_state_controller = PREV
+            #     }
+            # }
+            # CHI = {
+            #     add_ideas = JAP_surrunder_immediately
+            # }
+            # 补充效果：对CHI造成严重的组织度或稳定度打击，模拟混乱
+            # CHI = {
+            #     add_stability = -0.30
+            #     add_war_support = -0.30
+            # }
+            PRC = {
+				annex_country = {
+					target = CHI
+				}
+			}
+            # # 消息通知
+            # news_event = { id = japan_jcp.12 }
+        }
+
+        # AI倾向
+        ai_will_do = {
+            factor = 100
+        }
+    }
+    # 暂时弃用：JAP_get_vn_from_vic
+#     JAP_get_vn_from_vic = {
+#         icon = GFX_decision_generic_propaganda
+#         fire_only_once = yes
+#         visible = {
+#             has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+#         }
+#         ##
+#         available = {
+# 			is_subject = no
+# 			671 = { 
+# 				CONTROLLER = { 
+# 					NOT = {
+# 						has_war_with = ROOT
+# 						is_ally_with = ROOT
+# 					}
+# 				} 
+# 			}
+# 			OR = {
+# 				AND = {
+# 					custom_trigger_tooltip = {
+# 						tooltip = JAP_demand_tonkinese_bases_tt
+# 						671 = { 
+# 							CONTROLLER = { 
+# 								OR = { 
+# 									tag = FRA 
+# 									tag = VIC 
+# 									is_subject_of = FRA
+# 									is_subject_of = VIC
+# 								} 
+# 							}
+# 						}
+# 					}
+# 					OR = {
+# 						AND = {
+# 							has_army_manpower = { size > 799999 }
+# 							has_war_support > 0.9
+# 						}
+# 						16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
+# 					}
+# 				}
+# 				custom_trigger_tooltip = {
+# 					tooltip = JAP_demand_tonkinese_bases_2_tt
+# 					671 = { 
+# 						CONTROLLER = { 
+# 							NOT = {
+# 								tag = FRA 
+# 								tag = VIC 
+# 								is_subject_of = FRA
+# 								is_subject_of = VIC
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			1033 = { 
+# 				CONTROLLER = { 
+# 					OR = {
+# 						has_war_with = ROOT
+# 						is_ally_with = ROOT
+# 					}
+# 				} 
+# 			}
+# 		##2
+#             OR = {
+# 				286 = { 
+# 					CONTROLLER = { 
+# 						NOT = {
+# 							has_war_with = ROOT
+# 							is_ally_with = ROOT
+# 						}
+# 					} 
+# 				}
+# 				670 = { 
+# 					CONTROLLER = { 
+# 						NOT = {
+# 							has_war_with = ROOT
+# 							is_ally_with = ROOT
+# 						}
+# 					} 
+# 				}
+# 				1017 = { 
+# 					CONTROLLER = { 
+# 						NOT = {
+# 							has_war_with = ROOT
+# 							is_ally_with = ROOT
+# 						}
+# 					} 
+# 				}
+# 				741 = { 
+# 					CONTROLLER = { 
+# 						NOT = {
+# 							has_war_with = ROOT
+# 							is_ally_with = ROOT
+# 						}
+# 					} 
+# 				}
+# 			}
+# 
+# 			OR = {
+# 				AND = {
+# 					16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
+# 					custom_trigger_tooltip = {
+# 						tooltip = demand_indochina_focus_tt
+# 						OR = {
+# 							286 = { 
+# 								CONTROLLER = { 
+# 									OR = { 
+# 										tag = FRA 
+# 										tag = VIC
+# 										is_subject_of = FRA
+# 										is_subject_of = VIC 
+# 									}  
+# 								}
+# 							}
+# 							670 = { 
+# 								CONTROLLER = { 
+# 									OR = { 
+# 										tag = FRA 
+# 										tag = VIC 
+# 										is_subject_of = FRA
+# 										is_subject_of = VIC
+# 									} 
+# 								}
+# 							}
+# 							741 = { 
+# 								CONTROLLER = { 
+# 									OR = { 
+# 										tag = FRA 
+# 										tag = VIC 
+# 										is_subject_of = FRA
+# 										is_subject_of = VIC
+# 									} 
+# 								}
+# 							}
+# 							1017 = { 
+# 								CONTROLLER = { 
+# 									OR = { 
+# 										tag = FRA 
+# 										tag = VIC 
+# 										is_subject_of = FRA
+# 										is_subject_of = VIC
+# 									} 
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
+# 				custom_trigger_tooltip = {
+# 					tooltip = JAP_occupy_indochina_tt
+# 					OR = {
+# 						286 = { 
+# 							CONTROLLER = { 
+# 								NOT = { 
+# 									tag = FRA 
+# 									tag = VIC
+# 									is_subject_of = FRA
+# 									is_subject_of = VIC 
+# 								} 
+# 							}
+# 						}
+# 						670 = { 
+# 							CONTROLLER = { 
+# 								NOT = { 
+# 									tag = FRA 
+# 									tag = VIC 
+# 									is_subject_of = FRA
+# 									is_subject_of = VIC
+# 								} 
+# 							}
+# 						}
+# 						741 = { 
+# 							CONTROLLER = { 
+# 								NOT = { 
+# 									tag = FRA 
+# 									tag = VIC 
+# 									is_subject_of = FRA
+# 									is_subject_of = VIC
+# 								} 
+# 							}
+# 						}
+# 						1017 = { 
+# 							CONTROLLER = { 
+# 								NOT = { 
+# 									tag = FRA 
+# 									tag = VIC 
+# 									is_subject_of = FRA
+# 									is_subject_of = VIC
+# 								} 
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			
+#         ##
+#         }
+#         ##
+#         complete_effect = {
+#             #1
+#             671 = {
+# 				OWNER = {
+# 					country_event = {
+# 						id = SEA_japan_foreign_policy.10
+# 						days = 1
+# 						random_days = 2
+# 					}
+# 				}
+# 			}
+# 			custom_effect_tooltip = if_they_accept_tt
+# 			effect_tooltip = {
+# 				add_political_power = 25
+# 				transfer_state = 671
+# 			}
+#             #2
+#             IF = {
+# 				limit = {
+# 					FRA = {
+# 						OR = {
+# 							controls_state = 670
+# 							670 = { CONTROLLER = { is_subject_of = FRA } }
+# 							controls_state = 286
+# 							286 = { CONTROLLER = { is_subject_of = FRA } }
+# 							controls_state = 1017
+# 							1017 = { CONTROLLER = { is_subject_of = FRA } }
+# 							controls_state = 741
+# 							741 = { CONTROLLER = { is_subject_of = FRA } }
+# 						}
+# 					}
+# 				}
+# 				FRA = { 
+# 					country_event = { 
+# 						id = france.1 
+# 						hours = 12
+# 						random_hours = 24
+# 					} 
+# 				}
+# 				custom_effect_tooltip = generic_skip_one_line_tt
+# 			}
+# 			ELSE_IF = {
+# 				limit = {
+# 					VIC = {
+# 						OR = {
+# 							controls_state = 670
+# 							controls_state = 286
+# 							controls_state = 1017
+# 							controls_state = 741
+# 							670 = { CONTROLLER = { is_subject_of = VIC } }
+# 							286 = { CONTROLLER = { is_subject_of = VIC } }
+# 							1017 = { CONTROLLER = { is_subject_of = VIC } }
+# 							741 = { CONTROLLER = { is_subject_of = VIC } }
+# 						}
+# 					}
+# 				}
+# 				VIC = { 
+# 					country_event = { 
+# 						id = france.1 
+# 						hours = 12
+# 						random_hours = 24
+# 					} 
+# 				}
+# 				custom_effect_tooltip = generic_skip_one_line_tt
+# 			}
+# 
+# 			IF = {
+# 				limit = {
+# 					any_state = {
+# 						OR = {
+# 							state = 670
+# 							state = 286
+# 							state = 1017
+# 							state = 741
+# 							state = 728
+# 						}
+# 						OWNER = {
+# 							NOT = {
+# 								original_tag = FRA
+# 								is_subject_of = FRA
+# 								is_subject_of = VIC
+# 							}
+# 							OR = {
+# 								original_tag = VIN
+# 								original_tag = CAM
+# 								original_tag = LAO
+# 								original_tag = CHM
+# 								original_tag = SIA
+# 								original_tag = BRM
+# 								original_tag = GXC
+# 								original_tag = GDC
+# 								original_tag = YUN
+# 							}
+# 						}
+# 					}
+# 				}
+# 				every_other_country = {
+# 					limit = {
+# 						OR = {
+# 							owns_state = 670
+# 							owns_state = 286
+# 							owns_state = 1017
+# 							owns_state = 741
+# 							owns_state = 728
+# 						}
+# 						NOT = {
+# 							original_tag = FRA
+# 							is_subject_of = FRA
+# 							is_subject_of = VIC
+# 						}
+# 						OR = {
+# 							original_tag = VIN
+# 							original_tag = CAM
+# 							original_tag = LAO
+# 							original_tag = CHM
+# 							original_tag = SIA
+# 							original_tag = BRM
+# 							original_tag = GXC
+# 							original_tag = GDC
+# 							original_tag = YUN
+# 						}
+# 					}
+# 					
+# 					ROOT = {
+# 						create_wargoal = {
+# 							type = puppet_wargoal_focus
+# 							target = PREV
+# 							expire = 0
+# 						}	
+# 					}
+# 				}
+# 			} 
+# 			#
+#         }
+#         ai_will_do = {
+#             factor = 100
+#         }
+#     }
+	JAP_declare_war_on_CHI = {
+		icon = GFX_decision_generic_border_war
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+			NOT = {
+				has_war_with = CHI
+			}
+			has_non_aggression_pact_with = CHI
+		}
+		available = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+		}
+	}
+	JAP_help_prc_against_chi = {
+		icon = GFX_decision_generic_border_war
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = JAP_the_lecture_group_ascendant
+			CHI = {
+				exists = yes
+			}
+			PRC = {
+				exists = yes
+			}
+			
+			PRC = {
+				has_war_with = CHI
+			}
+		}
+		available = {
+			NOT = {
+				has_completed_focus = JAP_put_an_end_to_chinese_feudalism
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			complete_national_focus = JAP_put_an_end_to_chinese_feudalism
+		}
+	}
+	JAP_declare_war_on_man_when_chi_does = {
+		icon = GFX_decision_generic_border_war
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = JAP_the_lecture_group_ascendant
+			CHI = {
+				exists = yes
+			}
+			MAN = {
+				exists = yes
+			}
+			NOT = {
+				has_completed_focus = JAP_conquer_the_army_remnants
+			}
+			MAN = {
+				has_war_with = CHI
+			}
+		}
+		available = {
+			JAP = {
+				NOT = {
+					has_war_with = MAN
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			complete_national_focus = JAP_conquer_the_army_remnants
+		}
+	}
+	JAP_end_ger = {
+		icon = GFX_decision_generic_border_war
+		fire_only_once = yes
+		visible = {
+			NOT = {
+				has_war_with = GER
+                date > 1941.1.1
+			}
+		}
+		available = {
+			is_in_faction_with = SOV
+            OR = {
+                SOV = {
+                    has_war_with = GER
+                }
+                date > 1941.6.1
+            }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+	}
+}

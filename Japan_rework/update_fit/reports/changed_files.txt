@@ -1,0 +1,24 @@
+common/ai_navy/fleet/JAP_fleet_templates.txt
+common/ai_strategy/JAP.txt
+common/ai_strategy/default.txt
+common/ai_strategy_plans/JAP_alternate_strategy_plan.txt
+common/ai_templates/templates_JAP.txt
+common/characters/JAP.txt
+common/combat_tactics.txt
+common/countries/cosmetic.txt
+common/decisions/JAP.txt
+common/decisions/_generic_decisions.txt
+common/decisions/foreign_influence.txt
+common/doctrines/grand_doctrines/land_grand_doctrines.txt
+common/doctrines/subdoctrines/land/armor_subdoctrines.txt
+common/doctrines/subdoctrines/land/combat_support_subdoctrines.txt
+common/doctrines/subdoctrines/land/infantry_subdoctrines.txt
+common/doctrines/subdoctrines/land/operations_subdoctrines.txt
+common/ideas/_economic.txt
+common/ideas/_manpower.txt
+common/national_focus/japan.txt
+common/peace_conference/ai_peace/JAP.txt
+common/raids/air_raids_custom.txt
+common/technologies/electronic_mechanical_engineering.txt
+events/SEA_Japan.txt
+history/countries/JAP - Japan.txt

@@ -1,0 +1,529 @@
+# War readiness construction route checks.
+# Country-scope triggers for staged North China supply decisions.
+
+JAP_war_readiness_beiping_jinan_has_supply_pivot = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_has_supply_pivot.tt
+		OR = {
+			controls_province = 10068
+			608 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+	}
+}
+
+JAP_war_readiness_beiping_jinan_has_forward_target = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_has_forward_target.tt
+		OR = {
+			controls_province = 12093
+			controls_province = 1069
+			1038 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+	}
+}
+
+JAP_war_readiness_beiping_jinan_can_connect_10068_12093 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_can_connect_10068_12093.tt
+		OR = {
+			AND = {
+				controls_province = 10068
+				controls_province = 4137
+				controls_province = 11944
+				controls_province = 10119
+				controls_province = 12093
+			}
+			AND = {
+				608 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+				614 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+				1038 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+			}
+		}
+	}
+}
+
+JAP_war_readiness_beiping_jinan_can_connect_12093_1069 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_can_connect_12093_1069.tt
+		OR = {
+			AND = {
+				controls_province = 12093
+				controls_province = 10119
+				controls_province = 1084
+				controls_province = 1069
+			}
+			1038 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+	}
+}
+
+JAP_war_readiness_beiping_jinan_can_connect_10068_1069 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_can_connect_10068_1069.tt
+		1038 = {
+			state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+		}
+		OR = {
+			AND = {
+				controls_province = 10068
+				controls_province = 9969
+				controls_province = 11996
+			}
+			AND = {
+				608 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+				614 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+			}
+		}
+	}
+}
+
+JAP_war_readiness_beiping_jinan_12093_port_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_12093_port_completed } }
+	}
+	JAP_war_readiness_beiping_jinan_can_connect_10068_12093 = yes
+}
+
+JAP_war_readiness_beiping_jinan_12093_1069_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_12093_1069_rail_completed } }
+	}
+	JAP_war_readiness_beiping_jinan_can_connect_12093_1069 = yes
+}
+
+JAP_war_readiness_beiping_jinan_10068_1069_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_10068_1069_rail_completed } }
+	}
+	JAP_war_readiness_beiping_jinan_can_connect_10068_1069 = yes
+}
+
+JAP_war_readiness_beiping_jinan_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_beiping_jinan_12093_port_segment_ready = yes
+			JAP_war_readiness_beiping_jinan_12093_1069_rail_segment_ready = yes
+			JAP_war_readiness_beiping_jinan_10068_1069_rail_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_beiping_jinan_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_beiping_jinan_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_12093_port_completed }
+			JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_12093_1069_rail_completed }
+			JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_10068_1069_rail_completed }
+		}
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_controls_1029 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_controls_1029.tt
+		controls_province = 1029
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_controls_9953 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_controls_9953.tt
+		controls_province = 9953
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_can_connect_7025_1029 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_can_connect_7025_1029.tt
+		598 = {
+			state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+		}
+		controls_province = 7025
+		controls_province = 1029
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_can_connect_1029_9953 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_can_connect_1029_9953.tt
+		598 = {
+			state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+		}
+		controls_province = 1029
+		controls_province = 9953
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_can_connect_10000_1029 = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_can_connect_10000_1029.tt
+		controls_province = 10000
+		controls_province = 4157
+		controls_province = 9971
+		controls_province = 1029
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_1029_port_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_1029_port_completed } }
+	}
+	JAP_war_readiness_qingdao_jiangsu_controls_1029 = yes
+}
+
+JAP_war_readiness_qingdao_jiangsu_9953_port_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_9953_port_completed } }
+	}
+	JAP_war_readiness_qingdao_jiangsu_controls_9953 = yes
+}
+
+JAP_war_readiness_qingdao_jiangsu_7025_1029_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_7025_1029_rail_completed } }
+	}
+	JAP_war_readiness_qingdao_jiangsu_can_connect_7025_1029 = yes
+}
+
+JAP_war_readiness_qingdao_jiangsu_1029_9953_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_1029_9953_rail_completed } }
+	}
+	JAP_war_readiness_qingdao_jiangsu_can_connect_1029_9953 = yes
+}
+
+JAP_war_readiness_qingdao_jiangsu_10000_1029_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_10000_1029_rail_completed } }
+	}
+	JAP_war_readiness_qingdao_jiangsu_can_connect_10000_1029 = yes
+}
+
+JAP_war_readiness_qingdao_jiangsu_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_qingdao_jiangsu_1029_port_segment_ready = yes
+			JAP_war_readiness_qingdao_jiangsu_9953_port_segment_ready = yes
+			JAP_war_readiness_qingdao_jiangsu_7025_1029_rail_segment_ready = yes
+			JAP_war_readiness_qingdao_jiangsu_1029_9953_rail_segment_ready = yes
+			JAP_war_readiness_qingdao_jiangsu_10000_1029_rail_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_qingdao_jiangsu_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_qingdao_jiangsu_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_1029_port_completed }
+			JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_9953_port_completed }
+			JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_7025_1029_rail_completed }
+			JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_1029_9953_rail_completed }
+			JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_10000_1029_rail_completed }
+		}
+	}
+}
+
+JAP_war_readiness_ningbo_wenzhou_1055_naval_base_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_1055_naval_base_completed } }
+	}
+	controls_province = 1055
+}
+
+JAP_war_readiness_ningbo_wenzhou_9974_1055_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_9974_1055_rail_completed } }
+	}
+	596 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_ningbo_wenzhou_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_ningbo_wenzhou_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_ningbo_wenzhou_1055_naval_base_segment_ready = yes
+			JAP_war_readiness_ningbo_wenzhou_9974_1055_rail_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_ningbo_wenzhou_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_ningbo_wenzhou_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_1055_naval_base_completed }
+			JAP = { has_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_9974_1055_rail_completed }
+		}
+	}
+}
+
+JAP_war_readiness_fujian_coastal_inland_4196_naval_base_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_4196_naval_base_completed } }
+	}
+	controls_province = 4196
+}
+
+JAP_war_readiness_fujian_coastal_inland_7071_naval_base_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_7071_naval_base_completed } }
+	}
+	controls_province = 7071
+}
+
+JAP_war_readiness_fujian_coastal_inland_595_internal_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_595_internal_completed } }
+	}
+	595 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_fujian_coastal_inland_1055_4196_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_1055_4196_rail_completed } }
+	}
+	596 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	595 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_fujian_coastal_inland_7199_10084_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_7199_10084_rail_completed } }
+	}
+	600 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	595 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_fujian_coastal_inland_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_fujian_coastal_inland_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_fujian_coastal_inland_4196_naval_base_segment_ready = yes
+			JAP_war_readiness_fujian_coastal_inland_7071_naval_base_segment_ready = yes
+			JAP_war_readiness_fujian_coastal_inland_595_internal_segment_ready = yes
+			JAP_war_readiness_fujian_coastal_inland_1055_4196_rail_segment_ready = yes
+			JAP_war_readiness_fujian_coastal_inland_7199_10084_rail_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_fujian_coastal_inland_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_fujian_coastal_inland_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_4196_naval_base_completed }
+			JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_7071_naval_base_completed }
+			JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_595_internal_completed }
+			JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_1055_4196_rail_completed }
+			JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_7199_10084_rail_completed }
+		}
+	}
+}
+
+JAP_war_readiness_nanlu_nanning_10004_naval_base_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_10004_naval_base_completed } }
+	}
+	controls_province = 10004
+}
+
+JAP_war_readiness_nanlu_nanning_10004_7137_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_10004_7137_rail_completed } }
+	}
+	1033 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	594 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_nanlu_nanning_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_nanlu_nanning_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_nanlu_nanning_10004_naval_base_segment_ready = yes
+			JAP_war_readiness_nanlu_nanning_10004_7137_rail_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_nanlu_nanning_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_nanlu_nanning_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_10004_naval_base_completed }
+			JAP = { has_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_10004_7137_rail_completed }
+		}
+	}
+}
+
+JAP_war_readiness_nanning_western_inland_7137_1625_supply_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_7137_1625_supply_completed } }
+	}
+	594 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_nanning_western_inland_1625_1319_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_1625_1319_rail_completed } }
+	}
+	OR = {
+		AND = {
+			controls_province = 1625
+			controls_province = 7606
+			controls_province = 7446
+			controls_province = 1319
+		}
+		AND = {
+			594 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			325 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+	}
+}
+
+JAP_war_readiness_nanning_western_inland_7137_10404_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_7137_10404_rail_completed } }
+	}
+	594 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	599 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_nanning_western_inland_1625_10616_supply_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_1625_10616_supply_completed } }
+	}
+	594 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	603 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_nanning_western_inland_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_nanning_western_inland_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_nanning_western_inland_7137_1625_supply_segment_ready = yes
+			JAP_war_readiness_nanning_western_inland_1625_1319_rail_segment_ready = yes
+			JAP_war_readiness_nanning_western_inland_7137_10404_rail_segment_ready = yes
+			JAP_war_readiness_nanning_western_inland_1625_10616_supply_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_nanning_western_inland_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_nanning_western_inland_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_7137_1625_supply_completed }
+			JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_1625_1319_rail_completed }
+			JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_7137_10404_rail_completed }
+			JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_1625_10616_supply_completed }
+		}
+	}
+}
+
+JAP_war_readiness_suiyuan_yulin_shanxi_10629_4986_supply_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_10629_4986_supply_completed } }
+	}
+	621 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	746 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_suiyuan_yulin_shanxi_4174_1458_supply_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_4174_1458_supply_completed } }
+	}
+	615 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	1046 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_suiyuan_yulin_shanxi_4986_1458_rail_segment_ready = {
+	hidden_trigger = {
+		NOT = { JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_4986_1458_rail_completed } }
+	}
+	746 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+	1046 = {
+		state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+	}
+}
+
+JAP_war_readiness_suiyuan_yulin_shanxi_has_ready_segment = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_suiyuan_yulin_shanxi_has_ready_segment.tt
+		OR = {
+			JAP_war_readiness_suiyuan_yulin_shanxi_10629_4986_supply_segment_ready = yes
+			JAP_war_readiness_suiyuan_yulin_shanxi_4174_1458_supply_segment_ready = yes
+			JAP_war_readiness_suiyuan_yulin_shanxi_4986_1458_rail_segment_ready = yes
+		}
+	}
+}
+
+JAP_war_readiness_suiyuan_yulin_shanxi_all_segments_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_war_readiness_suiyuan_yulin_shanxi_all_segments_completed.tt
+		AND = {
+			JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_10629_4986_supply_completed }
+			JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_4174_1458_supply_completed }
+			JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_4986_1458_rail_completed }
+		}
+	}
+}

@@ -1,0 +1,857 @@
+# Japan AI navy free ship scripted effects.
+# Batch and package helpers call single-ship helpers instead of using create_ship
+# amount, which is not valid for these dynamic variants.
+
+JAP_ai_navy_create_one_formal_carrier = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cv_akagi
+                has_country_flag = JAP_has_cr_ship_design_cv_shokaku
+                has_country_flag = JAP_has_cr_ship_design_cv_shinano
+                has_country_flag = JAP_has_cr_ship_design_cv_hakuryu
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_carrier_[JAP_ai_navy_text_formal_carrier_hull]
+                    equipment_variant = "[JAP_ai_navy_text_formal_carrier_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_formal_carrier_hull = "[GetJAP_ai_navy_carrier_hull]"
+            JAP_ai_navy_text_formal_carrier_variant = "[GetJAP_ai_navy_carrier_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_mega_carrier = {
+    if = {
+        limit = {
+            has_country_flag = JAP_has_cr_ship_design_cv_yukihou
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_[JAP_ai_navy_text_mega_carrier_hull]
+                    equipment_variant = "[JAP_ai_navy_text_mega_carrier_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_mega_carrier_hull = "[GetJAP_ai_navy_mega_carrier_hull]"
+            JAP_ai_navy_text_mega_carrier_variant = "[GetJAP_ai_navy_mega_carrier_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_escort_carrier = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cv_ryujo
+                has_country_flag = JAP_has_cr_ship_design_cv_zuiho
+                has_country_flag = JAP_has_cr_ship_design_cv_ryuho
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_[JAP_ai_navy_text_escort_carrier_hull]
+                    equipment_variant = "[JAP_ai_navy_text_escort_carrier_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_escort_carrier_hull = "[GetJAP_ai_navy_escort_carrier_hull]"
+            JAP_ai_navy_text_escort_carrier_variant = "[GetJAP_ai_navy_escort_carrier_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_standard_battleship = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_bb_nagato
+                has_country_flag = JAP_has_cr_ship_design_bb_kaga
+                has_country_flag = JAP_has_cr_ship_design_bb_musashi
+                has_country_flag = JAP_has_cr_ship_design_bb_yamato
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_heavy_[JAP_ai_navy_text_standard_battleship_hull]
+                    equipment_variant = "[JAP_ai_navy_text_standard_battleship_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_standard_battleship_hull = "[GetJAP_ai_navy_standard_battleship_hull]"
+            JAP_ai_navy_text_standard_battleship_variant = "[GetJAP_ai_navy_standard_battleship_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_super_heavy_battleship = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_bb_tsushima
+                has_country_flag = JAP_has_cr_ship_design_bb_owari
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_super_heavy_[JAP_ai_navy_text_super_heavy_battleship_hull]
+                    equipment_variant = "[JAP_ai_navy_text_super_heavy_battleship_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_super_heavy_battleship_hull = "[GetJAP_ai_navy_super_heavy_battleship_hull]"
+            JAP_ai_navy_text_super_heavy_battleship_variant = "[GetJAP_ai_navy_super_heavy_battleship_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_torpedo_cruiser = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_clt_kitakami
+                has_country_flag = JAP_has_cr_ship_design_clt_ooi
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_[JAP_ai_navy_text_torpedo_cruiser_hull]
+                    equipment_variant = "[JAP_ai_navy_text_torpedo_cruiser_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_torpedo_cruiser_hull = "[GetJAP_ai_navy_torpedo_cruiser_hull]"
+            JAP_ai_navy_text_torpedo_cruiser_variant = "[GetJAP_ai_navy_torpedo_cruiser_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_standard_heavy_cruiser = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_ca_aoba
+                has_country_flag = JAP_has_cr_ship_design_ca_unzen
+                has_country_flag = JAP_has_cr_ship_design_ca_azuma
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_cruiser_[JAP_ai_navy_text_standard_heavy_cruiser_hull]
+                    equipment_variant = "[JAP_ai_navy_text_standard_heavy_cruiser_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_standard_heavy_cruiser_hull = "[GetJAP_ai_navy_standard_heavy_cruiser_hull]"
+            JAP_ai_navy_text_standard_heavy_cruiser_variant = "[GetJAP_ai_navy_standard_heavy_cruiser_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_shield_light_cruiser = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cl_ota
+                has_country_flag = JAP_has_cr_ship_design_cl_kikuchi
+                has_country_flag = JAP_has_cr_ship_design_cl_naruse
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_cruiser_[JAP_ai_navy_text_shield_light_cruiser_hull]
+                    equipment_variant = "[JAP_ai_navy_text_shield_light_cruiser_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_shield_light_cruiser_hull = "[GetJAP_ai_navy_shield_light_cruiser_hull]"
+            JAP_ai_navy_text_shield_light_cruiser_variant = "[GetJAP_ai_navy_shield_light_cruiser_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_raiding_light_cruiser = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cl_sendai
+                has_country_flag = JAP_has_cr_ship_design_cl_sakawa
+                has_country_flag = JAP_has_cr_ship_design_cl_suzuka
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_cruiser_[JAP_ai_navy_text_raiding_light_cruiser_hull]
+                    equipment_variant = "[JAP_ai_navy_text_raiding_light_cruiser_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_raiding_light_cruiser_hull = "[GetJAP_ai_navy_raiding_light_cruiser_hull]"
+            JAP_ai_navy_text_raiding_light_cruiser_variant = "[GetJAP_ai_navy_raiding_light_cruiser_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_task_light_cruiser = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cl_yubari
+                has_country_flag = JAP_has_cr_ship_design_cl_shimanto
+                has_country_flag = JAP_has_cr_ship_design_cl_noshiro
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_cruiser_[JAP_ai_navy_text_task_light_cruiser_hull]
+                    equipment_variant = "[JAP_ai_navy_text_task_light_cruiser_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_task_light_cruiser_hull = "[GetJAP_ai_navy_task_light_cruiser_hull]"
+            JAP_ai_navy_text_task_light_cruiser_variant = "[GetJAP_ai_navy_task_light_cruiser_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_patrol_light_cruiser = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cl_komaru
+                has_country_flag = JAP_has_cr_ship_design_cl_yoshino
+                has_country_flag = JAP_has_cr_ship_design_cl_jiraiya
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_cruiser_[JAP_ai_navy_text_patrol_light_cruiser_hull]
+                    equipment_variant = "[JAP_ai_navy_text_patrol_light_cruiser_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_patrol_light_cruiser_hull = "[GetJAP_ai_navy_patrol_light_cruiser_hull]"
+            JAP_ai_navy_text_patrol_light_cruiser_variant = "[GetJAP_ai_navy_patrol_light_cruiser_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_shield_destroyer = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_dd_yugumo
+                has_country_flag = JAP_has_cr_ship_design_dd_kazagumo_shield
+                has_country_flag = JAP_has_cr_ship_design_dd_aogumo
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_light_[JAP_ai_navy_text_shield_destroyer_hull]
+                    equipment_variant = "[JAP_ai_navy_text_shield_destroyer_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_shield_destroyer_hull = "[GetJAP_ai_navy_shield_destroyer_hull]"
+            JAP_ai_navy_text_shield_destroyer_variant = "[GetJAP_ai_navy_shield_destroyer_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_escort_destroyer = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_dd_mutsuki_asw
+                has_country_flag = JAP_has_cr_ship_design_dd_akizuki_asw
+                has_country_flag = JAP_has_cr_ship_design_dd_minazuki_asw
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_light_[JAP_ai_navy_text_escort_destroyer_hull]
+                    equipment_variant = "[JAP_ai_navy_text_escort_destroyer_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_escort_destroyer_hull = "[GetJAP_ai_navy_escort_destroyer_hull]"
+            JAP_ai_navy_text_escort_destroyer_variant = "[GetJAP_ai_navy_escort_destroyer_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_strike_destroyer = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_dd_yukikaze
+                has_country_flag = JAP_has_cr_ship_design_dd_shimakaze
+                has_country_flag = JAP_has_cr_ship_design_dd_shiokaze
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_light_[JAP_ai_navy_text_strike_destroyer_hull]
+                    equipment_variant = "[JAP_ai_navy_text_strike_destroyer_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_strike_destroyer_hull = "[GetJAP_ai_navy_strike_destroyer_hull]"
+            JAP_ai_navy_text_strike_destroyer_variant = "[GetJAP_ai_navy_strike_destroyer_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_screen_destroyer = {
+    JAP_ai_navy_create_one_strike_destroyer = yes
+}
+
+JAP_ai_navy_create_one_submarine = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_ss_i19
+                has_country_flag = JAP_has_cr_ship_design_ss_i13
+                has_country_flag = JAP_has_cr_ship_design_ss_i16
+            }
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_[JAP_ai_navy_text_submarine_hull]
+                    equipment_variant = "[JAP_ai_navy_text_submarine_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_submarine_hull = "[GetJAP_ai_navy_submarine_hull]"
+            JAP_ai_navy_text_submarine_variant = "[GetJAP_ai_navy_submarine_variant]"
+        }
+    }
+}
+
+JAP_ai_navy_create_one_carrier_submarine = {
+    if = {
+        limit = {
+            has_country_flag = JAP_has_cr_ship_design_ss_i404
+        }
+        meta_effect = {
+            text = {
+                create_ship = {
+                    type = ship_hull_[JAP_ai_navy_text_carrier_submarine_hull]
+                    equipment_variant = "[JAP_ai_navy_text_carrier_submarine_variant]"
+                    creator = ROOT
+                }
+            }
+            JAP_ai_navy_text_carrier_submarine_hull = "[GetJAP_ai_navy_carrier_submarine_hull]"
+            JAP_ai_navy_text_carrier_submarine_variant = "[GetJAP_ai_navy_carrier_submarine_variant]"
+        }
+    }
+}
+
+### Batch helpers
+JAP_ai_navy_create_formal_carrier_batch_2 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 2 }
+        }
+        JAP_ai_navy_create_one_formal_carrier = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_mega_carrier_batch_1 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 1 }
+        }
+        JAP_ai_navy_create_one_mega_carrier = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_escort_carrier_batch_1 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 1 }
+        }
+        JAP_ai_navy_create_one_escort_carrier = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_standard_battleship_batch_2 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 2 }
+        }
+        JAP_ai_navy_create_one_standard_battleship = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_super_heavy_battleship_batch_1 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 1 }
+        }
+        JAP_ai_navy_create_one_super_heavy_battleship = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_super_heavy_battleship_batch_5 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 5 }
+        }
+        JAP_ai_navy_create_one_super_heavy_battleship = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_torpedo_cruiser_batch_3 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 3 }
+        }
+        JAP_ai_navy_create_one_torpedo_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_torpedo_cruiser_batch_4 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 4 }
+        }
+        JAP_ai_navy_create_one_torpedo_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_standard_heavy_cruiser_batch_1 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 1 }
+        }
+        JAP_ai_navy_create_one_standard_heavy_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_raiding_light_cruiser_batch_2 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 2 }
+        }
+        JAP_ai_navy_create_one_raiding_light_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_task_light_cruiser_batch_10 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 10 }
+        }
+        JAP_ai_navy_create_one_task_light_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_task_light_cruiser_batch_14 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 14 }
+        }
+        JAP_ai_navy_create_one_task_light_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_shield_light_cruiser_batch_5 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 5 }
+        }
+        JAP_ai_navy_create_one_shield_light_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_shield_light_cruiser_batch_6 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 6 }
+        }
+        JAP_ai_navy_create_one_shield_light_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_strike_destroyer_batch_3 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 3 }
+        }
+        JAP_ai_navy_create_one_strike_destroyer = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_strike_destroyer_batch_15 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 15 }
+        }
+        JAP_ai_navy_create_one_strike_destroyer = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_strike_destroyer_batch_20 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 20 }
+        }
+        JAP_ai_navy_create_one_strike_destroyer = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_escort_destroyer_batch_3 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 3 }
+        }
+        JAP_ai_navy_create_one_escort_destroyer = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_submarine_batch_6 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 6 }
+        }
+        JAP_ai_navy_create_one_submarine = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_carrier_submarine_batch_4 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 4 }
+        }
+        JAP_ai_navy_create_one_carrier_submarine = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+### Package helpers
+JAP_ai_navy_grant_kido_butai_carrier_air_support = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
+            }
+        }
+        JAP_ai_extra_air_equipment_grant_cv_fighter_unit = yes
+        JAP_ai_extra_air_equipment_grant_cv_fighter_unit = yes
+    }
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
+            }
+        }
+        JAP_ai_extra_air_equipment_grant_cv_naval_bomber_unit = yes
+        JAP_ai_extra_air_equipment_grant_cv_naval_bomber_unit = yes
+    }
+}
+
+JAP_ai_navy_pkg_kido_butai = {
+    JAP_ai_navy_create_formal_carrier_batch_2 = yes
+    JAP_ai_navy_create_standard_battleship_batch_2 = yes
+    JAP_ai_navy_create_super_heavy_battleship_batch_1 = yes
+    JAP_ai_navy_create_torpedo_cruiser_batch_3 = yes
+    JAP_ai_navy_create_task_light_cruiser_batch_10 = yes
+    JAP_ai_navy_create_shield_light_cruiser_batch_5 = yes
+    JAP_ai_navy_create_strike_destroyer_batch_15 = yes
+    JAP_ai_navy_grant_kido_butai_carrier_air_support = yes
+    add_to_variable = { JAP_ai_navy_granted_kido_butai_packages = 1 }
+}
+
+JAP_ai_navy_grant_mega_kido_butai_air_support = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_2
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_3
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_4
+            }
+        }
+        JAP_ai_extra_air_equipment_grant_maritime_patrol_plane_unit = yes
+        JAP_ai_extra_air_equipment_grant_maritime_patrol_plane_unit = yes
+    }
+    if = {
+        limit = { has_country_flag = JAP_has_cr_mothership_equipment_0 }
+        JAP_ai_extra_air_equipment_grant_mothership_unit = yes
+        JAP_ai_extra_air_equipment_grant_mothership_unit = yes
+    }
+}
+
+JAP_ai_navy_pkg_mega_kido_butai = {
+    JAP_ai_navy_create_mega_carrier_batch_1 = yes
+    JAP_ai_navy_create_super_heavy_battleship_batch_5 = yes
+    JAP_ai_navy_create_torpedo_cruiser_batch_4 = yes
+    JAP_ai_navy_create_task_light_cruiser_batch_14 = yes
+    JAP_ai_navy_create_shield_light_cruiser_batch_6 = yes
+    JAP_ai_navy_create_strike_destroyer_batch_20 = yes
+    JAP_ai_navy_grant_mega_kido_butai_air_support = yes
+    add_to_variable = { JAP_ai_navy_granted_mega_kido_butai_packages = 1 }
+}
+
+JAP_ai_navy_grant_surface_small_fleet_carrier_air_support = {
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cv_ryujo
+                has_country_flag = JAP_has_cr_ship_design_cv_zuiho
+                has_country_flag = JAP_has_cr_ship_design_cv_ryuho
+            }
+            OR = {
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
+            }
+        }
+        JAP_ai_extra_air_equipment_grant_cv_fighter_unit = yes
+    }
+    if = {
+        limit = {
+            OR = {
+                has_country_flag = JAP_has_cr_ship_design_cv_ryujo
+                has_country_flag = JAP_has_cr_ship_design_cv_zuiho
+                has_country_flag = JAP_has_cr_ship_design_cv_ryuho
+            }
+            OR = {
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
+            }
+        }
+        JAP_ai_extra_air_equipment_grant_cv_naval_bomber_unit = yes
+    }
+}
+
+JAP_ai_navy_pkg_surface_small_fleet = {
+    JAP_ai_navy_create_escort_carrier_batch_1 = yes
+    JAP_ai_navy_create_standard_heavy_cruiser_batch_1 = yes
+    JAP_ai_navy_create_raiding_light_cruiser_batch_2 = yes
+    JAP_ai_navy_create_strike_destroyer_batch_3 = yes
+    JAP_ai_navy_create_escort_destroyer_batch_3 = yes
+    JAP_ai_navy_grant_surface_small_fleet_carrier_air_support = yes
+    add_to_variable = { JAP_ai_navy_granted_surface_small_fleet_packages = 1 }
+}
+
+JAP_ai_navy_pkg_sub_raiding = {
+    JAP_ai_navy_create_submarine_batch_6 = yes
+    JAP_ai_navy_create_carrier_submarine_batch_4 = yes
+    add_to_variable = { JAP_ai_navy_granted_sub_raiding_packages = 1 }
+}
+
+JAP_ai_navy_pkg_extra_destroyer_screen_batch = {
+    JAP_ai_navy_create_strike_destroyer_batch_20 = yes
+    add_to_variable = { JAP_ai_navy_granted_destroyer_screen_batches = 1 }
+}
+
+JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = {
+    JAP_ai_navy_create_task_light_cruiser_batch_10 = yes
+    JAP_ai_navy_create_shield_light_cruiser_batch_5 = yes
+    add_to_variable = { JAP_ai_navy_granted_light_cruiser_screen_batches = 1 }
+}
+
+### Exact 180-day difficulty packages
+JAP_ai_navy_grant_yearly_packages_easy = {
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    add_to_variable = { JAP_ai_navy_free_ship_cycle_count = 1 }
+}
+
+JAP_ai_navy_grant_yearly_packages_normal = {
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    add_to_variable = { JAP_ai_navy_free_ship_cycle_count = 1 }
+}
+
+JAP_ai_navy_grant_yearly_packages_hard = {
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_kido_butai = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    add_to_variable = { JAP_ai_navy_free_ship_cycle_count = 1 }
+}
+
+JAP_ai_navy_grant_yearly_packages_lunatic = {
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_kido_butai = yes
+    JAP_ai_navy_pkg_mega_kido_butai = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    add_to_variable = { JAP_ai_navy_free_ship_cycle_count = 1 }
+}
+
+JAP_ai_navy_grant_yearly_packages_extra = {
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_kido_butai = yes
+    JAP_ai_navy_pkg_mega_kido_butai = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    add_to_variable = { JAP_ai_navy_free_ship_cycle_count = 1 }
+}
+
+JAP_ai_navy_grant_yearly_packages_phantasm = {
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_sub_raiding = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_surface_small_fleet = yes
+    JAP_ai_navy_pkg_kido_butai = yes
+    JAP_ai_navy_pkg_mega_kido_butai = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_destroyer_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    JAP_ai_navy_pkg_extra_light_cruiser_screen_batch = yes
+    add_to_variable = { JAP_ai_navy_free_ship_cycle_count = 1 }
+}
+
+JAP_ai_navy_grant_yearly_packages_by_difficulty_single = {
+    if = {
+        limit = { Rance_nd_is_easy = yes }
+        JAP_ai_navy_grant_yearly_packages_easy = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_normal = yes }
+        JAP_ai_navy_grant_yearly_packages_normal = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_hard = yes }
+        JAP_ai_navy_grant_yearly_packages_hard = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_lunatic = yes }
+        JAP_ai_navy_grant_yearly_packages_lunatic = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_extra = yes }
+        JAP_ai_navy_grant_yearly_packages_extra = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_phantasm = yes }
+        JAP_ai_navy_grant_yearly_packages_phantasm = yes
+    }
+}
+
+JAP_ai_navy_grant_yearly_packages_by_difficulty = {
+    if = {
+        limit = { NOT = { has_variable = JAP_ai_dynamic_final_multiplier } }
+        JAP_ai_dynamic_grant_refresh_multipliers = yes
+    }
+    set_temp_variable = { JAP_ai_dynamic_grant_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_dynamic_grant_loop < JAP_ai_dynamic_final_multiplier }
+        }
+        JAP_ai_navy_grant_yearly_packages_by_difficulty_single = yes
+        add_to_temp_variable = { JAP_ai_dynamic_grant_loop = 1 }
+    }
+}
+
+JAP_ai_navy_ship_grant_cycle = {
+    if = {
+        limit = {
+            tag = JAP
+            Rance_is_jap_ai = yes
+            has_game_rule = {
+                rule = rance_japan_ai_navy_dynamic_supply
+                option = ENABLED
+            }
+            OR = {
+                Rance_nd_is_easy = yes
+                Rance_nd_is_normal = yes
+                Rance_nd_is_hard = yes
+                Rance_nd_is_lunatic = yes
+                Rance_nd_is_extra = yes
+                Rance_nd_is_phantasm = yes
+            }
+        }
+        JAP_ai_navy_grant_yearly_packages_by_difficulty = yes
+    }
+}

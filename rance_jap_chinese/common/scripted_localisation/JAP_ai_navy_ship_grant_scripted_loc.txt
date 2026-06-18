@@ -1,0 +1,571 @@
+# Japan AI navy free ship scripted localisation.
+# These keys feed meta_effect create_ship helpers.  Each pair returns the hull
+# suffix and equipment variant name for the best created design in that role.
+
+defined_text = {
+    name = GetJAP_ai_navy_carrier_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_hakuryu } }
+        localization_key = JAP_ai_navy_hull_suffix_modern
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_shinano } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_shokaku } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_akagi } }
+        localization_key = JAP_ai_navy_hull_suffix_1
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_carrier_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_hakuryu } }
+        localization_key = JAP_ai_navy_variant_cv_hakuryu
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_shinano } }
+        localization_key = JAP_ai_navy_variant_cv_shinano
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_shokaku } }
+        localization_key = JAP_ai_navy_variant_cv_shokaku
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_akagi } }
+        localization_key = JAP_ai_navy_variant_cv_akagi
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_mega_carrier_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_yukihou } }
+        localization_key = JAP_ai_navy_hull_suffix_mega_carrier
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_mega_carrier_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_yukihou } }
+        localization_key = JAP_ai_navy_variant_cv_yukihou
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_escort_carrier_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryuho } }
+        localization_key = JAP_ai_navy_hull_suffix_escort_carrier
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_zuiho } }
+        localization_key = JAP_ai_navy_hull_suffix_escort_carrier
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryujo } }
+        localization_key = JAP_ai_navy_hull_suffix_escort_carrier
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_escort_carrier_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryuho } }
+        localization_key = JAP_ai_navy_variant_cv_ryuho
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_zuiho } }
+        localization_key = JAP_ai_navy_variant_cv_zuiho
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryujo } }
+        localization_key = JAP_ai_navy_variant_cv_ryujo
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_standard_battleship_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_yamato } }
+        localization_key = JAP_ai_navy_hull_suffix_modern
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_musashi } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_kaga } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_nagato } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_standard_battleship_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_yamato } }
+        localization_key = JAP_ai_navy_variant_bb_yamato
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_musashi } }
+        localization_key = JAP_ai_navy_variant_bb_musashi
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_kaga } }
+        localization_key = JAP_ai_navy_variant_bb_kaga
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_nagato } }
+        localization_key = JAP_ai_navy_variant_bb_nagato
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_super_heavy_battleship_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_owari } }
+        localization_key = JAP_ai_navy_hull_suffix_1
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_tsushima } }
+        localization_key = JAP_ai_navy_hull_suffix_1
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_super_heavy_battleship_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_owari } }
+        localization_key = JAP_ai_navy_variant_bb_owari
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_bb_tsushima } }
+        localization_key = JAP_ai_navy_variant_bb_tsushima
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_torpedo_cruiser_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_clt_ooi } }
+        localization_key = JAP_ai_navy_hull_suffix_torpedo_cruiser
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_clt_kitakami } }
+        localization_key = JAP_ai_navy_hull_suffix_torpedo_cruiser
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_torpedo_cruiser_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_clt_ooi } }
+        localization_key = JAP_ai_navy_variant_clt_ooi
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_clt_kitakami } }
+        localization_key = JAP_ai_navy_variant_clt_kitakami
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_standard_heavy_cruiser_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ca_azuma } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ca_unzen } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ca_aoba } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_standard_heavy_cruiser_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ca_azuma } }
+        localization_key = JAP_ai_navy_variant_ca_azuma
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ca_unzen } }
+        localization_key = JAP_ai_navy_variant_ca_unzen
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ca_aoba } }
+        localization_key = JAP_ai_navy_variant_ca_aoba
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_shield_light_cruiser_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_naruse } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_kikuchi } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_ota } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_shield_light_cruiser_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_naruse } }
+        localization_key = JAP_ai_navy_variant_cl_naruse
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_kikuchi } }
+        localization_key = JAP_ai_navy_variant_cl_kikuchi
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_ota } }
+        localization_key = JAP_ai_navy_variant_cl_ota
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_raiding_light_cruiser_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_suzuka } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_sakawa } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_sendai } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_raiding_light_cruiser_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_suzuka } }
+        localization_key = JAP_ai_navy_variant_cl_suzuka
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_sakawa } }
+        localization_key = JAP_ai_navy_variant_cl_sakawa
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_sendai } }
+        localization_key = JAP_ai_navy_variant_cl_sendai
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_task_light_cruiser_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_noshiro } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_shimanto } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_yubari } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_task_light_cruiser_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_noshiro } }
+        localization_key = JAP_ai_navy_variant_cl_noshiro
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_shimanto } }
+        localization_key = JAP_ai_navy_variant_cl_shimanto
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_yubari } }
+        localization_key = JAP_ai_navy_variant_cl_yubari
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_patrol_light_cruiser_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_jiraiya } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_yoshino } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_komaru } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_patrol_light_cruiser_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_jiraiya } }
+        localization_key = JAP_ai_navy_variant_cl_jiraiya
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_yoshino } }
+        localization_key = JAP_ai_navy_variant_cl_yoshino
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_cl_komaru } }
+        localization_key = JAP_ai_navy_variant_cl_komaru
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_shield_destroyer_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_aogumo } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_kazagumo_shield } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_yugumo } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_shield_destroyer_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_aogumo } }
+        localization_key = JAP_ai_navy_variant_dd_aogumo
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_kazagumo_shield } }
+        localization_key = JAP_ai_navy_variant_dd_kazagumo_shield
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_yugumo } }
+        localization_key = JAP_ai_navy_variant_dd_yugumo
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_escort_destroyer_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_minazuki_asw } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_akizuki_asw } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_mutsuki_asw } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_escort_destroyer_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_minazuki_asw } }
+        localization_key = JAP_ai_navy_variant_dd_minazuki_asw
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_akizuki_asw } }
+        localization_key = JAP_ai_navy_variant_dd_akizuki_asw
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_mutsuki_asw } }
+        localization_key = JAP_ai_navy_variant_dd_mutsuki_asw
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_strike_destroyer_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_shiokaze } }
+        localization_key = JAP_ai_navy_hull_suffix_4
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_shimakaze } }
+        localization_key = JAP_ai_navy_hull_suffix_3
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_yukikaze } }
+        localization_key = JAP_ai_navy_hull_suffix_2
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_strike_destroyer_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_shiokaze } }
+        localization_key = JAP_ai_navy_variant_dd_shiokaze
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_shimakaze } }
+        localization_key = JAP_ai_navy_variant_dd_shimakaze
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_dd_yukikaze } }
+        localization_key = JAP_ai_navy_variant_dd_yukikaze
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_submarine_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i16 } }
+        localization_key = JAP_ai_navy_hull_suffix_fleet_submarine
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i13 } }
+        localization_key = JAP_ai_navy_hull_suffix_fleet_submarine
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i19 } }
+        localization_key = JAP_ai_navy_hull_suffix_cruiser_submarine
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_submarine_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i16 } }
+        localization_key = JAP_ai_navy_variant_ss_i16
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i13 } }
+        localization_key = JAP_ai_navy_variant_ss_i13
+    }
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i19 } }
+        localization_key = JAP_ai_navy_variant_ss_i19
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_carrier_submarine_hull
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i404 } }
+        localization_key = JAP_ai_navy_hull_suffix_carrier_submarine
+    }
+}
+
+defined_text = {
+    name = GetJAP_ai_navy_carrier_submarine_variant
+
+    text = {
+        trigger = { JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i404 } }
+        localization_key = JAP_ai_navy_variant_ss_i404
+    }
+}

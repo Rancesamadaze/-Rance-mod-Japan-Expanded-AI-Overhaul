@@ -1,0 +1,174 @@
+﻿
+
+
+
+
+#AIRCRAFT
+air_wings = {
+	# --- Tokyo (Tokyo - ID: 282) ---
+    # 总计：300 战斗机 / 100 CAS
+    282 = {
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 Type 97 Fighter" }
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 Type 97 Fighter" }
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 Type 97 Fighter" }
+        
+        small_plane_cas_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-32 Type 98 Light Bomber" }
+    }
+
+    # --- 大连 (Dalian - ID: 716) ---
+    # 总计：150 战斗机 / 50 CAS
+    716 = {
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 Type 97 Fighter" }
+        small_plane_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-27 Type 97 Fighter" }
+        
+        small_plane_cas_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-32 Type 98 Light Bomber" }
+    }
+
+    # --- 台湾 (Taiwan - ID: 524) ---
+    # 总计：150 战斗机 / 50 CAS
+    524 = {
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 Type 97 Fighter" }
+        small_plane_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-27 Type 97 Fighter" }
+        
+        small_plane_cas_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-32 Type 98 Light Bomber" }
+    }
+	"Akagi" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Kaga" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Soryu" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Hiryu" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+	# 巡逻与护航部队 - 护航航母
+    "Hosho" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Zuiho" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Shoho" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Chitose" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+    "Chiyoda" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M Type 96 Carrier Fighter" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N Type 97 Carrier Attack Aircraft" }
+    }
+	
+}
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+instant_effect = {
+    # 1. 陆军战斗机：Ki-27 Type 97 Fighter
+    add_equipment_production = {
+        equipment = {
+            type = small_plane_airframe_1
+            creator = JAP 
+            version_name = "Ki-27 Type 97 Fighter"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_mitsubishi_organization
+    }
+
+    # 2. 陆军袭击机 (CAS)：Ki-32 Type 98 Light Bomber
+    add_equipment_production = {
+        equipment = {
+            type = small_plane_cas_airframe_1
+            creator = JAP 
+            version_name = "Ki-32 Type 98 Light Bomber"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_tachikawa_aircraft_company_organization
+    }
+
+    # 3. 舰载战斗机：A5M Type 96 Carrier Fighter
+    add_equipment_production = {
+        equipment = {
+            type = cv_small_plane_airframe_1
+            creator = JAP 
+            version_name = "A5M Type 96 Carrier Fighter"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_yokosuka_organization
+    }
+
+    # 4. 舰载攻击机 (舰攻)：B5N Type 97 Carrier Attack Aircraft
+    add_equipment_production = {
+        equipment = {
+            type = cv_small_plane_naval_bomber_airframe_1
+            creator = JAP 
+            version_name = "B5N Type 97 Carrier Attack Aircraft"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_yokosuka_organization
+    }
+}

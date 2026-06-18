@@ -1,0 +1,79 @@
+## 日本 AI 通用建筑运营比例触发器
+
+JAP_ai_buildings_has_industrial_complex_slot = {
+	any_controlled_state = {
+		is_core_of = ROOT
+		is_fully_controlled_by = ROOT
+		infrastructure > 4
+		free_building_slots = {
+			building = industrial_complex
+			size > 0
+			include_locked = yes
+		}
+	}
+}
+
+JAP_ai_buildings_has_dockyard_slot = {
+	any_controlled_state = {
+		is_core_of = ROOT
+		is_fully_controlled_by = ROOT
+		is_coastal = yes
+		free_building_slots = {
+			building = dockyard
+			size > 0
+			include_locked = yes
+		}
+	}
+}
+
+JAP_ai_buildings_industrial_complex_low = {
+	check_variable = { num_of_military_factories > 0 }
+	set_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_civilian_factories
+	}
+	divide_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_military_factories
+	}
+	check_variable = { JAP_ai_building_ratio < 0.18 }
+}
+
+JAP_ai_buildings_industrial_complex_high = {
+	check_variable = { num_of_military_factories > 0 }
+	set_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_civilian_factories
+	}
+	divide_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_military_factories
+	}
+	check_variable = { JAP_ai_building_ratio > 0.30 }
+}
+
+JAP_ai_buildings_dockyard_low = {
+	check_variable = { num_of_military_factories > 0 }
+	set_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_naval_factories
+	}
+	divide_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_military_factories
+	}
+	check_variable = { JAP_ai_building_ratio < 0.15 }
+}
+
+JAP_ai_buildings_dockyard_high = {
+	check_variable = { num_of_military_factories > 0 }
+	set_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_naval_factories
+	}
+	divide_temp_variable = {
+		var = JAP_ai_building_ratio
+		value = num_of_military_factories
+	}
+	check_variable = { JAP_ai_building_ratio > 0.30 }
+}

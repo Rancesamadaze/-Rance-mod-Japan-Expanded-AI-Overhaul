@@ -1,0 +1,1202 @@
+## 皇道派外交 AI
+##
+## 路线判定规则：
+## - 本文件用于皇道派专属外交策略。
+## - `allowed` 只做粗筛，例如国家 tag、original_tag、是否需要反向策略等。
+## - 皇道派路线判定统一写在 `enable` 中，调用现成 scripted trigger：
+##
+##   Rance_is_jap_kodoha_ai = yes
+##
+## - 不要在本文件反复展开 `JAP_AI_RANDOM_NEUTRALITY` 或 `JAP_ai_behavior = NEUTRALITY`。
+##   如果皇道派路线判定未来变化，优先维护 `common/scripted_triggers/JAP_rework_scripted_triggers.txt`
+##   中的 `Rance_is_jap_kodoha_ai`。
+## - 写外交策略前先参考：
+##   `common/ai_strategy/AI_Strategy_Reference/AI_diplomacy_strategy_reference.md`
+##
+## 日本自身策略模板：
+##
+## JAP_kodoha_example_strategy = {
+## 	allowed = {
+## 		original_tag = JAP
+## 	}
+## 	enable = {
+## 		Rance_is_jap_kodoha_ai = yes
+## 	}
+## 	abort_when_not_enabled = yes
+##
+## 	ai_strategy = {
+## 		type = alliance
+## 		id = TARGET
+## 		value = 300
+## 	}
+## }
+
+## 
+## 其他国家对皇道派日本的镜像策略模板：
+## 
+## TAG_kodoha_japan_example_strategy = {
+## 	allowed = {
+## 		tag = TAG
+## 	}
+## 	enable = {
+## 		JAP = {
+## 			Rance_is_jap_kodoha_ai = yes
+## 		}
+## 	}
+## 	abort_when_not_enabled = yes
+##
+## 	ai_strategy = {
+## 		type = alliance
+## 		id = JAP
+## 		value = 300
+## 	}
+## }
+
+## 实际策略
+
+## 基础亲德：皇道派日本应主动加入德国领导的轴心国。
+JAP_kodoha_join_axis_germany_basic = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		country_exists = GER
+		GER = {
+			has_government = fascism
+			NOT = { has_war_with = JAP }
+		}
+		NOT = { has_war_with = GER }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = GER
+		value = 5000
+	}
+	ai_strategy = {
+		type = support
+		id = GER
+		value = 300
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = GER
+		value = 500
+	}
+}
+
+## 基础亲意：皇道派日本应把法西斯意大利视作轴心友方，但不让意大利优先于德国成为入阵营方向。
+JAP_kodoha_axis_italy_basic = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		country_exists = ITA
+		ITA = {
+			has_government = fascism
+			NOT = { has_war_with = JAP }
+			OR = {
+				is_in_faction_with = GER
+				is_in_faction = no
+			}
+		}
+		NOT = { has_war_with = ITA }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = ITA
+		value = 2500
+	}
+	ai_strategy = {
+		type = support
+		id = ITA
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ITA
+		value = 300
+	}
+}
+
+## 德国反向亲日：抵消兼容 MOD 中德国对日本的敌意，确保德国愿意接纳皇道派日本加入轴心国。
+GER_kodoha_japan_axis_friend_basic = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		has_government = fascism
+		country_exists = JAP
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+			NOT = { has_war_with = GER }
+		}
+		NOT = { has_war_with = JAP }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = 5000
+	}
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 5000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		value = 5000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = -5000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 5000
+	}
+}
+
+## 意大利反向亲日：抵消兼容 MOD 中意大利对日本的敌意，确保轴心内部对皇道派日本保持高友好倾向。
+ITA_kodoha_japan_axis_friend_basic = {
+	allowed = {
+		tag = ITA
+	}
+	enable = {
+		has_government = fascism
+		country_exists = JAP
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+			NOT = { has_war_with = ITA }
+		}
+		NOT = { has_war_with = JAP }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = 5000
+	}
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = 5000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		value = 5000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = -5000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = 5000
+	}
+}
+
+## 永久拒绝盟友战争牵连：皇道派日本不主动加入任何盟友战争，也不响应任何盟友的 call_allies。
+JAP_kodoha_reject_all_ally_war_calls = {
+	allowed = {
+		always = yes
+	}
+	reversed = yes
+	enable = {
+		has_war = yes
+		is_in_faction_with = JAP
+		NOT = { tag = JAP }
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		target = call_allies
+		value = -99999
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = JAP
+		target = join_allies
+		value = -99999
+	}
+}
+
+## 南进论后即时备战：本 MOD 国策时间较短，完成南进论后立刻预判暹罗与南方殖民体系。
+JAP_kodoha_nanshin_siam_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = SIA
+		NOT = { has_war_with = SIA }
+		SIA = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = SIA
+		value = 200
+	}
+}
+
+JAP_kodoha_nanshin_eng_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = ENG
+		NOT = { has_war_with = ENG }
+		ENG = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = ENG
+		value = 100
+	}
+}
+
+JAP_kodoha_nanshin_raj_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = RAJ
+		NOT = { has_war_with = RAJ }
+		RAJ = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = RAJ
+		value = 100
+	}
+}
+
+JAP_kodoha_nanshin_brm_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = BRM
+		NOT = { has_war_with = BRM }
+		BRM = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = BRM
+		value = 100
+	}
+}
+
+JAP_kodoha_nanshin_mal_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = MAL
+		NOT = { has_war_with = MAL }
+		MAL = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = MAL
+		value = 100
+	}
+}
+
+JAP_kodoha_nanshin_fra_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = FRA
+		NOT = { has_war_with = FRA }
+		FRA = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = FRA
+		value = 100
+	}
+}
+
+JAP_kodoha_nanshin_vic_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = VIC
+		NOT = { has_war_with = VIC }
+		VIC = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = VIC
+		value = 100
+	}
+}
+
+JAP_kodoha_nanshin_hol_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = HOL
+		NOT = { has_war_with = HOL }
+		HOL = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = HOL
+		value = 50
+	}
+}
+
+JAP_kodoha_nanshin_ins_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = INS
+		NOT = { has_war_with = INS }
+		INS = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = INS
+		value = 50
+	}
+}
+
+JAP_kodoha_nanshin_por_prepare = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = POR
+		NOT = { has_war_with = POR }
+		POR = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = POR
+		value = 50
+	}
+}
+
+## 太平洋战争目标放行前压制对美菲侵略：避免延后窗口内因其它战争目标误触发太平洋战争。
+JAP_kodoha_suppress_usa_aggression_before_pacific_wargoals_release = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+		NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag }
+		NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_released_flag }
+		country_exists = USA
+		NOT = { is_in_faction_with = USA }
+		NOT = { has_war_with = USA }
+		USA = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = USA
+		value = -800
+	}
+	ai_strategy = {
+		type = conquer
+		id = USA
+		value = -800
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = USA
+		value = -800
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = USA
+		value = -800
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = USA
+		target = declare_war
+		value = -800
+	}
+	ai_strategy = {
+		type = declare_war
+		id = USA
+		value = -800
+	}
+}
+
+JAP_kodoha_suppress_phi_aggression_before_pacific_wargoals_release = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+		NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag }
+		NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_released_flag }
+		country_exists = PHI
+		NOT = { is_in_faction_with = PHI }
+		NOT = { has_war_with = PHI }
+		PHI = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = PHI
+		value = -800
+	}
+	ai_strategy = {
+		type = conquer
+		id = PHI
+		value = -800
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = PHI
+		value = -800
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = PHI
+		value = -800
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = PHI
+		target = declare_war
+		value = -800
+	}
+	ai_strategy = {
+		type = declare_war
+		id = PHI
+		value = -800
+	}
+}
+
+## 太平洋战争目标准备期对美国备战：大本营批准后立刻预热，但战争目标仍等待30天读条完成。
+JAP_kodoha_prepare_usa_during_pacific_wargoal_preparation = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+		has_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag
+		NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_released_flag }
+		country_exists = USA
+		NOT = { is_in_faction_with = USA }
+		NOT = { has_war_with = USA }
+		USA = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = USA
+		value = 200
+	}
+}
+
+## 太平洋战争目标准备期对菲律宾备战：若菲律宾存在，准备期内同步预热登陆与开战部署。
+JAP_kodoha_prepare_phi_during_pacific_wargoal_preparation = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+		has_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag
+		NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_released_flag }
+		country_exists = PHI
+		NOT = { is_in_faction_with = PHI }
+		NOT = { has_war_with = PHI }
+		PHI = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = PHI
+		value = 200
+	}
+}
+
+## 太平洋战争目标放行后对菲律宾开战：若皇道派日本未与美国同阵营且尚未对美开战，则推动清理菲律宾战线。
+JAP_kodoha_attack_phi_after_1941_6_if_not_aligned_with_usa = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		OR = {
+			has_country_flag = JAP_kodoha_pacific_wargoals_released_flag
+			has_wargoal_against = PHI
+		}
+		country_exists = USA
+		NOT = { is_in_faction_with = USA }
+		NOT = { has_war_with = USA }
+		country_exists = PHI
+		NOT = { has_war_with = PHI }
+		PHI = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = PHI
+		value = 2500
+	}
+	ai_strategy = {
+		type = conquer
+		id = PHI
+		value = 2500
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = PHI
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = PHI
+		value = 200
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = PHI
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = PHI
+		value = 500
+	}
+}
+
+## 太平洋战争目标放行后对美国开战：若皇道派日本未与美国同阵营且尚未对美开战，则推动太平洋战争启动。
+JAP_kodoha_attack_usa_after_1941_6_if_not_aligned_with_usa = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		OR = {
+			has_country_flag = JAP_kodoha_pacific_wargoals_released_flag
+			has_wargoal_against = USA
+			has_wargoal_against = PHI
+		}
+		country_exists = USA
+		NOT = { is_in_faction_with = USA }
+		NOT = { has_war_with = USA }
+		USA = {
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = USA
+		value = 2500
+	}
+	ai_strategy = {
+		type = conquer
+		id = USA
+		value = 2500
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = USA
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = USA
+		value = 200
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = USA
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = USA
+		value = 500
+	}
+}
+
+## 对华战争隔离德国：皇道派日本与中国作战时，不主动召唤德国，也不接受德国主动加入。
+JAP_kodoha_keep_germany_out_of_china_war = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_war_with = CHI
+		country_exists = GER
+		GER = {
+			has_government = fascism
+			NOT = { has_war_with = CHI }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = GER
+		target = call_allies
+		value = -99999
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = GER
+		target = join_allies
+		value = -99999
+	}
+}
+
+## 对华战争期间压制非中国宣战：皇道派日本与中国交战时，不主动对中国势力以外国家开新战。
+JAP_kodoha_china_war_suppress_non_chinese_declarations = {
+	reversed = yes
+	enable = {
+		country_exists = JAP
+		JAP = {
+			any_enemy_country = {
+				is_literally_china = yes
+				has_capitulated = no
+			}
+		}
+		NOT = { is_literally_china = yes }
+		NOT = { tag = JAP }
+		has_capitulated = no
+		NOT = { has_war_with = JAP }
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+		}
+	}
+	abort = {
+		OR = {
+			NOT = { country_exists = JAP }
+			AND = {
+				country_exists = JAP
+				JAP = {
+					NOT = {
+						any_enemy_country = {
+							is_literally_china = yes
+							has_capitulated = no
+						}
+					}
+				}
+			}
+			is_literally_china = yes
+			tag = JAP
+			has_capitulated = yes
+			has_war_with = JAP
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = JAP
+		target = declare_war
+		value = -99999
+	}
+	ai_strategy = {
+		type = declare_war
+		id = JAP
+		value = -99999
+	}
+	ai_strategy = {
+		type = conquer
+		id = JAP
+		value = -2000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = -2000
+	}
+}
+
+## 德国不援助中国：皇道派日本路线下，德国不应给中国派遣志愿军。
+GER_kodoha_no_volunteers_to_china = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		has_government = fascism
+		country_exists = JAP
+		country_exists = CHI
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+		}
+		CHI = {
+			has_war = yes
+			has_capitulated = no
+			NOT = { has_war_with = GER }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI
+		value = -5000
+	}
+}
+
+## 意大利不援助中国：皇道派日本路线下，意大利不应给中国派遣志愿军。
+ITA_kodoha_no_volunteers_to_china = {
+	allowed = {
+		tag = ITA
+	}
+	enable = {
+		has_government = fascism
+		country_exists = JAP
+		country_exists = CHI
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+		}
+		CHI = {
+			has_war = yes
+			has_capitulated = no
+			NOT = { has_war_with = ITA }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI
+		value = -5000
+	}
+}
+
+## 不援助埃塞俄比亚：皇道派日本不应为埃塞俄比亚消耗志愿军和装备。
+JAP_kodoha_no_volunteers_to_ethiopia = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		country_exists = ETH
+		ETH = {
+			has_war = yes
+			has_capitulated = no
+			NOT = { has_war_with = JAP }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ETH
+		value = -5000
+	}
+}
+
+## 基础对华不合作：皇道派日本不应与中国势力合作，但此处不直接推动宣战。
+JAP_kodoha_china_basic_non_cooperation = {
+	reversed = yes
+	enable = {
+		is_literally_china = yes
+		NOT = { has_war_with = JAP }
+		country_exists = JAP
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = -5000
+	}
+	ai_strategy = {
+		type = support
+		id = JAP
+		value = -2000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = JAP
+		value = -5000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = -5000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = 300
+	}
+}
+
+## 建立蒙古军政府后对华备战：皇道派日本应在正式侵华国策前开始对中国势力备战，交战后废止。
+JAP_kodoha_china_after_mongol_military_government_prepare = {
+	reversed = yes
+	enable = {
+		is_literally_china = yes
+		has_capitulated = no
+		country_exists = JAP
+		NOT = { has_war_with = JAP }
+		NOT = { is_in_faction_with = JAP }
+		NOT = { is_subject_of = JAP }
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+			has_completed_focus = JAP_establish_mongol_military_government
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = JAP
+		value = 200
+	}
+}
+
+## 加强冀东驻军后对华战争：皇道派日本完成该国策后应正式推动侵华。
+JAP_kodoha_china_after_beijing_garrison_invasion = {
+	reversed = yes
+	enable = {
+		is_literally_china = yes
+		has_capitulated = no
+		country_exists = JAP
+		NOT = { has_war_with = JAP }
+		NOT = { is_in_faction_with = JAP }
+		NOT = { is_subject_of = JAP }
+	}
+	enable_reverse = {
+		JAP = {
+			Rance_is_jap_kodoha_ai = yes
+			has_completed_focus = JAP_reinforce_the_beijing_garrison
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = JAP
+		value = 2500
+	}
+	ai_strategy = {
+		type = conquer
+		id = JAP
+		value = 2500
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = JAP
+		value = 500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = JAP
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = JAP
+		value = 500
+	}
+}
+
+## 有对暹罗宣战目标时直接推动开战：暹罗是弱国，不额外绑定战区或排队条件。
+JAP_kodoha_attack_siam_when_wargoal_ready = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		country_exists = SIA
+		has_wargoal_against = SIA
+		NOT = { has_war_with = SIA }
+		SIA = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = SIA
+		value = 500
+	}
+	ai_strategy = {
+		type = conquer
+		id = SIA
+		value = 500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = SIA
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = SIA
+		value = 500
+	}
+}
+
+## 有对西藏宣战目标时直接推动开战：只做基础有效性检查。
+JAP_kodoha_attack_tibet_when_wargoal_ready = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		country_exists = TIB
+		has_wargoal_against = TIB
+		NOT = { has_war_with = TIB }
+		TIB = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = TIB
+		value = 500
+	}
+	ai_strategy = {
+		type = conquer
+		id = TIB
+		value = 500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = TIB
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = TIB
+		value = 500
+	}
+}
+
+JAP_kodoha_attack_bhutan_when_wargoal_ready = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+			has_completed_focus = JAP_sea_purge_the_kodoha_faction
+		}
+		country_exists = BHU
+		has_wargoal_against = BHU
+		NOT = { has_war_with = BHU }
+		BHU = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = BHU
+		value = 500
+	}
+	ai_strategy = {
+		type = conquer
+		id = BHU
+		value = 500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = BHU
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = BHU
+		value = 500
+	}
+}
+
+JAP_kodoha_attack_nepal_when_wargoal_ready = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+			has_completed_focus = JAP_sea_purge_the_kodoha_faction
+		}
+		country_exists = NEP
+		has_wargoal_against = NEP
+		NOT = { has_war_with = NEP }
+		NEP = {
+			has_capitulated = no
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = NEP
+		value = 500
+	}
+	ai_strategy = {
+		type = conquer
+		id = NEP
+		value = 500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = NEP
+		target = declare_war
+		value = 500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = NEP
+		value = 500
+	}
+}

@@ -1,0 +1,103 @@
+############海军
+Rance_jap_navy_defult = {
+    allowed = {
+        tag = JAP
+    } 
+    enable = {
+        always = yes
+    }
+    
+    abort = {
+        always = no
+    }
+
+    # --- 航空母舰类 (Carriers) ---
+    ai_strategy = {
+        type = role_ratio
+        id = rance_carrier
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_mega_carrier
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_escort_carrier
+        value = 50
+    }
+
+    # --- 战列舰类 (Battleships) ---
+    ai_strategy = {
+        type = role_ratio
+        id = rance_bb
+        value = 150
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_super_bb
+        value = 150
+    }
+
+    # --- 巡洋舰类 (Cruisers) ---
+    ai_strategy = {
+        type = role_ratio
+        id = rance_clt
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_ca
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_shield_cl
+        value = 150
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_strike_cl
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_task_cl
+        value = 300
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_patrol_cl
+        value = 50
+    }
+
+    # --- 驱逐舰类 (Destroyers) ---
+    ai_strategy = {
+        type = role_ratio
+        id = rance_shield_dd
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_escort_dd
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_strike_dd
+        value = 200
+    }
+
+    # --- 潜艇类 (Submarines) ---
+    ai_strategy = {
+        type = role_ratio
+        id = rance_ss
+        value = 100
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = rance_ss_cv
+        value = 100
+    }
+}

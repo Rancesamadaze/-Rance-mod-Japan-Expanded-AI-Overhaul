@@ -1,0 +1,987 @@
+#轻型战斗机
+JAP_light_fighters = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_fighter
+    }
+
+    priority = {
+        factor = 3333
+    }
+
+    # 第一代：Ki-27 九七式战斗机
+    JAP_fighter_ki27 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                OR = {
+                    has_tech = improved_small_airframe
+                }
+            }
+        }
+        
+        target_variant = {
+            match_value = 10000
+            type = small_plane_airframe_1
+            
+            modules = {
+                engine_type_slot = engine_2_1x
+                fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+                fixed_main_weapon_slot = light_mg_4x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+            }
+        }
+
+        allowed_modules = {
+            engine_2_1x
+            aircraft_cannon_1_2x
+            light_mg_4x
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+        }
+    }
+
+    # 第二代：Ki-43 一式战“隼”
+    JAP_fighter_ki43 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = advanced_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 20000
+            type = small_plane_airframe_2
+            
+            modules = {
+                engine_type_slot = jet_engine_1x
+                fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+                fixed_main_weapon_slot = heavy_mg_4x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_1x
+            heavy_mg_4x
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            armor_plate_small
+        }
+    }
+
+    # 第三代：Ki-84 四式战 “疾风”
+    JAP_fighter_ki84 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = modern_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 30000
+            type = small_plane_airframe_3
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_1x
+                fixed_auxiliary_weapon_slot_1 = large_aircraft_cannon_2x
+                fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+                fixed_main_weapon_slot = large_aircraft_cannon_2x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_1x
+            large_aircraft_cannon_2x
+            heavy_mg_4x
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            armor_plate_small
+        }
+    }
+
+    # 第四代：Ki-94-II 六式战 “电光”
+    JAP_fighter_ki94 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                is_special_project_completed = sp:sp_air_supersonic_jet
+            }
+        }
+        
+        target_variant = {
+            match_value = 40000
+            type = small_plane_airframe_4
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_1x
+                fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_3 = aircraft_cannon_2_2x
+                fixed_main_weapon_slot = aircraft_cannon_2_2x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_1x
+            aircraft_cannon_2_2x
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+        }
+    }
+
+    # 第五代：Ki-201 七式战 “火龙”
+    JAP_fighter_ki201 = {
+        priority = {
+            factor = 5000
+        }
+        
+        target_variant = {
+            match_value = 50000
+            type = small_plane_airframe_5
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_2x
+                fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_3 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_4 = aircraft_cannon_2_2x
+                fixed_main_weapon_slot = aircraft_cannon_2_2x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = armor_plate_small
+                special_type_slot_4 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_2x
+            aircraft_cannon_2_2x
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            armor_plate_small
+        }
+    }
+
+}
+#舰战
+JAP_carrier_fighters = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_cv_fighter
+    }
+
+    priority = {
+        factor = 3333
+    }
+
+    # 第一代：A5M 九六式舰上战斗机
+    JAP_cv_fighter_a5m = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = improved_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 10000
+            type = cv_small_plane_airframe_1
+            
+            modules = {
+                engine_type_slot = engine_2_1x
+                fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+                fixed_main_weapon_slot = heavy_mg_4x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+            }
+        }
+
+        allowed_modules = {
+            engine_2_1x
+            heavy_mg_4x
+            self_sealing_fuel_tanks_small
+        }
+    }
+
+    # 第二代：A6M2 零式舰战 “零战”
+    JAP_cv_fighter_a6m2 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = advanced_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 20000
+            type = cv_small_plane_airframe_2
+            
+            modules = {
+                engine_type_slot = jet_engine_2x
+                fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_1_2x
+                fixed_main_weapon_slot = aircraft_cannon_1_2x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = armor_plate_small
+                special_type_slot_3 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_2x
+            aircraft_cannon_1_2x
+            self_sealing_fuel_tanks_small
+            armor_plate_small
+        }
+    }
+
+    # 第三代：A7M2 十七式舰战 “烈风”
+    JAP_cv_fighter_a7m2 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = modern_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 30000
+            type = cv_small_plane_airframe_3
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_2x
+                fixed_auxiliary_weapon_slot_1 = large_aircraft_cannon_2x
+                fixed_auxiliary_weapon_slot_2 = large_aircraft_cannon_2x
+                fixed_main_weapon_slot = large_aircraft_cannon_2x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = armor_plate_small
+                special_type_slot_3 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_2x
+            large_aircraft_cannon_2x
+            self_sealing_fuel_tanks_small
+            armor_plate_small
+        }
+    }
+
+    # 第四代：A9M 十八式喷气舰战 “橘花”
+    JAP_cv_fighter_a9m = {
+        priority = {
+            factor = 3333
+        }
+        
+        target_variant = {
+            match_value = 40000
+            type = cv_small_plane_airframe_4
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_2x
+                fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_3 = aircraft_cannon_2_2x
+                fixed_main_weapon_slot = aircraft_cannon_2_2x
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = armor_plate_small
+                special_type_slot_3 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_2x
+            aircraft_cannon_2_2x
+            self_sealing_fuel_tanks_small
+            armor_plate_small
+        }
+    }
+}
+JAP_light_cas = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_cas
+    }
+
+    priority = {
+        factor = 3333
+    }
+
+    # 第一代：Ki-32 九八轻爆
+    JAP_cas_ki32 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                OR = {
+                    has_tech = improved_small_airframe
+                }
+            }
+        }
+        
+        target_variant = {
+            match_value = 10000
+            type = small_plane_cas_airframe_1
+            
+            modules = {
+                engine_type_slot = engine_2_1x
+                fixed_auxiliary_weapon_slot_1 = bomb_locks
+                fixed_main_weapon_slot = bomb_locks
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+            }
+        }
+
+        allowed_modules = {
+            engine_2_1x
+            bomb_locks
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+        }
+    }
+
+    # 第二代：Ki-51 九九袭
+    JAP_cas_ki51 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = advanced_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 20000
+            type = small_plane_cas_airframe_2
+            
+            modules = {
+                engine_type_slot = engine_3_1x
+                fixed_auxiliary_weapon_slot_1 = heavy_bomb_locks
+                fixed_main_weapon_slot = tank_buster_2
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = cannon_defense_turret
+            }
+        }
+
+        allowed_modules = {
+            engine_3_1x
+            heavy_bomb_locks
+            tank_buster_2
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            cannon_defense_turret
+        }
+    }
+
+    # 第三代：Ki-102 四式袭
+    JAP_cas_ki102 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = modern_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 30000
+            type = small_plane_cas_airframe_3
+            
+            modules = {
+                engine_type_slot = engine_4_1x
+                fixed_auxiliary_weapon_slot_1 = heavy_bomb_locks
+                fixed_auxiliary_weapon_slot_2 = rocket_rails
+                fixed_auxiliary_weapon_slot_3 = rocket_rails
+                fixed_main_weapon_slot = tank_buster_2
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = cannon_defense_turret
+            }
+        }
+
+        allowed_modules = {
+            engine_4_1x
+            heavy_bomb_locks
+            rocket_rails
+            tank_buster_2
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            cannon_defense_turret
+        }
+    }
+
+    # 第四代：Ki-119 六式袭
+    JAP_cas_ki119 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                is_special_project_completed = sp:sp_air_supersonic_jet
+            }
+        }
+        
+        target_variant = {
+            match_value = 40000
+            type = small_plane_cas_airframe_4
+            
+            modules = {
+                engine_type_slot = engine_4_1x
+                fixed_auxiliary_weapon_slot_1 = heavy_bomb_locks
+                fixed_auxiliary_weapon_slot_2 = rocket_rails
+                fixed_auxiliary_weapon_slot_3 = rocket_rails
+                fixed_main_weapon_slot = tank_buster_2
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = cannon_defense_turret
+                special_type_slot_4 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            engine_4_1x
+            heavy_bomb_locks
+            rocket_rails
+            tank_buster_2
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            cannon_defense_turret
+            armor_plate_small
+        }
+    }
+
+    # 第五代：Ki-201 改 七式喷气袭击机
+    JAP_cas_ki201_kai = {
+        priority = {
+            factor = 5000
+        }
+        
+        target_variant = {
+            match_value = 50000
+            type = small_plane_cas_airframe_5
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_1x
+                fixed_auxiliary_weapon_slot_1 = heavy_bomb_locks
+                fixed_auxiliary_weapon_slot_2 = heavy_bomb_locks
+                fixed_auxiliary_weapon_slot_3 = rocket_rails
+                fixed_auxiliary_weapon_slot_4 = rocket_rails
+                fixed_main_weapon_slot = tank_buster_2
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = fuel_tanks_small
+                special_type_slot_3 = hmg_defense_turret
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_1x
+            heavy_bomb_locks
+            rocket_rails
+            tank_buster_2
+            self_sealing_fuel_tanks_small
+            fuel_tanks_small
+            hmg_defense_turret
+        }
+    }
+}
+#鱼雷机
+JAP_carrier_attackers = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_cv_naval_bomber
+    }
+
+    priority = {
+        factor = 3333
+    }
+
+    # 第一代：B5N 九七式舰攻
+    JAP_cv_attacker_b5n = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                OR = {
+                    has_tech = improved_small_airframe
+                }
+            }
+        }
+        
+        target_variant = {
+            match_value = 10000
+            type = cv_small_plane_naval_bomber_airframe_1
+            
+            modules = {
+                engine_type_slot = engine_2_1x
+                fixed_main_weapon_slot = torpedo_mounting
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            engine_2_1x
+            torpedo_mounting
+            self_sealing_fuel_tanks_small
+            armor_plate_small
+        }
+    }
+
+    # 第二代：B6N 一式舰攻 “天山”
+    JAP_cv_attacker_b6n = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                OR = {
+                    has_tech = advanced_small_airframe
+                    has_tech = air_torpedoe_3 # 假设这是解锁改型的科技占位符
+                }
+            }
+        }
+        
+        target_variant = {
+            match_value = 20000
+            type = cv_small_plane_naval_bomber_airframe_2
+            
+            modules = {
+                engine_type_slot = engine_3_1x
+                fixed_main_weapon_slot = torpedo_mounting_2
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = armor_plate_small
+                special_type_slot_3 = air_ground_radar_2
+            }
+        }
+
+        allowed_modules = {
+            engine_3_1x
+            torpedo_mounting_2
+            self_sealing_fuel_tanks_small
+            armor_plate_small
+            air_ground_radar_2
+        }
+    }
+
+    # 第二代改：B6N 一式舰攻 “天山”改
+    JAP_cv_attacker_b6n_kai = {
+        priority = {
+            factor = 3500 # 略高于基础型以确保研发后立即切换
+            modifier = { 
+                factor = 0 
+                has_tech = advanced_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 25000
+            type = cv_small_plane_naval_bomber_airframe_2
+            
+            modules = {
+                engine_type_slot = engine_3_1x
+                fixed_main_weapon_slot = torpedo_mounting_3
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = armor_plate_small
+                special_type_slot_3 = air_ground_radar_2
+            }
+        }
+
+        allowed_modules = {
+            engine_3_1x
+            torpedo_mounting_3
+            self_sealing_fuel_tanks_small
+            armor_plate_small
+            air_ground_radar_2
+        }
+    }
+
+    # 第三代：B7A 十七式舰攻 “流星”
+    JAP_cv_attacker_b7a = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = modern_small_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 30000
+            type = cv_small_plane_naval_bomber_airframe_3
+            
+            modules = {
+                engine_type_slot = engine_4_1x
+                fixed_main_weapon_slot = guided_anti_ship_missile
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = air_ground_radar_2
+            }
+        }
+
+        allowed_modules = {
+            engine_4_1x
+            guided_anti_ship_missile
+            self_sealing_fuel_tanks_small
+            air_ground_radar_2
+        }
+    }
+
+    # 第四代：B8A 十八式喷气舰攻 “万雷”
+    JAP_cv_attacker_b8a = {
+        priority = {
+            factor = 3333
+        }
+        
+        target_variant = {
+            match_value = 40000
+            type = cv_small_plane_naval_bomber_airframe_4
+            
+            modules = {
+                engine_type_slot = engine_4_1x
+                fixed_main_weapon_slot = guided_anti_ship_missile
+                special_type_slot_1 = self_sealing_fuel_tanks_small
+                special_type_slot_2 = air_ground_radar_2
+                special_type_slot_3 = armor_plate_small
+            }
+        }
+
+        allowed_modules = {
+            engine_4_1x
+            guided_anti_ship_missile
+            self_sealing_fuel_tanks_small
+            air_ground_radar_2
+            armor_plate_small
+        }
+    }
+}
+#重型战斗机
+JAP_heavy_fighters = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_heavy_fighter
+    }
+
+    priority = {
+        factor = 3333
+    }
+
+    # 第一代：Ki-38 九八式重战
+    JAP_heavy_fighter_ki38 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                OR = {
+                    has_tech = improved_medium_airframe
+                }
+            }
+        }
+        
+        target_variant = {
+            match_value = 10000
+            type = medium_plane_fighter_airframe_1
+            
+            modules = {
+                engine_type_slot = engine_2_2x
+                fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+                fixed_main_weapon_slot = heavy_mg_4x
+                special_type_slot_1 = self_sealing_fuel_tanks_medium
+            }
+        }
+
+        allowed_modules = {
+            engine_2_2x
+            heavy_mg_4x
+            self_sealing_fuel_tanks_medium
+        }
+    }
+
+    # 第二代：Ki-45 二式重战 “屠龙”
+    JAP_heavy_fighter_ki45 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = advanced_medium_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 20000
+            type = medium_plane_fighter_airframe_2
+            
+            modules = {
+                engine_type_slot = jet_engine_2x
+                fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_3 = heavy_mg_4x
+                fixed_main_weapon_slot = heavy_mg_4x
+                special_type_slot_1 = self_sealing_fuel_tanks_medium
+                special_type_slot_2 = air_air_radar_2
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_2x
+            heavy_mg_4x
+            self_sealing_fuel_tanks_medium
+            air_air_radar_2
+        }
+    }
+
+    # 第三代：Ki-102 四式重战
+    JAP_heavy_fighter_ki102 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = modern_medium_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 30000
+            type = medium_plane_fighter_airframe_3
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_2x
+                fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_3 = heavy_mg_4x
+                fixed_auxiliary_weapon_slot_4 = large_aircraft_cannon_2x
+                fixed_main_weapon_slot = heavy_mg_4x
+                special_type_slot_1 = self_sealing_fuel_tanks_medium
+                special_type_slot_2 = air_air_radar_2
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_2x
+            heavy_mg_4x
+            large_aircraft_cannon_2x
+            self_sealing_fuel_tanks_medium
+            air_air_radar_2
+        }
+    }
+
+    # 第四代：Ki-83 六式重战 “天龙”
+    JAP_heavy_fighter_ki83 = {
+        priority = {
+            factor = 5000
+        }
+        
+        target_variant = {
+            match_value = 40000
+            type = medium_plane_fighter_airframe_4
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_2x
+                fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_3 = aircraft_cannon_2_2x
+                fixed_auxiliary_weapon_slot_4 = aircraft_cannon_2_2x
+                fixed_main_weapon_slot = aircraft_cannon_2_2x
+                special_type_slot_1 = air_air_radar_2
+                special_type_slot_2 = self_sealing_fuel_tanks_medium
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_2x
+            aircraft_cannon_2_2x
+            air_air_radar_2
+            self_sealing_fuel_tanks_medium
+        }
+    }
+}
+JAP_maritime_patrol_bombers = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_maritime_patrol
+    }
+
+    priority = {
+        factor = 3333
+    }
+
+    # 第一代：G5M1 九八式陆上攻击机 “鸣神”
+    JAP_maritime_patrol_g5m1 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                OR = {
+                    has_tech = advanced_large_airframe
+                }
+            }
+        }
+        
+        target_variant = {
+            match_value = 10000
+            type = large_plane_maritime_patrol_plane_airframe_2
+            
+            modules = {
+                engine_type_slot = engine_3_4x
+                fixed_auxiliary_weapon_slot_1 = torpedo_mounting_3
+                fixed_auxiliary_weapon_slot_2 = torpedo_mounting_3
+                fixed_main_weapon_slot = torpedo_mounting_3
+                special_type_slot_1 = self_sealing_fuel_tanks_large
+                special_type_slot_2 = air_ground_radar_2
+                special_type_slot_3 = cannon_defense_turret_2x
+            }
+        }
+
+        allowed_modules = {
+            engine_3_4x
+            torpedo_mounting_3
+            self_sealing_fuel_tanks_large
+            air_ground_radar_2
+            cannon_defense_turret_2x
+        }
+    }
+
+    # 第二代：G7M1 二式大型陆击 “泰云”
+    JAP_maritime_patrol_g7m1 = {
+        priority = {
+            factor = 3333
+            modifier = { 
+                factor = 0 
+                has_tech = modern_large_airframe
+            }
+        }
+        
+        target_variant = {
+            match_value = 20000
+            type = large_plane_maritime_patrol_plane_airframe_3
+            
+            modules = {
+                engine_type_slot = engine_4_6x
+                fixed_auxiliary_weapon_slot_1 = guided_anti_ship_missile
+                fixed_auxiliary_weapon_slot_2 = guided_anti_ship_missile
+                fixed_main_weapon_slot = guided_anti_ship_missile
+                special_type_slot_1 = self_sealing_fuel_tanks_large
+                special_type_slot_2 = air_ground_radar_2
+                special_type_slot_3 = cannon_defense_turret_2x
+                special_type_slot_4 = cannon_defense_turret_2x
+            }
+        }
+
+        allowed_modules = {
+            engine_4_6x
+            guided_anti_ship_missile
+            self_sealing_fuel_tanks_large
+            air_ground_radar_2
+            cannon_defense_turret_2x
+        }
+    }
+
+    # 第三代：G9P1 三式远距哨戒攻击机 “幻苍”
+    JAP_maritime_patrol_g9p1 = {
+        priority = {
+            factor = 5000
+        }
+        
+        target_variant = {
+            match_value = 30000
+            type = large_plane_maritime_patrol_plane_airframe_4
+            
+            modules = {
+                engine_type_slot = jet_engine_axial_6x
+                fixed_auxiliary_weapon_slot_1 = guided_anti_ship_missile
+                fixed_auxiliary_weapon_slot_2 = guided_anti_ship_missile
+                fixed_main_weapon_slot = guided_anti_ship_missile
+                special_type_slot_1 = air_ground_radar_2
+                special_type_slot_2 = self_sealing_fuel_tanks_large
+                special_type_slot_3 = cannon_defense_turret_2x
+                special_type_slot_4 = cannon_defense_turret_2x
+            }
+        }
+
+        allowed_modules = {
+            jet_engine_axial_6x
+            guided_anti_ship_missile
+            air_ground_radar_2
+            self_sealing_fuel_tanks_large
+            cannon_defense_turret_2x
+        }
+    }
+}
+#尝试空天母舰
+JAP_mothership_ex = {
+    category = air
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        air_mothership
+    }
+
+    priority = {
+        factor = 3333
+    }
+    JAP_defult_mothership = {
+        priority = {
+            factor = 3333
+        }
+        target_variant = {
+            type = mothership_equipment_0
+            match_value = 10000
+           upgrades = {
+            plane_gun_upgrade = 5
+            plane_reliability_upgrade = 5
+            plane_engine_upgrade = 5
+            plane_range_upgrade = 0
+        }
+        }
+        
+    }
+}

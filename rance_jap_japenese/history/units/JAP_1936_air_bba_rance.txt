@@ -1,0 +1,174 @@
+﻿
+
+
+
+
+#AIRCRAFT
+air_wings = {
+	# --- 東京 (Tokyo - ID: 282) ---
+    # 总计：300 戦闘机 / 100 CAS
+    282 = {
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 九七式戦闘機" }
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 九七式戦闘機" }
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 九七式戦闘機" }
+        
+        small_plane_cas_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-32 九八式軽爆撃機" }
+    }
+
+    # --- 大連 (Dalian - ID: 716) ---
+    # 总计：150 戦闘机 / 50 CAS
+    716 = {
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 九七式戦闘機" }
+        small_plane_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-27 九七式戦闘機" }
+        
+        small_plane_cas_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-32 九八式軽爆撃機" }
+    }
+
+    # --- 台湾 (Taiwan - ID: 524) ---
+    # 总计：150 戦闘机 / 50 CAS
+    524 = {
+        small_plane_airframe_1 = { owner = JAP amount = 100 version_name = "Ki-27 九七式戦闘機" }
+        small_plane_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-27 九七式戦闘機" }
+        
+        small_plane_cas_airframe_1 = { owner = JAP amount = 50 version_name = "Ki-32 九八式軽爆撃機" }
+    }
+	"赤城" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "加賀" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "蒼龍" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "飛龍" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+	# 巡逻与護航部隊 - 護航航母
+    "鳳翔" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "瑞鳳" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "祥鳳" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "千岁" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+    "千代田" = {
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_airframe_1 = { owner = JAP amount = 10 version_name = "A5M 九六式艦上戦闘機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+        cv_small_plane_naval_bomber_airframe_1 = { owner = JAP amount = 10 version_name = "B5N 九七式艦上攻撃機" }
+    }
+	
+}
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+instant_effect = {
+    # 1. 陸軍戦闘机：Ki-27 九七式戦闘機
+    add_equipment_production = {
+        equipment = {
+            type = small_plane_airframe_1
+            creator = JAP 
+            version_name = "Ki-27 九七式戦闘機"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_mitsubishi_organization
+    }
+
+    # 2. 陸軍袭撃机 (CAS)：Ki-32 九八式軽爆撃機
+    add_equipment_production = {
+        equipment = {
+            type = small_plane_cas_airframe_1
+            creator = JAP 
+            version_name = "Ki-32 九八式軽爆撃機"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_tachikawa_aircraft_company_organization
+    }
+
+    # 3. 艦载戦闘机：A5M 九六式艦上戦闘機
+    add_equipment_production = {
+        equipment = {
+            type = cv_small_plane_airframe_1
+            creator = JAP 
+            version_name = "A5M 九六式艦上戦闘機"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_yokosuka_organization
+    }
+
+    # 4. 艦载攻撃机 (艦攻)：B5N 九七式艦上攻撃機
+    add_equipment_production = {
+        equipment = {
+            type = cv_small_plane_naval_bomber_airframe_1
+            creator = JAP 
+            version_name = "B5N 九七式艦上攻撃機"
+        }
+        requested_factories = 1
+        progress = 0.0
+        efficiency = 50
+        industrial_manufacturer = mio:JAP_yokosuka_organization
+    }
+}

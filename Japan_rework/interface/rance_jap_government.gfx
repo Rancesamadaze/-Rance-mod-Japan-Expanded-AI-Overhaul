@@ -1,0 +1,78 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_JAP_rework_mimo_small"
+		texturefile = "gfx/leaders/JAP/JAP_rework_mimo_small.dds"
+	}
+	spriteType = {
+		name = "GFX_JAP_rework_changzheng"
+		texturefile = "gfx/leaders/JAP/JAP_rework_changzheng.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_lik_small
+		textureFile = "gfx/leaders/JAP/JAP_rework_lik_small.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_goteborg_small
+		textureFile = "gfx/leaders/JAP/JAP_rework_goteborg_small.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_uruz_small
+		textureFile = "gfx/leaders/JAP/JAP_rework_uruz_small.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_maria_small
+		textureFile = "gfx/leaders/JAP/JAP_rework_maria_small.png"
+	}
+	spriteType = {
+        name = GFX_JAP_rework_aya_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_aya_small.png"
+    }
+
+    spriteType = {
+        name = GFX_JAP_rework_tianzi_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_tianzi_small.png"
+    }
+	spriteType = {
+        name = GFX_JAP_rework_reimu_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_reimu_small.png"
+    }
+
+    spriteType = {
+        name = GFX_JAP_rework_akong_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_akong_small.png"
+    }
+	spriteType = {
+        name = GFX_JAP_rework_marisa_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_marisa_small.png"
+    }
+
+    spriteType = {
+        name = GFX_JAP_rework_alice_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_alice_small.png"
+    }
+	spriteType = {
+        name = GFX_JAP_rework_retia_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_retia_small.png"
+    }
+
+    spriteType = {
+        name = GFX_JAP_rework_catlin_small
+        textureFile = "gfx/leaders/JAP/JAP_rework_catlin_small.png"
+    }
+	spriteType = {
+		name = GFX_JAP_rework_kaguya
+		textureFile = "gfx/leaders/JAP/JAP_rework_kaguya.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_erin
+		textureFile = "gfx/leaders/JAP/JAP_rework_erin.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_reisen
+		textureFile = "gfx/leaders/JAP/JAP_rework_reisen.png"
+	}
+	spriteType = {
+		name = GFX_JAP_rework_tewi
+		textureFile = "gfx/leaders/JAP/JAP_rework_tewi.png"
+	}
+}

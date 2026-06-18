@@ -1,0 +1,1338 @@
+## 皇道派中国战后 AI area 辅助触发
+## 仅供 AI strategy 条件使用，不提供玩家 UI tooltip。
+
+JAP_kodoha_southeast_asia_staging_available = {
+	OR = {
+		325 = { is_controlled_by_ROOT_or_ally = yes } # 云南
+		599 = { is_controlled_by_ROOT_or_ally = yes } # 广西
+		594 = { is_controlled_by_ROOT_or_ally = yes } # 南宁
+		592 = { is_controlled_by_ROOT_or_ally = yes } # 广州
+		593 = { is_controlled_by_ROOT_or_ally = yes } # 广东
+		591 = { is_controlled_by_ROOT_or_ally = yes } # 海南
+	}
+}
+
+JAP_kodoha_southeast_asia_staging_lost = {
+	325 = { is_controlled_by_ROOT_or_ally = no } # 云南
+	599 = { is_controlled_by_ROOT_or_ally = no } # 广西
+	594 = { is_controlled_by_ROOT_or_ally = no } # 南宁
+	592 = { is_controlled_by_ROOT_or_ally = no } # 广州
+	593 = { is_controlled_by_ROOT_or_ally = no } # 广东
+}
+
+JAP_kodoha_southeast_asia_core_corridor_secured = {
+	993 = { is_controlled_by_ROOT_or_ally = yes } # 景栋和永贵
+	999 = { is_controlled_by_ROOT_or_ally = yes } # 掸族诸邦
+	640 = { is_controlled_by_ROOT_or_ally = yes } # 曼德勒
+	995 = { is_controlled_by_ROOT_or_ally = yes } # 勃固
+	994 = { is_controlled_by_ROOT_or_ally = yes } # 丹那沙林
+	670 = { is_controlled_by_ROOT_or_ally = yes } # 老挝
+	671 = { is_controlled_by_ROOT_or_ally = yes } # 东京
+	1017 = { is_controlled_by_ROOT_or_ally = yes } # 越南中部
+	286 = { is_controlled_by_ROOT_or_ally = yes } # 占婆
+	741 = { is_controlled_by_ROOT_or_ally = yes } # 柬埔寨
+	289 = { is_controlled_by_ROOT_or_ally = yes } # 暹罗
+	336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+	1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+}
+
+JAP_kodoha_southeast_asia_enemy_presence = {
+	OR = {
+		993 = { controller = { has_war_with = ROOT } } # 景栋和永贵
+		999 = { controller = { has_war_with = ROOT } } # 掸族诸邦
+		640 = { controller = { has_war_with = ROOT } } # 曼德勒
+		995 = { controller = { has_war_with = ROOT } } # 勃固
+		994 = { controller = { has_war_with = ROOT } } # 丹那沙林
+		670 = { controller = { has_war_with = ROOT } } # 老挝
+		671 = { controller = { has_war_with = ROOT } } # 东京
+		1017 = { controller = { has_war_with = ROOT } } # 越南中部
+		286 = { controller = { has_war_with = ROOT } } # 占婆
+		741 = { controller = { has_war_with = ROOT } } # 柬埔寨
+		289 = { controller = { has_war_with = ROOT } } # 暹罗
+		336 = { controller = { has_war_with = ROOT } } # 马来亚
+		1021 = { controller = { has_war_with = ROOT } } # 新加坡
+	}
+}
+
+JAP_kodoha_southeast_asia_hainan_departure_available = {
+	591 = { is_controlled_by_ROOT_or_ally = yes } # 海南
+}
+
+JAP_kodoha_southeast_asia_malaya_departure_available = {
+	336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+}
+
+JAP_kodoha_southeast_asia_siam_landing_available = {
+	JAP_kodoha_southeast_asia_hainan_departure_available = yes
+	289 = { controller = { has_war_with = ROOT } } # 暹罗
+}
+
+JAP_kodoha_southeast_asia_malaya_landing_available = {
+	JAP_kodoha_southeast_asia_hainan_departure_available = yes
+	336 = { controller = { has_war_with = ROOT } } # 马来亚
+}
+
+JAP_kodoha_southeast_asia_pegu_landing_available = {
+	JAP_kodoha_southeast_asia_malaya_departure_available = yes
+	995 = { controller = { has_war_with = ROOT } } # 勃固
+}
+
+JAP_kodoha_southeast_asia_landing_target_available = {
+	OR = {
+		JAP_kodoha_southeast_asia_siam_landing_available = yes
+		JAP_kodoha_southeast_asia_malaya_landing_available = yes
+		JAP_kodoha_southeast_asia_pegu_landing_available = yes
+	}
+}
+
+JAP_kodoha_south_asia_land_staging_available = {
+	OR = {
+		322 = { is_controlled_by_ROOT_or_ally = yes } # 那曲
+		757 = { is_controlled_by_ROOT_or_ally = yes } # 日喀则
+		758 = { is_controlled_by_ROOT_or_ally = yes } # 阿里
+	}
+}
+
+JAP_kodoha_south_asia_pegu_departure_available = {
+	995 = { is_controlled_by_ROOT_or_ally = yes } # 勃固
+}
+
+JAP_kodoha_south_asia_access_lost = {
+	JAP_kodoha_south_asia_land_staging_available = no
+	JAP_kodoha_south_asia_pegu_departure_available = no
+}
+
+JAP_kodoha_south_asia_main_enemy_presence = {
+	OR = {
+		323 = { controller = { has_war_with = ROOT } } # 尼泊尔
+		324 = { controller = { has_war_with = ROOT } } # 不丹
+		422 = { controller = { has_war_with = ROOT } } # 锡兰
+		423 = { controller = { has_war_with = ROOT } } # 南马德拉斯
+		424 = { controller = { has_war_with = ROOT } } # 北马德拉斯
+		425 = { controller = { has_war_with = ROOT } } # 迈索尔
+		426 = { controller = { has_war_with = ROOT } } # 奥里萨
+		427 = { controller = { has_war_with = ROOT } } # 海德拉巴
+		428 = { controller = { has_war_with = ROOT } } # 古吉拉特
+		429 = { controller = { has_war_with = ROOT } } # 孟买
+		430 = { controller = { has_war_with = ROOT } } # 东孟加拉
+		431 = { controller = { has_war_with = ROOT } } # 西孟加拉
+		432 = { controller = { has_war_with = ROOT } } # 阿萨姆
+		433 = { controller = { has_war_with = ROOT } } # 拉贾斯坦
+		434 = { controller = { has_war_with = ROOT } } # 阿鲁纳恰尔
+		435 = { controller = { has_war_with = ROOT } } # 比哈尔
+		436 = { controller = { has_war_with = ROOT } } # 中央省
+		437 = { controller = { has_war_with = ROOT } } # 中印度
+		438 = { controller = { has_war_with = ROOT } } # 联合省
+		439 = { controller = { has_war_with = ROOT } } # 德里
+		440 = { controller = { has_war_with = ROOT } } # 西旁遮普
+		441 = { controller = { has_war_with = ROOT } } # 克什米尔
+		442 = { controller = { has_war_with = ROOT } } # 白沙瓦
+		443 = { controller = { has_war_with = ROOT } } # 信德
+		444 = { controller = { has_war_with = ROOT } } # 南俾路支斯坦
+		445 = { controller = { has_war_with = ROOT } } # 锡比
+		787 = { controller = { has_war_with = ROOT } } # 北克什米尔
+		982 = { controller = { has_war_with = ROOT } } # 马德拉斯诸邦
+		983 = { controller = { has_war_with = ROOT } } # 戈尔哈布尔与德干
+		984 = { controller = { has_war_with = ROOT } } # 巴斯塔
+		985 = { controller = { has_war_with = ROOT } } # 锡金
+		986 = { controller = { has_war_with = ROOT } } # 东旁遮普
+		987 = { controller = { has_war_with = ROOT } } # 瓦济里斯坦
+		988 = { controller = { has_war_with = ROOT } } # 北俾路支斯坦
+		989 = { controller = { has_war_with = ROOT } } # 巴哈瓦尔布尔
+		990 = { controller = { has_war_with = ROOT } } # 曼尼普尔
+		991 = { controller = { has_war_with = ROOT } } # 瓜廖尔
+		1012 = { controller = { has_war_with = ROOT } } # 卡拉特
+	}
+}
+
+# 主战 buffer 完成口径只检查印度次大陆战略骨架；锡兰仍由敌情和登陆口径处理。
+JAP_kodoha_south_asia_main_objectives_secured = {
+	423 = { is_controlled_by_ROOT_or_ally = yes } # 南马德拉斯
+	424 = { is_controlled_by_ROOT_or_ally = yes } # 北马德拉斯
+	425 = { is_controlled_by_ROOT_or_ally = yes } # 迈索尔
+	426 = { is_controlled_by_ROOT_or_ally = yes } # 奥里萨
+	427 = { is_controlled_by_ROOT_or_ally = yes } # 海德拉巴
+	428 = { is_controlled_by_ROOT_or_ally = yes } # 古吉拉特
+	429 = { is_controlled_by_ROOT_or_ally = yes } # 孟买
+	430 = { is_controlled_by_ROOT_or_ally = yes } # 东孟加拉
+	431 = { is_controlled_by_ROOT_or_ally = yes } # 西孟加拉
+	432 = { is_controlled_by_ROOT_or_ally = yes } # 阿萨姆
+	433 = { is_controlled_by_ROOT_or_ally = yes } # 拉贾斯坦
+	435 = { is_controlled_by_ROOT_or_ally = yes } # 比哈尔
+	436 = { is_controlled_by_ROOT_or_ally = yes } # 中央省
+	437 = { is_controlled_by_ROOT_or_ally = yes } # 中印度
+	438 = { is_controlled_by_ROOT_or_ally = yes } # 联合省
+	439 = { is_controlled_by_ROOT_or_ally = yes } # 德里
+	440 = { is_controlled_by_ROOT_or_ally = yes } # 西旁遮普
+	443 = { is_controlled_by_ROOT_or_ally = yes } # 信德
+	983 = { is_controlled_by_ROOT_or_ally = yes } # 戈尔哈布尔与德干
+	986 = { is_controlled_by_ROOT_or_ally = yes } # 东旁遮普
+}
+
+JAP_kodoha_south_asia_burma_overlap_enemy_presence = {
+	OR = {
+		993 = { controller = { has_war_with = ROOT } } # 景栋和永贵
+		999 = { controller = { has_war_with = ROOT } } # 掸族诸邦
+		640 = { controller = { has_war_with = ROOT } } # 曼德勒
+		995 = { controller = { has_war_with = ROOT } } # 勃固
+		994 = { controller = { has_war_with = ROOT } } # 丹那沙林
+	}
+}
+
+JAP_kodoha_south_asia_enclave_enemy_presence = {
+	OR = {
+		320 = { controller = { has_war_with = ROOT } } # 法属印度
+		321 = { controller = { has_war_with = ROOT } } # 果阿
+	}
+}
+
+JAP_kodoha_south_asia_cleanup_enemy_presence = {
+	OR = {
+		JAP_kodoha_south_asia_burma_overlap_enemy_presence = yes
+		JAP_kodoha_south_asia_enclave_enemy_presence = yes
+	}
+}
+
+JAP_kodoha_south_asia_theater_clear = {
+	JAP_kodoha_south_asia_main_enemy_presence = no
+	JAP_kodoha_south_asia_burma_overlap_enemy_presence = no
+	JAP_kodoha_south_asia_enclave_enemy_presence = no
+}
+
+JAP_kodoha_south_asia_west_bengal_landing_available = {
+	JAP_kodoha_south_asia_pegu_departure_available = yes
+	431 = { controller = { has_war_with = ROOT } } # 西孟加拉
+}
+
+JAP_kodoha_south_asia_bombay_landing_available = {
+	JAP_kodoha_south_asia_pegu_departure_available = yes
+	429 = { controller = { has_war_with = ROOT } } # 孟买
+}
+
+JAP_kodoha_south_asia_ceylon_landing_available = {
+	JAP_kodoha_south_asia_pegu_departure_available = yes
+	422 = { controller = { has_war_with = ROOT } } # 锡兰
+}
+
+JAP_kodoha_south_asia_landing_target_available = {
+	OR = {
+		JAP_kodoha_south_asia_west_bengal_landing_available = yes
+		JAP_kodoha_south_asia_bombay_landing_available = yes
+		JAP_kodoha_south_asia_ceylon_landing_available = yes
+	}
+}
+
+JAP_kodoha_eia_staging_available = {
+	OR = {
+		336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+		1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+	}
+}
+
+JAP_kodoha_eia_handoff_ready = {
+	JAP_kodoha_southeast_asia_core_corridor_secured = yes
+	JAP_kodoha_eia_staging_available = yes
+}
+
+JAP_kodoha_eia_critical_hold_available = {
+	OR = {
+		336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+		1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+		284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+	}
+}
+
+JAP_kodoha_eia_chain_foothold_available = {
+	OR = {
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+		284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+		723 = { is_controlled_by_ROOT_or_ally = yes } # 南岛
+	}
+}
+
+JAP_kodoha_eia_operational_access_available = {
+	OR = {
+		JAP_kodoha_eia_handoff_ready = yes
+		JAP_kodoha_eia_critical_hold_available = yes
+	}
+}
+
+JAP_kodoha_eia_access_lost = {
+	JAP_kodoha_eia_critical_hold_available = no
+}
+
+JAP_kodoha_eia_big_island_enemy_presence = {
+	OR = {
+		672 = { controller = { has_war_with = ROOT } } # 苏门答腊
+		335 = { controller = { has_war_with = ROOT } } # 爪哇
+		333 = { controller = { has_war_with = ROOT } } # 沙捞越
+		334 = { controller = { has_war_with = ROOT } } # 加里曼丹
+		668 = { controller = { has_war_with = ROOT } } # 摩鹿加群岛
+		673 = { controller = { has_war_with = ROOT } } # 苏拉威西
+		669 = { controller = { has_war_with = ROOT } } # 西巴布亚
+		523 = { controller = { has_war_with = ROOT } } # 巴布亚
+	}
+}
+
+JAP_kodoha_eia_big_island_bridgehead_available = {
+	OR = {
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+}
+
+JAP_kodoha_eia_australia_nz_main_enemy_presence = {
+	OR = {
+		520 = { controller = { has_war_with = ROOT } } # 北领地
+		522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+		872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+		285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+		517 = { controller = { has_war_with = ROOT } } # 维多利亚
+		284 = { controller = { has_war_with = ROOT } } # 北岛
+	}
+}
+
+JAP_kodoha_eia_australia_nz_enemy_presence = {
+	OR = {
+		520 = { controller = { has_war_with = ROOT } } # 北领地
+		522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+		872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+		285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+		517 = { controller = { has_war_with = ROOT } } # 维多利亚
+		284 = { controller = { has_war_with = ROOT } } # 北岛
+		723 = { controller = { has_war_with = ROOT } } # 南岛
+		518 = { controller = { has_war_with = ROOT } } # 塔斯马尼亚
+		519 = { controller = { has_war_with = ROOT } } # 南澳大利亚
+		521 = { controller = { has_war_with = ROOT } } # 昆士兰
+		674 = { controller = { has_war_with = ROOT } } # 澳大利亚中部
+		870 = { controller = { has_war_with = ROOT } } # 西北澳大利亚
+		871 = { controller = { has_war_with = ROOT } } # 西南澳大利亚
+		873 = { controller = { has_war_with = ROOT } } # 西南昆士兰
+	}
+}
+
+JAP_kodoha_eia_australia_nz_bridgehead_available = {
+	OR = {
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+	}
+}
+
+JAP_kodoha_eia_residual_enemy_presence = {
+	OR = {
+		667 = { controller = { has_war_with = ROOT } } # 小巽他群岛
+		721 = { controller = { has_war_with = ROOT } } # 东帝汶
+		1022 = { controller = { has_war_with = ROOT } } # 内婆罗洲
+		518 = { controller = { has_war_with = ROOT } } # 塔斯马尼亚
+		723 = { controller = { has_war_with = ROOT } } # 南岛
+		519 = { controller = { has_war_with = ROOT } } # 南澳大利亚
+		521 = { controller = { has_war_with = ROOT } } # 昆士兰
+		674 = { controller = { has_war_with = ROOT } } # 澳大利亚中部
+		870 = { controller = { has_war_with = ROOT } } # 西北澳大利亚
+		871 = { controller = { has_war_with = ROOT } } # 西南澳大利亚
+		873 = { controller = { has_war_with = ROOT } } # 西南昆士兰
+	}
+}
+
+JAP_kodoha_eia_enemy_presence = {
+	OR = {
+		JAP_kodoha_eia_big_island_enemy_presence = yes
+		JAP_kodoha_eia_australia_nz_enemy_presence = yes
+		JAP_kodoha_eia_residual_enemy_presence = yes
+	}
+}
+
+JAP_kodoha_eia_cleanup_enemy_presence = {
+	JAP_kodoha_eia_big_island_enemy_presence = no
+	JAP_kodoha_eia_australia_nz_main_enemy_presence = no
+	JAP_kodoha_eia_residual_enemy_presence = yes
+}
+
+JAP_kodoha_eia_theater_clear = {
+	JAP_kodoha_eia_enemy_presence = no
+}
+
+JAP_kodoha_eia_basic_or_full_victory_for_pacific_release = {
+	JAP_kodoha_eia_chain_foothold_available = yes
+	OR = {
+		JAP_kodoha_eia_theater_clear = yes
+		AND = {
+			JAP_kodoha_eia_big_island_enemy_presence = no
+			JAP_kodoha_eia_australia_nz_main_enemy_presence = no
+		}
+	}
+}
+
+JAP_kodoha_eia_sumatra_landing_available = {
+	JAP_kodoha_eia_handoff_ready = yes
+	672 = { controller = { has_war_with = ROOT } } # 苏门答腊
+}
+
+JAP_kodoha_eia_java_landing_available = {
+	JAP_kodoha_eia_handoff_ready = yes
+	335 = { controller = { has_war_with = ROOT } } # 爪哇
+}
+
+JAP_kodoha_eia_lesser_sunda_landing_available = {
+	OR = {
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+	}
+	667 = { controller = { has_war_with = ROOT } } # 小巽他群岛
+}
+
+JAP_kodoha_eia_east_timor_landing_available = {
+	OR = {
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+	}
+	721 = { controller = { has_war_with = ROOT } } # 东帝汶
+}
+
+JAP_kodoha_eia_northern_territory_landing_available = {
+	OR = {
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+		721 = { is_controlled_by_ROOT_or_ally = yes } # 东帝汶
+	}
+	520 = { controller = { has_war_with = ROOT } } # 北领地
+}
+
+JAP_kodoha_eia_western_australia_landing_available = {
+	OR = {
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+		721 = { is_controlled_by_ROOT_or_ally = yes } # 东帝汶
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+	}
+	522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+}
+
+JAP_kodoha_eia_sarawak_landing_available = {
+	JAP_kodoha_eia_handoff_ready = yes
+	333 = { controller = { has_war_with = ROOT } } # 沙捞越
+}
+
+JAP_kodoha_eia_kalimantan_landing_available = {
+	JAP_kodoha_eia_handoff_ready = yes
+	334 = { controller = { has_war_with = ROOT } } # 加里曼丹
+}
+
+JAP_kodoha_eia_moluccas_landing_available = {
+	OR = {
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	668 = { controller = { has_war_with = ROOT } } # 摩鹿加群岛
+}
+
+JAP_kodoha_eia_sulawesi_landing_available = {
+	OR = {
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+	}
+	673 = { controller = { has_war_with = ROOT } } # 苏拉威西
+}
+
+JAP_kodoha_eia_west_papua_landing_available = {
+	OR = {
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	669 = { controller = { has_war_with = ROOT } } # 西巴布亚
+}
+
+JAP_kodoha_eia_papua_landing_available = {
+	OR = {
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+	}
+	523 = { controller = { has_war_with = ROOT } } # 巴布亚
+}
+
+JAP_kodoha_eia_north_queensland_landing_available = {
+	OR = {
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+}
+
+JAP_kodoha_eia_new_south_wales_landing_available = {
+	OR = {
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+	}
+	285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+}
+
+JAP_kodoha_eia_tasmania_landing_available = {
+	OR = {
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+		517 = { is_controlled_by_ROOT_or_ally = yes } # 维多利亚
+	}
+	518 = { controller = { has_war_with = ROOT } } # 塔斯马尼亚
+}
+
+JAP_kodoha_eia_north_island_landing_available = {
+	285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+	284 = { controller = { has_war_with = ROOT } } # 北岛
+}
+
+JAP_kodoha_eia_south_island_landing_available = {
+	284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+	723 = { controller = { has_war_with = ROOT } } # 南岛
+}
+
+JAP_kodoha_eia_landing_target_available = {
+	OR = {
+		JAP_kodoha_eia_sumatra_landing_available = yes
+		JAP_kodoha_eia_java_landing_available = yes
+		JAP_kodoha_eia_lesser_sunda_landing_available = yes
+		JAP_kodoha_eia_east_timor_landing_available = yes
+		JAP_kodoha_eia_northern_territory_landing_available = yes
+		JAP_kodoha_eia_western_australia_landing_available = yes
+		JAP_kodoha_eia_sarawak_landing_available = yes
+		JAP_kodoha_eia_kalimantan_landing_available = yes
+		JAP_kodoha_eia_moluccas_landing_available = yes
+		JAP_kodoha_eia_sulawesi_landing_available = yes
+		JAP_kodoha_eia_west_papua_landing_available = yes
+		JAP_kodoha_eia_papua_landing_available = yes
+		JAP_kodoha_eia_north_queensland_landing_available = yes
+		JAP_kodoha_eia_new_south_wales_landing_available = yes
+		JAP_kodoha_eia_tasmania_landing_available = yes
+		JAP_kodoha_eia_north_island_landing_available = yes
+		JAP_kodoha_eia_south_island_landing_available = yes
+	}
+}
+
+JAP_kodoha_eia_local_guard_main_phase = {
+	JAP_kodoha_eia_operational_access_available = yes
+	JAP_kodoha_eia_access_lost = no
+	JAP_kodoha_eia_theater_clear = no
+	JAP_kodoha_eia_cleanup_enemy_presence = no
+}
+
+JAP_kodoha_eia_local_guard_cleanup_phase = {
+	JAP_kodoha_eia_operational_access_available = yes
+	JAP_kodoha_eia_access_lost = no
+	JAP_kodoha_eia_theater_clear = no
+	JAP_kodoha_eia_cleanup_enemy_presence = yes
+}
+
+JAP_kodoha_eia_west_guard_enemy_presence = {
+	OR = {
+		672 = { controller = { has_war_with = ROOT } } # 苏门答腊
+		335 = { controller = { has_war_with = ROOT } } # 爪哇
+		667 = { controller = { has_war_with = ROOT } } # 小巽他群岛
+		721 = { controller = { has_war_with = ROOT } } # 东帝汶
+		520 = { controller = { has_war_with = ROOT } } # 北领地
+		522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+		519 = { controller = { has_war_with = ROOT } } # 南澳大利亚
+		674 = { controller = { has_war_with = ROOT } } # 澳大利亚中部
+		870 = { controller = { has_war_with = ROOT } } # 西北澳大利亚
+		871 = { controller = { has_war_with = ROOT } } # 西南澳大利亚
+		873 = { controller = { has_war_with = ROOT } } # 西南昆士兰
+	}
+}
+
+JAP_kodoha_eia_east_guard_enemy_presence = {
+	OR = {
+		333 = { controller = { has_war_with = ROOT } } # 沙捞越
+		334 = { controller = { has_war_with = ROOT } } # 加里曼丹
+		668 = { controller = { has_war_with = ROOT } } # 摩鹿加群岛
+		673 = { controller = { has_war_with = ROOT } } # 苏拉威西
+		669 = { controller = { has_war_with = ROOT } } # 西巴布亚
+		523 = { controller = { has_war_with = ROOT } } # 巴布亚
+		872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+		285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+		517 = { controller = { has_war_with = ROOT } } # 维多利亚
+		521 = { controller = { has_war_with = ROOT } } # 昆士兰
+	}
+}
+
+JAP_kodoha_pacific_staging_available = {
+	OR = {
+		528 = { is_controlled_by_ROOT_or_ally = yes } # 北九州
+		1018 = { is_controlled_by_ROOT_or_ally = yes } # 南九州
+	}
+}
+
+JAP_kodoha_pacific_chain_foothold_available = {
+	OR = {
+		645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+		646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+		638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+		632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+		631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+		629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+		526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+		524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+		327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+		623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+		1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+		627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+		684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+		633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	}
+}
+
+JAP_kodoha_pacific_operational_access_available = {
+	OR = {
+		JAP_kodoha_pacific_staging_available = yes
+		JAP_kodoha_pacific_chain_foothold_available = yes
+	}
+}
+
+JAP_kodoha_pacific_access_lost = {
+	JAP_kodoha_pacific_operational_access_available = no
+}
+
+JAP_kodoha_pacific_inner_ring_enemy_presence = {
+	OR = {
+		528 = { controller = { has_war_with = ROOT } } # 北九州
+		1018 = { controller = { has_war_with = ROOT } } # 南九州
+		526 = { controller = { has_war_with = ROOT } } # 冲绳
+		524 = { controller = { has_war_with = ROOT } } # 台湾
+		645 = { controller = { has_war_with = ROOT } } # 硫磺岛
+		646 = { controller = { has_war_with = ROOT } } # 塞班岛
+		638 = { controller = { has_war_with = ROOT } } # 关岛
+	}
+}
+
+JAP_kodoha_pacific_philippines_main_enemy_presence = {
+	OR = {
+		327 = { controller = { has_war_with = ROOT } } # 马尼拉
+		623 = { controller = { has_war_with = ROOT } } # 吕宋
+		1026 = { controller = { has_war_with = ROOT } } # 北棉兰老
+		627 = { controller = { has_war_with = ROOT } } # 达沃
+	}
+}
+
+JAP_kodoha_pacific_philippines_enemy_presence = {
+	OR = {
+		JAP_kodoha_pacific_philippines_main_enemy_presence = yes
+		625 = { controller = { has_war_with = ROOT } } # 萨马
+		626 = { controller = { has_war_with = ROOT } } # 巴拉望
+		628 = { controller = { has_war_with = ROOT } } # 西米沙鄢
+	}
+}
+
+JAP_kodoha_pacific_outer_island_enemy_presence = {
+	OR = {
+		684 = { controller = { has_war_with = ROOT } } # 加罗林群岛
+		633 = { controller = { has_war_with = ROOT } } # 马绍尔群岛
+		632 = { controller = { has_war_with = ROOT } } # 威克岛
+		631 = { controller = { has_war_with = ROOT } } # 中途岛
+	}
+}
+
+JAP_kodoha_pacific_hawaii_enemy_presence = {
+	629 = { controller = { has_war_with = ROOT } } # 夏威夷
+}
+
+JAP_kodoha_pacific_enemy_presence = {
+	OR = {
+		JAP_kodoha_pacific_inner_ring_enemy_presence = yes
+		JAP_kodoha_pacific_philippines_enemy_presence = yes
+		JAP_kodoha_pacific_outer_island_enemy_presence = yes
+		JAP_kodoha_pacific_hawaii_enemy_presence = yes
+	}
+}
+
+JAP_kodoha_is_home_islands_state = {
+	OR = {
+		state = 536 # 北海道
+		state = 533 # 北东北
+		state = 1019 # 南东北
+		state = 534 # 甲信越
+		state = 535 # 北陆
+		state = 282 # 关东
+		state = 532 # 东海道
+		state = 531 # 关西
+		state = 530 # 四国
+		state = 529 # 山阳
+		state = 1020 # 山阴
+		state = 528 # 北九州
+		state = 1018 # 南九州
+	}
+}
+
+JAP_kodoha_home_islands_compromised = {
+	OR = {
+		536 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北海道
+		533 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北东北
+		1019 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 南东北
+		534 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 甲信越
+		535 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北陆
+		282 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 关东
+		532 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 东海道
+		531 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 关西
+		530 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 四国
+		529 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山阳
+		1020 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山阴
+		528 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北九州
+		1018 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 南九州
+	}
+}
+
+JAP_kodoha_home_islands_enemy_presence = {
+	OR = {
+		536 = { controller = { has_war_with = ROOT } } # 北海道
+		533 = { controller = { has_war_with = ROOT } } # 北东北
+		1019 = { controller = { has_war_with = ROOT } } # 南东北
+		534 = { controller = { has_war_with = ROOT } } # 甲信越
+		535 = { controller = { has_war_with = ROOT } } # 北陆
+		282 = { controller = { has_war_with = ROOT } } # 关东
+		532 = { controller = { has_war_with = ROOT } } # 东海道
+		531 = { controller = { has_war_with = ROOT } } # 关西
+		530 = { controller = { has_war_with = ROOT } } # 四国
+		529 = { controller = { has_war_with = ROOT } } # 山阳
+		1020 = { controller = { has_war_with = ROOT } } # 山阴
+		528 = { controller = { has_war_with = ROOT } } # 北九州
+		1018 = { controller = { has_war_with = ROOT } } # 南九州
+	}
+}
+
+JAP_kodoha_northern_manchuria_warning = {
+	OR = {
+		610 = { controller = { has_war_with = ROOT } } # 热河
+		716 = { controller = { has_war_with = ROOT } } # 辽宁
+		745 = { controller = { has_war_with = ROOT } } # 大连
+		328 = { controller = { has_war_with = ROOT } } # 吉林
+		714 = { controller = { has_war_with = ROOT } } # 黑龙江
+	}
+}
+
+JAP_kodoha_northern_korea_enemy_presence = {
+	OR = {
+		527 = { controller = { has_war_with = ROOT } } # 平安-黄海
+		1028 = { controller = { has_war_with = ROOT } } # 咸镜
+	}
+}
+
+JAP_kodoha_northern_korea_delay_needed = {
+	JAP_kodoha_northern_manchuria_warning = yes
+	JAP_kodoha_home_islands_crisis = no
+	OR = {
+		527 = { is_controlled_by_ROOT_or_ally = yes } # 平安-黄海
+		1028 = { is_controlled_by_ROOT_or_ally = yes } # 咸镜
+	}
+}
+
+JAP_kodoha_china_coast_home_warning = {
+	has_country_flag = JAP_china_war_substantially_ended_flag
+	OR = {
+		613 = { controller = { has_war_with = ROOT } } # 上海
+		596 = { controller = { has_war_with = ROOT } } # 浙江
+		598 = { controller = { has_war_with = ROOT } } # 江苏
+		1034 = { controller = { has_war_with = ROOT } } # 苏州
+		1035 = { controller = { has_war_with = ROOT } } # 南京
+		595 = { controller = { has_war_with = ROOT } } # 福建
+	}
+}
+
+JAP_kodoha_home_islands_warning = {
+	OR = {
+		JAP_kodoha_pacific_inner_ring_enemy_presence = yes
+		JAP_kodoha_northern_manchuria_warning = yes
+		JAP_kodoha_china_coast_home_warning = yes
+	}
+}
+
+JAP_kodoha_home_islands_crisis = {
+	JAP_kodoha_home_islands_enemy_presence = yes
+}
+
+JAP_kodoha_pacific_key_objectives_secured = {
+	526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+	623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+	1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+	627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+	684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+	633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+	646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+	638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+	632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+	631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+	629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+}
+
+JAP_kodoha_pacific_theater_clear = {
+	OR = {
+		JAP_kodoha_pacific_enemy_presence = no
+		JAP_kodoha_pacific_key_objectives_secured = yes
+		JAP_kodoha_home_islands_compromised = yes
+	}
+}
+
+JAP_kodoha_pacific_luzon_foothold_available = {
+	OR = {
+		327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+		623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+	}
+}
+
+JAP_kodoha_pacific_south_philippines_foothold_available = {
+	OR = {
+		1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+		627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+	}
+}
+
+JAP_kodoha_pacific_hawaii_landing_gate_available = {
+	631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+	JAP_kodoha_pacific_inner_ring_enemy_presence = no
+	JAP_kodoha_pacific_philippines_main_enemy_presence = no
+}
+
+JAP_kodoha_pacific_iwo_jima_landing_available = {
+	JAP_kodoha_pacific_staging_available = yes
+	645 = { controller = { has_war_with = ROOT } } # 硫磺岛
+}
+
+JAP_kodoha_pacific_saipan_landing_available = {
+	645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+	646 = { controller = { has_war_with = ROOT } } # 塞班岛
+}
+
+JAP_kodoha_pacific_guam_landing_available = {
+	646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+	638 = { controller = { has_war_with = ROOT } } # 关岛
+}
+
+JAP_kodoha_pacific_wake_landing_available = {
+	OR = {
+		638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+		633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	}
+	632 = { controller = { has_war_with = ROOT } } # 威克岛
+}
+
+JAP_kodoha_pacific_midway_landing_available = {
+	632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+	631 = { controller = { has_war_with = ROOT } } # 中途岛
+}
+
+JAP_kodoha_pacific_hawaii_landing_available = {
+	JAP_kodoha_pacific_hawaii_landing_gate_available = yes
+	629 = { controller = { has_war_with = ROOT } } # 夏威夷
+}
+
+JAP_kodoha_pacific_okinawa_landing_available = {
+	JAP_kodoha_pacific_staging_available = yes
+	526 = { controller = { has_war_with = ROOT } } # 冲绳
+}
+
+JAP_kodoha_pacific_taiwan_landing_available = {
+	526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+	524 = { controller = { has_war_with = ROOT } } # 台湾
+}
+
+JAP_kodoha_pacific_manila_landing_available = {
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	327 = { controller = { has_war_with = ROOT } } # 马尼拉
+}
+
+JAP_kodoha_pacific_luzon_landing_available = {
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	623 = { controller = { has_war_with = ROOT } } # 吕宋
+}
+
+JAP_kodoha_pacific_north_mindanao_landing_available = {
+	JAP_kodoha_pacific_luzon_foothold_available = yes
+	1026 = { controller = { has_war_with = ROOT } } # 北棉兰老
+}
+
+JAP_kodoha_pacific_davao_landing_available = {
+	JAP_kodoha_pacific_luzon_foothold_available = yes
+	627 = { controller = { has_war_with = ROOT } } # 达沃
+}
+
+JAP_kodoha_pacific_caroline_landing_available = {
+	JAP_kodoha_pacific_south_philippines_foothold_available = yes
+	684 = { controller = { has_war_with = ROOT } } # 加罗林群岛
+}
+
+JAP_kodoha_pacific_marshall_landing_available = {
+	684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+	633 = { controller = { has_war_with = ROOT } } # 马绍尔群岛
+}
+
+JAP_kodoha_pacific_landing_target_available = {
+	OR = {
+		JAP_kodoha_pacific_iwo_jima_landing_available = yes
+		JAP_kodoha_pacific_saipan_landing_available = yes
+		JAP_kodoha_pacific_guam_landing_available = yes
+		JAP_kodoha_pacific_wake_landing_available = yes
+		JAP_kodoha_pacific_midway_landing_available = yes
+		JAP_kodoha_pacific_hawaii_landing_available = yes
+		JAP_kodoha_pacific_okinawa_landing_available = yes
+		JAP_kodoha_pacific_taiwan_landing_available = yes
+		JAP_kodoha_pacific_manila_landing_available = yes
+		JAP_kodoha_pacific_luzon_landing_available = yes
+		JAP_kodoha_pacific_north_mindanao_landing_available = yes
+		JAP_kodoha_pacific_davao_landing_available = yes
+		JAP_kodoha_pacific_caroline_landing_available = yes
+		JAP_kodoha_pacific_marshall_landing_available = yes
+	}
+}
+
+JAP_kodoha_pacific_north_chain_guard_iwo_jima_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+	OR = {
+		646 = { is_controlled_by_ROOT_or_ally = no } # 塞班岛
+		AND = {
+			646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+			638 = { is_controlled_by_ROOT_or_ally = no } # 关岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_north_chain_guard_saipan_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+	OR = {
+		638 = { is_controlled_by_ROOT_or_ally = no } # 关岛
+		AND = {
+			638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+			632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_north_chain_guard_guam_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+	OR = {
+		632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		AND = {
+			632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+			631 = { is_controlled_by_ROOT_or_ally = no } # 中途岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_north_chain_guard_wake_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+}
+
+JAP_kodoha_pacific_north_chain_guard_midway_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+}
+
+JAP_kodoha_pacific_north_chain_guard_hawaii_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+}
+
+JAP_kodoha_pacific_south_chain_guard_okinawa_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+	OR = {
+		524 = { is_controlled_by_ROOT_or_ally = no } # 台湾
+		AND = {
+			524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+			JAP_kodoha_pacific_luzon_foothold_available = no
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_taiwan_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	OR = {
+		JAP_kodoha_pacific_luzon_foothold_available = no
+		AND = {
+			JAP_kodoha_pacific_luzon_foothold_available = yes
+			JAP_kodoha_pacific_south_philippines_foothold_available = no
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_manila_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+	OR = {
+		JAP_kodoha_pacific_south_philippines_foothold_available = no
+		AND = {
+			JAP_kodoha_pacific_south_philippines_foothold_available = yes
+			684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_luzon_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+	OR = {
+		JAP_kodoha_pacific_south_philippines_foothold_available = no
+		AND = {
+			JAP_kodoha_pacific_south_philippines_foothold_available = yes
+			684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_north_mindanao_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+	OR = {
+		684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		AND = {
+			684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+			633 = { is_controlled_by_ROOT_or_ally = no } # 马绍尔群岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_davao_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+	OR = {
+		684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		AND = {
+			684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+			633 = { is_controlled_by_ROOT_or_ally = no } # 马绍尔群岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_caroline_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+	OR = {
+		633 = { is_controlled_by_ROOT_or_ally = no } # 马绍尔群岛
+		AND = {
+			633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+			632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		}
+	}
+}
+
+JAP_kodoha_pacific_south_chain_guard_marshall_needed = {
+	JAP_kodoha_pacific_theater_clear = no
+	633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	OR = {
+		632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		AND = {
+			632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+			631 = { is_controlled_by_ROOT_or_ally = no } # 中途岛
+		}
+	}
+}
+
+JAP_kodoha_northern_full_commitment_ready = {
+	OR = {
+		has_completed_focus = JAP_hokushin_ron # 北进论
+		has_war_with = SOV
+	}
+}
+
+JAP_kodoha_northern_east_staging_available = {
+	OR = {
+		536 = { is_controlled_by_ROOT_or_ally = yes } # 北海道
+		610 = { is_controlled_by_ROOT_or_ally = yes } # 热河
+		716 = { is_controlled_by_ROOT_or_ally = yes } # 辽宁
+		328 = { is_controlled_by_ROOT_or_ally = yes } # 吉林
+		714 = { is_controlled_by_ROOT_or_ally = yes } # 黑龙江
+		527 = { is_controlled_by_ROOT_or_ally = yes } # 平安-黄海
+		1028 = { is_controlled_by_ROOT_or_ally = yes } # 咸镜
+	}
+}
+
+JAP_kodoha_northern_east_forward_staging_available = {
+	OR = {
+		610 = { is_controlled_by_ROOT_or_ally = yes } # 热河
+		716 = { is_controlled_by_ROOT_or_ally = yes } # 辽宁
+		328 = { is_controlled_by_ROOT_or_ally = yes } # 吉林
+		714 = { is_controlled_by_ROOT_or_ally = yes } # 黑龙江
+		527 = { is_controlled_by_ROOT_or_ally = yes } # 平安-黄海
+		1028 = { is_controlled_by_ROOT_or_ally = yes } # 咸镜
+	}
+}
+
+JAP_kodoha_northern_east_access_lost = {
+	JAP_kodoha_northern_east_forward_staging_available = no
+}
+
+JAP_kodoha_northern_east_hokkaido_staging_available = {
+	536 = { is_controlled_by_ROOT_or_ally = yes } # 北海道
+}
+
+JAP_kodoha_northern_east_enemy_presence = {
+	OR = {
+		610 = { controller = { has_war_with = ROOT } } # 热河
+		716 = { controller = { has_war_with = ROOT } } # 辽宁
+		328 = { controller = { has_war_with = ROOT } } # 吉林
+		714 = { controller = { has_war_with = ROOT } } # 黑龙江
+		527 = { controller = { has_war_with = ROOT } } # 平安-黄海
+		1028 = { controller = { has_war_with = ROOT } } # 咸镜
+		408 = { controller = { has_war_with = ROOT } } # 符拉迪沃斯托克
+		409 = { controller = { has_war_with = ROOT } } # 哈巴罗夫斯克
+		561 = { controller = { has_war_with = ROOT } } # 阿穆尔
+		563 = { controller = { has_war_with = ROOT } } # 赤塔
+		564 = { controller = { has_war_with = ROOT } } # 布里亚特
+		566 = { controller = { has_war_with = ROOT } } # 伊尔库茨克
+	}
+}
+
+JAP_kodoha_northern_east_key_objectives_secured = {
+	408 = { is_controlled_by_ROOT_or_ally = yes } # 符拉迪沃斯托克
+	409 = { is_controlled_by_ROOT_or_ally = yes } # 哈巴罗夫斯克
+	561 = { is_controlled_by_ROOT_or_ally = yes } # 阿穆尔
+	563 = { is_controlled_by_ROOT_or_ally = yes } # 赤塔
+	564 = { is_controlled_by_ROOT_or_ally = yes } # 布里亚特
+	566 = { is_controlled_by_ROOT_or_ally = yes } # 伊尔库茨克
+}
+
+JAP_kodoha_northern_east_theater_clear = {
+	JAP_kodoha_northern_east_key_objectives_secured = yes
+}
+
+JAP_kodoha_northern_east_vladivostok_landing_available = {
+	JAP_kodoha_northern_east_hokkaido_staging_available = yes
+	JAP_kodoha_northern_east_theater_clear = no
+	408 = { controller = { has_war_with = ROOT } } # 符拉迪沃斯托克
+}
+
+JAP_kodoha_northern_east_khabarovsk_landing_available = {
+	JAP_kodoha_northern_east_hokkaido_staging_available = yes
+	JAP_kodoha_northern_east_theater_clear = no
+	409 = { controller = { has_war_with = ROOT } } # 哈巴罗夫斯克
+	OR = {
+		408 = { is_controlled_by_ROOT_or_ally = yes } # 符拉迪沃斯托克
+		561 = { is_controlled_by_ROOT_or_ally = yes } # 阿穆尔
+	}
+}
+
+JAP_kodoha_northern_east_landing_target_available = {
+	OR = {
+		JAP_kodoha_northern_east_vladivostok_landing_available = yes
+		JAP_kodoha_northern_east_khabarovsk_landing_available = yes
+	}
+}
+
+JAP_kodoha_northern_west_staging_available = {
+	OR = {
+		617 = { is_controlled_by_ROOT_or_ally = yes } # 乌鲁木齐
+		618 = { is_controlled_by_ROOT_or_ally = yes } # 准噶尔
+		604 = { is_controlled_by_ROOT_or_ally = yes } # 青海
+		621 = { is_controlled_by_ROOT_or_ally = yes } # 绥远
+		611 = { is_controlled_by_ROOT_or_ally = yes } # 察哈尔
+		330 = { is_controlled_by_ROOT_or_ally = yes } # 乌兰巴托
+	}
+}
+
+JAP_kodoha_northern_west_access_lost = {
+	JAP_kodoha_northern_west_staging_available = no
+}
+
+JAP_kodoha_northern_west_side_enemy_presence = {
+	OR = {
+		617 = { controller = { has_war_with = ROOT } } # 乌鲁木齐
+		618 = { controller = { has_war_with = ROOT } } # 准噶尔
+		619 = { controller = { has_war_with = ROOT } } # 莎车
+		287 = { controller = { has_war_with = ROOT } } # 塔克拉玛干
+		1042 = { controller = { has_war_with = ROOT } } # 和阗
+		759 = { controller = { has_war_with = ROOT } } # 昆仑山
+		760 = { controller = { has_war_with = ROOT } } # 达坂城
+		604 = { controller = { has_war_with = ROOT } } # 青海
+		754 = { controller = { has_war_with = ROOT } } # 果洛
+		755 = { controller = { has_war_with = ROOT } } # 海西
+		330 = { controller = { has_war_with = ROOT } } # 乌兰巴托
+		329 = { controller = { has_war_with = ROOT } } # 唐努图瓦
+		817 = { controller = { has_war_with = ROOT } } # 戈壁
+		818 = { controller = { has_war_with = ROOT } } # 科布多
+		819 = { controller = { has_war_with = ROOT } } # 东方
+		820 = { controller = { has_war_with = ROOT } } # 库苏古尔
+	}
+}
+
+JAP_kodoha_northern_west_deep_enemy_presence = {
+	OR = {
+		568 = { controller = { has_war_with = ROOT } } # 克拉斯诺亚尔斯克
+		570 = { controller = { has_war_with = ROOT } } # 新西伯利亚
+		571 = { controller = { has_war_with = ROOT } } # 鄂木斯克
+		572 = { controller = { has_war_with = ROOT } } # 车里雅宾斯克
+		573 = { controller = { has_war_with = ROOT } } # 兹拉托乌斯特
+		576 = { controller = { has_war_with = ROOT } } # 叶尼塞斯克
+		577 = { controller = { has_war_with = ROOT } } # 苏尔古特
+		578 = { controller = { has_war_with = ROOT } } # 托木斯克
+		579 = { controller = { has_war_with = ROOT } } # 萨列哈尔德
+		580 = { controller = { has_war_with = ROOT } } # 托博尔斯克
+		581 = { controller = { has_war_with = ROOT } } # 北乌拉尔
+		582 = { controller = { has_war_with = ROOT } } # 马格尼托哥尔斯克
+		653 = { controller = { has_war_with = ROOT } } # 斯维尔德洛夫斯克
+		516 = { controller = { has_war_with = ROOT } } # 杜金卡
+		878 = { controller = { has_war_with = ROOT } } # 哈坦斯基
+		824 = { controller = { has_war_with = ROOT } } # 亚马尔
+		825 = { controller = { has_war_with = ROOT } } # 涅涅茨
+	}
+}
+
+JAP_kodoha_northern_west_enemy_presence = {
+	OR = {
+		JAP_kodoha_northern_west_side_enemy_presence = yes
+		JAP_kodoha_northern_west_deep_enemy_presence = yes
+	}
+}
+
+JAP_kodoha_northern_west_deep_push_ready = {
+	OR = {
+		JAP_kodoha_northern_east_theater_clear = yes
+		568 = { is_controlled_by_ROOT_or_ally = yes } # 克拉斯诺亚尔斯克
+		570 = { is_controlled_by_ROOT_or_ally = yes } # 新西伯利亚
+		571 = { is_controlled_by_ROOT_or_ally = yes } # 鄂木斯克
+	}
+}
+
+JAP_kodoha_northern_west_key_objectives_secured = {
+	330 = { is_controlled_by_ROOT_or_ally = yes } # 乌兰巴托
+	329 = { is_controlled_by_ROOT_or_ally = yes } # 唐努图瓦
+	568 = { is_controlled_by_ROOT_or_ally = yes } # 克拉斯诺亚尔斯克
+	570 = { is_controlled_by_ROOT_or_ally = yes } # 新西伯利亚
+	571 = { is_controlled_by_ROOT_or_ally = yes } # 鄂木斯克
+	581 = { is_controlled_by_ROOT_or_ally = yes } # 北乌拉尔
+	653 = { is_controlled_by_ROOT_or_ally = yes } # 斯维尔德洛夫斯克
+	572 = { is_controlled_by_ROOT_or_ally = yes } # 车里雅宾斯克
+	582 = { is_controlled_by_ROOT_or_ally = yes } # 马格尼托哥尔斯克
+}
+
+JAP_kodoha_northern_west_theater_clear = {
+	JAP_kodoha_northern_west_key_objectives_secured = yes
+}
+
+JAP_kodoha_major_asian_theaters_basic_missions_completed = {
+	Rance_is_jap_kodoha_ai = yes
+	has_country_flag = JAP_china_war_substantially_ended_flag
+	JAP_kodoha_home_islands_compromised = no
+	JAP_kodoha_southeast_asia_core_corridor_secured = yes
+	JAP_kodoha_south_asia_main_objectives_secured = yes
+	JAP_kodoha_eia_basic_or_full_victory_for_pacific_release = yes
+	JAP_kodoha_northern_east_theater_clear = yes
+	JAP_kodoha_northern_west_theater_clear = yes
+}
+
+JAP_kodoha_north_america_operation_ready = {
+	Rance_is_jap_kodoha_ai = yes
+	JAP_kodoha_major_asian_theaters_basic_missions_completed = yes
+	has_war_with = USA
+	has_country_flag = JAP_us_mainland_invasion_preparation_completed_flag
+	629 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # 夏威夷
+	JAP_kodoha_home_islands_compromised = no
+}
+
+JAP_kodoha_north_america_west_coast_staging_available = {
+	OR = {
+		378 = { is_controlled_by_ROOT_or_ally = yes } # 加利福尼亚
+		385 = { is_controlled_by_ROOT_or_ally = yes } # 俄勒冈
+		386 = { is_controlled_by_ROOT_or_ally = yes } # 华盛顿
+	}
+}
+
+JAP_kodoha_north_america_operational_access_available = {
+	JAP_kodoha_home_islands_compromised = no
+	has_war_with = USA
+	OR = {
+		JAP_kodoha_north_america_operation_ready = yes
+		JAP_kodoha_north_america_west_coast_staging_available = yes
+	}
+}
+
+JAP_kodoha_north_america_access_lost = {
+	JAP_kodoha_north_america_operational_access_available = no
+}
+
+JAP_kodoha_north_america_enemy_presence = {
+	any_state = {
+		is_on_continent = north_america
+		controller = { has_war_with = ROOT }
+	}
+}
+
+JAP_kodoha_north_america_theater_clear = {
+	OR = {
+		JAP_kodoha_north_america_enemy_presence = no
+		JAP_kodoha_home_islands_compromised = yes
+	}
+}
+
+JAP_kodoha_north_america_california_staging_selected = {
+	378 = { is_controlled_by_ROOT_or_ally = yes } # 加利福尼亚
+}
+
+JAP_kodoha_north_america_oregon_staging_selected = {
+	378 = { is_controlled_by_ROOT_or_ally = no } # 加利福尼亚
+	385 = { is_controlled_by_ROOT_or_ally = yes } # 俄勒冈
+}
+
+JAP_kodoha_north_america_washington_staging_selected = {
+	378 = { is_controlled_by_ROOT_or_ally = no } # 加利福尼亚
+	385 = { is_controlled_by_ROOT_or_ally = no } # 俄勒冈
+	386 = { is_controlled_by_ROOT_or_ally = yes } # 华盛顿
+}
+
+JAP_kodoha_north_america_california_landing_available = {
+	JAP_kodoha_north_america_operation_ready = yes
+	JAP_kodoha_north_america_west_coast_staging_available = no
+	378 = { controller = { has_war_with = ROOT } } # 加利福尼亚
+}
+
+JAP_kodoha_north_america_oregon_landing_available = {
+	JAP_kodoha_north_america_operation_ready = yes
+	JAP_kodoha_north_america_west_coast_staging_available = no
+	385 = { controller = { has_war_with = ROOT } } # 俄勒冈
+}
+
+JAP_kodoha_north_america_landing_target_available = {
+	OR = {
+		JAP_kodoha_north_america_california_landing_available = yes
+		JAP_kodoha_north_america_oregon_landing_available = yes
+	}
+}

@@ -1,0 +1,551 @@
+# Japan AI army and navy leader tier effects.
+
+JAP_ai_general_raise_current_leader_to_skill_4 = {
+	while_loop_effect = {
+		limit = { skill < 4 }
+		add_skill_level = 1
+	}
+}
+
+JAP_ai_general_raise_current_leader_to_skill_7 = {
+	while_loop_effect = {
+		limit = { skill < 7 }
+		add_skill_level = 1
+	}
+}
+
+JAP_ai_general_raise_current_leader_to_skill_9 = {
+	while_loop_effect = {
+		limit = { skill < 9 }
+		add_skill_level = 1
+	}
+}
+
+JAP_ai_general_add_en_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = organizer } }
+		add_unit_leader_trait = organizer
+	}
+	if = {
+		limit = { NOT = { has_trait = panzer_leader } }
+		add_unit_leader_trait = panzer_leader
+	}
+	if = {
+		limit = { NOT = { has_trait = cavalry_leader } }
+		add_unit_leader_trait = cavalry_leader
+	}
+	if = {
+		limit = { NOT = { has_trait = infantry_leader } }
+		add_unit_leader_trait = infantry_leader
+	}
+	if = {
+		limit = { NOT = { has_trait = skilled_staffer } }
+		add_unit_leader_trait = skilled_staffer
+	}
+	if = {
+		limit = { NOT = { has_trait = trickster } }
+		add_unit_leader_trait = trickster
+	}
+	if = {
+		limit = { NOT = { has_trait = trait_engineer } }
+		add_unit_leader_trait = trait_engineer
+	}
+}
+
+JAP_ai_general_add_hl_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = trait_mountaineer } }
+		add_unit_leader_trait = trait_mountaineer
+	}
+	if = {
+		limit = { NOT = { has_trait = hill_fighter } }
+		add_unit_leader_trait = hill_fighter
+	}
+	if = {
+		limit = { NOT = { has_trait = adaptable } }
+		add_unit_leader_trait = adaptable
+	}
+	if = {
+		limit = { NOT = { has_trait = panzer_expert } }
+		add_unit_leader_trait = panzer_expert
+	}
+}
+
+JAP_ai_general_add_exph_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = commando } }
+		add_unit_leader_trait = commando
+	}
+	if = {
+		limit = { NOT = { has_trait = naval_invader } }
+		add_unit_leader_trait = naval_invader
+	}
+	if = {
+		limit = { NOT = { has_trait = desert_fox } }
+		add_unit_leader_trait = desert_fox
+	}
+	if = {
+		limit = { NOT = { has_trait = swamp_fox } }
+		add_unit_leader_trait = swamp_fox
+	}
+	if = {
+		limit = { NOT = { has_trait = jungle_rat } }
+		add_unit_leader_trait = jungle_rat
+	}
+	if = {
+		limit = { NOT = { has_trait = ranger } }
+		add_unit_leader_trait = ranger
+	}
+	if = {
+		limit = { NOT = { has_trait = urban_assault_specialist } }
+		add_unit_leader_trait = urban_assault_specialist
+	}
+	if = {
+		limit = { NOT = { has_trait = fortress_buster } }
+		add_unit_leader_trait = fortress_buster
+	}
+	if = {
+		limit = { NOT = { has_trait = ambusher } }
+		add_unit_leader_trait = ambusher
+	}
+	if = {
+		limit = { NOT = { has_trait = guerilla_fighter } }
+		add_unit_leader_trait = guerilla_fighter
+	}
+}
+
+JAP_ai_field_marshal_add_en_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = logistics_wizard } }
+		add_unit_leader_trait = logistics_wizard
+	}
+	if = {
+		limit = {
+			NOT = { has_trait = thorough_planner }
+			NOT = { has_trait = fast_planner }
+		}
+		add_unit_leader_trait = thorough_planner
+	}
+	if = {
+		limit = { NOT = { has_trait = expert_delegator } }
+		add_unit_leader_trait = expert_delegator
+	}
+}
+
+JAP_ai_field_marshal_add_hl_tier_traits_to_current_leader = {
+	if = {
+		limit = {
+			NOT = { has_trait = aggressive_assaulter }
+			NOT = { has_trait = unyielding_defender }
+		}
+		add_unit_leader_trait = aggressive_assaulter
+	}
+	if = {
+		limit = {
+			NOT = { has_trait = defensive_doctrine }
+			NOT = { has_trait = offensive_doctrine }
+		}
+		add_unit_leader_trait = defensive_doctrine
+	}
+}
+
+JAP_ai_field_marshal_add_exph_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = inspirational_leader } }
+		add_unit_leader_trait = inspirational_leader
+	}
+	if = {
+		limit = { NOT = { has_trait = organisational_leader } }
+		add_unit_leader_trait = organisational_leader
+	}
+}
+
+JAP_ai_general_apply_en_tier = {
+	every_army_leader = {
+		JAP_ai_general_apply_current_leader_en_tier = yes
+	}
+	JAP_ai_field_marshal_apply_en_tier = yes
+}
+
+JAP_ai_general_apply_hl_tier = {
+	every_army_leader = {
+		JAP_ai_general_apply_current_leader_hl_tier = yes
+	}
+	JAP_ai_field_marshal_apply_hl_tier = yes
+}
+
+JAP_ai_general_apply_exph_tier = {
+	every_army_leader = {
+		JAP_ai_general_apply_current_leader_exph_tier = yes
+	}
+	JAP_ai_field_marshal_apply_exph_tier = yes
+}
+
+JAP_ai_field_marshal_apply_en_tier = {
+	every_army_leader = {
+		limit = { is_field_marshal = yes }
+		JAP_ai_field_marshal_apply_current_leader_en_tier = yes
+	}
+}
+
+JAP_ai_field_marshal_apply_hl_tier = {
+	every_army_leader = {
+		limit = { is_field_marshal = yes }
+		JAP_ai_field_marshal_apply_current_leader_hl_tier = yes
+	}
+}
+
+JAP_ai_field_marshal_apply_exph_tier = {
+	every_army_leader = {
+		limit = { is_field_marshal = yes }
+		JAP_ai_field_marshal_apply_current_leader_exph_tier = yes
+	}
+}
+
+JAP_ai_general_apply_current_leader_en_tier = {
+	JAP_ai_general_raise_current_leader_to_skill_4 = yes
+	JAP_ai_general_add_en_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_general_apply_current_leader_hl_tier = {
+	JAP_ai_general_raise_current_leader_to_skill_7 = yes
+	JAP_ai_general_add_en_tier_traits_to_current_leader = yes
+	JAP_ai_general_add_hl_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_general_apply_current_leader_exph_tier = {
+	JAP_ai_general_raise_current_leader_to_skill_9 = yes
+	JAP_ai_general_add_en_tier_traits_to_current_leader = yes
+	JAP_ai_general_add_hl_tier_traits_to_current_leader = yes
+	JAP_ai_general_add_exph_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_field_marshal_apply_current_leader_en_tier = {
+	JAP_ai_field_marshal_add_en_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_field_marshal_apply_current_leader_hl_tier = {
+	JAP_ai_field_marshal_add_en_tier_traits_to_current_leader = yes
+	JAP_ai_field_marshal_add_hl_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_field_marshal_apply_current_leader_exph_tier = {
+	JAP_ai_field_marshal_add_en_tier_traits_to_current_leader = yes
+	JAP_ai_field_marshal_add_hl_tier_traits_to_current_leader = yes
+	JAP_ai_field_marshal_add_exph_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_general_apply_current_leader_by_owner_difficulty = {
+	if = {
+		limit = {
+			is_army_leader = yes
+			OWNER = {
+				tag = JAP
+				Rance_is_jap_ai = yes
+			}
+		}
+		if = {
+			limit = {
+				OWNER = { Rance_nd_more_than_lunatic = yes }
+			}
+			JAP_ai_general_apply_current_leader_exph_tier = yes
+		}
+		else_if = {
+			limit = {
+				OWNER = { Rance_nd_more_than_normal = yes }
+			}
+			JAP_ai_general_apply_current_leader_hl_tier = yes
+		}
+		else = {
+			JAP_ai_general_apply_current_leader_en_tier = yes
+		}
+	}
+}
+
+JAP_ai_field_marshal_apply_current_leader_by_owner_difficulty = {
+	if = {
+		limit = {
+			is_field_marshal = yes
+			OWNER = {
+				tag = JAP
+				Rance_is_jap_ai = yes
+			}
+		}
+		if = {
+			limit = {
+				OWNER = { Rance_nd_more_than_lunatic = yes }
+			}
+			JAP_ai_field_marshal_apply_current_leader_exph_tier = yes
+		}
+		else_if = {
+			limit = {
+				OWNER = { Rance_nd_more_than_normal = yes }
+			}
+			JAP_ai_field_marshal_apply_current_leader_hl_tier = yes
+		}
+		else = {
+			JAP_ai_field_marshal_apply_current_leader_en_tier = yes
+		}
+	}
+}
+
+JAP_ai_admiral_raise_current_leader_to_skill_4 = {
+	while_loop_effect = {
+		limit = { skill < 4 }
+		add_skill_level = 1
+	}
+}
+
+JAP_ai_admiral_raise_current_leader_to_skill_7 = {
+	while_loop_effect = {
+		limit = { skill < 7 }
+		add_skill_level = 1
+	}
+}
+
+JAP_ai_admiral_raise_current_leader_to_skill_9 = {
+	while_loop_effect = {
+		limit = { skill < 9 }
+		add_skill_level = 1
+	}
+}
+
+JAP_ai_admiral_add_en_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = blockade_runner } }
+		add_unit_leader_trait = blockade_runner
+	}
+	if = {
+		limit = { NOT = { has_trait = seawolf } }
+		add_unit_leader_trait = seawolf
+	}
+	if = {
+		limit = { NOT = { has_trait = spotter } }
+		add_unit_leader_trait = spotter
+	}
+	if = {
+		limit = { NOT = { has_trait = fleet_protector } }
+		add_unit_leader_trait = fleet_protector
+	}
+	if = {
+		limit = { NOT = { has_trait = superior_tactician } }
+		add_unit_leader_trait = superior_tactician
+	}
+	if = {
+		limit = { NOT = { has_trait = air_controller } }
+		add_unit_leader_trait = air_controller
+	}
+	if = {
+		limit = { NOT = { has_trait = ironside } }
+		add_unit_leader_trait = ironside
+	}
+}
+
+JAP_ai_admiral_add_hl_tier_traits_to_current_leader = {
+	if = {
+		limit = {
+			NOT = { has_trait = concealment_expert }
+			NOT = { has_trait = lone_wolf }
+		}
+		add_unit_leader_trait = concealment_expert
+	}
+	if = {
+		limit = {
+			NOT = { has_trait = lancer }
+			NOT = { has_trait = silent_hunter }
+		}
+		add_unit_leader_trait = lancer
+	}
+	if = {
+		limit = { NOT = { has_trait = torpedo_expert } }
+		add_unit_leader_trait = torpedo_expert
+	}
+	if = {
+		limit = { NOT = { has_trait = destroyer_leader } }
+		add_unit_leader_trait = destroyer_leader
+	}
+	if = {
+		limit = { NOT = { has_trait = cruiser_captain } }
+		add_unit_leader_trait = cruiser_captain
+	}
+	if = {
+		limit = { NOT = { has_trait = flight_deck_manager } }
+		add_unit_leader_trait = flight_deck_manager
+	}
+}
+
+JAP_ai_admiral_add_exph_tier_traits_to_current_leader = {
+	if = {
+		limit = { NOT = { has_trait = big_guns_expert } }
+		add_unit_leader_trait = big_guns_expert
+	}
+	if = {
+		limit = {
+			NOT = { has_trait = marksman }
+			NOT = { has_trait = crisis_magician }
+		}
+		add_unit_leader_trait = marksman
+	}
+	if = {
+		limit = { NOT = { has_trait = smoke_screen_expert } }
+		add_unit_leader_trait = smoke_screen_expert
+	}
+	if = {
+		limit = { NOT = { has_trait = loading_drill_master } }
+		add_unit_leader_trait = loading_drill_master
+	}
+	if = {
+		limit = { NOT = { has_trait = hunter_killer } }
+		add_unit_leader_trait = hunter_killer
+	}
+	if = {
+		limit = { NOT = { has_trait = fly_swatter } }
+		add_unit_leader_trait = fly_swatter
+	}
+	if = {
+		limit = {
+			NOT = { has_trait = torpedo_bomber }
+			NOT = { has_trait = fighter_director }
+			NOT = { has_trait = dive_bomber }
+		}
+		add_unit_leader_trait = torpedo_bomber
+	}
+	if = {
+		limit = { NOT = { has_trait = blue_water_expert } }
+		add_unit_leader_trait = blue_water_expert
+	}
+	if = {
+		limit = { NOT = { has_trait = green_water_expert } }
+		add_unit_leader_trait = green_water_expert
+	}
+	if = {
+		limit = { NOT = { has_trait = inshore_fighter } }
+		add_unit_leader_trait = inshore_fighter
+	}
+	if = {
+		limit = { NOT = { has_trait = bold } }
+		add_unit_leader_trait = bold
+	}
+	if = {
+		limit = { NOT = { has_trait = chief_engineer } }
+		add_unit_leader_trait = chief_engineer
+	}
+}
+
+JAP_ai_admiral_apply_en_tier = {
+	every_navy_leader = {
+		JAP_ai_admiral_apply_current_leader_en_tier = yes
+	}
+}
+
+JAP_ai_admiral_apply_hl_tier = {
+	every_navy_leader = {
+		JAP_ai_admiral_apply_current_leader_hl_tier = yes
+	}
+}
+
+JAP_ai_admiral_apply_exph_tier = {
+	every_navy_leader = {
+		JAP_ai_admiral_apply_current_leader_exph_tier = yes
+	}
+}
+
+JAP_ai_admiral_apply_current_leader_en_tier = {
+	JAP_ai_admiral_raise_current_leader_to_skill_4 = yes
+	JAP_ai_admiral_add_en_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_admiral_apply_current_leader_hl_tier = {
+	JAP_ai_admiral_raise_current_leader_to_skill_7 = yes
+	JAP_ai_admiral_add_en_tier_traits_to_current_leader = yes
+	JAP_ai_admiral_add_hl_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_admiral_apply_current_leader_exph_tier = {
+	JAP_ai_admiral_raise_current_leader_to_skill_9 = yes
+	JAP_ai_admiral_add_en_tier_traits_to_current_leader = yes
+	JAP_ai_admiral_add_hl_tier_traits_to_current_leader = yes
+	JAP_ai_admiral_add_exph_tier_traits_to_current_leader = yes
+}
+
+JAP_ai_admiral_apply_current_leader_by_owner_difficulty = {
+	if = {
+		limit = {
+			is_navy_leader = yes
+			OWNER = {
+				tag = JAP
+				Rance_is_jap_ai = yes
+			}
+		}
+		if = {
+			limit = {
+				OWNER = { Rance_nd_more_than_lunatic = yes }
+			}
+			JAP_ai_admiral_apply_current_leader_exph_tier = yes
+		}
+		else_if = {
+			limit = {
+				OWNER = { Rance_nd_more_than_normal = yes }
+			}
+			JAP_ai_admiral_apply_current_leader_hl_tier = yes
+		}
+		else = {
+			JAP_ai_admiral_apply_current_leader_en_tier = yes
+		}
+	}
+}
+
+JAP_ai_dynamic_grant_refresh_multipliers = {
+	set_variable = { JAP_ai_dynamic_base_multiplier = 1 }
+	set_variable = { JAP_ai_boss_bonus_multiplier = 0 }
+
+	if = {
+		limit = { has_war = yes }
+		set_variable = { JAP_ai_dynamic_base_multiplier = 2 }
+
+		if = {
+			limit = { surrender_progress > 0.05 }
+			set_variable = { JAP_ai_dynamic_base_multiplier = 3 }
+		}
+
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = rance_japan_ai_boss_mode
+					option = ENABLED
+				}
+			}
+
+			every_enemy_country = {
+				limit = {
+					is_ai = no
+					is_major = yes
+				}
+				JAP = { add_to_variable = { JAP_ai_boss_bonus_multiplier = 2 } }
+			}
+			every_enemy_country = {
+				limit = {
+					is_ai = no
+					is_major = no
+				}
+				JAP = { add_to_variable = { JAP_ai_boss_bonus_multiplier = 1 } }
+			}
+			every_enemy_country = {
+				limit = {
+					is_ai = yes
+					is_major = yes
+				}
+				JAP = { add_to_variable = { JAP_ai_boss_bonus_multiplier = 1 } }
+			}
+		}
+	}
+
+	set_variable = {
+		var = JAP_ai_dynamic_final_multiplier
+		value = JAP_ai_dynamic_base_multiplier
+	}
+	add_to_variable = {
+		var = JAP_ai_dynamic_final_multiplier
+		value = JAP_ai_boss_bonus_multiplier
+	}
+}

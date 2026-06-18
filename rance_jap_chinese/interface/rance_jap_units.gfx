@@ -1,0 +1,609 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_infantry_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_infantry_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_infantry_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_infantry_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_infantry_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_infantry_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_mechanized_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_mechanized_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_mechanized_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_mechanized_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_mechanized_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_mechanized_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_medium_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_medium_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_medium_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_heavy_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_heavy_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_heavy_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_artillery_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_medium_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_artillery_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_medium_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_artillery_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_medium_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_artillery_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_heavy_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_artillery_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_heavy_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_artillery_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_heavy_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_artillery_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_artillery_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_artillery_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_tankdestroyer_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_medium_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_tankdestroyer_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_medium_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_tankdestroyer_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_medium_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_tankdestroyer_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_heavy_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_tankdestroyer_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_heavy_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_tankdestroyer_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_heavy_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_tankdestroyer_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_tankdestroyer_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_tankdestroyer_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_anti_air_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_medium_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_anti_air_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_medium_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_medium_anti_air_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_medium_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_anti_air_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_heavy_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_anti_air_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_heavy_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_heavy_anti_air_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_heavy_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_anti_air_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_anti_air_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_anti_air_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_artillery_armor_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_artillery_armor_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_artillery_armor_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_tankdestroyer_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_tankdestroyer_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_tankdestroyer_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_anti_air_armor_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_M_modern_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_anti_air_armor_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_M_modern_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_M_modern_anti_air_armor_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_M_modern_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_infantry_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_infantry_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_infantry_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_infantry_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_infantry_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_infantry_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_mechanized_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_mechanized_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_mechanized_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_mechanized_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_mechanized_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_mechanized_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_artillery_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_artillery_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_artillery_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_artillery_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_artillery_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_artillery_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_artillery_armor_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_artillery_armor_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_artillery_armor_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_artillery_armor_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_artillery_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_artillery_armor_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_artillery_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_artillery_armor_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_artillery_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_tankdestroyer_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_tankdestroyer_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_tankdestroyer_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_tankdestroyer_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_tankdestroyer_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_tankdestroyer_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_tankdestroyer_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_tankdestroyer_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_tankdestroyer_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_tankdestroyer_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_tankdestroyer_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_tankdestroyer_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_tankdestroyer_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_tankdestroyer_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_tankdestroyer_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_anti_air_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_anti_air_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_anti_air_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_anti_air_armor_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_anti_air_armor_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_anti_air_armor_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_anti_air_armor_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_medium_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_anti_air_armor_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_medium_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_medium_anti_air_armor_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_medium_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_anti_air_armor_support_icon_medium"
+		texturefile = "gfx/interface/counters/divisions_large/Rance_JAP_A_heavy_anti_air_armor_large.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_anti_air_armor_support_icon_medium_white"
+		texturefile = "gfx/interface/counters/divisions_small/Rance_JAP_A_heavy_anti_air_armor_small.png"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_unit_Rance_JAP_A_heavy_anti_air_armor_support_icon_small"
+		texturefile = "gfx/texticons/Rance_JAP_A_heavy_anti_air_armor_small.png"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+}

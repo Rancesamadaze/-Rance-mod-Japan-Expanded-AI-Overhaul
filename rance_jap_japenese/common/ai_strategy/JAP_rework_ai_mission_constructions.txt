@@ -1,0 +1,748 @@
+# 商工省任务配套 AI 建造策略
+
+# 在“首都圈开发计划”进行期间，用更高权重大致引导 AI 优先在关东补基建
+JAP_shoko_develop_kanto_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_kanto_mission
+		282 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_kanto_infra_pre }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 282
+		value = 5000
+	}
+}
+
+# 在“首都圈开发计划”进行期间，用次级权重大致引导 AI 在关东补民工
+JAP_shoko_develop_kanto_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_kanto_mission
+		282 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_kanto_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 282
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+
+}
+
+# 在“东海道开发计划”进行期间，用更高权重大致引导 AI 优先在东海道补基建
+JAP_shoko_develop_tokaido_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_tokaido_mission
+		532 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_tokaido_infra_pre }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 532
+		value = 5000
+	}
+}
+
+# 在“东海道开发计划”进行期间，用次级权重大致引导 AI 在东海道补民工
+JAP_shoko_develop_tokaido_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_tokaido_mission
+		532 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_tokaido_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 532
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“关西开发计划”进行期间，用更高权重大致引导 AI 优先在关西补基建
+JAP_shoko_develop_kansai_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_kansai_mission
+		531 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_kansai_infra_pre }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 531
+		value = 5000
+	}
+}
+
+# 在“关西开发计划”进行期间，用次级权重大致引导 AI 在关西补军工
+JAP_shoko_develop_kansai_ai_mils = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_kansai_mission
+		531 = {
+			NOT = {
+				check_variable = { building_level@arms_factory > JAP_shoko_kansai_mil_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = arms_factory
+		target = 531
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 10
+	}
+}
+
+# 在“山阳开发计划”进行期间，用更高权重大致引导 AI 优先在山阳补基建
+JAP_shoko_develop_sanyo_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_sanyo_mission
+		529 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_sanyo_infra_pre }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 529
+		value = 5000
+	}
+}
+
+# 在“山阳开发计划”进行期间，用次级权重大致引导 AI 在山阳补民工
+JAP_shoko_develop_sanyo_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_sanyo_mission
+		529 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_sanyo_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 529
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“北九州开发计划”进行期间，用更高权重大致引导 AI 优先在北九州补基建
+JAP_shoko_develop_north_kyushu_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_north_kyushu_mission
+		528 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_north_kyushu_infra_pre }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 528
+		value = 5000
+	}
+}
+
+# 在“北九州开发计划”进行期间，用次级权重大致引导 AI 在北九州补民工
+JAP_shoko_develop_north_kyushu_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_north_kyushu_mission
+		528 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_north_kyushu_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 528
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“北陆开发计划”进行期间，用更高权重大致引导 AI 优先在北陆补基建
+JAP_shoko_develop_hokuriku_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_hokuriku_mission
+		535 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_hokuriku_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 535
+		value = 5000
+	}
+}
+
+# 在“北陆开发计划”进行期间，用次级权重大致引导 AI 在北陆补民工
+JAP_shoko_develop_hokuriku_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_hokuriku_mission
+		535 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_hokuriku_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 535
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“甲信越开发计划”进行期间，用更高权重大致引导 AI 优先在甲信越补基建
+JAP_shoko_develop_koshinetsu_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_koshinetsu_mission
+		534 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_koshinetsu_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 534
+		value = 5000
+	}
+}
+
+# 在“甲信越开发计划”进行期间，用次级权重大致引导 AI 在甲信越补船坞
+JAP_shoko_develop_koshinetsu_ai_dockyards = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_koshinetsu_mission
+		534 = {
+			NOT = {
+				check_variable = { building_level@dockyard > JAP_shoko_koshinetsu_dockyard_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = dockyard
+		target = 534
+		value = 2500
+	}
+}
+
+# 在“山阴开发计划”进行期间，用更高权重大致引导 AI 优先在山阴补基建
+JAP_shoko_develop_sanin_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_sanin_mission
+		1020 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_sanin_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 1020
+		value = 5000
+	}
+}
+
+# 在“山阴开发计划”进行期间，用次级权重大致引导 AI 在山阴补民工
+JAP_shoko_develop_sanin_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_sanin_mission
+		1020 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_sanin_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 1020
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“四国开发计划”进行期间，用更高权重大致引导 AI 优先在四国补基建
+JAP_shoko_develop_shikoku_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_shikoku_mission
+		530 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_shikoku_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 530
+		value = 5000
+	}
+}
+
+# 在“四国开发计划”进行期间，用次级权重大致引导 AI 在四国补民工
+JAP_shoko_develop_shikoku_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_shikoku_mission
+		530 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_shikoku_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 530
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“南九州开发计划”进行期间，用更高权重大致引导 AI 优先在南九州补基建
+JAP_shoko_develop_south_kyushu_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_south_kyushu_mission
+		1018 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_south_kyushu_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 1018
+		value = 5000
+	}
+}
+
+# 在“南九州开发计划”进行期间，用次级权重大致引导 AI 在南九州补民工
+JAP_shoko_develop_south_kyushu_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_south_kyushu_mission
+		1018 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_south_kyushu_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 1018
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“南东北开发计划”进行期间，用更高权重大致引导 AI 优先在南东北补基建
+JAP_shoko_develop_south_tohoku_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_south_tohoku_mission
+		1019 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_south_tohoku_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 1019
+		value = 5000
+	}
+}
+
+# 在“南东北开发计划”进行期间，用次级权重大致引导 AI 在南东北补民工
+JAP_shoko_develop_south_tohoku_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_south_tohoku_mission
+		1019 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_south_tohoku_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 1019
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“北东北开发计划”进行期间，用更高权重大致引导 AI 优先在北东北补基建
+JAP_shoko_develop_north_tohoku_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_north_tohoku_mission
+		533 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_north_tohoku_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 533
+		value = 5000
+	}
+}
+
+# 在“北东北开发计划”进行期间，用次级权重大致引导 AI 在北东北补民工
+JAP_shoko_develop_north_tohoku_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_north_tohoku_mission
+		533 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_north_tohoku_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 533
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“北海道开发计划”进行期间，用更高权重大致引导 AI 优先在北海道补基建
+JAP_shoko_develop_hokkaido_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_hokkaido_mission
+		536 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_hokkaido_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 536
+		value = 5000
+	}
+}
+
+# 在“北海道开发计划”进行期间，用次级权重大致引导 AI 在北海道补民工
+JAP_shoko_develop_hokkaido_ai_civs = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_hokkaido_mission
+		536 = {
+			NOT = {
+				check_variable = { building_level@industrial_complex > JAP_shoko_hokkaido_civ_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		target = 536
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -10
+	}
+}
+
+# 在“上海开发计划”进行期间，用更高权重大致引导 AI 优先在上海补基建
+JAP_shoko_develop_shanghai_ai_infrastructure = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_shanghai_mission
+		613 = {
+			NOT = {
+				OR = {
+					infrastructure > 4
+					check_variable = { building_level@infrastructure > JAP_shoko_shanghai_infra_target }
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 613
+		value = 5000
+	}
+}
+
+# 在“上海开发计划”进行期间，用次级权重大致引导 AI 在上海补船坞
+JAP_shoko_develop_shanghai_ai_dockyards = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_active_mission = JAP_shoko_develop_shanghai_mission
+		613 = {
+			NOT = {
+				check_variable = { building_level@dockyard > JAP_shoko_shanghai_dockyard_target }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = dockyard
+		target = 613
+		value = 2500
+	}
+}

@@ -1,0 +1,27 @@
+add_namespace = JAP_debug_dynamic_state_text
+
+country_event = {
+	id = JAP_debug_dynamic_state_text.1
+	title = JAP_debug_dynamic_state_text.1.t
+	desc = JAP_debug_dynamic_state_text.1.desc
+	picture = GFX_report_event_generic_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_debug_dynamic_state_text.1.a
+	}
+}
+
+country_event = {
+	id = JAP_debug_dynamic_state_text.2
+	title = JAP_debug_dynamic_state_text.2.t
+	desc = JAP_debug_dynamic_state_text.2.desc
+	picture = GFX_report_event_generic_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_debug_dynamic_state_text.2.a
+	}
+}

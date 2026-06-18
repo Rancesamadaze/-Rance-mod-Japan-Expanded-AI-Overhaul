@@ -1,0 +1,1752 @@
+JAP_rework_ai_categories = {
+	#AI保底PP
+	JAP_rai_1 = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			# Rance_nd_more_than_easy = yes
+			has_political_power < 50
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		complete_effect = {
+			add_political_power = 50
+		}
+	}
+    
+	# AI难度固定精神发放
+	JAP_rai_buff_easy = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			Rance_nd_is_easy = yes
+			date > 1936.2.1
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = Rance_jap_ai_buff_easy
+		}
+	}
+	JAP_rai_buff_normal = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			Rance_nd_is_normal = yes
+			date > 1936.2.1
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = Rance_jap_ai_buff_normal
+		}
+	}
+	JAP_rai_buff_hard = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			Rance_nd_is_hard = yes
+			date > 1936.2.1
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = Rance_jap_ai_buff_hard
+		}
+	}
+	JAP_rai_buff_lunatic = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			Rance_nd_is_lunatic = yes
+			date > 1936.2.1
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = Rance_jap_ai_buff_lunatic
+		}
+	}
+	JAP_rai_buff_extra = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			Rance_nd_is_extra = yes
+			date > 1936.2.1
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = Rance_jap_ai_buff_extra
+		}
+	}
+	JAP_rai_buff_phantasm = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+		}
+		available = {
+			Rance_nd_is_phantasm = yes
+			date > 1936.2.1
+		}
+		ai_will_do = {
+			base = 1000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = Rance_jap_ai_buff_phantasm
+			unlock_tactic = tactic_rance_swift_as_wind
+			unlock_tactic = tactic_rance_steady_as_forest
+			unlock_tactic = tactic_rance_raiding_as_fire
+			unlock_tactic = tactic_rance_immovable_as_mountain
+		}
+	}
+
+	# 皇道派AI整合属国
+	JAP_rai_kodoha_integrate_subjects = {
+		icon = GFX_decision_generic_diplomacy
+		cost = 0
+
+		visible = {
+			Rance_is_jap_kodoha_ai = yes
+			any_subject_country = {
+				is_subject_of = ROOT
+			}
+		}
+
+		available = {
+			Rance_is_jap_kodoha_ai = yes
+			any_subject_country = {
+				is_subject_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			every_subject_country = {
+				limit = {
+					is_subject_of = ROOT
+				}
+				every_owned_state = {
+					add_claim_by = ROOT
+					set_state_flag = JAP_kodoha_ai_subject_integration_state
+				}
+				ROOT = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					has_state_flag = JAP_kodoha_ai_subject_integration_state
+				}
+				set_compliance = 50
+				clr_state_flag = JAP_kodoha_ai_subject_integration_state
+			}
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	# AI难度特殊国策补全
+	JAP_rai_complete_learn_from_maoism_focus = {
+		icon = GFX_decision_generic_political_discourse
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_normal = yes
+			has_completed_focus = JAP_cede_leadership_to_mao
+			NOT = { has_completed_focus = JAP_rework_learn_from_maoism }
+		}
+
+		available = {
+			Rance_nd_more_than_normal = yes
+			has_completed_focus = JAP_cede_leadership_to_mao
+			NOT = { has_completed_focus = JAP_rework_learn_from_maoism }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_rework_learn_from_maoism
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_mao_guerrilla_tactic_ult_focus = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_rework_learn_from_maoism
+			NOT = { has_completed_focus = JAP_mao_guerrilla_tactic_ult }
+		}
+
+		available = {
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_rework_learn_from_maoism
+			NOT = { has_completed_focus = JAP_mao_guerrilla_tactic_ult }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_mao_guerrilla_tactic_ult
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_eternal_long_march_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_mao_guerrilla_tactic_ult
+			NOT = { has_completed_focus = JAP_eternal_long_march }
+		}
+
+		available = {
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_mao_guerrilla_tactic_ult
+			NOT = { has_completed_focus = JAP_eternal_long_march }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_eternal_long_march
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_sea_mountaineers_focus = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_instill_the_spirit_of_bushido
+			NOT = { has_completed_focus = JAP_sea_mountaineers }
+		}
+
+		available = {
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_instill_the_spirit_of_bushido
+			NOT = { has_completed_focus = JAP_sea_mountaineers }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_sea_mountaineers
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_jungle_adaptation_focus = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_instill_the_spirit_of_bushido
+			NOT = { has_completed_focus = JAP_jungle_adaptation }
+		}
+
+		available = {
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_instill_the_spirit_of_bushido
+			NOT = { has_completed_focus = JAP_jungle_adaptation }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_jungle_adaptation
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	# AI Kaguya easter-egg focus completion
+	JAP_rai_complete_kaguya_shell_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_kaguya_eientei
+			NOT = { has_completed_focus = JAP_kaguya_shell }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_kaguya_eientei
+			NOT = { has_completed_focus = JAP_kaguya_shell }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_shell
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_robe_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_normal = yes
+			has_completed_focus = JAP_kaguya_shell
+			NOT = { has_completed_focus = JAP_kaguya_robe }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_normal = yes
+			has_completed_focus = JAP_kaguya_shell
+			NOT = { has_completed_focus = JAP_kaguya_robe }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_robe
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_dragon_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_kaguya_robe
+			NOT = { has_completed_focus = JAP_kaguya_dragon }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_kaguya_robe
+			NOT = { has_completed_focus = JAP_kaguya_dragon }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_dragon
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_bowl_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_kaguya_dragon
+			NOT = { has_completed_focus = JAP_kaguya_bowl }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_kaguya_dragon
+			NOT = { has_completed_focus = JAP_kaguya_bowl }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_bowl
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_branch_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_kaguya_bowl
+			NOT = { has_completed_focus = JAP_kaguya_branch }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_kaguya_bowl
+			NOT = { has_completed_focus = JAP_kaguya_branch }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_branch
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_burial_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_kaguya_dragon
+			NOT = { has_completed_focus = JAP_kaguya_burial }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_kaguya_dragon
+			NOT = { has_completed_focus = JAP_kaguya_burial }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_burial
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_return_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_kaguya_burial
+			NOT = { has_completed_focus = JAP_kaguya_return }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_hard = yes
+			has_completed_focus = JAP_kaguya_burial
+			NOT = { has_completed_focus = JAP_kaguya_return }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_return
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	JAP_rai_complete_kaguya_eternity_focus = {
+		icon = GFX_decision_generic_special_project
+		cost = 0
+
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_kaguya_return
+			NOT = { has_completed_focus = JAP_kaguya_eternity }
+		}
+
+		available = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_lunatic = yes
+			has_completed_focus = JAP_kaguya_return
+			NOT = { has_completed_focus = JAP_kaguya_eternity }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			complete_national_focus = JAP_kaguya_eternity
+		}
+
+		ai_will_do = {
+			base = 1000
+		}
+	}
+
+	##free_tech
+	# 37年开始发36年科技
+JAP_rai_free_tech_36 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1937.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        JAP = {
+                  set_technology = {
+            gw_artillery = 1
+            interwar_artillery = 1
+            interwar_antiair = 1
+            interwar_antitank = 1
+            bba_early_transport_plane = 1
+            iw_small_airframe = 1
+            basic_small_airframe = 1
+            iw_medium_airframe = 1
+            basic_medium_airframe = 1
+            iw_large_airframe = 1
+            basic_large_airframe = 1
+            early_bombs = 1
+            armor_piercing_bombs = 1
+            photo_reconnaisance = 1
+            air_torpedoe_1 = 1
+            aa_lmg = 1
+            engines_1 = 1
+            engines_2 = 1
+            range_improvements = 1
+            aircraft_construction = 1
+            radio = 1
+            mechanical_computing = 1
+            basic_fire_control_system = 1
+            electronic_mechanical_engineering = 1
+            basic_fortification_tech = 1
+            coastal_fort_tech_1 = 1
+            dispersed_industry = 1
+            excavation1 = 1
+            basic_machine_tools = 1
+            fuel_silos = 1
+            fuel_refining = 1
+            synth_oil_experiments = 1
+            construction1 = 1
+            infantry_weapons = 1
+            infantry_weapons1 = 1
+            paratroopers = 1
+            marines = 1
+            tech_mountaineers = 1
+            rangers_tech = 1
+            tech_trucks = 1
+            motorised_infantry = 1
+            armored_car1 = 1
+            support_weapons = 1
+            damage_control_1 = 1
+            fire_control_methods_1 = 1
+            basic_battery = 1
+            basic_light_battery = 1
+            basic_light_shell = 1
+            basic_heavy_battery = 1
+            basic_heavy_shell = 1
+            basic_torpedo = 1
+            magnetic_detonator = 1
+            improved_ship_torpedo_launcher = 1
+            basic_naval_mines = 1
+            submarine_mine_laying = 1
+            improved_naval_mines = 1
+            mtg_transport = 1
+            early_ship_hull_light = 1
+            basic_ship_hull_light = 1
+            smoke_generator = 1
+            basic_depth_charges = 1
+            improved_depth_charges = 1
+            sonar = 1
+            improved_sonar = 1
+            early_ship_hull_cruiser = 1
+            basic_ship_hull_cruiser = 1
+            basic_cruiser_armor_scheme = 1
+            early_ship_hull_heavy = 1
+            basic_ship_hull_heavy = 1
+            basic_heavy_armor_scheme = 1
+            improved_heavy_armor_scheme = 1
+            early_ship_hull_carrier = 1
+            basic_ship_hull_carrier = 1
+            early_ship_hull_submarine = 1
+            basic_ship_hull_submarine = 1
+            gwtank_chassis = 1
+            basic_light_tank_chassis = 1
+            improved_light_tank_chassis = 1
+            basic_heavy_tank_chassis = 1
+            basic_medium_tank_chassis = 1
+            armor_tech_1 = 1
+            engine_tech_1 = 1
+            tech_support = 1
+            tech_engineers = 1
+            tech_recon = 1
+            tech_military_police = 1
+            tech_maintenance_company = 1
+            tech_field_hospital = 1
+            tech_logistics_company = 1
+            tech_signal_company = 1
+            basic_train = 1
+            railway_gun = 1
+            armored_train = 1
+            popup = no
+        }  
+        }
+
+
+    }
+}
+# 38年开始发37年科技
+JAP_rai_free_tech_37 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1938.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        JAP = {
+               set_technology = {
+            improved_machine_tools = 1
+            improved_equipment_conversion = 1
+            dispersed_industry2 = 1
+            fuel_refining2 = 1
+            oil_processing = 1
+            rubber_processing = 1
+            construction2 = 1
+            excavation2 = 1
+            popup = no
+        }
+        }
+     
+    }
+}
+# 39年开始发38年科技
+JAP_rai_free_tech_38 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1939.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            radio_detection = 1
+            improved_fire_control_system = 1
+            improved_radio = 1
+            cavity_magnatron = 1
+            computing_machine = 1
+            land_fort_tech_1 = 1
+            infantry_weapons2 = 1
+            support_weapons2 = 1
+            damage_control_2 = 1
+            fire_control_methods_2 = 1
+            degaussing = 1
+            sp_multi_product_supply_ships = 1
+            amphibious_tank_chassis = 1
+            armor_tech_2 = 1
+            engine_tech_2 = 1
+            sp_armored_engineer_tech = 1
+            sp_armored_maintenance_tech = 1
+            sp_armored_signal_tech = 1
+            sp_helicopter_transport_pods_tech = 1
+            sp_helicopter_artillery_observers_tech = 1
+            sp_helicopter_med_evac_tech = 1
+            sp_armored_motorized_military_police_tech = 1
+            popup = no
+        }
+    }
+}
+# 40年开始发39年科技
+JAP_rai_free_tech_39 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1940.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            artillery1 = 1
+            antiair1 = 1
+            antitank1 = 1
+            survivability_studies = 1
+            aa_hmg = 1
+            aa_cannon_1 = 1
+            advanced_machine_tools = 1
+            advanced_equipment_conversion = 1
+            dispersed_industry3 = 1
+            fuel_refining3 = 1
+            improved_oil_processing = 1
+            improved_rubber_processing = 1
+            construction3 = 1
+            excavation3 = 1
+            improved_infantry_weapons = 1
+            paratroopers2 = 1
+            marines2 = 1
+            tech_mountaineers2 = 1
+            rangers_tech2 = 1
+            motorized_rocket_unit = 1
+            improved_light_battery = 1
+            improved_heavy_battery = 1
+            basic_dp_light_battery = 1
+            improved_ship_hull_light = 1
+            advanced_depth_charges = 1
+            advanced_sonar = 1
+            improved_ship_hull_cruiser = 1
+            improved_ship_hull_heavy = 1
+            improved_ship_hull_carrier = 1
+            improved_ship_hull_submarine = 1
+            basic_submarine_snorkel = 1
+            sp_aip_engine_improved_tech = 1
+            tech_engineers2 = 1
+            tech_recon2 = 1
+            tech_military_police2 = 1
+            tech_maintenance_company2 = 1
+            tech_field_hospital2 = 1
+            tech_logistics_company2 = 1
+            tech_signal_company2 = 1
+            wartime_train = 1
+            amphibious_drive = 1
+            popup = no
+        }
+    }
+}
+# 41年开始发40年科技
+JAP_rai_free_tech_40 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1941.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            artillery2 = 1
+            rocket_artillery = 1
+            antiair2 = 1
+            antitank2 = 1
+            sp_artillery_rocket_assisted_projectiles_tech = 1
+            sp_artillery_purpose_built_gun_motor_carriages_tech = 1
+            bba_improved_transport_plane = 1
+            improved_small_airframe = 1
+            improved_medium_airframe = 1
+            improved_large_airframe = 1
+            heavy_bombs = 1
+            air_torpedoe_2 = 1
+            engines_3 = 1
+            advanced_fire_control_system = 1
+            centimetric_radar = 1
+            improved_computing_machine = 1
+            improved_encryption = 1
+            improved_decryption = 1
+            land_fort_tech_2 = 1
+            coastal_fort_tech_2 = 1
+            atomic_research = 1
+            improved_infantry_weapons_2 = 1
+            support_weapons3 = 1
+            armored_car2 = 1
+            mechanised_infantry = 1
+            amphibious_mechanized_infantry = 1
+            damage_control_3 = 1
+            fire_control_methods_3 = 1
+            improved_dp_light_battery = 1
+            advanced_ship_torpedo_launcher = 1
+            improved_submarine_mine_laying = 1
+            advanced_naval_mines = 1
+            mtg_landing_craft = 1
+            improved_medium_tank_chassis = 1
+            improved_heavy_tank_chassis = 1
+            popup = no
+        }
+    }
+}
+# 42年开始发41年科技
+JAP_rai_free_tech_41 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1942.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            artillery3 = 1
+            rocket_artillery2 = 1
+            antiair3 = 1
+            antitank3 = 1
+            sp_shock_hardening_techniques = 1
+            advanced_radio = 1
+            phased_array = 1
+            assembly_line_production = 1
+            dispersed_industry4 = 1
+            fuel_refining4 = 1
+            advanced_oil_processing = 1
+            advanced_rubber_processing = 1
+            construction4 = 1
+            excavation4 = 1
+            advanced_light_tank_chassis = 1
+            super_heavy_tank_chassis = 1
+            armor_tech_3 = 1
+            engine_tech_3 = 1
+            sp_armored_advanced_flamethrower_tech = 1
+            popup = no
+        }
+    }
+}
+# 43年开始发42年科技
+JAP_rai_free_tech_42 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1943.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            artillery4 = 1
+            rocket_artillery3 = 1
+            antiair4 = 1
+            antitank4 = 1
+            sp_variable_time_fuze_shells = 1
+            reinforced_wings_mothership = 1
+            monopulse_radar = 1
+            advanced_computing_machine = 1
+            experimental_rockets = 1
+            infantry_at = 1
+            advanced_infantry_weapons = 1
+            armored_car3 = 1
+            armored_car_at_upgrade = 1
+            mechanised_infantry2 = 1
+            support_weapons4 = 1
+            improved_light_shell = 1
+            improved_heavy_shell = 1
+            homing_torpedo = 1
+            airdrop_mines = 1
+            airdrop_mines_bba = 1
+            airsweep_mines = 1
+            airsweep_mines_bba = 1
+            sp_improved_repair_ship = 1
+            sp_improved_support_ship = 1
+            sp_refined_pykrete = 1
+            tech_engineers3 = 1
+            tech_recon3 = 1
+            tech_military_police3 = 1
+            tech_maintenance_company3 = 1
+            tech_field_hospital3 = 1
+            tech_logistics_company3 = 1
+            tech_signal_company3 = 1
+            popup = no
+        }
+    }
+}
+# 44年开始发43年科技
+JAP_rai_free_tech_43 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1944.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            artillery5 = 1
+            rocket_artillery4 = 1
+            antiair5 = 1
+            antitank5 = 1
+            aa_cannon_2 = 1
+            sp_rockets_improved_guidance = 1
+            nuclear_reactor = 1
+            nuclear_reactor_heavy_water = 1
+            flexible_line = 1
+            streamlined_line = 1
+            dispersed_industry5 = 1
+            fuel_refining5 = 1
+            modern_oil_processing = 1
+            modern_rubber_processing = 1
+            construction5 = 1
+            excavation5 = 1
+            infantry_at2 = 1
+            paratroopers3 = 1
+            marines3 = 1
+            tech_mountaineers3 = 1
+            rangers_tech3 = 1
+            night_vision = 1
+            sp_standard_tenshioned_replenishment_alongside_method = 1
+            advanced_ship_hull_light = 1
+            modern_depth_charges = 1
+            modern_sonar = 1
+            advanced_ship_hull_cruiser = 1
+            advanced_ship_hull_heavy = 1
+            advanced_ship_hull_carrier = 1
+            advanced_ship_hull_submarine = 1
+            improved_submarine_snorkel = 1
+            sp_aip_engine_advanced_tech = 1
+            advanced_medium_tank_chassis = 1
+            advanced_heavy_tank_chassis = 1
+            sp_armored_lc_naval_engine_conversion_tech = 1
+            sp_armored_lc_transmission_improvements_tech = 1
+            sp_armored_lc_specialized_field_manuals_tech = 1
+            sp_armored_lc_high_impact_obliterator_cannon_tech = 1
+            popup = no
+        }
+    }
+}
+# 45年开始发44年科技
+JAP_rai_free_tech_44 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        # Rance_nd_more_than_easy = yes
+        date > 1945.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            advanced_small_airframe = 1
+            advanced_medium_airframe = 1
+            advanced_large_airframe = 1
+            air_torpedoe_3 = 1
+            engines_4 = 1
+            miniature_fighters = 1
+            rocket_engines = 1
+            sp_rockets_rocket_bomber = 1
+            jet_engines = 1
+            sp_rockets_dual_chamber_rocket_engine_1 = 1
+            advanced_infantry_weapons2 = 1
+            mechanised_infantry3 = 1
+            advanced_light_battery = 1
+            advanced_heavy_battery = 1
+            advanced_dp_light_battery = 1
+            modern_ship_torpedo_launcher = 1
+            mtg_tank_landing_craft = 1
+            sp_ice_composite_runawayas = 1
+            armor_tech_4 = 1
+            engine_tech_4 = 1
+            popup = no
+        }
+    }
+}
+# 46年开始发45年科技
+JAP_rai_free_tech_45 = {
+    icon = GFX_decision_generic_decision
+    visible = {
+        Rance_is_jap_ai = yes
+    }
+    available = {
+        Rance_nd_more_than_easy = yes
+        date > 1946.1.1
+    }
+    ai_will_do = {
+        base = 1000
+    }
+    fire_only_once = yes
+    complete_effect = {
+        set_technology = {
+            bba_strategic_airlifter = 1
+            modern_small_airframe = 1
+            supersonic_small_airframe = 1
+            modern_medium_airframe = 1
+            modern_large_airframe = 1
+            aa_cannon_3 = 1
+            sp_centrifugal_jet_tech = 1
+            aerial_hangars = 1
+            sp_rockets_improved_rocket_bomber = 1
+            improved_rocket_engines = 1
+            advanced_rocket_engines = 1
+            nukes = 1
+            sp_rockets_dual_chamber_rocket_engine_2 = 1
+            night_vision2 = 1
+            main_battle_tank_chassis = 1
+            sp_armored_lc_weapon_fire_control_tech = 1
+            tech_engineers4 = 1
+            tech_recon4 = 1
+            tech_military_police4 = 1
+            tech_maintenance_company4 = 1
+            tech_field_hospital4 = 1
+            tech_logistics_company4 = 1
+            tech_signal_company4 = 1
+            popup = no
+        }
+    }
+}
+###############################################################################################################
+	##end
+##编制与启动装备
+# JAP_rai_free_template_38 = {
+#         icon = GFX_decision_generic_decision
+#         visible = {
+#             Rance_is_jap_ai = yes
+#         }
+#         available = {
+#             OR = {
+#                 date > 1938.6.1
+#                 AND = {
+#                     has_tech = mechanised_infantry
+#                     has_tech = basic_medium_tank_chassis
+#                 }
+#             }
+            
+#         }
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         fire_only_once = yes
+#         complete_effect = {
+#             JAP_create_infantry_tank_template = yes
+#             JAP_create_mechanized_tank_template = yes
+#             JAP_create_mechanized_heavy_tank_template = yes
+#             JAP_create_amphibious_mechanized_template = yes
+#             JAP_create_heavy_amphibious_mechanized_template = yes
+#             JAP_create_infantry_template = yes
+#             complete_special_project = sp:sp_air_helicopter
+#             complete_special_project = sp:sp_land_military_engineering_vehicles
+#             set_technology = {
+#                 mechanised_infantry = 1
+#                 amphibious_mechanized_infantry = 1
+#                 popup = no
+#             }
+#         }
+#     }
+#     JAP_rai_easy_normal_start = {
+#         icon = GFX_decision_generic_decision
+#         visible = {
+#             Rance_is_jap_ai = yes
+            
+#         }
+#         available = {
+#             date > 1938.6.3
+            
+#         }
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         fire_only_once = yes
+        
+#         complete_effect = {
+#             JAP_maintainance_equipment_common = yes
+#             JAP_maintainance_equipment_medium_tank = yes
+            
+#         }
+#     }
+#     JAP_rai_hard_start = {
+#         icon = GFX_decision_generic_decision
+#         visible = {
+#             Rance_is_jap_ai = yes
+#             Rance_nd_more_than_normal = yes
+#         }
+#         available = {
+#             date > 1938.6.3
+#             Rance_nd_more_than_normal = yes
+#         }
+#         fire_only_once = yes
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         complete_effect = {
+#             JAP_maintainance_equipment_heavy_tank = yes
+            
+#         }
+#     }
+#     #初始装备（通用）确定路线后使用
+#     JAP_rai_common_start = {
+#         visible = {
+#             Rance_is_jap_ai = yes
+            
+#         }
+#         available = {
+#             has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
+#         }
+#         fire_only_once = yes
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         complete_effect = {
+#             JAP_maintainance_equipment_basic = yes 
+#         }
+#     }
+#     #各难度启动用火星兵
+#     JAP_rai_easy_free_butai = {
+#         visible = {
+#             Rance_is_jap_ai = yes
+#             Rance_nd_more_than_easy = no
+#         }
+#         available = {
+#             date > 1938.6.5
+#             Rance_nd_more_than_easy = no
+#         }
+#         fire_only_once = yes
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         complete_effect = {
+#             JAP_start_infantry_tanks = yes
+#         }
+#     }
+#      JAP_rai_normal_free_butai = {
+#         visible = {
+#             Rance_is_jap_ai = yes
+#             Rance_nd_more_than_easy = yes
+#         }
+#         available = {
+#             date > 1938.6.5
+#             Rance_nd_more_than_easy = yes
+#         }
+#         fire_only_once = yes
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         complete_effect = {
+#             JAP_start_mechanized_tanks = yes
+#             JAP_start_amphibious_mechanized_tanks = yes
+#         }
+#     }
+#      JAP_rai_hard_free_butai = {
+#         visible = {
+#             Rance_is_jap_ai = yes
+#             Rance_nd_more_than_normal = yes
+#         }
+#         available = {
+#             date > 1938.6.5
+#             Rance_nd_more_than_normal = yes
+#         }
+#         fire_only_once = yes
+#         ai_will_do = {
+#             factor = 1000
+#         }
+#         complete_effect = {
+#             JAP_start_heavy_mechanized_tanks = yes
+#             JAP_start_heavy_amphibious_mechanized_tanks = yes
+#         }
+#     }
+
+    ##军官团精神
+    JAP_rai_free_officer_group = {
+         visible = {
+            Rance_is_jap_ai = yes
+            
+        }
+        available = {
+            always = yes
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_jap_return_to_peak_standard = no }
+                add_ideas = {
+                    professional_officer_corps_spirit
+                    grand_battleplan_army_spirit
+                    logistical_focus_spirit
+                }
+            }
+            add_ideas = {
+                instilled_aggression_spirit
+                fleet_interoperability_navy_spirit
+                night_fighting_spirit
+                industry_liasons_spirit
+                centralized_control_spirit
+            }
+        }
+    }
+    ##MIO
+    JAP_rai_free_mio_size = {
+        visible = {
+            Rance_is_jap_ai = yes
+        }
+        available = {
+            always = yes
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            every_military_industrial_organization = {
+            add_mio_size = 20
+        }
+        }
+    }
+    #AI将领
+    JAP_rai_normal_general = {
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            Rance_is_jap_ai = yes
+            NOT = { Rance_nd_more_than_normal = yes }
+        }
+        available = {
+            NOT = { Rance_nd_more_than_normal = yes }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_ai_general_apply_en_tier = yes
+        }
+    }
+    JAP_rai_hard_general = {
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            Rance_is_jap_ai = yes
+            Rance_nd_more_than_normal = yes
+            NOT = { Rance_nd_more_than_lunatic = yes }
+        }
+        available = {
+            Rance_nd_more_than_normal = yes
+            NOT = { Rance_nd_more_than_lunatic = yes }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_ai_general_apply_hl_tier = yes
+        }
+    }
+    JAP_rai_lunatic_general = {
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            Rance_is_jap_ai = yes
+            Rance_nd_more_than_lunatic = yes
+        }
+        available = {
+            Rance_nd_more_than_lunatic = yes
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_ai_general_apply_exph_tier = yes
+        }
+    }
+    #AI海军将领
+    JAP_rai_normal_admiral = {
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            Rance_is_jap_ai = yes
+            NOT = { Rance_nd_more_than_normal = yes }
+        }
+        available = {
+            NOT = { Rance_nd_more_than_normal = yes }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_ai_admiral_apply_en_tier = yes
+        }
+    }
+    JAP_rai_hard_admiral = {
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            Rance_is_jap_ai = yes
+            Rance_nd_more_than_normal = yes
+            NOT = { Rance_nd_more_than_lunatic = yes }
+        }
+        available = {
+            Rance_nd_more_than_normal = yes
+            NOT = { Rance_nd_more_than_lunatic = yes }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_ai_admiral_apply_hl_tier = yes
+        }
+    }
+    JAP_rai_lunatic_admiral = {
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            Rance_is_jap_ai = yes
+            Rance_nd_more_than_lunatic = yes
+        }
+        available = {
+            Rance_nd_more_than_lunatic = yes
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_ai_admiral_apply_exph_tier = yes
+        }
+    }
+#AI杂牌部队清理
+JAP_ai_cleanup_irregular_divisions = {
+	icon = generic_military
+
+	visible = {
+		has_country_flag = JAP_ai_template_regular_armor_created
+	}
+
+	available = {
+		OR = {
+			NOT = { has_country_flag = JAP_ai_irregular_divisions_cleanup_started }
+			JAP_ai_has_irregular_divisions_to_cleanup = yes
+		}
+	}
+
+	days_remove = 30
+
+	complete_effect = {
+		JAP_ai_cleanup_irregular_divisions_effect = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+# AI 45-day equipment cycle pre-start land-air supply
+JAP_ai_opening_equipment_resupply = {
+	icon = GFX_decision_generic_decision
+
+	visible = {
+		Rance_is_jap_ai = yes
+		OR = {
+			JAP_ai_template_stage_opening_infantry = yes
+			JAP_ai_template_stage_experimental_armor = yes
+		}
+		has_game_rule = {
+			rule = rance_japan_ai_land_air_dynamic_supply
+			option = ENABLED
+		}
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		OR = {
+			JAP_ai_template_stage_opening_infantry = yes
+			JAP_ai_template_stage_experimental_armor = yes
+		}
+		has_game_rule = {
+			rule = rance_japan_ai_land_air_dynamic_supply
+			option = ENABLED
+		}
+	}
+
+	days_remove = 30
+	cancel_if_not_visible = yes
+
+	complete_effect = {
+		JAP_ai_extra_equipment_grant_line_infantry_package = yes
+		JAP_ai_opening_air_equipment_grant_package = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+# AI后勤应急补给
+JAP_ai_emergency_motorized_equipment_resupply = {
+	icon = GFX_decision_generic_army_support
+	cost = 0
+
+	visible = {
+		Rance_is_jap_ai = yes
+		has_equipment = { motorized_equipment < 500 }
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		has_equipment = { motorized_equipment < 500 }
+	}
+
+	complete_effect = {
+		add_equipment_to_stockpile = {
+			type = motorized_equipment
+			amount = 1000
+			producer = ROOT
+		}
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+JAP_ai_emergency_train_equipment_resupply = {
+	icon = GFX_decision_generic_army_support
+	cost = 0
+
+	visible = {
+		Rance_is_jap_ai = yes
+		has_equipment = { train_equipment < 100 }
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		has_equipment = { train_equipment < 100 }
+	}
+
+	complete_effect = {
+		add_equipment_to_stockpile = {
+			type = train_equipment
+			amount = 200
+			producer = ROOT
+		}
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+JAP_ai_emergency_artillery_equipment_resupply = {
+	icon = GFX_decision_generic_army_support
+	cost = 0
+
+	visible = {
+		Rance_is_jap_ai = yes
+		has_equipment = { artillery_equipment < 50 }
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		has_equipment = { artillery_equipment < 50 }
+	}
+
+	complete_effect = {
+		JAP_ai_extra_equipment_grant_artillery_equipment_unit = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+JAP_ai_emergency_anti_tank_equipment_resupply = {
+	icon = GFX_decision_generic_army_support
+	cost = 0
+
+	visible = {
+		Rance_is_jap_ai = yes
+		has_equipment = { anti_tank_equipment < 50 }
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		has_equipment = { anti_tank_equipment < 50 }
+	}
+
+	complete_effect = {
+		JAP_ai_extra_equipment_grant_anti_tank_equipment_unit = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+JAP_ai_emergency_anti_air_equipment_resupply = {
+	icon = GFX_decision_generic_army_support
+	cost = 0
+
+	visible = {
+		Rance_is_jap_ai = yes
+		has_equipment = { anti_air_equipment < 50 }
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		has_equipment = { anti_air_equipment < 50 }
+	}
+
+	complete_effect = {
+		JAP_ai_extra_equipment_grant_anti_air_equipment_unit = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+JAP_ai_emergency_convoy_resupply = {
+	icon = GFX_decision_generic_naval
+	cost = 0
+
+	visible = {
+		Rance_is_jap_ai = yes
+		has_equipment = {
+			convoy < 1000
+		}
+	}
+
+	available = {
+		Rance_is_jap_ai = yes
+		has_equipment = {
+			convoy < 1000
+		}
+	}
+
+	fire_only_once = no
+	days_re_enable = 180
+
+	complete_effect = {
+		add_equipment_to_stockpile = {
+			type = convoy_1
+			amount = 1000
+			producer = ROOT
+		}
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+#AI火星步兵师装备
+JAP_ai_infantry_equipment_resupply = {
+	icon = GFX_decision_generic_decision
+	
+	# 仅当民用工厂总数大于 100 时对 AI 可见 
+	visible = {
+		num_of_civilian_factories > 100
+	}
+	
+	# 关闭陆空动态补给规则后，检测任一核心装备库存是否低于 1 个师的需求量
+	available = {
+		has_game_rule = {
+			rule = rance_japan_ai_land_air_dynamic_supply
+			option = DISABLED
+		}
+		OR = {
+            has_equipment = { infantry_equipment < 3000 }
+			has_equipment = { artillery_equipment < 500 }
+			has_equipment = { anti_tank_equipment < 500 }
+			has_equipment = { anti_air_equipment < 500 }
+			has_equipment = { motorized_equipment < 200 }
+			has_equipment = { support_equipment < 400 }
+		}
+	}
+
+	# 21 天读条期间的代价：额外占用 10 个民用工厂 
+	days_remove = 21
+	modifier = {
+		civilian_factory_use = 10
+	}
+
+	# 读条结束（从列表中移除）时触发的效果：真正获得装备 
+	remove_effect = {
+		JAP_infantry_artillery_maintenance_effect = yes
+	}
+
+	# AI 触发权重锁定
+	ai_will_do = {
+		base = 500
+	}
+}
+#AI火星批量基础设施建设
+JAP_ai_expand_infrastructure = {
+	icon = GFX_decision_generic_construction
+
+	# 存在还能补基建的可控核心州或高顺从非核心州时可用
+	available = {
+		any_controlled_state = {
+			infrastructure < 5
+			OR = {
+				AND = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+				}
+				AND = {
+					NOT = { is_core_of = ROOT }
+					compliance > 50
+				}
+			}
+		}
+	}
+
+	days_remove = 30
+
+	complete_effect = {
+		every_controlled_state = {
+			limit = {
+				infrastructure < 5
+				OR = {
+					AND = {
+						is_core_of = ROOT
+						is_fully_controlled_by = ROOT
+					}
+					AND = {
+						NOT = { is_core_of = ROOT }
+						compliance > 50
+					}
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 5
+				instant_build = yes
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 999
+	}
+}
+
+}
+##讲座派AI上顾问
+JAP_rework_ai_gov = {
+	JAP_ai_gov_1 = {
+		icon = GFX_decision_generic_decision
+		visible = {
+			Rance_is_jap_ai = yes
+			Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_the_lecture_group_ascendant
+		}
+		available = {
+			Rance_is_jap_ai = yes
+		    Rance_nd_more_than_easy = yes
+			has_completed_focus = JAP_the_lecture_group_ascendant
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			activate_advisor = JAP_yoshio_shiga
+			activate_advisor = JAP_minoru_takano
+			activate_advisor = JAP_fukumoto_kazuo
+		}
+		
+}
+}

@@ -1,0 +1,95 @@
+# 确保文件开头有 namespace 定义
+add_namespace = japan_jcp 
+
+# 事件：收到反封建联合通牒
+country_event = {
+    id = japan_jcp.11
+    title = japan_jcp.11.t
+    desc = japan_jcp.11.d
+    picture = GFX_report_event_chinese_soldiers_speech # 建议使用相关配图
+    
+    # 这是一个被决议触发的事件，不自动触发
+    is_triggered_only = yes
+
+    # 选项A：接受通牒 (80% 概率)
+    option = {
+        name = japan_jcp.11.a
+        
+        # AI 概率因子
+        ai_chance = {
+            factor = 100
+        }
+
+        # 效果：被PRC吞并
+        # 这里的 ROOT 是收到事件的军阀
+        # 我们需要切换作用域到 PRC，让 PRC 执行“吞并 ROOT”的动作
+        PRC = {
+            annex_country = {
+                target = ROOT
+                transfer_troops = yes # 这一行确保部队移交
+            }
+        }
+    }
+
+    # 选项B：拒绝 (20% 概率)
+    option = {
+        name = japan_jcp.11.b
+        
+        # AI 概率因子
+        ai_chance = {
+            factor = 0
+        }
+
+        # 效果：拒绝，也许会获得一些防御修正或者直接进入战争状态
+        # 根据您的描述，这里只是拒绝，保持现状（意味着日本和中共需要继续打它）
+        add_stability = 0.05
+        
+        # 这里的 FROM 指向的是点击决议的国家（日本）
+        FROM = {
+            # 可以在这里给日本发一个弹窗通知被拒绝了
+        }
+    }
+}
+# ==========================================
+# 新增：南京解放新闻事件
+# ID: japan_jcp.12 (适配 japan_jcp 命名空间)
+# ==========================================
+
+news_event = {
+    id = japan_jcp.12
+    title = japan_jcp.12.t
+    desc = japan_jcp.12.d
+    picture = GFX_news_event_fall_of_nanking
+    major = yes # 重大新闻，全球弹窗
+
+    is_triggered_only = yes
+
+    # 选项A：共产主义阵营（欢呼）
+    option = {
+        name = japan_jcp.12.a
+        trigger = {
+            has_government = communism
+        }
+    }
+
+    # 选项B：国民党及其盟友（哀叹）
+    option = {
+        name = japan_jcp.12.b
+        trigger = {
+            OR = {
+                original_tag = CHI
+                is_in_faction_with = CHI
+            }
+        }
+    }
+
+    # 选项C：其他国家（中立/吃瓜）
+    option = {
+        name = japan_jcp.12.c
+        trigger = {
+            NOT = { has_government = communism }
+            NOT = { original_tag = CHI }
+            NOT = { is_in_faction_with = CHI }
+        }
+    }
+}

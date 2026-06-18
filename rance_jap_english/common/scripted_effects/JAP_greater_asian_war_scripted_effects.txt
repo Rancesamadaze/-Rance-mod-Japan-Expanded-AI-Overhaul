@@ -1,0 +1,59 @@
+JAP_apply_greater_asian_war_state_modifier = {
+    every_state = {
+        limit = {
+            OR = {
+                is_on_continent = asia
+                is_on_continent = middle_east
+                is_on_continent = australia
+            }
+            NOT = {
+                has_dynamic_modifier = {
+                    modifier = JAP_greater_asian_war_state_modifier
+                }
+            }
+        }
+
+        add_dynamic_modifier = {
+            modifier = JAP_greater_asian_war_state_modifier
+        }
+    }
+}
+
+JAP_apply_american_landing_state_modifiers = {
+    every_state = {
+        limit = {
+            OR = {
+                is_on_continent = north_america
+                is_on_continent = south_america
+            }
+        }
+
+        if = {
+            limit = {
+                NOT = {
+                    has_dynamic_modifier = {
+                        modifier = JAP_american_landing_supply_state_modifier
+                    }
+                }
+            }
+            add_dynamic_modifier = {
+                modifier = JAP_american_landing_supply_state_modifier
+            }
+        }
+
+        if = {
+            limit = {
+                NOT = {
+                    has_dynamic_modifier = {
+                        modifier = JAP_american_landing_japanese_combat_state_modifier
+                        scope = JAP
+                    }
+                }
+            }
+            add_dynamic_modifier = {
+                modifier = JAP_american_landing_japanese_combat_state_modifier
+                scope = JAP
+            }
+        }
+    }
+}

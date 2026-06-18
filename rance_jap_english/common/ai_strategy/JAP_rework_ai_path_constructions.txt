@@ -1,0 +1,211 @@
+## 日本 AI 通用建筑运营一阶段：开局先将民工补到 100
+Rance_JAP_rework_constructions_industrial_complex_start = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		JAP_ai_buildings_has_industrial_complex_slot = yes
+		check_variable = { num_of_civilian_factories < 100 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 120
+	}
+}
+
+## 日本 AI 通用建筑运营一阶段：民工 100 后将军工补到 50
+Rance_JAP_rework_constructions_arms_factory_start = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 99 }
+		check_variable = { num_of_military_factories < 50 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 70
+	}
+}
+
+## 日本 AI 通用建筑运营一阶段：军工 50 后将船坞补到 50
+Rance_JAP_rework_constructions_dockyard_start = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_military_factories > 49 }
+		check_variable = { num_of_naval_factories < 50 }
+		JAP_ai_buildings_has_dockyard_slot = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = 70
+	}
+}
+
+## 日本 AI 通用建筑运营二阶段：基础船坞达标后将民工补到 200
+Rance_JAP_rework_constructions_industrial_complex_second = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 99 }
+		check_variable = { num_of_military_factories > 49 }
+		check_variable = { num_of_naval_factories > 49 }
+		check_variable = { num_of_civilian_factories < 200 }
+		JAP_ai_buildings_has_industrial_complex_slot = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 220
+	}
+}
+
+## 日本 AI 通用建筑运营二阶段：民工 200 后将军工补到 150
+Rance_JAP_rework_constructions_arms_factory_second = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 199 }
+		check_variable = { num_of_naval_factories > 49 }
+		check_variable = { num_of_military_factories < 150 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 170
+	}
+}
+
+## 日本 AI 通用建筑运营二阶段：军工 150 后将船坞补到 100
+Rance_JAP_rework_constructions_dockyard_second = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 199 }
+		check_variable = { num_of_military_factories > 149 }
+		check_variable = { num_of_naval_factories < 100 }
+		JAP_ai_buildings_has_dockyard_slot = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = 120
+	}
+}
+
+## 日本 AI 通用建筑运营三阶段：基础建设完成后常驻军工优先
+Rance_JAP_rework_constructions_arms_factory_first = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 199 }
+		check_variable = { num_of_military_factories > 149 }
+		check_variable = { num_of_naval_factories > 99 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 9999
+	}
+}
+
+## 日本 AI 通用建筑运营三阶段：民工比例过低时动态补民工
+Rance_JAP_rework_constructions_industrial_complex_dynamic = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 199 }
+		check_variable = { num_of_military_factories > 149 }
+		check_variable = { num_of_naval_factories > 99 }
+		JAP_ai_buildings_has_industrial_complex_slot = yes
+		JAP_ai_buildings_industrial_complex_low = yes
+	}
+	abort = {
+		OR = {
+			check_variable = { num_of_civilian_factories < 200 }
+			check_variable = { num_of_military_factories < 150 }
+			check_variable = { num_of_naval_factories < 100 }
+			JAP_ai_buildings_has_industrial_complex_slot = no
+			JAP_ai_buildings_industrial_complex_high = yes
+		}
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = -9999
+	}
+}
+
+## 日本 AI 通用建筑运营三阶段：船坞比例过低且民工充足时动态补船坞
+Rance_JAP_rework_constructions_dockyard_dynamic = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		check_variable = { num_of_civilian_factories > 199 }
+		check_variable = { num_of_military_factories > 149 }
+		check_variable = { num_of_naval_factories > 99 }
+		JAP_ai_buildings_has_dockyard_slot = yes
+		JAP_ai_buildings_dockyard_low = yes
+		JAP_ai_buildings_industrial_complex_high = yes
+	}
+	abort = {
+		OR = {
+			check_variable = { num_of_civilian_factories < 200 }
+			check_variable = { num_of_military_factories < 150 }
+			check_variable = { num_of_naval_factories < 100 }
+			JAP_ai_buildings_has_dockyard_slot = no
+			JAP_ai_buildings_dockyard_high = yes
+			JAP_ai_buildings_industrial_complex_low = yes
+		}
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = 9999
+	}
+}

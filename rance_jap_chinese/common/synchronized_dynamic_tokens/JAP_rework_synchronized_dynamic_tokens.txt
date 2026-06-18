@@ -1,0 +1,36 @@
+# Tokens used by JAP rework dynamic variable lookups.
+# Keep this list in sync with num_equipment@... and related @token readers.
+
+# land and support equipment
+amphibious_mechanized_equipment
+armored_support_vehicle
+helicopter_equipment
+train_equipment
+
+# tank chassis families
+medium_tank_amphibious_chassis
+heavy_tank_amphibious_chassis
+modern_tank_chassis
+land_cruiser_chassis
+
+medium_tank_destroyer_chassis
+heavy_tank_destroyer_chassis
+modern_tank_destroyer_chassis
+
+medium_tank_artillery_chassis
+heavy_tank_artillery_chassis
+modern_tank_artillery_chassis
+
+medium_tank_aa_chassis
+heavy_tank_aa_chassis
+modern_tank_aa_chassis
+
+medium_tank_flame_chassis
+
+# air equipment
+cv_small_plane_airframe
+cv_small_plane_naval_bomber_airframe
+medium_plane_fighter_airframe
+large_plane_maritime_patrol_plane_airframe
+strat_bomber_intercontinental_equipment
+mothership_equipment

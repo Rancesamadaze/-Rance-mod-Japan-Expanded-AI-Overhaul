@@ -1,0 +1,185 @@
+defined_text = {
+    name = Getranceirago
+    
+    # 逻辑 A：当完成国策 JAP_expand_the_irago_proving_ground 时，显示 JAP_irago_artillery_tt
+    text = {
+        trigger = {
+            has_completed_focus = JAP_expand_the_irago_proving_ground
+        }
+        localization_key = JAP_irago_artillery_tt
+    }
+    
+    # 逻辑 B：默认回退方案（未完成国策时不显示任何内容）
+    text = {
+        localization_key = generic_null
+    }
+}
+defined_text = {
+    name = Getjawahq
+    text = {
+        trigger = {
+            # 当完成指定国策时触发显示
+            has_completed_focus = JAP_army_weapons_administration_headquarters
+        }
+        # 指向实际描述文本的Key
+        localization_key = JAP_army_weapons_administration_headquarters_idea_tt
+    }
+    
+    # 默认回退方案，未完成国策时不显示任何内容
+    text = {
+        localization_key = generic_null
+    }
+}
+defined_text = {
+    name = Getdngtta
+    text = {
+        trigger = {
+            # 只有当完成“舰炮移交陆军”国策后才显示
+            has_completed_focus = JAP_divert_naval_guns_to_the_army
+        }
+        # 指向实际描述文本的Key
+        localization_key = JAP_divert_naval_guns_to_the_army_tank_bonus_tt
+    }
+    
+    # 默认回退方案，未完成国策时不显示
+    text = {
+        localization_key = generic_null
+    }
+}
+defined_text = {
+    name = GetJdnfc
+    
+    text = {
+        trigger = {
+            has_completed_focus = JAP_develop_new_fighters
+        }
+        localization_key = JAP_develop_new_fighters_actual_tt
+    }
+    
+    text = {
+        localization_key = generic_null
+    }
+}
+defined_text = {
+	name = GetLighweightFightersreworkDesc
+    
+	text = {
+        
+		trigger = {
+			has_completed_focus = JAP_7075_aluminium_alloy
+		}
+		localization_key = JAP_7075_aluminium_alloy_rework_tt
+	}
+    
+	text = {
+		
+		localization_key = generic_null
+	}
+}
+defined_text = {
+    name = GetJZPAC
+    
+    # 当完成“Z计划轰炸机项目”国策后，显示具体加成
+    text = {
+        trigger = {
+            has_completed_focus = JAP_project_z_bomber_project
+        }
+        localization_key = JAP_z_projrct_aircraft_act_tt
+    }
+    
+    # 默认不满足条件时显示为空（隐藏效果）
+    text = {
+        localization_key = generic_null
+    }
+}
+defined_text = {
+    name = Getjnapca
+    text = {
+        # 必须同时完成海军装备管理总部和航空母舰中心
+        trigger = {
+            has_completed_focus = JAP_naval_armaments_program
+            has_completed_focus = JAP_focus_on_aircraft_carriers
+        }
+        localization_key = JAP_naval_armaments_program_act_a_tt
+    }
+    text = {
+        localization_key = generic_null
+    }
+}
+
+defined_text = {
+    name = Getjnapcb
+    text = {
+        # 必须同时完成海军装备管理总部和海军平衡方案
+        trigger = {
+            has_completed_focus = JAP_naval_armaments_program
+            has_completed_focus = JAP_balanced_naval_approach
+        }
+        localization_key = JAP_naval_armaments_program_act_b_tt
+    }
+    text = {
+        localization_key = generic_null
+    }
+}
+
+defined_text = {
+    name = Getjnapcc
+    text = {
+        # 必须同时完成海军装备管理总部和战列舰优先动议
+        trigger = {
+            has_completed_focus = JAP_naval_armaments_program
+            has_completed_focus = JAP_sea_battleship_initiative
+        }
+        localization_key = JAP_naval_armaments_program_act_c_tt
+    }
+    text = {
+        localization_key = generic_null
+    }
+}
+defined_text = {
+    name = GetJstslhjk
+    text = {
+        # 触发条件：当国策“保障航道安全”完成时显示内容
+        trigger = {
+            has_completed_focus = JAP_secure_the_sea_lanes
+        }
+        localization_key = JAP_secure_the_sea_lanes_act_tt
+    }
+    text = {
+        # 默认隐藏逻辑：不满足条件时返回空字符串
+        localization_key = generic_null
+    }
+}
+defined_text = {
+    name = GetJmgtuabc
+    
+    # 逻辑 A：完成国策后显示具体加成 
+    text = {
+        trigger = {
+            has_completed_focus = JAP_mao_guerrilla_tactic_ult 
+        }
+        localization_key = JAP_mao_guerrilla_tactic_ult_act_tt
+    }
+    
+    # 逻辑 B：默认隐藏 
+    text = {
+        localization_key = generic_null
+    }
+}
+##终极坦克
+defined_text = {
+    name = Gettullcdij
+    
+    # 逻辑 A：完成国策后显示具体加成 
+    text = {
+        trigger = {
+            has_completed_focus = JAP_the_ultimate_tank 
+        }
+        localization_key = JAP_lc_tt
+    }
+    
+    # 逻辑 B：默认隐藏 
+    text = {
+        localization_key = generic_null
+    }
+}

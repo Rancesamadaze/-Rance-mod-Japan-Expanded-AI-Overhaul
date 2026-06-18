@@ -1,0 +1,149 @@
+﻿add_namespace = JAP_imperial_headquarters_events
+
+# Japan demands all Portuguese Asian territories - event for POR
+country_event = {
+	id = JAP_imperial_headquarters_events.1
+	title = JAP_imperial_headquarters_events.1.t
+	desc = JAP_imperial_headquarters_events.1.desc
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_imperial_headquarters_events.1.a
+		ai_chance = {
+			base = 100
+		}
+
+		every_owned_state = {
+			limit = {
+				is_on_continent = asia
+			}
+			FROM = {
+				transfer_state = PREV
+			}
+		}
+
+		FROM = {
+			country_event = {
+				id = JAP_imperial_headquarters_events.2
+				hours = 6
+			}
+		}
+	}
+
+	option = {
+		name = JAP_imperial_headquarters_events.1.b
+		trigger = {
+			is_ai = no
+		}
+		ai_chance = {
+			base = 0
+		}
+
+		hidden_effect = {
+			clear_array = JAP_portuguese_asian_territories_array
+			every_owned_state = {
+				limit = {
+					is_on_continent = asia
+				}
+				add_to_array = { PREV.JAP_portuguese_asian_territories_array = THIS }
+			}
+		}
+
+		FROM = {
+			country_event = {
+				id = JAP_imperial_headquarters_events.3
+				hours = 6
+			}
+		}
+	}
+}
+
+# Portugal accepts the ultimatum - event for JAP
+country_event = {
+	id = JAP_imperial_headquarters_events.2
+	title = JAP_imperial_headquarters_events.2.t
+	desc = JAP_imperial_headquarters_events.2.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_imperial_headquarters_events.2.a
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Portugal rejects the ultimatum - event for JAP
+country_event = {
+	id = JAP_imperial_headquarters_events.3
+	title = JAP_imperial_headquarters_events.3.t
+	desc = JAP_imperial_headquarters_events.3.desc
+	picture = GFX_report_event_japanese_officers
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_imperial_headquarters_events.3.a
+		ai_chance = {
+			base = 100
+		}
+
+		FROM = {
+			every_owned_state = {
+				limit = {
+					is_on_continent = asia
+				}
+				add_claim_by = ROOT
+			}
+		}
+
+		create_wargoal = {
+			type = take_state_focus
+			target = FROM
+			generator = FROM.JAP_portuguese_asian_territories_array
+			expire = 0
+		}
+
+		add_ai_strategy = {
+			type = conquer
+			id = FROM
+			value = 100
+		}
+
+		FROM = {
+			clear_array = JAP_portuguese_asian_territories_array
+		}
+	}
+}
+
+# Japanese landing attempt detected - event for target state owner
+country_event = {
+	id = JAP_imperial_headquarters_events.4
+	title = JAP_imperial_headquarters_events.4.t
+	desc = JAP_imperial_headquarters_events.4.desc
+	picture = GFX_JAP_scripted_landing_detected_report
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_imperial_headquarters_events.4.a
+	}
+}
+
+# Target state suffers a Japanese raid - event for target state owner
+country_event = {
+	id = JAP_imperial_headquarters_events.5
+	title = JAP_imperial_headquarters_events.5.t
+	desc = JAP_imperial_headquarters_events.5.desc
+	picture = GFX_JAP_scripted_landing_raid_report
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_imperial_headquarters_events.5.a
+	}
+}

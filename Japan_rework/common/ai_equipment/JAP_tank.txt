@@ -1,0 +1,2087 @@
+#中坦
+JAP_medium_tanks = {
+	category = land
+
+	available_for = {
+		JAP
+	}
+
+	roles = {
+		land_medium_tank
+	}
+
+	priority = {
+		factor = 500
+	}
+	# 第零代：试制中战
+    prototype_medium_tank_jap = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = medium_tank_chassis_0
+
+            modules = {
+                main_armament_slot = tank_auto_cannon
+                turret_type_slot = tank_medium_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = extra_ammo_storage
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_auto_cannon
+            tank_medium_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            extra_ammo_storage
+        }
+    }
+
+	# 第一代：九七式中战（初始型号）
+    basic_medium_tank_jap_97 = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                OR = {
+                    has_tech = antitank3
+                    has_tech = improved_medium_tank_chassis
+                }
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = medium_tank_chassis_1
+
+            modules = {
+                main_armament_slot = tank_medium_cannon
+                turret_type_slot = tank_medium_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_1
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = wet_ammo_storage
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_medium_cannon
+            tank_medium_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_1
+            secondary_turret_small_cannon
+            wet_ammo_storage
+        }
+    }
+
+	# 第二代：九七式中战改（火力强化型）
+    improved_medium_tank_jap_97_kai = {
+        priority = {
+            factor = 3000
+            modifier = {
+                factor = 0
+                has_tech = improved_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = medium_tank_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_cannon_2
+                special_type_slot_1 = tank_radio_1
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 4
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_cannon_2
+            tank_radio_1
+            secondary_turret_small_cannon
+            easy_maintenance
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+	# 第三代：三式中战（1940年型底盘）
+    improved_medium_tank_jap_type_3 = {
+        priority = {
+            factor = 4000
+            modifier = {
+                factor = 0
+                OR = {
+                    has_tech = advanced_medium_tank_chassis
+                    has_tech = antitank4
+                }
+            }
+        }
+
+        target_variant = {
+            match_value = 4000
+            type = medium_tank_chassis_2
+
+            modules = {
+                main_armament_slot = tank_medium_cannon_2
+                turret_type_slot = tank_medium_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_2
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = easy_maintenance
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 12
+                tank_nsb_engine_upgrade = 4
+            }
+        }
+
+        allowed_modules = {
+            tank_medium_cannon_2
+            tank_medium_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_2
+            secondary_turret_small_cannon
+            easy_maintenance
+        }
+    }
+	# 第四代：三式中战 改（火力强化方案）
+    improved_medium_tank_jap_type_3_kai = {
+        priority = {
+            factor = 5000
+            modifier = {
+                factor = 0
+                has_tech = advanced_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 5000
+            type = medium_tank_chassis_2
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_high_velocity_cannon_2
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 15
+                tank_nsb_engine_upgrade = 4
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_high_velocity_cannon_2
+            tank_radio_3
+            secondary_turret_small_cannon
+            easy_maintenance
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+
+	# 第五代：五式中战（1943年型先进底盘 - 最终方案）
+    advanced_medium_tank_jap_type_5 = {
+        priority = {
+            factor = 6000
+        }
+
+        target_variant = {
+            match_value = 6000
+            type = medium_tank_chassis_3
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_high_velocity_cannon_2
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_christie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 19
+                tank_nsb_engine_upgrade = 6
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_high_velocity_cannon_2
+            tank_radio_3
+            secondary_turret_small_cannon
+            easy_maintenance
+            tank_christie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+}
+
+#中坦歼
+JAP_medium_tanks_destroyer = {
+    category = land
+
+    available_for = {
+        JAP
+    }
+
+    roles = {
+        land_medium_tank_destroyer
+    }
+
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：一式炮战车
+    basic_medium_td_jap_ho_ni_1 = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                OR = {
+                    has_tech = improved_medium_tank_chassis
+                    has_tech = antitank3
+                }
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = medium_tank_destroyer_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_cannon
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = tank_radio_1
+                special_type_slot_4 = wet_ammo_storage
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 4
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_cannon
+            secondary_turret_small_cannon
+            tank_radio_1
+            wet_ammo_storage
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+
+    # 第二代：一式炮战车改
+    improved_medium_td_jap_ho_ni_1_kai = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                has_tech = improved_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = medium_tank_destroyer_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_cannon_2
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = tank_radio_1
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 4
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_cannon_2
+            secondary_turret_small_cannon
+            tank_radio_1
+            easy_maintenance
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+
+    # 第三代：三式炮战车
+    improved_medium_td_jap_ho_ni_3 = {
+        priority = {
+            factor = 3000
+            modifier = {
+                factor = 0
+                OR = {
+                    has_tech = advanced_medium_tank_chassis
+                    has_tech = antitank4
+                }
+            }
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = medium_tank_destroyer_chassis_2
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_cannon_2
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = tank_radio_2
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 8
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_cannon_2
+            secondary_turret_small_cannon
+            tank_radio_2
+            easy_maintenance
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+
+    # 第四代：三式炮战车改
+    advanced_medium_td_jap_ho_ni_3_kai = {
+        priority = {
+            factor = 4000
+            modifier = {
+                factor = 0
+                has_tech = advanced_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 4000
+            type = medium_tank_destroyer_chassis_2
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_high_velocity_cannon_2
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = tank_radio_3
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 12
+                tank_nsb_engine_upgrade = 4
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_high_velocity_cannon_2
+            secondary_turret_small_cannon
+            tank_radio_3
+            easy_maintenance
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+
+    # 第五代：五式炮战车 Na-To
+    advanced_medium_td_jap_na_to = {
+        priority = {
+            factor = 5000
+        }
+
+        target_variant = {
+            match_value = 5000
+            type = medium_tank_destroyer_chassis_3
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_high_velocity_cannon_2
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = tank_radio_3
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 12
+                tank_nsb_engine_upgrade = 8
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_high_velocity_cannon_2
+            secondary_turret_small_cannon
+            easy_maintenance
+            tank_radio_3
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+}
+
+# 中型自行火炮
+JAP_medium_tank_artillery = {
+    category = land
+
+    available_for = {
+        JAP
+    }
+
+    roles = {
+        land_medium_tank_artillery
+    }
+
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：一式自走炮
+    basic_medium_art_jap_type_1 = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = medium_tank_artillery_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_howitzer
+                special_type_slot_1 = easy_maintenance
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = auto_loader
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_light_fixed_superstructure_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_howitzer
+            easy_maintenance
+            secondary_turret_small_cannon
+            auto_loader
+            tank_bogie_suspension
+            tank_light_fixed_superstructure_turret
+        }
+    }
+
+    # 第二代：三式自走炮
+    improved_medium_art_jap_type_3 = {
+        priority = {
+            factor = 2000
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = medium_tank_artillery_chassis_2
+
+            modules = {
+                main_armament_slot = tank_medium_howitzer_2
+                turret_type_slot = tank_light_fixed_superstructure_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = auto_loader
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_medium_howitzer_2
+            tank_light_fixed_superstructure_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            secondary_turret_small_cannon
+            easy_maintenance
+            auto_loader
+        }
+    }
+
+    # 第三代：四式自走炮
+    improved_medium_art_jap_type_4 = {
+        priority = {
+            factor = 3000
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = medium_tank_artillery_chassis_2
+
+            modules = {
+                main_armament_slot = tank_heavy_howitzer
+                turret_type_slot = tank_medium_fixed_superstructure_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = auto_loader
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_heavy_howitzer
+            tank_medium_fixed_superstructure_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            secondary_turret_small_cannon
+            easy_maintenance
+            auto_loader
+        }
+    }
+
+    # 第四代：五式自走炮
+    advanced_medium_art_jap_type_5 = {
+        priority = {
+            factor = 4000
+        }
+
+        target_variant = {
+            match_value = 4000
+            type = medium_tank_artillery_chassis_3
+
+            modules = {
+                main_armament_slot = tank_heavy_howitzer
+                turret_type_slot = tank_medium_fixed_superstructure_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = auto_loader
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_heavy_howitzer
+            tank_medium_fixed_superstructure_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_gasoline_engine
+            secondary_turret_small_cannon
+            easy_maintenance
+            auto_loader
+        }
+    }
+}
+
+# 中型自行防空炮
+JAP_land_medium_tank_anti_air = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_medium_tank_anti_air
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：中型自行防空炮 I型改
+    basic_medium_aa_jap_type_1_kai = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                has_tech = improved_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = medium_tank_aa_chassis_1
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_2
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = expanded_fuel_tank
+                special_type_slot_2 = dozer_blade
+                special_type_slot_3 = easy_maintenance
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_2
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            expanded_fuel_tank
+            dozer_blade
+            easy_maintenance
+        }
+    }
+
+    # 第二代：中型自行防空炮 II型 改
+    improved_medium_aa_jap_type_2_kai = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                has_tech = advanced_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = medium_tank_aa_chassis_2
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_3
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = easy_maintenance
+                special_type_slot_2 = dozer_blade
+                special_type_slot_3 = expanded_fuel_tank
+                special_type_slot_4 = expanded_fuel_tank
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_3
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_gasoline_engine
+            easy_maintenance
+            dozer_blade
+            expanded_fuel_tank
+        }
+    }
+
+    # 第三代：中型自行防空炮 III型
+    advanced_medium_aa_jap_type_3 = {
+        priority = {
+            factor = 3000
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = medium_tank_aa_chassis_3
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_3
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = dozer_blade
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_3
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_gasoline_engine
+            secondary_turret_small_cannon
+            easy_maintenance
+            dozer_blade
+        }
+    }
+}
+
+
+# 重型坦克
+JAP_heavy_tanks = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_heavy_tank
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：九五重战
+    basic_heavy_tank_jap_95 = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                has_tech = improved_heavy_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = heavy_tank_chassis_1
+
+            modules = {
+                main_armament_slot = tank_heavy_cannon_2
+                turret_type_slot = tank_heavy_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_2
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = secondary_turret_small_cannon
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_heavy_cannon_2
+            tank_heavy_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_2
+            secondary_turret_small_cannon
+            easy_maintenance
+        }
+    }
+
+    # 第二代：岩畔
+    improved_heavy_tank_jap_iwakuro = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                OR = {
+                    has_tech = advanced_heavy_tank_chassis
+                    has_tech = antitank5
+                }
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = heavy_tank_chassis_2
+
+            modules = {
+                main_armament_slot = tank_heavy_cannon_2
+                turret_type_slot = tank_heavy_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_2
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = easy_maintenance
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 12
+                tank_nsb_engine_upgrade = 7
+            }
+        }
+
+        allowed_modules = {
+            tank_heavy_cannon_2
+            tank_heavy_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_2
+            secondary_turret_small_cannon
+            easy_maintenance
+        }
+    }
+
+    # 第三代：岩畔 改
+    improved_heavy_tank_jap_iwakuro_kai = {
+        priority = {
+            factor = 3000
+            modifier = {
+                factor = 0
+                has_tech = advanced_heavy_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = heavy_tank_chassis_2
+
+            modules = {
+                main_armament_slot = tank_high_velocity_cannon_3
+                turret_type_slot = tank_heavy_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = easy_maintenance
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 14
+                tank_nsb_engine_upgrade = 9
+            }
+        }
+
+        allowed_modules = {
+            tank_high_velocity_cannon_3
+            tank_heavy_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_3
+            secondary_turret_small_cannon
+            easy_maintenance
+        }
+    }
+
+    # 第四代：O-I
+    advanced_heavy_tank_jap_o_i = {
+        priority = {
+            factor = 4000
+        }
+
+        target_variant = {
+            match_value = 4000
+            type = heavy_tank_chassis_3
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_high_velocity_cannon_3
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = easy_maintenance
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = secondary_turret_small_cannon
+                suspension_type_slot = tank_christie_suspension
+                turret_type_slot = tank_heavy_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 16
+                tank_nsb_engine_upgrade = 4
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_high_velocity_cannon_3
+            tank_radio_3
+            easy_maintenance
+            secondary_turret_small_cannon
+            tank_christie_suspension
+            tank_heavy_three_man_tank_turret
+        }
+    }
+}
+
+# 重型自行反坦克炮
+JAP_heavy_tanks_destroyer = {
+	category = land
+	available_for = {
+		JAP
+	}
+	roles = {
+		land_heavy_tank_destroyer
+	}
+	priority = {
+		factor = 500
+	}
+
+	# 第一代：三式对战车自走炮
+	basic_heavy_td_jap_type_3 = {
+		priority = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				has_tech = improved_heavy_tank_chassis
+			}
+		}
+
+		target_variant = {
+		    match_value = 1000
+		    type = heavy_tank_destroyer_chassis_1
+
+		    modules = {
+		        armor_type_slot = tank_riveted_armor
+		        engine_type_slot = tank_diesel_engine
+		        main_armament_slot = tank_heavy_cannon_2
+		        special_type_slot_1 = secondary_turret_small_cannon
+		        special_type_slot_2 = secondary_turret_small_cannon
+		        special_type_slot_3 = secondary_turret_small_cannon
+		        special_type_slot_4 = secondary_turret_small_cannon
+		        suspension_type_slot = tank_torsion_bar_suspension
+		        turret_type_slot = tank_heavy_fixed_superstructure_turret
+		    }
+
+		    upgrades = {
+		        tank_nsb_armor_upgrade = 0
+		        tank_nsb_engine_upgrade = 0
+		    }
+		}
+
+		allowed_modules = {
+		    tank_riveted_armor
+		    tank_diesel_engine
+		    tank_heavy_cannon_2
+		    secondary_turret_small_cannon
+		    tank_torsion_bar_suspension
+		    tank_heavy_fixed_superstructure_turret
+		}
+	}
+
+	# 第二代：五式炮战车 Ho-Ri
+	improved_heavy_td_jap_ho_ri = {
+		priority = {
+			factor = 2000
+			modifier = {
+				factor = 0
+				has_tech = advanced_heavy_tank_chassis
+			}
+		}
+
+		target_variant = {
+		    match_value = 2000
+		    type = heavy_tank_destroyer_chassis_2
+
+		    modules = {
+		        armor_type_slot = tank_riveted_armor
+		        engine_type_slot = tank_diesel_engine
+		        main_armament_slot = tank_super_heavy_cannon
+		        special_type_slot_1 = secondary_turret_small_cannon
+		        special_type_slot_2 = secondary_turret_small_cannon
+		        special_type_slot_3 = secondary_turret_small_cannon
+		        special_type_slot_4 = secondary_turret_small_cannon
+		        suspension_type_slot = tank_bogie_suspension
+		        turret_type_slot = tank_heavy_fixed_superstructure_turret
+		    }
+
+		    upgrades = {
+		        tank_nsb_armor_upgrade = 0
+		        tank_nsb_engine_upgrade = 3
+		    }
+		}
+
+		allowed_modules = {
+		    tank_riveted_armor
+		    tank_diesel_engine
+		    tank_super_heavy_cannon
+		    secondary_turret_small_cannon
+		    tank_bogie_suspension
+		    tank_heavy_fixed_superstructure_turret
+		}
+	}
+
+	# 第三代：伊吹
+	advanced_heavy_td_jap_type_3 = {
+		priority = {
+			factor = 3000
+		}
+
+		target_variant = {
+		    match_value = 3000
+		    type = heavy_tank_destroyer_chassis_3
+
+		    modules = {
+		        armor_type_slot = tank_riveted_armor
+		        engine_type_slot = tank_diesel_engine
+		        main_armament_slot = tank_super_heavy_cannon
+		        special_type_slot_1 = secondary_turret_small_cannon
+		        special_type_slot_2 = secondary_turret_small_cannon
+		        special_type_slot_3 = secondary_turret_small_cannon
+		        special_type_slot_4 = secondary_turret_small_cannon
+		        suspension_type_slot = tank_christie_suspension
+		        turret_type_slot = tank_heavy_fixed_superstructure_turret
+		    }
+
+		    upgrades = {
+		        tank_nsb_armor_upgrade = 0
+		        tank_nsb_engine_upgrade = 10
+		    }
+		}
+
+		allowed_modules = {
+		    tank_riveted_armor
+		    tank_diesel_engine
+		    tank_super_heavy_cannon
+		    secondary_turret_small_cannon
+		    tank_christie_suspension
+		    tank_heavy_fixed_superstructure_turret
+		}
+	}
+}
+
+
+# 重型自行火炮
+JAP_heavy_tank_artillery = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_heavy_tank_artillery
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：一式重迫击炮
+    basic_heavy_art_jap_type_1 = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = heavy_tank_artillery_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_howitzer
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = secondary_turret_small_cannon
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_light_fixed_superstructure_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_howitzer
+            secondary_turret_small_cannon
+            tank_bogie_suspension
+            tank_light_fixed_superstructure_turret
+        }
+    }
+
+    # 第二代：三式重迫击炮
+    improved_heavy_art_jap_type_3 = {
+        priority = {
+            factor = 2000
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = heavy_tank_artillery_chassis_2
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_heavy_howitzer
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = secondary_turret_small_cannon
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_fixed_superstructure_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_heavy_howitzer
+            secondary_turret_small_cannon
+            tank_bogie_suspension
+            tank_medium_fixed_superstructure_turret
+        }
+    }
+
+    # 第三代：五式重迫击炮
+    advanced_heavy_art_jap_type_5 = {
+        priority = {
+            factor = 3000
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = heavy_tank_artillery_chassis_3
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_heavy_howitzer
+                special_type_slot_1 = secondary_turret_small_cannon
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = secondary_turret_small_cannon
+                special_type_slot_4 = secondary_turret_small_cannon
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_fixed_superstructure_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_heavy_howitzer
+            secondary_turret_small_cannon
+            tank_bogie_suspension
+            tank_medium_fixed_superstructure_turret
+        }
+    }
+}
+
+
+# 重型自行防空炮
+JAP_heavy_tanks_anti_air = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_heavy_tank_anti_air
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：九五式重型防空战车
+    basic_heavy_aa_jap_type_1 = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                has_tech = improved_heavy_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = heavy_tank_aa_chassis_1
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_2
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_welded_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = dozer_blade
+                special_type_slot_2 = easy_maintenance
+                special_type_slot_3 = sloped_armor
+                special_type_slot_4 = armor_skirts
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 10
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_2
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_welded_armor
+            tank_diesel_engine
+            dozer_blade
+            easy_maintenance
+            sloped_armor
+            armor_skirts
+        }
+    }
+
+    # 第二代：五式重型防空战车
+    improved_heavy_aa_jap_type_2 = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                has_tech = advanced_heavy_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = heavy_tank_aa_chassis_2
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_3
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_welded_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = sloped_armor
+                special_type_slot_2 = easy_maintenance
+                special_type_slot_3 = dozer_blade
+                special_type_slot_4 = armor_skirts
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 20
+                tank_nsb_engine_upgrade = 2
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_3
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_welded_armor
+            tank_gasoline_engine
+            sloped_armor
+            easy_maintenance
+            dozer_blade
+            armor_skirts
+        }
+    }
+
+    # 第三代：茨木
+    advanced_heavy_aa_jap_type_3 = {
+        priority = {
+            factor = 3000
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = heavy_tank_aa_chassis_3
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_3
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_welded_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = easy_maintenance
+                special_type_slot_2 = sloped_armor
+                special_type_slot_3 = dozer_blade
+                special_type_slot_4 = armor_skirts
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 20
+                tank_nsb_engine_upgrade = 7
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_3
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_welded_armor
+            tank_gasoline_engine
+            easy_maintenance
+            sloped_armor
+            dozer_blade
+            armor_skirts
+        }
+    }
+}
+
+# 中型两栖坦克
+JAP_amphibious_medium_tank = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_amphibious_medium_tank
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：九七式水陆中战车
+    basic_amphibious_medium_tank_jap_97 = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                has_tech = improved_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = medium_tank_amphibious_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_medium_cannon_2
+                special_type_slot_1 = tank_radio_1
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = amphibious_drive
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_bogie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 4
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_medium_cannon_2
+            tank_radio_1
+            secondary_turret_small_cannon
+            amphibious_drive
+            easy_maintenance
+            tank_bogie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+
+    # 第二代：三式水陆中战车
+    improved_amphibious_medium_tank_jap_type_3 = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                has_tech = advanced_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = medium_tank_amphibious_chassis_2
+
+            modules = {
+                main_armament_slot = tank_high_velocity_cannon_2
+                turret_type_slot = tank_medium_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = amphibious_drive
+                special_type_slot_4 = easy_maintenance
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 12
+                tank_nsb_engine_upgrade = 4
+            }
+        }
+
+        allowed_modules = {
+            tank_high_velocity_cannon_2
+            tank_medium_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_3
+            secondary_turret_small_cannon
+            amphibious_drive
+            easy_maintenance
+        }
+    }
+
+    # 第三代：五式水陆中战车
+    advanced_medium_tank_jap_type_5_amphibious = {
+        priority = {
+            factor = 3000
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = medium_tank_amphibious_chassis_3
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_high_velocity_cannon_2
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = amphibious_drive
+                special_type_slot_4 = easy_maintenance
+                suspension_type_slot = tank_christie_suspension
+                turret_type_slot = tank_medium_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 17
+                tank_nsb_engine_upgrade = 4
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_high_velocity_cannon_2
+            tank_radio_3
+            secondary_turret_small_cannon
+            amphibious_drive
+            easy_maintenance
+            tank_christie_suspension
+            tank_medium_three_man_tank_turret
+        }
+    }
+}
+
+# 重型两栖坦克
+JAP_amphibious_heavy_tank = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_amphibious_heavy_tank
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：九五式水陆重战车
+    basic_amphibious_heavy_tank_jap_95 = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                has_tech = improved_heavy_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = heavy_tank_amphibious_chassis_1
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                main_armament_slot = tank_heavy_cannon_2
+                special_type_slot_1 = tank_radio_2
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = amphibious_drive
+                suspension_type_slot = tank_torsion_bar_suspension
+                turret_type_slot = tank_heavy_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 4
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_heavy_cannon_2
+            tank_radio_2
+            secondary_turret_small_cannon
+            easy_maintenance
+            amphibious_drive
+            tank_torsion_bar_suspension
+            tank_heavy_three_man_tank_turret
+        }
+    }
+
+    # 第二代：五式水陆重战车
+    improved_amphibious_heavy_tank_jap_type_5 = {
+        priority = {
+            factor = 2000
+            modifier = {
+                factor = 0
+                has_tech = advanced_heavy_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = heavy_tank_amphibious_chassis_2
+
+            modules = {
+                main_armament_slot = tank_high_velocity_cannon_3
+                turret_type_slot = tank_heavy_three_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = secondary_turret_small_cannon
+                special_type_slot_3 = amphibious_drive
+                special_type_slot_4 = easy_maintenance
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 14
+                tank_nsb_engine_upgrade = 9
+            }
+        }
+
+        allowed_modules = {
+            tank_high_velocity_cannon_3
+            tank_heavy_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            tank_radio_3
+            secondary_turret_small_cannon
+            amphibious_drive
+            easy_maintenance
+        }
+    }
+
+    # 第三代：武尊 (最终型号)
+    advanced_amphibious_heavy_tank_jap_takeru = {
+        priority = {
+            factor = 3000
+        }
+
+        target_variant = {
+            match_value = 3000
+            type = heavy_tank_amphibious_chassis_3
+
+            modules = {
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                main_armament_slot = tank_high_velocity_cannon_3
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = easy_maintenance
+                special_type_slot_3 = amphibious_drive
+                special_type_slot_4 = secondary_turret_small_cannon
+                suspension_type_slot = tank_christie_suspension
+                turret_type_slot = tank_heavy_three_man_tank_turret
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 15
+                tank_nsb_engine_upgrade = 3
+            }
+        }
+
+        allowed_modules = {
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_high_velocity_cannon_3
+            tank_radio_3
+            easy_maintenance
+            amphibious_drive
+            secondary_turret_small_cannon
+            tank_christie_suspension
+            tank_heavy_three_man_tank_turret
+        }
+    }
+}
+
+# 中型喷火坦克
+JAP_medium_penhuo_tank = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_medium_tank_flamethrower
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 第一代：九八式中喷火战车 S-Ki
+    basic_medium_flame_tank_jap_s_ki = {
+        priority = {
+            factor = 1000
+            modifier = {
+                factor = 0
+                has_tech = improved_medium_tank_chassis
+            }
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = medium_tank_flame_chassis_1
+
+            modules = {
+                main_armament_slot = flamethrower
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+                special_type_slot_1 = dozer_blade
+                special_type_slot_2 = expanded_fuel_tank
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            flamethrower
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_diesel_engine
+            dozer_blade
+            expanded_fuel_tank
+        }
+    }
+
+    # 第二代：百式中喷火战车 Ka-Ha
+    improved_medium_flame_tank_jap_ka_ha = {
+        priority = {
+            factor = 2000
+        }
+
+        target_variant = {
+            match_value = 2000
+            type = medium_tank_flame_chassis_2
+
+            modules = {
+                main_armament_slot = advanced_flamethrower
+                turret_type_slot = tank_medium_one_man_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = easy_maintenance
+                special_type_slot_2 = dozer_blade
+                special_type_slot_3 = expanded_fuel_tank
+                special_type_slot_4 = expanded_fuel_tank
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            advanced_flamethrower
+            tank_medium_one_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_gasoline_engine
+            easy_maintenance
+            dozer_blade
+            expanded_fuel_tank
+        }
+    }
+}
+
+# 现代坦克
+JAP_modern_tanks = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_modern_tank
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 唯一型号：六一式主战车
+    modern_tank_jap_type_61 = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = modern_tank_chassis_1
+
+            modules = {
+                main_armament_slot = tank_high_velocity_cannon_3
+                turret_type_slot = tank_modern_tank_turret
+                suspension_type_slot = tank_torsion_bar_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gas_turbine_engine
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = easy_maintenance
+                special_type_slot_3 = auto_loader
+                special_type_slot_4 = armor_skirts
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 20
+                tank_nsb_engine_upgrade = 6
+            }
+        }
+
+        allowed_modules = {
+            tank_high_velocity_cannon_3
+            tank_modern_tank_turret
+            tank_torsion_bar_suspension
+            tank_riveted_armor
+            tank_gas_turbine_engine
+            tank_radio_3
+            easy_maintenance
+            auto_loader
+            armor_skirts
+        }
+    }
+}
+
+# 现代坦歼
+JAP_modern_tank_destroyer = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_modern_tank_destroyer
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 唯一型号：六一式对战车自走炮
+    modern_td_jap_type_61 = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = modern_tank_destroyer_chassis_1
+
+            modules = {
+                main_armament_slot = tank_super_heavy_cannon
+                turret_type_slot = tank_heavy_fixed_superstructure_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = squeezebore_adaptor
+                special_type_slot_2 = auto_loader
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = additional_machine_guns
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_super_heavy_cannon
+            tank_heavy_fixed_superstructure_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_gasoline_engine
+            squeezebore_adaptor
+            auto_loader
+            easy_maintenance
+            additional_machine_guns
+        }
+    }
+}
+
+# 现代自行火炮
+JAP_modern_tank_artillery = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_modern_tank_artillery
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 唯一型号：六一式自走榴弹炮
+    modern_art_jap_type_61 = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = modern_tank_artillery_chassis_1
+
+            modules = {
+                main_armament_slot = tank_heavy_howitzer
+                turret_type_slot = tank_modern_tank_turret
+                suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = auto_loader
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = armor_skirts
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 0
+                tank_nsb_engine_upgrade = 0
+            }
+        }
+
+        allowed_modules = {
+            tank_heavy_howitzer
+            tank_modern_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+            tank_gasoline_engine
+            tank_radio_3
+            auto_loader
+            easy_maintenance
+            armor_skirts
+        }
+    }
+}
+
+# 现代自行防空炮
+JAP_modern_tank_anti_air = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_modern_tank_anti_air
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 唯一型号：六一式自行防空炮
+    modern_aa_jap_type_61 = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = modern_tank_aa_chassis_1
+
+            modules = {
+                main_armament_slot = tank_anti_air_cannon_3
+                turret_type_slot = tank_modern_tank_turret
+                suspension_type_slot = tank_christie_suspension
+                armor_type_slot = tank_welded_armor
+                engine_type_slot = tank_gasoline_engine
+                special_type_slot_1 = tank_radio_3
+                special_type_slot_2 = sloped_armor
+                special_type_slot_3 = easy_maintenance
+                special_type_slot_4 = armor_skirts
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 20
+                tank_nsb_engine_upgrade = 2
+            }
+        }
+
+        allowed_modules = {
+            tank_anti_air_cannon_3
+            tank_modern_tank_turret
+            tank_christie_suspension
+            tank_welded_armor
+            tank_gasoline_engine
+            tank_radio_3
+            sloped_armor
+            easy_maintenance
+            armor_skirts
+        }
+    }
+}
+
+# 陆地巡洋舰
+JAP_land_cruiser = {
+    category = land
+    available_for = {
+        JAP
+    }
+    roles = {
+        land_cruiser_tank
+    }
+    priority = {
+        factor = 500
+    }
+
+    # 唯一型号：星熊 (Hoshiguma)
+    jap_land_cruiser_hoshiguma = {
+        priority = {
+            factor = 1000
+        }
+
+        target_variant = {
+            match_value = 1000
+            type = land_cruiser_chassis_1
+
+            modules = {
+                lc_additional_armament_slot_1 = lc_high_velocity_cannon_turret
+                lc_additional_armament_slot_2 = lc_high_velocity_cannon_turret
+                lc_additional_armament_slot_3 = lc_medium_cannon_turret
+                lc_additional_armament_slot_4 = lc_light_anti_air_battery
+                lc_main_armament_slot = lc_high_impact_obliterator_cannon
+                lc_secondary_armament_slot = lc_heavy_high_velocity_cannons
+                lc_special_features_slot_1 = lc_command_center
+                lc_special_features_slot_2 = lc_radar
+                lc_special_features_slot_3 = lc_bunker_emplacement
+            }
+
+            upgrades = {
+                tank_nsb_armor_upgrade = 20
+                tank_nsb_engine_upgrade = 20
+            }
+        }
+
+        allowed_modules = {
+            lc_high_velocity_cannon_turret
+            lc_medium_cannon_turret
+            lc_light_anti_air_battery
+            lc_high_impact_obliterator_cannon
+            lc_heavy_high_velocity_cannons
+            lc_command_center
+            lc_radar
+            lc_bunker_emplacement
+        }
+    }
+}

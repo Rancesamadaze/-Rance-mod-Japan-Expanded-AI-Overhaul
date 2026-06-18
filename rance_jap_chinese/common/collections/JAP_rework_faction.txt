@@ -1,0 +1,11 @@
+Rance_States_owned_by_c = {
+	input = game:all_states
+	operators = {
+		limit = {
+			controller = {
+				has_government = communism
+			}
+		}
+	}
+	name = COLLECTION_STATES_BELONG_TO_COMMUNISM
+}

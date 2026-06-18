@@ -1,0 +1,26 @@
+##实验
+##志贺义雄
+# JAP_yoshio_shiga_go_to_work = {
+# 	allowed = {
+# 		tag = JAP
+# 	}
+# 	enable = {
+# 		has_government = communism
+# 		has_completed_focus = JAP_raise_the_red_flag_high
+# 	}
+# 	abort = {
+# 		has_idea = JAP_yoshio_shiga
+# 	}
+# 	ai_strategy = {
+# 		type = pp_spend_priority
+# 		id = idea
+# 		value = 300
+# 	}
+# 	ai_strategy = {
+# 		type = pp_spend_priority
+# 		id = decision
+# 		value = -300
+# 	}
+	
+	
+# }

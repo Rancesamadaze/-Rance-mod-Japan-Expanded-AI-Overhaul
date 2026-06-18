@@ -1,0 +1,14 @@
+spriteTypes = {
+	spriteType = {
+		name = GFX_rance_nandu_set
+		textureFile = "gfx/events/JAP/Rance_nandu_set.dds"
+	}
+	spriteType = {
+		name = "GFX_JAP_scripted_landing_detected_report"
+		texturefile = "gfx/events/JAP/JAP_scripted_landing_detected_report.png"
+	}
+	spriteType = {
+		name = "GFX_JAP_scripted_landing_raid_report"
+		texturefile = "gfx/events/JAP/JAP_scripted_landing_raid_report.png"
+	}
+}

@@ -1,0 +1,531 @@
+characters = {
+	#领袖 / Leaders
+	JAP_rework_rana = {
+		name = JAP_rework_rana
+		portraits = {
+			civilian = {
+				large = gfx/leaders/JAP/JAP_rework_rana.dds
+				small = gfx/leaders/JAP/JAP_rework_rana.dds
+			}
+		}
+	}
+	JAP_rework_changzheng = {
+		name = JAP_rework_changzheng
+		portraits = {
+			civilian = {
+				large = GFX_JAP_rework_changzheng
+				small = GFX_JAP_rework_changzheng
+			}
+		}
+	}
+	JAP_rework_kaguya = {
+		name = JAP_rework_kaguya
+		portraits = {
+			civilian = {
+				large = GFX_JAP_rework_kaguya
+				small = GFX_JAP_rework_kaguya
+			}
+		}
+	}
+	JAP_rework_erin = {
+		name = JAP_rework_erin
+		portraits = {
+			civilian = {
+				large = GFX_JAP_rework_erin
+				small = GFX_JAP_rework_erin
+			}
+		}
+
+		advisor = {
+			idea_token = JAP_erin
+			desc = JAP_erin_desc
+			slot = political_advisor
+			cost = 100
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					Rance_is_jap_kodoha_ai = yes
+					has_completed_focus = JAP_kaguya_eientei
+				}
+			}
+			traits = {
+				JAP_rework_erin_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 100
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+	}
+	JAP_rework_reisen = {
+		name = JAP_rework_reisen
+		portraits = {
+			civilian = {
+				large = GFX_JAP_rework_reisen
+				small = GFX_JAP_rework_reisen
+			}
+		}
+
+		advisor = {
+			idea_token = JAP_reisen
+			desc = JAP_reisen_desc
+			slot = theorist
+			cost = 50
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					Rance_is_jap_kodoha_ai = yes
+					has_completed_focus = JAP_kaguya_eientei
+				}
+			}
+			traits = {
+				JAP_rework_reisen_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 100
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+	}
+	JAP_rework_tewi = {
+		name = JAP_rework_tewi
+		portraits = {
+			civilian = {
+				large = GFX_JAP_rework_tewi
+				small = GFX_JAP_rework_tewi
+			}
+		}
+
+		advisor = {
+			idea_token = JAP_tewi
+			desc = JAP_tewi_desc
+			slot = high_command
+			cost = 50
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					Rance_is_jap_kodoha_ai = yes
+					has_completed_focus = JAP_kaguya_eientei
+				}
+			}
+			traits = {
+				JAP_rework_tewi_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 100
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+	}
+	#内阁 / Cabinet
+	JAP_rework_mimo = {
+		name = JAP_rework_mimo
+		portraits = {
+			army = {
+				small = GFX_JAP_rework_mimo_small
+			}
+		}
+		
+		advisor = {
+			idea_token = JAP_mimo
+			desc = JAP_mimo_desc
+			slot = theorist
+			
+			cost = 100
+			allowed = {
+				original_tag = JAP	
+			}
+			traits = { 
+				JAP_rework_mimo_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 100
+					Rance_is_jap_lecture_ai = yes
+				}
+				modifier = {
+					factor = 50
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+	}
+	JAP_rework_lik = {
+		name = JAP_rework_lik
+		portraits = {
+			army = {
+				small = GFX_JAP_rework_lik_small
+			}
+		}
+		advisor = {
+			idea_token = JAP_lik
+			slot = army_chief
+			cost = 100
+			allowed = {
+				original_tag = JAP	
+			}
+			traits = { 
+				JAP_rework_lik_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 100
+					Rance_is_jap_lecture_ai = yes
+				}
+				modifier = {
+					factor = 100
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+	}
+	JAP_rework_goteborg = {
+		name = JAP_rework_goteborg
+		portraits = {
+			army = {
+				small = GFX_JAP_rework_goteborg_small
+			}
+		}
+		advisor = {
+			idea_token = JAP_goteborg
+			slot = army_chief
+			cost = 100
+			allowed = {
+				original_tag = JAP	
+			}
+			traits = { 
+				JAP_rework_goteborg_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 50
+					Rance_is_jap_lecture_ai = yes
+				}
+				modifier = {
+					factor = 50
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+		
+	}
+	JAP_rework_uruz = {
+		name = JAP_rework_uruz
+		portraits = {
+			army = {
+				small = GFX_JAP_rework_uruz_small
+			}
+		}
+		advisor = {
+			idea_token = JAP_uruz
+			slot = high_command
+			cost = 100
+			allowed = {
+				original_tag = JAP	
+			}
+			traits = { 
+				JAP_rework_uruz_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 100
+					Rance_is_jap_lecture_ai = yes
+				}
+				modifier = {
+					factor = 100
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+		
+	}
+	JAP_rework_maria = {
+		name = JAP_rework_maria
+		portraits = {
+			army = {
+				small = GFX_JAP_rework_maria_small
+			}
+		}
+		advisor = {
+			idea_token = JAP_maria
+			slot = high_command
+			cost = 100
+			allowed = {
+				original_tag = JAP	
+			}
+			traits = { 
+				JAP_rework_maria_trait
+			}
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 50
+					Rance_is_jap_lecture_ai = yes
+				}
+				modifier = {
+					factor = 50
+					Rance_is_jap_kodoha_ai = yes
+				}
+			}
+		}
+	}
+	JAP_rework_aya = {
+        name = JAP_rework_aya
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_aya_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_aya
+            slot = air_chief
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_aya_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+
+    JAP_rework_tianzi = {
+        name = JAP_rework_tianzi
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_tianzi_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_tianzi
+            slot = air_chief
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_tianzi_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+	JAP_rework_reimu = {
+        name = JAP_rework_reimu
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_reimu_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_reimu
+            slot = high_command
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_reimu_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+
+    JAP_rework_akong = {
+        name = JAP_rework_akong
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_akong_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_akong
+            slot = high_command
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_akong_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+	JAP_rework_marisa = {
+        name = JAP_rework_marisa
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_marisa_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_marisa
+            slot = navy_chief
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_marisa_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+
+    JAP_rework_alice = {
+        name = JAP_rework_alice
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_alice_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_alice
+            slot = navy_chief
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_alice_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+	JAP_rework_retia = {
+        name = JAP_rework_retia
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_retia_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_retia
+            slot = high_command
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_retia_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_lecture_ai = yes
+                }
+                modifier = {
+                    factor = 50
+                    Rance_is_jap_kodoha_ai = yes
+                }
+            }
+        }
+    }
+
+    JAP_rework_catlin = {
+        name = JAP_rework_catlin
+        portraits = {
+            army = {
+                small = GFX_JAP_rework_catlin_small
+            }
+        }
+        advisor = {
+            idea_token = JAP_catlin
+            slot = high_command
+            cost = 100
+            allowed = {
+                original_tag = JAP  
+            }
+            traits = { 
+                JAP_rework_catlin_trait
+            }
+            ai_will_do = {
+                base = 1
+                modifier = {
+                    factor = 100
+                    Rance_is_jap_lecture_ai = yes
+                }
+            }
+        }
+    }
+}

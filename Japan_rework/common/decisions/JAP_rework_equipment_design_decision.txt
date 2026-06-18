@@ -1,0 +1,3197 @@
+#AI装备设计
+JAP_rework_equipment_designs = {
+    # AI陆军生产调控循环启动
+    JAP_ai_land_production_loop_start = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            tag = JAP
+        }
+        available = {
+            num_of_military_factories > 100
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            base = 1000
+        }
+        complete_effect = {
+            set_country_flag = JAP_ai_land_production_loop_active
+            activate_mission = JAP_ai_land_production_equipment_cycle_mission
+            activate_mission = JAP_ai_land_production_template_suppression_cycle_mission
+        }
+    }
+
+    # 每15天检查装备填充率，后续在 timeout_effect 中接入增产/减产 flag 判定。
+    JAP_ai_land_production_equipment_cycle_mission = {
+        icon = GFX_decision_generic_decision
+        priority = 100
+        available = {
+            hidden_trigger = { always = no }
+        }
+        days_mission_timeout = 15
+        fire_only_once = no
+        activation = {
+            always = no
+        }
+        visible = {
+            tag = JAP
+        }
+        cancel_if_not_visible = yes
+        is_good = yes
+        timeout_effect = {
+            JAP_ai_land_production_update_dynamic_factory_variables = yes
+            JAP_ai_land_production_update_equipment_flags = yes
+            hidden_effect = { activate_mission = JAP_ai_land_production_equipment_cycle_mission }
+        }
+    }
+
+    # 每45天检查编制主装备填充率，后续在 timeout_effect 中接入训练抑制 flag 判定。
+    JAP_ai_land_production_template_suppression_cycle_mission = {
+        icon = GFX_decision_generic_decision
+        priority = 99
+        available = {
+            hidden_trigger = { always = no }
+        }
+        days_mission_timeout = 45
+        fire_only_once = no
+        activation = {
+            always = no
+        }
+        visible = {
+            tag = JAP
+        }
+        cancel_if_not_visible = yes
+        is_good = yes
+        timeout_effect = {
+            JAP_ai_template_update_training_suppression_flags = yes
+            set_country_flag = JAP_ai_land_production_loop_active
+            JAP_ai_template_update_expansion_desire_flags = yes
+            hidden_effect = { activate_mission = JAP_ai_land_production_template_suppression_cycle_mission }
+        }
+    }
+
+    # AI陆空额外装备补给循环启动：军工厂超过 100 时立即补给第一轮，之后由 60 天 mission 循环。
+    JAP_ai_extra_equipment_grant_loop_start = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            tag = JAP
+            Rance_is_jap_ai = yes
+        }
+        available = {
+            tag = JAP
+            num_of_military_factories > 100
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            base = 1000
+        }
+        complete_effect = {
+            custom_effect_tooltip = JAP_ai_extra_equipment_grant_loop_start_tt
+            if = {
+                limit = {
+                    tag = JAP
+                    Rance_is_jap_ai = yes
+                    has_game_rule = {
+                        rule = rance_japan_ai_land_air_dynamic_supply
+                        option = ENABLED
+                    }
+                }
+                JAP_ai_extra_equipment_grant_cycle = yes
+                JAP_ai_extra_air_equipment_grant_cycle = yes
+            }
+            activate_mission = JAP_ai_extra_equipment_grant_cycle_mission
+        }
+    }
+
+    # AI陆空额外装备补给循环 mission：启动后每 60 天补给一轮并自我重启。
+    JAP_ai_extra_equipment_grant_cycle_mission = {
+        icon = GFX_decision_generic_decision
+        priority = 98
+        available = {
+            hidden_trigger = { always = no }
+        }
+        days_mission_timeout = 60
+        fire_only_once = no
+        activation = {
+            always = no
+        }
+        visible = {
+            tag = JAP
+        }
+        cancel_if_not_visible = yes
+        is_good = yes
+        timeout_effect = {
+            custom_effect_tooltip = JAP_ai_extra_equipment_grant_cycle_mission_tt
+            if = {
+                limit = {
+                    tag = JAP
+                    Rance_is_jap_ai = yes
+                    has_game_rule = {
+                        rule = rance_japan_ai_land_air_dynamic_supply
+                        option = ENABLED
+                    }
+                }
+                JAP_ai_extra_equipment_grant_cycle = yes
+                JAP_ai_extra_air_equipment_grant_cycle = yes
+            }
+            hidden_effect = { activate_mission = JAP_ai_extra_equipment_grant_cycle_mission }
+        }
+    }
+
+    # AI海军半年度免费舰船循环启动：1939.6.1 立即发第一轮，之后由 180 天 mission 循环。
+    JAP_ai_navy_ship_grant_loop_start = {
+        icon = GFX_decision_generic_naval
+        visible = {
+            tag = JAP
+            Rance_is_jap_ai = yes
+            date > 1939.5.31
+        }
+        available = {
+            tag = JAP
+            date > 1939.5.31
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            base = 1000
+        }
+        complete_effect = {
+            custom_effect_tooltip = JAP_ai_navy_ship_grant_loop_start_tt
+            JAP_ai_navy_ship_grant_cycle = yes
+            activate_mission = JAP_ai_navy_ship_grant_cycle_mission
+        }
+    }
+
+    # AI海军半年度免费舰船循环 mission：启动后每 180 天发放一轮并自我重启。
+    JAP_ai_navy_ship_grant_cycle_mission = {
+        icon = GFX_decision_generic_naval
+        priority = 98
+        available = {
+            hidden_trigger = { always = no }
+        }
+        days_mission_timeout = 180
+        fire_only_once = no
+        activation = {
+            always = no
+        }
+        visible = {
+            tag = JAP
+        }
+        cancel_if_not_visible = yes
+        is_good = yes
+        timeout_effect = {
+            custom_effect_tooltip = JAP_ai_navy_ship_grant_cycle_mission_tt
+            JAP_ai_navy_ship_grant_cycle = yes
+            hidden_effect = { activate_mission = JAP_ai_navy_ship_grant_cycle_mission }
+        }
+    }
+
+    # 编制与启动装备：Rance_is_jap_ai 走 AI 完整效果，普通玩家只获得编制。
+    JAP_rai_create_experimental_infantry_tank_template = {
+        icon = generic_research
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            date > 1936.3.1
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_create_experimental_infantry_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_experimental_infantry_tanks = yes
+                set_country_flag = JAP_ai_template_experimental_armor_created
+            }
+        }
+    }
+
+    JAP_rai_create_infantry_tank_template = {
+        icon = generic_military
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_easy = no
+            }
+            OR = {
+                date > 1938.7.1
+                JAP_has_cr_infantry_tank_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_ai_complete_regular_template_special_projects = yes
+            }
+            JAP_create_infantry_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_infantry_tanks = yes
+                set_country_flag = JAP_ai_template_regular_armor_created
+                set_country_flag = JAP_ai_extra_equipment_infantry_tank_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_special_infantry_tank_template = {
+        icon = GFX_decision_generic_special_project
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                date > 1938.7.1
+                JAP_has_cr_special_infantry_tank_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_ai_complete_regular_template_special_projects = yes
+            }
+            JAP_create_special_infantry_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_special_infantry_tanks = yes
+                set_country_flag = JAP_ai_template_regular_armor_created
+            }
+        }
+    }
+
+    JAP_rai_create_mechanized_tank_template = {
+        icon = generic_military
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_easy = yes
+            }
+            OR = {
+                date > 1938.7.1
+                JAP_has_cr_mechanized_tank_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_ai_complete_regular_template_special_projects = yes
+            }
+            JAP_create_mechanized_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_mechanized_tanks = yes
+                set_country_flag = JAP_ai_template_regular_armor_created
+                set_country_flag = JAP_ai_extra_equipment_mechanized_tank_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_amphibious_mechanized_template = {
+        icon = generic_naval
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_normal = yes
+            }
+            OR = {
+                date > 1938.7.1
+                JAP_has_cr_amphibious_mechanized_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_ai_complete_regular_template_special_projects = yes
+            }
+            JAP_create_amphibious_mechanized_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_amphibious_mechanized_tanks = yes
+                set_country_flag = JAP_ai_template_regular_armor_created
+                set_country_flag = JAP_ai_extra_equipment_amphibious_medium_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_mechanized_heavy_tank_template = {
+        icon = GFX_decision_generic_military
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_hard = yes
+            }
+            OR = {
+                date > 1938.7.1
+                JAP_has_cr_mechanized_heavy_tank_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_ai_complete_regular_template_special_projects = yes
+            }
+            JAP_create_mechanized_heavy_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_heavy_mechanized_tanks = yes
+                set_country_flag = JAP_ai_template_regular_armor_created
+                set_country_flag = JAP_ai_extra_equipment_heavy_tank_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_heavy_amphibious_mechanized_template = {
+        icon = GFX_decision_generic_naval
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_hard = yes
+            }
+            OR = {
+                date > 1938.7.1
+                JAP_has_cr_heavy_amphibious_mechanized_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_ai_complete_regular_template_special_projects = yes
+            }
+            JAP_create_heavy_amphibious_mechanized_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_heavy_amphibious_mechanized_tanks = yes
+                set_country_flag = JAP_ai_template_regular_armor_created
+                set_country_flag = JAP_ai_extra_equipment_heavy_amphibious_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_land_crushier_template = {
+        icon = GFX_decision_generic_special_project
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_lunatic = yes
+            }
+            OR = {
+                date > 1940.7.1
+                JAP_has_cr_land_crushier_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_create_land_crushier_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_land_crushier = yes
+                set_country_flag = JAP_ai_template_land_cruiser_created
+                set_country_flag = JAP_ai_extra_equipment_land_cruiser_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_marine_modern_mechanized_tank_template = {
+        icon = generic_naval
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_easy = yes
+            }
+            OR = {
+                date > 1943.7.1
+                JAP_has_cr_marine_modern_mechanized_tank_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_create_marine_modern_mechanized_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_marine_modern_mechanized_tanks = yes
+                set_country_flag = JAP_ai_land_production_modern_tank_template_created
+                set_country_flag = JAP_ai_extra_equipment_modern_tank_package_started
+            }
+        }
+    }
+
+    JAP_rai_create_land_cruiser_marine_modern_mechanized_tank_template = {
+        icon = GFX_decision_generic_special_project
+        visible = {
+            OR = {
+                Rance_is_jap_ai = yes
+                has_completed_focus = JAP_the_imperial_defense_plan
+            }
+        }
+        available = {
+            OR = {
+                Rance_is_jap_ai = no
+                Rance_nd_more_than_lunatic = yes
+            }
+            OR = {
+                date > 1943.7.1
+                JAP_has_cr_land_cruiser_marine_modern_mechanized_tank_template_equipment_design = yes
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_create_land_cruiser_marine_modern_mechanized_tank_template = yes
+            if = {
+                limit = { Rance_is_jap_ai = yes }
+                JAP_start_land_cruiser_marine_modern_mechanized_tanks = yes
+                set_country_flag = JAP_ai_land_production_modern_tank_template_created
+                set_country_flag = JAP_ai_template_modern_land_cruiser_created
+                set_country_flag = JAP_ai_extra_equipment_modern_tank_package_started
+                set_country_flag = JAP_ai_extra_equipment_land_cruiser_package_started
+            }
+        }
+    }
+
+    #中坦
+    #试制中战
+    JAP_to_cr_prototype_medium_tank_jap = {
+        icon = generic_research
+        visible = {
+            OR = {
+                AND = {
+                    has_tech = gwtank_chassis
+                    has_tech = interwar_antiair
+                }
+                date > 1936.2.1
+            }
+        }
+        available = {
+            OR = {
+                AND = {
+                    has_tech = gwtank_chassis
+                    has_tech = interwar_antiair
+                }
+                date > 1936.2.1
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_cr_prototype_medium_tank_jap = yes
+        }
+    }
+
+    #九七中战
+    JAP_to_cr_basic_medium_tank_jap_97 = {
+        icon = generic_research
+        visible = {
+			 OR = {
+                AND = {
+                    has_tech = basic_medium_tank_chassis
+                    has_tech = antitank1
+                }
+                date > 1937.6.1
+
+            }
+        }
+        available = {
+            OR = {
+                AND = {
+                    has_tech = basic_medium_tank_chassis
+                    has_tech = antitank1
+                }
+                date > 1937.6.1
+
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = {
+            factor = 1000
+        }
+        complete_effect = {
+            JAP_cr_basic_medium_tank_jap_97 = yes
+        }
+    }
+    #九七中战改 (火力强化型)
+ JAP_to_cr_improved_medium_tank_jap_97_kai = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.1.1 # 建议校对日期
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.1.1 # 建议校对日期
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_tank_jap_97_kai = yes
+     }
+ }
+
+ #三式中战 (1940年型底盘)
+ JAP_to_cr_improved_medium_tank_jap_type_3 = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_tank_jap_type_3 = yes
+     }
+ }
+
+ #三式中战改 (火力强化方案)
+ JAP_to_cr_improved_medium_tank_jap_type_3_kai = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1940.6.1 # 建议校对日期
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1940.6.1 # 建议校对日期
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_tank_jap_type_3_kai = yes
+     }
+ }
+
+ #五式中战 (最终方案)
+ JAP_to_cr_advanced_medium_tank_jap_type_5 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1942.6.1 # 建议校对日期
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1942.6.1 # 建议校对日期
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_medium_tank_jap_type_5 = yes
+     }
+ }
+
+ #现代坦克
+ #六一式主战车
+ JAP_to_cr_modern_tank_jap_type_61 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1943.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1943.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_modern_tank_jap_type_61 = yes
+     }
+ }
+ #六一式对战车自走炮
+ JAP_to_cr_modern_td_jap_type_61 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1943.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1943.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_modern_td_jap_type_61 = yes
+     }
+ }
+ #六一式自走榴弹炮
+ JAP_to_cr_modern_art_jap_type_61 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = artillery5
+             }
+             date > 1943.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = artillery5
+             }
+             date > 1943.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_modern_art_jap_type_61 = yes
+     }
+ }
+ #六一式自行防空炮
+ JAP_to_cr_modern_aa_jap_type_61 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1943.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = main_battle_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1943.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_modern_aa_jap_type_61 = yes
+     }
+ }
+ #中坦歼
+ #中型歼击车系列自动设计决议
+
+ #第一代：一式炮战车
+ JAP_to_cr_basic_medium_td_jap_ho_ni_1 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank1
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank1
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_medium_td_jap_ho_ni_1 = yes
+     }
+ }
+
+ #第二代：一式炮战车改
+ JAP_to_cr_improved_medium_td_jap_ho_ni_1_kai = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.1.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.1.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_td_jap_ho_ni_1_kai = yes
+     }
+ }
+
+ #第三代：三式炮战车
+ JAP_to_cr_improved_medium_td_jap_ho_ni_3 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank3
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_td_jap_ho_ni_3 = yes
+     }
+ }
+
+ #第四代：三式炮战车改
+ JAP_to_cr_advanced_medium_td_jap_ho_ni_3_kai = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1940.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1940.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_medium_td_jap_ho_ni_3_kai = yes
+     }
+ }
+
+ #第五代：五式炮战车 Na-To
+ JAP_to_cr_advanced_medium_td_jap_na_to = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = antitank4
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_medium_td_jap_na_to = yes
+     }
+ }
+ #中型自行火炮
+ #第一代：一式自走炮
+ JAP_to_cr_basic_medium_art_jap_type_1 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = artillery1
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = artillery1
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_medium_art_jap_type_1 = yes
+     }
+ }
+
+ #第二代：三式自走炮
+ JAP_to_cr_improved_medium_art_jap_type_3 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = artillery3
+             }
+            date > 1939.1.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = artillery3
+             }
+            date > 1939.1.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_art_jap_type_3 = yes
+     }
+ }
+
+ #第三代：四式自走炮
+ JAP_to_cr_improved_medium_art_jap_type_4 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_art_jap_type_4 = yes
+     }
+ }
+
+ #第四代：五式自走炮
+ JAP_to_cr_advanced_medium_art_jap_type_5 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_medium_art_jap_type_5 = yes
+     }
+ }
+ #中防空
+ #中防空
+ #中型防空坦克系列自动设计决议
+
+ #第一代：九七式中型防空战车
+ JAP_to_cr_basic_medium_aa_jap_type_1_kai = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antiair2
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antiair2
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_medium_aa_jap_type_1_kai = yes
+     }
+ }
+
+ #第二代：一式中型防空战车
+ JAP_to_cr_improved_medium_aa_jap_type_2_kai = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_aa_jap_type_2_kai = yes
+     }
+ }
+
+ #第三代：五式中型防空战车
+ JAP_to_cr_advanced_medium_aa_jap_type_3 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_medium_aa_jap_type_3 = yes
+     }
+ }
+ #重型坦克系列自动设计决议
+
+ #第一代：九五重战
+ JAP_to_cr_basic_heavy_tank_jap_95 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                has_tech = basic_heavy_tank_chassis
+                has_tech = antitank2
+             }
+             date > 1938.6.1
+         }
+		}
+
+     available = {
+         OR = {
+             AND = {
+                has_tech = basic_heavy_tank_chassis
+                has_tech = antitank2
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = { factor = 1000 }
+     complete_effect = { JAP_cr_basic_heavy_tank_jap_95 = yes }
+ }
+
+ #第二代：岩畔
+ JAP_to_cr_improved_heavy_tank_jap_iwakuro = {
+     icon = generic_research
+     visible = {
+	 OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = antitank2
+                }
+             date > 1939.6.1
+         }
+	}
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = antitank2
+                }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = { factor = 1000 }
+     complete_effect = { JAP_cr_improved_heavy_tank_jap_iwakuro = yes }
+ }
+
+ #第三代：岩畔 改
+ JAP_to_cr_improved_heavy_tank_jap_iwakuro_kai = {
+     icon = generic_research
+     visible = {
+		OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1940.6.1
+         }
+		}
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1940.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = { factor = 1000 }
+     complete_effect = { JAP_cr_improved_heavy_tank_jap_iwakuro_kai = yes }
+ }
+
+ #第四代：O-I
+ JAP_to_cr_advanced_heavy_tank_jap_o_i = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1942.6.1
+         }
+		 }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = antitank5
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = { factor = 1000 }
+     complete_effect = { JAP_cr_advanced_heavy_tank_jap_o_i = yes }
+ }
+ #重型歼击车 (Heavy TD)
+
+ #第一代：三式对战车自走炮
+ JAP_to_cr_basic_heavy_td_jap_type_3 = {
+     icon = generic_research
+     visible = {
+		   OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = antitank2
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = antitank2
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_heavy_td_jap_type_3 = yes
+     }
+ }
+
+#第二代：五式炮战车 Ho-Ri
+JAP_to_cr_improved_heavy_td_jap_ho_ri = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = super_heavy_tank_chassis
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = super_heavy_tank_chassis
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_heavy_td_jap_ho_ri = yes
+     }
+ }
+
+#第三代：伊吹
+JAP_to_cr_advanced_heavy_td_jap_type_3 = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = super_heavy_tank_chassis
+             }
+             date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = super_heavy_tank_chassis
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_heavy_td_jap_type_3 = yes
+     }
+ }
+
+ #重型自行火炮
+ #第一代：一式重迫击炮
+ JAP_to_cr_basic_heavy_art_jap_type_1 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = artillery1
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = artillery1
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_heavy_art_jap_type_1 = yes
+     }
+ }
+
+ #第二代：三式重迫击炮
+ JAP_to_cr_improved_heavy_art_jap_type_3 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_heavy_art_jap_type_3 = yes
+     }
+ }
+
+ #第三代：五式重迫击炮
+ JAP_to_cr_advanced_heavy_art_jap_type_5 = {
+     icon = generic_research
+     visible = {
+         OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = artillery5
+             }
+              date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_heavy_art_jap_type_5 = yes
+     }
+ }
+
+ #重型防空 (Heavy AA)
+
+ #第一代：九五式重型防空战车
+ JAP_to_cr_basic_heavy_aa_jap_type_1 = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = antiair2
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = antiair2
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_heavy_aa_jap_type_1 = yes
+     }
+ }
+
+#第二代：五式重型防空战车
+JAP_to_cr_improved_heavy_aa_jap_type_2 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_heavy_aa_jap_type_2 = yes
+     }
+ }
+
+#第三代：茨木
+JAP_to_cr_advanced_heavy_aa_jap_type_3 = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = antiair5
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_heavy_aa_jap_type_3 = yes
+     }
+ }
+ #中型两栖坦克
+
+ #第一代：九七式水陆中战车
+ JAP_to_cr_basic_amphibious_medium_tank_jap_97 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank3
+                 has_tech = amphibious_drive
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 has_tech = antitank3
+                 has_tech = amphibious_drive
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_amphibious_medium_tank_jap_97 = yes
+     }
+ }
+
+ #第二代：三式水陆中战车
+ JAP_to_cr_improved_amphibious_medium_tank_jap_type_3 = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank4
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank4
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_amphibious_medium_tank_jap_type_3 = yes
+     }
+ }
+
+ #第三代：五式水陆中战车
+ JAP_to_cr_advanced_medium_tank_jap_type_5_amphibious = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank4
+             }
+             date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_medium_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank4
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_medium_tank_jap_type_5_amphibious = yes
+     }
+ }
+ #重型两栖坦克
+
+ #第一代：九五式水陆重战车
+ JAP_to_cr_basic_amphibious_heavy_tank_jap_95 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank2
+             }
+             date > 1938.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_heavy_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank2
+             }
+             date > 1938.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_amphibious_heavy_tank_jap_95 = yes
+     }
+ }
+
+ #第二代：五式水陆重战车
+ JAP_to_cr_improved_amphibious_heavy_tank_jap_type_5 = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank5
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_heavy_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank5
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_amphibious_heavy_tank_jap_type_5 = yes
+     }
+ }
+
+#第三代：武尊 (最终型号)
+JAP_to_cr_advanced_amphibious_heavy_tank_jap_takeru = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank5
+             }
+             date > 1942.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = advanced_heavy_tank_chassis
+                 has_tech = amphibious_drive
+                 has_tech = antitank5
+             }
+             date > 1942.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_advanced_amphibious_heavy_tank_jap_takeru = yes
+     }
+ }
+ #中型喷火坦克
+
+ # 第一代：九八式中喷火战车 S-Ki
+ JAP_to_cr_basic_medium_flame_tank_jap_s_ki = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 is_special_project_completed = sp:sp_land_flamethrower_tank
+             }
+             date > 1938.1.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = basic_medium_tank_chassis
+                 is_special_project_completed = sp:sp_land_flamethrower_tank
+             }
+             date > 1938.1.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_basic_medium_flame_tank_jap_s_ki = yes
+     }
+ }
+
+ # 第二代：百式中喷火战车 Ka-Ha
+ JAP_to_cr_improved_medium_flame_tank_jap_ka_ha = {
+     icon = generic_research
+     visible = {
+		  OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 is_special_project_completed = sp:sp_land_flamethrower_tank
+             }
+             date > 1939.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 has_tech = improved_medium_tank_chassis
+                 is_special_project_completed = sp:sp_land_flamethrower_tank
+             }
+             date > 1939.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         JAP_cr_improved_medium_flame_tank_jap_ka_ha = yes
+     }
+ }
+ # 陆地巡洋舰
+
+ # 唯一型号：星熊 (Hoshiguma)
+ JAP_to_cr_jap_land_cruiser_hoshiguma = {
+     icon = generic_research
+     visible = {
+		 OR = {
+             AND = {
+                 # 必须完成陆地巡洋舰特殊项目
+                 is_special_project_completed = sp:sp_land_land_cruiser
+
+             }
+             # 作为究极兵器，日期设定在战争后期
+             date > 1940.6.1
+         }
+     }
+     available = {
+         OR = {
+             AND = {
+                 # 必须完成陆地巡洋舰特殊项目
+                 is_special_project_completed = sp:sp_land_land_cruiser
+
+             }
+             # 作为究极兵器，日期设定在战争后期
+             date > 1940.6.1
+         }
+     }
+     fire_only_once = yes
+     ai_will_do = {
+         factor = 1000
+     }
+     complete_effect = {
+         # 调用脚本效果：给予科技、完成项目并创建变体
+         JAP_cr_jap_land_cruiser_hoshiguma = yes
+     }
+ }
+ #######################空军开始#####################################
+ # 轻型战斗机系列 - 日期校准版
+
+# Ki-27 九七式战斗机 (Basic)
+# JAP_to_cr_fighter_ki27 = {
+#     icon = generic_research
+#     visible = {
+#         Rance_is_jap_ai = yes
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     available = {
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     fire_only_once = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     complete_effect = {
+#         JAP_cr_fighter_ki27 = yes
+#     }
+# }
+
+# Ki-43 一式战“隼” (Improved)
+JAP_to_cr_fighter_ki43 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_fighter_ki43 = yes
+    }
+}
+
+# Ki-84 四式战 “疾风” (Advanced)
+JAP_to_cr_fighter_ki84 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_fighter_ki84 = yes
+        set_technology = {
+            reinforced_wings_mothership = 1
+            popup = no
+        }
+    }
+}
+
+# Ki-94-II 六式战 “电光” (Modern)
+JAP_to_cr_fighter_ki94 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1943.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1943.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_fighter_ki94 = yes
+        set_technology = {
+            miniature_fighters = 1
+            popup = no
+        }
+    }
+}
+
+# Ki-201 七式战 “火龙” (Supersonic)
+JAP_to_cr_fighter_ki201 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_air_supersonic_jet
+            date > 1944.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_air_supersonic_jet
+            date > 1944.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_fighter_ki201 = yes
+        set_technology = {
+            aerial_hangars = 1
+            popup = no
+        }
+    }
+}
+# 舰载战斗机系列 - 日期校准版
+
+# A5M 九六式舰上战斗机 (Basic)
+# JAP_to_cr_cv_fighter_a5m = {
+#     icon = generic_research
+#     visible = {
+#         Rance_is_jap_ai = yes
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     available = {
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     fire_only_once = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     complete_effect = {
+#         JAP_cr_cv_fighter_a5m = yes
+#     }
+# }
+
+# A6M2 零式舰战 “零战” (Improved)
+JAP_to_cr_cv_fighter_a6m2 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_fighter_a6m2 = yes
+    }
+}
+
+# A7M2 十七式舰战 “烈风” (Advanced)
+JAP_to_cr_cv_fighter_a7m2 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_fighter_a7m2 = yes
+    }
+}
+
+# A9M 十八式喷气舰战 “橘花” (Modern)
+JAP_to_cr_cv_fighter_a9m = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_fighter_a9m = yes
+    }
+}
+# 舰载攻击机系列 - 日期校准版
+
+# B5N 九七式舰攻 (Basic)
+# JAP_to_cr_cv_attacker_b5n = {
+#     icon = generic_research
+#     visible = {
+#         Rance_is_jap_ai = yes
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     available = {
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     fire_only_once = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     complete_effect = {
+#         JAP_cr_cv_attacker_b5n = yes
+#     }
+# }
+
+# B6N 一式舰攻 “天山” (Improved)
+JAP_to_cr_cv_attacker_b6n = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_attacker_b6n = yes
+    }
+}
+
+# B6N 一式舰攻 “天山”改 (Improved + Torpedo 3)
+# 日期设定为 1940.6.1 以体现改进型的研发周期
+JAP_to_cr_cv_attacker_b6n_kai = {
+    icon = generic_research
+    visible = {
+        OR = {
+            AND = {
+                has_tech = improved_small_airframe
+                has_tech = air_torpedoe_3
+            }
+            date > 1940.6.1
+        }
+    }
+    available = {
+        OR = {
+            AND = {
+                has_tech = improved_small_airframe
+                has_tech = air_torpedoe_3
+            }
+            date > 1940.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_attacker_b6n_kai = yes
+    }
+}
+
+# B7A 十七式舰攻 “流星” (Advanced)
+JAP_to_cr_cv_attacker_b7a = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_attacker_b7a = yes
+    }
+}
+
+# B8A 十八式喷气舰攻 “万雷” (Modern)
+JAP_to_cr_cv_attacker_b8a = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1943.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1943.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_attacker_b8a = yes
+    }
+}
+# 小型袭击机 (CAS) 系列 - 日期校准版
+
+# Ki-32 九八轻爆 (Basic)
+# JAP_to_cr_cas_ki32 = {
+#     icon = generic_research
+#     visible = {
+#         Rance_is_jap_ai = yes
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     available = {
+#         OR = {
+#             has_tech = basic_small_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     fire_only_once = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     complete_effect = {
+#         JAP_cr_cas_ki32 = yes
+#     }
+# }
+
+# Ki-51 九九袭 (Improved)
+JAP_to_cr_cas_ki51 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_small_airframe
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cas_ki51 = yes
+    }
+}
+
+# Ki-102 四式袭 (Advanced)
+JAP_to_cr_cas_ki102 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_small_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cas_ki102 = yes
+    }
+}
+
+# Ki-119 六式袭 (Modern)
+JAP_to_cr_cas_ki119 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = modern_small_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cas_ki119 = yes
+    }
+}
+
+# Ki-201 改 七式喷气袭击机 (Supersonic)
+JAP_to_cr_cas_ki201_kai = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_air_supersonic_jet
+            date > 1944.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_air_supersonic_jet
+            date > 1944.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cas_ki201_kai = yes
+    }
+}
+# 重型战斗机系列 - 日期校准版
+
+# Ki-38 九八式重战 (Basic)
+# JAP_to_cr_heavy_fighter_ki38 = {
+#     icon = generic_research
+#     visible = {
+#         Rance_is_jap_ai = yes
+#         OR = {
+#             has_tech = basic_medium_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     available = {
+#         OR = {
+#             has_tech = basic_medium_airframe
+#             date > 1936.1.1
+#         }
+#     }
+#     fire_only_once = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     complete_effect = {
+#         JAP_cr_heavy_fighter_ki38 = yes
+#     }
+# }
+
+# Ki-45 二式重战 “屠龙” (Improved)
+JAP_to_cr_heavy_fighter_ki45 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_medium_airframe
+            date > 1939.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_medium_airframe
+            date > 1939.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_heavy_fighter_ki45 = yes
+    }
+}
+
+# Ki-102 四式重战 (Advanced)
+JAP_to_cr_heavy_fighter_ki102 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_medium_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_medium_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_heavy_fighter_ki102 = yes
+    }
+}
+
+# Ki-83 六式重战 “天龙” (Modern)
+JAP_to_cr_heavy_fighter_ki83 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = modern_medium_airframe
+            date > 1943.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = modern_medium_airframe
+            date > 1943.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_heavy_fighter_ki83 = yes
+    }
+}
+# 海上巡逻轰炸机系列 - 日期校准版
+
+# G5M1 九八式陆上攻击机 “鸣神” (Improved)
+JAP_to_cr_maritime_patrol_g5m1 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_large_airframe
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_large_airframe
+            date > 1939.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_maritime_patrol_g5m1 = yes
+    }
+}
+
+# G7M1 二式大型陆击 “泰云” (Advanced)
+JAP_to_cr_maritime_patrol_g7m1 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_large_airframe
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_large_airframe
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_maritime_patrol_g7m1 = yes
+    }
+}
+
+# G9P1 三式远距哨戒攻击机 “幻苍” (Modern)
+JAP_to_cr_maritime_patrol_g9p1 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = modern_large_airframe
+            date > 1943.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = modern_large_airframe
+            date > 1943.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_maritime_patrol_g9p1 = yes
+    }
+}
+#补充的简易升级设计，机械化与特殊飞机
+# 机械化与两栖机械化系列
+
+# 一式装甲运兵车改 Ho-Ki (1938.6.1)
+JAP_to_cr_mechanized_equipment_1 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = mechanised_infantry
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = mechanised_infantry
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_mechanized_equipment_1 = yes }
+}
+
+# 一式半履带装甲运兵车改 Ho-Ha (1940.6.1)
+JAP_to_cr_mechanized_equipment_2 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = mechanised_infantry2
+            date > 1940.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = mechanised_infantry2
+            date > 1940.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_mechanized_equipment_2 = yes }
+}
+
+# 三式装甲运兵车改 (1942.6.1)
+JAP_to_cr_mechanized_equipment_3 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = mechanised_infantry3
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = mechanised_infantry3
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_mechanized_equipment_3 = yes }
+}
+
+# 特四式内火艇改 (1938.6.1)
+JAP_to_cr_amphibious_mechanized_equipment_1 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = amphibious_mechanized_infantry
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = amphibious_mechanized_infantry
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_amphibious_mechanized_equipment_1 = yes }
+}
+
+# 特六式内火艇改 (1942.6.1)
+JAP_to_cr_amphibious_mechanized_equipment_2 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = amphibious_mechanized_infantry_2
+            date > 1942.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = amphibious_mechanized_infantry_2
+            date > 1942.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_amphibious_mechanized_equipment_2 = yes }
+}
+
+# 超越时代的科幻武器系列
+
+# K-100 十式天航母 “高天原” (1940.6.1)
+JAP_to_cr_mothership = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_air_mothership_aircraft
+            date > 1940.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_air_mothership_aircraft
+            date > 1940.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_mothership = yes }
+}
+
+# G11N 十式超重爆 “八咫乌” (1940.6.1)
+JAP_to_cr_strat_bomber = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_air_intercontinental_bomber
+            date > 1940.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_air_intercontinental_bomber
+            date > 1940.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = { factor = 1000 }
+    complete_effect = { JAP_cr_strat_bomber = yes }
+}
+#######################################海军
+# 翔鹤级主力航母 (Improved) - 1938.6.1
+JAP_to_cr_cv_shokaku = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_ship_hull_carrier
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_carrier
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_shokaku = yes
+    }
+}
+
+# 信浓级主力航母 (Advanced) - 1942.1.1
+JAP_to_cr_cv_shinano = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_carrier
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_carrier
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_shinano = yes
+    }
+}
+
+# 白龙级现代航母 (Modern / Special Project) - 1943.6.1
+JAP_to_cr_cv_hakuryu = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_modern_carrier
+            date > 1943.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_modern_carrier
+            date > 1943.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_hakuryu = yes
+    }
+}
+# 雪凤级冰航母 (Mega Carrier / Special Project) - 1941.1.1
+JAP_to_cr_cv_yukihou = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_ice_carrier
+            date > 1941.1.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_ice_carrier
+            date > 1941.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_yukihou = yes
+    }
+}
+# 瑞凤级护航航母 (Improved) - 对齐二代航母 - 1938.6.1
+JAP_to_cr_cv_zuiho = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_ship_hull_carrier
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_carrier
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_zuiho = yes
+    }
+}
+
+# 龙凤级护航航母 (Advanced) - 对齐三代航母 - 1942.1.1
+JAP_to_cr_cv_ryuho = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_carrier
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_carrier
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cv_ryuho = yes
+    }
+}
+# 加贺级战列舰 (Improved) - 1938.6.1
+JAP_to_cr_bb_kaga = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_ship_hull_heavy
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_heavy
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_bb_kaga = yes
+    }
+}
+
+# 武藏级战列舰 (Advanced) - 1942.1.1
+JAP_to_cr_bb_musashi = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_heavy
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_heavy
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_bb_musashi = yes
+    }
+}
+
+# 大和级现代战列舰 (Modern / Special Project) - 1943.6.1
+JAP_to_cr_bb_yamato = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_modern_battleship
+            date > 1943.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_modern_battleship
+            date > 1943.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_bb_yamato = yes
+    }
+}
+# 对马级超重型战列舰 (Super Heavy Gen 1) - 1938.6.1
+JAP_to_cr_bb_tsushima = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_super_heavy_battleship
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_super_heavy_battleship
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_bb_tsushima = yes
+    }
+}
+# 尾张级超重型战列舰 (Super Heavy Gen 2) - 1942.1.1
+JAP_to_cr_bb_owari = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_heavy
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_heavy
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_bb_owari = yes
+    }
+}
+# 北上级重雷装巡洋舰 (Gen 1) - 1938.6.1
+JAP_to_cr_clt_kitakami = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_torpedo_cruiser
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_cruiser
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_clt_kitakami = yes
+    }
+}
+
+# 大井级重雷装巡洋舰 (Gen 2) - 1942.1.1
+JAP_to_cr_clt_ooi = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_cruiser
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_cruiser
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_clt_ooi = yes
+    }
+}
+# 云仙级重巡洋舰 (Improved) - 1938.6.1
+JAP_to_cr_ca_unzen = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_ship_hull_cruiser
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_cruiser
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_ca_unzen = yes
+    }
+}
+
+# 吾妻级重巡洋舰 (Advanced) - 1942.1.1
+JAP_to_cr_ca_azuma = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_cruiser
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_cruiser
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_ca_azuma = yes
+    }
+}
+#######################
+# 第二代轻巡洋舰整合 (Improved) - 1938.6.1
+# 包含：菊池级(肉盾)、酒匂级(袭击)、四万十级(特遣)、吉野级(巡逻)
+JAP_to_cr_cl_improved = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_ship_hull_cruiser
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_cruiser
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cl_kikuchi = yes
+        JAP_cr_cl_sakawa = yes
+        JAP_cr_cl_shimanto = yes
+        JAP_cr_cl_yoshino = yes # 新增
+    }
+}
+
+# 第三代轻巡洋舰整合 (Advanced) - 1942.1.1
+# 包含：鸣濑级(肉盾)、铃鹿级(袭击)、能代级(特遣)、自来也(巡逻)
+JAP_to_cr_cl_advanced = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_cruiser
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_cruiser
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_cl_naruse = yes
+        JAP_cr_cl_suzuka = yes
+        JAP_cr_cl_noshiro = yes
+        JAP_cr_cl_jiraiya = yes # 新增
+    }
+}
+# 第二代驱逐舰整合 (Improved) - 1938.6.1
+# 包含：风云级(肉盾)、秋月级(护航)、岛风级(雷击)
+JAP_to_cr_dd_improved = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = improved_ship_hull_light
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = improved_ship_hull_light
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_dd_kazagumo_shield = yes
+        JAP_cr_dd_akizuki_asw = yes
+        JAP_cr_dd_shimakaze = yes
+    }
+}
+
+# 第三代驱逐舰整合 (Advanced) - 1942.1.1
+# 包含：青云级(肉盾)、水无月级(护航)、汐风级(雷击)
+JAP_to_cr_dd_advanced = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_light
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_light
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_dd_aogumo = yes
+        JAP_cr_dd_minazuki_asw = yes
+        JAP_cr_dd_shiokaze = yes
+    }
+}
+# 第二代潜艇整合 - 1938.6.1
+# 包含：伊13 (第一代舰队潜艇)
+JAP_to_cr_ss_i13 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_fleet_submarine # 占位符：舰队潜艇特殊项目
+            date > 1938.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_fleet_submarine
+            date > 1938.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_ss_i13 = yes
+    }
+}
+# 第二代舰队潜艇 (Gen 2 Fleet SS) - 1942.1.1
+JAP_to_cr_ss_i16 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            has_tech = advanced_ship_hull_submarine
+            date > 1942.1.1
+        }
+    }
+    available = {
+        OR = {
+            has_tech = advanced_ship_hull_submarine
+            date > 1942.1.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_ss_i16 = yes
+    }
+}
+# 潜水空母 (Carrier Submarine) - 1939.6.1
+JAP_to_cr_ss_i404 = {
+    icon = generic_research
+    visible = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_submarine_carrier
+            date > 1939.6.1
+        }
+    }
+    available = {
+        OR = {
+            is_special_project_completed = sp:sp_naval_submarine_carrier
+            date > 1939.6.1
+        }
+    }
+    fire_only_once = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    complete_effect = {
+        JAP_cr_ss_i404 = yes
+    }
+}
+}

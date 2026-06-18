@@ -1,0 +1,279 @@
+JAP_create_ultimate_tank_variant = {
+	create_equipment_variant = {
+		name = "星熊"
+		type = land_cruiser_chassis_1
+		design_team = mio:JAP_mitsubishi_heavy_industries_organization
+		parent_version = 0
+		allow_without_tech = no
+		modules = {
+			lc_additional_armament_slot_1 = lc_high_velocity_cannon_turret
+			lc_additional_armament_slot_2 = lc_high_velocity_cannon_turret
+			lc_additional_armament_slot_3 = lc_light_anti_air_battery
+			lc_additional_armament_slot_4 = lc_light_anti_air_battery
+			lc_main_armament_slot = lc_high_impact_obliterator_cannon
+			lc_secondary_armament_slot = lc_heavy_high_velocity_cannons
+			lc_special_features_slot_1 = lc_command_center
+			lc_special_features_slot_2 = lc_radar
+			lc_special_features_slot_3 = lc_bunker_emplacement
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 20
+			tank_nsb_engine_upgrade = 20
+		}
+	}
+}
+
+JAP_create_new_fighter_variants = {
+	create_equipment_variant = {
+		name = "A6M 零式舰上战斗机"
+		type = cv_small_plane_airframe_2
+		design_team = mio:JAP_mitsubishi_organization
+		allow_without_tech = no
+		modules = {
+			engine_type_slot = engine_3_1x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+			fixed_main_weapon_slot = heavy_mg_4x
+			special_type_slot_1 = self_sealing_fuel_tanks_small
+			special_type_slot_2 = armor_plate_small
+		}
+		icon = "GFX_JAP_cv_fighter2_medium"
+	}
+	create_equipment_variant = {
+		name = "Ki-43 一式战斗机“隼”"
+		type = small_plane_airframe_2
+		design_team = mio:JAP_kawanishi_aircraft_company_organization
+		allow_without_tech = no
+		modules = {
+			engine_type_slot = engine_3_1x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+			fixed_main_weapon_slot = heavy_mg_4x
+			special_type_slot_1 = self_sealing_fuel_tanks_small
+			special_type_slot_2 = armor_plate_small
+			special_type_slot_3 = fuel_tanks_small
+		}
+		icon = "GFX_JAP_fighter2_medium"
+	}
+}
+
+JAP_create_tsushima_class_battleships = {
+	create_equipment_variant = {
+		name = "对马级"
+		type = ship_hull_super_heavy_1
+		name_group = JAP_BB_HISTORICAL
+		parent_version = 0
+		allow_without_tech = yes
+		modules = {
+			fixed_ship_battery_slot = ship_super_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_engine_slot = heavy_ship_engine_4
+			fixed_ship_secondaries_slot = dp_ship_secondaries_4
+			fixed_ship_armor_slot = ship_armor_shbb
+			front_1_custom_slot = ship_super_heavy_battery_1
+			front_2_custom_slot = ship_super_heavy_battery_1
+			mid_1_custom_slot = dp_ship_secondaries_4
+			mid_2_custom_slot = dp_ship_secondaries_4
+			mid_3_custom_slot = dp_ship_secondaries_4
+			rear_1_custom_slot = dp_ship_secondaries_4
+			rear_2_custom_slot = dp_ship_secondaries_4
+		}
+		design_team = mio:JAP_kure_naval_arsenal_organization
+	}
+	hidden_effect = {
+		add_equipment_production = {
+			equipment = {
+				type = ship_hull_super_heavy_1
+				creator = JAP
+				version_name = "对马级"
+			}
+			name = "对马"
+			requested_factories = 3
+			progress = 0.97
+			amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_equipment_production = {
+			equipment = {
+				type = ship_hull_super_heavy_1
+				creator = JAP
+				version_name = "对马级"
+			}
+			name = "尾张"
+			requested_factories = 3
+			progress = 0.97
+			amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_equipment_production = {
+			equipment = {
+				type = ship_hull_super_heavy_1
+				creator = JAP
+				version_name = "对马级"
+			}
+			name = "三河"
+			requested_factories = 3
+			progress = 0.97
+			amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_equipment_production = {
+			equipment = {
+				type = ship_hull_super_heavy_1
+				creator = JAP
+				version_name = "对马级"
+			}
+			name = "纪伊"
+			requested_factories = 3
+			progress = 0.97
+			amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+	}
+}
+
+JAP_create_akizuki_class_destroyers = {
+	create_equipment_variant = {
+		name = "秋月级"
+		name_group = JAP_DD_HISTORICAL
+		allow_without_tech = yes
+		type = ship_hull_light_3
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_3
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_sonar_2
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_torpedo_slot = ship_torpedo_3
+			fixed_ship_engine_slot = light_ship_engine_3
+			front_1_custom_slot = ship_depth_charge_3
+			mid_1_custom_slot = ship_torpedo_3
+			rear_1_custom_slot = ship_torpedo_3
+		}
+		design_team = mio:JAP_maizuru_naval_arsenal_organization
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = {
+			check_variable = { temp_targets_index_j = 40 compare = less_than }
+		}
+		add_equipment_production = {
+			equipment = {
+				type = ship_hull_light_3
+				creator = "JAP"
+				version_name = "秋月级"
+			}
+			requested_factories = 5
+			progress = 0.99
+			amount = 1
+			industrial_manufacturer = mio:JAP_maizuru_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+}
+
+JAP_create_naval_armaments_program_carrier_focus_ships = {
+	add_equipment_production = {
+		equipment = { type = ship_hull_mega_carrier creator = "JAP" version_name = "雪凤级" }
+		name = "冰凰" requested_factories = 5 progress = 0.9 amount = 1
+		industrial_manufacturer = mio:JAP_yokosuka_naval_arsenal_organization
+	}
+	add_equipment_production = {
+		equipment = { type = ship_hull_mega_carrier creator = "JAP" version_name = "雪凤级" }
+		name = "雪凤" requested_factories = 5 progress = 0.9 amount = 1
+		industrial_manufacturer = mio:JAP_yokosuka_naval_arsenal_organization
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 4 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_carrier_2 creator = "JAP" version_name = "翔鹤级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_yokosuka_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 40 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_light_3 creator = "JAP" version_name = "岛风级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_sasebo_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+}
+
+JAP_create_naval_armaments_program_balanced_ships = {
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 15 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_torpedo_cruiser creator = "JAP" version_name = "大井级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_sasebo_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 30 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_cruiser_3 creator = "JAP" version_name = "四万十级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 30 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_light_3 creator = "JAP" version_name = "岛风级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_sasebo_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+}
+
+JAP_create_naval_armaments_program_battleship_focus_ships = {
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 6 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_super_heavy_1 creator = "JAP" version_name = "对马级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 10 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_heavy_3 creator = "JAP" version_name = "加贺级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+	while_loop_effect = {
+		limit = { check_variable = { temp_targets_index_j = 40 compare = less_than } }
+		add_equipment_production = {
+			equipment = { type = ship_hull_cruiser_3 creator = "JAP" version_name = "四万十级" }
+			requested_factories = 5 progress = 0.9 amount = 1
+			industrial_manufacturer = mio:JAP_kure_naval_arsenal_organization
+		}
+		add_to_temp_variable = { ROOT.temp_targets_index_j = 1 }
+	}
+	set_temp_variable = { ROOT.temp_targets_index_j = 0 }
+}
+

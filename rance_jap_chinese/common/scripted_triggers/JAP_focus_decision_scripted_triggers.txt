@@ -1,0 +1,71 @@
+# Reusable gates for Japanese focus-decision workflows.
+
+JAP_imperial_headquarters_us_mainland_invasion_route_ready = {
+	OR = {
+		AND = {
+			Rance_is_jap_kodoha_ai = yes
+			JAP_kodoha_major_asian_theaters_basic_missions_completed = yes
+		}
+		AND = {
+			Rance_is_jap_lecture_ai = yes
+			has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+			JAP_lecture_north_america_axis_capitals_controlled = yes
+		}
+		AND = {
+			Rance_is_jap_kodoha_ai = no
+			Rance_is_jap_lecture_ai = no
+		}
+	}
+}
+
+JAP_zaibatsu_approach_focus_path_available = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_zaibatsu_approach_focus_path_available.tt
+		OR = {
+			has_completed_focus = JAP_continue_takahashi_korekiyos_policies
+			has_completed_focus = JAP_increase_armament_spending
+		}
+	}
+}
+
+JAP_zaibatsu_approach_focus_available = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_zaibatsu_approach_focus_available.tt
+		has_capitulated = no
+		OR = {
+			JAP_zaibatsu_faction_is_not_subdued = yes
+			Rance_is_jap_ai = yes
+		}
+	}
+}
+
+JAP_zaibatsu_approach_focus_not_bypassed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_zaibatsu_approach_focus_not_bypassed.tt
+		OR = {
+			NOT = { has_idea = JAP_zaibatsu_faction_tier_1 }
+			Rance_is_jap_ai = yes
+		}
+	}
+}
+
+JAP_zaibatsu_approach_focuses_not_in_progress = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_zaibatsu_approach_focuses_not_in_progress.tt
+		NOT = {
+			OR = {
+				focus_progress = { focus = JAP_approach_mitsui progress > 0 }
+				focus_progress = { focus = JAP_approach_mitsubishi progress > 0 }
+				focus_progress = { focus = JAP_approach_sumitomo progress > 0 }
+				focus_progress = { focus = JAP_approach_yasuda progress > 0 }
+			}
+		}
+	}
+}
+
+JAP_shoko_zaibatsu_focus_decision_not_in_progress = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_shoko_zaibatsu_focus_decision_not_in_progress.tt
+		NOT = { has_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress }
+	}
+}

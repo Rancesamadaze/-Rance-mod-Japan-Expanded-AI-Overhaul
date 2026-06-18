@@ -1,0 +1,122 @@
+# JAP_dominance_fleet_1 = {
+# 	required_taskforces = {
+# 		JAP_KidoButai_1 = 1
+# 		JAP_PatrolDominanceForce_1 = 3
+# 		JAP_PatrolReconForce_1 = 3
+# 	}	
+# 	optional_taskforces = {
+# 		JAP_StrikeForce_1 = 1
+# 		JAP_PatrolReconForce_1 = 3
+# 		JAP_PatrolDominanceForce_1 = 3
+# 	}
+# }
+
+# JAP_raiding_fleet_2 = {
+# 	required_taskforces = {
+# 		JAP_ConvoyRaiding_1 = 4
+# 	}	
+# 	optional_taskforces = {
+# 		JAP_ConvoyRaiding_1 = 2
+# 	}
+# }
+
+# JAP_escort_fleet_3 = {
+# 	required_taskforces = {
+# 		JAP_ConvoyEscort_1 = 2
+# 	}
+# 	optional_taskforces = {
+# 		JAP_ConvoyEscort_1 = 2
+# 	}
+# }
+
+# JAP_minelaying_fleet_4 = {
+# 	required_taskforces = {
+# 		JAP_MineLaying_1 = 1
+# 	}
+# }
+
+####################################追加版本
+# Rance_JAP_DominanceFleet = {
+#     # 最小组成 (Required)
+#     required_taskforces = {
+#         Rance_JAP_KidoButai = 1            # 1支核心机动部队
+        
+#     }   
+#     # 最大可能组成 (Optional 追加部分)
+#     optional_taskforces = {
+#         Rance_JAP_KidoButai = 1
+#         Rance_JAP_PatrolDominanceForce = 1
+#         Rance_JAP_PatrolReconForce = 7    
+#     }
+# }
+# Rance_JAP_mega_DominanceFleet = {
+#     # 最小组成 (Required)
+#     required_taskforces = {
+#        Rance_JAP_mega_KidoButai = 1            # 1支核心机动部队
+        
+#     }   
+#     # 最大可能组成 (Optional 追加部分)
+#     optional_taskforces = {
+#         Rance_JAP_mega_KidoButai = 1
+#         Rance_JAP_PatrolDominanceForce = 1
+#         Rance_JAP_PatrolReconForce = 7    
+#     }
+# }
+Rance_JAP_DominanceFleet = {
+    # 最小组成 (Required)
+    required_taskforces = {
+        Rance_JAP_KidoButai = 1            # 1支核心机动部队
+        
+    }   
+    # 最大可能组成 (Optional 追加部分)
+    optional_taskforces = {
+        Rance_JAP_KidoButai = 2
+        Rance_JAP_mega_KidoButai = 2
+        # Rance_JAP_PatrolDominanceForce = 2
+        Rance_JAP_PatrolReconForce = 10    
+    }
+}
+# # Rance_JAP_mega_DominanceFleet = {
+# #     # 最小组成 (Required)
+# #     required_taskforces = {
+# #        Rance_JAP_mega_KidoButai = 1            # 1支核心机动部队
+        
+# #     }   
+# #     # 最大可能组成 (Optional 追加部分)
+# #     optional_taskforces = {
+# #         Rance_JAP_mega_KidoButai = 1
+# #         Rance_JAP_PatrolDominanceForce = 1
+# #         Rance_JAP_PatrolReconForce = 7    
+# #     }
+# # }
+Rance_JAP_SurfaceRaidingFleet = {
+    # 最小编队数 1
+    required_taskforces = {
+        Rance_JAP_ConvoySurfaceRaiding = 1
+    }   
+    # 最大编队数 8 (追加 7 组)
+    optional_taskforces = {
+        Rance_JAP_ConvoySurfaceRaiding = 7
+    }
+}
+Rance_JAP_SubRaidingFleet = {
+    # 最小编队数 1
+    required_taskforces = {
+        Rance_JAP_Sub_Raiding_Force = 1
+    }   
+    # 最大编队数 8 (追加 7 组)
+    optional_taskforces = {
+        Rance_JAP_Sub_Raiding_Force = 9
+    }
+}
+Rance_JAP_EscortFleet = {
+    # 最小编队数 1
+    required_taskforces = {
+        Rance_JAP_ConvoyEscort = 1
+    }
+    # 最大编队数 4 (追加 3 组)
+    optional_taskforces = {
+        Rance_JAP_ConvoyEscort = 7
+    }
+}
+################################################

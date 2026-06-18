@@ -1,0 +1,9 @@
+﻿l_english:
+ JAP_kodoha_events.1.t:0 "A Choice of Administrative Efficiency"
+ JAP_kodoha_events.1.d:0 "Although our regime has yet to fully stabilize, the world now stands at a decisive turning point. If we cling to old procedures, we may fall behind in the coming war. Should we reorganize our administrative apparatus for greater efficiency, even if doing so carries a cost?"
+ JAP_kodoha_events.1.a:0 "Straighten the Machinery, Make It Swift"
+ JAP_kodoha_events.1.b:0 "Keep the Old System, Keep It Steady"
+ JAP_kodoha_events.1.c:0 "I Want It All"
+ JAP_kodoha_events.1.a.tt:0 "§GReduces§! the time required for each subsequent key Kodoha focus by §G14§! days.\n§RThe cost is§! that some focus rewards will be weakened."
+ JAP_kodoha_events.1.c.tt:0 "§GReduces§! the time required for each subsequent key Kodoha focus by §G14§! days.\n§GWill not§! weaken subsequent focus rewards."
+ JAP_kodoha_admin_efficiency_penalty_flag:0 "Administrative Efficiency First Policy Adopted"

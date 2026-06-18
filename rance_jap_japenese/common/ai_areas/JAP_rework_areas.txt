@@ -1,0 +1,355 @@
+areas = {
+	## 通用日本 AI area。路线差异放在策略、trigger 和 flag 中，area 只表达可复用地理范围。
+
+	JAP_rework_korea_theater = {
+		strategic_regions = {
+			186 # 朝鲜
+		}
+	}
+
+	JAP_rework_manchuria_theater = {
+		strategic_regions = {
+			186 # 朝鲜
+			143 # 华北
+			155 # 西满洲
+			242 # 北满洲
+			243 # 东满洲
+		}
+	}
+
+	JAP_rework_southeast_asia_theater = {
+		strategic_regions = {
+			165 # 华南
+			248 # 广西
+			249 # 云南
+			142 # 北印度支那
+			228 # 南印度支那
+			229 # 暹罗
+			188 # 马来亚
+			292 # 掸族诸邦
+			293 # 丹那沙林
+			294 # 仰光
+			295 # 曼德勒
+			72 # 马六甲海峡
+			73 # 暹罗湾
+			75 # 南中国海
+		}
+	}
+
+	JAP_rework_south_asia_theater = {
+		strategic_regions = {
+			146 # 喜马拉雅
+			141 # 东印度
+			153 # 北印度
+			290 # 孟加拉
+			31 # 德干高原
+			231 # 东高止
+			253 # 温迪亚恰尔
+			254 # 塔尔沙漠
+			296 # 古吉拉特
+			190 # 巴基斯坦
+			291 # 俾路支
+			145 # 塔克拉玛干
+			251 # 阿里
+			162 # 北阿富汗
+			289 # 南阿富汗
+			101 # 孟加拉湾
+			104 # 阿拉伯海
+			230 # 科摩林角
+			292 # 掸族诸邦
+			293 # 丹那沙林
+			294 # 仰光
+			295 # 曼德勒
+		}
+	}
+
+	JAP_rework_middle_east_egypt_theater = {
+		strategic_regions = {
+			28 # Middle East
+			69 # Eastern Mediterranean Sea
+			100 # Red Sea
+			102 # East African Coast
+			104 # Arabian Sea
+			116 # Iran
+			128 # Egypt
+			129 # Asia Minor
+			196 # Arabian Coast
+			202 # Aegean Sea
+			203 # Persian Gulf
+			216 # Upper Nile
+			232 # Levant
+			236 # South Arabia
+			237 # Hejaz
+			238 # East Arabia
+			239 # Alborz
+			240 # Zagros
+			241 # Dasht-e Kavir
+			273 # Danakil
+			297 # Eastern Iranian Range
+			298 # Eastern Zagros
+		}
+	}
+
+	JAP_rework_africa_theater = {
+		strategic_regions = {
+			17 # Ethiopia Highlands
+			29 # Central Mediterranean Sea
+			48 # African Coast
+			60 # West Indian Ocean
+			61 # Central Atlantic
+			62 # Gulf of Guinea
+			65 # Cape of Africa
+			66 # South Central Atlantic
+			67 # Atlantic-Indian Ridge
+			68 # Western Mediterranean Sea
+			69 # Eastern Mediterranean Sea
+			85 # South West Indian Ocean
+			100 # Red Sea
+			102 # East African Coast
+			103 # Mozambique Channel
+			126 # East Maghreb
+			127 # Sahara
+			128 # Egypt
+			139 # South Africa
+			140 # Sub-Saharan Africa
+			181 # Madagascar
+			182 # West Maghreb
+			183 # Central Africa
+			184 # Cameroon
+			185 # South East Africa
+			215 # Namibia
+			216 # Upper Nile
+			217 # Lake Victoria
+			223 # Zambezi
+			224 # Angola
+			225 # Tripoli
+			226 # West Africa
+			227 # North East Congo
+			271 # South East Congo
+			272 # West Congo
+			273 # Danakil
+			274 # Ogaden
+		}
+	}
+
+	JAP_rework_mediterranean_italy_theater = {
+		strategic_regions = {
+			128 # Egypt
+			232 # Levant
+			129 # Asia Minor
+			69 # Eastern Mediterranean Sea
+			202 # Aegean Sea
+			29 # Central Mediterranean Sea
+			169 # Tyrrhenian Sea
+			168 # Adriatic Sea
+			68 # Western Mediterranean Sea
+			126 # East Maghreb
+			23 # Italy
+		}
+	}
+
+	JAP_rework_anatolia_balkans_theater = {
+		strategic_regions = {
+			129 # Asia Minor
+			202 # Aegean Sea
+			30 # Black Sea
+			25 # Greece
+			26 # East Balkans
+			27 # North Balkans
+			24 # West Balkans
+			168 # Adriatic Sea
+		}
+	}
+
+	JAP_rework_europe_theater = {
+		strategic_regions = {
+			1 # Southern England
+			2 # Northern England
+			3 # Scotland and Northern Ireland
+			4 # Ireland
+			5 # Benelux Region
+			6 # North-West Germany
+			7 # Western Germany
+			8 # Eastern Germany
+			9 # Baltic Sea
+			10 # Southern Sweden
+			11 # Southern Norway
+			12 # Northern Scandinavia
+			13 # Finland
+			16 # North Sea
+			18 # Channel
+			19 # Northern France
+			20 # Southern France
+			21 # Alpine Region
+			22 # Czechoslovakia
+			23 # Italy
+			24 # Western Balkans
+			25 # Greece
+			26 # East Balkans
+			27 # North Balkans
+			29 # Central Mediterranean Sea
+			30 # Black Sea
+			37 # Baltic States
+			38 # Western Poland
+			39 # Eastern Poland
+			40 # Western Russia
+			41 # Northeastern Iberia
+			42 # Bay of Biscay
+			43 # Western Approaches
+			45 # Norwegian Sea
+			46 # Barents Sea
+			47 # Spanish Coast
+			68 # Western Mediterranean Sea
+			168 # Adriatic Sea
+			169 # Tyrrhenian Sea
+			173 # Eastern North Sea
+			202 # Aegean Sea
+			206 # Lower Baltic Sea
+			207 # Danish Belts
+			208 # Western France
+			209 # Northwestern Iberia
+			210 # Southern Iberia
+		}
+	}
+
+	JAP_rework_east_indies_australia_theater = {
+		strategic_regions = {
+			188 # 马来亚
+			72 # 马六甲海峡
+			187 # 苏门答腊
+			159 # 婆罗洲
+			158 # 巽他群岛
+			93 # 爪哇海
+			167 # 新几内亚
+			91 # 阿拉弗拉海
+			99 # 极东印度洋
+			193 # 北澳大利亚
+			156 # 南澳大利亚
+			194 # 东澳大利亚
+			195 # 中澳大利亚
+			98 # 大澳大利亚湾
+			157 # 新西兰
+			86 # 塔斯曼海
+			81 # 珊瑚海
+		}
+	}
+
+	JAP_rework_pacific_theater = {
+		strategic_regions = {
+			154 # 日本列岛
+			90 # 日本海岸
+			76 # 东中国海
+			75 # 南中国海
+			78 # 菲律宾海
+			160 # 菲律宾
+			94 # 马里亚纳海沟
+			84 # 俾斯麦海
+			97 # 东密克罗尼西亚
+			95 # 西天皇海山链
+			96 # 北天皇海山链
+			180 # 密克罗尼西亚裂谷
+			177 # 西北太平洋
+			114 # 北太平洋
+			172 # 太平洋海脊
+			105 # 夏威夷海脊
+		}
+	}
+
+	JAP_rework_north_america_theater = {
+		strategic_regions = {
+			105 # Hawaii Ridge
+			114 # North Pacific
+			115 # Northeast Pacific
+			89 # Western Seaboard
+			171 # Northwest Coast
+			54 # Eastern Seaboard
+			55 # Newfoundland Sea
+			52 # Gulf of Mexico
+			53 # Caribbean Sea
+			106 # Mexican Coast
+			107 # Western Canal Zone
+			170 # Florida Coast
+			166 # Hudson Bay
+			33 # Alaska
+			34 # Central America
+			36 # Greenland
+			117 # East Coast
+			118 # Cascades
+			119 # Southwest
+			120 # Central America
+			121 # Eastern Canada
+			122 # Yukon
+			123 # Trans-Mexican Volcanic Belt
+			197 # New England
+			198 # Great Lakes
+			199 # Northern Rockies
+			204 # Sierra Madre
+			205 # Yucatan Peninsula
+			211 # Gulf of Mexico
+			212 # Manitoba
+			213 # Maritimes
+			214 # Appalachia
+			218 # California
+			219 # Southern Rockies
+			220 # Labrador and Newfoundland
+			221 # Saskatchewan
+			222 # Northern Canada
+			233 # Quebec
+			234 # Ontario
+			235 # British Columbia
+		}
+	}
+
+	JAP_rework_home_islands_defense = {
+		strategic_regions = {
+			154 # 日本列岛
+		}
+	}
+
+	JAP_rework_northern_east_theater = {
+		strategic_regions = {
+			154 # 日本列岛
+			143 # 华北
+			155 # 西满洲
+			242 # 北满洲
+			243 # 东满洲
+			186 # 朝鲜
+			148 # 俄属远东
+			149 # 东西伯利亚
+			255 # 阿穆尔
+			256 # 外贝加尔
+			257 # 北远东
+			258 # 鄂霍茨克
+			259 # 东萨哈
+			260 # 西萨哈
+			79 # 日本海
+			87 # 鄂霍茨克海
+			88 # 白令海
+		}
+	}
+
+	JAP_rework_northern_west_theater = {
+		strategic_regions = {
+			145 # 塔克拉玛干
+			144 # 华西
+			267 # 外里海
+			268 # 费尔干纳
+			269 # 撒马尔罕
+			270 # 锡尔河
+			200 # 青海
+			244 # 察哈尔
+			245 # 山西
+			252 # 天山
+			152 # 外蒙古
+			266 # 乌梁海
+			147 # 北西伯利亚
+			151 # 西西伯利亚
+			261 # 阿尔泰
+			262 # 中西伯利亚
+			14 # 外乌拉尔
+			138 # 乌拉尔山区
+			263 # 外乌拉尔-涅涅茨
+			264 # 科米-涅涅茨
+		}
+	}
+}

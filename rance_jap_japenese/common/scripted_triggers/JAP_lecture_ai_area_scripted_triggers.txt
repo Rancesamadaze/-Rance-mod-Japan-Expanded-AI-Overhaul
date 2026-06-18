@@ -1,0 +1,1561 @@
+## 讲座派战后 AI area 辅助触发
+## 仅供 AI strategy 条件使用，不提供玩家 UI tooltip。
+## 朝满华为讲座派早期外战专用口径，战后外线复制皇道派地理/敌情口径并改名。
+JAP_lecture_korea_enemy_presence = {
+	OR = {
+		525 = { controller = { has_war_with = ROOT } } # 京畿
+		527 = { controller = { has_war_with = ROOT } } # 平安-黄海
+		1028 = { controller = { has_war_with = ROOT } } # 咸镜
+		1029 = { controller = { has_war_with = ROOT } } # 江原
+		1030 = { controller = { has_war_with = ROOT } } # 庆尚
+		1031 = { controller = { has_war_with = ROOT } } # 忠清-全罗
+	}
+}
+
+JAP_lecture_korea_theater_clear = {
+	JAP_lecture_korea_enemy_presence = no
+}
+
+JAP_lecture_korea_landing_target_available = {
+	JAP_lecture_korea_enemy_presence = yes
+}
+
+JAP_lecture_korea_northern_corridor_secured = {
+	OR = {
+		527 = { is_controlled_by_ROOT_or_ally = yes } # 平安-黄海
+		1028 = { is_controlled_by_ROOT_or_ally = yes } # 咸镜
+	}
+}
+
+JAP_lecture_manchuria_land_staging_available = {
+	JAP_lecture_korea_northern_corridor_secured = yes
+}
+
+JAP_lecture_manchuria_enemy_presence = {
+	OR = {
+		609 = { controller = { has_war_with = ROOT } } # 冀东
+		610 = { controller = { has_war_with = ROOT } } # 热河
+		716 = { controller = { has_war_with = ROOT } } # 辽宁
+		745 = { controller = { has_war_with = ROOT } } # 大连
+		328 = { controller = { has_war_with = ROOT } } # 吉林
+		714 = { controller = { has_war_with = ROOT } } # 黑龙江
+		715 = { controller = { has_war_with = ROOT } } # 辽北
+		717 = { controller = { has_war_with = ROOT } } # 松江
+	}
+}
+
+JAP_lecture_manchuria_key_objectives_secured = {
+	609 = { is_controlled_by_ROOT_or_ally = yes } # 冀东
+	610 = { is_controlled_by_ROOT_or_ally = yes } # 热河
+	716 = { is_controlled_by_ROOT_or_ally = yes } # 辽宁
+	745 = { is_controlled_by_ROOT_or_ally = yes } # 大连
+	328 = { is_controlled_by_ROOT_or_ally = yes } # 吉林
+	714 = { is_controlled_by_ROOT_or_ally = yes } # 黑龙江
+	715 = { is_controlled_by_ROOT_or_ally = yes } # 辽北
+	717 = { is_controlled_by_ROOT_or_ally = yes } # 松江
+}
+
+JAP_lecture_southeast_asia_staging_available = {
+	OR = {
+		325 = { is_controlled_by_ROOT_or_ally = yes } # 云南
+		599 = { is_controlled_by_ROOT_or_ally = yes } # 广西
+		594 = { is_controlled_by_ROOT_or_ally = yes } # 南宁
+		592 = { is_controlled_by_ROOT_or_ally = yes } # 广州
+		593 = { is_controlled_by_ROOT_or_ally = yes } # 广东
+		591 = { is_controlled_by_ROOT_or_ally = yes } # 海南
+	}
+}
+
+JAP_lecture_southeast_asia_staging_lost = {
+	325 = { is_controlled_by_ROOT_or_ally = no } # 云南
+	599 = { is_controlled_by_ROOT_or_ally = no } # 广西
+	594 = { is_controlled_by_ROOT_or_ally = no } # 南宁
+	592 = { is_controlled_by_ROOT_or_ally = no } # 广州
+	593 = { is_controlled_by_ROOT_or_ally = no } # 广东
+}
+
+JAP_lecture_southeast_asia_core_corridor_secured = {
+	993 = { is_controlled_by_ROOT_or_ally = yes } # 景栋和永贵
+	999 = { is_controlled_by_ROOT_or_ally = yes } # 掸族诸邦
+	640 = { is_controlled_by_ROOT_or_ally = yes } # 曼德勒
+	995 = { is_controlled_by_ROOT_or_ally = yes } # 勃固
+	994 = { is_controlled_by_ROOT_or_ally = yes } # 丹那沙林
+	670 = { is_controlled_by_ROOT_or_ally = yes } # 老挝
+	671 = { is_controlled_by_ROOT_or_ally = yes } # 东京
+	1017 = { is_controlled_by_ROOT_or_ally = yes } # 越南中部
+	286 = { is_controlled_by_ROOT_or_ally = yes } # 占婆
+	741 = { is_controlled_by_ROOT_or_ally = yes } # 柬埔寨
+	289 = { is_controlled_by_ROOT_or_ally = yes } # 暹罗
+	336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+	1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+}
+
+JAP_lecture_southeast_asia_enemy_presence = {
+	OR = {
+		993 = { controller = { has_war_with = ROOT } } # 景栋和永贵
+		999 = { controller = { has_war_with = ROOT } } # 掸族诸邦
+		640 = { controller = { has_war_with = ROOT } } # 曼德勒
+		995 = { controller = { has_war_with = ROOT } } # 勃固
+		994 = { controller = { has_war_with = ROOT } } # 丹那沙林
+		670 = { controller = { has_war_with = ROOT } } # 老挝
+		671 = { controller = { has_war_with = ROOT } } # 东京
+		1017 = { controller = { has_war_with = ROOT } } # 越南中部
+		286 = { controller = { has_war_with = ROOT } } # 占婆
+		741 = { controller = { has_war_with = ROOT } } # 柬埔寨
+		289 = { controller = { has_war_with = ROOT } } # 暹罗
+		336 = { controller = { has_war_with = ROOT } } # 马来亚
+		1021 = { controller = { has_war_with = ROOT } } # 新加坡
+	}
+}
+
+JAP_lecture_southeast_asia_hainan_departure_available = {
+	591 = { is_controlled_by_ROOT_or_ally = yes } # 海南
+}
+
+JAP_lecture_southeast_asia_malaya_departure_available = {
+	336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+}
+
+JAP_lecture_southeast_asia_siam_landing_available = {
+	JAP_lecture_southeast_asia_hainan_departure_available = yes
+	289 = { controller = { has_war_with = ROOT } } # 暹罗
+}
+
+JAP_lecture_southeast_asia_malaya_landing_available = {
+	JAP_lecture_southeast_asia_hainan_departure_available = yes
+	336 = { controller = { has_war_with = ROOT } } # 马来亚
+}
+
+JAP_lecture_southeast_asia_pegu_landing_available = {
+	JAP_lecture_southeast_asia_malaya_departure_available = yes
+	995 = { controller = { has_war_with = ROOT } } # 勃固
+}
+
+JAP_lecture_southeast_asia_landing_target_available = {
+	OR = {
+		JAP_lecture_southeast_asia_siam_landing_available = yes
+		JAP_lecture_southeast_asia_malaya_landing_available = yes
+		JAP_lecture_southeast_asia_pegu_landing_available = yes
+	}
+}
+
+JAP_lecture_south_asia_land_staging_available = {
+	OR = {
+		322 = { is_controlled_by_ROOT_or_ally = yes } # 那曲
+		757 = { is_controlled_by_ROOT_or_ally = yes } # 日喀则
+		758 = { is_controlled_by_ROOT_or_ally = yes } # 阿里
+	}
+}
+
+JAP_lecture_south_asia_pegu_departure_available = {
+	995 = { is_controlled_by_ROOT_or_ally = yes } # 勃固
+}
+
+JAP_lecture_south_asia_access_lost = {
+	JAP_lecture_south_asia_land_staging_available = no
+	JAP_lecture_south_asia_pegu_departure_available = no
+}
+
+JAP_lecture_south_asia_main_enemy_presence = {
+	OR = {
+		323 = { controller = { has_war_with = ROOT } } # 尼泊尔
+		324 = { controller = { has_war_with = ROOT } } # 不丹
+		422 = { controller = { has_war_with = ROOT } } # 锡兰
+		423 = { controller = { has_war_with = ROOT } } # 南马德拉斯
+		424 = { controller = { has_war_with = ROOT } } # 北马德拉斯
+		425 = { controller = { has_war_with = ROOT } } # 迈索尔
+		426 = { controller = { has_war_with = ROOT } } # 奥里萨
+		427 = { controller = { has_war_with = ROOT } } # 海德拉巴
+		428 = { controller = { has_war_with = ROOT } } # 古吉拉特
+		429 = { controller = { has_war_with = ROOT } } # 孟买
+		430 = { controller = { has_war_with = ROOT } } # 东孟加拉
+		431 = { controller = { has_war_with = ROOT } } # 西孟加拉
+		432 = { controller = { has_war_with = ROOT } } # 阿萨姆
+		433 = { controller = { has_war_with = ROOT } } # 拉贾斯坦
+		434 = { controller = { has_war_with = ROOT } } # 阿鲁纳恰尔
+		435 = { controller = { has_war_with = ROOT } } # 比哈尔
+		436 = { controller = { has_war_with = ROOT } } # 中央省
+		437 = { controller = { has_war_with = ROOT } } # 中印度
+		438 = { controller = { has_war_with = ROOT } } # 联合省
+		439 = { controller = { has_war_with = ROOT } } # 德里
+		440 = { controller = { has_war_with = ROOT } } # 西旁遮普
+		441 = { controller = { has_war_with = ROOT } } # 克什米尔
+		442 = { controller = { has_war_with = ROOT } } # 白沙瓦
+		443 = { controller = { has_war_with = ROOT } } # 信德
+		444 = { controller = { has_war_with = ROOT } } # 南俾路支斯坦
+		445 = { controller = { has_war_with = ROOT } } # 锡比
+		787 = { controller = { has_war_with = ROOT } } # 北克什米尔
+		982 = { controller = { has_war_with = ROOT } } # 马德拉斯诸邦
+		983 = { controller = { has_war_with = ROOT } } # 戈尔哈布尔与德干
+		984 = { controller = { has_war_with = ROOT } } # 巴斯塔
+		985 = { controller = { has_war_with = ROOT } } # 锡金
+		986 = { controller = { has_war_with = ROOT } } # 东旁遮普
+		987 = { controller = { has_war_with = ROOT } } # 瓦济里斯坦
+		988 = { controller = { has_war_with = ROOT } } # 北俾路支斯坦
+		989 = { controller = { has_war_with = ROOT } } # 巴哈瓦尔布尔
+		990 = { controller = { has_war_with = ROOT } } # 曼尼普尔
+		991 = { controller = { has_war_with = ROOT } } # 瓜廖尔
+		1012 = { controller = { has_war_with = ROOT } } # 卡拉特
+	}
+}
+
+JAP_lecture_south_asia_main_objectives_secured = {
+	423 = { is_controlled_by_ROOT_or_ally = yes } # 南马德拉斯
+	424 = { is_controlled_by_ROOT_or_ally = yes } # 北马德拉斯
+	425 = { is_controlled_by_ROOT_or_ally = yes } # 迈索尔
+	426 = { is_controlled_by_ROOT_or_ally = yes } # 奥里萨
+	427 = { is_controlled_by_ROOT_or_ally = yes } # 海德拉巴
+	428 = { is_controlled_by_ROOT_or_ally = yes } # 古吉拉特
+	429 = { is_controlled_by_ROOT_or_ally = yes } # 孟买
+	430 = { is_controlled_by_ROOT_or_ally = yes } # 东孟加拉
+	431 = { is_controlled_by_ROOT_or_ally = yes } # 西孟加拉
+	432 = { is_controlled_by_ROOT_or_ally = yes } # 阿萨姆
+	433 = { is_controlled_by_ROOT_or_ally = yes } # 拉贾斯坦
+	435 = { is_controlled_by_ROOT_or_ally = yes } # 比哈尔
+	436 = { is_controlled_by_ROOT_or_ally = yes } # 中央省
+	437 = { is_controlled_by_ROOT_or_ally = yes } # 中印度
+	438 = { is_controlled_by_ROOT_or_ally = yes } # 联合省
+	439 = { is_controlled_by_ROOT_or_ally = yes } # 德里
+	440 = { is_controlled_by_ROOT_or_ally = yes } # 西旁遮普
+	443 = { is_controlled_by_ROOT_or_ally = yes } # 信德
+	983 = { is_controlled_by_ROOT_or_ally = yes } # 戈尔哈布尔与德干
+	986 = { is_controlled_by_ROOT_or_ally = yes } # 东旁遮普
+}
+
+JAP_lecture_south_asia_burma_overlap_enemy_presence = {
+	OR = {
+		993 = { controller = { has_war_with = ROOT } } # 景栋和永贵
+		999 = { controller = { has_war_with = ROOT } } # 掸族诸邦
+		640 = { controller = { has_war_with = ROOT } } # 曼德勒
+		995 = { controller = { has_war_with = ROOT } } # 勃固
+		994 = { controller = { has_war_with = ROOT } } # 丹那沙林
+	}
+}
+
+JAP_lecture_south_asia_enclave_enemy_presence = {
+	OR = {
+		320 = { controller = { has_war_with = ROOT } } # 法属印度
+		321 = { controller = { has_war_with = ROOT } } # 果阿
+	}
+}
+
+JAP_lecture_south_asia_cleanup_enemy_presence = {
+	OR = {
+		JAP_lecture_south_asia_burma_overlap_enemy_presence = yes
+		JAP_lecture_south_asia_enclave_enemy_presence = yes
+	}
+}
+
+JAP_lecture_south_asia_theater_clear = {
+	JAP_lecture_south_asia_main_enemy_presence = no
+	JAP_lecture_south_asia_burma_overlap_enemy_presence = no
+	JAP_lecture_south_asia_enclave_enemy_presence = no
+}
+
+JAP_lecture_south_asia_west_bengal_landing_available = {
+	JAP_lecture_south_asia_pegu_departure_available = yes
+	431 = { controller = { has_war_with = ROOT } } # 西孟加拉
+}
+
+JAP_lecture_south_asia_bombay_landing_available = {
+	JAP_lecture_south_asia_pegu_departure_available = yes
+	429 = { controller = { has_war_with = ROOT } } # 孟买
+}
+
+JAP_lecture_south_asia_ceylon_landing_available = {
+	JAP_lecture_south_asia_pegu_departure_available = yes
+	422 = { controller = { has_war_with = ROOT } } # 锡兰
+}
+
+JAP_lecture_south_asia_landing_target_available = {
+	OR = {
+		JAP_lecture_south_asia_west_bengal_landing_available = yes
+		JAP_lecture_south_asia_bombay_landing_available = yes
+		JAP_lecture_south_asia_ceylon_landing_available = yes
+	}
+}
+
+JAP_lecture_middle_east_egypt_staging_available = {
+	OR = {
+		454 = { is_controlled_by_ROOT_or_ally = yes } # Palestine
+		553 = { is_controlled_by_ROOT_or_ally = yes } # Lebanon
+		554 = { is_controlled_by_ROOT_or_ally = yes } # Damascus
+		455 = { is_controlled_by_ROOT_or_ally = yes } # Jordan
+	}
+}
+
+JAP_lecture_middle_east_egypt_staging_lost = {
+	JAP_lecture_middle_east_egypt_staging_available = no
+}
+
+JAP_lecture_middle_east_egypt_theater_clear = {
+	446 = { is_controlled_by_ROOT_or_ally = yes } # Suez
+	453 = { is_controlled_by_ROOT_or_ally = yes } # Sinai
+	907 = { is_controlled_by_ROOT_or_ally = yes } # Cairo
+	447 = { is_controlled_by_ROOT_or_ally = yes } # Alexandria
+	454 = { is_controlled_by_ROOT_or_ally = yes } # Palestine
+	455 = { is_controlled_by_ROOT_or_ally = yes } # Jordan
+	553 = { is_controlled_by_ROOT_or_ally = yes } # Lebanon
+	554 = { is_controlled_by_ROOT_or_ally = yes } # Damascus
+}
+
+JAP_lecture_middle_east_egypt_enemy_presence = {
+	OR = {
+		454 = { controller = { has_war_with = ROOT } } # Palestine
+		553 = { controller = { has_war_with = ROOT } } # Lebanon
+		554 = { controller = { has_war_with = ROOT } } # Damascus
+		455 = { controller = { has_war_with = ROOT } } # Jordan
+		453 = { controller = { has_war_with = ROOT } } # Sinai
+		446 = { controller = { has_war_with = ROOT } } # Suez
+		907 = { controller = { has_war_with = ROOT } } # Cairo
+		447 = { controller = { has_war_with = ROOT } } # Alexandria
+		457 = { controller = { has_war_with = ROOT } } # Eastern Desert
+		456 = { controller = { has_war_with = ROOT } } # Aswan
+	}
+}
+
+JAP_lecture_middle_east_egypt_red_sea_departure_available = {
+	293 = { is_controlled_by_ROOT_or_ally = yes } # North Yemen
+}
+
+JAP_lecture_middle_east_egypt_red_sea_landing_available = {
+	JAP_lecture_middle_east_egypt_red_sea_departure_available = yes
+	457 = { controller = { has_war_with = ROOT } } # Eastern Desert
+}
+
+JAP_lecture_middle_east_egypt_landing_target_available = {
+	JAP_lecture_middle_east_egypt_red_sea_landing_available = yes
+}
+
+JAP_lecture_africa_suez_available = {
+	446 = { is_controlled_by_ROOT_or_ally = yes } # Suez
+}
+
+JAP_lecture_africa_suez_lost = {
+	JAP_lecture_africa_suez_available = no
+}
+
+JAP_lecture_africa_key_objectives_secured = {
+	446 = { is_controlled_by_ROOT_or_ally = yes } # Suez
+	907 = { is_controlled_by_ROOT_or_ally = yes } # Cairo
+	447 = { is_controlled_by_ROOT_or_ally = yes } # Alexandria
+	448 = { is_controlled_by_ROOT_or_ally = yes } # Tripoli
+	450 = { is_controlled_by_ROOT_or_ally = yes } # Benghazi
+	458 = { is_controlled_by_ROOT_or_ally = yes } # Tunis
+	459 = { is_controlled_by_ROOT_or_ally = yes } # Algiers
+	461 = { is_controlled_by_ROOT_or_ally = yes } # Casablanca
+	551 = { is_controlled_by_ROOT_or_ally = yes } # Khartoum
+	550 = { is_controlled_by_ROOT_or_ally = yes } # Eritrea
+	559 = { is_controlled_by_ROOT_or_ally = yes } # Somaliland
+	835 = { is_controlled_by_ROOT_or_ally = yes } # Hararghe
+	547 = { is_controlled_by_ROOT_or_ally = yes } # Nairobi
+	905 = { is_controlled_by_ROOT_or_ally = yes } # Mombasa
+	558 = { is_controlled_by_ROOT_or_ally = yes } # Lagos
+	274 = { is_controlled_by_ROOT_or_ally = yes } # Ghana
+	556 = { is_controlled_by_ROOT_or_ally = yes } # Bamako
+	773 = { is_controlled_by_ROOT_or_ally = yes } # Cameroon
+	772 = { is_controlled_by_ROOT_or_ally = yes } # Middle Congo
+	540 = { is_controlled_by_ROOT_or_ally = yes } # Luanda
+	889 = { is_controlled_by_ROOT_or_ally = yes } # Elisabethville
+	545 = { is_controlled_by_ROOT_or_ally = yes } # Rhodesia
+	897 = { is_controlled_by_ROOT_or_ally = yes } # Zambezia-Mozambique
+	681 = { is_controlled_by_ROOT_or_ally = yes } # Cape
+}
+
+JAP_lecture_africa_enemy_presence = {
+	any_state = {
+		is_on_continent = africa
+		controller = { has_war_with = ROOT }
+	}
+}
+
+JAP_lecture_africa_theater_clear = {
+	JAP_lecture_africa_key_objectives_secured = yes
+}
+
+JAP_lecture_mediterranean_italy_suez_alexandria_available = {
+	446 = { is_controlled_by_ROOT_or_ally = yes } # Suez
+	447 = { is_controlled_by_ROOT_or_ally = yes } # Alexandria
+}
+
+JAP_lecture_mediterranean_italy_foothold_available = {
+	OR = {
+		115 = { is_controlled_by_ROOT_or_ally = yes } # Sicily
+		156 = { is_controlled_by_ROOT_or_ally = yes } # Calabria
+		2 = { is_controlled_by_ROOT_or_ally = yes } # Lazio
+		157 = { is_controlled_by_ROOT_or_ally = yes } # Abruzzo
+		162 = { is_controlled_by_ROOT_or_ally = yes } # Tuscany
+		161 = { is_controlled_by_ROOT_or_ally = yes } # Emilia-Romagna
+	}
+}
+
+JAP_lecture_mediterranean_italy_staging_available = {
+	OR = {
+		JAP_lecture_mediterranean_italy_suez_alexandria_available = yes
+		JAP_lecture_mediterranean_italy_foothold_available = yes
+	}
+}
+
+JAP_lecture_mediterranean_italy_suez_lost = {
+	446 = { is_controlled_by_ROOT_or_ally = no } # Suez
+}
+
+JAP_lecture_mediterranean_italy_failed_staging_lost = {
+	JAP_lecture_mediterranean_italy_suez_lost = yes
+	JAP_lecture_mediterranean_italy_foothold_available = no
+}
+
+JAP_lecture_mediterranean_italy_primary_objectives_secured = {
+	156 = { is_controlled_by_ROOT_or_ally = yes } # Calabria
+	2 = { is_controlled_by_ROOT_or_ally = yes } # Lazio
+	157 = { is_controlled_by_ROOT_or_ally = yes } # Abruzzo
+	162 = { is_controlled_by_ROOT_or_ally = yes } # Tuscany
+	161 = { is_controlled_by_ROOT_or_ally = yes } # Emilia-Romagna
+}
+
+JAP_lecture_mediterranean_italy_theater_clear = {
+	JAP_lecture_mediterranean_italy_primary_objectives_secured = yes
+}
+
+JAP_lecture_mediterranean_italy_enemy_presence = {
+	OR = {
+		156 = { controller = { has_war_with = ROOT } } # Calabria
+		2 = { controller = { has_war_with = ROOT } } # Lazio
+		157 = { controller = { has_war_with = ROOT } } # Abruzzo
+		162 = { controller = { has_war_with = ROOT } } # Tuscany
+		161 = { controller = { has_war_with = ROOT } } # Emilia-Romagna
+	}
+}
+
+JAP_lecture_mediterranean_italy_sicily_landing_available = {
+	JAP_lecture_mediterranean_italy_staging_available = yes
+	115 = { controller = { has_war_with = ROOT } } # Sicily
+}
+
+JAP_lecture_mediterranean_italy_calabria_landing_available = {
+	OR = {
+		115 = { is_controlled_by_ROOT_or_ally = yes } # Sicily
+		2 = { is_controlled_by_ROOT_or_ally = yes } # Lazio
+	}
+	156 = { controller = { has_war_with = ROOT } } # Calabria
+}
+
+JAP_lecture_mediterranean_italy_lazio_landing_available = {
+	OR = {
+		JAP_lecture_mediterranean_italy_suez_alexandria_available = yes
+		115 = { is_controlled_by_ROOT_or_ally = yes } # Sicily
+		156 = { is_controlled_by_ROOT_or_ally = yes } # Calabria
+	}
+	2 = { controller = { has_war_with = ROOT } } # Lazio
+}
+
+JAP_lecture_mediterranean_italy_main_landing_target_available = {
+	OR = {
+		JAP_lecture_mediterranean_italy_sicily_landing_available = yes
+		JAP_lecture_mediterranean_italy_calabria_landing_available = yes
+		JAP_lecture_mediterranean_italy_lazio_landing_available = yes
+	}
+}
+
+JAP_lecture_mediterranean_italy_cyprus_landing_available = {
+	JAP_lecture_mediterranean_italy_staging_available = yes
+	183 = { controller = { has_war_with = ROOT } } # Cyprus
+}
+
+JAP_lecture_mediterranean_italy_crete_landing_available = {
+	JAP_lecture_mediterranean_italy_staging_available = yes
+	182 = { controller = { has_war_with = ROOT } } # Crete
+}
+
+JAP_lecture_mediterranean_italy_malta_landing_available = {
+	JAP_lecture_mediterranean_italy_staging_available = yes
+	116 = { controller = { has_war_with = ROOT } } # Malta
+}
+
+JAP_lecture_mediterranean_italy_sardinia_landing_available = {
+	JAP_lecture_mediterranean_italy_staging_available = yes
+	114 = { controller = { has_war_with = ROOT } } # Sardinia
+}
+
+JAP_lecture_mediterranean_italy_corsica_landing_available = {
+	JAP_lecture_mediterranean_italy_staging_available = yes
+	1 = { controller = { has_war_with = ROOT } } # Corsica
+}
+
+JAP_lecture_anatolia_balkans_anatolia_staging_available = {
+	OR = {
+		49 = { is_controlled_by_ROOT_or_ally = yes } # Ankara
+		340 = { is_controlled_by_ROOT_or_ally = yes } # Bursa
+		347 = { is_controlled_by_ROOT_or_ally = yes } # Izmit
+		797 = { is_controlled_by_ROOT_or_ally = yes } # Istanbul
+	}
+}
+
+JAP_lecture_anatolia_balkans_foothold_available = {
+	OR = {
+		341 = { is_controlled_by_ROOT_or_ally = yes } # Edirne
+		184 = { is_controlled_by_ROOT_or_ally = yes } # Thrace
+		48 = { is_controlled_by_ROOT_or_ally = yes } # Sofia
+		731 = { is_controlled_by_ROOT_or_ally = yes } # Central Macedonia
+		106 = { is_controlled_by_ROOT_or_ally = yes } # Macedonia
+		47 = { is_controlled_by_ROOT_or_ally = yes } # Attica
+		803 = { is_controlled_by_ROOT_or_ally = yes } # Southern Serbia
+		107 = { is_controlled_by_ROOT_or_ally = yes } # Serbia
+		77 = { is_controlled_by_ROOT_or_ally = yes } # Dobruja
+		971 = { is_controlled_by_ROOT_or_ally = yes } # Northern Dobruja
+		46 = { is_controlled_by_ROOT_or_ally = yes } # Muntenia
+	}
+}
+
+JAP_lecture_anatolia_balkans_failed_staging_lost = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = no
+	JAP_lecture_anatolia_balkans_foothold_available = no
+}
+
+JAP_lecture_anatolia_balkans_primary_objectives_secured = {
+	341 = { is_controlled_by_ROOT_or_ally = yes } # Edirne
+	184 = { is_controlled_by_ROOT_or_ally = yes } # Thrace
+	48 = { is_controlled_by_ROOT_or_ally = yes } # Sofia
+	731 = { is_controlled_by_ROOT_or_ally = yes } # Central Macedonia
+	106 = { is_controlled_by_ROOT_or_ally = yes } # Macedonia
+	47 = { is_controlled_by_ROOT_or_ally = yes } # Attica
+	803 = { is_controlled_by_ROOT_or_ally = yes } # Southern Serbia
+	107 = { is_controlled_by_ROOT_or_ally = yes } # Serbia
+	77 = { is_controlled_by_ROOT_or_ally = yes } # Dobruja
+	971 = { is_controlled_by_ROOT_or_ally = yes } # Northern Dobruja
+	46 = { is_controlled_by_ROOT_or_ally = yes } # Muntenia
+}
+
+JAP_lecture_anatolia_balkans_theater_clear = {
+	JAP_lecture_anatolia_balkans_primary_objectives_secured = yes
+}
+
+JAP_lecture_anatolia_balkans_enemy_presence = {
+	OR = {
+		341 = { controller = { has_war_with = ROOT } } # Edirne
+		184 = { controller = { has_war_with = ROOT } } # Thrace
+		48 = { controller = { has_war_with = ROOT } } # Sofia
+		731 = { controller = { has_war_with = ROOT } } # Central Macedonia
+		106 = { controller = { has_war_with = ROOT } } # Macedonia
+		47 = { controller = { has_war_with = ROOT } } # Attica
+		803 = { controller = { has_war_with = ROOT } } # Southern Serbia
+		107 = { controller = { has_war_with = ROOT } } # Serbia
+		77 = { controller = { has_war_with = ROOT } } # Dobruja
+		971 = { controller = { has_war_with = ROOT } } # Northern Dobruja
+		46 = { controller = { has_war_with = ROOT } } # Muntenia
+	}
+}
+
+JAP_lecture_anatolia_balkans_central_macedonia_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	731 = { controller = { has_war_with = ROOT } } # Central Macedonia
+}
+
+JAP_lecture_anatolia_balkans_attica_landing_available = {
+	OR = {
+		731 = { is_controlled_by_ROOT_or_ally = yes } # Central Macedonia
+		184 = { is_controlled_by_ROOT_or_ally = yes } # Thrace
+	}
+	47 = { controller = { has_war_with = ROOT } } # Attica
+}
+
+JAP_lecture_anatolia_balkans_dobruja_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	797 = { is_controlled_by_ROOT_or_ally = yes } # Istanbul
+	77 = { controller = { has_war_with = ROOT } } # Dobruja
+}
+
+JAP_lecture_anatolia_balkans_north_dobruja_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	797 = { is_controlled_by_ROOT_or_ally = yes } # Istanbul
+	971 = { controller = { has_war_with = ROOT } } # Northern Dobruja
+}
+
+JAP_lecture_anatolia_balkans_main_landing_target_available = {
+	OR = {
+		JAP_lecture_anatolia_balkans_central_macedonia_landing_available = yes
+		JAP_lecture_anatolia_balkans_attica_landing_available = yes
+		JAP_lecture_anatolia_balkans_dobruja_landing_available = yes
+		JAP_lecture_anatolia_balkans_north_dobruja_landing_available = yes
+	}
+}
+
+JAP_lecture_anatolia_balkans_aegean_islands_cleanup_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	187 = { controller = { has_war_with = ROOT } } # Aegean Islands
+}
+
+JAP_lecture_anatolia_balkans_central_albania_cleanup_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	44 = { controller = { has_war_with = ROOT } } # Central Albania
+}
+
+JAP_lecture_anatolia_balkans_dalmatia_cleanup_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	103 = { controller = { has_war_with = ROOT } } # Dalmatia
+}
+
+JAP_lecture_anatolia_balkans_montenegro_cleanup_landing_available = {
+	JAP_lecture_anatolia_balkans_anatolia_staging_available = yes
+	105 = { controller = { has_war_with = ROOT } } # Montenegro
+}
+
+JAP_lecture_anatolia_balkans_cleanup_landing_target_available = {
+	OR = {
+		JAP_lecture_anatolia_balkans_aegean_islands_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_central_albania_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_dalmatia_cleanup_landing_available = yes
+		JAP_lecture_anatolia_balkans_montenegro_cleanup_landing_available = yes
+	}
+}
+
+JAP_lecture_europe_istanbul_staging_available = {
+	797 = { is_controlled_by_ROOT_or_ally = yes } # Istanbul
+}
+
+JAP_lecture_europe_foothold_available = {
+	OR = {
+		797 = { is_controlled_by_ROOT_or_ally = yes } # Istanbul
+		341 = { is_controlled_by_ROOT_or_ally = yes } # Edirne
+		184 = { is_controlled_by_ROOT_or_ally = yes } # Thrace
+		731 = { is_controlled_by_ROOT_or_ally = yes } # Central Macedonia
+		107 = { is_controlled_by_ROOT_or_ally = yes } # Serbia
+		77 = { is_controlled_by_ROOT_or_ally = yes } # Dobruja
+		971 = { is_controlled_by_ROOT_or_ally = yes } # Northern Dobruja
+		2 = { is_controlled_by_ROOT_or_ally = yes } # Lazio / Rome
+		156 = { is_controlled_by_ROOT_or_ally = yes } # Calabria
+		157 = { is_controlled_by_ROOT_or_ally = yes } # Abruzzo
+		162 = { is_controlled_by_ROOT_or_ally = yes } # Tuscany
+		161 = { is_controlled_by_ROOT_or_ally = yes } # Emilia-Romagna
+	}
+}
+
+JAP_lecture_europe_key_objectives_secured = {
+	16 = { is_controlled_by_ROOT_or_ally = yes } # Ile de France / Paris
+	64 = { is_controlled_by_ROOT_or_ally = yes } # Brandenburg / Berlin
+	2 = { is_controlled_by_ROOT_or_ally = yes } # Lazio / Rome
+}
+
+JAP_lecture_europe_theater_clear = {
+	JAP_lecture_europe_key_objectives_secured = yes
+}
+
+JAP_lecture_europe_enemy_presence = {
+	any_state = {
+		is_on_continent = europe
+		controller = { has_war_with = ROOT }
+	}
+}
+
+JAP_lecture_eia_staging_available = {
+	OR = {
+		336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+		1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+	}
+}
+
+JAP_lecture_eia_handoff_ready = {
+	JAP_lecture_southeast_asia_core_corridor_secured = yes
+	JAP_lecture_eia_staging_available = yes
+}
+
+JAP_lecture_eia_critical_hold_available = {
+	OR = {
+		336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+		1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+		284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+	}
+}
+
+JAP_lecture_eia_chain_foothold_available = {
+	OR = {
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+		284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+		723 = { is_controlled_by_ROOT_or_ally = yes } # 南岛
+	}
+}
+
+JAP_lecture_eia_operational_access_available = {
+	OR = {
+		JAP_lecture_eia_handoff_ready = yes
+		JAP_lecture_eia_critical_hold_available = yes
+	}
+}
+
+JAP_lecture_eia_access_lost = {
+	JAP_lecture_eia_critical_hold_available = no
+}
+
+JAP_lecture_eia_big_island_enemy_presence = {
+	OR = {
+		672 = { controller = { has_war_with = ROOT } } # 苏门答腊
+		335 = { controller = { has_war_with = ROOT } } # 爪哇
+		333 = { controller = { has_war_with = ROOT } } # 沙捞越
+		334 = { controller = { has_war_with = ROOT } } # 加里曼丹
+		668 = { controller = { has_war_with = ROOT } } # 摩鹿加群岛
+		673 = { controller = { has_war_with = ROOT } } # 苏拉威西
+		669 = { controller = { has_war_with = ROOT } } # 西巴布亚
+		523 = { controller = { has_war_with = ROOT } } # 巴布亚
+	}
+}
+
+JAP_lecture_eia_big_island_bridgehead_available = {
+	OR = {
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+}
+
+JAP_lecture_eia_australia_nz_main_enemy_presence = {
+	OR = {
+		520 = { controller = { has_war_with = ROOT } } # 北领地
+		522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+		872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+		285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+		517 = { controller = { has_war_with = ROOT } } # 维多利亚
+		284 = { controller = { has_war_with = ROOT } } # 北岛
+	}
+}
+
+JAP_lecture_eia_australia_nz_enemy_presence = {
+	OR = {
+		520 = { controller = { has_war_with = ROOT } } # 北领地
+		522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+		872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+		285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+		517 = { controller = { has_war_with = ROOT } } # 维多利亚
+		284 = { controller = { has_war_with = ROOT } } # 北岛
+		723 = { controller = { has_war_with = ROOT } } # 南岛
+		518 = { controller = { has_war_with = ROOT } } # 塔斯马尼亚
+		519 = { controller = { has_war_with = ROOT } } # 南澳大利亚
+		521 = { controller = { has_war_with = ROOT } } # 昆士兰
+		674 = { controller = { has_war_with = ROOT } } # 澳大利亚中部
+		870 = { controller = { has_war_with = ROOT } } # 西北澳大利亚
+		871 = { controller = { has_war_with = ROOT } } # 西南澳大利亚
+		873 = { controller = { has_war_with = ROOT } } # 西南昆士兰
+	}
+}
+
+JAP_lecture_eia_australia_nz_bridgehead_available = {
+	OR = {
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+		522 = { is_controlled_by_ROOT_or_ally = yes } # 西澳大利亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+	}
+}
+
+JAP_lecture_eia_residual_enemy_presence = {
+	OR = {
+		667 = { controller = { has_war_with = ROOT } } # 小巽他群岛
+		721 = { controller = { has_war_with = ROOT } } # 东帝汶
+		1022 = { controller = { has_war_with = ROOT } } # 内婆罗洲
+		518 = { controller = { has_war_with = ROOT } } # 塔斯马尼亚
+		723 = { controller = { has_war_with = ROOT } } # 南岛
+		519 = { controller = { has_war_with = ROOT } } # 南澳大利亚
+		521 = { controller = { has_war_with = ROOT } } # 昆士兰
+		674 = { controller = { has_war_with = ROOT } } # 澳大利亚中部
+		870 = { controller = { has_war_with = ROOT } } # 西北澳大利亚
+		871 = { controller = { has_war_with = ROOT } } # 西南澳大利亚
+		873 = { controller = { has_war_with = ROOT } } # 西南昆士兰
+	}
+}
+
+JAP_lecture_eia_enemy_presence = {
+	OR = {
+		JAP_lecture_eia_big_island_enemy_presence = yes
+		JAP_lecture_eia_australia_nz_enemy_presence = yes
+		JAP_lecture_eia_residual_enemy_presence = yes
+	}
+}
+
+JAP_lecture_eia_cleanup_enemy_presence = {
+	JAP_lecture_eia_big_island_enemy_presence = no
+	JAP_lecture_eia_australia_nz_main_enemy_presence = no
+	JAP_lecture_eia_residual_enemy_presence = yes
+}
+
+JAP_lecture_eia_theater_clear = {
+	JAP_lecture_eia_enemy_presence = no
+}
+
+JAP_lecture_eia_basic_or_full_victory_for_pacific_release = {
+	JAP_lecture_eia_chain_foothold_available = yes
+	OR = {
+		JAP_lecture_eia_theater_clear = yes
+		AND = {
+			JAP_lecture_eia_big_island_enemy_presence = no
+			JAP_lecture_eia_australia_nz_main_enemy_presence = no
+		}
+	}
+}
+
+JAP_lecture_eia_sumatra_landing_available = {
+	JAP_lecture_eia_handoff_ready = yes
+	672 = { controller = { has_war_with = ROOT } } # 苏门答腊
+}
+
+JAP_lecture_eia_java_landing_available = {
+	JAP_lecture_eia_handoff_ready = yes
+	335 = { controller = { has_war_with = ROOT } } # 爪哇
+}
+
+JAP_lecture_eia_lesser_sunda_landing_available = {
+	OR = {
+		672 = { is_controlled_by_ROOT_or_ally = yes } # 苏门答腊
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+	}
+	667 = { controller = { has_war_with = ROOT } } # 小巽他群岛
+}
+
+JAP_lecture_eia_east_timor_landing_available = {
+	OR = {
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+	}
+	721 = { controller = { has_war_with = ROOT } } # 东帝汶
+}
+
+JAP_lecture_eia_northern_territory_landing_available = {
+	OR = {
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+		721 = { is_controlled_by_ROOT_or_ally = yes } # 东帝汶
+	}
+	520 = { controller = { has_war_with = ROOT } } # 北领地
+}
+
+JAP_lecture_eia_western_australia_landing_available = {
+	OR = {
+		335 = { is_controlled_by_ROOT_or_ally = yes } # 爪哇
+		667 = { is_controlled_by_ROOT_or_ally = yes } # 小巽他群岛
+		721 = { is_controlled_by_ROOT_or_ally = yes } # 东帝汶
+		520 = { is_controlled_by_ROOT_or_ally = yes } # 北领地
+	}
+	522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+}
+
+JAP_lecture_eia_sarawak_landing_available = {
+	JAP_lecture_eia_handoff_ready = yes
+	333 = { controller = { has_war_with = ROOT } } # 沙捞越
+}
+
+JAP_lecture_eia_kalimantan_landing_available = {
+	JAP_lecture_eia_handoff_ready = yes
+	334 = { controller = { has_war_with = ROOT } } # 加里曼丹
+}
+
+JAP_lecture_eia_moluccas_landing_available = {
+	OR = {
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	668 = { controller = { has_war_with = ROOT } } # 摩鹿加群岛
+}
+
+JAP_lecture_eia_sulawesi_landing_available = {
+	OR = {
+		333 = { is_controlled_by_ROOT_or_ally = yes } # 沙捞越
+		334 = { is_controlled_by_ROOT_or_ally = yes } # 加里曼丹
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+	}
+	673 = { controller = { has_war_with = ROOT } } # 苏拉威西
+}
+
+JAP_lecture_eia_west_papua_landing_available = {
+	OR = {
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	669 = { controller = { has_war_with = ROOT } } # 西巴布亚
+}
+
+JAP_lecture_eia_papua_landing_available = {
+	OR = {
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+	}
+	523 = { controller = { has_war_with = ROOT } } # 巴布亚
+}
+
+JAP_lecture_eia_north_queensland_landing_available = {
+	OR = {
+		668 = { is_controlled_by_ROOT_or_ally = yes } # 摩鹿加群岛
+		673 = { is_controlled_by_ROOT_or_ally = yes } # 苏拉威西
+		669 = { is_controlled_by_ROOT_or_ally = yes } # 西巴布亚
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+	}
+	872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+}
+
+JAP_lecture_eia_new_south_wales_landing_available = {
+	OR = {
+		523 = { is_controlled_by_ROOT_or_ally = yes } # 巴布亚
+		872 = { is_controlled_by_ROOT_or_ally = yes } # 北昆士兰
+	}
+	285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+}
+
+JAP_lecture_eia_tasmania_landing_available = {
+	OR = {
+		285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+		517 = { is_controlled_by_ROOT_or_ally = yes } # 维多利亚
+	}
+	518 = { controller = { has_war_with = ROOT } } # 塔斯马尼亚
+}
+
+JAP_lecture_eia_north_island_landing_available = {
+	285 = { is_controlled_by_ROOT_or_ally = yes } # 新南威尔士
+	284 = { controller = { has_war_with = ROOT } } # 北岛
+}
+
+JAP_lecture_eia_south_island_landing_available = {
+	284 = { is_controlled_by_ROOT_or_ally = yes } # 北岛
+	723 = { controller = { has_war_with = ROOT } } # 南岛
+}
+
+JAP_lecture_eia_landing_target_available = {
+	OR = {
+		JAP_lecture_eia_sumatra_landing_available = yes
+		JAP_lecture_eia_java_landing_available = yes
+		JAP_lecture_eia_lesser_sunda_landing_available = yes
+		JAP_lecture_eia_east_timor_landing_available = yes
+		JAP_lecture_eia_northern_territory_landing_available = yes
+		JAP_lecture_eia_western_australia_landing_available = yes
+		JAP_lecture_eia_sarawak_landing_available = yes
+		JAP_lecture_eia_kalimantan_landing_available = yes
+		JAP_lecture_eia_moluccas_landing_available = yes
+		JAP_lecture_eia_sulawesi_landing_available = yes
+		JAP_lecture_eia_west_papua_landing_available = yes
+		JAP_lecture_eia_papua_landing_available = yes
+		JAP_lecture_eia_north_queensland_landing_available = yes
+		JAP_lecture_eia_new_south_wales_landing_available = yes
+		JAP_lecture_eia_tasmania_landing_available = yes
+		JAP_lecture_eia_north_island_landing_available = yes
+		JAP_lecture_eia_south_island_landing_available = yes
+	}
+}
+
+JAP_lecture_eia_local_guard_main_phase = {
+	JAP_lecture_eia_operational_access_available = yes
+	JAP_lecture_eia_access_lost = no
+	JAP_lecture_eia_theater_clear = no
+	JAP_lecture_eia_cleanup_enemy_presence = no
+}
+
+JAP_lecture_eia_local_guard_cleanup_phase = {
+	JAP_lecture_eia_operational_access_available = yes
+	JAP_lecture_eia_access_lost = no
+	JAP_lecture_eia_theater_clear = no
+	JAP_lecture_eia_cleanup_enemy_presence = yes
+}
+
+JAP_lecture_eia_west_guard_enemy_presence = {
+	OR = {
+		672 = { controller = { has_war_with = ROOT } } # 苏门答腊
+		335 = { controller = { has_war_with = ROOT } } # 爪哇
+		667 = { controller = { has_war_with = ROOT } } # 小巽他群岛
+		721 = { controller = { has_war_with = ROOT } } # 东帝汶
+		520 = { controller = { has_war_with = ROOT } } # 北领地
+		522 = { controller = { has_war_with = ROOT } } # 西澳大利亚
+		519 = { controller = { has_war_with = ROOT } } # 南澳大利亚
+		674 = { controller = { has_war_with = ROOT } } # 澳大利亚中部
+		870 = { controller = { has_war_with = ROOT } } # 西北澳大利亚
+		871 = { controller = { has_war_with = ROOT } } # 西南澳大利亚
+		873 = { controller = { has_war_with = ROOT } } # 西南昆士兰
+	}
+}
+
+JAP_lecture_eia_east_guard_enemy_presence = {
+	OR = {
+		333 = { controller = { has_war_with = ROOT } } # 沙捞越
+		334 = { controller = { has_war_with = ROOT } } # 加里曼丹
+		668 = { controller = { has_war_with = ROOT } } # 摩鹿加群岛
+		673 = { controller = { has_war_with = ROOT } } # 苏拉威西
+		669 = { controller = { has_war_with = ROOT } } # 西巴布亚
+		523 = { controller = { has_war_with = ROOT } } # 巴布亚
+		872 = { controller = { has_war_with = ROOT } } # 北昆士兰
+		285 = { controller = { has_war_with = ROOT } } # 新南威尔士
+		517 = { controller = { has_war_with = ROOT } } # 维多利亚
+		521 = { controller = { has_war_with = ROOT } } # 昆士兰
+	}
+}
+
+JAP_lecture_pacific_staging_available = {
+	OR = {
+		528 = { is_controlled_by_ROOT_or_ally = yes } # 北九州
+		1018 = { is_controlled_by_ROOT_or_ally = yes } # 南九州
+	}
+}
+
+JAP_lecture_pacific_chain_foothold_available = {
+	OR = {
+		645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+		646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+		638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+		632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+		631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+		629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+		526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+		524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+		327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+		623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+		1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+		627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+		684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+		633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	}
+}
+
+JAP_lecture_pacific_operational_access_available = {
+	OR = {
+		JAP_lecture_pacific_staging_available = yes
+		JAP_lecture_pacific_chain_foothold_available = yes
+	}
+}
+
+JAP_lecture_pacific_access_lost = {
+	JAP_lecture_pacific_operational_access_available = no
+}
+
+JAP_lecture_pacific_inner_ring_enemy_presence = {
+	OR = {
+		528 = { controller = { has_war_with = ROOT } } # 北九州
+		1018 = { controller = { has_war_with = ROOT } } # 南九州
+		526 = { controller = { has_war_with = ROOT } } # 冲绳
+		524 = { controller = { has_war_with = ROOT } } # 台湾
+		645 = { controller = { has_war_with = ROOT } } # 硫磺岛
+		646 = { controller = { has_war_with = ROOT } } # 塞班岛
+		638 = { controller = { has_war_with = ROOT } } # 关岛
+	}
+}
+
+JAP_lecture_pacific_philippines_main_enemy_presence = {
+	OR = {
+		327 = { controller = { has_war_with = ROOT } } # 马尼拉
+		623 = { controller = { has_war_with = ROOT } } # 吕宋
+		1026 = { controller = { has_war_with = ROOT } } # 北棉兰老
+		627 = { controller = { has_war_with = ROOT } } # 达沃
+	}
+}
+
+JAP_lecture_pacific_philippines_enemy_presence = {
+	OR = {
+		JAP_lecture_pacific_philippines_main_enemy_presence = yes
+		625 = { controller = { has_war_with = ROOT } } # 萨马
+		626 = { controller = { has_war_with = ROOT } } # 巴拉望
+		628 = { controller = { has_war_with = ROOT } } # 西米沙鄢
+	}
+}
+
+JAP_lecture_pacific_outer_island_enemy_presence = {
+	OR = {
+		684 = { controller = { has_war_with = ROOT } } # 加罗林群岛
+		633 = { controller = { has_war_with = ROOT } } # 马绍尔群岛
+		632 = { controller = { has_war_with = ROOT } } # 威克岛
+		631 = { controller = { has_war_with = ROOT } } # 中途岛
+	}
+}
+
+JAP_lecture_pacific_hawaii_enemy_presence = {
+	629 = { controller = { has_war_with = ROOT } } # 夏威夷
+}
+
+JAP_lecture_pacific_enemy_presence = {
+	OR = {
+		JAP_lecture_pacific_inner_ring_enemy_presence = yes
+		JAP_lecture_pacific_philippines_enemy_presence = yes
+		JAP_lecture_pacific_outer_island_enemy_presence = yes
+		JAP_lecture_pacific_hawaii_enemy_presence = yes
+	}
+}
+
+JAP_lecture_is_home_islands_state = {
+	OR = {
+		state = 536 # 北海道
+		state = 533 # 北东北
+		state = 1019 # 南东北
+		state = 534 # 甲信越
+		state = 535 # 北陆
+		state = 282 # 关东
+		state = 532 # 东海道
+		state = 531 # 关西
+		state = 530 # 四国
+		state = 529 # 山阳
+		state = 1020 # 山阴
+		state = 528 # 北九州
+		state = 1018 # 南九州
+	}
+}
+
+JAP_lecture_home_islands_compromised = {
+	OR = {
+		536 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北海道
+		533 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北东北
+		1019 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 南东北
+		534 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 甲信越
+		535 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北陆
+		282 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 关东
+		532 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 东海道
+		531 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 关西
+		530 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 四国
+		529 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山阳
+		1020 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 山阴
+		528 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 北九州
+		1018 = { state_is_fully_controlled_by_ROOT_or_subject = no } # 南九州
+	}
+}
+
+JAP_lecture_home_islands_enemy_presence = {
+	OR = {
+		536 = { controller = { has_war_with = ROOT } } # 北海道
+		533 = { controller = { has_war_with = ROOT } } # 北东北
+		1019 = { controller = { has_war_with = ROOT } } # 南东北
+		534 = { controller = { has_war_with = ROOT } } # 甲信越
+		535 = { controller = { has_war_with = ROOT } } # 北陆
+		282 = { controller = { has_war_with = ROOT } } # 关东
+		532 = { controller = { has_war_with = ROOT } } # 东海道
+		531 = { controller = { has_war_with = ROOT } } # 关西
+		530 = { controller = { has_war_with = ROOT } } # 四国
+		529 = { controller = { has_war_with = ROOT } } # 山阳
+		1020 = { controller = { has_war_with = ROOT } } # 山阴
+		528 = { controller = { has_war_with = ROOT } } # 北九州
+		1018 = { controller = { has_war_with = ROOT } } # 南九州
+	}
+}
+
+JAP_lecture_manchuria_home_warning = {
+	OR = {
+		610 = { controller = { has_war_with = ROOT } } # 热河
+		716 = { controller = { has_war_with = ROOT } } # 辽宁
+		745 = { controller = { has_war_with = ROOT } } # 大连
+		328 = { controller = { has_war_with = ROOT } } # 吉林
+		714 = { controller = { has_war_with = ROOT } } # 黑龙江
+	}
+}
+
+JAP_lecture_china_coast_home_warning = {
+	has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+	OR = {
+		613 = { controller = { has_war_with = ROOT } } # 上海
+		596 = { controller = { has_war_with = ROOT } } # 浙江
+		598 = { controller = { has_war_with = ROOT } } # 江苏
+		1034 = { controller = { has_war_with = ROOT } } # 苏州
+		1035 = { controller = { has_war_with = ROOT } } # 南京
+		595 = { controller = { has_war_with = ROOT } } # 福建
+	}
+}
+
+JAP_lecture_home_islands_warning = {
+	OR = {
+		JAP_lecture_pacific_inner_ring_enemy_presence = yes
+		JAP_lecture_manchuria_home_warning = yes
+		JAP_lecture_china_coast_home_warning = yes
+	}
+}
+
+JAP_lecture_home_islands_crisis = {
+	JAP_lecture_home_islands_enemy_presence = yes
+}
+
+JAP_lecture_pacific_key_objectives_secured = {
+	526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+	623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+	1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+	627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+	684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+	633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+	646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+	638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+	632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+	631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+	629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+}
+
+JAP_lecture_pacific_theater_clear = {
+	OR = {
+		JAP_lecture_pacific_enemy_presence = no
+		JAP_lecture_pacific_key_objectives_secured = yes
+		JAP_lecture_home_islands_compromised = yes
+	}
+}
+
+JAP_lecture_pacific_luzon_foothold_available = {
+	OR = {
+		327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+		623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+	}
+}
+
+JAP_lecture_pacific_south_philippines_foothold_available = {
+	OR = {
+		1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+		627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+	}
+}
+
+JAP_lecture_pacific_hawaii_landing_gate_available = {
+	631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+	JAP_lecture_pacific_inner_ring_enemy_presence = no
+	JAP_lecture_pacific_philippines_main_enemy_presence = no
+}
+
+JAP_lecture_pacific_iwo_jima_landing_available = {
+	JAP_lecture_pacific_staging_available = yes
+	645 = { controller = { has_war_with = ROOT } } # 硫磺岛
+}
+
+JAP_lecture_pacific_saipan_landing_available = {
+	645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+	646 = { controller = { has_war_with = ROOT } } # 塞班岛
+}
+
+JAP_lecture_pacific_guam_landing_available = {
+	646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+	638 = { controller = { has_war_with = ROOT } } # 关岛
+}
+
+JAP_lecture_pacific_wake_landing_available = {
+	OR = {
+		638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+		633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	}
+	632 = { controller = { has_war_with = ROOT } } # 威克岛
+}
+
+JAP_lecture_pacific_midway_landing_available = {
+	632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+	631 = { controller = { has_war_with = ROOT } } # 中途岛
+}
+
+JAP_lecture_pacific_hawaii_landing_available = {
+	JAP_lecture_pacific_hawaii_landing_gate_available = yes
+	629 = { controller = { has_war_with = ROOT } } # 夏威夷
+}
+
+JAP_lecture_pacific_okinawa_landing_available = {
+	JAP_lecture_pacific_staging_available = yes
+	526 = { controller = { has_war_with = ROOT } } # 冲绳
+}
+
+JAP_lecture_pacific_taiwan_landing_available = {
+	526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+	524 = { controller = { has_war_with = ROOT } } # 台湾
+}
+
+JAP_lecture_pacific_manila_landing_available = {
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	327 = { controller = { has_war_with = ROOT } } # 马尼拉
+}
+
+JAP_lecture_pacific_luzon_landing_available = {
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	623 = { controller = { has_war_with = ROOT } } # 吕宋
+}
+
+JAP_lecture_pacific_north_mindanao_landing_available = {
+	JAP_lecture_pacific_luzon_foothold_available = yes
+	1026 = { controller = { has_war_with = ROOT } } # 北棉兰老
+}
+
+JAP_lecture_pacific_davao_landing_available = {
+	JAP_lecture_pacific_luzon_foothold_available = yes
+	627 = { controller = { has_war_with = ROOT } } # 达沃
+}
+
+JAP_lecture_pacific_caroline_landing_available = {
+	JAP_lecture_pacific_south_philippines_foothold_available = yes
+	684 = { controller = { has_war_with = ROOT } } # 加罗林群岛
+}
+
+JAP_lecture_pacific_marshall_landing_available = {
+	684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+	633 = { controller = { has_war_with = ROOT } } # 马绍尔群岛
+}
+
+JAP_lecture_pacific_landing_target_available = {
+	OR = {
+		JAP_lecture_pacific_iwo_jima_landing_available = yes
+		JAP_lecture_pacific_saipan_landing_available = yes
+		JAP_lecture_pacific_guam_landing_available = yes
+		JAP_lecture_pacific_wake_landing_available = yes
+		JAP_lecture_pacific_midway_landing_available = yes
+		JAP_lecture_pacific_hawaii_landing_available = yes
+		JAP_lecture_pacific_okinawa_landing_available = yes
+		JAP_lecture_pacific_taiwan_landing_available = yes
+		JAP_lecture_pacific_manila_landing_available = yes
+		JAP_lecture_pacific_luzon_landing_available = yes
+		JAP_lecture_pacific_north_mindanao_landing_available = yes
+		JAP_lecture_pacific_davao_landing_available = yes
+		JAP_lecture_pacific_caroline_landing_available = yes
+		JAP_lecture_pacific_marshall_landing_available = yes
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_iwo_jima_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	645 = { is_controlled_by_ROOT_or_ally = yes } # 硫磺岛
+	OR = {
+		646 = { is_controlled_by_ROOT_or_ally = no } # 塞班岛
+		AND = {
+			646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+			638 = { is_controlled_by_ROOT_or_ally = no } # 关岛
+		}
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_saipan_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	646 = { is_controlled_by_ROOT_or_ally = yes } # 塞班岛
+	OR = {
+		638 = { is_controlled_by_ROOT_or_ally = no } # 关岛
+		AND = {
+			638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+			632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		}
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_guam_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	638 = { is_controlled_by_ROOT_or_ally = yes } # 关岛
+	OR = {
+		632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		AND = {
+			632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+			631 = { is_controlled_by_ROOT_or_ally = no } # 中途岛
+		}
+	}
+}
+
+JAP_lecture_pacific_north_chain_guard_wake_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+}
+
+JAP_lecture_pacific_north_chain_guard_midway_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	631 = { is_controlled_by_ROOT_or_ally = yes } # 中途岛
+}
+
+JAP_lecture_pacific_north_chain_guard_hawaii_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	629 = { is_controlled_by_ROOT_or_ally = yes } # 夏威夷
+}
+
+JAP_lecture_north_america_axis_capitals_controlled = {
+	64 = { is_controlled_by_ROOT_or_ally = yes } # Brandenburg / Berlin
+	2 = { is_controlled_by_ROOT_or_ally = yes } # Lazio / Rome
+}
+
+JAP_lecture_north_america_operation_ready = {
+	Rance_is_jap_lecture_ai = yes
+	has_completed_focus = JAP_the_pacific_union_of_soviet_socialist_republics
+	has_war_with = USA
+	has_country_flag = JAP_us_mainland_invasion_preparation_completed_flag
+	629 = { state_is_fully_controlled_by_ROOT_or_subject = yes } # Hawaii
+	JAP_lecture_home_islands_compromised = no
+	JAP_lecture_north_america_axis_capitals_controlled = yes
+}
+
+JAP_lecture_north_america_west_coast_staging_available = {
+	OR = {
+		378 = { is_controlled_by_ROOT_or_ally = yes } # California
+		385 = { is_controlled_by_ROOT_or_ally = yes } # Oregon
+		386 = { is_controlled_by_ROOT_or_ally = yes } # Washington
+	}
+}
+
+JAP_lecture_north_america_operational_access_available = {
+	JAP_lecture_home_islands_compromised = no
+	has_war_with = USA
+	OR = {
+		JAP_lecture_north_america_operation_ready = yes
+		JAP_lecture_north_america_west_coast_staging_available = yes
+	}
+}
+
+JAP_lecture_north_america_access_lost = {
+	JAP_lecture_north_america_operational_access_available = no
+}
+
+JAP_lecture_north_america_enemy_presence = {
+	any_state = {
+		is_on_continent = north_america
+		controller = { has_war_with = ROOT }
+	}
+}
+
+JAP_lecture_north_america_theater_clear = {
+	OR = {
+		JAP_lecture_north_america_enemy_presence = no
+		JAP_lecture_home_islands_compromised = yes
+	}
+}
+
+JAP_lecture_north_america_california_staging_selected = {
+	378 = { is_controlled_by_ROOT_or_ally = yes } # California
+}
+
+JAP_lecture_north_america_oregon_staging_selected = {
+	378 = { is_controlled_by_ROOT_or_ally = no } # California
+	385 = { is_controlled_by_ROOT_or_ally = yes } # Oregon
+}
+
+JAP_lecture_north_america_washington_staging_selected = {
+	378 = { is_controlled_by_ROOT_or_ally = no } # California
+	385 = { is_controlled_by_ROOT_or_ally = no } # Oregon
+	386 = { is_controlled_by_ROOT_or_ally = yes } # Washington
+}
+
+JAP_lecture_north_america_california_landing_available = {
+	JAP_lecture_north_america_operation_ready = yes
+	JAP_lecture_north_america_west_coast_staging_available = no
+	378 = { controller = { has_war_with = ROOT } } # California
+}
+
+JAP_lecture_north_america_oregon_landing_available = {
+	JAP_lecture_north_america_operation_ready = yes
+	JAP_lecture_north_america_west_coast_staging_available = no
+	385 = { controller = { has_war_with = ROOT } } # Oregon
+}
+
+JAP_lecture_north_america_landing_target_available = {
+	OR = {
+		JAP_lecture_north_america_california_landing_available = yes
+		JAP_lecture_north_america_oregon_landing_available = yes
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_okinawa_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	526 = { is_controlled_by_ROOT_or_ally = yes } # 冲绳
+	OR = {
+		524 = { is_controlled_by_ROOT_or_ally = no } # 台湾
+		AND = {
+			524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+			JAP_lecture_pacific_luzon_foothold_available = no
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_taiwan_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	524 = { is_controlled_by_ROOT_or_ally = yes } # 台湾
+	OR = {
+		JAP_lecture_pacific_luzon_foothold_available = no
+		AND = {
+			JAP_lecture_pacific_luzon_foothold_available = yes
+			JAP_lecture_pacific_south_philippines_foothold_available = no
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_manila_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	327 = { is_controlled_by_ROOT_or_ally = yes } # 马尼拉
+	OR = {
+		JAP_lecture_pacific_south_philippines_foothold_available = no
+		AND = {
+			JAP_lecture_pacific_south_philippines_foothold_available = yes
+			684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_luzon_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	623 = { is_controlled_by_ROOT_or_ally = yes } # 吕宋
+	OR = {
+		JAP_lecture_pacific_south_philippines_foothold_available = no
+		AND = {
+			JAP_lecture_pacific_south_philippines_foothold_available = yes
+			684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_north_mindanao_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	1026 = { is_controlled_by_ROOT_or_ally = yes } # 北棉兰老
+	OR = {
+		684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		AND = {
+			684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+			633 = { is_controlled_by_ROOT_or_ally = no } # 马绍尔群岛
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_davao_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	627 = { is_controlled_by_ROOT_or_ally = yes } # 达沃
+	OR = {
+		684 = { is_controlled_by_ROOT_or_ally = no } # 加罗林群岛
+		AND = {
+			684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+			633 = { is_controlled_by_ROOT_or_ally = no } # 马绍尔群岛
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_caroline_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	684 = { is_controlled_by_ROOT_or_ally = yes } # 加罗林群岛
+	OR = {
+		633 = { is_controlled_by_ROOT_or_ally = no } # 马绍尔群岛
+		AND = {
+			633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+			632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		}
+	}
+}
+
+JAP_lecture_pacific_south_chain_guard_marshall_needed = {
+	JAP_lecture_pacific_theater_clear = no
+	633 = { is_controlled_by_ROOT_or_ally = yes } # 马绍尔群岛
+	OR = {
+		632 = { is_controlled_by_ROOT_or_ally = no } # 威克岛
+		AND = {
+			632 = { is_controlled_by_ROOT_or_ally = yes } # 威克岛
+			631 = { is_controlled_by_ROOT_or_ally = no } # 中途岛
+		}
+	}
+}

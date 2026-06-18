@@ -1,0 +1,83 @@
+
+ideas = {
+	
+	naval_academy_spirit = {
+
+	}
+	navy_spirit = {
+
+	}
+	naval_command_spirit = {
+
+	}
+	academy_spirit = {
+		JAP_niten_ichiryu_army_rework_spirit = {
+			ledger = army
+			picture = JAP_niten_ichiryu_army_rework_spirit
+			visible = {
+				OR = {
+					tag = JAP
+					is_subject_of = JAP
+				}
+			}
+			available = {
+				has_military_academy = yes
+				has_doctrine = rance_furinkazan
+			}
+			modifier = {
+				custom_modifier_tooltip = JAP_niten_ichiryu_army_rework_spirit_tt
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}
+	army_spirit = {
+		JAP_hagakure_army_rework_spirit = {
+			ledger = army
+			picture = JAP_hagakure_army_rework_spirit
+			visible = {
+				OR = {
+					tag = JAP
+					is_subject_of = JAP
+				}
+			}
+			available = {
+				has_doctrine = rance_furinkazan
+			}
+			modifier = {
+				special_forces_defence_factor = 0.10
+				attrition = -0.15
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}
+	division_command_spirit = {
+		JAP_banri_ikku_division_command_rework_spirit = {
+			ledger = army
+			picture = JAP_banri_ikku_division_command_rework_spirit
+			visible = {
+				OR = {
+					tag = JAP
+					is_subject_of = JAP
+				}
+			}
+			available = {
+				has_doctrine = rance_furinkazan
+			}
+			modifier = {
+				army_strength_factor = 0.15
+				cas_damage_reduction = 0.25
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}
+	air_force_command_spirit = {
+
+	}
+	
+}

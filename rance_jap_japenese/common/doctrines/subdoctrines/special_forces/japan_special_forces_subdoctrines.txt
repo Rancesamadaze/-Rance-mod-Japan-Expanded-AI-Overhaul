@@ -1,0 +1,243 @@
+jap_rance_air_sea_joint_assault = {
+    track = { special_forces_first special_forces_second }
+    name = SUBDOCTRINE_JAP_RANCE_AIR_SEA_JOINT_ASSAULT
+    description = SUBDOCTRINE_JAP_RANCE_AIR_SEA_JOINT_ASSAULT_DESC
+    icon = GFX_doctrine_jap_rance_air_sea_joint_assault_medium
+
+    xp_cost = 60
+    xp_type = navy
+
+    mastery = {
+        multiplier = 6
+        categories = {
+            category_special_forces
+        }
+    }
+
+    available = {
+        original_tag = JAP
+        has_tech = Rance_JAP_special_units_tech
+        OR = {
+            Rance_is_jap_ai = yes
+            has_completed_focus = JAP_prepare_the_southern_front
+        }
+        OR = {
+            has_tech = marines
+            has_tech = paratroopers
+        }
+    }
+
+    visible = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        base = 100
+    }
+
+    special_forces_cap_flat = 100
+    special_forces_cap = 1
+
+    rewards = {
+        improved_amphibious_designs = {
+            mastery = 60
+            effect = {
+                if = {
+                    limit = {
+                        NOT = { has_idea = JAP_rance_improved_amphibious_designs_idea }
+                        NOT = { has_idea = JAP_rance_advanced_amphibious_designs_idea }
+                    }
+                    add_ideas = JAP_rance_improved_amphibious_designs_idea
+                }
+                else_if = {
+                    limit = {
+                        has_idea = JAP_rance_improved_amphibious_designs_idea
+                    }
+                    remove_ideas = JAP_rance_improved_amphibious_designs_idea
+                    add_ideas = JAP_rance_advanced_amphibious_designs_idea
+                }
+            }
+        }
+        amphibious_armor_breakthrough = {
+            mastery = 60
+            category_amphibious_tanks = {
+                breakthrough = 0.15
+            }
+        }
+        landing_air_cover_coordination = {
+            mastery = 60
+            army_bonus_air_superiority_factor = 0.10
+            shore_bombardment_bonus = 0.15
+            naval_invasion_planning_bonus_speed = 0.20
+        }
+        marine_raider_elements = {
+            mastery = 60
+            Rance_JAP_M_infantry = {
+                combat_width = -0.2
+                soft_attack = 0.10
+                supply_consumption = -0.02
+                maximum_speed = 0.10
+                amphibious = {
+                    attack = 0.10
+                    defence = 0.10
+                    movement = 0.10
+                }
+            }
+        }
+        amphibious_mechanized_reserve = {
+            mastery = 60
+            special_forces_attack_factor = 0.1
+            Rance_JAP_M_mechanized = {
+                max_organisation = 5
+                defense = 0.10
+                amphibious = {
+                    attack = 0.10
+                    defence = 0.10
+                    movement = 0.10
+                }
+            }
+        }
+    }
+}
+
+jap_rance_mountain_ranger_assault = {
+    track = { special_forces_first special_forces_second }
+    name = SUBDOCTRINE_JAP_RANCE_MOUNTAIN_RANGER_ASSAULT
+    description = SUBDOCTRINE_JAP_RANCE_MOUNTAIN_RANGER_ASSAULT_DESC
+    icon = GFX_doctrine_jap_rance_mountain_ranger_assault_medium
+
+    xp_cost = 60
+    xp_type = army
+
+    mastery = {
+        multiplier = 6
+        categories = {
+            category_special_forces
+        }
+    }
+
+    available = {
+        original_tag = JAP
+        has_tech = Rance_JAP_special_units_tech
+        OR = {
+            Rance_is_jap_ai = yes
+            AND = {
+                has_completed_focus = JAP_sea_mountaineers
+                has_completed_focus = JAP_jungle_adaptation
+            }
+        }
+        OR = {
+            has_tech = tech_mountaineers
+            has_tech = rangers_tech
+        }
+    }
+
+    visible = {
+        original_tag = JAP
+    }
+
+    ai_will_do = {
+        base = 100
+    }
+
+    special_forces_cap_flat = 100
+    special_forces_cap = 1
+
+    rewards = {
+        highland_assault_training = {
+            mastery = 60
+            effect = {
+                if = {
+                    limit = {
+                        NOT = { has_idea = JAP_rance_improved_amphibious_designs_idea }
+                        NOT = { has_idea = JAP_rance_advanced_amphibious_designs_idea }
+                    }
+                    add_ideas = JAP_rance_improved_amphibious_designs_idea
+                }
+                else_if = {
+                    limit = {
+                        has_idea = JAP_rance_improved_amphibious_designs_idea
+                    }
+                    remove_ideas = JAP_rance_improved_amphibious_designs_idea
+                    add_ideas = JAP_rance_advanced_amphibious_designs_idea
+                }
+            }
+            Rance_JAP_M_infantry = {
+                breakthrough = 0.05
+                hills = {
+                    attack = 0.15
+                    defence = 0.05
+                    movement = 0.10
+                }
+                mountain = {
+                    attack = 0.25
+                    defence = 0.10
+                    movement = 0.15
+                }
+            }
+        }
+        jungle_pathfinder_cells = {
+            mastery = 60
+            Rance_JAP_M_infantry = {
+                initiative = 0.01
+                forest = {
+                    attack = 0.10
+                    defence = 0.10
+                    movement = 0.10
+                }
+                jungle = {
+                    attack = 0.15
+                    defence = 0.10
+                    movement = 0.10
+                }
+                urban = {
+                    attack = 0.05
+                    defence = 0.05
+                    movement = 0.05
+                }
+            }
+        }
+        mechanized_pathfinder_detachments = {
+            mastery = 60
+            Rance_JAP_M_mechanized = {
+                defense = 0.05
+                supply_consumption = -0.02
+                hills = {
+                    attack = 0.10
+                    movement = 0.05
+                }
+                mountain = {
+                    attack = 0.10
+                    movement = 0.05
+                }
+                forest = {
+                    attack = 0.10
+                    movement = 0.10
+                }
+                jungle = {
+                    attack = 0.10
+                    movement = 0.10
+                }
+                urban = {
+                    attack = 0.05
+                    defence = 0.05
+                }
+            }
+        }
+        dispersed_assault_cohesion = {
+            mastery = 60
+            Rance_JAP_M_infantry = {
+                max_organisation = 10
+                defense = 0.10
+                breakthrough = 0.05
+            }
+            Rance_JAP_M_mechanized = {
+                max_organisation = 5
+            }
+        }
+        special_warfare_integration = {
+            mastery = 60
+            special_forces_attack_factor = 0.10
+        }
+    }
+}

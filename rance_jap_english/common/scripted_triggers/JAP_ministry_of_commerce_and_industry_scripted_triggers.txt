@@ -1,0 +1,43 @@
+# Commerce ministry stage completion conditions.
+# Each stage is judged by the completion flags of its projects.
+
+JAP_shoko_phase_1_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_shoko_phase_1_completed.tt
+		AND = {
+			has_country_flag = JAP_shoko_kanto_construction_completed
+			has_country_flag = JAP_shoko_tokaido_construction_completed
+			has_country_flag = JAP_shoko_kansai_construction_completed
+			has_country_flag = JAP_shoko_sanyo_construction_completed
+			has_country_flag = JAP_shoko_north_kyushu_construction_completed
+			# Add more phase 1 project completion flags here.
+		}
+	}
+}
+
+JAP_shoko_phase_2_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_shoko_phase_2_completed.tt
+		AND = {
+			has_country_flag = JAP_shoko_hokuriku_construction_completed
+			has_country_flag = JAP_shoko_koshinetsu_construction_completed
+			has_country_flag = JAP_shoko_sanin_construction_completed
+			has_country_flag = JAP_shoko_shikoku_construction_completed
+			has_country_flag = JAP_shoko_south_kyushu_construction_completed
+			has_country_flag = JAP_shoko_south_tohoku_construction_completed
+			has_country_flag = JAP_shoko_north_tohoku_construction_completed
+			has_country_flag = JAP_shoko_hokkaido_construction_completed
+			# Add more phase 2 project completion flags here.
+		}
+	}
+}
+
+JAP_shoko_phase_3_completed = {
+	custom_trigger_tooltip = {
+		tooltip = JAP_shoko_phase_3_completed.tt
+		AND = {
+			has_country_flag = JAP_shoko_shanghai_construction_completed
+			# Add more phase 3 project completion flags here.
+		}
+	}
+}

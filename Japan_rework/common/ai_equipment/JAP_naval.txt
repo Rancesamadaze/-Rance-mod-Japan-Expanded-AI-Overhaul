@@ -1,0 +1,1590 @@
+# 日本主力航母设计集 
+JAP_formal_carrier_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_carrier
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 四代主力舰迭代系列 ---
+
+    # 第一代：赤城级 (基于基础航母船体)
+    JAP_cv_akagi_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            
+            match_value = 10000
+            type = ship_hull_carrier_1
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_1
+                fixed_ship_deck_slot_1 = ship_deck_space
+                fixed_ship_deck_slot_2 = ship_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_2
+                fixed_ship_radar_slot = ship_radar_1
+                fixed_ship_secondaries_slot = dp_ship_secondaries_1
+                front_1_custom_slot = ship_deck_space
+                mid_1_custom_slot = ship_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_1
+            ship_deck_space
+            carrier_ship_engine_2
+            ship_radar_1
+            dp_ship_secondaries_1
+        }
+    }
+
+    # 第二代：翔鹤级 (基于改进航母船体)
+    JAP_cv_shokaku_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_carrier_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_deck_slot_1 = ship_deck_space
+                fixed_ship_deck_slot_2 = ship_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_deck_space
+                mid_1_custom_slot = ship_deck_space
+                mid_2_custom_slot = ship_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_deck_space
+            carrier_ship_engine_3
+            ship_radar_3
+            dp_ship_secondaries_3
+        }
+    }
+
+    # 第三代：信浓级 (基于先进航母船体)
+    JAP_cv_shinano_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_carrier_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_deck_slot_1 = ship_deck_space
+                fixed_ship_deck_slot_2 = ship_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_4
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_deck_space
+                mid_1_custom_slot = ship_deck_space
+                mid_2_custom_slot = ship_deck_space
+                rear_1_custom_slot = ship_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_deck_space
+            carrier_ship_engine_4
+            ship_radar_4
+            dp_ship_secondaries_4
+        }
+    }
+
+    # 第四代：白龙级 (现代航母特殊项目)
+    JAP_cv_hakuryu_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 40000
+            type = ship_hull_carrier_modern
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_deck_slot_1 = ship_deck_space
+                fixed_ship_deck_slot_2 = ship_deck_space
+                fixed_ship_engine_slot = carrier_ship_nuclear_engine_1
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_deck_space
+                mid_1_custom_slot = ship_deck_space
+                mid_2_custom_slot = ship_deck_space
+                rear_1_custom_slot = ship_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_deck_space
+            carrier_ship_nuclear_engine_1
+            ship_radar_4
+            dp_ship_secondaries_4
+        }
+    }
+}
+# 日本冰航母设计集 - 职能锁定版
+JAP_mega_carrier_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_mega_carrier # 锁定独立角色，避免与主力航母混淆
+    }
+
+    priority = {
+        factor = 888 
+    }
+
+    # 雪凤级 (超大型冰航母)
+    JAP_cv_yukihou_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000 # 使用万级权重确保 AI 优先选择
+            type = ship_hull_mega_carrier
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_deck_slot_1 = big_ship_deck_space
+                fixed_ship_deck_slot_2 = big_ship_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_4
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = big_ship_deck_space
+                mid_1_custom_slot = big_ship_deck_space
+                mid_2_custom_slot = big_ship_deck_space
+                rear_1_custom_slot = big_ship_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            big_ship_deck_space
+            carrier_ship_engine_4
+            ship_radar_4
+            dp_ship_secondaries_4
+        }
+    }
+}
+# 日本护航航母设计集 - 职能锁定版
+JAP_escort_carrier_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_escort_carrier # 锁定独立角色：护航航母
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代护航航母迭代系列 ---
+
+    # 第一代：龙骧级 (基于1936技术标准)
+    JAP_cv_ryujo_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_escort_carrier
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_deck_slot_1 = ship_escort_deck_space
+                fixed_ship_deck_slot_2 = ship_escort_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_2
+                fixed_ship_radar_slot = ship_radar_2
+                front_1_custom_slot = ship_escort_deck_space
+                mid_1_custom_slot = ship_escort_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_escort_deck_space
+            carrier_ship_engine_2
+            ship_radar_2
+        }
+    }
+
+    # 第二代：瑞凤级 (基于1940技术标准)
+    JAP_cv_zuiho_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_escort_carrier
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_deck_slot_1 = ship_escort_deck_space
+                fixed_ship_deck_slot_2 = ship_escort_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_3
+                fixed_ship_radar_slot = ship_radar_3
+                front_1_custom_slot = ship_escort_deck_space
+                mid_1_custom_slot = ship_escort_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_escort_deck_space
+            carrier_ship_engine_3
+            ship_radar_3
+        }
+    }
+
+    # 第三代：龙凤级 (基于1944技术标准)
+    JAP_cv_ryuho_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_escort_carrier
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_deck_slot_1 = ship_escort_deck_space
+                fixed_ship_deck_slot_2 = ship_escort_deck_space
+                fixed_ship_engine_slot = carrier_ship_engine_4
+                fixed_ship_radar_slot = ship_radar_4
+                front_1_custom_slot = ship_escort_deck_space
+                mid_1_custom_slot = ship_escort_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_escort_deck_space
+            carrier_ship_engine_4
+            ship_radar_4
+        }
+    }
+}
+# 日本主力战列舰设计集 - 职能锁定版
+JAP_formal_battleship_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_bb # 锁定独立角色：战列舰
+    }
+
+    priority = {
+        factor = 888 # 遵循亲爱的吉利数字要求
+    }
+
+    # --- 四代主力舰迭代系列 ---
+
+    # 第一代：长门级 (基于1936重型舰体)
+    JAP_bb_nagato_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_heavy_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_armor_slot = ship_armor_bb_2
+                fixed_ship_battery_slot = ship_heavy_battery_2
+                fixed_ship_engine_slot = heavy_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                fixed_ship_radar_slot = ship_radar_1
+                fixed_ship_secondaries_slot = dp_ship_secondaries_1
+                front_1_custom_slot = ship_heavy_battery_2
+                mid_1_custom_slot = dp_ship_secondaries_1
+                mid_2_custom_slot = dp_ship_secondaries_1
+                rear_1_custom_slot = dp_ship_secondaries_1
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_armor_bb_2
+            ship_heavy_battery_2
+            heavy_ship_engine_2
+            ship_fire_control_system_2
+            ship_radar_1
+            dp_ship_secondaries_1
+        }
+    }
+
+    # 第二代：加贺级 (基于1940重型舰体)
+    JAP_bb_kaga_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_heavy_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_armor_slot = ship_armor_bb_3
+                fixed_ship_battery_slot = ship_heavy_battery_3
+                fixed_ship_engine_slot = heavy_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_heavy_battery_3
+                mid_1_custom_slot = ship_heavy_battery_3
+                mid_2_custom_slot = dp_ship_secondaries_3
+                mid_3_custom_slot = dp_ship_secondaries_3
+                rear_1_custom_slot = ship_anti_air_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_armor_bb_3
+            ship_heavy_battery_3
+            heavy_ship_engine_3
+            ship_fire_control_system_3
+            ship_radar_3
+            dp_ship_secondaries_3
+        }
+    }
+
+    # 第三代：武藏级 (基于1944重型舰体)
+    JAP_bb_musashi_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_heavy_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_shbb
+                fixed_ship_battery_slot = ship_heavy_battery_4
+                fixed_ship_engine_slot = heavy_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_heavy_battery_4
+                mid_1_custom_slot = ship_heavy_battery_4
+                mid_2_custom_slot = ship_heavy_battery_4
+                mid_3_custom_slot = ship_anti_air_4
+                rear_1_custom_slot = ship_anti_air_4
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_shbb
+            ship_heavy_battery_4
+            heavy_ship_engine_4
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+        }
+    }
+
+    # 第四代：大和级 (现代战列舰特殊项目)
+    JAP_bb_yamato_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 40000
+            type = ship_hull_heavy_modern
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_shbb
+                fixed_ship_battery_slot = ship_heavy_battery_4
+                fixed_ship_engine_slot = heavy_ship_nuclear_engine_1
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_heavy_battery_4
+                mid_1_custom_slot = ship_heavy_battery_4
+                mid_2_custom_slot = dp_ship_secondaries_4
+                mid_3_custom_slot = ship_anti_air_4
+                rear_1_custom_slot = ship_anti_air_4
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_shbb
+            ship_heavy_battery_4
+            heavy_ship_nuclear_engine_1
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+        }
+    }
+}
+# 日本超重型战列舰设计集 - 职能锁定版
+JAP_super_heavy_battleship_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_super_bb # 锁定独立角色：超重型战列舰
+    }
+
+    priority = {
+        factor = 888 
+    }
+
+    # --- 超重型战列舰迭代系列 ---
+
+    # 第一代：对马级
+    JAP_bb_tsushima_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_super_heavy_1
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_armor_slot = ship_armor_shbb
+                fixed_ship_battery_slot = ship_super_heavy_battery_1
+                fixed_ship_engine_slot = heavy_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_super_heavy_battery_1
+                front_2_custom_slot = ship_super_heavy_battery_1
+                mid_1_custom_slot = ship_anti_air_3
+                mid_2_custom_slot = ship_anti_air_3
+                mid_3_custom_slot = ship_anti_air_3
+                rear_1_custom_slot = ship_super_heavy_battery_1
+                rear_2_custom_slot = ship_super_heavy_battery_1
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_armor_shbb
+            ship_super_heavy_battery_1
+            heavy_ship_engine_3
+            ship_fire_control_system_3
+            ship_radar_3
+            dp_ship_secondaries_3
+        }
+    }
+
+    # 第二代：尾张级
+    JAP_bb_owari_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_super_heavy_1
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_shbb
+                fixed_ship_battery_slot = ship_super_heavy_battery_1
+                fixed_ship_engine_slot = heavy_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_super_heavy_battery_1
+                front_2_custom_slot = ship_super_heavy_battery_1
+                mid_1_custom_slot = ship_anti_air_4
+                mid_2_custom_slot = ship_anti_air_4
+                mid_3_custom_slot = ship_anti_air_4
+                rear_1_custom_slot = ship_super_heavy_battery_1
+                rear_2_custom_slot = ship_super_heavy_battery_1
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_shbb
+            ship_super_heavy_battery_1
+            heavy_ship_engine_4
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+        }
+    }
+}
+# 日本重雷装巡洋舰设计集 - 职能锁定版
+JAP_torpedo_cruiser_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_clt # 锁定独立角色：重雷装巡洋舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 重雷装巡洋舰迭代系列 ---
+
+    # 第一代：北上级
+    JAP_clt_kitakami_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_torpedo_cruiser
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_medium_battery_3
+                fixed_ship_engine_slot = cruiser_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_torpedo_3
+                mid_1_custom_slot = ship_torpedo_3
+                mid_2_custom_slot = ship_torpedo_3
+                rear_1_custom_slot = ship_torpedo_3
+                rear_2_custom_slot = ship_anti_air_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_anti_air_3
+            ship_armor_cruiser_4
+            ship_medium_battery_3
+            cruiser_ship_engine_3
+            ship_fire_control_system_3
+            ship_radar_3
+            dp_ship_secondaries_3
+            ship_torpedo_3
+        }
+    }
+
+    # 第二代：大井级
+    JAP_clt_ooi_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_torpedo_cruiser
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_medium_battery_4
+                fixed_ship_engine_slot = cruiser_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_torpedo_4
+                mid_1_custom_slot = ship_torpedo_4
+                mid_2_custom_slot = ship_torpedo_4
+                rear_1_custom_slot = ship_torpedo_4
+                rear_2_custom_slot = ship_anti_air_4
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_medium_battery_4
+            cruiser_ship_engine_4
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+            ship_torpedo_4
+        }
+    }
+}
+# 日本重巡洋舰设计集 - 职能锁定版
+JAP_heavy_cruiser_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_ca # 锁定独立角色：重巡洋舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代重巡迭代系列 ---
+
+    # 第一代：青叶级 (基于1936中型船体)
+    JAP_ca_aoba_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_cruiser_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_armor_slot = ship_armor_cruiser_2
+                fixed_ship_battery_slot = ship_medium_battery_2
+                fixed_ship_engine_slot = cruiser_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+                fixed_ship_radar_slot = ship_radar_1
+                fixed_ship_secondaries_slot = dp_ship_secondaries_2
+                front_1_custom_slot = ship_medium_battery_2
+                mid_1_custom_slot = ship_torpedo_2
+                mid_2_custom_slot = ship_torpedo_2
+                rear_1_custom_slot = ship_medium_battery_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_armor_cruiser_2
+            ship_medium_battery_2
+            cruiser_ship_engine_2
+            ship_fire_control_system_1
+            ship_radar_1
+            dp_ship_secondaries_2
+            ship_torpedo_2
+        }
+    }
+
+    # 第二代：云仙级 (基于1940中型船体)
+    JAP_ca_unzen_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_cruiser_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_armor_slot = ship_armor_cruiser_3
+                fixed_ship_battery_slot = ship_medium_battery_3
+                fixed_ship_engine_slot = cruiser_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_medium_battery_3
+                mid_1_custom_slot = ship_torpedo_3
+                mid_2_custom_slot = ship_torpedo_3
+                rear_1_custom_slot = ship_anti_air_3
+                rear_2_custom_slot = ship_medium_battery_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_armor_cruiser_3
+            ship_medium_battery_3
+            cruiser_ship_engine_3
+            ship_fire_control_system_3
+            ship_radar_3
+            dp_ship_secondaries_3
+            ship_torpedo_3
+        }
+    }
+
+    # 第三代：吾妻级 (基于1944中型船体)
+    JAP_ca_azuma_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_cruiser_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_medium_battery_4
+                fixed_ship_engine_slot = cruiser_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = ship_medium_battery_4
+                mid_1_custom_slot = ship_torpedo_4
+                mid_2_custom_slot = ship_torpedo_4
+                rear_1_custom_slot = ship_anti_air_4
+                rear_2_custom_slot = ship_medium_battery_4
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_medium_battery_4
+            cruiser_ship_engine_4
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+            ship_torpedo_4
+        }
+    }
+}
+# 日本肉盾巡洋舰设计集 - 职能锁定版
+JAP_shield_light_cruiser_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_shield_cl # 锁定独立角色：肉盾巡洋舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代肉盾巡洋舰迭代系列 ---
+
+    # 第一代：太田级 (基于1936中型船体)
+    JAP_cl_ota_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_cruiser_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_battery_2
+                fixed_ship_engine_slot = cruiser_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_armor_cruiser_4
+            ship_light_battery_2
+            cruiser_ship_engine_2
+            ship_fire_control_system_0
+        }
+    }
+
+    # 第二代：菊池级 (基于1940中型船体)
+    JAP_cl_kikuchi_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_cruiser_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_battery_3
+                fixed_ship_engine_slot = cruiser_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_armor_cruiser_4
+            ship_light_battery_3
+            cruiser_ship_engine_3
+            ship_fire_control_system_0
+        }
+    }
+
+    # 第三代：鸣濑级 (基于1944中型船体)
+    JAP_cl_naruse_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_cruiser_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_battery_4
+                fixed_ship_engine_slot = cruiser_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_light_battery_4
+            cruiser_ship_engine_4
+            ship_fire_control_system_0
+        }
+    }
+}
+# 日本袭击轻巡洋舰设计集 - 职能锁定版
+JAP_strike_light_cruiser_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_strike_cl # 锁定独立角色：袭击轻巡洋舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代袭击轻巡洋舰迭代系列 ---
+
+    # 第一代：川内级 (基于1936中型船体)
+    JAP_cl_sendai_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_cruiser_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_armor_slot = ship_armor_cruiser_2
+                fixed_ship_battery_slot = ship_light_medium_battery_2
+                fixed_ship_engine_slot = cruiser_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                fixed_ship_radar_slot = ship_radar_1
+                fixed_ship_secondaries_slot = ship_secondaries_2
+                front_1_custom_slot = ship_light_medium_battery_2
+                mid_1_custom_slot = ship_light_medium_battery_2
+                mid_2_custom_slot = ship_torpedo_2
+                rear_1_custom_slot = ship_light_medium_battery_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_armor_cruiser_2
+            ship_light_medium_battery_2
+            cruiser_ship_engine_2
+            ship_fire_control_system_2
+            ship_radar_1
+            ship_secondaries_2
+            ship_airplane_launcher_2
+            ship_torpedo_2
+        }
+    }
+
+    # 第二代：酒匂级 (基于1940中型船体)
+    JAP_cl_sakawa_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_cruiser_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_medium_battery_3
+                fixed_ship_engine_slot = cruiser_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_light_medium_battery_3
+                mid_1_custom_slot = ship_torpedo_3
+                mid_2_custom_slot = ship_light_medium_battery_3
+                rear_1_custom_slot = ship_anti_air_3
+                rear_2_custom_slot = ship_light_medium_battery_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_armor_cruiser_4
+            ship_light_medium_battery_3
+            cruiser_ship_engine_3
+            ship_fire_control_system_3
+            ship_radar_3
+            dp_ship_secondaries_3
+            ship_torpedo_3
+        }
+    }
+
+    # 第三代：铃鹿级 (基于1944中型船体)
+    JAP_cl_suzuka_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_cruiser_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_medium_battery_4
+                fixed_ship_engine_slot = cruiser_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = dp_ship_medium_1
+                mid_1_custom_slot = ship_torpedo_4
+                mid_2_custom_slot = dp_ship_medium_1
+                rear_1_custom_slot = dp_ship_medium_1
+                rear_2_custom_slot = dp_ship_medium_1
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_light_medium_battery_4
+            cruiser_ship_engine_4
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+            dp_ship_medium_1
+            ship_torpedo_4
+        }
+    }
+}
+# 日本特遣轻巡洋舰设计集 - 职能锁定版
+JAP_task_light_cruiser_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_task_cl # 锁定独立角色：特遣轻巡
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代特遣轻巡迭代系列 ---
+
+    # 第一代：夕张级 (基于1936中型船体)
+    JAP_cl_yubari_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_cruiser_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_armor_slot = ship_armor_cruiser_2
+                fixed_ship_battery_slot = ship_light_medium_battery_2
+                fixed_ship_engine_slot = cruiser_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                fixed_ship_radar_slot = ship_radar_1
+                fixed_ship_secondaries_slot = ship_secondaries_2
+                front_1_custom_slot = ship_light_medium_battery_2
+                mid_1_custom_slot = ship_light_medium_battery_2
+                mid_2_custom_slot = ship_anti_air_2
+                rear_1_custom_slot = ship_light_medium_battery_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_armor_cruiser_2
+            ship_light_medium_battery_2
+            cruiser_ship_engine_2
+            ship_fire_control_system_2
+            ship_radar_1
+            ship_secondaries_2
+        }
+    }
+
+    # 第二代：四万十级 (基于1940中型船体)
+    JAP_cl_shimanto_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_cruiser_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_medium_battery_3
+                fixed_ship_engine_slot = cruiser_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_3
+                fixed_ship_secondaries_slot = dp_ship_secondaries_3
+                front_1_custom_slot = ship_light_medium_battery_3
+                mid_1_custom_slot = ship_light_medium_battery_3
+                mid_2_custom_slot = ship_light_medium_battery_3
+                rear_1_custom_slot = ship_anti_air_3
+                rear_2_custom_slot = ship_light_medium_battery_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_armor_cruiser_4
+            ship_light_medium_battery_3
+            cruiser_ship_engine_3
+            ship_fire_control_system_3
+            ship_radar_3
+            dp_ship_secondaries_3
+        }
+    }
+
+    # 第三代：能代级 (基于1944中型船体)
+    JAP_cl_noshiro_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_cruiser_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_armor_slot = ship_armor_cruiser_4
+                fixed_ship_battery_slot = ship_light_medium_battery_4
+                fixed_ship_engine_slot = cruiser_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                fixed_ship_radar_slot = ship_radar_4
+                fixed_ship_secondaries_slot = dp_ship_secondaries_4
+                front_1_custom_slot = dp_ship_medium_1
+                mid_1_custom_slot = dp_ship_medium_1
+                mid_2_custom_slot = dp_ship_medium_1
+                rear_1_custom_slot = dp_ship_medium_1
+                rear_2_custom_slot = dp_ship_medium_1
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_armor_cruiser_4
+            ship_light_medium_battery_4
+            cruiser_ship_engine_4
+            ship_fire_control_system_3
+            ship_radar_4
+            dp_ship_secondaries_4
+            dp_ship_medium_1
+        }
+    }
+}
+# 日本肉盾驱逐舰设计集 - 职能锁定版
+JAP_shield_destroyer_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_shield_dd # 锁定独立角色：肉盾驱逐舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代肉盾驱逐舰迭代系列 ---
+
+    # 第一代：夕云级 (基于1936轻型船体)
+    JAP_dd_yugumo_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_light_2
+            modules = {
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = light_ship_engine_2
+            }
+        }
+        allowed_modules = {
+            ship_light_battery_1
+            light_ship_engine_2
+        }
+    }
+
+    # 第二代：风云级 (基于1940轻型船体)
+    JAP_dd_kazagumo_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_light_3
+            modules = {
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = light_ship_engine_3
+            }
+        }
+        allowed_modules = {
+            ship_light_battery_1
+            light_ship_engine_3
+        }
+    }
+
+    # 第三代：青云级 (基于1944轻型船体)
+    JAP_dd_aogumo_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_light_4
+            modules = {
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = light_ship_engine_4
+            }
+        }
+        allowed_modules = {
+            ship_light_battery_1
+            light_ship_engine_4
+        }
+    }
+}
+# 日本护航驱逐舰设计集 - 职能锁定版
+JAP_escort_destroyer_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_escort_dd # 锁定独立角色：护航/反潜驱逐舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代护航驱逐舰迭代系列 ---
+
+    # 第一代：睦月级 (基于1936轻型船体)
+    JAP_dd_mutsuki_asw_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_light_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_battery_slot = ship_light_battery_2
+                fixed_ship_engine_slot = light_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_sonar_2
+                fixed_ship_radar_slot = ship_radar_2
+                fixed_ship_torpedo_slot = ship_torpedo_2
+                mid_1_custom_slot = ship_depth_charge_2
+                rear_1_custom_slot = ship_depth_charge_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_light_battery_2
+            light_ship_engine_2
+            ship_sonar_2
+            ship_radar_2
+            ship_torpedo_2
+            ship_depth_charge_2
+        }
+    }
+
+    # 第二代：秋月级 (基于1940轻型船体)
+    JAP_dd_akizuki_asw_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_light_3
+            modules = {
+            fixed_ship_anti_air_slot = ship_anti_air_3
+            fixed_ship_battery_slot = ship_light_battery_1
+            fixed_ship_engine_slot = light_ship_engine_3
+            fixed_ship_fire_control_system_slot = ship_sonar_3
+            front_1_custom_slot = ship_depth_charge_3
+            fixed_ship_torpedo_slot = ship_torpedo_3
+            mid_1_custom_slot = ship_torpedo_3
+            rear_1_custom_slot = ship_depth_charge_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_light_battery_1
+            light_ship_engine_3
+            ship_sonar_3
+            ship_depth_charge_3
+            ship_torpedo_3
+        }
+    }
+
+    # 第三代：水无月 (基于1944轻型船体)
+    JAP_dd_minazuki_asw_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_light_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+            fixed_ship_battery_slot = ship_light_battery_1
+            fixed_ship_engine_slot = light_ship_engine_4
+            fixed_ship_fire_control_system_slot = ship_sonar_4
+            front_1_custom_slot = ship_depth_charge_4
+            mid_1_custom_slot = ship_depth_charge_4
+            mid_2_custom_slot = ship_torpedo_4
+            fixed_ship_torpedo_slot = ship_torpedo_4
+            rear_1_custom_slot = ship_depth_charge_4
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_light_battery_1
+            light_ship_engine_4
+            ship_sonar_4
+            ship_depth_charge_4
+            ship_torpedo_4
+        }
+    }
+}
+# 日本雷击驱逐舰设计集 - 职能锁定版
+JAP_strike_destroyer_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_strike_dd # 锁定独立角色：雷击驱逐舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代雷击驱逐舰迭代系列 ---
+
+    # 第一代：雪风级 (基于1936轻型船体)
+    JAP_dd_yukikaze_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_light_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_battery_slot = ship_light_battery_2
+                fixed_ship_engine_slot = light_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_sonar_2
+                fixed_ship_radar_slot = ship_radar_2
+                fixed_ship_torpedo_slot = ship_torpedo_2
+                mid_1_custom_slot = ship_torpedo_2
+                rear_1_custom_slot = ship_torpedo_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_light_battery_2
+            light_ship_engine_2
+            ship_sonar_2
+            ship_radar_2
+            ship_torpedo_2
+        }
+    }
+
+    # 第二代：岛风级 (基于1940轻型船体)
+    JAP_dd_shimakaze_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_light_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = light_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_sonar_3
+                fixed_ship_torpedo_slot = ship_torpedo_3
+                mid_1_custom_slot = ship_torpedo_3
+                rear_1_custom_slot = ship_torpedo_3
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_light_battery_1
+            light_ship_engine_3
+            ship_sonar_3
+            ship_torpedo_3
+        }
+    }
+
+    # 第三代：汐风 (基于1944轻型船体)
+    JAP_dd_shiokaze_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_light_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = light_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_sonar_4
+                fixed_ship_torpedo_slot = ship_torpedo_4
+                mid_1_custom_slot = ship_torpedo_4
+                mid_2_custom_slot = ship_torpedo_4
+                rear_1_custom_slot = ship_torpedo_4
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_light_battery_1
+            light_ship_engine_4
+            ship_sonar_4
+            ship_torpedo_4
+        }
+    }
+}
+# 日本巡洋/舰队潜艇设计集 - 职能锁定版
+JAP_submarine_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_ss # 锁定独立角色：常规/巡洋/舰队潜艇
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代潜艇迭代系列 ---
+
+    # 第一代：伊19 (基于巡洋潜艇舰体)
+    JAP_ss_i19_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_cruiser_submarine
+            modules = {
+                fixed_ship_engine_slot = sub_ship_engine_2
+                fixed_ship_torpedo_slot = ship_torpedo_sub_2
+                front_1_custom_slot = ship_torpedo_sub_2
+                mid_1_custom_slot = ship_sub_snorkel_2
+                rear_1_custom_slot = ship_torpedo_sub_2
+            }
+        }
+        allowed_modules = {
+            sub_ship_engine_2
+            ship_torpedo_sub_2
+            ship_sub_snorkel_2
+        }
+    }
+
+    # 第二代：伊13 (基于舰队潜艇舰体)
+    JAP_ss_i13_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_fleet_submarine
+            modules = {
+                fixed_ship_engine_slot = ship_engine_sub_aip_2
+                fixed_ship_torpedo_slot = ship_torpedo_sub_3
+                front_1_custom_slot = ship_torpedo_sub_3
+                mid_1_custom_slot = ship_anechoic_tile
+                rear_1_custom_slot = ship_torpedo_sub_3
+            }
+        }
+        allowed_modules = {
+            ship_engine_sub_aip_2
+            ship_torpedo_sub_3
+            ship_anechoic_tile
+        }
+    }
+
+    # 第三代：伊16 (基于舰队潜艇舰体)
+    JAP_ss_i16_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_fleet_submarine
+            modules = {
+                fixed_ship_engine_slot = ship_engine_sub_aip_3
+                fixed_ship_torpedo_slot = ship_torpedo_sub_4
+                front_1_custom_slot = ship_torpedo_sub_4
+                mid_1_custom_slot = ship_anechoic_tile
+                rear_1_custom_slot = ship_torpedo_sub_4
+            }
+        }
+        allowed_modules = {
+            ship_engine_sub_aip_3
+            ship_torpedo_sub_4
+            ship_anechoic_tile
+        }
+    }
+}
+# 日本潜水空母设计集 - 职能锁定版
+JAP_ss_carrier_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_ss_cv # 锁定独立角色：潜水空母
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # 伊404 (基于潜水空母舰体)
+    JAP_ss_i404_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_carrier_submarine
+            modules = {
+                fixed_ship_engine_slot = ship_engine_sub_aip_3
+                fixed_ship_torpedo_slot = ship_torpedo_sub_3
+                mid_1_custom_slot = ship_anechoic_tile
+                rear_1_custom_slot = ship_submarine_deck_space
+            }
+        }
+        allowed_modules = {
+            ship_engine_sub_aip_3
+            ship_torpedo_sub_3
+            ship_anechoic_tile
+            ship_submarine_deck_space
+        }
+    }
+}
+# 日本巡逻轻巡洋舰设计集 - 职能锁定版
+JAP_patrol_light_cruiser_designs = {
+    category = naval
+
+    available_for = { 
+        JAP
+    }
+
+    roles = {
+        rance_patrol_cl # 锁定独立角色：巡逻巡洋舰
+    }
+
+    priority = {
+        factor = 888
+    }
+
+    # --- 三代巡逻轻巡迭代系列 ---
+
+    # 第一代：小丸级 (基于1936中型船体)
+    JAP_cl_komaru_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 10000
+            type = ship_hull_cruiser_2
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_2
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = cruiser_ship_engine_2
+                fixed_ship_fire_control_system_slot = ship_sonar_2
+                fixed_ship_radar_slot = ship_radar_2
+                mid_1_custom_slot = ship_airplane_launcher_2
+                mid_2_custom_slot = ship_airplane_launcher_2
+                rear_1_custom_slot = ship_airplane_launcher_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_2
+            ship_light_battery_1
+            cruiser_ship_engine_2
+            ship_sonar_2
+            ship_radar_2
+            ship_airplane_launcher_2
+        }
+    }
+
+    # 第二代：吉野级 (基于1940中型船体)
+    JAP_cl_yoshino_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 20000
+            type = ship_hull_cruiser_3
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_3
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = cruiser_ship_engine_3
+                fixed_ship_fire_control_system_slot = ship_sonar_3
+                fixed_ship_radar_slot = ship_radar_3
+                mid_1_custom_slot = ship_airplane_launcher_2
+                mid_2_custom_slot = ship_airplane_launcher_2
+                rear_1_custom_slot = ship_airplane_launcher_2
+                rear_2_custom_slot = ship_airplane_launcher_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_3
+            ship_light_battery_1
+            cruiser_ship_engine_3
+            ship_sonar_3
+            ship_radar_3
+            ship_airplane_launcher_2
+        }
+    }
+
+    # 第三代：自来也 (基于1944中型船体)
+    JAP_cl_jiraiya_design = {
+        priority = {
+            factor = 888
+        }
+        target_variant = {
+            match_value = 30000
+            type = ship_hull_cruiser_4
+            modules = {
+                fixed_ship_anti_air_slot = ship_anti_air_4
+                fixed_ship_battery_slot = ship_light_battery_1
+                fixed_ship_engine_slot = cruiser_ship_engine_4
+                fixed_ship_fire_control_system_slot = ship_sonar_4
+                fixed_ship_radar_slot = ship_radar_4
+                mid_1_custom_slot = ship_airplane_launcher_2
+                mid_2_custom_slot = ship_airplane_launcher_2
+                rear_1_custom_slot = ship_airplane_launcher_2
+                rear_2_custom_slot = ship_airplane_launcher_2
+            }
+        }
+        allowed_modules = {
+            ship_anti_air_4
+            ship_light_battery_1
+            cruiser_ship_engine_4
+            ship_sonar_4
+            ship_radar_4
+            ship_airplane_launcher_2
+        }
+    }
+}

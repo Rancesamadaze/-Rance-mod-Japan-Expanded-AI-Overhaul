@@ -1,0 +1,31 @@
+# Outer HOI4 mod-folder repository whitelist.
+# Ignore every sibling mod and launcher descriptor by default.
+/*
+
+# Keep root coordination files for this repository.
+!/.gitignore
+!/.gitattributes
+!/AGENTS.md
+
+# Main test version and launcher descriptor.
+!/Japan_rework/
+!/Japan_rework/**
+!/Japan_rework.mod
+
+# Formal three-language release copies and launcher descriptors.
+!/rance_jap_chinese/
+!/rance_jap_chinese/**
+!/rance_jap_chinese.mod
+
+!/rance_jap_english/
+!/rance_jap_english/**
+!/rance_jap_english.mod
+
+!/rance_jap_japenese/
+!/rance_jap_japenese/**
+!/rance_jap_japenese.mod
+
+# Never mix nested repositories into this outer repository.
+**/.git
+**/.git/
+**/.git/**

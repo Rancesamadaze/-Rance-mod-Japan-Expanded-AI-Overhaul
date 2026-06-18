@@ -1,0 +1,1280 @@
+# ###############################AI生产策略：陆军部分###############################
+# #尝试新写法
+# # =================================================================
+# # --- 1.1 火炮装备 (Artillery Equipment) ---
+# # 逻辑：非关键装备 (0.75 - 0.9 / 1.1 - 1.0)
+# # =================================================================
+
+# # 火炮增产策略
+# # Rance_jap_artillery_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50  # 增产开启门槛
+# #         # 数据填充与逻辑判定
+# #         set_temp_variable = { r_ratio = num_equipment@artillery_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@artillery_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@artillery_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_non_critical_start_increase }
+# #     }
+# #     abort = {
+# #         # 数据填充与逻辑判定
+# #         set_temp_variable = { r_ratio = num_equipment@artillery_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@artillery_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@artillery_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_non_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = artillery_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = artillery_equipment value = 25 }
+# # }
+
+# # 火炮减产策略
+# Rance_jap_artillery_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         # 数据填充与逻辑判定
+#         set_temp_variable = { r_ratio = num_equipment@artillery_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@artillery_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@artillery_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_non_critical_start_decline }
+#     }
+#     abort = {
+#         # 数据填充与逻辑判定
+#         set_temp_variable = { r_ratio = num_equipment@artillery_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@artillery_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@artillery_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_non_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = artillery_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = artillery_equipment value = -100 }
+# }
+
+# # =================================================================
+# # --- 1.2 防空装备 (Anti-Air Equipment) ---
+# # =================================================================
+
+# # Rance_jap_anti_air_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@anti_air_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_air_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_non_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@anti_air_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_air_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_non_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = anti_air_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = anti_air_equipment value = 25 }
+# # }
+
+# Rance_jap_anti_air_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@anti_air_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_air_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_non_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@anti_air_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_air_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_air_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_non_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = anti_air_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = anti_air_equipment value = -100 }
+# }
+
+# # =================================================================
+# # --- 1.3 反坦克装备 (Anti-Tank Equipment) ---
+# # =================================================================
+
+# # Rance_jap_anti_tank_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@anti_tank_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_non_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@anti_tank_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_non_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = anti_tank_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = anti_tank_equipment value = 25 }
+# # }
+
+# Rance_jap_anti_tank_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@anti_tank_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_non_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@anti_tank_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@anti_tank_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@anti_tank_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_non_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = anti_tank_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = anti_tank_equipment value = -100 }
+# }
+# ####既然都用决议发炮装备了，那么产能就砍掉吧jap_artillery_equipment_reduce_after_1938
+# Rance_jap_artillery_equipment_reduce_after_1938 = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         date > 1938.6.1
+#     }
+#     abort_when_not_enabled = yes
+#     ai_strategy = { type = equipment_variant_production_factor id = artillery_equipment value = -50 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = artillery_equipment value = -50 }
+# }
+# Rance_jap_anti_air_equipment_reduce_after_1938 = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         date > 1938.6.1
+#     }
+#     abort_when_not_enabled = yes
+#     ai_strategy = { type = equipment_variant_production_factor id = anti_air_equipment value = -50 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = anti_air_equipment value = -50 }
+# }
+# Rance_jap_anti_tank_equipment_reduce_after_1938 = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         date > 1938.6.1
+#     }
+#     abort_when_not_enabled = yes
+#     ai_strategy = { type = equipment_variant_production_factor id = anti_tank_equipment value = -50 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = anti_tank_equipment value = -50 }
+# }
+# # =================================================================
+# # --- 2.1.1     装备 (Infantry Equipment) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1)
+# # =================================================================
+
+# # 步兵装备增产
+# # Rance_jap_infantry_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = infantry_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = infantry_equipment value = 25 }
+# # }
+
+# # 步兵装备减产
+# Rance_jap_infantry_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@infantry_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@infantry_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@infantry_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = infantry_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = infantry_equipment value = -100 }
+# }
+
+# # =================================================================
+# # --- 2.1.2 支援装备 (Support Equipment) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1)
+# # =================================================================
+
+# # 支援装备增产
+# # Rance_jap_support_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@support_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@support_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = support_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = support_equipment value = 25 }
+# # }
+
+# # 支援装备减产
+# Rance_jap_support_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@support_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@support_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@support_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@support_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = support_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = support_equipment value = -100 }
+# }
+
+# # =================================================================
+# # --- 2.1.3 直升机装备 (Helicopter Equipment) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1)
+# # =================================================================
+
+# # 直升机增产
+# # Rance_jap_helicopter_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = helicopter_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = helicopter_equipment value = 25 }
+# # }
+
+# # 直升机减产
+# Rance_jap_helicopter_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@helicopter_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@helicopter_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@helicopter_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = helicopter_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = helicopter_equipment value = -100 }
+# }
+
+# # =================================================================
+# # --- 2.2.1 装甲支援车 (Armored Support Vehicle) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1)
+# # =================================================================
+
+# # 装甲支援车增产
+# # Rance_jap_armored_support_vehicle_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = armored_support_vehicle value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = armored_support_vehicle value = 25 }
+# # }
+
+# # 装甲支援车减产
+# Rance_jap_armored_support_vehicle_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@armored_support_vehicle }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@armored_support_vehicle }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@armored_support_vehicle }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = armored_support_vehicle value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = armored_support_vehicle value = -100 }
+# }
+
+# # =================================================================
+# # --- 2.2.2 中型喷火坦克底盘 (Medium Flame Tank Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1)
+# # =================================================================
+
+# # 中型喷火坦克增产
+# # Rance_jap_medium_tank_flame_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_flame_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_flame_chassis value = 25 }
+# # }
+
+# # 中型喷火坦克减产
+# Rance_jap_medium_tank_flame_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_flame_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_flame_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_flame_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_flame_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_flame_chassis value = -100 }
+# }
+# # =================================================================
+# # --- 3.1 机械化装备 (Mechanized Equipment) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 难度限制：Easy+ | 保底：40
+# # =================================================================
+
+# # 机械化装备增产
+# # Rance_jap_mechanized_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         Rance_nd_more_than_easy = yes  # 难度判定：高于简单难度才大规模增产
+        
+# #         # 盈余率计算
+# #         set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = mechanized_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = mechanized_equipment value = 40 }
+# # }
+
+# # 机械化装备减产
+# Rance_jap_mechanized_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@mechanized_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@mechanized_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@mechanized_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = mechanized_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = mechanized_equipment value = -100 }
+# }
+
+# # =================================================================
+# # --- 3.2 两栖机械化装备 (Amphibious Mechanized Equipment) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 难度限制：Easy+ | 保底：40
+# # =================================================================
+
+# # 两栖机械化装备增产
+# # Rance_jap_amphibious_mechanized_equipment_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         Rance_nd_more_than_easy = yes
+        
+# #         set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = amphibious_mechanized_equipment value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = amphibious_mechanized_equipment value = 40 }
+# # }
+
+# # 两栖机械化装备减产
+# Rance_jap_amphibious_mechanized_equipment_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@amphibious_mechanized_equipment }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@amphibious_mechanized_equipment }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@amphibious_mechanized_equipment }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = amphibious_mechanized_equipment value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = amphibious_mechanized_equipment value = -100 }
+# }
+# # =================================================================
+# # --- 4.1.1 中型坦克底盘 (Medium Tank Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 保底：60
+# # =================================================================
+
+# # 中型坦克底盘增产
+# # Rance_jap_medium_tank_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         # 盈余率计算
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_chassis value = 60 }
+# # }
+
+# # 中型坦克底盘减产
+# Rance_jap_medium_tank_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_chassis value = -100 }
+# }
+
+# # =================================================================
+# # --- 4.1.2 中型坦克歼击车 (Medium Tank Destroyer Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 保底：60
+# # =================================================================
+
+# # 中型坦克歼击车增产
+# # Rance_jap_medium_tank_destroyer_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_destroyer_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_destroyer_chassis value = 60 }
+# # }
+
+# # 中型坦克歼击车减产
+# Rance_jap_medium_tank_destroyer_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_destroyer_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_destroyer_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_destroyer_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_destroyer_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_destroyer_chassis value = -100 }
+# }
+
+# # =================================================================
+# # --- 4.1.3 中型自行防空炮 (Medium Tank AA Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 保底：60
+# # =================================================================
+
+# # 中型自行防空炮增产
+# # Rance_jap_medium_tank_aa_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_aa_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_aa_chassis value = 60 }
+# # }
+
+# # 中型自行防空炮减产
+# Rance_jap_medium_tank_aa_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_aa_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_aa_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_aa_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_aa_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_aa_chassis value = -100 }
+# }
+
+# # =================================================================
+# # --- 4.1.4 两栖中型坦克 (Medium Tank Amphibious Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 保底：60
+# # =================================================================
+
+# # 两栖中型坦克增产
+# # Rance_jap_medium_tank_amphibious_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_amphibious_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_amphibious_chassis value = 60 }
+# # }
+
+# # 两栖中型坦克减产
+# Rance_jap_medium_tank_amphibious_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@medium_tank_amphibious_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@medium_tank_amphibious_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@medium_tank_amphibious_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = medium_tank_amphibious_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_amphibious_chassis value = -100 }
+# }     
+# # =================================================================
+# # --- 5.1.1 重型坦克底盘 (Heavy Tank Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 难度限制：Normal+ | 保底：60
+# # =================================================================
+
+# # 重型坦克底盘增产
+# # Rance_jap_heavy_tank_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         Rance_nd_more_than_normal = yes  # 难度判定：高于普通难度才生产重型坦克
+        
+# #         # 盈余率计算：(库存/1000 + 现役量) / (需求量 + 0.01)
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_chassis value = 60 }
+# # }
+
+# # 重型坦克底盘减产
+# Rance_jap_heavy_tank_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_chassis value = -100 }
+# }
+
+# # =================================================================
+# # --- 5.1.2 重型坦克歼击车 (Heavy Tank Destroyer Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 难度限制：Normal+ | 保底：60
+# # =================================================================
+
+# # 重型坦克歼击车增产
+# # Rance_jap_heavy_tank_destroyer_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         Rance_nd_more_than_normal = yes
+        
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_destroyer_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_destroyer_chassis value = 60 }
+# # }
+
+# # 重型坦克歼击车减产
+# Rance_jap_heavy_tank_destroyer_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_destroyer_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_destroyer_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_destroyer_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_destroyer_chassis value = -100 }
+# }
+
+# # =================================================================
+# # --- 5.1.3 重型自行防空炮 (Heavy Tank AA Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 难度限制：Normal+ | 保底：60
+# # =================================================================
+
+# # 重型自行防空炮增产
+# # Rance_jap_heavy_tank_aa_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         Rance_nd_more_than_normal = yes
+        
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_aa_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_aa_chassis value = 60 }
+# # }
+
+# # 重型自行防空炮减产
+# Rance_jap_heavy_tank_aa_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_aa_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_aa_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_aa_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_aa_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_aa_chassis value = -100 }
+# }
+
+# # =================================================================
+# # --- 5.1.4 两栖重型坦克 (Heavy Tank Amphibious Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) | 难度限制：Normal+ | 保底：60
+# # =================================================================
+
+# # 两栖重型坦克增产
+# # Rance_jap_heavy_tank_amphibious_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 50
+# #         Rance_nd_more_than_normal = yes
+        
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_amphibious_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_amphibious_chassis value = 60 }
+# # }
+
+# # 两栖重型坦克减产
+# Rance_jap_heavy_tank_amphibious_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         set_temp_variable = { r_ratio = num_equipment@heavy_tank_amphibious_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@heavy_tank_amphibious_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = heavy_tank_amphibious_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = heavy_tank_amphibious_chassis value = -100 }
+# }
+# # =================================================================
+# # --- 6.1.1 陆地巡洋舰底盘 (Land Cruiser Chassis) ---
+# # 逻辑：关键装备 (0.9 - 1.15 / 1.3 - 1.1) 
+# # 难度限制：Lunatic+ | 工业门槛：200厂 | 保底：100
+# # =================================================================
+
+# # 陆地巡洋舰增产
+# # Rance_jap_land_cruiser_chassis_increase = {
+# #     allowed = { original_tag = JAP }
+# #     enable = {
+# #         num_of_military_factories > 200  # 战略级工业门槛
+# #         Rance_nd_more_than_lunatic = yes # 难度判定：仅在最高难度下启动此终极方案
+        
+# #         # 实时盈余率计算
+# #         set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         # 关键装备增产判定：使用 history 定义的全局变量
+# #         check_variable = { r_ratio < Rance_critical_start_increase }
+# #     }
+# #     abort = {
+# #         # 实时盈余率计算
+# #         set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+# #         divide_temp_variable = { r_ratio = 1000 }
+# #         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+# #         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+# #         add_to_temp_variable = { r_denom = 0.01 }
+# #         divide_temp_variable = { r_ratio = r_denom }
+
+# #         # 关键装备停止增产判定
+# #         check_variable = { r_ratio > Rance_critical_stop_increase }
+# #     }
+# #     ai_strategy = { type = equipment_variant_production_factor id = land_cruiser_chassis value = 50 }
+# #     ai_strategy = { type = equipment_production_min_factories_archetype id = land_cruiser_chassis value = 100 }
+# # }
+
+# # 陆地巡洋舰减产
+# Rance_jap_land_cruiser_chassis_decline = {
+#     allowed = { original_tag = JAP }
+#     enable = {
+#         # 实时盈余率计算
+#         set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         # 关键装备开始减产判定
+#         check_variable = { r_ratio > Rance_critical_start_decline }
+#     }
+#     abort = {
+#         # 实时盈余率计算
+#         set_temp_variable = { r_ratio = num_equipment@land_cruiser_chassis }
+#         divide_temp_variable = { r_ratio = 1000 }
+#         add_to_temp_variable = { r_ratio = num_equipment_in_armies_k@land_cruiser_chassis }
+#         set_temp_variable = { r_denom = num_target_equipment_in_armies_k@land_cruiser_chassis }
+#         add_to_temp_variable = { r_denom = 0.01 }
+#         divide_temp_variable = { r_ratio = r_denom }
+
+#         # 关键装备停止减产判定
+#         check_variable = { r_ratio < Rance_critical_stop_decline }
+#     }
+#     ai_strategy = { type = equipment_variant_production_factor id = land_cruiser_chassis value = -100 }
+#     ai_strategy = { type = equipment_production_min_factories_archetype id = land_cruiser_chassis value = -100 }
+# }
+# # # =================================================================
+# # # --- 7.1.1 摩托化装备赤字紧急增产 (Motorized Equipment) ---
+# # # 逻辑：库存跌破 0 开启 / 超过 2500 停止 | 保底：20
+# # # =================================================================
+
+# # operations_equipment_management_JAP_motorized_equipment_increase = {
+# #     allowed = {
+# #         original_tag = JAP
+# #     }
+# #     enable = {
+# #         num_of_military_factories > 50  # 增产门槛：至少 51 厂
+# #         check_variable = {
+# #             num_equipment@motorized_equipment < 0 
+# #         }
+# #     }
+# #     abort = {
+# #         # 当库存恢复至 2500 以上时中止紧急生产
+# #         check_variable = {
+# #             num_equipment@motorized_equipment > 2500
+# #         }
+# #     }
+    
+# #     ai_strategy = {
+# #         type = equipment_production_min_factories_archetype
+# #         id = motorized_equipment
+# #         value = 20
+# #     }
+# # }
+# # operations_equipment_management_JAP_motorized_equipment_decline = {
+# #     allowed = {
+# #         original_tag = JAP
+# #     }
+# #     enable = {
+       
+# #         check_variable = {
+# #             num_equipment@motorized_equipment > 4000
+# #         }
+# #     }
+# #     abort = {
+       
+# #         check_variable = {
+# #             num_equipment@motorized_equipment < 1500
+# #         }
+# #     }
+    
+# #     ai_strategy = {
+# #         type = equipment_variant_production_factor
+# #         id = motorized_equipment
+# #         value = -99999
+# #     }
+# #     ai_strategy = {
+# #         type = equipment_production_factor
+# #         id = motorized_equipment_1
+# #         value = -99999
+# #     }
+# #     ai_strategy = {
+# #         type = equipment_production_min_factories_archetype
+# #         id = motorized_equipment
+# #         value = -99999
+# #     }
+# # }
+# # =================================================================
+# # --- 7.1.2 铁路运输装备赤字紧急增产 (Train Equipment) ---
+# # 逻辑：库存跌破 0 开启 / 超过 500 停止 | 保底：20
+# # =================================================================
+
+# operations_equipment_management_JAP_train_equipment_increase = {
+#     allowed = {
+#         original_tag = JAP
+#     }
+#     enable = {
+#         num_of_military_factories > 50  # 增产门槛：至少 51 厂
+#         check_variable = {
+#             num_equipment@train_equipment < 0 
+#         }
+#     }
+#     abort = {
+#         # 当火车库存恢复至 500 以上时中止紧急生产
+#         check_variable = {
+#             num_equipment@train_equipment > 500
+#         }
+#     }
+    
+#     ai_strategy = {
+#         type = equipment_production_min_factories_archetype
+#         id = train_equipment
+#         value = 20
+#     }
+    
+# }
+
+# # =================================================================

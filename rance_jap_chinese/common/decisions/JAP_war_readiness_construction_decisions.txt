@@ -1,0 +1,2271 @@
+JAP_rework_war_readiness_construction_decisions = {
+	JAP_war_readiness_expand_lushun_naval_base = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_lushun_naval_base_completed } }
+			745 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			745 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				745 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					745 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				745 = {
+					add_building_construction = {
+						type = naval_base
+						province = 1150
+						level = 5
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_lushun_naval_base_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_manchurian_soviet_border_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_border_supply_network_completed } }
+			328 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			714 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			716 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			717 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			761 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			328 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			714 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			716 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			717 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			761 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					328 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					714 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					716 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					717 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					761 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					328 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					714 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					716 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					717 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					761 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7743
+					target_province = 12537
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4506
+					target_province = 12548
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4506
+					target_province = 11771
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4506
+					target_province = 12537
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12537
+					target_province = 12548
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12548
+					target_province = 10215
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 6811
+					target_province = 10215
+				}
+				328 = {
+					add_building_construction = {
+						type = air_base
+						level = 10
+						instant_build = yes
+					}
+				}
+				714 = {
+					add_building_construction = {
+						type = air_base
+						level = 10
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 12548
+						instant_build = yes
+					}
+				}
+				717 = {
+					add_building_construction = {
+						type = air_base
+						level = 10
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 10215
+						instant_build = yes
+					}
+				}
+				761 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 12537
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_manchurian_soviet_border_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_manchurian_soviet_forward_supply_links = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_border_supply_network_completed }
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_completed } }
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_7743_4677_rail_completed } }
+					}
+					controls_province = 4677
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_4506_4725_rail_completed } }
+					}
+					controls_province = 4725
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10433_957_rail_completed } }
+					}
+					controls_province = 957
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10215_12189_rail_completed } }
+					}
+					controls_province = 12189
+				}
+			}
+		}
+		available = {
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_7743_4677_rail_completed } }
+					}
+					controls_province = 7743
+					controls_province = 4677
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_4506_4725_rail_completed } }
+					}
+					controls_province = 4506
+					controls_province = 4725
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10433_957_rail_completed } }
+					}
+					controls_province = 10433
+					controls_province = 957
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10215_12189_rail_completed } }
+					}
+					controls_province = 10215
+					controls_province = 12189
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_7743_4677_rail_completed } }
+						}
+						controls_province = 7743
+						controls_province = 4677
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_4506_4725_rail_completed } }
+						}
+						controls_province = 4506
+						controls_province = 4725
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10433_957_rail_completed } }
+						}
+						controls_province = 10433
+						controls_province = 957
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10215_12189_rail_completed } }
+						}
+						controls_province = 10215
+						controls_province = 12189
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_7743_4677_rail_completed } }
+					}
+					controls_province = 7743
+					controls_province = 4677
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7743
+					target_province = 4677
+				}
+				JAP = { set_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_7743_4677_rail_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_4506_4725_rail_completed } }
+					}
+					controls_province = 4506
+					controls_province = 4725
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4506
+					target_province = 4725
+				}
+				JAP = { set_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_4506_4725_rail_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10433_957_rail_completed } }
+					}
+					controls_province = 10433
+					controls_province = 957
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10433
+					target_province = 957
+				}
+				JAP = { set_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10433_957_rail_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10215_12189_rail_completed } }
+					}
+					controls_province = 10215
+					controls_province = 12189
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10215
+					target_province = 12189
+				}
+				JAP = { set_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10215_12189_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_7743_4677_rail_completed }
+					JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_4506_4725_rail_completed }
+					JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10433_957_rail_completed }
+					JAP = { has_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_10215_12189_rail_completed }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_manchurian_soviet_forward_supply_links_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_vladivostok_naval_railway_base = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_completed } }
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_6833_naval_base_completed } }
+					}
+					controls_province = 6833
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_957_6833_rail_completed } }
+					}
+					408 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		available = {
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_6833_naval_base_completed } }
+					}
+					controls_province = 6833
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_957_6833_rail_completed } }
+					}
+					408 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_6833_naval_base_completed } }
+						}
+						controls_province = 6833
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_957_6833_rail_completed } }
+						}
+						408 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_6833_naval_base_completed } }
+					}
+					controls_province = 6833
+				}
+				408 = {
+					add_building_construction = {
+						type = naval_base
+						province = 6833
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_6833_naval_base_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_957_6833_rail_completed } }
+					}
+					408 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 957
+					target_province = 6833
+				}
+				JAP = { set_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_957_6833_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_6833_naval_base_completed }
+					JAP = { has_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_957_6833_rail_completed }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_vladivostok_naval_railway_base_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_khabarovsk_coastal_naval_railway_bases = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_completed } }
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_9604_naval_base_completed } }
+					}
+					controls_province = 9604
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_4841_naval_base_completed } }
+					}
+					controls_province = 4841
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_9604_rail_completed } }
+					}
+					409 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_4841_rail_completed } }
+					}
+					409 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		available = {
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_9604_naval_base_completed } }
+					}
+					controls_province = 9604
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_4841_naval_base_completed } }
+					}
+					controls_province = 4841
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_9604_rail_completed } }
+					}
+					409 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_4841_rail_completed } }
+					}
+					409 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_9604_naval_base_completed } }
+						}
+						controls_province = 9604
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_4841_naval_base_completed } }
+						}
+						controls_province = 4841
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_9604_rail_completed } }
+						}
+						409 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_4841_rail_completed } }
+						}
+						409 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_9604_naval_base_completed } }
+					}
+					controls_province = 9604
+				}
+				409 = {
+					add_building_construction = {
+						type = naval_base
+						province = 9604
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_9604_naval_base_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_4841_naval_base_completed } }
+					}
+					controls_province = 4841
+				}
+				409 = {
+					add_building_construction = {
+						type = naval_base
+						province = 4841
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_4841_naval_base_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_9604_rail_completed } }
+					}
+					409 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12189
+					target_province = 9604
+				}
+				JAP = { set_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_9604_rail_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_4841_rail_completed } }
+					}
+					409 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12189
+					target_province = 4841
+				}
+				JAP = { set_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_4841_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_9604_naval_base_completed }
+					JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_4841_naval_base_completed }
+					JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_9604_rail_completed }
+					JAP = { has_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_12189_4841_rail_completed }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_khabarovsk_coastal_naval_railway_bases_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_jidong_air_naval_base = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_jidong_air_naval_base_completed } }
+			609 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			609 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				609 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					609 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 11822
+					target_province = 12043
+				}
+				609 = {
+					add_building_construction = {
+						type = air_base
+						level = 10
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 12043
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_jidong_air_naval_base_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_bailingmiao_jidong_railway = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_bailingmiao_jidong_railway_completed } }
+			1043 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			611 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			610 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			609 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			1043 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			611 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			610 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			609 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					1043 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					611 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					610 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					609 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					1043 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					611 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					610 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					609 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12331
+					target_province = 10397
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10397
+					target_province = 11822
+				}
+				1043 = {
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+				611 = {
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_bailingmiao_jidong_railway_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_bailingmiao_suiyuan_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_bailingmiao_suiyuan_supply_network_completed } }
+			1043 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			611 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			621 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			1043 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			611 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			621 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					1043 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					611 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					621 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					1043 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					611 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					621 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12331
+					target_province = 7631
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10397
+					target_province = 7631
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12331
+					target_province = 10629
+				}
+				621 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 7631
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 10629
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_bailingmiao_suiyuan_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_jidong_hebei_railway_corridor = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_jidong_hebei_railway_corridor_completed } }
+			OR = {
+				AND = {
+					controls_province = 12043
+					controls_province = 10068
+				}
+				AND = {
+					609 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+					608 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+					614 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+				}
+			}
+		}
+		available = {
+			OR = {
+				AND = {
+					controls_province = 12043
+					controls_province = 10068
+					controls_province = 11761
+					controls_province = 9843
+					controls_province = 4140
+					controls_province = 12026
+					controls_province = 7109
+					controls_province = 1188
+					controls_province = 4190
+				}
+				AND = {
+					609 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					608 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					614 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					AND = {
+						controls_province = 12043
+						controls_province = 10068
+						controls_province = 11761
+						controls_province = 9843
+						controls_province = 4140
+						controls_province = 12026
+						controls_province = 7109
+						controls_province = 1188
+						controls_province = 4190
+					}
+					AND = {
+						609 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+						608 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+						614 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							controls_province = 12043
+							controls_province = 10068
+							controls_province = 11761
+							controls_province = 9843
+							controls_province = 4140
+							controls_province = 12026
+							controls_province = 7109
+							controls_province = 1188
+							controls_province = 4190
+						}
+						AND = {
+							609 = {
+								state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+							}
+							608 = {
+								state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+							}
+							614 = {
+								state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+							}
+						}
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12043
+					target_province = 10068
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10068
+					target_province = 4190
+				}
+				JAP = { set_country_flag = JAP_war_readiness_jidong_hebei_railway_corridor_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_shimen_henan_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_completed } }
+			OR = {
+				614 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				607 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			OR = {
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4190_4144_supply_completed } }
+					}
+					controls_province = 4190
+					controls_province = 1188
+					controls_province = 1169
+					controls_province = 4144
+				}
+				AND = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4144_10364_rail_completed } }
+					}
+					607 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				OR = {
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4190_4144_supply_completed } }
+						}
+						controls_province = 4190
+						controls_province = 1188
+						controls_province = 1169
+						controls_province = 4144
+					}
+					AND = {
+						hidden_trigger = {
+							NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4144_10364_rail_completed } }
+						}
+						607 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					controls_province = 4190
+					controls_province = 1188
+					controls_province = 1169
+					controls_province = 4144
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4190_4144_supply_completed } }
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 4190 1188 1169 4144 }
+				}
+				607 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 4144
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_shimen_henan_supply_network_4190_4144_supply_completed }
+			}
+			if = {
+				limit = {
+					hidden_trigger = {
+						NOT = { JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4144_10364_rail_completed } }
+					}
+					607 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 4144 1139 9958 10364 }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_shimen_henan_supply_network_4144_10364_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4190_4144_supply_completed }
+					JAP = { has_country_flag = JAP_war_readiness_shimen_henan_supply_network_4144_10364_rail_completed }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_shimen_henan_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_henan_hubei_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_henan_hubei_supply_network_completed } }
+			OR = {
+				607 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				620 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			controls_province = 10364
+			controls_province = 12012
+			controls_province = 7568
+			controls_province = 7580
+		}
+		cancel_trigger = {
+			NOT = {
+				AND = {
+					controls_province = 10364
+					controls_province = 12012
+					controls_province = 7568
+					controls_province = 7580
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					controls_province = 10364
+					controls_province = 12012
+					controls_province = 7568
+					controls_province = 7580
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10364
+					target_province = 7580
+				}
+				620 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 7580
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_henan_hubei_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_beiping_jinan_coastal_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_completed } }
+			JAP_war_readiness_beiping_jinan_all_segments_completed = no
+			JAP_war_readiness_beiping_jinan_has_supply_pivot = yes
+			JAP_war_readiness_beiping_jinan_has_forward_target = yes
+		}
+		available = {
+			JAP_war_readiness_beiping_jinan_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_beiping_jinan_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_beiping_jinan_12093_port_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10068
+					target_province = 12093
+				}
+				1038 = {
+					add_building_construction = {
+						type = naval_base
+						province = 12093
+						level = 5
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_12093_port_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_beiping_jinan_12093_1069_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 12093
+					target_province = 1069
+				}
+				JAP = { set_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_12093_1069_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_beiping_jinan_10068_1069_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10068
+					target_province = 1069
+				}
+				JAP = { set_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_10068_1069_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_beiping_jinan_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_beiping_jinan_coastal_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_qingdao_jiangsu_coastal_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_completed } }
+			JAP_war_readiness_qingdao_jiangsu_all_segments_completed = no
+			OR = {
+				controls_province = 1029
+				controls_province = 9953
+				controls_province = 10000
+				598 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			JAP_war_readiness_qingdao_jiangsu_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_qingdao_jiangsu_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_qingdao_jiangsu_1029_port_segment_ready = yes
+				}
+				598 = {
+					add_building_construction = {
+						type = naval_base
+						province = 1029
+						level = 5
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_1029_port_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_qingdao_jiangsu_9953_port_segment_ready = yes
+				}
+				598 = {
+					add_building_construction = {
+						type = naval_base
+						province = 9953
+						level = 5
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_9953_port_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_qingdao_jiangsu_7025_1029_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 7025 12055 1076 1029 }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_7025_1029_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_qingdao_jiangsu_1029_9953_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 1029
+					target_province = 9953
+				}
+				JAP = { set_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_1029_9953_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_qingdao_jiangsu_10000_1029_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 10000 4157 9971 1029 }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_10000_1029_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_qingdao_jiangsu_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_qingdao_jiangsu_coastal_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_shanghai_air_naval_base = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_shanghai_air_naval_base_completed } }
+			613 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			613 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				613 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					613 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				613 = {
+					add_building_construction = {
+						type = naval_base
+						province = 7014
+						level = 10
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_shanghai_air_naval_base_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_shanghai_suzhou_nanjing_railway = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_shanghai_suzhou_nanjing_railway_completed } }
+			613 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			1034 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			1035 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			613 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			1034 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			1035 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					613 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					1034 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					1035 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					613 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					1034 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					1035 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 7014 12052 10076 }
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 10076 7120 996 11913 }
+				}
+				JAP = { set_country_flag = JAP_war_readiness_shanghai_suzhou_nanjing_railway_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_ningbo_wenzhou_coastal_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_completed } }
+			JAP_war_readiness_ningbo_wenzhou_all_segments_completed = no
+			OR = {
+				controls_province = 1055
+				596 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			JAP_war_readiness_ningbo_wenzhou_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_ningbo_wenzhou_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_ningbo_wenzhou_1055_naval_base_segment_ready = yes
+				}
+				596 = {
+					add_building_construction = {
+						type = naval_base
+						province = 1055
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_1055_naval_base_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_ningbo_wenzhou_9974_1055_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 9974
+					target_province = 1055
+				}
+				JAP = { set_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_9974_1055_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_ningbo_wenzhou_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_ningbo_wenzhou_coastal_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_fujian_coastal_inland_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_completed } }
+			JAP_war_readiness_fujian_coastal_inland_all_segments_completed = no
+			OR = {
+				controls_province = 4196
+				controls_province = 7071
+				595 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				596 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				600 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			JAP_war_readiness_fujian_coastal_inland_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_fujian_coastal_inland_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_fujian_coastal_inland_4196_naval_base_segment_ready = yes
+				}
+				595 = {
+					add_building_construction = {
+						type = naval_base
+						province = 4196
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_4196_naval_base_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_fujian_coastal_inland_7071_naval_base_segment_ready = yes
+				}
+				595 = {
+					add_building_construction = {
+						type = naval_base
+						province = 7071
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_7071_naval_base_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_fujian_coastal_inland_595_internal_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4196
+					target_province = 7071
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4169
+					target_province = 10084
+				}
+				595 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 10084
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_595_internal_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_fujian_coastal_inland_1055_4196_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 1055
+					target_province = 4196
+				}
+				JAP = { set_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_1055_4196_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_fujian_coastal_inland_7199_10084_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7199
+					target_province = 10084
+				}
+				JAP = { set_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_7199_10084_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_fujian_coastal_inland_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_fujian_coastal_inland_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_nanjing_huangshan_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_nanjing_huangshan_supply_network_completed } }
+			OR = {
+				1035 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				749 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			controls_province = 11913
+			controls_province = 1099
+			controls_province = 1171
+			controls_province = 11937
+		}
+		cancel_trigger = {
+			NOT = {
+				AND = {
+					controls_province = 11913
+					controls_province = 1099
+					controls_province = 1171
+					controls_province = 11937
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					controls_province = 11913
+					controls_province = 1099
+					controls_province = 1171
+					controls_province = 11937
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 11913 1099 1171 11937 }
+				}
+				749 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 11937
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanjing_huangshan_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_changde_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_changde_supply_network_completed } }
+			750 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			750 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				750 = {
+					state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					750 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7101
+					target_province = 12414
+				}
+				750 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 12414
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_changde_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_northern_guangdong_hunan_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_northern_guangdong_hunan_supply_network_completed } }
+			OR = {
+				AND = {
+					controls_province = 9970
+					controls_province = 12014
+					controls_province = 12378
+					controls_province = 12053
+					controls_province = 10377
+				}
+				593 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				602 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			controls_province = 9970
+			controls_province = 12014
+			controls_province = 12378
+			controls_province = 12053
+			controls_province = 10377
+		}
+		cancel_trigger = {
+			NOT = {
+				AND = {
+					controls_province = 9970
+					controls_province = 12014
+					controls_province = 12378
+					controls_province = 12053
+					controls_province = 10377
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					controls_province = 9970
+					controls_province = 12014
+					controls_province = 12378
+					controls_province = 12053
+					controls_province = 10377
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					path = { 9970 12014 12378 12053 10377 }
+				}
+				602 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 10377
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_northern_guangdong_hunan_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_nanlu_nanning_coastal_railway = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_completed } }
+			JAP_war_readiness_nanlu_nanning_all_segments_completed = no
+			OR = {
+				controls_province = 10004
+				1033 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				594 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			JAP_war_readiness_nanlu_nanning_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_nanlu_nanning_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_nanlu_nanning_10004_naval_base_segment_ready = yes
+				}
+				1033 = {
+					add_building_construction = {
+						type = naval_base
+						province = 10004
+						level = 10
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_10004_naval_base_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_nanlu_nanning_10004_7137_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10004
+					target_province = 7137
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_10004_7137_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_nanlu_nanning_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanlu_nanning_coastal_railway_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_nanning_western_inland_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_completed } }
+			JAP_war_readiness_nanning_western_inland_all_segments_completed = no
+			OR = {
+				594 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				325 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				599 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				603 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			JAP_war_readiness_nanning_western_inland_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_nanning_western_inland_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_nanning_western_inland_7137_1625_supply_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7137
+					target_province = 1625
+				}
+				594 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 1625
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_7137_1625_supply_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_nanning_western_inland_1625_1319_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 1625
+					target_province = 1319
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_1625_1319_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_nanning_western_inland_7137_10404_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7137
+					target_province = 10404
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_7137_10404_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_nanning_western_inland_1625_10616_supply_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 1625
+					target_province = 10616
+				}
+				603 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 10616
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_1625_10616_supply_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_nanning_western_inland_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_nanning_western_inland_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_suiyuan_shanxi_hebei_railway = {
+		icon = generic_construction
+		days_remove = 20
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_suiyuan_shanxi_hebei_railway_completed } }
+			621 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			615 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			614 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		available = {
+			621 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			615 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+			614 = {
+				state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = {
+					621 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					615 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				NOT = {
+					614 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					621 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					615 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+					614 = {
+						state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
+					}
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 7631
+					target_province = 4174
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4174
+					target_province = 4190
+				}
+				615 = {
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_suiyuan_shanxi_hebei_railway_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	JAP_war_readiness_suiyuan_yulin_shanxi_supply_network = {
+		icon = generic_construction
+		days_remove = 20
+		days_re_enable = 1
+		visible = {
+			NOT = { JAP = { has_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_completed } }
+			JAP_war_readiness_suiyuan_yulin_shanxi_all_segments_completed = no
+			OR = {
+				621 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				746 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				1046 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				615 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+		available = {
+			JAP_war_readiness_suiyuan_yulin_shanxi_has_ready_segment = yes
+		}
+		cancel_trigger = {
+			JAP_war_readiness_suiyuan_yulin_shanxi_has_ready_segment = no
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					JAP_war_readiness_suiyuan_yulin_shanxi_10629_4986_supply_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 10629
+					target_province = 4986
+				}
+				746 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 4986
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_10629_4986_supply_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_suiyuan_yulin_shanxi_4174_1458_supply_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4174
+					target_province = 1458
+				}
+				1046 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						province = 1458
+						instant_build = yes
+					}
+				}
+				JAP = { set_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_4174_1458_supply_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_suiyuan_yulin_shanxi_4986_1458_rail_segment_ready = yes
+				}
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 4986
+					target_province = 1458
+				}
+				JAP = { set_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_4986_1458_rail_completed }
+			}
+			if = {
+				limit = {
+					JAP_war_readiness_suiyuan_yulin_shanxi_all_segments_completed = yes
+				}
+				JAP = { set_country_flag = JAP_war_readiness_suiyuan_yulin_shanxi_supply_network_completed }
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}

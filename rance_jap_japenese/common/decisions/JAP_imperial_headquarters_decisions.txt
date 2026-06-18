@@ -1,0 +1,473 @@
+JAP_imperial_headquarters_decisions = {
+	JAP_imperial_headquarters_forge_chinese_claims = {
+		icon = GFX_decision_jap_conquer_china
+		fire_only_once = yes
+		available = {
+			has_completed_focus = JAP_reinforce_the_beijing_garrison
+		}
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = CHI
+						is_core_of = PRC
+					}
+					NOT = { is_claimed_by = ROOT }
+				}
+				add_claim_by = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_subjugate_chinese_remnant = {
+		icon = GFX_decision_jap_conquer_china
+		priority = 90
+		on_map_mode = decision_view_only
+		target_root_trigger = {
+			has_completed_focus = JAP_reinforce_the_beijing_garrison
+			CHI = { exists = no }
+			PRC = { exists = no }
+		}
+		targets = { GXC YUN SHX XSM SIK GDC XIC SND KHM KUM NXM GSM SIC HBC RNG TIB }
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				exists = yes
+				OR = {
+					is_literally_china = yes
+					original_tag = TIB
+				}
+				NOT = { has_war_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+			ROOT = {
+				NOT = { has_wargoal_against = FROM }
+			}
+		}
+		cost = 25
+		complete_effect = {
+			FROM = {
+				add_ideas = JAP_imperial_headquarters_isolated_chinese_regime
+			}
+			every_state = {
+				limit = {
+					is_owned_by = FROM
+					NOT = { is_claimed_by = ROOT }
+				}
+				add_claim_by = ROOT
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FROM
+				expire = 0
+			}
+			add_ai_strategy = {
+				type = conquer
+				id = FROM
+				value = 200
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_declare_victory_in_china = {
+		icon = GFX_decision_jap_conquer_china
+		cost = 0
+		fire_only_once = yes
+		visible = {
+			CHI = { exists = no }
+			PRC = { exists = no }
+			OR = {
+				has_completed_focus = JAP_sea_purge_the_kodoha_faction
+				has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+			}
+			NOT = { has_country_flag = JAP_china_war_substantially_ended_flag }
+		}
+		available = {
+			CHI = { exists = no }
+			PRC = { exists = no }
+			NOT = { has_country_flag = JAP_china_war_substantially_ended_flag }
+		}
+		complete_effect = {
+			set_country_flag = JAP_china_war_substantially_ended_flag
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = CHI
+						is_core_of = PRC
+						is_core_of = GXC
+						is_core_of = YUN
+						is_core_of = SHX
+						is_core_of = XSM
+						is_core_of = SIK
+						is_core_of = GDC
+						is_core_of = SND
+						is_core_of = SIC
+						is_core_of = NXM
+						is_core_of = GSM
+						is_core_of = XIC
+						is_core_of = KHM
+						is_core_of = KUM
+						is_core_of = RNG
+						is_core_of = HBC
+						is_core_of = TIB
+					}
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = JAP_greater_asian_war_state_modifier
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = JAP_greater_asian_war_state_modifier
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_establish_asia_pacific_supply_system = {
+		icon = GFX_decision_generic_military
+		cost = 0
+		priority = 100
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_war_with = ENG
+				has_war_with = FRA
+				has_war_with = SOV
+				has_war_with = USA
+			}
+			any_state = {
+				OR = {
+					is_on_continent = asia
+					is_on_continent = middle_east
+					is_on_continent = australia
+				}
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = JAP_greater_asian_war_state_modifier
+					}
+				}
+			}
+		}
+		available = {
+			OR = {
+				has_war_with = ENG
+				has_war_with = FRA
+				has_war_with = SOV
+				has_war_with = USA
+			}
+			any_state = {
+				OR = {
+					is_on_continent = asia
+					is_on_continent = middle_east
+					is_on_continent = australia
+				}
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = JAP_greater_asian_war_state_modifier
+					}
+				}
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = JAP_imperial_headquarters_establish_asia_pacific_supply_system_tt
+			hidden_effect = {
+				JAP_apply_greater_asian_war_state_modifier = yes
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_prepare_us_mainland_invasion = {
+		icon = generic_naval
+		cost = 0
+		priority = 105
+		fire_only_once = yes
+		visible = {
+			has_war_with = USA
+			629 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			JAP_imperial_headquarters_us_mainland_invasion_route_ready = yes
+			any_state = {
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+				OR = {
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = JAP_american_landing_supply_state_modifier
+						}
+					}
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = JAP_american_landing_japanese_combat_state_modifier
+							scope = JAP
+						}
+					}
+				}
+			}
+		}
+		available = {
+			has_war_with = USA
+			629 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			JAP_imperial_headquarters_us_mainland_invasion_route_ready = yes
+			any_state = {
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+				OR = {
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = JAP_american_landing_supply_state_modifier
+						}
+					}
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = JAP_american_landing_japanese_combat_state_modifier
+							scope = JAP
+						}
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_us_mainland_invasion_preparation_completed_flag
+			add_timed_idea = {
+				idea = JAP_us_mainland_invasion_preparation_idea
+				days = 180
+			}
+			custom_effect_tooltip = JAP_imperial_headquarters_prepare_us_mainland_invasion_tt
+			hidden_effect = {
+				JAP_apply_american_landing_state_modifiers = yes
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_force_war_on_siam = {
+		icon = GFX_decision_generic_military
+		cost = 0
+		priority = 100
+		fire_only_once = no
+		days_re_enable = 1
+		visible = {
+			OR = {
+				has_completed_focus = JAP_occupy_siam
+				has_completed_focus = JAP_the_indochinese_soviet
+			}
+			SIA = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+		available = {
+			OR = {
+				has_completed_focus = JAP_occupy_siam
+				has_completed_focus = JAP_the_indochinese_soviet
+			}
+			SIA = {
+				exists = yes
+				has_capitulated = no
+				is_in_faction = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = JAP_imperial_headquarters_force_war_on_siam_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						has_non_aggression_pact_with = SIA
+					}
+					diplomatic_relation = {
+						country = SIA
+						relation = non_aggression_pact
+						active = no
+					}
+				}
+				declare_war_on = {
+					target = SIA
+					type = annex_everything
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_demand_portuguese_asian_territories = {
+		icon = generic_naval
+		cost = 25
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = JAP_nanshin_ron
+			POR = {
+				exists = yes
+				any_owned_state = {
+					is_on_continent = asia
+				}
+			}
+		}
+		available = {
+			POR = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				any_owned_state = {
+					is_on_continent = asia
+				}
+			}
+			NOT = { has_wargoal_against = POR }
+		}
+		complete_effect = {
+			POR = {
+				country_event = {
+					id = JAP_imperial_headquarters_events.1
+					hours = 6
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_imperial_headquarters_authorize_delayed_pacific_war = {
+		icon = generic_naval
+		cost = 0
+		days_remove = 30
+		fire_only_once = yes
+		priority = 95
+		visible = {
+			Rance_is_jap_kodoha_ai = yes
+			has_completed_focus = JAP_strike_the_southern_road
+			has_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+			NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_released_flag }
+		}
+		available = {
+			Rance_is_jap_kodoha_ai = yes
+			has_completed_focus = JAP_strike_the_southern_road
+			has_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+			NOT = { has_country_flag = JAP_kodoha_pacific_wargoals_released_flag }
+			OR = {
+				date > 1942.01.01
+				AND = {
+					JAP_kodoha_southeast_asia_core_corridor_secured = yes
+					JAP_kodoha_eia_basic_or_full_victory_for_pacific_release = yes
+				}
+			}
+			OR = {
+				PHI = {
+					exists = yes
+					NOT = {
+						is_ally_with = ROOT
+						has_war_with = ROOT
+					}
+				}
+				AND = {
+					PHI = { exists = no }
+					USA = {
+						exists = yes
+						NOT = {
+							is_ally_with = ROOT
+							has_war_with = ROOT
+						}
+						OR = {
+							controls_state = 327
+							controls_state = 623
+							controls_state = 625
+							controls_state = 626
+							controls_state = 627
+							controls_state = 628
+							controls_state = 1025
+							controls_state = 1026
+						}
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					PHI = {
+						exists = yes
+						NOT = {
+							is_ally_with = ROOT
+							has_war_with = ROOT
+						}
+					}
+				}
+				IF = {
+					limit = {
+						NOT = { has_wargoal_against = PHI }
+					}
+					create_wargoal = {
+						target = PHI
+						type = puppet_wargoal_focus
+						expire = 0
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					PHI = { exists = no }
+					USA = {
+						exists = yes
+						NOT = {
+							is_ally_with = ROOT
+							has_war_with = ROOT
+						}
+						OR = {
+							controls_state = 327
+							controls_state = 623
+							controls_state = 625
+							controls_state = 626
+							controls_state = 627
+							controls_state = 628
+							controls_state = 1025
+							controls_state = 1026
+						}
+					}
+				}
+				IF = {
+					limit = {
+						NOT = { has_wargoal_against = USA }
+					}
+					create_wargoal = {
+						target = USA
+						type = take_state_focus
+						expire = 0
+						generator = { 327 623 625 626 627 628 1025 1026 }
+					}
+				}
+			}
+			clr_country_flag = JAP_kodoha_delayed_pacific_wargoals_flag
+			clr_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag
+			set_country_flag = JAP_kodoha_pacific_wargoals_released_flag
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_kodoha_pacific_wargoals_preparation_started_flag
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}
