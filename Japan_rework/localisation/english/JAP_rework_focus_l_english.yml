@@ -1,0 +1,186 @@
+﻿l_english:
+ # --- focus tooltips ---
+ Jap_rance_irago_custom_tt:0 "[Getranceirago]"
+ JAP_irago_artillery:0 "Gain Irago Experimental Artillery"
+ JAP_irago_artillery_tt:0 "§YIrago Experimental Artillery§!:\n§YTank Destroyer, Self-Propelled Artillery and Self-Propelled Anti-Air Equipment§!:\n  £production_cost Production Cost: §G-10.0%§!\n  Max Speed: §G+10.0%§!\n\n§YSpecial Self-Propelled Artillery Battalions§! and §YSpecial Self-Propelled Anti-Air Battalions§!:\n  Hard Attack: §G+25.0%§!\n\n§YSpecial Tank Destroyer Battalions§!:\n  Soft Attack: §G+15.0%§!\n\n"
+
+ # Tooltip keys
+ JAP_mountaineers_s_tt:0 "§YMountain Warfare Improvements§!\nEffects:\n§WMedium Flame Tank Support Company§Y gains:§!\n§WMountain Attack: §G+5.0%§!\n§WHills Attack: §G+5.0%§!"
+ JAP_jungle_s_tt:0 "§YJungle Warfare Improvements§!\nEffects:\n§WMedium Flame Tank Support Company§Y gains:§!\n§WForest Attack: §G+5.0%§!\n§WJungle Attack: §G+5.0%§!"
+
+ JAP_soviet_economic_exchange:0 "Soviet Economic Cooperation"
+ JAP_soviet_economic_exchange_desc:0 "We should strengthen economic cooperation with the members of the Comintern, trading agricultural products and industrial raw materials for assistance with heavy industry."
+ JAP_soviet_economic_exchange_tt:0 "Other faction members will receive a monthly economic production surplus based on a share of our civilian industry."
+ JAP_dominate_comintern:0 "Dominate the Comintern"
+ JAP_dominate_comintern_desc:0 "As our standing in the Comintern rises, we are gradually becoming its de facto leader. Perhaps it is time to make a few requests of our Soviet friends. For the highest interests of the revolution, our spheres of responsibility must be redistributed."
+
+ jap_comintern.1.t:0 "Demands from the East"
+ jap_comintern.1.d:0 "Japan has made demands of us. In the name of closer cooperation, they want us to transfer our Siberian territories to them. In return, they will recognize our claims over all of Europe. This would fundamentally alter our geopolitical position."
+ jap_comintern.1.a:0 "For the greater good, we agree."
+ jap_comintern.1.b:0 "This is extortion! Absolutely not!"
+
+ Jap_unlock_winter_logistics_tt:0 "§CUnlock Winter Logistics Support Company§!"
+
+ JAP_army_weapons_administration_headquarters_cus_tt:0 "[Getjawahq]"
+ JAP_army_weapons_administration_headquarters_ideas_name:0 "Army Weapons Administration Headquarters"
+ JAP_army_weapons_administration_headquarters_idea_tt:0 "§YArmy Weapons Administration Headquarters§!:\n§Y$mio_cat_eq_all_artillery$§!: £production_cost Production Cost: §G-5.0%§!\n§Y$mio_cat_eq_all_infantry_and_support_equipment$§!: £production_cost Production Cost: §G-5.0%§!\n§YTrucks§!: £production_cost Production Cost: §G-10.0%§!\n§YMechanized Equipment§!: £production_cost Production Cost: §G-10.0%§!\n§YAmphibious Landing Vehicles§!: £production_cost Production Cost: §G-10.0%§!"
+
+ JAP_divert_naval_guns_to_the_army_cus_tt:0 "[Getdngtta]"
+ JAP_divert_naval_guns_to_the_army_tank_bonus_tt:0 "§YDivert Naval Guns to the Army§!:\nArmor Technology:\n  £production_cost Production Cost: §G-10.0%§!\nBattleships:\n  £production_cost Production Cost: §R+5.0%§!\nAll Railway Guns and Super-Heavy Railway Guns:\n  Bombardment: §G+25.0%§!\n  Redeployment Interval: §G-50.0%§!\n  Railway Gun Range: §G+20.0%§!"
+ JAP_naval_guns_for_tanks_idea_name:0 "Divert Naval Guns to the Army"
+
+ JAP_develop_new_fighters_cus_tt:0 "[GetJdnfc]"
+ JAP_develop_new_fighters_actual_tt:0 "§YFighters§!, §YHeavy Fighters§!, §YCarrier Fighters§! and §YMotherships§! Max Speed: §G+10%§!\n"
+ JAP_lightweight_fighters_rework_tt:0 "[GetLighweightFightersreworkDesc]"
+ JAP_7075_aluminium_alloy_rework_tt:0 "§YFighters§!, §YCarrier Fighters§!, §YHeavy Fighters§! and §YMotherships§! Agility: §G+15%§!"
+
+ JAP_custom_devoted_revolutionary:0 "§RDevoted Revolutionary Vanguard§!"
+ JAP_custom_naval_architect:0 "§CJapanese Naval Architect§!"
+ JAP_custom_civil_aviation_pioneer:0 "§CAviation Pioneer§!"
+ JAP_custom_industrial_conglomerate:0 "§CLight-Industry Zaibatsu§!"
+ JAP_custom_armament_zaibatsu:0 "§CArmaments Zaibatsu§!"
+ JAP_custom_mining_zaibatsu:0 "§CMining Zaibatsu§!"
+ JAP_custom_mitsubishi_president:0 "§CMitsubishi President§!"
+ JAP_custom_mitsubishi_president_2:0 "§CMitsubishi President§!"
+ JAP_custom_jnr_president:0 "§CJapanese National Railways President§!"
+ JAP_custom_riken_director:0 "§CRIKEN Director§!"
+ JAP_custom_financial_genius:0 "§CFinancial Genius§!"
+ jap_custom_zaibatsu_bank:0 "§CFinancial Zaibatsu§!"
+ JAP_communism_central_committe:0 "§RPlanned Economy Committee§!"
+ Jap_central_plan_commite:0 "Central Planning Committee"
+
+ JAP_z_project_aircraft:0 "Imperial Flying Fortress"
+ JAP_z_projrct_aircraft_cus_tt:0 "[GetJZPAC]"
+ JAP_z_projrct_aircraft_act_tt:0 "§CImperial Flying Fortress§!:\n§YIntercontinental Strategic Bombers§!:\n  £production_cost Production Cost: §G-15.00%§!\n  Strategic Bombing: §G+25.00%§!\n  Reliability: §G+20.0%§!\n  Agility: §G+15.0%§!\n  Range: §R-20.0%§!\n§YMotherships§!:\n  £production_cost Production Cost: §G-15.00%§!\n  Air Defense: §G+5.0%§!\n  Air Attack: §G+5.0%§!\n  Reliability: §G+10.0%§!\n"
+ JAP_sea_bigger_better_yamato_cuscus_tt:0 "§RGain four nearly complete Tsushima-class production lines§!"
+ Jap_akizuki_custom_tt:0 "Gain several nearly complete §CAkizuki-class§! destroyer production lines"
+
+ JAP_hidden_navy_carrier_focus:0 "Naval Priority: Carrier Focus"
+ JAP_hidden_navy_balanced_focus:0 "Naval Priority: Balanced Development"
+ JAP_hidden_navy_battleship_focus:0 "Naval Priority: Battleship Focus"
+
+ JAP_naval_armaments_program_cus_a_tt:0 "[Getjnapca]"
+ JAP_naval_armaments_program_cus_b_tt:0 "[Getjnapcb]"
+ JAP_naval_armaments_program_cus_c_tt:0 "[Getjnapcc]"
+
+ JAP_naval_armaments_program_act_a_tt:0 "§YAircraft Carriers§! and §YDestroyers§!: £production_cost Production Cost: §G-15.0%§!"
+ JAP_naval_armaments_program_act_b_tt:0 "§YAll Ships§!: £production_cost Production Cost: §G-7.5%§!"
+ JAP_naval_armaments_program_act_c_tt:0 "§YAll Battleships§! and §YLight Cruisers§!: £production_cost Production Cost: §G-15.0%§!"
+ JAP_naval_armaments_program_cus_zero_tt:0 "Gain cost-reduction bonuses and high-completion naval production lines according to the selected naval plan."
+ JAP_naval_armaments_program_build_a_tt:0 "Because §YCarrier Focus§! has been completed, a §Relite carrier strike group§! at §G90%§! completion, including 2 Yukihou-class, 4 Shokaku-class and 40 Shimakaze-class ships, is added to the production queue."
+ JAP_naval_armaments_program_build_b_tt:0 "Because §YBalanced Naval Development§! has been completed, a §Rmulti-role assault fleet§! at §G90%§! completion, including 15 Oi-class, 30 Shimanto-class and 30 Shimakaze-class ships, is added to the production queue."
+ JAP_naval_armaments_program_build_c_tt:0 "Because §YBattleship Plan§! has been completed, a §Rdecisive big-gun battle fleet§! at §G90%§! completion, including 6 Tsushima-class, 10 Kaga-class and 40 Shimanto-class ships, is added to the production queue."
+
+ JAP_secure_the_sea_lanes_cus_tt:0 "[GetJstslhjk]"
+ JAP_secure_the_sea_lanes_act_tt:0 "§CGuardian of the Imperial Sea Lanes§!\n§HEscort Carriers:§!\n  Sub Detection: §G+20.0%§!\n  Surface Visibility: §G-20.0%§!\n  £production_cost Production Cost: §G-10.0%§!"
+
+ JAP_kozo_the_ogre_trait_rework_trait:0 "§RKozo the Ogre§!"
+ COG_trade_unionist_J_rework_trait:0 "§RTrade Unionist§!"
+ HUN_stalinist_agent_J_rework_trait:0 "§RLegendary Intelligence Agent§!"
+ JAP_marxist_theoretician_J_rework_trait:0 "§RFounder of Fukumotoism§!"
+ veteran_trade_unionist_J_rework_trait:0 "§RVeteran Trade Unionist§!"
+ JAP_give_it_your_all_for_the_emperor_rework_tt:0 "Unlock decisions to build factories in eligible states based on the §Ytotal number of civilian factories§!. The number of uses is limited by the current §Ydifficulty§!."
+
+ JAP_rework_learn_from_maoism:0 "Study Mao Zedong Thought"
+ JAP_rework_learn_from_maoism_desc:0 "With the merger of the Japanese Communist Party and the Chinese Communist Party and the unification of East Asia, Comrade Mao Zedong has formally become the supreme leader of our united nation. To consolidate the achievements of the revolution and guide the road ahead, we must launch a deep and lasting campaign to study Mao Zedong Thought throughout the party, the army and society. Armed with theory, every revolutionary fighter will grasp the true meaning of the mass line and protracted war, making East Asia's red strength unshakable."
+ JAP_mao_guerrilla_tactic:0 "Maoist Modern Guerrilla Tactics"
+ JAP_mao_guerrilla_tactic_ult:0 "§RFire and Steel§!"
+ JAP_mao_guerrilla_tactic_ult_desc:0 "The world revolution has now entered its white-hot stage. To gain the advantage in the war against imperialism, we must combine Mao Zedong's theory of guerrilla warfare with advanced methods of operation. Then we shall surely plant the red flag across the world!"
+ JAP_mao_guerrilla_tactic_ult_cus_tt:0 "[GetJmgtuabc]"
+ JAP_mao_guerrilla_tactic_ult_act_tt:0 "§CMaoist Modern Guerrilla Tactics§!:\n§YAll infantry-type battalions:§!\n Initiative: §G+10.0%§!\n Equipment Capture Ratio: §G+10.0%§!"
+ JAP_eternal_long_march:0 "§REternal Long March§!"
+ JAP_eternal_long_march_desc:0 "This is no ordinary imperialism, and no ordinary capitalism. The reactionary machine of the old world is running at full power, trying to crush the people's road to the future. Against an enemy like this, we must strike hard!\nJust as the people of [ROOT.GetNameDef] still worried over the revolution's future, a silver-haired, red-eyed AI girl appeared before them. She called herself a super artificial intelligence from the future, brought here by Yukari Yakumo.\n\"Just call me Zheng-chan,\" the girl said. \"From here on, let me lend your revolution a hand.\""
+ JAP_eternal_long_march_tt:0 "§RZheng-chan§! will take office as the national leader.\n§YThis is a powerful easter egg focus available only on PHANTASM difficulty.§!"
+
+ JAP_rework_rana_tt:0 "If the Chinese Communist Party and Japanese Communist Party fail to merge successfully, Rāna Kaname will become the leader."
+ JAP_lc_tt:0 "§YThe Ultimate Tank§!\nEffects:\n§W-  §!§YLand Cruiser Support Company §!§W-§!\n§WReliability: §!§G+75%§!\n§WSupply Consumption: §!§G-50%§!\n§WMax Speed: §!§G+50%§!\n§WArmor: §!§G+100%§!\n§WTerrain penalties are improved§!\n\n"
+
+ JAP_ul_lc_cus_tt:0 "[Gettullcdij]"
+ COLLECTION_STATES_BELONG_TO_COMMUNISM:0 "§YStates controlled by communist countries§!"
+ rance_com_fg_ps_1:0 "Fight to the Death"
+ rance_com_fg_ps_2:0 "Liberate the Workers"
+ rance_com_fg_ps_3:0 "United as One"
+ rance_com_fg_ps_4:0 "Final Victory"
+ rance_jap_c_freeworld_name:0 "§RLiberate the World§!"
+ rance_jap_c_freeworld_desc:0 "The age of building socialism in one country is over. It is time to set out on the road to world liberation and send every king, capitalist and fascist to hell."
+ JAP_prepare_the_southern_front_denglu_tt:0 "Our amphibious landing capabilities will be further improved."
+
+ # Liberate South Asian countries
+ JAP_liberate_south_asia_target:0 "Support the Armed Liberation of §Y[FROM.GetNameDef]§!"
+ JAP_liberate_south_asia_target_desc:0 "With our party's full support and covert work, a new §Rred regime§! has risen proudly in §Y[FROM.GetNameDef]§!, and the spark of revolution has become a prairie fire. Yet stubborn imperialist reactionaries still cling to parts of the territory in their death throes. Now is the decisive moment: we must send more brave volunteers and military advisers, carrying advanced equipment, to help local comrades launch the final offensive. With thunderous force, we will sweep those arrogant invaders out for good and let the righteous red flag fly over South Asia!"
+ JAP_expel_colonial_powers_from_south_asia:0 "Agitate for Independence in §Y[FROM.GetNameDef]§!'s South Asian Colonies"
+ JAP_expel_colonial_powers_from_south_asia_desc:0 "With our party's secret funding and guidance, undercurrents are already stirring within §Y[FROM.GetNameDef]§!'s South Asian colonies. Through clandestine radio stations, we spread the spark of freedom, while advanced theory and fine weapons are smuggled to the local resistance. The time is ripe. One final push from us will ignite the flames of revolution, overthrow rotten colonial rule and establish a red regime of workers and peasants. Let us help them sweep these greedy imperialists into the dust of history!"
+
+ # Liberate Middle Eastern countries
+ JAP_liberate_middle_east_target:0 "Support the Armed Liberation of §Y[FROM.GetNameDef]§!"
+ JAP_liberate_middle_east_target_desc:0 "With our party's full support and covert work, a new §Rred regime§! has risen proudly in §Y[FROM.GetNameDef]§!, and the spark of revolution is sweeping across the endless sands. Yet stubborn imperialist reactionaries still cling to the oilfields and oases in their death throes. Now is the decisive moment: we must send more brave volunteers and military advisers, carrying advanced equipment, to help local comrades launch the final offensive. With thunderous force, we will sweep those arrogant invaders out for good and let the righteous red flag fly over the vast lands of the Middle East!"
+ JAP_expel_colonial_powers_from_middle_east:0 "Agitate for Independence in §Y[FROM.GetNameDef]§!'s Middle Eastern Colonies"
+ JAP_expel_colonial_powers_from_middle_east_desc:0 "With our party's secret funding and guidance, undercurrents are already stirring within §Y[FROM.GetNameDef]§!'s Middle Eastern colonies. Through clandestine radio stations, we spread the spark of freedom, while advanced theory and fine weapons are smuggled to resistance forces in the desert. The time is ripe. One final push from us will make the flames of revolution roar across the oil basins, overthrow rotten colonial rule and establish a red regime of workers and peasants. Let us help them sweep these greedy imperialists into the dust of history!"
+ JAP_commu_free_the_world:0 "Proclaim the Liberation of §Y[FROM.GetNameDef]§!"
+ JAP_commu_free_the_world_desc:0 "The world revolution has reached a white-hot stage, while the people of §Y[FROM.GetNameDef]§! still live under reactionary terror. It is time to liberate them."
+
+ Rance_JAP_sway_disillusioned_young_officers:0 "§YNote: this focus can now make most generals loyal to us.§!"
+
+ # =========================================
+ # KAGUYA
+ # =========================================
+ JAP_kaguya_princess:0 "Gensokyo's Finest Princess"
+ JAP_kaguya_princess_desc:0 "Even a princess who has lived through hundreds of millions of years can still grow bored.\nEspecially on days when Eientei is as quiet as ever, with no banquets, no incidents and no duels with Mokou, Kaguya naturally begins looking for some new amusement.\n\nOn one such day, a letter from the youkai sage Yukari Yakumo broke the calm."
+ JAP_kaguya_eientei:0 "Gather the People of Eientei"
+ JAP_kaguya_eientei_desc:0 "For Kaguya, who is used to a NEET life, serving as the ruler of a country may still be too much work.\nKaguya decides to bring Eirin and the rabbits along with her."
+ JAP_kaguya_dragon:0 "Impossible Request: The Dragon's Neck Jewel - Five-Colored Bullets -"
+ JAP_kaguya_dragon_desc:0 "One of the five impossible requests from The Tale of the Bamboo Cutter. Kaguya-hime set this task for her suitor Otomo no Miyuki, demanding that he obtain the jewel shining with five colors from a dragon's neck. Otomo first ordered his retainers to search for it, but when they found nothing, he sailed out himself to hunt the dragon. He was caught in a storm and nearly lost his life. After apologizing to the gods he returned safely, but exhaustion left him gravely ill and made him a laughingstock."
+ JAP_kaguya_bowl:0 "Impossible Request: The Buddha's Stone Bowl - Unbreakable Will -"
+ JAP_kaguya_bowl_desc:0 "One of the five impossible requests from The Tale of the Bamboo Cutter. Kaguya-hime set this task for her suitor Prince Ishitsukuri, demanding that he travel to India and obtain the Buddha's stone bowl. Troubled by the distant journey, Prince Ishitsukuri found a soot-blackened stone bowl in a mountain temple and tried to pass it off as the Buddha's bowl with flowery words. But the bowl gave off no light, so Kaguya-hime saw through the deception at once, and he could only abandon it and leave in disgrace."
+ JAP_kaguya_robe:0 "Impossible Request: The Fire Rat's Robe - Unscorched Heart -"
+ JAP_kaguya_robe_desc:0 "One of the five impossible requests from The Tale of the Bamboo Cutter. Kaguya-hime set this task for her suitor Abe no Udaijin, demanding that he obtain the fire rat's robe, a fur garment that would not burn. Abe sent men to China and finally bought an ornate robe at great cost. He presented it to Kaguya-hime, but when it was placed in the flames, the robe burned to ash, and Abe returned empty-handed."
+ JAP_kaguya_shell:0 "Impossible Request: The Swallow's Cowrie Shell - Lifeline -"
+ JAP_kaguya_shell_desc:0 "One of the five impossible requests from The Tale of the Bamboo Cutter. Kaguya-hime set this task for her suitor Isonokami no Marotari, demanding that he obtain the cowrie shell said to be kept by swallows. Isonokami climbed up to search the swallows' nests himself, but found nothing and fell, suffering serious injuries. Crushed by failure, he became bedridden. Kaguya-hime pitied his plight and sent a letter of comfort; after writing his reply, Isonokami passed away."
+ JAP_kaguya_branch:0 "Impossible Request: Jeweled Branch of Hourai - Dreamlike Paradise -"
+ JAP_kaguya_branch_desc:0 "One of the five impossible requests from The Tale of the Bamboo Cutter. Kaguya-hime set this task for her suitor Prince Kuramochi, demanding that he travel to Mount Hourai and obtain the jeweled branch of Hourai. Prince Kuramochi hired skilled craftsmen and spent three years secretly forging a false branch. Kaguya-hime nearly believed him, but when the craftsmen came to demand their wages, the prince's scheme was exposed."
+ JAP_kaguya_eternity:0 "Sinner of Eternity and the Instantaneous"
+ JAP_kaguya_eternity_desc:0 "Kaguya has the ability to manipulate eternity and the instantaneous. Eternity is a world without history, where the future will never arrive. Even activity within such a world is like time standing still. Her other power, the instantaneous, is the opposite of eternity: a single moment in time. She can gather moments that humans cannot perceive and use them to act. By using that time, she can create multiple different histories. Both powers manipulate time, and both are far too powerful for ordinary humans."
+ JAP_kaguya_eternity_time_cycle_tt:0 "During the first part of each month, §YKaguya§! will alternately invoke the powers of §YEternity§! and §Ythe Instantaneous§!, granting our country powerful bonuses."
+ JAP_kaguya_burial:0 "Esoterica: Astronomical Entombing"
+ JAP_kaguya_burial_desc:0 "Astronomical Entombing is one of Eirin's greatest esoteric arts.\nBy replacing the moon with a false moon, she toys with the sky for no particular reason and can sever the connection between the Earth and the Moon.\nThe false moon prepared by Eirin is even more splendid than the real one."
+ JAP_kaguya_burial_night_attack_debuff_tt:0 "§YEirin Yagokoro§! will perform the §Bsecret art of the Lunar Sage§!. Under the influence of the §Rfalse moon§!, enemies will face §Rharsher conditions§! when fighting at §Ynight§!; at §0Cherry Blossoms in Full Bloom (PHANTASM)§! difficulty, the secret art will be further strengthened."
+ JAP_kaguya_return:0 "Imperishable Night's Return - Daybreak -"
+ JAP_kaguya_return_desc:0 "How nice. Everyone is so happy. They each have their own power, and playing with those powers is wonderfully exhilarating.\nIn the end, though, the other people of Gensokyo had once been troubled by that endless night."
+ JAP_kaguya_return_decision_tt:0 "Remove §Ysome restrictions§! from the decisions unlocked by §Y$JAP_hakko_ichiu$§! and §Y$JAP_the_jeweled_spear_has_struck$§!."
+ JAP_kaguya_return_expel_barbarians_tt:0 "If §YRevere the Emperor, Expel the Barbarians§! is completed after this, the granted §Y$JAP_expel_the_barbarians$§! will become §Ypermanent§!."
+ JAP_kaguya_return_hard_claim_tt:0 "At §YLUNATIC§! difficulty or above, gain claims on §Yall states in the world§!."
+ JAP_kaguya_return_normal_claim_tt:0 "At §YHARD§! difficulty or below, gain claims on the §YAsia§!, §YMiddle East§! and §YAustralia§! regions."
+ # =========================================
+ # /KAGUYA
+ # =========================================
+
+ # Japan Rework focus tooltip overrides
+ JAP_rework_reduce_zaibatsu_focus_cost_tt:0 "Taking §Y$JAP_sea_guide_the_zaibatsus$§! or §Y$JAP_democratic_work_with_the_zaibatsus$§! reduces this focus's duration to §G21§! days."
+ JAP_rework_ship_management_committee_tt:0 "§Y$convoy_1$§!:\n   £production_cost Production Cost: §G-15.00%§!\n   Ship Production Cost: §G-7.50%§!"
+ JAP_rework_naval_armaments_program_tt:0 "When §Y$JAP_focus_on_aircraft_carriers$§! is completed: create a carrier §Yvariant§! and open §Y4 production lines§! to build the §YShokaku-class§!.\nWhen §Y$JAP_balanced_naval_approach$§! is completed: create carrier and super battleship §Yvariants§!, and open §Y2 production lines§! each to build the §YShokaku-class§! and §YYamato-class§!.\nWhen §Y$JAP_sea_battleship_initiative$§! is completed: create a super battleship §Yvariant§! and open §Y4 production lines§! to build the §YYamato-class§!.\nAlso grants the corresponding §YEquipment Cost Reduction§! according to the selected focus."
+
+ # --- focus time tooltips ---
+ JAP_end_the_interservice_rivalry_tt:0 "This will end the §YInterservice Rivalry§! between the Army and Navy. Differences in their standing will §Gno longer produce negative effects§!, and they will function like other factions.\n\nThe following focuses can shorten the time required for §Y$JAP_end_the_interservice_rivalry$§!:\n§Y$JAP_the_ultimate_tank$§!: §G35§! days\n§Y$JAP_expand_the_irago_proving_ground$§!: §G35§! days\n§Y$JAP_army_weapons_administration_headquarters$§!: §G35§! days\n§Y$JAP_7075_aluminium_alloy$§!: §G35§! days\n§Y$JAP_sea_unify_the_air_forces$§!: §G70§! days\n§Y$JAP_form_the_kido_butai$§!: §G35§! days\n§Y$JAP_sea_heavier_naval_guns$§!: §G35§! days\n§Y$JAP_naval_armaments_program$§!: §G35§! days"
+ JAP_rethink_armor_doctrine_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_adopt_new_assault_doctrine$§! by §R14§! days."
+ JAP_adopt_new_assault_doctrine_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_rethink_armor_doctrine$§! by §R14§! days."
+ JAP_pivot_towards_defensive_measures_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_strenghten_the_supply_lines$§! by §R14§! days."
+ JAP_strenghten_the_supply_lines_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_pivot_towards_defensive_measures$§! by §R14§! days."
+ JAP_sea_sturdy_aircraft_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_sea_long_operational_range$§! by §R14§! days."
+ JAP_sea_long_operational_range_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_sea_sturdy_aircraft$§! by §R14§! days."
+ JAP_focus_on_aircraft_carriers_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_balanced_naval_approach$§! and §Y$JAP_sea_battleship_initiative$§! by §R7§! days each."
+ JAP_balanced_naval_approach_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_focus_on_aircraft_carriers$§! and §Y$JAP_sea_battleship_initiative$§! by §R7§! days each."
+ JAP_sea_battleship_initiative_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_focus_on_aircraft_carriers$§! and §Y$JAP_balanced_naval_approach$§! by §R7§! days each."
+ JAP_assure_superior_naval_quality_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_seek_strength_in_numbers$§! by §R14§! days."
+ JAP_seek_strength_in_numbers_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_assure_superior_naval_quality$§! by §R14§! days."
+ JAP_kaguya_five_challenges_focus_time_penalty_tt:0 "Completing this focus will increase the time required for each remaining §YImpossible Request focus§! by §R7§! days."
+ JAP_kaguya_eternity_phantasm_note_tt:0 "If the current difficulty is §YPHANTASM§!, this focus effect will be enhanced."
+ JAP_kaguya_eternity_burial_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_kaguya_burial$§! by §R35§! days."
+ JAP_kaguya_eternity_focus_time_bonus_low_tt:0 "§GReduces§! the time required for §Y§! by §G7§! days."
+ JAP_kaguya_eternity_interservice_bonus_low_tt:0 "§GReduces§! the time required for §Y$JAP_end_the_interservice_rivalry$§! by §G70§! days."
+ JAP_kaguya_eternity_focus_time_bonus_high_tt:0 "§GReduces§! the time required for §Y§! by §G14§! days."
+ JAP_kaguya_eternity_interservice_bonus_high_tt:0 "§GReduces§! the time required for §Y$JAP_end_the_interservice_rivalry$§! by §G105§! days."
+ JAP_kaguya_burial_eternity_focus_time_penalty_tt:0 "§RIncreases§! the time required for §Y$JAP_kaguya_eternity$§! by §R35§! days."
+
+ # --- focus reward names ---
+ JAP_industrial_city_bonus:0 "New Industrial City Development Program"
+ JAP_army_equipment_research_bonus:0 "Army Equipment Research Bonus"

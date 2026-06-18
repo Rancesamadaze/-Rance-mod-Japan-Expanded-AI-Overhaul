@@ -1,9 +1,0 @@
-﻿l_simp_chinese:
- JAP_kodoha_events.1.t:0 "行政效率之抉择"
- JAP_kodoha_events.1.d:0 "虽然我们的政权尚未稳固,但当今世界正处于关键的转折点,如果墨守成规,我们可能在将到来的战争中落后,是否应该调整我们的行政机构,让其拥有更高的行政效率,尽管可能会付出代价"
- JAP_kodoha_events.1.a:0 "整饬机枢，务求迅捷"
- JAP_kodoha_events.1.b:0 "仍循旧制，务求稳妥"
- JAP_kodoha_events.1.c:0 "我全都要"
- JAP_kodoha_events.1.a.tt:0 "§G缩短§!后续皇道派关键国策所需时间各§G14§!天。\n§R代价是§!部分国策奖励将被削弱。"
- JAP_kodoha_events.1.c.tt:0 "§G缩短§!后续皇道派关键国策所需时间各§G14§!天。\n§G不会§!削弱后续国策奖励。"
- JAP_kodoha_admin_efficiency_penalty_flag:0 "已采取行政效率优先方针"

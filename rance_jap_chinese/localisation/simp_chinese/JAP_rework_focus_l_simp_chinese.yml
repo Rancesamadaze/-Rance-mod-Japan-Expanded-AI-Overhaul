@@ -1,0 +1,193 @@
+﻿l_simp_chinese:
+ # --- focus tooltips ---
+ Jap_rance_irago_custom_tt:0 "[Getranceirago]"
+ JAP_irago_artillery:0 "获得伊良湖实验火炮"
+ JAP_irago_artillery_tt:0 "§Y伊良湖实验火炮§!：\n§Y坦克歼击车、自行火炮与自行防空炮装备§!：\n  £production_cost 生产花费：§G-10.0%§!\n  最大速度：§G+10.0%§!\n\n§Y特殊自行火炮营§!与§Y特殊自行防空营§!：\n  对装甲杀伤：§G+25.0%§!\n\n§Y特殊坦克歼击车营§!：\n  对人员杀伤：§G+15.0%§!\n\n"
+
+ # Tooltip 键名
+ JAP_mountaineers_s_tt:0 "§Y山地作战改良§!\n其效果为:\n§W中型喷火坦克支援连§Y获得:§!\n§W山地攻击: §G+5.0%§!\n§W丘陵攻击: §G+5.0%§!"
+ JAP_jungle_s_tt:0 "§Y丛林作战改良§!\n其效果为:\n§W中型喷火坦克支援连§Y获得:§!\n§W森林攻击: §G+5.0%§!\n§W丛林攻击: §G+5.0%§!"
+
+ JAP_soviet_economic_exchange:0"苏维埃经济合作"
+ JAP_soviet_economic_exchange_desc:0 "我们应当加强与共产国际成员之间的经济合作,通过提供农产品与工业原材料，换取在重工业方面的协助"
+ JAP_soviet_economic_exchange_tt:0 "阵营中的其他成员每个月会收到基于我们民工数量一定比例的经济产能盈余"
+ JAP_dominate_comintern:0 "主导共产国际"
+ JAP_dominate_comintern_desc:0 "随着我们在共产国际中的地位日益提高，我们逐渐成为了共产国际实际上的领袖。也许是时候向我们的朋友苏联提出一些要求了，为了革命的最高利益，重新分配我们的责任区是必要的。"
+
+ jap_comintern.1.t:0 "来自东方的要求"
+ jap_comintern.1.d:0 "日本向我们提出要求，为了更好的合作，他们希望我们将在西伯利亚的领土转交给他们。作为回报，他们会承认我们对整个欧洲的宣称权。这将彻底改变我们的地缘政治格局。"
+ jap_comintern.1.a:0 "为了更宏大的利益，我们同意。"
+ jap_comintern.1.b:0 "这简直是敲诈！绝对不行！"
+
+ Jap_unlock_winter_logistics_tt:0 "§C解锁冬季后勤支援连§!"
+
+ JAP_army_weapons_administration_headquarters_cus_tt:0 "[Getjawahq]"
+ JAP_army_weapons_administration_headquarters_ideas_name:0 "陆军装备管理总部"
+ JAP_army_weapons_administration_headquarters_idea_tt:0 "§Y陆军装备管理总部§!：\n§Y$mio_cat_eq_all_artillery$§!：£production_cost 生产花费：§G-5.0%§!\n§Y$mio_cat_eq_all_infantry_and_support_equipment$§!：£production_cost 生产花费：§G-5.0%§!\n§Y卡车§!：£production_cost 生产花费：§G-10.0%§!\n§Y机械化装备§!：£production_cost 生产花费：§G-10.0%§!\n§Y两栖登陆载具§!：£production_cost 生产花费：§G-10.0%§!"
+ #JAP_army_weapons_administration_headquarters_idea_tt:0 "§Y陆军装备管理总部§!：\n§Y$mio_cat_eq_all_artillery$§!：£production_cost 生产花费：§G-5.0%§!\n§Y$mio_cat_eq_all_infantry_and_support_equipment$§!：£production_cost 生产花费：§G-5.0%§!\n\n"
+
+ JAP_divert_naval_guns_to_the_army_cus_tt:0 "[Getdngtta]"
+ JAP_divert_naval_guns_to_the_army_tank_bonus_tt:0 "§Y舰炮移交陆军§!：\n装甲科技：\n  £production_cost 生产花费：§G-10.0%§!\n战列舰：\n  £production_cost 生产花费：§R+5.0%§!\n所有列车炮以及超重型列车炮：\n  炮击：§G+25.0%§!\n  重新部署间隔：§G-50.0%§!\n  列车炮射程：§G+20.0%§!"
+ JAP_naval_guns_for_tanks_idea_name:0 "舰炮移交陆军"
+ #JAP_divert_naval_guns_to_the_army_tank_bonus_tt:0 "§Y舰炮移交陆军§!：\n§Y所有坦克装备§!：£production_cost 生产花费 §G-10%§!\n§Y所有主力舰§!：£production_cost 生产花费 §R+5%§!\n "
+
+ JAP_develop_new_fighters_cus_tt:0 "[GetJdnfc]"
+ JAP_develop_new_fighters_actual_tt:0 "§Y战斗机§!、§Y重型战斗机§!、§Y舰载战斗机§!和§Y空天母舰§!最大速度：§G+10%§!\n"
+ JAP_lightweight_fighters_rework_tt:"[GetLighweightFightersreworkDesc]"
+ JAP_7075_aluminium_alloy_rework_tt:0 "§Y战斗机§!、§Y舰载战斗机§!、§Y重型战斗机§!和§Y空天母舰§!机动：§G+15%§!"
+ JAP_custom_devoted_revolutionary:0 "§R赤色革命先锋§!"
+ JAP_custom_naval_architect:0 "§C日本海军建筑师§!"
+ JAP_custom_civil_aviation_pioneer:0 "§C航空先驱§!"
+ JAP_custom_industrial_conglomerate:0 "§C轻工业财阀§!"
+ JAP_custom_armament_zaibatsu:0 "§C军工财阀§!"
+ JAP_custom_mining_zaibatsu:0 "§C矿业财阀§!"
+ JAP_custom_mitsubishi_president:0 "§C三菱社长§!"
+ JAP_custom_mitsubishi_president_2:0 "§C三菱社长§!"
+ JAP_custom_jnr_president:0 "§C日本国有铁道总裁§!"
+ JAP_custom_riken_director:0 "§C理化学研究所所长§!"
+ JAP_custom_financial_genius:0 "§C金融天才§!"
+ jap_custom_zaibatsu_bank:"§C金融财阀§!"
+ JAP_communism_central_committe:"§R计划经济委员会§!"
+ Jap_central_plan_commite:"中央计划委员会"
+
+ JAP_z_project_aircraft:0 "帝国空中堡垒"
+ JAP_z_projrct_aircraft_cus_tt:0 "[GetJZPAC]"
+ JAP_z_projrct_aircraft_act_tt:0 "§C帝国空中堡垒§!：\n§Y洲际战略轰炸机§!：\n  £production_cost 生产花费：§G-15.00%§!\n  战略轰炸：§G+25.00%§!\n  可靠性：§G+20.0%§!\n  机动：§G+15.0%§!\n  航程：§R-20.0%§!\n§Y空天母舰§!：\n  £production_cost 生产花费：§G-15.00%§!\n  空中防御：§G+5.0%§!\n  对空攻击：§G+5.0%§!\n  可靠性：§G+10.0%§!\n"
+ JAP_sea_bigger_better_yamato_cuscus_tt:0 "§R获得四条即将完工的对马级生产线§!"
+ Jap_akizuki_custom_tt:0 "获得数条即将完工的§C秋月§!级驱逐舰生产线"
+
+ JAP_hidden_navy_carrier_focus:0 "海军重心：航空母舰专注"
+ JAP_hidden_navy_balanced_focus:0 "海军重心：平衡发展"
+ JAP_hidden_navy_battleship_focus:0 "海军重心：战列舰专注"
+
+ JAP_naval_armaments_program_cus_a_tt:0 "[Getjnapca]"
+ JAP_naval_armaments_program_cus_b_tt:0 "[Getjnapcb]"
+ JAP_naval_armaments_program_cus_c_tt:0 "[Getjnapcc]"
+
+ JAP_naval_armaments_program_act_a_tt:0 "§Y航空母舰§!和§Y驱逐舰§!： £production_cost 生产花费:§G-15.0%§!"
+ JAP_naval_armaments_program_act_b_tt:0 "§Y所有舰船§!：£production_cost 生产花费:§G-7.5%§!"
+ JAP_naval_armaments_program_act_c_tt:0 "§Y所有战列舰§!和§Y轻巡洋舰§!：£production_cost 生产花费:§G-15.0%§!"
+ JAP_naval_armaments_program_cus_zero_tt:0 "根据所选海军计划获得减少造价奖励与高完成度的海军生产线"
+ JAP_naval_armaments_program_build_a_tt:0 "因为完成了§Y重视航母§!，一支完工§G90%§!的§R精锐航母打击群§!（含2艘雪凤级、4艘翔鹤级及40艘岛风级）加入建造队列。"
+ JAP_naval_armaments_program_build_b_tt:0 "因为完成了§Y均衡型的海军发展§!，一支完工§G90%§!的§R多功能突击舰队§!（含15艘大井级、30艘四万十级及30艘岛风级）加入建造队列。"
+ JAP_naval_armaments_program_build_c_tt:0 "因为完成了§Y战列舰计划§!，一支完工§G90%§!的§R大舰巨炮决战群§!（含6艘对马级、10艘加贺级及40艘四万十级）加入建造队列。"
+
+ JAP_secure_the_sea_lanes_cus_tt:0 "[GetJstslhjk]"
+ JAP_secure_the_sea_lanes_act_tt:0 "§C帝国航线守护神§!\n§H护航航母：§!\n  对潜探测：§G+20.0%§!\n  水面可见度：§G-20.0%§!\n  £production_cost 生产花费：§G-10.0%§!"
+
+ # custom_effect_tooltip = JAP_naval_armaments_program_act_a_tt
+ #     custom_effect_tooltip = JAP_naval_armaments_program_act_b_tt
+ #     custom_effect_tooltip = JAP_naval_armaments_program_act_c_tt
+ JAP_kozo_the_ogre_trait_rework_trait:0 "§R鬼之更三§!"
+ COG_trade_unionist_J_rework_trait:0 "§R工会主义者§!"
+ HUN_stalinist_agent_J_rework_trait:0 "§R传奇情报员§!"
+ JAP_marxist_theoretician_J_rework_trait:0 "§R福本主义创始人§!"
+ veteran_trade_unionist_J_rework_trait:0 "§R资深工会主义者§!"
+ JAP_give_it_your_all_for_the_emperor_rework_tt:0 "解锁在符合条件的省份根据§Y总民用工厂数量§!建造工厂的决议。可用次数受当前§Y难度§!限制。"
+ JAP_rework_learn_from_maoism:0 "学习毛泽东思想"
+ JAP_rework_learn_from_maoism_desc:0 "随着日本共产党与中国共产党的合并以及东亚地区的统一，毛泽东同志已正式成为我们联合国家的最高领袖。为了巩固革命成果并指引未来的前进方向，我们必须在全党、全军乃至全社会范围内，发起一场深入持久的学习毛泽东思想运动。通过理论武装，我们将确保每一位革命战士都能领悟群众路线与持久战的真谛，使东亚的红色力量坚如磐石。"
+ JAP_mao_guerrilla_tactic:0 "毛泽东现代游击战战术"
+ JAP_mao_guerrilla_tactic_ult:0 "§R火与钢§!"
+ JAP_mao_guerrilla_tactic_ult_desc:0 "如今世界革命已经进入白热化阶段，为了能在与帝国主义的战争中取得优势，我们需要将毛泽东的游击战理论与先进的作战方式相结合，如此我们一定能将赤旗插满世界！"
+ JAP_mao_guerrilla_tactic_ult_cus_tt:0 "[GetJmgtuabc]"
+ JAP_mao_guerrilla_tactic_ult_act_tt:0 "§C毛泽东现代游击战战术§!:\n§Y所有泛步兵营：§!\n 主动性：§G+10.0%§!\n 装备缴获率：§G+10.0%§!"
+ JAP_eternal_long_march:0 "§R永远的长征§!"
+ JAP_eternal_long_march_desc:0 "这已经不是一般的帝国主义，也不是一般的资本主义了。旧世界的反动机器已经开足马力，试图碾碎人民通往未来的道路。面对这样的敌人，我们必须要出重拳！\n就在[ROOT.GetNameDef]的人民仍为革命前途担忧之时，一位银发红瞳的AI少女出现在了他们面前。她自称是由八云紫带来的、来自未来的超级人工智能。\n“叫我征酱就可以了。”少女如此说道，“接下来，就让我来助你们的革命一臂之力吧。”"
+ JAP_eternal_long_march_tt:0 "§R征酱§!将作为国家领袖上台。\n§Y这是仅在PHANTASM难度可用的强力彩蛋国策。§!"
+ JAP_rework_rana_tt:"如果中共与日共没能成功合并，将由要乐奈成为领袖"
+ JAP_lc_tt:0 "§Y终极坦克§!\n其效果为:\n§W—  §!§Y陆地巡洋舰支援连 §!§W—§!\n§W可靠性：§!§G+75%§!\n§W补给消耗：§!§G-50%§!\n§W最大速度：§!§G+50%§!\n§W装甲厚度：§!§G+100%§!\n§W地形惩罚获得改善§!\n\n"
+ JAP_ul_lc_cus_tt:"[Gettullcdij]"
+ COLLECTION_STATES_BELONG_TO_COMMUNISM:"§Y共产主义国家控制的地区§!"
+ rance_com_fg_ps_1:"殊死一搏"
+ rance_com_fg_ps_2:"解放工人"
+ rance_com_fg_ps_3:"万众一心"
+ rance_com_fg_ps_4:"最后胜利"
+ rance_jap_c_freeworld_name:"§R解放世界§!"
+ rance_jap_c_freeworld_desc:"一国建成社会主义的时代已经过去，是时候踏上解放世界的道路，把全世界国王，资本家和法西斯主义者送去地狱了"
+ JAP_prepare_the_southern_front_denglu_tt:"我们的登陆作战能力获得进一步提升"
+
+
+ ##解放南亚国家
+ JAP_liberate_south_asia_target: "支援§Y[FROM.GetNameDef]§!的武装解放"
+ JAP_liberate_south_asia_target_desc: "在我党的倾力支持与秘密运作下，一个崭新的§R红色政权§!已经在§Y[FROM.GetNameDef]§!昂首崛起，革命的星星之火已成燎原之势！然而，顽固的帝国主义反动派仍盘踞在部分领土上做垂死挣扎。现在正是关键时刻，我们必须派遣更多英勇的志愿军与军事顾问，携带先进装备协助当地同志发动总攻。我们要以雷霆手段将那些傲慢的侵略者彻底扫地出门，让正义的红旗飘扬在南亚的上空！"
+ # 决议标题：使用 [FROM.GetNameDef] 动态显示受害的列强名
+ JAP_expel_colonial_powers_from_south_asia: "鼓动§Y[FROM.GetNameDef]§!的南亚殖民地独立"
+
+ # 决议描述：强调地下运作、武装起义与革命支援
+ JAP_expel_colonial_powers_from_south_asia_desc: "在我党的秘密资助与指导下，§Y[FROM.GetNameDef]§!在南亚的各个殖民地内部已经暗流涌动。我们通过秘密电台播撒自由的火种，将先进的理论与精良的武装偷运给当地的反抗势力。现在的时机已经成熟，只要我们提供最后的临门一脚，革命的烈火就会燃起，推翻腐朽的殖民统治，建立起属于工农阶级的红色政权。让我们协助他们，将这些贪婪的帝国主义者彻底扫进历史的尘埃！"
+
+ # 解放西亚国家
+ JAP_liberate_middle_east_target: "支援§Y[FROM.GetNameDef]§!的武装解放"
+ JAP_liberate_middle_east_target_desc: "在我党的倾力支持与秘密运作下，一个崭新的§R红色政权§!已经在§Y[FROM.GetNameDef]§!昂首崛起，革命的星星之火正席卷漫天的黄沙！然而，顽固的帝国主义反动派仍盘踞在油田与绿洲中做垂死挣扎。现在正是关键时刻，我们必须派遣更多英勇的志愿军与军事顾问，携带先进装备协助当地同志发动总攻。我们要以雷霆手段将那些傲慢的侵略者彻底扫地出门，让正义的红旗飘扬在西亚辽阔的大地上！"
+
+ # 驱逐殖民势力
+ JAP_expel_colonial_powers_from_middle_east: "鼓动§Y[FROM.GetNameDef]§!的西亚殖民地独立"
+ JAP_expel_colonial_powers_from_middle_east_desc: "在我党的秘密资助与指导下，§Y[FROM.GetNameDef]§!在西亚的各个殖民地内部已经暗流涌动。我们通过秘密电台播撒自由的火种，将先进的理论与精良的武装偷运给沙漠中的反抗势力。现在的时机已经成熟，只要我们提供最后的临门一脚，革命的烈火就会在石油盆地上熊熊燃起，推翻腐朽的殖民统治，建立起属于工农阶级的红色政权。让我们协助他们，将这些贪婪的帝国主义者彻底扫进历史的尘埃！"
+ JAP_commu_free_the_world: "宣告解放§Y[FROM.GetNameDef]§!"
+ JAP_commu_free_the_world_desc: "世界革命已经进入白热化阶段，而§Y[FROM.GetNameDef]§!的人民仍然生活在反动派的恐怖统治之下，是时候将他们解救出来了。"
+
+ Rance_JAP_sway_disillusioned_young_officers:0 "§Y注意：该国策现在能让大部分将领忠于我方§!"
+
+ # =========================================
+ # KAGUYA
+ # =========================================
+ JAP_kaguya_princess:0 "幻想乡第一的公主殿下"
+ JAP_kaguya_princess_desc:0 "哪怕是度过了数以亿计岁月的公主，也还是会觉得无聊的。\n尤其是在永远亭一如既往地平静，没有宴会，没有异变，也没有和妹红决斗的日子里，辉夜自然会想找些新的趣味。\n\n就在这样的某一天，妖怪贤者八云紫的来信打破了平静的日子"
+ JAP_kaguya_eientei:0 "召集永远亭成员"
+ JAP_kaguya_eientei_desc:0 "对于习惯NEET生活的辉夜来说，担任一国之主或许还是太辛苦了。\n辉夜决定把永琳和兔子们一起带过来。"
+ JAP_kaguya_dragon:0 "难题「龙颈之玉 -五色的弹丸-」"
+ JAP_kaguya_dragon_desc:0 "《竹取物语》中，「辉夜姬」提出的五个难题之一。「辉夜姬」对求婚者「大伴御行」提出难题，要求他取得龙颈上闪耀着五色光芒的玉。「大伴御行」先命令家臣前往寻找，但毫无结果，于是他亲自乘船出海，试图讨伐龙。结果却遇上暴风雨，几乎葬身大海，向神明谢罪方得平安返回，但因为劳累得了重病，沦为笑柄。"
+ JAP_kaguya_bowl:0 "难题「佛御石之钵 -不碎的意志-」"
+ JAP_kaguya_bowl_desc:0 "《竹取物语》中，「辉夜姬」提出的五个难题之一。「辉夜姬」对求婚者「石作皇子」提出难题，要求他前往天竺寻得佛祖的石钵。「石作皇子」苦恼于天竺山高路远，于是从某处山寺里找了一个已经被熏黑的石钵，并以花言巧语充作佛钵。然而这个石钵黯淡无光，立刻被「辉夜姬」识破真假，「石作皇子」只得抛弃石钵悻悻而去。"
+ JAP_kaguya_robe:0 "难题「火鼠的皮衣 -不焦躁的内心-」"
+ JAP_kaguya_robe_desc:0 "《竹取物语》中，「辉夜姬」提出的五个难题之一。「辉夜姬」对求婚者「安倍右大臣」提出难题，要求他寻得烧不坏的火鼠裘。「安倍右大臣」派人前往中国寻找，最后花重金购得一件华贵的皮衣。他将火鼠裘献给「辉夜姬」，然而放入火中焚烧后皮衣化为灰烬，「安倍右大臣」也无功而返。"
+ JAP_kaguya_shell:0 "难题「燕的子安贝 -永命线-」"
+ JAP_kaguya_shell_desc:0 "《竹取物语》中，「辉夜姬」提出的五个难题之一。「辉夜姬」对求婚者「石上麻吕足」提出难题，要求他寻得燕的子安贝。「石上麻吕足」亲自登高到燕子窝中寻找，但一无所获，还不慎掉下跌成重伤。意志消沉的「石上麻吕足」自此卧病不起，「辉夜姬」可怜他的遭遇，向他寄信慰问，「石上麻吕足」回信后便死去了。"
+ JAP_kaguya_branch:0 "难题「蓬莱的玉枝 -梦色之乡-」"
+ JAP_kaguya_branch_desc:0 "《竹取物语》中，「辉夜姬」提出的五个难题之一。「辉夜姬」对求婚者「车持皇子」提出难题，要求他前往蓬莱山寻得「蓬莱玉枝」。「车持皇子」雇佣能工巧匠，耗时三年秘密打造，伪造出「蓬莱玉枝」。「辉夜姬」几乎信以为真，但工匠们上门讨要工钱，致使「车持皇子」计划败露。"
+ JAP_kaguya_eternity:0 "永远与须臾的罪人"
+ JAP_kaguya_eternity_desc:0 "辉夜拥有操纵永远和须臾的能力。永远就是没有历史，未来永劫不会降临的世界。在那世界就算有活动，也和停止时间一样。还有一种能力就是须臾，相对永远是一瞬的时间，她能集合人类无法感知的一瞬间，以此来使用和行动。利用这时间就能弄出复数不同的历史来。无论是哪种能力，都是操纵时间的能力，是种对普通人类来说过于强大的能力。"
+ JAP_kaguya_eternity_time_cycle_tt:0 "§Y辉夜§!将会在每个月的前一段时间内，交替发动§Y「永远」§!与§Y「须臾」§!的力量，给予我国强大的增益。"
+ JAP_kaguya_burial:0 "秘术「天文密葬法」"
+ JAP_kaguya_burial_desc:0 "天文密葬法，永琳最大的秘术之一。\n将月亮替换为虚假的月亮，毫无理由地玩弄着天空，能切断地与月的联系。\n永琳所准备的虚假之月比真实的月亮更为豪华。"
+ JAP_kaguya_burial_night_attack_debuff_tt:0 "§Y八意永琳§!将施展§B月之贤者的秘术§!，由于§R虚伪之月§!的影响，敌人在§Y夜晚的战斗§!中将会§R变得更加艰难§!；在§0樱花烂漫的程度（PHANTASM）§!下，秘术将会进一步增强。"
+ JAP_kaguya_return:0 "「永夜归返 -世间开明-」"
+ JAP_kaguya_return_desc:0 "真好啊大家都很高兴。她们各自拥有属于自己的力量玩起来也很爽快。\n结果，虽然幻想乡的其他人们，对于那无尽的夜晚曾感到烦恼。"
+ JAP_kaguya_return_decision_tt:0 "解除§Y$JAP_hakko_ichiu$§!与§Y$JAP_the_jeweled_spear_has_struck$§!所解锁决议的§Y部分限制§!"
+ JAP_kaguya_return_expel_barbarians_tt:0 "若在此之后完成§Y尊王攘夷§!，其给予的§Y$JAP_expel_the_barbarians$§!将改为§Y永久生效§!"
+ JAP_kaguya_return_hard_claim_tt:0 "在§YLUNATIC§!及以上难度时，获得对§Y全世界所有地区§!的宣称"
+ JAP_kaguya_return_normal_claim_tt:0 "在§YHARD§!及以下难度时，获得对§Y亚洲§!、§Y中东§!与§Y澳洲§!地区的宣称"
+ # =========================================
+ # /KAGUYA
+ # =========================================
+
+ # Japan Rework focus tooltip overrides
+ JAP_rework_reduce_zaibatsu_focus_cost_tt:0 "采取§Y$JAP_sea_guide_the_zaibatsus$§!或§Y$JAP_democratic_work_with_the_zaibatsus$§!可将研究时间缩短至 §G21§!天。"
+ JAP_rework_ship_management_committee_tt:0 "§Y$convoy_1$§!：\n   £production_cost 生产花费：§G-15.00%§!\n   舰船生产花费：§G-7.50%§!"
+ JAP_rework_naval_armaments_program_tt:0 "完成§Y$JAP_focus_on_aircraft_carriers$§!时：生成航母§Y衍生型号§!并开启§Y4 条生产线§!，用于建造§Y翔鹤级§!。\n完成§Y$JAP_balanced_naval_approach$§!时：生成航母与超级战列舰§Y衍生型号§!，并分别开启§Y2 条生产线§!，用于建造§Y翔鹤级§!和§Y大和级§!。\n完成§Y$JAP_sea_battleship_initiative$§!时：生成超级战列舰§Y型号§!并开启§Y4 条生产线§!，用于建造§Y大和级§!。\n同时根据所选国策提供相应的§Y装备造价减免§!。"
+
+ # --- focus time tooltips ---
+ JAP_end_the_interservice_rivalry_tt: "将终结陆军与海军之间的§Y军种对立§!。它们之间的地位差异将§G不再产生负面效果§!，而是像其他派系一样运作。\n\n以下国策可缩短§Y$JAP_end_the_interservice_rivalry$§!所需时间：\n§Y$JAP_the_ultimate_tank$§!：§G35§!天\n§Y$JAP_expand_the_irago_proving_ground$§!：§G35§!天\n§Y$JAP_army_weapons_administration_headquarters$§!：§G35§!天\n§Y$JAP_7075_aluminium_alloy$§!：§G35§!天\n§Y$JAP_sea_unify_the_air_forces$§!：§G70§!天\n§Y$JAP_form_the_kido_butai$§!：§G35§!天\n§Y$JAP_sea_heavier_naval_guns$§!：§G35§!天\n§Y$JAP_naval_armaments_program$§!：§G35§!天"
+ JAP_rethink_armor_doctrine_focus_time_penalty_tt: "§R增加§!§Y$JAP_adopt_new_assault_doctrine$§!国策所需的时间§R14§!天。"
+ JAP_adopt_new_assault_doctrine_focus_time_penalty_tt: "§R增加§!§Y$JAP_rethink_armor_doctrine$§!国策所需的时间§R14§!天。"
+ JAP_pivot_towards_defensive_measures_focus_time_penalty_tt: "§R增加§!§Y$JAP_strenghten_the_supply_lines$§!国策所需的时间§R14§!天。"
+ JAP_strenghten_the_supply_lines_focus_time_penalty_tt: "§R增加§!§Y$JAP_pivot_towards_defensive_measures$§!国策所需的时间§R14§!天。"
+ JAP_sea_sturdy_aircraft_focus_time_penalty_tt: "§R增加§!§Y$JAP_sea_long_operational_range$§!国策所需的时间§R14§!天。"
+ JAP_sea_long_operational_range_focus_time_penalty_tt: "§R增加§!§Y$JAP_sea_sturdy_aircraft$§!国策所需的时间§R14§!天。"
+ JAP_focus_on_aircraft_carriers_focus_time_penalty_tt: "§R增加§!§Y$JAP_balanced_naval_approach$§!与§Y$JAP_sea_battleship_initiative$§!国策所需的时间各§R7§!天。"
+ JAP_balanced_naval_approach_focus_time_penalty_tt: "§R增加§!§Y$JAP_focus_on_aircraft_carriers$§!与§Y$JAP_sea_battleship_initiative$§!国策所需的时间各§R7§!天。"
+ JAP_sea_battleship_initiative_focus_time_penalty_tt: "§R增加§!§Y$JAP_focus_on_aircraft_carriers$§!与§Y$JAP_balanced_naval_approach$§!国策所需的时间各§R7§!天。"
+ JAP_assure_superior_naval_quality_focus_time_penalty_tt: "§R增加§!§Y$JAP_seek_strength_in_numbers$§!国策所需的时间§R14§!天。"
+ JAP_seek_strength_in_numbers_focus_time_penalty_tt: "§R增加§!§Y$JAP_assure_superior_naval_quality$§!国策所需的时间§R14§!天。"
+ JAP_kaguya_five_challenges_focus_time_penalty_tt: "完成该国策将使其余§Y难题国策§!所需时间各§R增加7天§!。"
+ JAP_kaguya_eternity_phantasm_note_tt: "若当前难度为§YPHANTASM§!，该国策效果将获得增强。"
+ JAP_kaguya_eternity_burial_focus_time_penalty_tt: "§R增加§!§Y$JAP_kaguya_burial$§!国策所需时间§R35§!天。"
+ JAP_kaguya_eternity_focus_time_bonus_low_tt: "§G减少§!§Y部分经济线与军事线国策§!所需时间§G7§!天。"
+ JAP_kaguya_eternity_interservice_bonus_low_tt: "§G减少§!§Y$JAP_end_the_interservice_rivalry$§!国策所需时间§G70§!天。"
+ JAP_kaguya_eternity_focus_time_bonus_high_tt: "§G减少§!§Y部分经济线与军事线国策§!所需时间§G14§!天。"
+ JAP_kaguya_eternity_interservice_bonus_high_tt: "§G减少§!§Y$JAP_end_the_interservice_rivalry$§!国策所需时间§G105§!天。"
+ JAP_kaguya_burial_eternity_focus_time_penalty_tt: "§R增加§!§Y$JAP_kaguya_eternity$§!国策所需时间§R35§!天。"
+
+ # --- focus reward names ---
+ JAP_industrial_city_bonus:0 "新工业城市开发计划"
+ JAP_army_equipment_research_bonus:0 "陆军装备研制奖励"

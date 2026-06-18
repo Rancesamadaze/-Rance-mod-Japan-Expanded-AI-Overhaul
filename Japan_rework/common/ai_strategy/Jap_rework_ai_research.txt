@@ -56,7 +56,7 @@ rance_mod_jap_ai_dont_research = {
 	ai_strategy = { type = research_weight_factor id = advanced_rubber_processing value = -1000 }
 	ai_strategy = { type = research_weight_factor id = modern_rubber_processing value = -1000 }
 	ai_strategy = { type = research_weight_factor id = concentrated_industry value = -1000 }
-	
+
 
 
 	# 6. 海军配件科技禁用 (由于未来可能解封，故独立注释并设置) [cite: 611, 592, 593]
@@ -96,7 +96,7 @@ rance_mod_ai_1936_res_1 = {
 	}
 	enable = {
 		date > 1936.1.1
-		
+
 	}
 	abort = {
 		# 当下列第一批核心科技全部拥有时，该权重策略失效
@@ -119,7 +119,7 @@ rance_mod_ai_1936_res_2 = {
 	}
 	enable = {
 		date > 1936.1.1
-		
+
 	}
 	abort = {
 		# 当下列第二批科技全部拥有时失效
@@ -138,7 +138,7 @@ rance_mod_ai_1936_res_3 = {
 	}
 	enable = {
 		date > 1936.1.1
-		
+
 	}
 	abort = {
 		# 当下列第三批辅助/长线科技全部拥有时失效
@@ -179,7 +179,7 @@ rance_mod_ai_1937_res_1 = {
 	}
 	enable = {
 		date > 1937.1.1
-		
+
 	}
 	abort = {
 		# 当下列工业核心科技全部研究完成时，该策略块失效
@@ -200,7 +200,7 @@ rance_mod_ai_1937_res_2 = {
 	}
 	enable = {
 		date > 1937.1.1
-		
+
 	}
 	abort = {
 		has_tech = antitank1                   # 1型反坦克炮技术 [cite: 170]
@@ -216,7 +216,7 @@ rance_mod_ai_1937_res_3 = {
 	}
 	enable = {
 		date > 1937.1.1
-		
+
 	}
 	abort = {
 		# 当下列所有海军配件、底盘及后勤科技全部拥有时失效
@@ -252,7 +252,7 @@ rance_mod_ai_1938_res_1 = {
 	}
 	enable = {
 		date > 1938.1.1
-		
+
 	}
 	abort = {
 		# 当下列第一批核心科技全部拥有时失效
@@ -277,7 +277,7 @@ rance_mod_ai_1938_res_2 = {
 	}
 	enable = {
 		date > 1938.1.1
-		
+
 	}
 	abort = {
 		# 当下列第二批进阶科技全部拥有时失效
@@ -285,10 +285,10 @@ rance_mod_ai_1938_res_2 = {
 		has_tech = improved_radio                    # 改进型无线电 [cite: 170]
 		has_tech = infantry_weapons2                 # 步枪强化1 [cite: 166]
 		has_tech = improved_heavy_armor_scheme       # 改进型重型装甲方案 [cite: 173]
-		has_tech = sp_armored_engineer_tech          # 装甲工程兵 
-		has_tech = sp_helicopter_artillery_observers_tech # 直升机炮兵观察员 
+		has_tech = sp_armored_engineer_tech          # 装甲工程兵
+		has_tech = sp_helicopter_artillery_observers_tech # 直升机炮兵观察员
 		has_tech = tech_maintenance_company2         # 高级维修连2 [cite: 175]
-		has_tech = sp_helicopter_med_evac_tech       # 直升机医疗疏散 
+		has_tech = sp_helicopter_med_evac_tech       # 直升机医疗疏散
 	}
 
 	ai_strategy = { type = research_weight_factor id = cavity_magnatron value = 400 }
@@ -308,7 +308,7 @@ rance_mod_ai_1938_res_3 = {
 	}
 	enable = {
 		date > 1938.1.1
-		
+
 	}
 	abort = {
 		# 当下列所有海军、坦克附件及辅助科技全部拥有时失效
@@ -344,7 +344,7 @@ rance_mod_ai_1938_res_3 = {
 #----------------------------------------------------------------------------------------------------
 # 日本 AI 科研策略：1939 动态权重管理
 # 逻辑：第一批权重 8 (全面爆发急需)，第二批权重 4 (海空军主力补强)，第三批权重 2 (进阶辅助与底盘)。
-# 适用版本：V1.17.x 全 DLC 环境 
+# 适用版本：V1.17.x 全 DLC 环境
 #----------------------------------------------------------------------------------------------------
 
 # 1939年 第一批科技 (权重: 8) - 侧重反坦克、工业产能与步兵现代化
@@ -354,7 +354,7 @@ rance_mod_ai_1939_res_1 = {
 	}
 	enable = {
 		date > 1939.1.1
-		
+
 	}
 	abort = {
 		# 当下列核心科技全部研究完成时失效 [cite: 166, 167, 170, 171, 172]
@@ -385,7 +385,7 @@ rance_mod_ai_1939_res_2 = {
 	}
 	enable = {
 		date > 1939.1.1
-		
+
 	}
 	abort = {
 		# 当下列海空补强与支援连科技全部拥有时失效 [cite: 168, 170, 172, 173, 175]
@@ -436,7 +436,7 @@ rance_mod_ai_1939_res_3 = {
 	}
 	enable = {
 		date > 1939.1.1
-		
+
 	}
 	abort = {
 		# 当下列所有进阶科技全部研究完成时失效 [cite: 167, 168, 169, 170, 173]
@@ -484,12 +484,12 @@ rance_mod_ai_1940_res_1 = {
 		date > 1940.1.1
 	}
 	abort = {
-		has_tech = antitank3                   
-		has_tech = antitank4                   
-		has_tech = improved_computing_machine  
-		has_tech = mechanised_infantry         
-		has_tech = improved_medium_tank_chassis 
-		has_tech = improved_heavy_tank_chassis 
+		has_tech = antitank3
+		has_tech = antitank4
+		has_tech = improved_computing_machine
+		has_tech = mechanised_infantry
+		has_tech = improved_medium_tank_chassis
+		has_tech = improved_heavy_tank_chassis
 	}
 
 	ai_strategy = { type = research_weight_factor id = antitank3 value = 8000 }
@@ -509,21 +509,21 @@ rance_mod_ai_1940_res_2 = {
 		date > 1940.1.1
 	}
 	abort = {
-		has_tech = antiair2                    
-		has_tech = engines_3                   
-		has_tech = air_torpedoe_2              
-		has_tech = heavy_bombs                 
-		has_tech = improved_large_airframe     
-		has_tech = improved_medium_airframe    
-		has_tech = centimetric_radar           
-		has_tech = advanced_fire_control_system 
-		has_tech = support_weapons3            
-		has_tech = improved_infantry_weapons_2 
-		has_tech = amphibious_mechanized_infantry 
-		has_tech = improved_dp_light_battery   
-		has_tech = advanced_ship_torpedo_launcher 
-		has_tech = mtg_landing_craft           
-		has_tech = sp_aip_engine_improved_tech 
+		has_tech = antiair2
+		has_tech = engines_3
+		has_tech = air_torpedoe_2
+		has_tech = heavy_bombs
+		has_tech = improved_large_airframe
+		has_tech = improved_medium_airframe
+		has_tech = centimetric_radar
+		has_tech = advanced_fire_control_system
+		has_tech = support_weapons3
+		has_tech = improved_infantry_weapons_2
+		has_tech = amphibious_mechanized_infantry
+		has_tech = improved_dp_light_battery
+		has_tech = advanced_ship_torpedo_launcher
+		has_tech = mtg_landing_craft
+		has_tech = sp_aip_engine_improved_tech
 	}
 
 	ai_strategy = { type = research_weight_factor id = antiair2 value = 400 }
@@ -552,9 +552,9 @@ rance_mod_ai_1940_res_3 = {
 		date > 1940.1.1
 	}
 	abort = {
-		has_tech = damage_control_2            
-		has_tech = fire_control_methods_2      
-		has_tech = super_heavy_tank_chassis    
+		has_tech = damage_control_2
+		has_tech = fire_control_methods_2
+		has_tech = super_heavy_tank_chassis
 	}
 
 	ai_strategy = { type = research_weight_factor id = damage_control_2 value = 20 }
@@ -576,10 +576,10 @@ rance_mod_ai_1941_res_1 = {
 		date > 1941.1.1
 	}
 	abort = {
-		has_tech = antitank5                   
-		has_tech = construction4               
-		has_tech = dispersed_industry4         
-		has_tech = assembly_line_production    
+		has_tech = antitank5
+		has_tech = construction4
+		has_tech = dispersed_industry4
+		has_tech = assembly_line_production
 	}
 
 	ai_strategy = { type = research_weight_factor id = antitank5 value = 8000 }
@@ -597,12 +597,12 @@ rance_mod_ai_1941_res_2 = {
 		date > 1941.1.1
 	}
 	abort = {
-		has_tech = antiair3                          
-		has_tech = sp_shock_hardening_techniques     
-		has_tech = phased_array                      
-		has_tech = advanced_radio                    
-		has_tech = amphibious_mechanized_infantry    
-		has_tech = super_heavy_tank_chassis          
+		has_tech = antiair3
+		has_tech = sp_shock_hardening_techniques
+		has_tech = phased_array
+		has_tech = advanced_radio
+		has_tech = amphibious_mechanized_infantry
+		has_tech = super_heavy_tank_chassis
 		has_tech = sp_armored_advanced_flamethrower_tech # 先进装甲喷火技术
 	}
 
@@ -624,8 +624,8 @@ rance_mod_ai_1941_res_3 = {
 		date > 1941.1.1
 	}
 	abort = {
-		has_tech = damage_control_3            
-		has_tech = fire_control_methods_3      
+		has_tech = damage_control_3
+		has_tech = fire_control_methods_3
 	}
 
 	ai_strategy = { type = research_weight_factor id = damage_control_3 value = 20 }
@@ -1056,7 +1056,7 @@ rance_mod_jap_naval_armaments_tech = {
 		id = improved_ship_hull_light
 		value = 400
 	}
-	
+
 }
 #海军火控
 rance_mod_japan_no_fire_control = {

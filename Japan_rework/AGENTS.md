@@ -47,6 +47,7 @@ Before reading files under `Reference/`, confirm the correct encoding strategy. 
 - AI war strategy: `common/ai_strategy/AI_Strategy_Reference/AI_war_strategy_reference.md`
 - Kodoha war strategy: `common/ai_strategy/AI_Strategy_Reference/JAP_kodoha_war_strategy_reference.md`
 - Post-China Kodoha AI area planning: `common/ai_strategy/AI_Strategy_Reference/JAP_kodoha_post_china_ai_area_plan.md`
+- 正式版发布维护：`release_maintenance/README.md`；这是将测试版 `Japan_rework` 更新/发布到 `rance_jap_*` 正式版时的维护参考。
 
 For the full routing index, external source paths, and migrated root notes, read `Reference/agent_reference_index.md`.
 
