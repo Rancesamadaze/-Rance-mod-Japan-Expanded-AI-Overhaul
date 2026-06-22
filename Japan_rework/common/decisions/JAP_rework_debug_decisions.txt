@@ -1,99 +1,10 @@
 JAP_rework_debug_decisions = {
-
-	JAP_debug_dynamic_state_text_tokyo = {
-		icon = GFX_decision_generic_decision
-		priority = 999
-
-		available = {
-			always = yes
-		}
-
-		cost = 0
-
-		complete_effect = {
-			671 = {
-				save_event_target_as = JAP_debug_dynamic_state_text_target
-				ROOT = {
-					country_event = { id = JAP_debug_dynamic_state_text.1 }
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	JAP_debug_dynamic_state_text_hokkaido = {
-		icon = GFX_decision_generic_decision
-		priority = 998
-
-		available = {
-			always = yes
-		}
-
-		cost = 0
-
-		complete_effect = {
-			536 = {
-				save_event_target_as = JAP_debug_dynamic_state_text_target
-				ROOT = {
-					country_event = { id = JAP_debug_dynamic_state_text.1 }
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	JAP_debug_dynamic_state_text_direct_control = {
-		icon = GFX_decision_generic_decision
-		priority = 997
-
-		available = {
-			always = yes
-		}
-
-		cost = 0
-
-		complete_effect = {
-			country_event = { id = JAP_debug_dynamic_state_text.2 }
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	JAP_debug_add_10_skill_levels_to_army_leaders = {
-		icon = GFX_decision_generic_decision
-		priority = 996
-
-		available = {
-			always = yes
-		}
-
-		cost = 0
-		fire_only_once = yes
-
-		complete_effect = {
-			every_army_leader = {
-				add_skill_level = 10
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	JAP_debug_add_military_leader_cost_factor = {
-		icon = GFX_decision_generic_decision
-		priority = 995
+	JAP_debug_show_military_factory_count = {
+		icon = generic_factory
+		priority = 1000
 
 		visible = {
-			NOT = { has_idea = JAP_debug_military_leader_cost_factor }
+			always = yes
 		}
 
 		available = {
@@ -103,7 +14,10 @@ JAP_rework_debug_decisions = {
 		cost = 0
 
 		complete_effect = {
-			add_ideas = JAP_debug_military_leader_cost_factor
+			set_variable = {
+				var = JAP_debug_cached_military_factories
+				value = num_of_military_factories
+			}
 		}
 
 		ai_will_do = {
@@ -111,12 +25,12 @@ JAP_rework_debug_decisions = {
 		}
 	}
 
-	JAP_debug_remove_military_leader_cost_factor = {
-		icon = GFX_decision_generic_decision
-		priority = 994
+	JAP_debug_toggle_MAN_mic_to_overlord_idea = {
+		icon = generic_factory
+		priority = 990
 
 		visible = {
-			has_idea = JAP_debug_military_leader_cost_factor
+			always = yes
 		}
 
 		available = {
@@ -126,36 +40,253 @@ JAP_rework_debug_decisions = {
 		cost = 0
 
 		complete_effect = {
-			remove_ideas = JAP_debug_military_leader_cost_factor
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	JAP_debug_complete_ultimate_tank_and_grant_land_equipment_designs = {
-		icon = GFX_decision_generic_special_project
-		priority = 993
-
-		available = {
-			always = yes
-		}
-
-		cost = 0
-		fire_only_once = yes
-
-		complete_effect = {
-			custom_effect_tooltip = JAP_debug_complete_ultimate_tank_and_grant_land_equipment_designs_tt
-			hidden_effect = {
+			MAN = {
 				if = {
 					limit = {
-						NOT = { has_completed_focus = JAP_the_ultimate_tank }
+						has_idea = JAP_debug_MAN_mic_to_overlord_factor
 					}
-					complete_national_focus = JAP_the_ultimate_tank
+					remove_ideas = JAP_debug_MAN_mic_to_overlord_factor
 				}
-				JAP_debug_grant_all_land_equipment_designs = yes
-				set_country_flag = JAP_debug_completed_ultimate_tank_and_granted_land_equipment_designs
+				else = {
+					add_ideas = JAP_debug_MAN_mic_to_overlord_factor
+				}
+				set_variable = {
+					var = JAP_debug_cached_military_factories
+					value = num_of_military_factories
+				}
+			}
+			JAP = {
+				set_variable = {
+					var = JAP_debug_cached_military_factories
+					value = num_of_military_factories
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_MAN_spawn_10_japanese_infantry = {
+		icon = generic_military
+		priority = 980
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			MAN = {
+				if = {
+					limit = {
+						NOT = { has_template = "日本步兵师" }
+					}
+					JAP_create_infantry_template = yes
+				}
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"日本步兵师\" start_experience_factor = 0.2 start_manpower_factor = 1 start_equipment_factor = 1"
+						owner = prev
+						prioritize_location = 4572
+						allow_spawning_on_enemy_provs = yes
+						count = 10
+					}
+				}
+				add_to_variable = {
+					var = JAP_debug_MAN_japanese_infantry_spawned
+					value = 10
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_read_MAN_japanese_infantry_count = {
+		icon = generic_military
+		priority = 970
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_read_MAN_japanese_infantry_count_tt
+			hidden_effect = {
+				MAN = {
+					clear_variable = JAP_debug_MAN_total_divisions
+					clear_variable = JAP_debug_MAN_infantry_majority_divisions
+					every_country_division = {
+						PREV = {
+							add_to_variable = {
+								var = JAP_debug_MAN_total_divisions
+								value = 1
+							}
+						}
+					}
+					every_country_division = {
+						limit = {
+							division_has_majority_template = infantry
+						}
+						PREV = {
+							add_to_variable = {
+								var = JAP_debug_MAN_infantry_majority_divisions
+								value = 1
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_template = "日本步兵师"
+						}
+						set_variable = {
+							var = JAP_debug_MAN_has_japanese_infantry_template
+							value = 1
+						}
+					}
+					else = {
+						set_variable = {
+							var = JAP_debug_MAN_has_japanese_infantry_template
+							value = 0
+						}
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_MAN_has_army_size_infantry_over_100 = {
+		icon = generic_military
+		priority = 965
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_MAN_has_army_size_infantry_over_100_tt
+			hidden_effect = {
+				MAN = {
+					if = {
+						limit = {
+							has_army_size = {
+								size > 100
+								type = infantry
+							}
+						}
+						set_variable = {
+							var = JAP_debug_MAN_has_army_size_infantry_over_100_result
+							value = 1
+						}
+					}
+					else = {
+						set_variable = {
+							var = JAP_debug_MAN_has_army_size_infantry_over_100_result
+							value = 0
+						}
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_init_global_variable_test = {
+		icon = generic_factory
+		priority = 962
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = { global.JAP_debug_global_variable_test = 0 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_add_10_global_variable_test = {
+		icon = generic_factory
+		priority = 961
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			add_to_variable = { global.JAP_debug_global_variable_test = 10 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_MAN_create_japanese_nagato_class_ship = {
+		icon = generic_naval
+		priority = 960
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			MAN = {
+				create_ship = {
+					type = ship_hull_heavy_2
+					equipment_variant = "长门级"
+					creator = JAP
+					name = "MAN Debug 长门"
+				}
 			}
 		}
 

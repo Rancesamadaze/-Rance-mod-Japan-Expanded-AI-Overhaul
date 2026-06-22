@@ -75,6 +75,8 @@ replace_path="common/decisions/_generic_decisions.txt"
 replace_path="common/ideas/japan.txt"
 replace_path="common/ideas/_economic.txt"
 replace_path="common/ideas/_manpower.txt"
+# 覆盖情报机构升级 AI 权重，以便日本 AI 按项目专属梯度升级。
+replace_path="common/intelligence_agency_upgrades/intelligence_agency_upgrades.txt"
 replace_path="common/military_industrial_organization/organizations/JAP_organization.txt"
 replace_path="common/military_industrial_organization/organizations/_documentation.md"
 replace_path="common/national_focus/japan.txt"

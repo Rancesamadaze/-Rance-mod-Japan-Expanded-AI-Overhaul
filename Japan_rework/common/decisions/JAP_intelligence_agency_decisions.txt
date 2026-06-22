@@ -1,0 +1,205 @@
+JAP_intelligence_agency_decisions = {
+	JAP_supremacy_of_the_kempeitai = {
+		icon = GFX_decision_generic_police_action
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_indoctrination_in_the_military_academy
+			NOT = { has_completed_focus = JAP_supremacy_of_the_kempeitai }
+		}
+		available = {
+			JAP_intelligence_agency_focus_decision_not_in_progress = yes
+			JAP_supremacy_of_the_kempeitai_focus_decision_available = yes
+		}
+		cancel_trigger = {
+			JAP_supremacy_of_the_kempeitai_focus_decision_cancelled = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+			complete_national_focus = JAP_supremacy_of_the_kempeitai
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_form_cabinet_intelligence_bureau = {
+		icon = GFX_decision_generic_operation
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_sea_national_spiritual_mobliization_movement
+			NOT = { has_completed_focus = JAP_form_cabinet_intelligence_bureau }
+		}
+		available = {
+			JAP_intelligence_agency_focus_decision_not_in_progress = yes
+			JAP_form_cabinet_intelligence_bureau_focus_decision_available = yes
+		}
+		cancel_trigger = {
+			JAP_form_cabinet_intelligence_bureau_focus_decision_cancelled = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+			complete_national_focus = JAP_form_cabinet_intelligence_bureau
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_crackdown_on_foreign_agents = {
+		icon = GFX_decision_generic_arrest
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_form_cabinet_intelligence_bureau
+			NOT = { has_completed_focus = JAP_crackdown_on_foreign_agents }
+		}
+		available = {
+			JAP_intelligence_agency_focus_decision_not_in_progress = yes
+			JAP_crackdown_on_foreign_agents_focus_decision_available = yes
+		}
+		cancel_trigger = {
+			JAP_crackdown_on_foreign_agents_focus_decision_cancelled = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+			complete_national_focus = JAP_crackdown_on_foreign_agents
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_found_the_great_japan_press_association = {
+		icon = GFX_decision_generic_propaganda
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_form_cabinet_intelligence_bureau
+			NOT = { has_completed_focus = JAP_found_the_great_japan_press_association }
+		}
+		available = {
+			JAP_intelligence_agency_focus_decision_not_in_progress = yes
+			JAP_found_the_great_japan_press_association_focus_decision_available = yes
+		}
+		cancel_trigger = {
+			JAP_found_the_great_japan_press_association_focus_decision_cancelled = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+			complete_national_focus = JAP_found_the_great_japan_press_association
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_empower_the_thought_police = {
+		icon = GFX_decision_generic_police_action
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_found_the_great_japan_press_association
+			NOT = { has_completed_focus = JAP_empower_the_thought_police }
+		}
+		available = {
+			JAP_intelligence_agency_focus_decision_not_in_progress = yes
+			JAP_empower_the_thought_police_focus_decision_available = yes
+		}
+		cancel_trigger = {
+			JAP_empower_the_thought_police_focus_decision_cancelled = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+			complete_national_focus = JAP_empower_the_thought_police
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
+	JAP_learn_from_the_nkvd = {
+		icon = GFX_decisions_generic_infiltration
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_the_ie_system_and_socialism
+			NOT = { has_completed_focus = JAP_learn_from_the_nkvd }
+		}
+		available = {
+			JAP_intelligence_agency_focus_decision_not_in_progress = yes
+			JAP_learn_from_the_nkvd_focus_decision_available = yes
+		}
+		cancel_trigger = {
+			JAP_learn_from_the_nkvd_focus_decision_cancelled = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+			complete_national_focus = JAP_learn_from_the_nkvd
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_intelligence_agency_focus_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}

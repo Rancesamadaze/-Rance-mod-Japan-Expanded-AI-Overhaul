@@ -1,4 +1,39 @@
 JAP_ministry_of_colonial_affairs_decisions = {
+	JAP_east_asian_cooperative_society = {
+		icon = GFX_decision_generic_political_discourse
+		cost = 50
+		days_remove = 35
+		fire_only_once = yes
+		allowed = {
+			original_tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_ministry_of_colonial_affairs
+			has_completed_focus = JAP_sea_purge_the_kodoha_faction
+			NOT = { has_completed_focus = JAP_east_asian_cooperative_society }
+		}
+		available = {
+			NOT = { has_country_flag = JAP_colonial_affairs_decision_in_progress }
+			is_subject = no
+		}
+		cancel_trigger = {
+			is_subject = yes
+		}
+		complete_effect = {
+			set_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		remove_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+			complete_national_focus = JAP_east_asian_cooperative_society
+		}
+		cancel_effect = {
+			clr_country_flag = JAP_colonial_affairs_decision_in_progress
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+
 	JAP_manchuria_five_year_plan = {
 		icon = generic_industry
 		cost = 50

@@ -69,3 +69,101 @@ JAP_shoko_zaibatsu_focus_decision_not_in_progress = {
 		NOT = { has_country_flag = JAP_shoko_zaibatsu_focus_decision_in_progress }
 	}
 }
+
+JAP_intelligence_agency_focus_decision_not_in_progress = {
+	NOT = { has_country_flag = JAP_intelligence_agency_focus_decision_in_progress }
+}
+
+JAP_supremacy_of_the_kempeitai_focus_decision_available = {
+	has_capitulated = no
+	OR = {
+		JAP_army_faction_is_at_least_influential = yes
+		Rance_is_jap_ai = yes
+	}
+	OR = {
+		has_government = neutrality
+		has_government = fascism
+	}
+}
+
+JAP_supremacy_of_the_kempeitai_focus_decision_cancelled = {
+	OR = {
+		has_completed_focus = JAP_supremacy_of_the_kempeitai
+		NOT = { has_completed_focus = JAP_indoctrination_in_the_military_academy }
+		JAP_supremacy_of_the_kempeitai_focus_decision_available = no
+	}
+}
+
+JAP_form_cabinet_intelligence_bureau_focus_decision_available = {
+	has_capitulated = no
+}
+
+JAP_form_cabinet_intelligence_bureau_focus_decision_cancelled = {
+	OR = {
+		has_completed_focus = JAP_form_cabinet_intelligence_bureau
+		NOT = { has_completed_focus = JAP_sea_national_spiritual_mobliization_movement }
+		JAP_form_cabinet_intelligence_bureau_focus_decision_available = no
+	}
+}
+
+JAP_crackdown_on_foreign_agents_focus_decision_available = {
+	has_capitulated = no
+	OR = {
+		has_government = neutrality
+		has_government = fascism
+	}
+}
+
+JAP_crackdown_on_foreign_agents_focus_decision_cancelled = {
+	OR = {
+		has_completed_focus = JAP_crackdown_on_foreign_agents
+		NOT = { has_completed_focus = JAP_form_cabinet_intelligence_bureau }
+		JAP_crackdown_on_foreign_agents_focus_decision_available = no
+	}
+}
+
+JAP_found_the_great_japan_press_association_focus_decision_available = {
+	has_capitulated = no
+}
+
+JAP_found_the_great_japan_press_association_focus_decision_cancelled = {
+	OR = {
+		has_completed_focus = JAP_found_the_great_japan_press_association
+		NOT = { has_completed_focus = JAP_form_cabinet_intelligence_bureau }
+		JAP_found_the_great_japan_press_association_focus_decision_available = no
+	}
+}
+
+JAP_empower_the_thought_police_focus_decision_available = {
+	has_capitulated = no
+	OR = {
+		AND = {
+			has_dlc = "La Resistance"
+			has_idea = JAP_tokko_idea_lar
+		}
+		AND = {
+			NOT = { has_dlc = "La Resistance" }
+			has_idea = JAP_tokko_idea_no_lar
+		}
+	}
+}
+
+JAP_empower_the_thought_police_focus_decision_cancelled = {
+	OR = {
+		has_completed_focus = JAP_empower_the_thought_police
+		NOT = { has_completed_focus = JAP_found_the_great_japan_press_association }
+		JAP_empower_the_thought_police_focus_decision_available = no
+	}
+}
+
+JAP_learn_from_the_nkvd_focus_decision_available = {
+	has_capitulated = no
+}
+
+JAP_learn_from_the_nkvd_focus_decision_cancelled = {
+	OR = {
+		has_completed_focus = JAP_learn_from_the_nkvd
+		NOT = { has_completed_focus = JAP_the_ie_system_and_socialism }
+		JAP_learn_from_the_nkvd_focus_decision_available = no
+	}
+}

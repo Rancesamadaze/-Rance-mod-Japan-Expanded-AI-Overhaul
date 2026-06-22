@@ -190,6 +190,27 @@ random_owned_controlled_state = {
 
 实际写脚本时可以先用 `free_building_slots` 之类的 trigger 检查是否有空位，再决定是否补槽。
 
+### 随机州发放地图内工厂
+
+当外交、事件或决议奖励要把地图外工厂改为地图内工厂，且不需要指定州时，可在目标国家作用域内使用 `random_owned_controlled_state`：
+
+```txt
+random_owned_controlled_state = {
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+		type = industrial_complex
+		level = 2
+		instant_build = yes
+	}
+}
+```
+
+要点：
+
+- 先用 `add_extra_state_shared_building_slots` 补足本次奖励需要占用的共享建筑位
+- 再用 `add_building_construction` 落下对应数量的地图内工厂
+- 如果设计需要“优先首都州”，不要把动态首都直接写进 `prioritize = { ... }`；应使用 `capital_scope` 的 `if / else` 分支，或写死已知 state id
+
 ### 使用建议
 
 - 州级建筑直接在 `state scope` 里写 `add_building_construction`

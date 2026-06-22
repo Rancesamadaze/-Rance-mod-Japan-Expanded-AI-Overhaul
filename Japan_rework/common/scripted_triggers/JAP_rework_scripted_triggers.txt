@@ -210,6 +210,29 @@ Rance_is_jap_kodoha_ai = {
     
 }
 
+#判定是否为史实路线AI
+Rance_is_jap_historical_ai = {
+    custom_trigger_tooltip = {
+        tooltip = Rance_is_jap_historical_ai.tt
+        tag = JAP
+        OR = {
+            AND = {
+                is_historical_focus_on = yes
+                has_game_rule = {
+                    rule = JAP_ai_behavior
+                    option = DEFAULT
+                }
+            }
+            has_game_rule = {
+                rule = JAP_ai_behavior
+                option = FASCIST
+            }
+            has_country_flag = JAP_AI_RANDOM_FASCIST
+        }
+        is_ai = yes
+    }
+}
+
 # 判定是否为菜鸟模组国家
 is_rookie_country = {
     custom_trigger_tooltip = {

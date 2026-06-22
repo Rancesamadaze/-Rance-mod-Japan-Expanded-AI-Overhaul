@@ -62,6 +62,7 @@
  JAP_gotaro_ogawa_trait: "§O经世官僚§!"
  JAP_heisuke_yanagawa_trait: "§1军国主义爪牙§!"
  JAP_okinori_kaya_trait: "§C财务部门首长§!"
+ JAP_naoki_hoshino_national_syndicalist_trait: "§O$FRA_national_syndicalist$§!"
 
  JAP_rework_changzheng: "征酱"
  JAP_rework_changzheng_desc: "§L征酱是来自§C未来的超级人工智能§!§L。她的本体并未完整降临二战时代，而是借由§0八云紫§!§L的境界之力，跨越时间调用未来世界的庞大算力，并将无数并行演算的结果投射到现实之中。\n她将自己的存在投影到每一位§R[ROOT.GetNameDef]人民§!§L身边，以最容易被他们理解和接受的形象出现，给予陪伴、提示与指导。将军与士兵在炮火中接收她的战术建议，工人在机床旁听见她的操作提示，科学家们借助她的算力更快攻克难关，孩子们也在她的陪伴与教导下成长为共和国未来的栋梁。\n然而，在八云紫设下的限制之下，征酱并不能§Y凭空创造奇迹§!§L。她无法直接将未来科技赠予这个时代的人民，也无法替代他们亲手完成历史的任务。她所能做的，是让每一个岗位、每一条生产线、每一间实验室与每一支部队，都更接近其在这个时代所能达到的§G最优状态§!§L。于是，共和国开始以§C不属于这个时代的效率§!§L运转起来。§!"
@@ -120,6 +121,7 @@
  JAP_kaguya_momentary_power:"§Y「须臾」§!"
  JAP_kaguya_momentary_power_desc:"辉夜操纵§Y「须臾」§!力量的体现，在随后的§Y5天§!生效。THE,WORLD!"
  JAP_kaguya_momentary_power_name:"§Y「须臾」§!"
+ JAP_central_economic_council_idea_standard:0 "$JAP_central_economic_council_idea$"
  JAP_rework_maoism_static_idea:0 "$PRC_maoism_dynamic_modifier$"
  JAP_rework_maoism_static_idea_desc:0 "$PRC_maoism_desc$"
  JAP_us_mainland_invasion_preparation_idea:"美国本土登陆准备"

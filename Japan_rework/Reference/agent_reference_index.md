@@ -119,6 +119,10 @@ When working on post-China 皇道派 / Kodoha war planning, custom AI areas, or 
 
 When working with modifiers, especially when creating or editing traits, use `Reference/modifier_trans.md` as the primary lookup reference.
 
+## 情报机构决议参考
+
+处理日本情报机构决议、La Resistance 机构创建、特工位、反间谍奖励、行动令牌，或情报行动 AI 引导时，使用 `Reference/intelligence_agency_decision_reference.md` 作为本项目优先参考。
+
 ## Localization Formatting Lookup
 
 When writing or revising localization text that uses formatting controls such as `§R`, `§Y`, or `\n`, use `Reference/localisation_formatting_reference.md` as the primary lookup reference.
@@ -200,6 +204,14 @@ When it is necessary to inspect or verify vanilla Hearts of Iron IV content, use
 `D:\SteamLibrary\steamapps\common\Hearts of Iron IV`
 
 This path should be used for checking original script definitions, traits, ideas, events, focuses, localization, and other vanilla references when the relevant content is not present in the mod workspace.
+
+The vanilla directory is also maintained as a local Git baseline for update tracking. Its `.git/info/exclude` can ignore broad untracked paths, so ordinary `rg` may skip vanilla files even when they exist. For broad vanilla script searches, use:
+
+```powershell
+rg -u -n "PATTERN" "D:\SteamLibrary\steamapps\common\Hearts of Iron IV"
+```
+
+Escalate to `-uu` or `-uuu` only when hidden paths or binary-like files are genuinely relevant. When the likely target file is known, prefer direct file reads or `Select-String -Path <exact file> -Pattern ...` so the Git exclude rules cannot hide the result.
 
 ## External Reference Mods
 

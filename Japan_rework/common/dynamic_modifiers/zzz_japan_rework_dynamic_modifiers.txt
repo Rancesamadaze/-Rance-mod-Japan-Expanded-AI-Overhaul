@@ -589,8 +589,8 @@ JAP_resource_extraction_investments_dm = { #STATE MODIFIER
 
 	icon = GFX_modifiers_generic_construction
 
-	local_resources = 0.05
-	local_building_slots = 1
+	local_resources = 0.10
+	local_building_slots = 2
 
 }
 

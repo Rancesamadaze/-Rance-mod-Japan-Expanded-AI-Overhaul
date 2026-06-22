@@ -1570,6 +1570,7 @@ build_intelligence_agency_as_major = {
 				original_tag = SOV
 				original_tag = ITA
 				original_tag = ENG
+				original_tag = JAP
 			}
 		}
 	}
@@ -1597,6 +1598,7 @@ build_intelligence_agency = {
 				original_tag = SOV
 				original_tag = ITA
 				original_tag = ENG
+				original_tag = JAP
 			}
 		}
 	}
@@ -1627,6 +1629,7 @@ upgrade_intelligence_agency = {
 				original_tag = SOV
 				original_tag = ITA
 				original_tag = ENG
+				original_tag = JAP
 			}
 		}
 	}
@@ -1647,6 +1650,10 @@ upgrade_intelligence_agency = {
 }
 
 upgrade_intelligence_agency_as_spy_master = {
+	allowed = {
+		not = { original_tag = JAP }
+	}
+
 	enable = {
 		is_spymaster = yes
 		OR = {
@@ -1673,6 +1680,7 @@ add_intelligence_agency_normal_upgrade_prio = {
 				original_tag = SOV
 				original_tag = ITA
 				original_tag = ENG
+				original_tag = JAP
 			}
 		}
 	}
@@ -1743,6 +1751,7 @@ more_upgrades_as_spymaster = {
 				original_tag = SOV
 				original_tag = ITA
 				original_tag = ENG
+				original_tag = JAP
 			}
 		}
 	}

@@ -2,11 +2,10 @@ JAP_rework_debug_decisions = {
 	icon = GFX_decision_category_generic_propaganda
 	priority = 999
 	allowed = {
-		original_tag = JAP
+		always = yes
 	}
 	visible = {
-		is_debug = yes
-		original_tag = JAP
+		always = yes
 	}
 	available = {
 		always = yes

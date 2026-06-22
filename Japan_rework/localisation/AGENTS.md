@@ -1,11 +1,12 @@
-# Localisation Agents Notes
+# 本地化目录工作说明
 
-- Encoding and line-ending rules inherit from the root `AGENTS.md`: localization `.yml` files use UTF-8 with BOM, while this `AGENTS.md` and other general notes use UTF-8 without BOM and LF unless an existing documented exception applies.
-- For English or Japanese work on a localization file that shares a name with a vanilla file, start from a clone of the corresponding vanilla foreign-language file, then compare the vanilla Simplified Chinese file with the mod Simplified Chinese file to identify only the mod-specific additions or changes that must be ported.
-- If a same-name vanilla file differs only because a few script references need changed tooltip text, prefer moving those references to project-owned keys in an existing focus-specific localization file instead of maintaining a full foreign-language clone of the large vanilla file.
-- Preserve existing mod wording and intent when porting differences. Do not overwrite a localized mod line merely because the vanilla baseline has different phrasing.
-- For game terms, UI concepts, equipment, traits, doctrines, buildings, modifiers, and other HOI4 terminology, confirm the established wording in vanilla foreign-language localization or the official wiki before writing. Do not invent a translation from scratch.
-- For culture-specific expressions, historical references, idioms, poems, haiku, religious or political terms, and similar flavor text, verify the accepted translation or romanization with online sources before final wording.
-- For character-related names and titles, first use the project character references required by the root `AGENTS.md`, then verify the correct English or Japanese rendering online when needed.
-- If a phrase is genuinely hard to translate, or translation would seriously damage the expression, especially for idioms, poems, haiku, or stylized Chinese prose, consider preserving the Japanese original or retaining the Chinese text instead of forcing a weak English rendering.
-- Treat `localisation/simp_chinese/JAP_ai_navy_ship_grant_l_simp_chinese.yml` as protected naval meta-effect localization. Do not translate it, create English/Japanese placeholder files for it, or edit its wording during ordinary localization batches; handle it only when the user explicitly starts the dedicated English/Japanese naval meta-effect mod pass.
+- 编码和换行规则继承根目录 `AGENTS.md`：本地化 `.yml` 文件使用 UTF-8 with BOM + LF；本文件和其他普通说明文件使用 UTF-8 without BOM + LF，除非已有明确例外。
+- 当前本地化结构以 `localisation/translation_task_list.md` 为准。默认维护项目自有功能模块，例如 `JAP_rework_*`、`JAP_decisions_l_*`、`JAP_mio_l_*` 等；不要重新建立完整原版同名本地化克隆（暂时）。
+- 如果少量原版 key 需要 MOD 差异，优先迁入项目自有模块；不要把项目内容塞回原版替换文件。不要向已删除的 `SEA_focus_l_simp_chinese.yml` 追加内容。
+- 新增玩家可见本地化时，先补完整简体中文源文；英文和日文对应模块只添加同名占位 key 以保持 key 集合一致。占位值应明确标记待翻译，不要伪装成已完成译文；等用户确认中文源文后，再补英文和日文。
+- 同一三语模块的 key 集合应保持一致，除非 `translation_task_list.md` 明确说明该文件只在某一语言存在。新增、迁移或删除 key 后，同步检查中英日 key 集合。
+- 移植或翻译时保留现有 MOD 文案意图，不要仅因为原版基线措辞不同就覆盖已本地化文本。
+- 游戏术语、UI 概念、装备、特质、学说、建筑、修正、法案等优先查 `localisation/translation_terminology.md`，再查原版外文本地化、项目引用表或可靠资料；不要凭空发明译名。新增固定译法或重要术语时，补入 `translation_terminology.md`。
+- 文化表达、历史引用、成语、俳句、宗教或政治术语等在定稿前要查证通行译法、罗马音或既有项目译法。英文界面不要默认保留日文假名/汉字或中文原文，因为英文字体可能无法显示；需要保留日本味时，按情况使用已验证的罗马音或英文解释。
+- 角色相关姓名和称号先查根目录要求的角色引用表，再查 `translation_terminology.md`；必要时用线上资料确认英译、日文原名或罗马音。
+- `localisation/*/JAP_ai_navy_ship_grant_l_*.yml` 是受保护的海军 meta-effect 本地化。普通整理或翻译批次不要改写、重命名、合并、重译或重建占位；只有用户明确开启该系统专项维护时再处理。

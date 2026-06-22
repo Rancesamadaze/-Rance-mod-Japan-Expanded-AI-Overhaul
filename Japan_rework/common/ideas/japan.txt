@@ -1572,14 +1572,36 @@ ideas = {
 					has_government = neutrality
 				}
 			}
+
+			removal_cost = -1
+
+			picture = HABSBURG_economy
+
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.1
+			}
+
+		}
+		JAP_central_economic_council_idea_standard = {
+			allowed = {
+				original_tag = JAP
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
 			
 			removal_cost = -1
 
 			picture = HABSBURG_economy
 			
 			modifier = {
-				consumer_goods_factor = -0.05
-				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.15
 			}
 
 		}
@@ -2490,12 +2512,12 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				fascism_drift = 0.03
+				fascism_drift = 0.05
 			}
 
 			targeted_modifier = {
 				tag = JAP
-				attack_bonus_against = -0.05
+				attack_bonus_against = -0.1
 				defense_bonus_against = -0.05
 			}
 

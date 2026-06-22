@@ -173,13 +173,46 @@ add_to_temp_variable = { temp_x = 5 }
 
 ## 作用域
 
-### 全局 / 当前作用域变量
+### 当前作用域变量
 
 直接写时，变量会落在当前作用域：
 
 ```txt
 set_variable = { global_x = 10 }
 ```
+
+注意：这里的 `global_x` 只是普通变量名，不代表全局作用域。它会存到当前脚本所在的国家、州、角色或其他当前作用域上。
+
+### 全局变量
+
+真正的全局变量使用 `global.` 前缀：
+
+```txt
+set_variable = { global.my_var = 0 }
+add_to_variable = { global.my_var = 10 }
+check_variable = { global.my_var > 0 }
+```
+
+本项目已通过 debug 决议实测 `global.JAP_debug_global_variable_test` 可用：
+
+```txt
+set_variable = { global.JAP_debug_global_variable_test = 0 }
+add_to_variable = { global.JAP_debug_global_variable_test = 10 }
+```
+
+对应本地化动态显示：
+
+```txt
+[?global.JAP_debug_global_variable_test|0]
+```
+
+实验结果：不同国家打开同一 debug 决议时读取到同一个值，说明 `global.` 前缀确实写入全局变量作用域。原版也有同类写法，例如 `global.atomic_research_race`。
+
+建议：
+
+- 只在确实需要跨国家共享的计数、全局实验状态、世界级进度记录中使用 `global.`。
+- 国家路线、难度、阶段、AI 状态等归属明确的长期状态，仍优先使用国家变量。
+- 全局变量命名要带项目或功能前缀，避免和原版或其他 MOD 的全局变量冲突。
 
 ### 国家变量
 

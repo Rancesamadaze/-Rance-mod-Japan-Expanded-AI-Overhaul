@@ -1,53 +1,126 @@
-JAP_rework_operation_china_agency_push = {
+JAP_rework_operation_agency_base_budget = {
 	allowed = {
 		original_tag = JAP
 		has_dlc = "La Resistance"
 	}
 
 	enable = {
-		OR = {
-			has_government = neutrality
-			has_government = fascism
-		}
-		country_exists = CHI
-		CHI = {
-			has_capitulated = no
-			NOT = { is_ally_with = JAP }
-			NOT = { is_subject_of = JAP }
-		}
-		num_finished_operations = {
-			operation = operation_collaboration_government
-			target = CHI
-			value < 3
-		}
-		OR = {
-			date > 1937.1.1
-			has_war_with = CHI
-			has_completed_focus = JAP_reinforce_the_beijing_garrison
-		}
+		always = yes
 	}
 
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = intelligence_agency_usable_factories
-		value = 20
+		value = 15
+	}
+}
+
+JAP_rework_operation_agency_large_industry_budget = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		num_of_civilian_factories > 149
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 35
+	}
+}
+
+JAP_rework_operation_agency_branch_baseline = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		always = yes
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_operative
+		value = 100
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_crypto
+		value = 100
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_intelligence
+		value = 100
+	}
+
+	ai_strategy = {
+		type = intelligence_agency_branch_desire_factor
+		id = branch_defense
+		value = 100
 	}
 
 	ai_strategy = {
 		type = intelligence_agency_branch_desire_factor
 		id = branch_operation
-		value = 500
-	}
-
-	ai_strategy = {
-		type = intelligence_agency_branch_desire_factor
-		id = branch_operative
-		value = 500
+		value = 100
 	}
 }
 
-JAP_rework_operation_build_china_network = {
+JAP_rework_operation_equipment_priority = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		always = yes
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+}
+
+JAP_rework_operation_spymaster_upgrade_push = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		is_spymaster = yes
+	}
+
+	abort = {
+		is_spymaster = no
+	}
+
+	ai_strategy = {
+		type = agency_ai_base_num_factories_factor
+		value = -50
+	}
+
+	ai_strategy = {
+		type = agency_ai_per_upgrade_factories_factor
+		value = -25
+	}
+}
+
+JAP_rework_operation_china_intel_network = {
 	allowed = {
 		original_tag = JAP
 		has_dlc = "La Resistance"
@@ -55,24 +128,16 @@ JAP_rework_operation_build_china_network = {
 
 	enable = {
 		OR = {
-			has_government = neutrality
-			has_government = fascism
+			Rance_is_jap_lecture_ai = yes
+			Rance_is_jap_historical_ai = yes
+			Rance_is_jap_kodoha_ai = yes
 		}
 		country_exists = CHI
 		CHI = {
+			exists = yes
 			has_capitulated = no
 			NOT = { is_ally_with = JAP }
 			NOT = { is_subject_of = JAP }
-		}
-		num_finished_operations = {
-			operation = operation_collaboration_government
-			target = CHI
-			value < 4
-		}
-		OR = {
-			date > 1937.1.1
-			has_war_with = CHI
-			has_completed_focus = JAP_reinforce_the_beijing_garrison
 		}
 	}
 
@@ -81,9 +146,44 @@ JAP_rework_operation_build_china_network = {
 	ai_strategy = {
 		type = operative_mission
 		mission = build_intel_network
-		value = 2500
+		value = 3000
 		mission_target = CHI
-		num_operatives = 2
+	}
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 3000
+		mission_target = CHI
+		state = 613
+		priority = 400
+	}
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 3000
+		mission_target = CHI
+		state = 1035
+		priority = 300
+	}
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 3000
+		mission_target = CHI
+		state = 1036
+		priority = 200
+	}
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 3000
+		mission_target = CHI
+		state = 1037
+		priority = 100
 	}
 }
 
@@ -95,11 +195,12 @@ JAP_rework_operation_collaboration_on_china = {
 
 	enable = {
 		OR = {
-			has_government = neutrality
-			has_government = fascism
+			Rance_is_jap_historical_ai = yes
+			Rance_is_jap_kodoha_ai = yes
 		}
 		country_exists = CHI
 		CHI = {
+			exists = yes
 			has_capitulated = no
 			NOT = { is_ally_with = JAP }
 			NOT = { is_subject_of = JAP }
@@ -109,19 +210,6 @@ JAP_rework_operation_collaboration_on_china = {
 			target = CHI
 			value < 2
 		}
-		OR = {
-			date > 1937.1.1
-			has_war_with = CHI
-			has_completed_focus = JAP_reinforce_the_beijing_garrison
-			is_preparing_operation = {
-				operation = operation_collaboration_government
-				target = CHI
-			}
-			is_running_operation = {
-				operation = operation_collaboration_government
-				target = CHI
-			}
-		}
 	}
 
 	abort_when_not_enabled = yes
@@ -129,62 +217,130 @@ JAP_rework_operation_collaboration_on_china = {
 	ai_strategy = {
 		type = operative_operation
 		operation = operation_collaboration_government
-		value = 4000
+		value = 9999
 		operation_target = CHI
-	}
-
-	ai_strategy = {
-		type = operation_equipment_priority
-		value = 100
-	}
-
-	ai_strategy = {
-		type = operative_mission
-		mission = build_intel_network
-		value = 2000
-		mission_target = CHI
 	}
 }
 
-JAP_rework_operation_stalemate_collaboration_on_china = {
+JAP_rework_operation_historical_usa_hawaii_intel_network = {
 	allowed = {
 		original_tag = JAP
 		has_dlc = "La Resistance"
 	}
 
 	enable = {
-		OR = {
-			has_government = neutrality
-			has_government = fascism
+		Rance_is_jap_historical_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = USA
+		USA = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
 		}
-		has_war_with = CHI
-		country_exists = CHI
-		CHI = {
+		629 = { is_controlled_by = USA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 5000
+		mission_target = USA
+		state = 629
+		priority = 500
+		num_operatives = 3
+	}
+}
+
+JAP_rework_operation_historical_usa_california_intel_network = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_historical_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = USA
+		USA = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+		NOT = { 629 = { is_controlled_by = USA } }
+		378 = { is_controlled_by = USA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 5000
+		mission_target = USA
+		state = 378
+		priority = 400
+		num_operatives = 3
+	}
+}
+
+JAP_rework_operation_historical_usa_new_york_intel_network = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_historical_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = USA
+		USA = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+		NOT = { 629 = { is_controlled_by = USA } }
+		NOT = { 378 = { is_controlled_by = USA } }
+		358 = { is_controlled_by = USA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 5000
+		mission_target = USA
+		state = 358
+		priority = 300
+		num_operatives = 3
+	}
+}
+
+JAP_rework_operation_historical_collaboration_on_usa = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_historical_ai = yes
+		has_completed_focus = JAP_nanshin_ron
+		country_exists = USA
+		USA = {
+			exists = yes
 			has_capitulated = no
 			NOT = { is_ally_with = JAP }
 			NOT = { is_subject_of = JAP }
 		}
 		num_finished_operations = {
 			operation = operation_collaboration_government
-			target = CHI
-			value > 1
-		}
-		num_finished_operations = {
-			operation = operation_collaboration_government
-			target = CHI
-			value < 4
-		}
-		OR = {
-			date > 1941.1.1
-			CHI = { surrender_progress > 0.45 }
-			is_preparing_operation = {
-				operation = operation_collaboration_government
-				target = CHI
-			}
-			is_running_operation = {
-				operation = operation_collaboration_government
-				target = CHI
-			}
+			target = USA
+			value < 2
 		}
 	}
 
@@ -193,34 +349,35 @@ JAP_rework_operation_stalemate_collaboration_on_china = {
 	ai_strategy = {
 		type = operative_operation
 		operation = operation_collaboration_government
-		value = 2500
-		operation_target = CHI
-	}
-
-	ai_strategy = {
-		type = operation_equipment_priority
-		value = 100
-	}
-
-	ai_strategy = {
-		type = operative_mission
-		mission = build_intel_network
-		value = 1500
-		mission_target = CHI
+		value = 6000
+		operation_target = USA
 	}
 }
 
-JAP_rework_operation_soviet_low_priority_before_northern_war = {
+JAP_rework_operation_lecture_germany_intel_network = {
 	allowed = {
 		original_tag = JAP
 		has_dlc = "La Resistance"
 	}
 
 	enable = {
+		Rance_is_jap_lecture_ai = yes
 		country_exists = SOV
-		NOT = { has_war_with = SOV }
-		NOT = { has_completed_focus = JAP_kantokuen }
-		NOT = { has_completed_focus = JAP_prepare_for_war_with_the_soviet_union }
+		is_in_faction_with = SOV
+		country_exists = GER
+		GER = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+		OR = {
+			AND = {
+				date > 1940.6.1
+				date < 1942.1.1
+			}
+			SOV = { has_war_with = GER }
+		}
 	}
 
 	abort_when_not_enabled = yes
@@ -228,7 +385,148 @@ JAP_rework_operation_soviet_low_priority_before_northern_war = {
 	ai_strategy = {
 		type = operative_mission
 		mission = build_intel_network
-		value = -3000
+		value = 4000
+		mission_target = GER
+		num_operatives = 3
+	}
+}
+
+JAP_rework_operation_lecture_italy_intel_network = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		country_exists = SOV
+		is_in_faction_with = SOV
+		country_exists = ITA
+		ITA = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+		OR = {
+			AND = {
+				date > 1940.6.1
+				date < 1942.1.1
+			}
+			SOV = { has_war_with = ITA }
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 2500
+		mission_target = ITA
+		num_operatives = 2
+	}
+}
+
+JAP_rework_operation_lecture_collaboration_on_germany = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_lecture_ai = yes
+		country_exists = SOV
+		is_in_faction_with = SOV
+		country_exists = GER
+		GER = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+		OR = {
+			AND = {
+				date > 1940.6.1
+				date < 1942.1.1
+			}
+			SOV = { has_war_with = GER }
+		}
+		num_finished_operations = {
+			operation = operation_collaboration_government
+			target = GER
+			value < 2
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_collaboration_government
+		value = 6000
+		operation_target = GER
+	}
+}
+
+JAP_rework_operation_kodoha_soviet_intel_network = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_hokushin_ron
+		country_exists = SOV
+		SOV = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 5000
 		mission_target = SOV
+		num_operatives = 3
+	}
+}
+
+JAP_rework_operation_kodoha_collaboration_on_soviet = {
+	allowed = {
+		original_tag = JAP
+		has_dlc = "La Resistance"
+	}
+
+	enable = {
+		Rance_is_jap_kodoha_ai = yes
+		has_completed_focus = JAP_hokushin_ron
+		country_exists = SOV
+		SOV = {
+			exists = yes
+			has_capitulated = no
+			NOT = { is_ally_with = JAP }
+			NOT = { is_subject_of = JAP }
+		}
+		num_finished_operations = {
+			operation = operation_collaboration_government
+			target = SOV
+			value < 2
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_collaboration_government
+		value = 6000
+		operation_target = SOV
 	}
 }

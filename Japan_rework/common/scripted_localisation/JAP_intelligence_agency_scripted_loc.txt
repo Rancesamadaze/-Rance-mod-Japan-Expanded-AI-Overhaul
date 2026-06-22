@@ -1,0 +1,63 @@
+defined_text = {
+	name = JAP_intelligence_agency_category_name
+
+	text = {
+		trigger = {
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}
+		localization_key = JAP_intelligence_agency_decisions_tokko
+	}
+
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = JAP_intelligence_agency_decisions_naimubu
+	}
+
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = JAP_intelligence_agency_decisions_public_security
+	}
+
+	text = {
+		localization_key = JAP_intelligence_agency_decisions_tokko
+	}
+}
+
+defined_text = {
+	name = JAP_intelligence_agency_category_desc
+
+	text = {
+		trigger = {
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}
+		localization_key = JAP_intelligence_agency_decisions_tokko_desc
+	}
+
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = JAP_intelligence_agency_decisions_naimubu_desc
+	}
+
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = JAP_intelligence_agency_decisions_public_security_desc
+	}
+
+	text = {
+		localization_key = JAP_intelligence_agency_decisions_tokko_desc
+	}
+}

@@ -4,7 +4,9 @@
 
 ## 目标国策图标标记
 
-当一个国策会被其他国策改变完成时间时，目标国策应添加：
+默认不再因为一个国策会被其他国策改变完成时间，就主动给目标国策添加时钟图标。
+
+只有在用户明确授意、或单次任务明确要求用图标提示时间联动时，才允许给目标国策添加：
 
 ```txt
 overlay = GFX_focus_fast_overlay_generic_clock
@@ -13,7 +15,8 @@ overlay = GFX_focus_fast_overlay_generic_clock
 位置规范：
 
 - 写在 `icon = ...` 后面
-- 只加在“被改时间的对象国策”上，不加在施加效果的来源国策上
+- 只加在用户明确指定的“被改时间的对象国策”上，不加在施加效果的来源国策上
+- 未获得明确授意时，不要为了新增或修改 `reduce_focus_completion_cost` 而顺手添加 overlay
 
 示例：
 
@@ -130,7 +133,7 @@ $MOD_focus_key$
 
 当新增或修改一组国策时间联动时，至少检查以下四项：
 
-- 目标国策是否已加 `overlay = GFX_focus_fast_overlay_generic_clock`
+- 是否获得用户明确授意添加 `overlay = GFX_focus_fast_overlay_generic_clock`；未授意则不要添加
 - 脚本中的 `reduce_focus_completion_cost` 目标与数值是否正确
 - 如果是负数，是否已改为 `custom_effect_tooltip + hidden_effect`
 - 对应 tooltip 是否已写入 `JAP_focus_time_l_simp_chinese.yml`

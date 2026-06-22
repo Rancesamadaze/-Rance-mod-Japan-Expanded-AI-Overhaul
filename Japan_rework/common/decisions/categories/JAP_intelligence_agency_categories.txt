@@ -1,0 +1,14 @@
+JAP_intelligence_agency_decisions = {
+	icon = GFX_decision_category_generic_political_actions
+	priority = 186
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+		original_tag = JAP
+	}
+	available = {
+		always = yes
+	}
+	visible_when_empty = yes
+}

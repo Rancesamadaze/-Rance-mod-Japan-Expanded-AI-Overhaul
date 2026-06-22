@@ -3658,7 +3658,7 @@ characters = {
 			}
 
 			traits = {
-				FRA_national_syndicalist
+				JAP_naoki_hoshino_national_syndicalist_trait
 			}
 			ai_will_do = {
 				base = 1

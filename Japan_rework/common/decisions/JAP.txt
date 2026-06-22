@@ -2393,7 +2393,7 @@ JAP_the_red_sun_over_asia_decisions = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 25		
+	    cost = 25
 		fire_only_once = yes
 
 		#days_remove = 30
@@ -2585,7 +2585,7 @@ JAP_the_red_sun_over_asia_decisions = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 25		
+	    cost = 25
 		fire_only_once = yes
 
 		#days_remove = 30
@@ -2656,7 +2656,7 @@ JAP_the_red_sun_over_asia_decisions = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 25		
+	    cost = 25
 		fire_only_once = yes
 
 		#days_remove = 30
@@ -2788,7 +2788,7 @@ JAP_expel_colonial_powers_from_middle_east = {
         }
     }
 
-    cost = 25 
+    cost = 25
     fire_only_once = yes
 
     visible = {
@@ -2889,7 +2889,7 @@ JAP_expel_colonial_powers_from_middle_east = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 25	
+	    cost = 25
 		fire_only_once = yes
 
 		#days_remove = 30
@@ -3081,7 +3081,7 @@ JAP_expel_colonial_powers_from_middle_east = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 25	
+	    cost = 25
 		fire_only_once = yes
 
 		#days_remove = 30
@@ -3222,7 +3222,7 @@ JAP_expel_colonial_powers_from_south_asia = {
     }
 }
 
-    cost = 25 
+    cost = 25
     fire_only_once = yes
 
     visible = {
@@ -9876,7 +9876,7 @@ JAP_the_propaganda_department_decisions = {
 
 	    on_map_mode = map_and_decisions_view 
 
-	    cost = 25		
+	    cost = 25
 		fire_only_once = yes
 
 		days_remove = 30
@@ -9978,7 +9978,7 @@ JAP_the_propaganda_department_decisions = {
 		}
 
 		ai_will_do = {
-			base = 5
+			base = 100
 		}
 		
 		visible = {
@@ -10007,7 +10007,7 @@ JAP_the_propaganda_department_decisions = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 25		
+	    cost = 25
 		fire_only_once = yes
 
 		days_remove = 30
@@ -10032,10 +10032,14 @@ JAP_the_propaganda_department_decisions = {
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
 				FROM = {
-					add_offsite_building = {
-						type = industrial_complex
-						level = 2
-					}	
+					random_owned_controlled_state = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
 					add_ideas = JAP_supported_pro_japanese_sentiments_idea
 				}
 				add_opinion_modifier = {
@@ -10069,7 +10073,7 @@ JAP_the_propaganda_department_decisions = {
 		priority = 0
 
 		ai_will_do = {
-			base = 5
+			base = 50
 		}
 	
 		allowed = {
@@ -10102,7 +10106,7 @@ JAP_the_propaganda_department_decisions = {
 
 	    on_map_mode = decision_view_only 
 
-	    cost = 50		
+	    cost = 25
 		fire_only_once = yes
 
 		days_remove = 30
@@ -13270,6 +13274,7 @@ JAP_open_factory_in_state_decision = {
     visible = {
         OR = {
             has_completed_focus = JAP_give_it_your_all_for_the_emperor
+            has_completed_focus = JAP_form_the_great_japan_industrial_patriotic_association
             has_completed_focus = JAP_ganbarou
         }
         check_variable = { JAP_open_factory_count < JAP_open_factory_max }
@@ -13548,7 +13553,7 @@ JAP_open_factory_in_state_decision = {
 			}
 		}
 
-	    cost = 25	
+	    cost = 25
 		ai_will_do = {
 			base = 1000
 		}

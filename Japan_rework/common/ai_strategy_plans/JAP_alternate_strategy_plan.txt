@@ -818,7 +818,6 @@ JAP_alternate_plan_kodoha_tsr = {
 		##剩下的是后期随便点的国策
 		JAP_ship_management_committee
 		JAP_nationalize_suzuka_naval_arsenal
-		JAP_supremacy_of_the_kempeitai
 		JAP_sea_mountaineers
 		JAP_jungle_adaptation
 		JAP_modern_bombers

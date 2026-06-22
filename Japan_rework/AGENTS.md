@@ -11,6 +11,7 @@ Keep `AGENTS.md` files as concise operating entrypoints. Longer syntax notes, ex
 - If the user's IDE selection, active file excerpt, or pasted snippet appears incomplete, recover the surrounding file context before asking them to reselect or paste more.
 - If the user corrects or stops one mistaken direction, identify the precise mistaken change and preserve still-valid edits unless rollback scope is explicit.
 - For doc-only requests, do not slip into live gameplay edits.
+- 面向 MOD 作者阅读的参考文档、说明文档，正文默认使用简体中文，除非用户明确要求其他语言；代码标识符、文件路径和引用原文保持原样。
 - For report-only, audit-only, search-only, or compatibility-review requests, stay read-only and do not edit files unless the user explicitly authorizes implementation changes.
 - Do not insert new localization entries into `localisation/simp_chinese/SEA_focus_l_simp_chinese.yml` unless the user explicitly requests that file.
 - For issue-tracked fixes, do not remove fixed items immediately; mark them as `待检验` until in-game or log verification confirms them.
@@ -18,9 +19,11 @@ Keep `AGENTS.md` files as concise operating entrypoints. Longer syntax notes, ex
 
 ## Optional HOI4 Tooling
 
-RHoiScribe 0.2.1 is temporarily disabled for this repository. Do not invoke the local `rhoiscribe-hoi4` skill, RHoiScribe MCP/tools, or RHoiScribe-generated repairs/formatting during normal work.
+RHoiScribe is optional and may not be installed on every work machine. If the `mcp__rhoiscribe` tools are already available, the following read-only helpers may be used for auxiliary evidence: `search_hoi4_knowledge`, `discover_hoi4_environment`, and `classify_error_log`.
 
-Re-enable RHoiScribe only after the user explicitly says it is usable again and asks to restore the workflow. Until then, rely on this repository's AGENTS rules, live file inspection, installed vanilla references, and targeted local validation scripts.
+Whether `search_hoi4_knowledge` can stand in for direct vanilla-file lookup depends on the task. It is acceptable for simple syntax reminders, scope overviews, and broad workflow hints; for exact vanilla behavior, version-sensitive mechanics, complex compatibility questions, or any user request to inspect source files, verify against installed vanilla files and this repository's references.
+
+Do not invoke other RHoiScribe tools such as project indexing, validation, repair, generated edits, formatting, or asset generation during normal work unless the user explicitly authorizes that specific function. If RHoiScribe is absent, do not block the task or configure it unless requested; fall back to this repository's AGENTS rules, live file inspection, installed vanilla references, and targeted local validation scripts.
 
 ## User-Facing Names
 
@@ -69,6 +72,7 @@ Windows PowerShell notes:
 ## External References
 
 - Vanilla HOI4 path: `D:\SteamLibrary\steamapps\common\Hearts of Iron IV`
+- The vanilla HOI4 path is also a local Git baseline for update tracking; ordinary `rg` may obey that baseline's exclude rules and miss vanilla files. Use `rg -u` for broad vanilla script searches, only escalating to `-uu` or `-uuu` if needed, or target exact files directly.
 - Standalone English MOD copy: `C:\Users\Administrator\Documents\Paradox Interactive\Hearts of Iron IV\mod\rance_jap_english`
 - Standalone Japanese MOD copy: `C:\Users\Administrator\Documents\Paradox Interactive\Hearts of Iron IV\mod\rance_jap_japenese`
 - External reference mods under `钢四MOD写作\参考\`: resolve under `D:\hoi4参考mod`

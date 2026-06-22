@@ -53,6 +53,21 @@ leader_traits = {
 		political_power_factor = 0.05
 	}
 
+	JAP_naoki_hoshino_national_syndicalist_trait = {
+		random = no
+		sprite = 13
+		JAP = {
+			fascism_drift = 0.05
+			consumer_goods_factor = -0.15
+			war_support_factor = 0.1
+		}
+		MAN = {
+			fascism_drift = 0.05
+			consumer_goods_factor = -0.15
+			war_support_factor = 0.1
+		}
+	}
+
 	# --- 独立化的通用特质 (已重命名为 JAP 专用 ID) ---
 
 	# 原 devoted_communist -> 赤色革命先锋

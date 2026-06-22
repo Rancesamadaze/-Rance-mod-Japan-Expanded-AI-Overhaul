@@ -28,6 +28,9 @@
 | 中国共产党 / 中共 | Chinese Communist Party / CCP | 中国共産党 | 路线、事件与决议文本固定译法。 |
 | 国民党 | Kuomintang | 国民党 | 中国相关文本固定译法。 |
 | 关东军 | Kwantung Army | 関東軍 | 历史部队名。 |
+| 特高课 | Tokko / Special Higher Police | 特高課 | 情报机构决议组名称；英文界面不要直接使用日文汉字，标题可按最终语境使用罗马音或解释性译名。 |
+| 内务部 | Ministry of Internal Affairs | 内務部 | 情报机构决议组名称；共产主义路线下的国内安全机关称谓。 |
+| 公安厅 | Public Security Agency | 公安庁 | 情报机构决议组名称；民主路线下的公共安全机关称谓。 |
 | 太平洋苏维埃联盟 | Pacific Soviet Union | 太平洋ソビエト連邦 | 简称；正文中按语境使用。 |
 | 太平洋苏维埃社会主义共和国联盟 | Union of Pacific Soviet Socialist Republics | 太平洋ソビエト社会主義共和国連邦 | 国家名与国策名。 |
 | 亚洲反封建统一战线 | Asian Anti-Feudal United Front | アジア反封建統一戦線 | 中日共产党合作线阵营名。 |
