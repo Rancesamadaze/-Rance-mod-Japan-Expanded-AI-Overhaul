@@ -6,10 +6,10 @@ JAP_ai_navy_create_one_formal_carrier = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_akagi }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_shokaku }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_shinano }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_hakuryu }
+                has_country_flag = JAP_has_cr_ship_design_cv_akagi
+                has_country_flag = JAP_has_cr_ship_design_cv_shokaku
+                has_country_flag = JAP_has_cr_ship_design_cv_shinano
+                has_country_flag = JAP_has_cr_ship_design_cv_hakuryu
             }
         }
         meta_effect = {
@@ -17,7 +17,7 @@ JAP_ai_navy_create_one_formal_carrier = {
                 create_ship = {
                     type = ship_hull_carrier_[JAP_ai_navy_text_formal_carrier_hull]
                     equipment_variant = "[JAP_ai_navy_text_formal_carrier_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_formal_carrier_hull = "[GetJAP_ai_navy_carrier_hull]"
@@ -29,14 +29,14 @@ JAP_ai_navy_create_one_formal_carrier = {
 JAP_ai_navy_create_one_mega_carrier = {
     if = {
         limit = {
-            JAP = { has_country_flag = JAP_has_cr_ship_design_cv_yukihou }
+            has_country_flag = JAP_has_cr_ship_design_cv_yukihou
         }
         meta_effect = {
             text = {
                 create_ship = {
                     type = ship_hull_[JAP_ai_navy_text_mega_carrier_hull]
                     equipment_variant = "[JAP_ai_navy_text_mega_carrier_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_mega_carrier_hull = "[GetJAP_ai_navy_mega_carrier_hull]"
@@ -49,9 +49,9 @@ JAP_ai_navy_create_one_escort_carrier = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryujo }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_zuiho }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryuho }
+                has_country_flag = JAP_has_cr_ship_design_cv_ryujo
+                has_country_flag = JAP_has_cr_ship_design_cv_zuiho
+                has_country_flag = JAP_has_cr_ship_design_cv_ryuho
             }
         }
         meta_effect = {
@@ -59,7 +59,7 @@ JAP_ai_navy_create_one_escort_carrier = {
                 create_ship = {
                     type = ship_hull_[JAP_ai_navy_text_escort_carrier_hull]
                     equipment_variant = "[JAP_ai_navy_text_escort_carrier_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_escort_carrier_hull = "[GetJAP_ai_navy_escort_carrier_hull]"
@@ -72,10 +72,10 @@ JAP_ai_navy_create_one_standard_battleship = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_bb_nagato }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_bb_kaga }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_bb_musashi }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_bb_yamato }
+                has_country_flag = JAP_has_cr_ship_design_bb_nagato
+                has_country_flag = JAP_has_cr_ship_design_bb_kaga
+                has_country_flag = JAP_has_cr_ship_design_bb_musashi
+                has_country_flag = JAP_has_cr_ship_design_bb_yamato
             }
         }
         meta_effect = {
@@ -83,7 +83,7 @@ JAP_ai_navy_create_one_standard_battleship = {
                 create_ship = {
                     type = ship_hull_heavy_[JAP_ai_navy_text_standard_battleship_hull]
                     equipment_variant = "[JAP_ai_navy_text_standard_battleship_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_standard_battleship_hull = "[GetJAP_ai_navy_standard_battleship_hull]"
@@ -96,8 +96,8 @@ JAP_ai_navy_create_one_super_heavy_battleship = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_bb_tsushima }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_bb_owari }
+                has_country_flag = JAP_has_cr_ship_design_bb_tsushima
+                has_country_flag = JAP_has_cr_ship_design_bb_owari
             }
         }
         meta_effect = {
@@ -105,7 +105,7 @@ JAP_ai_navy_create_one_super_heavy_battleship = {
                 create_ship = {
                     type = ship_hull_super_heavy_[JAP_ai_navy_text_super_heavy_battleship_hull]
                     equipment_variant = "[JAP_ai_navy_text_super_heavy_battleship_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_super_heavy_battleship_hull = "[GetJAP_ai_navy_super_heavy_battleship_hull]"
@@ -118,8 +118,8 @@ JAP_ai_navy_create_one_torpedo_cruiser = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_clt_kitakami }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_clt_ooi }
+                has_country_flag = JAP_has_cr_ship_design_clt_kitakami
+                has_country_flag = JAP_has_cr_ship_design_clt_ooi
             }
         }
         meta_effect = {
@@ -127,7 +127,7 @@ JAP_ai_navy_create_one_torpedo_cruiser = {
                 create_ship = {
                     type = ship_hull_[JAP_ai_navy_text_torpedo_cruiser_hull]
                     equipment_variant = "[JAP_ai_navy_text_torpedo_cruiser_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_torpedo_cruiser_hull = "[GetJAP_ai_navy_torpedo_cruiser_hull]"
@@ -140,9 +140,9 @@ JAP_ai_navy_create_one_standard_heavy_cruiser = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_ca_aoba }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_ca_unzen }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_ca_azuma }
+                has_country_flag = JAP_has_cr_ship_design_ca_aoba
+                has_country_flag = JAP_has_cr_ship_design_ca_unzen
+                has_country_flag = JAP_has_cr_ship_design_ca_azuma
             }
         }
         meta_effect = {
@@ -150,7 +150,7 @@ JAP_ai_navy_create_one_standard_heavy_cruiser = {
                 create_ship = {
                     type = ship_hull_cruiser_[JAP_ai_navy_text_standard_heavy_cruiser_hull]
                     equipment_variant = "[JAP_ai_navy_text_standard_heavy_cruiser_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_standard_heavy_cruiser_hull = "[GetJAP_ai_navy_standard_heavy_cruiser_hull]"
@@ -163,9 +163,9 @@ JAP_ai_navy_create_one_shield_light_cruiser = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_ota }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_kikuchi }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_naruse }
+                has_country_flag = JAP_has_cr_ship_design_cl_ota
+                has_country_flag = JAP_has_cr_ship_design_cl_kikuchi
+                has_country_flag = JAP_has_cr_ship_design_cl_naruse
             }
         }
         meta_effect = {
@@ -173,7 +173,7 @@ JAP_ai_navy_create_one_shield_light_cruiser = {
                 create_ship = {
                     type = ship_hull_cruiser_[JAP_ai_navy_text_shield_light_cruiser_hull]
                     equipment_variant = "[JAP_ai_navy_text_shield_light_cruiser_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_shield_light_cruiser_hull = "[GetJAP_ai_navy_shield_light_cruiser_hull]"
@@ -186,9 +186,9 @@ JAP_ai_navy_create_one_raiding_light_cruiser = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_sendai }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_sakawa }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_suzuka }
+                has_country_flag = JAP_has_cr_ship_design_cl_sendai
+                has_country_flag = JAP_has_cr_ship_design_cl_sakawa
+                has_country_flag = JAP_has_cr_ship_design_cl_suzuka
             }
         }
         meta_effect = {
@@ -196,7 +196,7 @@ JAP_ai_navy_create_one_raiding_light_cruiser = {
                 create_ship = {
                     type = ship_hull_cruiser_[JAP_ai_navy_text_raiding_light_cruiser_hull]
                     equipment_variant = "[JAP_ai_navy_text_raiding_light_cruiser_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_raiding_light_cruiser_hull = "[GetJAP_ai_navy_raiding_light_cruiser_hull]"
@@ -209,9 +209,9 @@ JAP_ai_navy_create_one_task_light_cruiser = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_yubari }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_shimanto }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_noshiro }
+                has_country_flag = JAP_has_cr_ship_design_cl_yubari
+                has_country_flag = JAP_has_cr_ship_design_cl_shimanto
+                has_country_flag = JAP_has_cr_ship_design_cl_noshiro
             }
         }
         meta_effect = {
@@ -219,7 +219,7 @@ JAP_ai_navy_create_one_task_light_cruiser = {
                 create_ship = {
                     type = ship_hull_cruiser_[JAP_ai_navy_text_task_light_cruiser_hull]
                     equipment_variant = "[JAP_ai_navy_text_task_light_cruiser_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_task_light_cruiser_hull = "[GetJAP_ai_navy_task_light_cruiser_hull]"
@@ -232,9 +232,9 @@ JAP_ai_navy_create_one_patrol_light_cruiser = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_komaru }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_yoshino }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cl_jiraiya }
+                has_country_flag = JAP_has_cr_ship_design_cl_komaru
+                has_country_flag = JAP_has_cr_ship_design_cl_yoshino
+                has_country_flag = JAP_has_cr_ship_design_cl_jiraiya
             }
         }
         meta_effect = {
@@ -242,7 +242,7 @@ JAP_ai_navy_create_one_patrol_light_cruiser = {
                 create_ship = {
                     type = ship_hull_cruiser_[JAP_ai_navy_text_patrol_light_cruiser_hull]
                     equipment_variant = "[JAP_ai_navy_text_patrol_light_cruiser_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_patrol_light_cruiser_hull = "[GetJAP_ai_navy_patrol_light_cruiser_hull]"
@@ -255,9 +255,9 @@ JAP_ai_navy_create_one_shield_destroyer = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_yugumo }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_kazagumo_shield }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_aogumo }
+                has_country_flag = JAP_has_cr_ship_design_dd_yugumo
+                has_country_flag = JAP_has_cr_ship_design_dd_kazagumo_shield
+                has_country_flag = JAP_has_cr_ship_design_dd_aogumo
             }
         }
         meta_effect = {
@@ -265,7 +265,7 @@ JAP_ai_navy_create_one_shield_destroyer = {
                 create_ship = {
                     type = ship_hull_light_[JAP_ai_navy_text_shield_destroyer_hull]
                     equipment_variant = "[JAP_ai_navy_text_shield_destroyer_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_shield_destroyer_hull = "[GetJAP_ai_navy_shield_destroyer_hull]"
@@ -278,9 +278,9 @@ JAP_ai_navy_create_one_escort_destroyer = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_mutsuki_asw }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_akizuki_asw }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_minazuki_asw }
+                has_country_flag = JAP_has_cr_ship_design_dd_mutsuki_asw
+                has_country_flag = JAP_has_cr_ship_design_dd_akizuki_asw
+                has_country_flag = JAP_has_cr_ship_design_dd_minazuki_asw
             }
         }
         meta_effect = {
@@ -288,7 +288,7 @@ JAP_ai_navy_create_one_escort_destroyer = {
                 create_ship = {
                     type = ship_hull_light_[JAP_ai_navy_text_escort_destroyer_hull]
                     equipment_variant = "[JAP_ai_navy_text_escort_destroyer_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_escort_destroyer_hull = "[GetJAP_ai_navy_escort_destroyer_hull]"
@@ -301,9 +301,9 @@ JAP_ai_navy_create_one_strike_destroyer = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_yukikaze }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_shimakaze }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_dd_shiokaze }
+                has_country_flag = JAP_has_cr_ship_design_dd_yukikaze
+                has_country_flag = JAP_has_cr_ship_design_dd_shimakaze
+                has_country_flag = JAP_has_cr_ship_design_dd_shiokaze
             }
         }
         meta_effect = {
@@ -311,7 +311,7 @@ JAP_ai_navy_create_one_strike_destroyer = {
                 create_ship = {
                     type = ship_hull_light_[JAP_ai_navy_text_strike_destroyer_hull]
                     equipment_variant = "[JAP_ai_navy_text_strike_destroyer_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_strike_destroyer_hull = "[GetJAP_ai_navy_strike_destroyer_hull]"
@@ -328,9 +328,9 @@ JAP_ai_navy_create_one_submarine = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i19 }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i13 }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i16 }
+                has_country_flag = JAP_has_cr_ship_design_ss_i19
+                has_country_flag = JAP_has_cr_ship_design_ss_i13
+                has_country_flag = JAP_has_cr_ship_design_ss_i16
             }
         }
         meta_effect = {
@@ -338,7 +338,7 @@ JAP_ai_navy_create_one_submarine = {
                 create_ship = {
                     type = ship_hull_[JAP_ai_navy_text_submarine_hull]
                     equipment_variant = "[JAP_ai_navy_text_submarine_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_submarine_hull = "[GetJAP_ai_navy_submarine_hull]"
@@ -350,14 +350,14 @@ JAP_ai_navy_create_one_submarine = {
 JAP_ai_navy_create_one_carrier_submarine = {
     if = {
         limit = {
-            JAP = { has_country_flag = JAP_has_cr_ship_design_ss_i404 }
+            has_country_flag = JAP_has_cr_ship_design_ss_i404
         }
         meta_effect = {
             text = {
                 create_ship = {
                     type = ship_hull_[JAP_ai_navy_text_carrier_submarine_hull]
                     equipment_variant = "[JAP_ai_navy_text_carrier_submarine_variant]"
-                    creator = JAP
+                    creator = ROOT
                 }
             }
             JAP_ai_navy_text_carrier_submarine_hull = "[GetJAP_ai_navy_carrier_submarine_hull]"
@@ -592,10 +592,10 @@ JAP_ai_navy_grant_kido_butai_carrier_air_support = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_1 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_2 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_3 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_4 }
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
             }
         }
         JAP_ai_extra_air_equipment_grant_cv_fighter_unit = yes
@@ -604,10 +604,10 @@ JAP_ai_navy_grant_kido_butai_carrier_air_support = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4 }
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
             }
         }
         JAP_ai_extra_air_equipment_grant_cv_naval_bomber_unit = yes
@@ -631,16 +631,16 @@ JAP_ai_navy_grant_mega_kido_butai_air_support = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_2 }
-                JAP = { has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_3 }
-                JAP = { has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_4 }
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_2
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_3
+                has_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_4
             }
         }
         JAP_ai_extra_air_equipment_grant_maritime_patrol_plane_unit = yes
         JAP_ai_extra_air_equipment_grant_maritime_patrol_plane_unit = yes
     }
     if = {
-        limit = { JAP = { has_country_flag = JAP_has_cr_mothership_equipment_0 } }
+        limit = { has_country_flag = JAP_has_cr_mothership_equipment_0 }
         JAP_ai_extra_air_equipment_grant_mothership_unit = yes
         JAP_ai_extra_air_equipment_grant_mothership_unit = yes
     }
@@ -661,15 +661,15 @@ JAP_ai_navy_grant_surface_small_fleet_carrier_air_support = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryujo }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_zuiho }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryuho }
+                has_country_flag = JAP_has_cr_ship_design_cv_ryujo
+                has_country_flag = JAP_has_cr_ship_design_cv_zuiho
+                has_country_flag = JAP_has_cr_ship_design_cv_ryuho
             }
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_1 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_2 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_3 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_airframe_4 }
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_airframe_4
             }
         }
         JAP_ai_extra_air_equipment_grant_cv_fighter_unit = yes
@@ -677,15 +677,15 @@ JAP_ai_navy_grant_surface_small_fleet_carrier_air_support = {
     if = {
         limit = {
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryujo }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_zuiho }
-                JAP = { has_country_flag = JAP_has_cr_ship_design_cv_ryuho }
+                has_country_flag = JAP_has_cr_ship_design_cv_ryujo
+                has_country_flag = JAP_has_cr_ship_design_cv_zuiho
+                has_country_flag = JAP_has_cr_ship_design_cv_ryuho
             }
             OR = {
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3 }
-                JAP = { has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4 }
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
+                has_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_4
             }
         }
         JAP_ai_extra_air_equipment_grant_cv_naval_bomber_unit = yes
@@ -821,13 +821,13 @@ JAP_ai_navy_grant_yearly_packages_by_difficulty_single = {
 
 JAP_ai_navy_grant_yearly_packages_by_difficulty = {
     if = {
-        limit = { JAP = { NOT = { has_variable = JAP_ai_dynamic_final_multiplier } } }
-        JAP = { JAP_ai_dynamic_grant_refresh_multipliers = yes }
+        limit = { NOT = { has_variable = JAP_ai_dynamic_final_multiplier } }
+        JAP_ai_dynamic_grant_refresh_multipliers = yes
     }
     set_temp_variable = { JAP_ai_dynamic_grant_loop = 0 }
     while_loop_effect = {
         limit = {
-            check_variable = { JAP_ai_dynamic_grant_loop < JAP.JAP_ai_dynamic_final_multiplier }
+            check_variable = { JAP_ai_dynamic_grant_loop < JAP_ai_dynamic_final_multiplier }
         }
         JAP_ai_navy_grant_yearly_packages_by_difficulty_single = yes
         add_to_temp_variable = { JAP_ai_dynamic_grant_loop = 1 }

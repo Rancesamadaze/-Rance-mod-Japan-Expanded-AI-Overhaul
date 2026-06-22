@@ -738,225 +738,232 @@ JAP_maintainance_equipment_common = {
     add_equipment_to_stockpile = {
         type = infantry_equipment
         amount = 30000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = support_equipment
         amount = 5000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = motorized_equipment
         amount = 5000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = train_equipment
         amount = 1000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = helicopter_equipment
         amount = 5000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = armored_support_vehicle
         amount = 5000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = mechanized_equipment_1
         amount = 30000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = amphibious_mechanized_equipment_1
         amount = 30000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = medium_tank_flame_chassis_1
         amount = 1000
-        producer = ROOT
+        producer = JAP
     }
 }
 JAP_maintainance_equipment_basic = {
     add_equipment_to_stockpile = {
         type = infantry_equipment
         amount = 50000
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = support_equipment
         amount = 10000
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = artillery_equipment_1
         amount = 4000
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = anti_tank_equipment_1
         amount = 4000
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = anti_air_equipment_1
         amount = 4000
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = motorized_equipment
         amount = 1000
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = train_equipment
         amount = 300
+        producer = JAP
     }
 }
 JAP_maintainance_equipment_medium_tank = {
     if = {
-        limit = { has_tech = advanced_medium_tank_chassis }
+        limit = { JAP = { has_tech = advanced_medium_tank_chassis } }
          add_equipment_to_stockpile = {
         type = medium_tank_chassis_3
         amount = 12000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = medium_tank_amphibious_chassis_3
         amount = 8000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = medium_tank_destroyer_chassis_3
         amount = 4000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = medium_tank_aa_chassis_3
         amount = 4000
-        producer = ROOT
+        producer = JAP
     }
 
     }
     else_if = {
         limit = {
-            has_tech = improved_medium_tank_chassis
+            JAP = { has_tech = improved_medium_tank_chassis }
         }
 
         add_equipment_to_stockpile = {
             type = medium_tank_chassis_2
             amount = 12000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
         type = medium_tank_amphibious_chassis_2
         amount = 8000
-        producer = ROOT
+        producer = JAP
     }
         add_equipment_to_stockpile = {
             type = medium_tank_destroyer_chassis_2
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
             type = medium_tank_aa_chassis_2
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
     }
     else = {
         add_equipment_to_stockpile = {
             type = medium_tank_chassis_1
             amount = 12000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
         type = medium_tank_amphibious_chassis_1
         amount = 8000
-        producer = ROOT
+        producer = JAP
     }
         add_equipment_to_stockpile = {
             type = medium_tank_destroyer_chassis_1
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
             type = medium_tank_aa_chassis_1
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
     }
 
 }
 JAP_maintainance_equipment_heavy_tank = {
     if = {
-        limit = { has_tech = advanced_heavy_tank_chassis }
+        limit = { JAP = { has_tech = advanced_heavy_tank_chassis } }
          add_equipment_to_stockpile = {
         type = heavy_tank_chassis_3
         amount = 12000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = heavy_tank_amphibious_chassis_3
         amount = 8000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = heavy_tank_destroyer_chassis_3
         amount = 4000
-        producer = ROOT
+        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = heavy_tank_aa_chassis_3
         amount = 4000
-        producer = ROOT
+        producer = JAP
     }
 
     }
     else_if = {
         limit = {
-            has_tech = improved_heavy_tank_chassis
+            JAP = { has_tech = improved_heavy_tank_chassis }
         }
 
         add_equipment_to_stockpile = {
             type = heavy_tank_chassis_2
             amount = 12000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
         type = heavy_tank_amphibious_chassis_2
         amount = 8000
-        producer = ROOT
+        producer = JAP
     }
         add_equipment_to_stockpile = {
             type = heavy_tank_destroyer_chassis_2
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
             type = heavy_tank_aa_chassis_2
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
     }
     else = {
         add_equipment_to_stockpile = {
             type = heavy_tank_chassis_1
             amount = 12000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
         type = heavy_tank_amphibious_chassis_1
         amount = 8000
-        producer = ROOT
+        producer = JAP
     }
         add_equipment_to_stockpile = {
             type = heavy_tank_destroyer_chassis_1
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
         add_equipment_to_stockpile = {
             type = heavy_tank_aa_chassis_1
             amount = 3000
-            producer = ROOT
+            producer = JAP
         }
     }
 
@@ -1140,67 +1147,67 @@ JAP_void_landing_big_with_big_damage = {
 # 基于最新的 V1.17.x 科技定义
 JAP_infantry_artillery_maintenance_effect = {
     # --- 共有部分：不随科技变化的装备 ---
-    add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 800 producer = ROOT }
-    add_equipment_to_stockpile = { type = support_equipment_1 amount = 2300 producer = ROOT }
+    add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 800 producer = JAP }
+    add_equipment_to_stockpile = { type = support_equipment_1 amount = 2300 producer = JAP }
 
     # --- 1. 步兵装备判定 (修正后) ---
     if = {
-        limit = { has_tech = advanced_infantry_weapons } # 1942年科技
-        add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 25000 producer = ROOT }
+        limit = { JAP = { has_tech = advanced_infantry_weapons } } # 1942年科技
+        add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 25000 producer = JAP }
     }
     else_if = {
-        limit = { has_tech = improved_infantry_weapons } # 1939年科技
-        add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 25000 producer = ROOT }
+        limit = { JAP = { has_tech = improved_infantry_weapons } } # 1939年科技
+        add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 25000 producer = JAP }
     }
     else_if = {
-        limit = { has_tech = infantry_weapons1 } # 1936年科技
-        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = ROOT }
+        limit = { JAP = { has_tech = infantry_weapons1 } } # 1936年科技
+        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = JAP }
     }
     else = {
         # 初始科技 infantry_weapons 解锁的内容
-        add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 25000 producer = ROOT }
+        add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 25000 producer = JAP }
     }
 
    # --- 1. 火炮 (Artillery) 判定 ---
     if = {
-        limit = { has_tech = artillery4 } # 1942年科技
-        add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 1440 producer = ROOT }
+        limit = { JAP = { has_tech = artillery4 } } # 1942年科技
+        add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 1440 producer = JAP }
     }
     else_if = {
-        limit = { has_tech = artillery1 } # 1939年科技
-        add_equipment_to_stockpile = { type = artillery_equipment_2 amount = 1440 producer = ROOT }
+        limit = { JAP = { has_tech = artillery1 } } # 1939年科技
+        add_equipment_to_stockpile = { type = artillery_equipment_2 amount = 1440 producer = JAP }
     }
     else = {
         # 初始/1936年科技 (gw_artillery)
-        add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 1440 producer = ROOT }
+        add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 1440 producer = JAP }
     }
 
     # --- 2. 反坦克 (Anti-Tank) 判定 ---
     if = {
-        limit = { has_tech = antitank5 } # 1943年科技
-        add_equipment_to_stockpile = { type = anti_tank_equipment_3 amount = 1440 producer = ROOT }
+        limit = { JAP = { has_tech = antitank5 } } # 1943年科技
+        add_equipment_to_stockpile = { type = anti_tank_equipment_3 amount = 1440 producer = JAP }
     }
     else_if = {
-        limit = { has_tech = antitank2 } # 1940年科技
-        add_equipment_to_stockpile = { type = anti_tank_equipment_2 amount = 1440 producer = ROOT }
+        limit = { JAP = { has_tech = antitank2 } } # 1940年科技
+        add_equipment_to_stockpile = { type = anti_tank_equipment_2 amount = 1440 producer = JAP }
     }
     else = {
         # 初始/1936年科技 (interwar_antitank)
-        add_equipment_to_stockpile = { type = anti_tank_equipment_1 amount = 1440 producer = ROOT }
+        add_equipment_to_stockpile = { type = anti_tank_equipment_1 amount = 1440 producer = JAP }
     }
 
     # --- 3. 防空 (Anti-Air) 判定 ---
     if = {
-        limit = { has_tech = antiair5 } # 1943年科技
-        add_equipment_to_stockpile = { type = anti_air_equipment_3 amount = 720 producer = ROOT }
+        limit = { JAP = { has_tech = antiair5 } } # 1943年科技
+        add_equipment_to_stockpile = { type = anti_air_equipment_3 amount = 720 producer = JAP }
     }
     else_if = {
-        limit = { has_tech = antiair2 } # 1940年科技
-        add_equipment_to_stockpile = { type = anti_air_equipment_2 amount = 720 producer = ROOT }
+        limit = { JAP = { has_tech = antiair2 } } # 1940年科技
+        add_equipment_to_stockpile = { type = anti_air_equipment_2 amount = 720 producer = JAP }
     }
     else = {
         # 初始/1936年科技 (interwar_antiair)
-        add_equipment_to_stockpile = { type = anti_air_equipment_1 amount = 720 producer = ROOT }
+        add_equipment_to_stockpile = { type = anti_air_equipment_1 amount = 720 producer = JAP }
     }
 }
 

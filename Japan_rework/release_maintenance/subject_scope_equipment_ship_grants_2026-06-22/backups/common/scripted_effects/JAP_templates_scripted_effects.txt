@@ -1,6 +1,6 @@
 JAP_create_basic_infantry_template = {
 	division_template = {
-		name = "日本基礎歩兵師団"
+		name = "日本基础步兵师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -29,7 +29,7 @@ JAP_create_basic_infantry_template = {
 }
 JAP_create_infantry_template = {
 	division_template = {
-		name = "日本歩兵師団"
+		name = "日本步兵师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -81,7 +81,7 @@ JAP_create_infantry_template = {
 }
 JAP_create_experimental_infantry_tank_template = {
 	division_template = {
-		name = "日本試験歩戦師団"
+		name = "日本试验步坦师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -132,7 +132,7 @@ JAP_create_experimental_infantry_tank_template = {
 }
 JAP_create_infantry_tank_template = {
 	division_template = {
-		name = "日本歩戦師団"
+		name = "日本步坦师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -192,7 +192,7 @@ JAP_create_infantry_tank_template = {
 }
 JAP_create_special_infantry_tank_template = {
 	division_template = {
-		name = "日本特殊歩戦師団"
+		name = "日本特种步坦师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -252,37 +252,37 @@ JAP_create_special_infantry_tank_template = {
 		}
 	}
 }
-# 生成日本機械化戦車師団模板
+# 生成日本机坦师模板
 JAP_create_mechanized_tank_template = {
     division_template = {
-        name = "日本機械化戦車師団"
+        name = "日本机坦师"
         is_locked = no
         obsolete = no
         regiments = {
-            # 第一列：陸軍机械化 (4个)
+            # 第一列：陆军机械化 (4个)
             Rance_JAP_A_mechanized = { x = 0 y = 0 }
             Rance_JAP_A_mechanized = { x = 0 y = 1 }
             Rance_JAP_A_mechanized = { x = 0 y = 2 }
             Rance_JAP_A_mechanized = { x = 0 y = 3 }
 
-            # 第二列：陸軍机械化 (4个)
+            # 第二列：陆军机械化 (4个)
             Rance_JAP_A_mechanized = { x = 1 y = 0 }
             Rance_JAP_A_mechanized = { x = 1 y = 1 }
             Rance_JAP_A_mechanized = { x = 1 y = 2 }
             Rance_JAP_A_mechanized = { x = 1 y = 3 }
 
-            # 第三列：陸軍中坦 (4个)
+            # 第三列：陆军中坦 (4个)
             Rance_JAP_A_medium_armor = { x = 2 y = 0 }
             Rance_JAP_A_medium_armor = { x = 2 y = 1 }
             Rance_JAP_A_medium_armor = { x = 2 y = 2 }
             Rance_JAP_A_medium_armor = { x = 2 y = 3 }
 
-            # 第四列：陸軍中坦 (3个)
+            # 第四列：陆军中坦 (3个)
             Rance_JAP_A_medium_armor = { x = 3 y = 0 }
             Rance_JAP_A_medium_armor = { x = 3 y = 1 }
             Rance_JAP_A_medium_armor = { x = 3 y = 2 }
 
-            # 第五列：陸軍中型变体营
+            # 第五列：陆军中型变体营
             Rance_JAP_A_medium_tankdestroyer = { x = 4 y = 0 }
             Rance_JAP_A_medium_tankdestroyer = { x = 4 y = 1 }
             Rance_JAP_A_medium_tankdestroyer = { x = 4 y = 2 }
@@ -295,7 +295,7 @@ JAP_create_mechanized_tank_template = {
             Rance_JAP_A_heavy_tankdestroyer_support = { x = 4 y = 0 }
         }
         support = {
-            # 支援連布局
+            # 支援连布局
             armored_engineer = {
                 x = 0
                 y = 0
@@ -319,37 +319,37 @@ JAP_create_mechanized_tank_template = {
         }
     }
 }
-# 生成日本重機械化戦車師団模板
+# 生成日本重型机坦师模板
 JAP_create_mechanized_heavy_tank_template = {
     division_template = {
-        name = "日本重機械化戦車師団"
+        name = "日本重型机坦师"
         is_locked = no
         obsolete = no
         regiments = {
-            # 第一列：陸軍机械化 (5个)
+            # 第一列：陆军机械化 (5个)
             Rance_JAP_A_mechanized = { x = 0 y = 0 }
             Rance_JAP_A_mechanized = { x = 0 y = 1 }
             Rance_JAP_A_mechanized = { x = 0 y = 2 }
             Rance_JAP_A_mechanized = { x = 0 y = 3 }
             Rance_JAP_A_mechanized = { x = 0 y = 4 }
 
-            # 第二列：陸軍机械化 (4个)
+            # 第二列：陆军机械化 (4个)
             Rance_JAP_A_mechanized = { x = 1 y = 0 }
             Rance_JAP_A_mechanized = { x = 1 y = 1 }
             Rance_JAP_A_mechanized = { x = 1 y = 2 }
             Rance_JAP_A_mechanized = { x = 1 y = 3 }
 
-            # 第三列：陸軍重坦 (3个)
+            # 第三列：陆军重坦 (3个)
             Rance_JAP_A_heavy_armor = { x = 2 y = 0 }
             Rance_JAP_A_heavy_armor = { x = 2 y = 1 }
             Rance_JAP_A_heavy_armor = { x = 2 y = 2 }
 
-            # 第四列：陸軍重坦 (3个)
+            # 第四列：陆军重坦 (3个)
             Rance_JAP_A_heavy_armor = { x = 3 y = 0 }
             Rance_JAP_A_heavy_armor = { x = 3 y = 1 }
             Rance_JAP_A_heavy_armor = { x = 3 y = 2 }
 
-            # 第五列：陸軍重坦 (3个)
+            # 第五列：陆军重坦 (3个)
             Rance_JAP_A_heavy_armor = { x = 4 y = 0 }
             Rance_JAP_A_heavy_armor = { x = 4 y = 1 }
             Rance_JAP_A_heavy_armor = { x = 4 y = 2 }
@@ -362,7 +362,7 @@ JAP_create_mechanized_heavy_tank_template = {
             Rance_JAP_A_heavy_tankdestroyer_support = { x = 4 y = 0 }
         }
         support = {
-            # 支援連布局（保持与机坦一致）
+            # 支援连布局（保持与机坦一致）
             armored_engineer = {
                 x = 0
                 y = 0
@@ -386,37 +386,37 @@ JAP_create_mechanized_heavy_tank_template = {
         }
     }
 }
-# 生成日本水陸両用機械化戦車師団模板
+# 生成日本两栖机坦师模板
 JAP_create_amphibious_mechanized_template = {
     division_template = {
-        name = "日本水陸両用機械化戦車師団"
+        name = "日本两栖机坦师"
         is_locked = no
         obsolete = no
         regiments = {
-            # 第一列：海軍特戦隊机械化 (4个)
+            # 第一列：海军特战队机械化 (4个)
             Rance_JAP_M_mechanized = { x = 0 y = 0 }
             Rance_JAP_M_mechanized = { x = 0 y = 1 }
             Rance_JAP_M_mechanized = { x = 0 y = 2 }
             Rance_JAP_M_mechanized = { x = 0 y = 3 }
 
-            # 第二列：海軍特戦隊机械化 (4个)
+            # 第二列：海军特战队机械化 (4个)
             Rance_JAP_M_mechanized = { x = 1 y = 0 }
             Rance_JAP_M_mechanized = { x = 1 y = 1 }
             Rance_JAP_M_mechanized = { x = 1 y = 2 }
             Rance_JAP_M_mechanized = { x = 1 y = 3 }
 
-            # 第三列：海軍特戦隊中坦 (4个)
+            # 第三列：海军特战队中坦 (4个)
             Rance_JAP_M_medium_armor = { x = 2 y = 0 }
             Rance_JAP_M_medium_armor = { x = 2 y = 1 }
             Rance_JAP_M_medium_armor = { x = 2 y = 2 }
             Rance_JAP_M_medium_armor = { x = 2 y = 3 }
 
-            # 第四列：海軍特戦隊中坦 (3个)
+            # 第四列：海军特战队中坦 (3个)
             Rance_JAP_M_medium_armor = { x = 3 y = 0 }
             Rance_JAP_M_medium_armor = { x = 3 y = 1 }
             Rance_JAP_M_medium_armor = { x = 3 y = 2 }
 
-            # 第五列：海軍特戦隊中型变体营
+            # 第五列：海军特战队中型变体营
             Rance_JAP_M_medium_tankdestroyer = { x = 4 y = 0 }
             Rance_JAP_M_medium_tankdestroyer = { x = 4 y = 1 }
             Rance_JAP_M_medium_tankdestroyer = { x = 4 y = 2 }
@@ -429,7 +429,7 @@ JAP_create_amphibious_mechanized_template = {
             Rance_JAP_A_heavy_tankdestroyer_support = { x = 4 y = 0 }
         }
         support = {
-            # 支援連布局
+            # 支援连布局
             armored_engineer = { x = 0 y = 0 }
             medium_flame_tank = { x = 0 y = 1 }
             helicopter_field_hospital = { x = 0 y = 2 }
@@ -438,37 +438,37 @@ JAP_create_amphibious_mechanized_template = {
         }
     }
 }
-# 生成日本水陸両用重機械化戦車師団模板
+# 生成日本两栖重机坦师模板
 JAP_create_heavy_amphibious_mechanized_template = {
     division_template = {
-        name = "日本水陸両用重機械化戦車師団"
+        name = "日本两栖重机坦师"
         is_locked = no
         obsolete = no
         regiments = {
-            # 第一列：海軍特戦隊机械化 (5个)
+            # 第一列：海军特战队机械化 (5个)
             Rance_JAP_M_mechanized = { x = 0 y = 0 }
             Rance_JAP_M_mechanized = { x = 0 y = 1 }
             Rance_JAP_M_mechanized = { x = 0 y = 2 }
             Rance_JAP_M_mechanized = { x = 0 y = 3 }
             Rance_JAP_M_mechanized = { x = 0 y = 4 }
 
-            # 第二列：海軍特戦隊机械化 (4个)
+            # 第二列：海军特战队机械化 (4个)
             Rance_JAP_M_mechanized = { x = 1 y = 0 }
             Rance_JAP_M_mechanized = { x = 1 y = 1 }
             Rance_JAP_M_mechanized = { x = 1 y = 2 }
             Rance_JAP_M_mechanized = { x = 1 y = 3 }
 
-            # 第三列：海軍特戦隊重坦 (3个)
+            # 第三列：海军特战队重坦 (3个)
             Rance_JAP_M_heavy_armor = { x = 2 y = 0 }
             Rance_JAP_M_heavy_armor = { x = 2 y = 1 }
             Rance_JAP_M_heavy_armor = { x = 2 y = 2 }
 
-            # 第四列：海軍特戦隊重坦 (3个)
+            # 第四列：海军特战队重坦 (3个)
             Rance_JAP_M_heavy_armor = { x = 3 y = 0 }
             Rance_JAP_M_heavy_armor = { x = 3 y = 1 }
             Rance_JAP_M_heavy_armor = { x = 3 y = 2 }
 
-            # 第五列：海軍特戦隊重坦 (3个)
+            # 第五列：海军特战队重坦 (3个)
             Rance_JAP_M_heavy_armor = { x = 4 y = 0 }
             Rance_JAP_M_heavy_armor = { x = 4 y = 1 }
             Rance_JAP_M_heavy_armor = { x = 4 y = 2 }
@@ -481,7 +481,7 @@ JAP_create_heavy_amphibious_mechanized_template = {
             Rance_JAP_A_heavy_tankdestroyer_support = { x = 4 y = 0 }
         }
         support = {
-            # 支援連布局 (根据文档，仍包含中型噴火坦克)
+            # 支援连布局 (根据文档，仍包含中型喷火坦克)
             armored_engineer = { x = 0 y = 0 }
             medium_flame_tank = { x = 0 y = 1 }
             helicopter_field_hospital = { x = 0 y = 2 }
@@ -490,37 +490,37 @@ JAP_create_heavy_amphibious_mechanized_template = {
         }
     }
 }
-# 生成日本陸上巡洋艦水陸両用重機械化戦車師団模板
+# 生成日本陆巡两栖重机坦师模板
 JAP_create_land_crushier_template = {
     division_template = {
-        name = "日本陸上巡洋艦水陸両用重機械化戦車師団"
+        name = "日本陆巡两栖重机坦师"
         is_locked = no
         obsolete = no
         regiments = {
-            # 第一列：海軍特戦隊机械化 (5个)
+            # 第一列：海军特战队机械化 (5个)
             Rance_JAP_M_mechanized = { x = 0 y = 0 }
             Rance_JAP_M_mechanized = { x = 0 y = 1 }
             Rance_JAP_M_mechanized = { x = 0 y = 2 }
             Rance_JAP_M_mechanized = { x = 0 y = 3 }
             Rance_JAP_M_mechanized = { x = 0 y = 4 }
 
-            # 第二列：海軍特戦隊机械化 (4个)
+            # 第二列：海军特战队机械化 (4个)
             Rance_JAP_M_mechanized = { x = 1 y = 0 }
             Rance_JAP_M_mechanized = { x = 1 y = 1 }
             Rance_JAP_M_mechanized = { x = 1 y = 2 }
             Rance_JAP_M_mechanized = { x = 1 y = 3 }
 
-            # 第三列：海軍特戦隊重坦 (3个)
+            # 第三列：海军特战队重坦 (3个)
             Rance_JAP_M_heavy_armor = { x = 2 y = 0 }
             Rance_JAP_M_heavy_armor = { x = 2 y = 1 }
             Rance_JAP_M_heavy_armor = { x = 2 y = 2 }
 
-            # 第四列：海軍特戦隊重坦 (3个)
+            # 第四列：海军特战队重坦 (3个)
             Rance_JAP_M_heavy_armor = { x = 3 y = 0 }
             Rance_JAP_M_heavy_armor = { x = 3 y = 1 }
             Rance_JAP_M_heavy_armor = { x = 3 y = 2 }
 
-            # 第五列：海軍特戦隊重坦 (3个)
+            # 第五列：海军特战队重坦 (3个)
             Rance_JAP_M_heavy_armor = { x = 4 y = 0 }
             Rance_JAP_M_heavy_armor = { x = 4 y = 1 }
             Rance_JAP_M_heavy_armor = { x = 4 y = 2 }
@@ -533,7 +533,7 @@ JAP_create_land_crushier_template = {
             Rance_JAP_A_heavy_tankdestroyer_support = { x = 4 y = 0 }
         }
         support = {
-            # 支援連布局 (包含了陸巡艦与直升机旅)
+            # 支援连布局 (包含了陆巡舰与直升机旅)
             armored_engineer = { x = 0 y = 0 }
             medium_flame_tank = { x = 0 y = 1 }
             helicopter_brigade = { x = 0 y = 2 }
@@ -544,7 +544,7 @@ JAP_create_land_crushier_template = {
 }
 JAP_create_marine_modern_mechanized_tank_template = {
 	division_template = {
-		name = "日本海軍現代機械化戦車師団"
+		name = "日本海陆现代机坦师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -589,7 +589,7 @@ JAP_create_marine_modern_mechanized_tank_template = {
 }
 JAP_create_land_cruiser_marine_modern_mechanized_tank_template = {
 	division_template = {
-		name = "日本陸上巡洋艦海軍現代機械化戦車師団"
+		name = "日本陆巡海陆现代机坦师"
 		is_locked = no
 		obsolete = no
 		regiments = {
@@ -635,7 +635,7 @@ JAP_create_land_cruiser_marine_modern_mechanized_tank_template = {
 JAP_start_infantry_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本步坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -646,7 +646,7 @@ JAP_start_infantry_tanks = {
 JAP_start_experimental_infantry_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本試験歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本试验步坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 5
@@ -656,7 +656,7 @@ JAP_start_experimental_infantry_tanks = {
 JAP_start_special_infantry_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本特殊歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本特种步坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -666,7 +666,7 @@ JAP_start_special_infantry_tanks = {
 JAP_start_mechanized_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -677,7 +677,7 @@ JAP_start_mechanized_tanks = {
 JAP_start_heavy_mechanized_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本重型机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -687,7 +687,7 @@ JAP_start_heavy_mechanized_tanks = {
 JAP_start_amphibious_mechanized_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本水陸両用機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本两栖机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -697,7 +697,7 @@ JAP_start_amphibious_mechanized_tanks = {
 JAP_start_heavy_amphibious_mechanized_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本水陸両用重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本两栖重机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -707,7 +707,7 @@ JAP_start_heavy_amphibious_mechanized_tanks = {
 JAP_start_land_crushier = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本陸上巡洋艦水陸両用重機械化戦車師団\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+            division = "division_template = \"日本陆巡两栖重机坦师\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -717,7 +717,7 @@ JAP_start_land_crushier = {
 JAP_start_marine_modern_mechanized_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本海軍現代機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+            division = "division_template = \"日本海陆现代机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -727,7 +727,7 @@ JAP_start_marine_modern_mechanized_tanks = {
 JAP_start_land_cruiser_marine_modern_mechanized_tanks = {
     capital_scope = {
         create_unit = {
-            division = "division_template = \"日本陸上巡洋艦海軍現代機械化戦車師団\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+            division = "division_template = \"日本陆巡海陆现代机坦师\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
 
             owner = prev
             count = 10
@@ -738,245 +738,238 @@ JAP_maintainance_equipment_common = {
     add_equipment_to_stockpile = {
         type = infantry_equipment
         amount = 30000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = support_equipment
         amount = 5000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = motorized_equipment
         amount = 5000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = train_equipment
         amount = 1000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = helicopter_equipment
         amount = 5000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = armored_support_vehicle
         amount = 5000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = mechanized_equipment_1
         amount = 30000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = amphibious_mechanized_equipment_1
         amount = 30000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = medium_tank_flame_chassis_1
         amount = 1000
-        producer = JAP
+        producer = ROOT
     }
 }
 JAP_maintainance_equipment_basic = {
     add_equipment_to_stockpile = {
         type = infantry_equipment
         amount = 50000
-        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = support_equipment
         amount = 10000
-        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = artillery_equipment_1
         amount = 4000
-        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = anti_tank_equipment_1
         amount = 4000
-        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = anti_air_equipment_1
         amount = 4000
-        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = motorized_equipment
         amount = 1000
-        producer = JAP
     }
     add_equipment_to_stockpile = {
         type = train_equipment
         amount = 300
-        producer = JAP
     }
 }
 JAP_maintainance_equipment_medium_tank = {
     if = {
-        limit = { JAP = { has_tech = advanced_medium_tank_chassis } }
+        limit = { has_tech = advanced_medium_tank_chassis }
          add_equipment_to_stockpile = {
         type = medium_tank_chassis_3
         amount = 12000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = medium_tank_amphibious_chassis_3
         amount = 8000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = medium_tank_destroyer_chassis_3
         amount = 4000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = medium_tank_aa_chassis_3
         amount = 4000
-        producer = JAP
+        producer = ROOT
     }
 
     }
     else_if = {
         limit = {
-            JAP = { has_tech = improved_medium_tank_chassis }
+            has_tech = improved_medium_tank_chassis
         }
 
         add_equipment_to_stockpile = {
             type = medium_tank_chassis_2
             amount = 12000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
         type = medium_tank_amphibious_chassis_2
         amount = 8000
-        producer = JAP
+        producer = ROOT
     }
         add_equipment_to_stockpile = {
             type = medium_tank_destroyer_chassis_2
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
             type = medium_tank_aa_chassis_2
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
     }
     else = {
         add_equipment_to_stockpile = {
             type = medium_tank_chassis_1
             amount = 12000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
         type = medium_tank_amphibious_chassis_1
         amount = 8000
-        producer = JAP
+        producer = ROOT
     }
         add_equipment_to_stockpile = {
             type = medium_tank_destroyer_chassis_1
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
             type = medium_tank_aa_chassis_1
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
     }
 
 }
 JAP_maintainance_equipment_heavy_tank = {
     if = {
-        limit = { JAP = { has_tech = advanced_heavy_tank_chassis } }
+        limit = { has_tech = advanced_heavy_tank_chassis }
          add_equipment_to_stockpile = {
         type = heavy_tank_chassis_3
         amount = 12000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = heavy_tank_amphibious_chassis_3
         amount = 8000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = heavy_tank_destroyer_chassis_3
         amount = 4000
-        producer = JAP
+        producer = ROOT
     }
     add_equipment_to_stockpile = {
         type = heavy_tank_aa_chassis_3
         amount = 4000
-        producer = JAP
+        producer = ROOT
     }
 
     }
     else_if = {
         limit = {
-            JAP = { has_tech = improved_heavy_tank_chassis }
+            has_tech = improved_heavy_tank_chassis
         }
 
         add_equipment_to_stockpile = {
             type = heavy_tank_chassis_2
             amount = 12000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
         type = heavy_tank_amphibious_chassis_2
         amount = 8000
-        producer = JAP
+        producer = ROOT
     }
         add_equipment_to_stockpile = {
             type = heavy_tank_destroyer_chassis_2
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
             type = heavy_tank_aa_chassis_2
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
     }
     else = {
         add_equipment_to_stockpile = {
             type = heavy_tank_chassis_1
             amount = 12000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
         type = heavy_tank_amphibious_chassis_1
         amount = 8000
-        producer = JAP
+        producer = ROOT
     }
         add_equipment_to_stockpile = {
             type = heavy_tank_destroyer_chassis_1
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
         add_equipment_to_stockpile = {
             type = heavy_tank_aa_chassis_1
             amount = 3000
-            producer = JAP
+            producer = ROOT
         }
     }
 
 }
-#火星登陸
+#火星登陆
 JAP_void_landing_small = {
 	if = {
 		limit = {
 			Rance_nd_more_than_hard = yes
-			JAP = { has_template = "日本水陸両用重機械化戦車師団" }
+			JAP = { has_template = "日本两栖重机坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本水陸両用重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本两栖重机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 3
 			allow_spawning_on_enemy_provs = yes
@@ -985,10 +978,10 @@ JAP_void_landing_small = {
 	else_if = {
 		limit = {
 			Rance_nd_more_than_normal = yes
-			JAP = { has_template = "日本水陸両用機械化戦車師団" }
+			JAP = { has_template = "日本两栖机坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本水陸両用機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本两栖机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 3
 			allow_spawning_on_enemy_provs = yes
@@ -996,10 +989,10 @@ JAP_void_landing_small = {
 	}
 	if = {
 		limit = {
-			JAP = { has_template = "日本特殊歩戦師団" }
+			JAP = { has_template = "日本特种步坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本特殊歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本特种步坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 3
 			allow_spawning_on_enemy_provs = yes
@@ -1010,10 +1003,10 @@ JAP_void_landing_medium = {
 	if = {
 		limit = {
 			Rance_nd_more_than_hard = yes
-			JAP = { has_template = "日本水陸両用重機械化戦車師団" }
+			JAP = { has_template = "日本两栖重机坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本水陸両用重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本两栖重机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 5
 			allow_spawning_on_enemy_provs = yes
@@ -1022,10 +1015,10 @@ JAP_void_landing_medium = {
 	else_if = {
 		limit = {
 			Rance_nd_more_than_normal = yes
-			JAP = { has_template = "日本水陸両用機械化戦車師団" }
+			JAP = { has_template = "日本两栖机坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本水陸両用機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本两栖机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 5
 			allow_spawning_on_enemy_provs = yes
@@ -1033,10 +1026,10 @@ JAP_void_landing_medium = {
 	}
 	if = {
 		limit = {
-			JAP = { has_template = "日本特殊歩戦師団" }
+			JAP = { has_template = "日本特种步坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本特殊歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本特种步坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 5
 			allow_spawning_on_enemy_provs = yes
@@ -1047,10 +1040,10 @@ JAP_void_landing_big = {
 	if = {
 		limit = {
 			Rance_nd_more_than_hard = yes
-			JAP = { has_template = "日本水陸両用重機械化戦車師団" }
+			JAP = { has_template = "日本两栖重机坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本水陸両用重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本两栖重机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 10
 			allow_spawning_on_enemy_provs = yes
@@ -1059,10 +1052,10 @@ JAP_void_landing_big = {
 	else_if = {
 		limit = {
 			Rance_nd_more_than_normal = yes
-			JAP = { has_template = "日本水陸両用機械化戦車師団" }
+			JAP = { has_template = "日本两栖机坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本水陸両用機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本两栖机坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 10
 			allow_spawning_on_enemy_provs = yes
@@ -1070,10 +1063,10 @@ JAP_void_landing_big = {
 	}
 	if = {
 		limit = {
-			JAP = { has_template = "日本特殊歩戦師団" }
+			JAP = { has_template = "日本特种步坦师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本特殊歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本特种步坦师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 10
 			allow_spawning_on_enemy_provs = yes
@@ -1083,10 +1076,10 @@ JAP_void_landing_big = {
 JAP_void_landing_infantry = {
 	if = {
 		limit = {
-			JAP = { has_template = "日本歩兵師団" }
+			JAP = { has_template = "日本步兵师" }
 		}
 		create_unit = {
-			division = "division_template = \"日本歩兵師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+			division = "division_template = \"日本步兵师\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
 			owner = JAP
 			count = 5
 			allow_spawning_on_enemy_provs = yes
@@ -1147,67 +1140,67 @@ JAP_void_landing_big_with_big_damage = {
 # 基于最新的 V1.17.x 科技定义
 JAP_infantry_artillery_maintenance_effect = {
     # --- 共有部分：不随科技变化的装备 ---
-    add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 800 producer = JAP }
-    add_equipment_to_stockpile = { type = support_equipment_1 amount = 2300 producer = JAP }
+    add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 800 producer = ROOT }
+    add_equipment_to_stockpile = { type = support_equipment_1 amount = 2300 producer = ROOT }
 
     # --- 1. 步兵装备判定 (修正后) ---
     if = {
-        limit = { JAP = { has_tech = advanced_infantry_weapons } } # 1942年科技
-        add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 25000 producer = JAP }
+        limit = { has_tech = advanced_infantry_weapons } # 1942年科技
+        add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 25000 producer = ROOT }
     }
     else_if = {
-        limit = { JAP = { has_tech = improved_infantry_weapons } } # 1939年科技
-        add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 25000 producer = JAP }
+        limit = { has_tech = improved_infantry_weapons } # 1939年科技
+        add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 25000 producer = ROOT }
     }
     else_if = {
-        limit = { JAP = { has_tech = infantry_weapons1 } } # 1936年科技
-        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = JAP }
+        limit = { has_tech = infantry_weapons1 } # 1936年科技
+        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = ROOT }
     }
     else = {
         # 初始科技 infantry_weapons 解锁的内容
-        add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 25000 producer = JAP }
+        add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 25000 producer = ROOT }
     }
 
    # --- 1. 火炮 (Artillery) 判定 ---
     if = {
-        limit = { JAP = { has_tech = artillery4 } } # 1942年科技
-        add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 1440 producer = JAP }
+        limit = { has_tech = artillery4 } # 1942年科技
+        add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 1440 producer = ROOT }
     }
     else_if = {
-        limit = { JAP = { has_tech = artillery1 } } # 1939年科技
-        add_equipment_to_stockpile = { type = artillery_equipment_2 amount = 1440 producer = JAP }
+        limit = { has_tech = artillery1 } # 1939年科技
+        add_equipment_to_stockpile = { type = artillery_equipment_2 amount = 1440 producer = ROOT }
     }
     else = {
         # 初始/1936年科技 (gw_artillery)
-        add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 1440 producer = JAP }
+        add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 1440 producer = ROOT }
     }
 
     # --- 2. 反坦克 (Anti-Tank) 判定 ---
     if = {
-        limit = { JAP = { has_tech = antitank5 } } # 1943年科技
-        add_equipment_to_stockpile = { type = anti_tank_equipment_3 amount = 1440 producer = JAP }
+        limit = { has_tech = antitank5 } # 1943年科技
+        add_equipment_to_stockpile = { type = anti_tank_equipment_3 amount = 1440 producer = ROOT }
     }
     else_if = {
-        limit = { JAP = { has_tech = antitank2 } } # 1940年科技
-        add_equipment_to_stockpile = { type = anti_tank_equipment_2 amount = 1440 producer = JAP }
+        limit = { has_tech = antitank2 } # 1940年科技
+        add_equipment_to_stockpile = { type = anti_tank_equipment_2 amount = 1440 producer = ROOT }
     }
     else = {
         # 初始/1936年科技 (interwar_antitank)
-        add_equipment_to_stockpile = { type = anti_tank_equipment_1 amount = 1440 producer = JAP }
+        add_equipment_to_stockpile = { type = anti_tank_equipment_1 amount = 1440 producer = ROOT }
     }
 
     # --- 3. 防空 (Anti-Air) 判定 ---
     if = {
-        limit = { JAP = { has_tech = antiair5 } } # 1943年科技
-        add_equipment_to_stockpile = { type = anti_air_equipment_3 amount = 720 producer = JAP }
+        limit = { has_tech = antiair5 } # 1943年科技
+        add_equipment_to_stockpile = { type = anti_air_equipment_3 amount = 720 producer = ROOT }
     }
     else_if = {
-        limit = { JAP = { has_tech = antiair2 } } # 1940年科技
-        add_equipment_to_stockpile = { type = anti_air_equipment_2 amount = 720 producer = JAP }
+        limit = { has_tech = antiair2 } # 1940年科技
+        add_equipment_to_stockpile = { type = anti_air_equipment_2 amount = 720 producer = ROOT }
     }
     else = {
         # 初始/1936年科技 (interwar_antiair)
-        add_equipment_to_stockpile = { type = anti_air_equipment_1 amount = 720 producer = JAP }
+        add_equipment_to_stockpile = { type = anti_air_equipment_1 amount = 720 producer = ROOT }
     }
 }
 
@@ -1226,17 +1219,17 @@ JAP_ai_cleanup_irregular_divisions_effect = {
 			}
 		}
 		change_division_template = {
-			division_template = "日本基礎歩兵師団"
+			division_template = "日本基础步兵师"
 		}
 	}
 
 	delete_units = {
-		division_template = "日本基礎歩兵師団"
+		division_template = "日本基础步兵师"
 		disband = yes
 	}
 
 	delete_units = {
-		division_template = "日本試験歩戦師団"
+		division_template = "日本试验步坦师"
 		disband = yes
 	}
 }

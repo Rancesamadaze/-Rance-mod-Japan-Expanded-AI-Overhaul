@@ -2,7 +2,10 @@ JAP_mio_general_policy  = {
 	icon = GFX_mio_policy_mechanical_genius
 	allowed = { 
 		from = {
-			tag = JAP
+			OR = {
+				tag = JAP
+				is_subject_of = JAP
+			}
 		}
 	}
 	available = { always = yes}
