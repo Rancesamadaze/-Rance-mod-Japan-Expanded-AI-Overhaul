@@ -6533,6 +6533,7 @@ focus = {
                     log = "[JAP FOCUS ORDER] [?JAP_completed_focus_order_index|0] [GetDateText] JAP_new_order_in_east_asia"
                 }
             }
+            custom_effect_tooltip = JAP_unlock_greater_east_asia_ministry_decisions_tt
             IF = {
                 limit = {
                     is_faction_leader = no
@@ -7240,9 +7241,7 @@ focus = {
         continue_if_invalid = no
         search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }
         prerequisite = { focus = JAP_sea_national_spiritual_mobliization_movement }
-        available = {
-            has_war = yes
-        }
+        
         ai_will_do = {
             factor = 1
         }
@@ -7255,7 +7254,7 @@ focus = {
                 }
             }
             JAP_add_or_modify_showa_statism = yes
-            add_to_variable = { JAP_showa_statism_industrial_capacity_dockyard = 0.05 tooltip = industrial_capacity_dockyard_tt }
+            add_to_variable = { JAP_showa_statism_industrial_capacity_dockyard = 0.1 tooltip = industrial_capacity_dockyard_tt }
             add_to_variable = { JAP_showa_statism_industrial_capacity_factory = 0.05 tooltip = industrial_capacity_factory_tt }
             IF = {
                 limit = {
@@ -7293,7 +7292,7 @@ focus = {
                 }
             }
             JAP_add_or_modify_showa_statism = yes
-            add_to_variable = { JAP_showa_statism_monthly_population = 0.1 tooltip = monthly_population_tt }
+            add_to_variable = { JAP_showa_statism_monthly_population = 0.15 tooltip = monthly_population_tt }
         }
     }
 
@@ -7303,7 +7302,7 @@ focus = {
         relative_position_id = JAP_issue_the_ten_commandments_for_marriage
         x = -1
         y = 1
-        cost = 5
+        cost = 4
         available_if_capitulated = no
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -7355,11 +7354,11 @@ focus = {
             }
             add_popularity = {
                 ideology = fascism
-                popularity = 0.1
+                popularity = 0.2
             }
             custom_effect_tooltip = generic_skip_one_line_tt
             JAP_add_or_modify_showa_statism = yes
-            add_to_variable = { JAP_showa_statism_political_power_factor = 0.1 tooltip = political_power_factor_tt }
+            add_to_variable = { JAP_showa_statism_political_power_factor = 0.15 tooltip = political_power_factor_tt }
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = available_political_advisor
             show_ideas_tooltip = JAP_kiichiro_hiranuma
@@ -7372,7 +7371,7 @@ focus = {
         relative_position_id = JAP_new_order_movement
         x = -3
         y = 1
-        cost = 5
+        cost = 4
         available_if_capitulated = no
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -7518,38 +7517,61 @@ focus = {
             }
             add_tech_bonus = {
                 name = JAP_german_rocketry
-                bonus = 0.5
+                bonus = 1
                 uses = 1
                 category = rocketry
             }
             add_tech_bonus = {
                 name = JAP_sea_mil_tech_coop_with_germany
-                bonus = 0.5
+                bonus = 1
                 uses = 1
                 category = armor
             }
             add_tech_bonus = {
                 name = JAP_sea_mil_tech_coop_with_germany
-                bonus = 0.5
+                bonus = 1
                 uses = 1
                 category = cat_mechanized_equipment
             }
             add_tech_bonus = {
                 name = JAP_sea_mil_tech_coop_with_germany
-                bonus = 0.25
+                bonus = 1
                 uses = 1
                 category = air_equipment
             }
             custom_effect_tooltip = generic_skip_one_line_tt
             add_ideas = JAP_german_tech_exchange
             custom_effect_tooltip = generic_skip_one_line_tt
-            every_country_with_original_tag = {
-                original_tag_to_check = GER
-                limit = {
-                    has_government = fascism
+            custom_effect_tooltip = JAP_axis_military_tech_sharing_group_tt
+            hidden_effect = {
+                add_to_tech_sharing_group = JAP_axis_military_tech_sharing_group
+                every_country_with_original_tag = {
+                    original_tag_to_check = GER
+                    limit = {
+                        has_government = fascism
+                        NOT = { has_war_with = ROOT }
+                    }
+                    add_to_tech_sharing_group = JAP_axis_military_tech_sharing_group
                 }
-                add_to_tech_sharing_group = JAP_german_rocketry
-                ROOT = { add_to_tech_sharing_group = JAP_german_rocketry }
+                every_country = {
+                    limit = {
+                        is_in_faction_with = GER
+                        GER = { has_government = fascism }
+                        NOT = { tag = ROOT }
+                        NOT = { original_tag = GER }
+                        NOT = { original_tag = ITA }
+                        NOT = { has_war_with = ROOT }
+                    }
+                    add_to_tech_sharing_group = JAP_axis_military_tech_sharing_group
+                }
+                every_country_with_original_tag = {
+                    original_tag_to_check = ITA
+                    limit = {
+                        has_government = fascism
+                        NOT = { has_war_with = ROOT }
+                    }
+                    add_to_tech_sharing_group = JAP_axis_military_tech_sharing_group
+                }
             }
         }
     }
@@ -7628,8 +7650,8 @@ focus = {
             }
             custom_effect_tooltip = generic_skip_one_line_tt
             JAP_add_or_modify_showa_statism = yes
-            add_to_variable = { JAP_showa_statism_fascism_drift = 0.05 tooltip = fascism_drift_tt }
-            add_to_variable = { JAP_showa_statism_stability_factor = 0.05 tooltip = stability_factor_tt }
+            add_to_variable = { JAP_showa_statism_fascism_drift = 0.1 tooltip = fascism_drift_tt }
+            add_to_variable = { JAP_showa_statism_stability_factor = 0.1 tooltip = stability_factor_tt }
             IF = {
                 limit = {
                     has_subject = RNG
@@ -7736,15 +7758,20 @@ focus = {
         search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }
         prerequisite = { focus = JAP_imperial_rule_assistance_association }
         available = {
-            has_war_with_major = yes
             OR = {
-                has_war_support > 0.79
-                surrender_progress > 0
-            }
-            any_enemy_country = {
-                ic_ratio = {
-                    tag = ROOT
-                    ratio > 0.3
+                Rance_is_jap_historical_ai = yes
+                AND = {
+                    has_war_with_major = yes
+                    OR = {
+                        has_war_support > 0.79
+                        surrender_progress > 0
+                    }
+                    any_enemy_country = {
+                        ic_ratio = {
+                            tag = ROOT
+                            ratio > 0.3
+                        }
+                    }
                 }
             }
         }
@@ -7760,7 +7787,7 @@ focus = {
                 }
             }
             custom_effect_tooltip = JAP_gain_national_defense_state_remove_total_mob_tt
-            add_ideas = national_defense_state
+            add_ideas = JAP_rework_national_defense_state
             custom_effect_tooltip = generic_skip_one_line_tt
             random_core_state = {
                 limit = {
@@ -7828,7 +7855,7 @@ focus = {
         relative_position_id = JAP_formalize_the_tonarigumi
         x = -2
         y = 1
-        cost = 5
+        cost = 4
         available_if_capitulated = no
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -7851,7 +7878,7 @@ focus = {
                     log = "[JAP FOCUS ORDER] [?JAP_completed_focus_order_index|0] [GetDateText] JAP_ichioku_isshin"
                 }
             }
-            add_stability = 0.075
+            add_stability = 0.1
             custom_effect_tooltip = generic_skip_one_line_tt
             #custom_effect_tooltip = JAP_build_hakko_ichiu_landmark_tt
             1018 = {
@@ -8343,15 +8370,8 @@ focus = {
         id = JAP_tojos_premiership
         icon = GFX_focus_JAP_tojos_premiership
         relative_position_id = JAP_ichioku_isshin
-        x = -2
+        x = -3
         y = 2
-        offset = {
-            x = -1
-            y = 0
-            trigger = {
-                has_country_flag = JAP_tohokai_prime_minister_added
-            }
-        }
         cost = 5
         available_if_capitulated = no
         cancel_if_invalid = no
@@ -8411,15 +8431,8 @@ focus = {
         id = JAP_yamamotos_premiership
         icon = GFX_focus_JAP_yamamotos_premiership
         relative_position_id = JAP_ichioku_isshin
-        x = 0
+        x = -1
         y = 2
-        offset = {
-            x = -1
-            y = 0
-            trigger = {
-                has_country_flag = JAP_tohokai_prime_minister_added
-            }
-        }
         cost = 5
         available_if_capitulated = no
         cancel_if_invalid = no
@@ -8468,15 +8481,8 @@ focus = {
         id = JAP_the_crysanthemum_throne
         icon = GFX_focus_JAP_the_crysanthemum_throne
         relative_position_id = JAP_ichioku_isshin
-        x = 2
+        x = 1
         y = 2
-        offset = {
-            x = -1
-            y = 0
-            trigger = {
-                has_country_flag = JAP_tohokai_prime_minister_added
-            }
-        }
         cost = 5
         available_if_capitulated = no
         cancel_if_invalid = no
@@ -8530,15 +8536,8 @@ focus = {
         id = JAP_solidify_tohokai_rule
         icon = GFX_focus_JAP_the_tohokai
         relative_position_id = JAP_ichioku_isshin
-        x = 4
+        x = 3
         y = 2
-        offset = {
-            x = -1
-            y = 0
-            trigger = {
-                has_country_flag = JAP_tohokai_prime_minister_added
-            }
-        }
         cost = 5
         available_if_capitulated = no
         cancel_if_invalid = no
@@ -8550,21 +8549,6 @@ focus = {
             has_country_leader = {
                 ruling_only = yes
                 character = JAP_seigo_nakano
-            }
-        }
-        allow_branch = {
-            has_country_flag = JAP_tohokai_prime_minister_added
-            IF = {
-                limit = {
-                    has_game_rule = {
-                        rule = obsolete_focus_branches_visibility
-                        option = HIDE
-                    }
-                }
-                NOT = {
-                    has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
-                    has_completed_focus = JAP_okadas_military_purge_speech
-                }
             }
         }
         ai_will_do = {

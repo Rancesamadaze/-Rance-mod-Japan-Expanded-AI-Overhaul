@@ -1,0 +1,46 @@
+JAP_greater_east_asia_ministry_decisions = {
+	# Japan-side special subject system decisions live here.
+	JAP_convert_MAN_to_imperial_governor_generalship = {
+		icon = GFX_decision_generic_political_address
+		cost = 25
+		fire_only_once = yes
+
+		visible = {
+			MAN = {
+				exists = yes
+				is_subject_of = ROOT
+				NOT = { has_autonomy_state = autonomy_jap_rework_imperial_governor_generalship }
+			}
+		}
+
+		available = {
+			MAN = {
+				is_subject_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_convert_MAN_to_imperial_governor_generalship_tt
+			hidden_effect = {
+				MAN = {
+					set_country_flag = JAP_rework_imperial_governor_generalship_authorized
+					drop_cosmetic_tag = yes
+					set_cosmetic_tag = MAN_jap_rework_imperial_governor_generalship
+					load_focus_tree = {
+						tree = generic_focus
+						keep_completed = no
+					}
+					mark_focus_tree_layout_dirty = yes
+				}
+				set_autonomy = {
+					target = MAN
+					autonomy_state = autonomy_jap_rework_imperial_governor_generalship
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

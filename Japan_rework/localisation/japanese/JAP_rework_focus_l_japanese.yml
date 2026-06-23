@@ -7,6 +7,7 @@
  # ツールチップキー
  JAP_mountaineers_s_tt:0 "§Y山岳戦改良§!\n効果：\n§W中型火炎放射戦車支援中隊§Yが獲得：§!\n§W山岳攻撃：§G+5.0%§!\n§W丘陵攻撃：§G+5.0%§!"
  JAP_jungle_s_tt:0 "§Yジャングル戦改良§!\n効果：\n§W中型火炎放射戦車支援中隊§Yが獲得：§!\n§W森林攻撃：§G+5.0%§!\n§Wジャングル攻撃：§G+5.0%§!"
+ JAP_gain_national_defense_state_remove_total_mob_tt:0 "§Y$tot_economic_mobilisation$§!を§R削除§!し、§Y$JAP_rework_national_defense_state$§!を獲得する。"
 
  JAP_soviet_economic_exchange:0 "ソビエト経済協力"
  JAP_soviet_economic_exchange_desc:0 "我々はコミンテルン加盟国との経済協力を強化し、農産物と工業原材料を提供することで、重工業面の支援を得るべきである。"

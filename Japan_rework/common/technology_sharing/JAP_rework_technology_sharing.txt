@@ -1,0 +1,45 @@
+technology_sharing_group = {
+	id = JAP_axis_military_tech_sharing_group
+	name = JAP_axis_military_tech_sharing_group
+	desc = JAP_axis_military_tech_sharing_group_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.05
+
+	categories = {
+		infantry_weapons
+		artillery
+		armor
+		cat_mechanized_equipment
+		support_tech
+		air_equipment
+		naval_equipment
+		electronics
+		radar_tech
+		rocketry
+	}
+
+	available = {
+		OR = {
+			AND = {
+				original_tag = JAP
+				NOT = { has_war_with = GER }
+			}
+			AND = {
+				original_tag = GER
+				has_government = fascism
+				NOT = { has_war_with = JAP }
+			}
+			AND = {
+				is_in_faction_with = GER
+				GER = { has_government = fascism }
+				NOT = { has_war_with = JAP }
+			}
+			AND = {
+				original_tag = ITA
+				has_government = fascism
+				NOT = { has_war_with = JAP }
+			}
+		}
+	}
+}

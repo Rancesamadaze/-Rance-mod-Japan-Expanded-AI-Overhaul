@@ -25,6 +25,107 @@ JAP_rework_debug_decisions = {
 		}
 	}
 
+	JAP_debug_complete_new_order_in_east_asia = {
+		icon = generic_political_address
+		priority = 999
+
+		visible = {
+			original_tag = JAP
+			NOT = { has_completed_focus = JAP_new_order_in_east_asia }
+		}
+
+		available = {
+			original_tag = JAP
+		}
+
+		cost = 0
+
+		complete_effect = {
+			complete_national_focus = JAP_new_order_in_east_asia
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_show_factory_donation_counts = {
+		icon = generic_factory
+		priority = 998
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = {
+				var = JAP_debug_cached_civilian_factories
+				value = num_of_civilian_factories
+			}
+			set_variable = {
+				var = JAP_debug_cached_civilian_factories_available_for_projects
+				value = num_of_civilian_factories_available_for_projects
+			}
+			set_variable = {
+				var = JAP_debug_cached_naval_factories
+				value = num_of_naval_factories
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_toggle_negative_factory_donations_idea = {
+		icon = generic_factory
+		priority = 997
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_idea = JAP_debug_negative_factory_donations
+				}
+				remove_ideas = JAP_debug_negative_factory_donations
+			}
+			else = {
+				add_ideas = JAP_debug_negative_factory_donations
+			}
+			set_variable = {
+				var = JAP_debug_cached_civilian_factories
+				value = num_of_civilian_factories
+			}
+			set_variable = {
+				var = JAP_debug_cached_civilian_factories_available_for_projects
+				value = num_of_civilian_factories_available_for_projects
+			}
+			set_variable = {
+				var = JAP_debug_cached_naval_factories
+				value = num_of_naval_factories
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	JAP_debug_toggle_MAN_mic_to_overlord_idea = {
 		icon = generic_factory
 		priority = 990

@@ -66,14 +66,14 @@ Rance_JAP_DominanceFleet = {
     # 最小组成 (Required)
     required_taskforces = {
         Rance_JAP_KidoButai = 1            # 1支核心机动部队
-        Rance_JAP_PatrolReconForce = 4 
+        Rance_JAP_PatrolReconForce = 4     #基础巡逻
     }
     # 最大可能组成 (Optional 追加部分)
     optional_taskforces = {
-        Rance_JAP_NavalInvasionSupport = 1
-        Rance_JAP_KidoButai = 2
-        Rance_JAP_mega_KidoButai = 2
-        Rance_JAP_PatrolDominanceForce = 1
+        Rance_JAP_NavalInvasionSupport = 2   
+        Rance_JAP_KidoButai = 2            #目标维护两支kidobutai，考虑溢出写了2+1=3
+        Rance_JAP_mega_KidoButai = 2       #目标是维护一支舰队，考虑高难下可能产能溢出写了2
+        Rance_JAP_PatrolDominanceForce = 1   
         Rance_JAP_PatrolReconForce = 6    
     }
 }

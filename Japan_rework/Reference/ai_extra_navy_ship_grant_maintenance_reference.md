@@ -105,25 +105,54 @@ if = {
 
 | 难度 | 180 天调用包 | 半年度舰数 | 年化舰数（倍率 1） |
 | --- | --- | ---: | ---: |
-| `EASY` | `sub_raiding` x1；`surface_small_fleet` x1 | 20 | 40 |
-| `NORMAL` | `sub_raiding` x2；`surface_small_fleet` x2；驱逐屏卫 x1；轻巡屏卫 x1 | 75 | 150 |
-| `HARD` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；驱逐屏卫 x1；轻巡屏卫 x1 | 113 | 226 |
-| `LUNATIC` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；`mega_kido_butai` x1；驱逐屏卫 x2；轻巡屏卫 x1 | 183 | 366 |
-| `EXTRA` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；`mega_kido_butai` x1；驱逐屏卫 x3；轻巡屏卫 x2 | 218 | 436 |
-| `PHANTASM` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；`mega_kido_butai` x1；驱逐屏卫 x4；轻巡屏卫 x3 | 253 | 506 |
+| `EASY` | `sub_raiding` x1；`surface_small_fleet` x1 | 26 | 52 |
+| `NORMAL` | `sub_raiding` x2；`surface_small_fleet` x2；驱逐屏卫 x1；轻巡屏卫 x1 | 87 | 174 |
+| `HARD` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；驱逐屏卫 x1；轻巡屏卫 x1 | 137 | 274 |
+| `LUNATIC` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；`mega_kido_butai` x1；驱逐屏卫 x2；轻巡屏卫 x1 | 195 | 390 |
+| `EXTRA` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；`mega_kido_butai` x1；驱逐屏卫 x3；轻巡屏卫 x2 | 230 | 460 |
+| `PHANTASM` | `sub_raiding` x2；`surface_small_fleet` x2；`kido_butai` x1；`mega_kido_butai` x1；驱逐屏卫 x4；轻巡屏卫 x3 | 265 | 530 |
 
 ## 发放包内容
 
 | 包 | 内容 |
 | --- | --- |
-| `JAP_ai_navy_pkg_kido_butai` | 正规航母 2、标准战列舰 2、超重战列舰 1、重雷装巡洋舰 3、特遣轻巡 10、肉盾轻巡 5、雷击驱逐 15；额外舰载机支援 |
-| `JAP_ai_navy_pkg_mega_kido_butai` | 冰航母 1、超重战列舰 5、重雷装巡洋舰 4、特遣轻巡 14、肉盾轻巡 6、雷击驱逐 20；额外空军支援 |
-| `JAP_ai_navy_pkg_surface_small_fleet` | 护航航母 1、标准重巡 1、袭击轻巡 2、雷击驱逐 3、护航驱逐 3；额外舰载机支援 |
+| `JAP_ai_navy_pkg_kido_butai` | 正规航母 2、标准战列舰 4、超重战列舰 1、重雷装巡洋舰 3、特遣轻巡 10、肉盾轻巡 5、雷击驱逐 25；额外舰载机支援 |
+| `JAP_ai_navy_pkg_mega_kido_butai` | 冰航母 1、超重战列舰 4、重雷装巡洋舰 3、袭击轻巡 15、雷击驱逐 15；额外空军支援 |
+| `JAP_ai_navy_pkg_surface_small_fleet` | 共 16 艘：护航航母 1、标准重巡 1、袭击轻巡 2、雷击驱逐 6、护航驱逐 6；额外舰载机支援 |
 | `JAP_ai_navy_pkg_sub_raiding` | 常规潜艇 6、潜水空母 4；潜水空母未解锁时不回填常规潜艇 |
 | `JAP_ai_navy_pkg_extra_destroyer_screen_batch` | 雷击驱逐 20 |
 | `JAP_ai_navy_pkg_extra_light_cruiser_screen_batch` | 特遣轻巡 10、肉盾轻巡 5 |
 
-`Rance_JAP_PatrolDominanceForce` 与 `Rance_JAP_KidoButai` 内容重合，不单独做包。
+Mega 包轻巡必须使用袭击轻巡，避免给缩小后的特殊部队混入肉盾轻巡或特遣轻巡。
+
+`Rance_JAP_PatrolDominanceForce` 已与 `Rance_JAP_KidoButai` 同编组，继续由普通机动包、额外屏卫包和常规生产积累支撑，不单独做巡逻制海包。
+
+普通/mega 机动舰队最小组成不再要求轻巡，避免 role 1 / role 6 轻巡短缺时卡住主力组建。`Rance_JAP_KidoButai` 的 min 改为正规航母 4、战列舰 6、驱逐 40；`Rance_JAP_mega_KidoButai` 的 min 改为超重战列舰 4、雷击驱逐 30。最优编组保持不变，轻巡仍通过 optimal、发船包和常规生产补齐。`Rance_JAP_PatrolDominanceForce` 继续保持 min = optimal，避免过早组建后持续吸船。
+
+`Rance_JAP_NavalInvasionSupport` 以护航舰队为最小底盘：轻型/巡逻航母 1、标准重巡 1、袭击轻巡 2、护航/反潜驱逐 6；最优为 25 艘加强登陆支援群：轻型/巡逻航母 2、标准重巡 3、袭击轻巡 5、护航/反潜驱逐 15。标准重巡 role 1 已承担炮击核心，因此不再加入战列舰。当前不新增专属登陆支援发船包；水面小舰队包已覆盖该模板的轻型/巡逻航母、标准重巡、袭击轻巡和护航/反潜驱逐最低门槛，并额外补雷击驱逐作为通用屏卫损耗缓冲，后续靠常规生产补到最优。
+
+当前生产比例已按新编组落地到 `common/ai_strategy/JAP_rework_ai_navy_production.txt` 的 `role_ratio`。护航航母账面需求来自水面破交、护航和登陆支援，但水面小舰队包半年度反复覆盖，因此下调 `rance_escort_carrier`；航母总体需求低于战列与屏卫，不再高配。普通/巡逻机动部队把战列需求显著抬高，已上调 `rance_bb` 与 `rance_super_bb`；mega 轻巡纯化为袭击轻巡后，`rance_strike_cl` 与 `rance_task_cl` 并列高位；战时屏卫损耗集中在驱逐线，驱逐比例采用 `rance_shield_dd` / `rance_escort_dd` / `rance_strike_dd` = 100 / 150 / 300，其中肉盾驱逐承担普通/巡逻机动舰队无 role 屏卫补位，护航驱逐避免过量挤占主力驱逐槽。
+
+| role | ratio |
+| --- | ---: |
+| `rance_carrier` | 75 |
+| `rance_mega_carrier` | 50 |
+| `rance_escort_carrier` | 25 |
+| `rance_bb` | 250 |
+| `rance_super_bb` | 225 |
+| `rance_clt` | 125 |
+| `rance_ca` | 125 |
+| `rance_shield_cl` | 50 |
+| `rance_strike_cl` | 225 |
+| `rance_task_cl` | 225 |
+| `rance_patrol_cl` | 25 |
+| `rance_shield_dd` | 100 |
+| `rance_escort_dd` | 150 |
+| `rance_strike_dd` | 300 |
+| `rance_ss` | 75 |
+| `rance_ss_cv` | 50 |
+
+驱逐数量兜底由 `Rance_jap_navy_destroyer_shortage_fallback` 提供：当 `has_navy_size = { size < 150 unit = destroyer }` 时启用，直到 `size > 179` 中止。启用期间额外叠加 `rance_shield_dd = 150`、`rance_escort_dd = 50`、`rance_strike_dd = 450`，即主抬雷驱，同时给普通/巡逻机动舰队的无 role 驱逐槽保留肉盾驱逐补位。
 
 `Rance_JAP_PatrolReconForce` 只需要 1 艘巡逻轻巡，不做免费舰船包。
 
@@ -176,7 +205,7 @@ meta_effect = {
         create_ship = {
             type = ship_hull_*_[JAP_ai_navy_text_*_hull]
             equipment_variant = "[JAP_ai_navy_text_*_variant]"
-            creator = ROOT
+            creator = JAP
         }
     }
     JAP_ai_navy_text_*_hull = "[GetJAP_ai_navy_*_hull]"
@@ -187,6 +216,7 @@ meta_effect = {
 维护规则：
 
 - 单舰 helper 必须先检查对应 `JAP_has_cr_ship_design_*` flag。
+- `create_ship` 在当前 ROOT 作用域执行，受赠方拿船；`creator` 固定为 `JAP`。
 - `create_ship` 不支持 `amount`，批量必须用 `while_loop_effect` 多次调用单舰 helper。
 - 新舰种要同步四处：设计效果设置 flag、单舰 helper guard、scripted localisation 选船体/型号、中文本地化 key。
 - 普通轻巡使用 `ship_hull_cruiser_[suffix]`，驱逐使用 `ship_hull_light_[suffix]`。
@@ -470,7 +500,7 @@ JAP_ai_navy_create_one_formal_carrier = {
             create_ship = {
                 type = ship_hull_carrier_[JAP_ai_navy_text_carrier_hull]
                 equipment_variant = "[JAP_ai_navy_text_carrier_variant]"
-                creator = ROOT
+                creator = JAP
             }
         }
         JAP_ai_navy_text_carrier_hull = "[GetJAP_cr_ship_hull_carrier]"

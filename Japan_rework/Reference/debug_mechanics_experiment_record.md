@@ -102,3 +102,32 @@
 
 - 需要跨国家共享的测试计数、世界级状态或全局进度，可以使用 `global.` 变量。
 - 国家专属状态不应为了省作用域而写成全局变量，否则容易污染所有国家共享状态。
+
+## 5. 负数工厂捐赠修正
+
+测试对象：
+
+- `industrial_factory_donations = -5`
+- `dockyard_donations = -5`
+- `num_of_civilian_factories`
+- `num_of_civilian_factories_available_for_projects`
+- `num_of_naval_factories`
+- debug 决议 `JAP_debug_toggle_negative_factory_donations_idea`
+
+观察结果：
+
+- 在当前国家添加包含负数捐赠修正的 debug 民族精神后，民用工厂和海军船坞相关读数会下降。
+- `num_of_civilian_factories_available_for_projects` 也会随负数民用工厂捐赠变化，说明该修正会影响“当时可用民工”的读取口径。
+- 移除该 debug 民族精神后，相关读数可以恢复，用于反复对照。
+
+结论：
+
+- `industrial_factory_donations` 可以用负值扣减当前国家可用民用工厂口径。
+- `dockyard_donations` 可以用负值扣减当前国家海军船坞口径。
+- 这两个 modifier 不只是正向“捐赠”展示字段；负值在普通 debug 民族精神中也能产生可观察的工厂/船坞扣减效果。
+
+后续用法：
+
+- 若特殊属国系统需要模拟“民工被上供/抽调”或“船坞被宗主等效占用”，可以考虑用负数 `industrial_factory_donations`、`dockyard_donations` 在属国侧扣减可用工厂与船坞。
+- 由于原版文档将这两个 modifier 标在 `government_in_exile` 分类下，正式玩法使用前仍应在目标属国场景中复测一次，包括普通属国、特殊自治等级、战争中与和平中、以及玩家/AI 控制差异。
+- 如果用于长期机制，建议保留一个可逆 debug 决议，用来观察扣减前后的 `num_of_civilian_factories_available_for_projects` 与 `num_of_naval_factories`。

@@ -85,6 +85,12 @@ This reference contains AI-generated Chinese interpretation imported from the ro
 
 When changing defines in this project, prefer editing `common/defines/Rance_defines.lua` with `NDefines.<Group>.<KEY> = <value>` overrides, preserve non-localization script encoding as UTF-8 without BOM, and avoid duplicate assignments for the same define key.
 
+## Technology Sharing Reference
+
+When working with technology sharing groups, `common/technology_sharing/`, `add_to_tech_sharing_group`, `remove_from_tech_sharing_group`, `is_in_tech_sharing_group`, `num_tech_sharing_groups`, or `research_sharing_per_country_bonus`, use `Reference/technology_sharing_reference.md` as the primary lookup reference.
+
+For technology sharing categories, verify the category keys against the relevant vanilla or project `common/technologies/` files before adding them to a sharing group.
+
 ## Combat Tactics Reference
 
 When working with land combat tactics, `common/combat_tactics.txt`, `enable_tactic`, `unlock_tactic`, tactic phases, tactic counters, preferred tactic weight modifiers, tactic icons, or Japan/Rance-exclusive tactic upgrades, use `Reference/combat_tactics_reference.md` as the primary lookup reference. This reference is written in Chinese for direct study and keeps script keys in their original form.

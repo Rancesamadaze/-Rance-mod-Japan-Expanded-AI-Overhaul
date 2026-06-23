@@ -16,9 +16,11 @@
 - [x] `JAP_rework_focus_l_*`：国策需求、国策时长、国策奖励卡等高频 focus tooltip 与奖励文本。由旧 `JAP_focus_need_l_*`、`JAP_focus_time_l_*`、`JAP_tech_card_l_*` 合并。
 - [x] `JAP_rework_events_l_*`：Rance、辉夜、皇道派事件，以及 `SEA_Japan.txt` 中的日本外交政策事件兜底选项。由旧事件碎片合并。
 - [x] `JAP_rework_politics_l_*`：角色名/传记、法案、民族精神与政治类显示文本。由旧 `JAP_character_l_*`、`JAP_law_l_*`、`JAP_idea_l_*` 合并。
+- [x] `JAP_rework_countries_l_*`：本 MOD 少量特殊国家名、自治等级国家名与外观标签国家名。只维护项目新增/改写 key，不重建完整原版国家名克隆。
 - [x] `JAP_rework_military_l_*`：大亚洲战争动态修正、通用修正显示、自定义特殊单位显示。由旧 `JAP_greater_asian_war_l_*`、`JAP_Modifiers_l_*`、`JAP_special_units_l_*` 合并。
 - [x] `JAP_rework_communism_l_*`：日共/中共合流、毛泽东、太平洋苏维埃、反封建统一战线、南亚/西亚解放等共产主义路线文本。由旧 `JAP_PRC_unification_l_*` 整理改名。
 - [x] `JAP_rework_doctrines_l_*`：Rance/Japan 专属大学说、特殊部队学说，以及从旧 `doctrines_l_*` 克隆迁出的 30 个新增学说 key 和 6 个改写 key。旧原版同名 `doctrines_l_*` 三语克隆已删除，descriptor 中的本地化 `replace_path` 已移除。
+- [x] `JAP_rework_technology_sharing_l_*`：科研共享组织名、描述与国策解锁提示文本。
 - [x] `JAP_rework_debug_l_simp_chinese.yml`：测试版中文调试决议与事件文本。由旧 `JAP_rework_debug_extra_l_simp_chinese.yml` 合并；旧空占位 `JAP_debug_l_simp_chinese.yml` 已删除。
 
 ## 保留独立模块

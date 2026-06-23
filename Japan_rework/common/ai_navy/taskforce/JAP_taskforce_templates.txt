@@ -1,6 +1,9 @@
 # 日本 AI 特遣舰队模板
 # 说明：本次整理只调整注释与空白；模板键、任务、数量和 role 保持不变。
 # 注意：同一 composition 中不拆分同舰种多 role，避免 AI 组舰时产生不稳定匹配。
+# 重要限制：同一个 taskforce 的同一舰种不能分别要求两种 role 的数量。
+# 例如 battleship 不能同时写 role 1 要 6 艘、role 7 要 4 艘；如果需要允许多种 role 混编，只能不写 role。
+# 当前主力舰队模板中的不锁 role 设计，是为了适应该代码局限而做出的妥协。
 
 # 主力打击舰队：机动部队编组
 Rance_JAP_KidoButai = {
@@ -26,12 +29,8 @@ Rance_JAP_KidoButai = {
         battleship = {
             amount = 6
         }
-        light_cruiser = {
-            amount = 10
-            role = 1 # 特遣轻巡
-        }
         destroyer = {
-            amount = 30
+            amount = 40
         }
     }
 
@@ -44,12 +43,12 @@ Rance_JAP_KidoButai = {
 
         # 巨舰大炮
         battleship = {
-            amount = 6
+            amount = 10
         }
 
         # 巡洋舰支柱
         heavy_cruiser = {
-            amount = 5
+            amount = 6
             role = 6 # 特殊/雷击巡洋舰
         }
         light_cruiser = {
@@ -59,7 +58,7 @@ Rance_JAP_KidoButai = {
 
         # 屏卫驱逐群
         destroyer = {
-            amount = 30
+            amount = 50
         }
     }
 }
@@ -75,45 +74,43 @@ Rance_JAP_NavalInvasionSupport = {
 
     mission = { naval_invasion_support }
 
+    # 最小可用编制：护航舰队底盘，重巡提供岸轰，驱逐负责反潜护航。
     min_composition = {
         carrier = {
-            amount = 4
-            role = 7
-        }
-        battleship = {
-            amount = 6
+            amount = 1
+            role = 3 # 巡逻/轻型航母
         }
         heavy_cruiser = {
-            amount = 5
-            role = 6
+            amount = 1
+            role = 1 # 标准重巡
         }
         light_cruiser = {
-            amount = 30
-            role = 1
+            amount = 2
+            role = 6 # 袭击/特殊轻巡
         }
         destroyer = {
-            amount = 30
+            amount = 6
+            role = 8 # 护航/反潜专用驱逐
         }
     }
 
+    # 最优理想编制：25 艘加强登陆支援群。
     optimal_composition = {
         carrier = {
-            amount = 4
-            role = 7
-        }
-        battleship = {
-            amount = 6
+            amount = 2
+            role = 3
         }
         heavy_cruiser = {
+            amount = 3
+            role = 1
+        }
+        light_cruiser = {
             amount = 5
             role = 6
         }
-        light_cruiser = {
-            amount = 30
-            role = 1
-        }
         destroyer = {
-            amount = 30
+            amount = 15
+            role = 8
         }
     }
 }
@@ -125,7 +122,7 @@ Rance_JAP_mega_KidoButai = {
     }
 
     ai_will_do = {
-        factor = 1
+        factor = 200
     }
 
     keep_updated = yes
@@ -133,21 +130,15 @@ Rance_JAP_mega_KidoButai = {
     # 执行主力打击任务。
     mission = { naval_strike }
 
-    # 最小可用编制。
+    # 最小可用编制：不要求冰航母，以超重战列舰为核心。
     min_composition = {
-        carrier = {
-            amount = 2
-            role = 6
-        }
         battleship = {
             amount = 4
-        }
-        light_cruiser = {
-            amount = 10
-            role = 1
+            role = 7
         }
         destroyer = {
             amount = 30
+            role = 6
         }
     }
 
@@ -160,22 +151,24 @@ Rance_JAP_mega_KidoButai = {
 
         # 巨舰大炮
         battleship = {
-            amount = 10
+            amount = 8
+            role = 7 # 超重型战列舰
         }
 
         # 巡洋舰支柱
         heavy_cruiser = {
-            amount = 8
+            amount = 5
             role = 6 # 特殊/雷击巡洋舰
         }
         light_cruiser = {
-            amount = 40
-            role = 1 # 特遣输出轻巡
+            amount = 30
+            role = 6 # 袭击轻巡
         }
 
-        # 屏卫驱逐群
+        # 雷击驱逐群
         destroyer = {
-            amount = 40
+            amount = 30
+            role = 6 # 雷击驱逐
         }
     }
 }
@@ -223,7 +216,7 @@ Rance_JAP_PatrolDominanceForce = {
     # 执行巡逻任务。
     mission = { naval_patrol }
 
-    # 最小可用编制。
+    # 最小可用编制：与最优编制保持一致，避免过早组建。
     min_composition = {
         carrier = {
             amount = 4
@@ -232,12 +225,12 @@ Rance_JAP_PatrolDominanceForce = {
 
         # 巨舰大炮
         battleship = {
-            amount = 6
+            amount = 10
         }
 
         # 巡洋舰支柱
         heavy_cruiser = {
-            amount = 5
+            amount = 6
             role = 6 # 特殊/雷击巡洋舰
         }
         light_cruiser = {
@@ -247,11 +240,11 @@ Rance_JAP_PatrolDominanceForce = {
 
         # 屏卫驱逐群
         destroyer = {
-            amount = 30
+            amount = 50
         }
     }
 
-    # 最优/最大理想编制。
+    # 最优/最大理想编制：与普通机动部队保持一致。
     optimal_composition = {
         carrier = {
             amount = 4
@@ -260,12 +253,12 @@ Rance_JAP_PatrolDominanceForce = {
 
         # 巨舰大炮
         battleship = {
-            amount = 6
+            amount = 10
         }
 
         # 巡洋舰支柱
         heavy_cruiser = {
-            amount = 5
+            amount = 6
             role = 6 # 特殊/雷击巡洋舰
         }
         light_cruiser = {
@@ -275,7 +268,7 @@ Rance_JAP_PatrolDominanceForce = {
 
         # 屏卫驱逐群
         destroyer = {
-            amount = 30
+            amount = 50
         }
     }
 }

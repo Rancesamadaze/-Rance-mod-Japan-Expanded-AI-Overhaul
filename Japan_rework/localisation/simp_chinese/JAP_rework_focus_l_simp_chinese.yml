@@ -7,6 +7,7 @@
  # Tooltip 键名
  JAP_mountaineers_s_tt:0 "§Y山地作战改良§!\n其效果为:\n§W中型喷火坦克支援连§Y获得:§!\n§W山地攻击: §G+5.0%§!\n§W丘陵攻击: §G+5.0%§!"
  JAP_jungle_s_tt:0 "§Y丛林作战改良§!\n其效果为:\n§W中型喷火坦克支援连§Y获得:§!\n§W森林攻击: §G+5.0%§!\n§W丛林攻击: §G+5.0%§!"
+ JAP_gain_national_defense_state_remove_total_mob_tt:0 "§R移除§!§Y$tot_economic_mobilisation$§!，获得§Y$JAP_rework_national_defense_state$§!"
 
  JAP_soviet_economic_exchange:0"苏维埃经济合作"
  JAP_soviet_economic_exchange_desc:0 "我们应当加强与共产国际成员之间的经济合作,通过提供农产品与工业原材料，换取在重工业方面的协助"

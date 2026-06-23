@@ -1,4 +1,7 @@
 ﻿l_japanese:
+ # --- special subject autonomy levels ---
+ autonomy_jap_rework_imperial_governor_generalship:0 "TODO translation: Imperial Governor-Generalship"
+
  # --- characters ---
  JAP_rework_rana:0 "要楽奈"
  JAP_rework_kaguya:0 "蓬莱山輝夜"

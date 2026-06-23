@@ -26,5 +26,19 @@ ideas = {
 				mic_to_overlord_factor = 1.00
 			}
 		}
+		JAP_debug_negative_factory_donations = {
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = JAP_ai_buff
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				industrial_factory_donations = -5
+				dockyard_donations = -5
+			}
+		}
 	}
 }

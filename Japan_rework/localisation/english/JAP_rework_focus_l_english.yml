@@ -7,6 +7,7 @@
  # Tooltip keys
  JAP_mountaineers_s_tt:0 "§YMountain Warfare Improvements§!\nEffects:\n§WMedium Flame Tank Support Company§Y gains:§!\n§WMountain Attack: §G+5.0%§!\n§WHills Attack: §G+5.0%§!"
  JAP_jungle_s_tt:0 "§YJungle Warfare Improvements§!\nEffects:\n§WMedium Flame Tank Support Company§Y gains:§!\n§WForest Attack: §G+5.0%§!\n§WJungle Attack: §G+5.0%§!"
+ JAP_gain_national_defense_state_remove_total_mob_tt:0 "§RRemove§! §Y$tot_economic_mobilisation$§! and gain §Y$JAP_rework_national_defense_state$§!"
 
  JAP_soviet_economic_exchange:0 "Soviet Economic Cooperation"
  JAP_soviet_economic_exchange_desc:0 "We should strengthen economic cooperation with the members of the Comintern, trading agricultural products and industrial raw materials for assistance with heavy industry."

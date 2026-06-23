@@ -422,6 +422,17 @@ JAP_ai_navy_create_super_heavy_battleship_batch_1 = {
     }
 }
 
+JAP_ai_navy_create_super_heavy_battleship_batch_4 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 4 }
+        }
+        JAP_ai_navy_create_one_super_heavy_battleship = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
 JAP_ai_navy_create_super_heavy_battleship_batch_5 = {
     set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
     while_loop_effect = {
@@ -471,6 +482,17 @@ JAP_ai_navy_create_raiding_light_cruiser_batch_2 = {
     while_loop_effect = {
         limit = {
             check_variable = { JAP_ai_navy_temp_ship_loop < 2 }
+        }
+        JAP_ai_navy_create_one_raiding_light_cruiser = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
+JAP_ai_navy_create_raiding_light_cruiser_batch_15 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 15 }
         }
         JAP_ai_navy_create_one_raiding_light_cruiser = yes
         add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
@@ -554,6 +576,17 @@ JAP_ai_navy_create_strike_destroyer_batch_20 = {
     }
 }
 
+JAP_ai_navy_create_strike_destroyer_batch_25 = {
+    set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
+    while_loop_effect = {
+        limit = {
+            check_variable = { JAP_ai_navy_temp_ship_loop < 25 }
+        }
+        JAP_ai_navy_create_one_strike_destroyer = yes
+        add_to_temp_variable = { JAP_ai_navy_temp_ship_loop = 1 }
+    }
+}
+
 JAP_ai_navy_create_escort_destroyer_batch_3 = {
     set_temp_variable = { JAP_ai_navy_temp_ship_loop = 0 }
     while_loop_effect = {
@@ -618,11 +651,12 @@ JAP_ai_navy_grant_kido_butai_carrier_air_support = {
 JAP_ai_navy_pkg_kido_butai = {
     JAP_ai_navy_create_formal_carrier_batch_2 = yes
     JAP_ai_navy_create_standard_battleship_batch_2 = yes
+    JAP_ai_navy_create_standard_battleship_batch_2 = yes
     JAP_ai_navy_create_super_heavy_battleship_batch_1 = yes
     JAP_ai_navy_create_torpedo_cruiser_batch_3 = yes
     JAP_ai_navy_create_task_light_cruiser_batch_10 = yes
     JAP_ai_navy_create_shield_light_cruiser_batch_5 = yes
-    JAP_ai_navy_create_strike_destroyer_batch_15 = yes
+    JAP_ai_navy_create_strike_destroyer_batch_25 = yes
     JAP_ai_navy_grant_kido_butai_carrier_air_support = yes
     add_to_variable = { JAP_ai_navy_granted_kido_butai_packages = 1 }
 }
@@ -648,11 +682,10 @@ JAP_ai_navy_grant_mega_kido_butai_air_support = {
 
 JAP_ai_navy_pkg_mega_kido_butai = {
     JAP_ai_navy_create_mega_carrier_batch_1 = yes
-    JAP_ai_navy_create_super_heavy_battleship_batch_5 = yes
-    JAP_ai_navy_create_torpedo_cruiser_batch_4 = yes
-    JAP_ai_navy_create_task_light_cruiser_batch_14 = yes
-    JAP_ai_navy_create_shield_light_cruiser_batch_6 = yes
-    JAP_ai_navy_create_strike_destroyer_batch_20 = yes
+    JAP_ai_navy_create_super_heavy_battleship_batch_4 = yes
+    JAP_ai_navy_create_torpedo_cruiser_batch_3 = yes
+    JAP_ai_navy_create_raiding_light_cruiser_batch_15 = yes
+    JAP_ai_navy_create_strike_destroyer_batch_15 = yes
     JAP_ai_navy_grant_mega_kido_butai_air_support = yes
     add_to_variable = { JAP_ai_navy_granted_mega_kido_butai_packages = 1 }
 }
@@ -697,6 +730,8 @@ JAP_ai_navy_pkg_surface_small_fleet = {
     JAP_ai_navy_create_standard_heavy_cruiser_batch_1 = yes
     JAP_ai_navy_create_raiding_light_cruiser_batch_2 = yes
     JAP_ai_navy_create_strike_destroyer_batch_3 = yes
+    JAP_ai_navy_create_strike_destroyer_batch_3 = yes
+    JAP_ai_navy_create_escort_destroyer_batch_3 = yes
     JAP_ai_navy_create_escort_destroyer_batch_3 = yes
     JAP_ai_navy_grant_surface_small_fleet_carrier_air_support = yes
     add_to_variable = { JAP_ai_navy_granted_surface_small_fleet_packages = 1 }

@@ -216,7 +216,7 @@ NDefines.NNavy.AGGRESSION_LEVEL_BY_MISSION_WEAKER = { -- the aggression level pe
 		-1, -- MINES SWEEPING
 		-1, -- TRAINING
 		-1, -- RESERVE_FLEET
-		2, -- NAVAL_INVASION_SUPPORT
+		1, -- NAVAL_INVASION_SUPPORT
 	}
 NDefines.NNavy.AGGRESSION_LEVEL_BY_MISSION_STRONGER_OR_EQUAL = { -- the aggression level per mission when the AI has a stronger navy than its opponent
 		---- values correspond to the indexes of the AGGRESSION_SETTINGS_VALUES. 0 = do not engage, 1 = low, 2 = medium, etc. 

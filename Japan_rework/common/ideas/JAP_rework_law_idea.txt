@@ -52,6 +52,7 @@ ideas = {
 				OR = {
 					has_completed_focus = JAP_prepare_for_the_final_war
 					has_completed_focus = JAP_sea_national_defense_state
+					Rance_is_jap_historical_ai = yes
 					Rance_is_jap_kodoha_ai = yes
 				}
 			}
@@ -60,6 +61,7 @@ ideas = {
 				OR = {
 					has_completed_focus = JAP_prepare_for_the_final_war
 					has_completed_focus = JAP_sea_national_defense_state
+					Rance_is_jap_historical_ai = yes
 					Rance_is_jap_kodoha_ai = yes
 				}
 			}
