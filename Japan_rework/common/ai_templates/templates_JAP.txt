@@ -96,10 +96,40 @@
 # - Rance_JAP_A_medium_anti_air_armor # 陆军中防空
 # - Rance_JAP_A_heavy_anti_air_armor # 陆军重防空
 #
+#属国旧军清理编制
+JAP_subject_old_army_cleanup = {
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
+	}
+	role = JAP_subject_old_army_cleanup
+	upgrade_prio = {
+		base = 0
+	}
+	JAP_subject_old_army_cleanup_default = {
+		upgrade_prio = {
+			base = 0
+		}
+		target_template = {
+			regiments = {
+				Rance_JAP_A_infantry = 1
+			}
+		}
+	}
+}
 #基础步兵师
 JAP_basic_infantry = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_basic_infantry
 	upgrade_prio = {
@@ -126,8 +156,13 @@ JAP_basic_infantry = {
 }
 ##步兵
 JAP_infantry = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_infantry
 	upgrade_prio = {
@@ -162,8 +197,13 @@ JAP_infantry = {
 }
 #试验步坦师
 JAP_experimental_infantry_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	## front_role_override = offence
 	role = JAP_experimental_infantry_tank
@@ -200,8 +240,13 @@ JAP_experimental_infantry_tank = {
 }
 #步坦
 JAP_infantry_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	## front_role_override = offence
 	role = JAP_infantry_tank
@@ -236,8 +281,13 @@ JAP_infantry_tank = {
 }
 #特种步坦师
 JAP_special_infantry_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	# front_role_override = offence
 	role = JAP_special_infantry_tank
@@ -273,8 +323,13 @@ JAP_special_infantry_tank = {
 }
 #机坦
 JAP_mechanized_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_mechanized_tank
 	## front_role_override = offence
@@ -310,8 +365,13 @@ JAP_mechanized_tank = {
 }
 #重机坦
 JAP_mechanized_heavy_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_mechanized_heavy_tank
 	## front_role_override = offence
@@ -344,8 +404,13 @@ JAP_mechanized_heavy_tank = {
 }
 #两栖机坦
 JAP_amphibious_mechanized = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_amphibious_mechanized
 	## front_role_override = offence
@@ -381,8 +446,13 @@ JAP_amphibious_mechanized = {
 }
 #两栖重机坦
 JAP_heavy_amphibious_mechanized = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_heavy_amphibious_mechanized
 	## front_role_override = offence
@@ -415,8 +485,13 @@ JAP_heavy_amphibious_mechanized = {
 }
 #陆巡两栖重机坦
 JAP_land_crushier = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_land_crushier
 	## front_role_override = offence
@@ -449,8 +524,13 @@ JAP_land_crushier = {
 }
 #海陆现代机坦师
 JAP_marine_modern_mechanized_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_marine_modern_mech_tank
 	## front_role_override = offence
@@ -483,8 +563,13 @@ JAP_marine_modern_mechanized_tank = {
 }
 #陆巡海陆现代机坦师
 JAP_land_cruiser_marine_modern_mechanized_tank = {
-	available_for = {
-		JAP
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
 	}
 	role = JAP_lc_marine_modern_mech_tank
 	## front_role_override = offence
@@ -517,7 +602,14 @@ JAP_land_cruiser_marine_modern_mechanized_tank = {
 }
 #镇压
 JAP_suppression = {
-
+	blocked_for = {
+		ENG
+		USA
+		FRA
+		GER
+		ITA
+		SOV
+	}
 	role = JAP_suppression
 	upgrade_prio = {
 		base = 0.5

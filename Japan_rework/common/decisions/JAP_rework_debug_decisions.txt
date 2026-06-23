@@ -395,4 +395,404 @@ JAP_rework_debug_decisions = {
 			factor = 0
 		}
 	}
+
+	JAP_debug_MAN_grant_500_xp = {
+		icon = generic_military
+		priority = 959
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			MAN = {
+				army_experience = 500
+				navy_experience = 500
+				air_experience = 500
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_MAN_set_doctrine_replacement_baseline = {
+		icon = generic_military
+		priority = 958
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			MAN = {
+				set_grand_doctrine = new_mobile_warfare
+				set_sub_doctrine = mobile_infantry
+				set_sub_doctrine = fire_concentration
+				if = {
+					limit = {
+						has_dlc = "La Resistance"
+					}
+					set_sub_doctrine = armored_spearhead
+				}
+				else = {
+					set_sub_doctrine = armored_spearhead_no_lar
+				}
+				set_sub_doctrine = mission_type_tactics
+				army_experience = 500
+				set_country_flag = JAP_debug_MAN_doctrine_replacement_baseline_applied
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_MAN_apply_japanese_doctrine_replacement = {
+		icon = generic_military
+		priority = 957
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			MAN = {
+				if = {
+					limit = {
+						Rance_jap_return_to_peak_standard = yes
+					}
+					set_grand_doctrine = rance_furinkazan
+				}
+				else = {
+					set_grand_doctrine = grand_battleplan
+				}
+				set_grand_doctrine = new_convoy_raiding
+				set_grand_doctrine = new_operational_integrity
+				set_grand_doctrine = special_forces_quality
+				set_technology = {
+					Rance_JAP_special_units_tech = 1
+					marines = 1
+					tech_mountaineers = 1
+					paratroopers = 1
+					rangers_tech = 1
+					popup = no
+				}
+				set_sub_doctrine = commandos
+				set_sub_doctrine = field_engineering
+				set_sub_doctrine = streamlined_deployment
+				set_sub_doctrine = defensive_postures
+				set_sub_doctrine = patrol_boats
+				set_sub_doctrine = light_task_forces
+				set_sub_doctrine = battleship_antiair_screen
+				set_sub_doctrine = air_subdoctrine_fighter_central_field
+				set_sub_doctrine = air_subdoctrine_naval_torpedo_tactics
+				set_sub_doctrine = air_subdoctrine_long_range_escort
+				set_sub_doctrine = air_subdoctrine_flying_fortresses
+				set_sub_doctrine = {
+					sub_doctrine = jap_rance_air_sea_joint_assault
+					folder = special_forces
+					track = 0
+				}
+				set_sub_doctrine = {
+					sub_doctrine = jap_rance_mountain_ranger_assault
+					folder = special_forces
+					track = 1
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = commandos
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = field_engineering
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = streamlined_deployment
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = defensive_postures
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = patrol_boats
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = light_task_forces
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = battleship_antiair_screen
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = air_subdoctrine_fighter_central_field
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = air_subdoctrine_naval_torpedo_tactics
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = air_subdoctrine_long_range_escort
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = air_subdoctrine_flying_fortresses
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = jap_rance_air_sea_joint_assault
+				}
+				add_mastery = {
+					amount = 1000
+					sub_doctrine = jap_rance_mountain_ranger_assault
+				}
+				set_country_flag = JAP_debug_MAN_japanese_doctrine_replacement_applied
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_read_MAN_doctrine_replacement_result = {
+		icon = generic_military
+		priority = 956
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_read_MAN_doctrine_replacement_result_tt
+			hidden_effect = {
+				MAN = {
+					if = {
+						limit = { has_doctrine = new_mobile_warfare }
+						set_variable = { var = JAP_debug_MAN_has_new_mobile_warfare value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_new_mobile_warfare value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = grand_battleplan }
+						set_variable = { var = JAP_debug_MAN_has_grand_battleplan value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_grand_battleplan value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = rance_furinkazan }
+						set_variable = { var = JAP_debug_MAN_has_rance_furinkazan value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_rance_furinkazan value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = mobile_infantry }
+						set_variable = { var = JAP_debug_MAN_has_mobile_infantry value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_mobile_infantry value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = fire_concentration }
+						set_variable = { var = JAP_debug_MAN_has_fire_concentration value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_fire_concentration value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = armored_spearhead }
+						set_variable = { var = JAP_debug_MAN_has_armored_spearhead value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_armored_spearhead value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = armored_spearhead_no_lar }
+						set_variable = { var = JAP_debug_MAN_has_armored_spearhead_no_lar value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_armored_spearhead_no_lar value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = mission_type_tactics }
+						set_variable = { var = JAP_debug_MAN_has_mission_type_tactics value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_mission_type_tactics value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = commandos }
+						set_variable = { var = JAP_debug_MAN_has_commandos value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_commandos value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = air_cavalry }
+						set_variable = { var = JAP_debug_MAN_has_air_cavalry value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_air_cavalry value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = field_engineering }
+						set_variable = { var = JAP_debug_MAN_has_field_engineering value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_field_engineering value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = streamlined_deployment }
+						set_variable = { var = JAP_debug_MAN_has_streamlined_deployment value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_streamlined_deployment value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = infiltration_tactics }
+						set_variable = { var = JAP_debug_MAN_has_infiltration_tactics value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_infiltration_tactics value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = defensive_postures }
+						set_variable = { var = JAP_debug_MAN_has_defensive_postures value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_defensive_postures value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = new_base_strike }
+						set_variable = { var = JAP_debug_MAN_has_new_base_strike value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_new_base_strike value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = new_convoy_raiding }
+						set_variable = { var = JAP_debug_MAN_has_new_convoy_raiding value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_new_convoy_raiding value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = patrol_boats }
+						set_variable = { var = JAP_debug_MAN_has_patrol_boats value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_patrol_boats value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = light_task_forces }
+						set_variable = { var = JAP_debug_MAN_has_light_task_forces value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_light_task_forces value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = battleship_antiair_screen }
+						set_variable = { var = JAP_debug_MAN_has_battleship_antiair_screen value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_battleship_antiair_screen value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = new_operational_integrity }
+						set_variable = { var = JAP_debug_MAN_has_new_operational_integrity value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_new_operational_integrity value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = air_subdoctrine_fighter_central_field }
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_fighter_central_field value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_fighter_central_field value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = air_subdoctrine_naval_torpedo_tactics }
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_naval_torpedo_tactics value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_naval_torpedo_tactics value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = air_subdoctrine_long_range_escort }
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_long_range_escort value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_long_range_escort value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = air_subdoctrine_flying_fortresses }
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_flying_fortresses value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_air_subdoctrine_flying_fortresses value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = special_forces_quality }
+						set_variable = { var = JAP_debug_MAN_has_special_forces_quality value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_special_forces_quality value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = jap_rance_air_sea_joint_assault }
+						set_variable = { var = JAP_debug_MAN_has_jap_rance_air_sea_joint_assault value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_jap_rance_air_sea_joint_assault value = 0 }
+					}
+					if = {
+						limit = { has_doctrine = jap_rance_mountain_ranger_assault }
+						set_variable = { var = JAP_debug_MAN_has_jap_rance_mountain_ranger_assault value = 1 }
+					}
+					else = {
+						set_variable = { var = JAP_debug_MAN_has_jap_rance_mountain_ranger_assault value = 0 }
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }

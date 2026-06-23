@@ -18,7 +18,6 @@ line_of_battle = {
             OR = {
                 original_tag = ENG
                 original_tag = USA
-                original_tag = JAP
                 original_tag = ITA
                 original_tag = SOV
             }
@@ -384,7 +383,15 @@ battleship_antiair_screen = {
     }
 
     visible = {
-    	has_dlc = "No Compromise, No Surrender"
+        has_dlc = "No Compromise, No Surrender"
+    }
+
+    ai_will_do = {
+        base = 1
+        modifier = {
+            factor = 100
+            original_tag = JAP
+        }
     }
 
     navy_anti_air_attack_factor = 0.1

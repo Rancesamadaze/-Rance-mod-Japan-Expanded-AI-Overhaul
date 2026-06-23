@@ -13,7 +13,7 @@ These notes apply to files under `common/ai_templates/`.
 
 ## Code Structure
 
-Keep each AI template block in this shape:
+Keep each AI template block in this shape, using exactly one country-routing block:
 
 ```hoi4
 TEMPLATE_GROUP_KEY = {
@@ -39,6 +39,25 @@ TEMPLATE_GROUP_KEY = {
 	}
 }
 ```
+
+`available_for` and `blocked_for` are alternatives. Do not use both on the same template group, and do not omit both unless intentionally testing undefined routing behavior.
+
+Current `templates_JAP.txt` deliberately uses `blocked_for` instead of `available_for` so Japan and Japanese special subjects can see the same `JAP_*` target templates. Keep the same blocked list synchronized across all active Japanese template groups, including `JAP_suppression`:
+
+```hoi4
+blocked_for = {
+	ENG
+	USA
+	FRA
+	GER
+	ITA
+	SOV
+}
+```
+
+Only the six major countries are blocked in the first pass. Countries such as `CHI`, `PRC`, and `SIA` are intentionally left unblocked unless gameplay testing proves they need protection.
+
+`JAP_subject_old_army_cleanup` is a temporary deletion template for Japanese special subjects. Keep its target battalion as `Rance_JAP_A_infantry`, not generic `infantry`, so unblocked countries without Japanese special battalion access do not treat it as a valid generic one-battalion template.
 
 Each division design must use its own independent outer code block.
 

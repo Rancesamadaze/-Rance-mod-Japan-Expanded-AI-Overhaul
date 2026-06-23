@@ -1,5 +1,12 @@
 # Country-scope gates for Japan's special subject system.
 
+JAP_rework_is_japan_or_subject = {
+	OR = {
+		original_tag = JAP
+		is_subject_of = JAP
+	}
+}
+
 JAP_rework_is_japanese_special_subject = {
 	is_subject_of = JAP
 	OR = {

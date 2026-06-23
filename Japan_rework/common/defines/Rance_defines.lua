@@ -162,6 +162,7 @@ NDefines.NMilitary.UNIT_LEADER_MODIFIER_COOLDOWN_ON_GROUP_CHANGE = 0
 --land AI
 NDefines.NAI.LENDLEASE_FRACTION_OF_PRODUCTION = 0.25 --0.5
 NDefines.NAI.LENDLEASE_FRACTION_OF_STOCKPILE = 0.125 --0.25
+NDefines.NAI.EQUIPMENT_MARKET_MAX_CIVS_FOR_PURCHASES_RATIO = 0.2 --0.1
 NDefines.NAI.NUM_SILOS_PER_CIVILIAN_FACTORIES = 0.0					-- ai will try to build a silo per this ratio of civ factories
 NDefines.NAI.NUM_SILOS_PER_MILITARY_FACTORIES = 0.0					-- ai will try to build a silo per this ratio of mil factories
 NDefines.NAI.NUM_SILOS_PER_DOCKYARDS = 0.0	

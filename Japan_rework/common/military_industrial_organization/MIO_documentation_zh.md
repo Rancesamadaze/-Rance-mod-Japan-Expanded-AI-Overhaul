@@ -48,6 +48,10 @@ my_MIO_token = {
 
     # 对 AI 和脚本而言，只有同时 visible 与 available 时，一个 MIO 才被视为启用
 
+    # 经验规则：需要把日本 MIO 共享给日本及其属国时，顶层 allowed 使用 always = yes，
+    # 再在 visible 中用 FROM = { JAP_rework_is_japan_or_subject = yes } 限制显示对象。
+    # 不要把 is_subject_of = JAP 直接放进顶层 allowed；该判定可能在开局实例化阶段拦掉 MAN 等属国。
+
     equipment_type = { equipment_type_token1 }
     # 用于让 MIO 与装备改型匹配的装备原型与装备类别
     # 可用值见脚本枚举 script_enum_equipment_bonus_type
