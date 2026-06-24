@@ -30,3 +30,25 @@
 - `JAP_create_subject_old_army_cleanup_template` 不是日本 AI 的旧填线清理效果；不要把它和 `JAP_ai_cleanup_irregular_divisions_effect` 合并。日本继续删除落后的 `日本基础步兵师`，MAN/小属国旧军清理使用专用的 `属国旧军清理编制`。
 - 5 师版本沿用原 10 师版本的经验与装备比例；两个陆巡相关效果继续使用 `start_experience_factor = 0.5`，其余为 `0.3`。
 - `JAP_start_experimental_infantry_tanks` 原本就是 5 师；本次仍添加 `_5` 版本，方便调用方按统一命名检索整组 5 师效果。
+
+## 正式版同步状态
+
+2026-06-23 已同步到：
+
+- `rance_jap_chinese/common/scripted_effects/JAP_templates_scripted_effects.txt`
+- `rance_jap_english/common/scripted_effects/JAP_templates_scripted_effects.txt`
+- `rance_jap_japenese/common/scripted_effects/JAP_templates_scripted_effects.txt`
+
+正式版保留各自 overlay 名称：
+
+- 中文清理模板：`属国旧军清理编制`
+- 英文清理模板：`Subject Old Army Cleanup Template`
+- 日文清理模板：`従属国旧軍整理用編制`
+
+中文正式版的 `JAP_templates_scripted_effects.txt` 不保留独立脚本差异，直接以测试版 `Japan_rework` 同名文件为准。此前中文正式版后半段 `producer = ROOT`、直接 `has_tech = ...` 等差异属于遗漏记载项，已一并按测试版同步为 `producer = JAP` 与测试版科技判定写法。
+
+同步后已检查：
+
+- 新增 effect ID 在测试版与三份正式版均存在。
+- 三份正式版目标文件保持 UTF-8 无 BOM、LF。
+- `git diff --check` 通过。

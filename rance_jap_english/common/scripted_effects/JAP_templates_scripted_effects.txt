@@ -1,3 +1,14 @@
+JAP_create_subject_old_army_cleanup_template = {
+	division_template = {
+		name = "Subject Old Army Cleanup Template"
+		is_locked = yes
+		obsolete = yes
+		regiments = {
+			Rance_JAP_A_infantry = { x = 0 y = 0 }
+		}
+	}
+}
+
 JAP_create_basic_infantry_template = {
 	division_template = {
 		name = "Japanese Basic Infantry Division"
@@ -632,6 +643,26 @@ JAP_create_land_cruiser_marine_modern_mechanized_tank_template = {
 		}
 	}
 }
+JAP_start_basic_infantry = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Basic Infantry Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 10
+        }
+    }
+}
+JAP_start_infantry = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Infantry Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 10
+        }
+    }
+}
 JAP_start_infantry_tanks = {
     capital_scope = {
         create_unit = {
@@ -731,6 +762,108 @@ JAP_start_land_cruiser_marine_modern_mechanized_tanks = {
 
             owner = prev
             count = 10
+        }
+    }
+}
+JAP_start_infantry_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Infantry-Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+
+}
+JAP_start_experimental_infantry_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Experimental Infantry-Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_special_infantry_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Special Infantry-Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Mechanized Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+
+}
+JAP_start_heavy_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Heavy Mechanized Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_amphibious_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Amphibious Mechanized Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_heavy_amphibious_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Heavy Amphibious Mechanized Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_land_crushier_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Land Cruiser Heavy Amphibious Mechanized Division\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_marine_modern_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Marine Modern Mechanized Tank Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_land_cruiser_marine_modern_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"Japanese Land Cruiser Marine Modern Mechanized Tank Division\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
         }
     }
 }

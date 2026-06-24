@@ -1,3 +1,14 @@
+JAP_create_subject_old_army_cleanup_template = {
+	division_template = {
+		name = "従属国旧軍整理用編制"
+		is_locked = yes
+		obsolete = yes
+		regiments = {
+			Rance_JAP_A_infantry = { x = 0 y = 0 }
+		}
+	}
+}
+
 JAP_create_basic_infantry_template = {
 	division_template = {
 		name = "日本基礎歩兵師団"
@@ -632,6 +643,26 @@ JAP_create_land_cruiser_marine_modern_mechanized_tank_template = {
 		}
 	}
 }
+JAP_start_basic_infantry = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本基礎歩兵師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 10
+        }
+    }
+}
+JAP_start_infantry = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本歩兵師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 10
+        }
+    }
+}
 JAP_start_infantry_tanks = {
     capital_scope = {
         create_unit = {
@@ -731,6 +762,108 @@ JAP_start_land_cruiser_marine_modern_mechanized_tanks = {
 
             owner = prev
             count = 10
+        }
+    }
+}
+JAP_start_infantry_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+
+}
+JAP_start_experimental_infantry_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本試験歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_special_infantry_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本特殊歩戦師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+
+}
+JAP_start_heavy_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_amphibious_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本水陸両用機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_heavy_amphibious_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本水陸両用重機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_land_crushier_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本陸上巡洋艦水陸両用重機械化戦車師団\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_marine_modern_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本海軍現代機械化戦車師団\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
+        }
+    }
+}
+JAP_start_land_cruiser_marine_modern_mechanized_tanks_5 = {
+    capital_scope = {
+        create_unit = {
+            division = "division_template = \"日本陸上巡洋艦海軍現代機械化戦車師団\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+
+            owner = prev
+            count = 5
         }
     }
 }

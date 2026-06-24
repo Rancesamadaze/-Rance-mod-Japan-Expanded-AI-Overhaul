@@ -41,6 +41,11 @@ Descriptor fields that should sync from `Japan_rework`:
 
 These files currently differ because HOI4 script fields require hard string names for equipment variants, templates, OOB entries, fleets, ships, or name pools. They should remain target-specific unless a later refactor makes them common.
 
+For the Chinese formal target, `Japan_rework` is the source of truth for Chinese
+overlay script content. A Chinese overlay difference should be treated as drift
+unless a later maintenance note explicitly records it as intentional. English
+and Japanese overlays remain target-specific translated copies.
+
 | Path | Difference type | Maintenance direction |
 | --- | --- | --- |
 | `common/scripted_effects/JAP_equipment_scripted_effects.txt` | Equipment variant `name = "..."`. | Keep target-owned. |

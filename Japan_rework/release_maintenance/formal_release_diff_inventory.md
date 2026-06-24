@@ -47,6 +47,12 @@ Rule of thumb: if a file does not contain target-language hardcoded visible name
 
 These files currently carry hardcoded visible names and should not be blindly overwritten across formal targets. Maintain them as explicit per-target overlays.
 
+Chinese formal overlays use the same visible-name language as `Japan_rework`.
+When the Chinese target differs from `Japan_rework` inside a `name_overlay` file,
+treat the `Japan_rework` file as the source of truth unless a newer note records
+an intentional Chinese-release-only exception. English and Japanese targets
+still require their own translated overlay strings.
+
 Initial overlay list:
 
 - `common/scripted_effects/JAP_equipment_scripted_effects.txt`
