@@ -1,4 +1,7 @@
 ﻿l_japanese:
+ JAP_rework_co_prosperity_sphere_start:0 "大東亜共栄圏"
+ JAP_rework_co_prosperity_sphere_start_desc:0 "アジアの経済的自立と加盟国間での協力を確保する一方、西洋の帝国主義やソビエトの共産主義の影響力にも対抗するため、我々はアジアに連合を形成しなければならない。ただし、もちろんこれは大陸における我々の覇権を確保するための効果的なプロパガンダでもある。"
+
  # --- focus tooltips ---
  Jap_rance_irago_custom_tt:0 "[Getranceirago]"
  JAP_irago_artillery:0 "伊良湖実験砲を獲得"

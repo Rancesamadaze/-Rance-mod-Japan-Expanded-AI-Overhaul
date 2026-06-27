@@ -1337,6 +1337,8 @@ JAP_lecture_china_war_critical_infantry_equipment_pause_fronts = {
 		any_enemy_country = {
 			is_literally_china = yes
 		}
+		# Known-bad legacy guard: has_equipment cannot detect negative stockpiles.
+		# num_equipment@infantry_equipment bottoms out at 0, so this is always false.
 		has_equipment = { infantry_equipment < -5000 }
 	}
 	abort = {

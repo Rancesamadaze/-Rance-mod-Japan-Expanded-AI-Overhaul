@@ -6464,12 +6464,512 @@ JAP_ai_extra_equipment_grant_line_infantry_package = {
 }
 
 JAP_ai_extra_equipment_grant_cycle_line_infantry_package = {
-    JAP_ai_extra_equipment_grant_cycle_infantry_equipment_12000 = yes
-    JAP_ai_extra_equipment_grant_cycle_support_equipment_unit = yes
-    JAP_ai_extra_equipment_grant_cycle_support_equipment_unit = yes
-    JAP_ai_extra_equipment_grant_cycle_artillery_equipment_unit = yes
-    JAP_ai_extra_equipment_grant_cycle_anti_tank_equipment_unit = yes
-    JAP_ai_extra_equipment_grant_cycle_anti_air_equipment_unit = yes
+    if = {
+        limit = { has_template = "日本歩兵師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 5000
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_[JAP_ai_extra_equipment_text_artillery_equipment]
+                    amount = 200
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = anti_tank_equipment_[JAP_ai_extra_equipment_text_anti_tank_equipment]
+                    amount = 125
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = anti_air_equipment_[JAP_ai_extra_equipment_text_anti_air_equipment]
+                    amount = 100
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_artillery_equipment = "[GetJAP_cr_artillery_equipment]"
+            JAP_ai_extra_equipment_text_anti_tank_equipment = "[GetJAP_cr_anti_tank_equipment]"
+            JAP_ai_extra_equipment_text_anti_air_equipment = "[GetJAP_cr_anti_air_equipment]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 250
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = motorized_equipment
+            amount = 100
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_special_infantry_tank_package = {
+    if = {
+        limit = { has_template = "日本特殊歩戦師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 1600
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_chassis_[JAP_ai_extra_equipment_text_medium_tank_chassis]
+                    amount = 300
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_medium_tank_destroyer_chassis]
+                    amount = 150
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_artillery_chassis_[JAP_ai_extra_equipment_text_medium_tank_artillery_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_aa_chassis_[JAP_ai_extra_equipment_text_medium_tank_aa_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_aa_chassis_[JAP_ai_extra_equipment_text_heavy_tank_aa_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_flame_chassis_[JAP_ai_extra_equipment_text_medium_tank_flame_chassis]
+                    amount = 15
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_medium_tank_chassis = "[GetJAP_cr_medium_tank_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_destroyer_chassis = "[GetJAP_cr_medium_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_artillery_chassis = "[GetJAP_cr_medium_tank_artillery_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_aa_chassis = "[GetJAP_cr_medium_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis = "[GetJAP_cr_heavy_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_aa_chassis = "[GetJAP_cr_heavy_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_flame_chassis = "[GetJAP_cr_medium_tank_flame_chassis]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 80
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = motorized_equipment
+            amount = 25
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = armored_support_vehicle_1
+            amount = 30
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = helicopter_equipment_1
+            amount = 50
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_mechanized_tank_package = {
+    if = {
+        limit = { has_template = "日本機械化戦車師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 850
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = mechanized_equipment_[JAP_ai_extra_equipment_text_mechanized_equipment]
+                    amount = 350
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_chassis_[JAP_ai_extra_equipment_text_medium_tank_chassis]
+                    amount = 300
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_medium_tank_destroyer_chassis]
+                    amount = 150
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_artillery_chassis_[JAP_ai_extra_equipment_text_medium_tank_artillery_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_aa_chassis_[JAP_ai_extra_equipment_text_medium_tank_aa_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_aa_chassis_[JAP_ai_extra_equipment_text_heavy_tank_aa_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_flame_chassis_[JAP_ai_extra_equipment_text_medium_tank_flame_chassis]
+                    amount = 15
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_mechanized_equipment = "[GetJAP_cr_mechanized_equipment]"
+            JAP_ai_extra_equipment_text_medium_tank_chassis = "[GetJAP_cr_medium_tank_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_destroyer_chassis = "[GetJAP_cr_medium_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_artillery_chassis = "[GetJAP_cr_medium_tank_artillery_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_aa_chassis = "[GetJAP_cr_medium_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis = "[GetJAP_cr_heavy_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_aa_chassis = "[GetJAP_cr_heavy_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_flame_chassis = "[GetJAP_cr_medium_tank_flame_chassis]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 80
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = motorized_equipment
+            amount = 25
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = armored_support_vehicle_1
+            amount = 30
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = helicopter_equipment_1
+            amount = 50
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_amphibious_mechanized_package = {
+    if = {
+        limit = { has_template = "日本水陸両用機械化戦車師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 850
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = amphibious_mechanized_equipment_[JAP_ai_extra_equipment_text_amphibious_mechanized_equipment]
+                    amount = 400
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_amphibious_chassis_[JAP_ai_extra_equipment_text_medium_tank_amphibious_chassis]
+                    amount = 300
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_medium_tank_destroyer_chassis]
+                    amount = 150
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_artillery_chassis_[JAP_ai_extra_equipment_text_medium_tank_artillery_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_aa_chassis_[JAP_ai_extra_equipment_text_medium_tank_aa_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_aa_chassis_[JAP_ai_extra_equipment_text_heavy_tank_aa_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_flame_chassis_[JAP_ai_extra_equipment_text_medium_tank_flame_chassis]
+                    amount = 15
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_amphibious_mechanized_equipment = "[GetJAP_cr_amphibious_mechanized_equipment]"
+            JAP_ai_extra_equipment_text_medium_tank_amphibious_chassis = "[GetJAP_cr_medium_tank_amphibious_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_destroyer_chassis = "[GetJAP_cr_medium_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_artillery_chassis = "[GetJAP_cr_medium_tank_artillery_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_aa_chassis = "[GetJAP_cr_medium_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis = "[GetJAP_cr_heavy_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_aa_chassis = "[GetJAP_cr_heavy_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_flame_chassis = "[GetJAP_cr_medium_tank_flame_chassis]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 80
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = motorized_equipment
+            amount = 25
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = armored_support_vehicle_1
+            amount = 30
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = helicopter_equipment_1
+            amount = 50
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package = {
+    if = {
+        limit = { has_template = "日本水陸両用重機械化戦車師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 1000
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = amphibious_mechanized_equipment_[JAP_ai_extra_equipment_text_amphibious_mechanized_equipment]
+                    amount = 450
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_amphibious_chassis_[JAP_ai_extra_equipment_text_heavy_tank_amphibious_chassis]
+                    amount = 400
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis]
+                    amount = 20
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_artillery_chassis_[JAP_ai_extra_equipment_text_heavy_tank_artillery_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_aa_chassis_[JAP_ai_extra_equipment_text_heavy_tank_aa_chassis]
+                    amount = 20
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_flame_chassis_[JAP_ai_extra_equipment_text_medium_tank_flame_chassis]
+                    amount = 15
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_amphibious_mechanized_equipment = "[GetJAP_cr_amphibious_mechanized_equipment]"
+            JAP_ai_extra_equipment_text_heavy_tank_amphibious_chassis = "[GetJAP_cr_heavy_tank_amphibious_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis = "[GetJAP_cr_heavy_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_artillery_chassis = "[GetJAP_cr_heavy_tank_artillery_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_aa_chassis = "[GetJAP_cr_heavy_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_flame_chassis = "[GetJAP_cr_medium_tank_flame_chassis]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 80
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = motorized_equipment
+            amount = 25
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = armored_support_vehicle_1
+            amount = 30
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = helicopter_equipment_1
+            amount = 50
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_land_cruiser_amphibious_package = {
+    if = {
+        limit = { has_template = "日本陸上巡洋艦水陸両用重機械化戦車師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 1000
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = amphibious_mechanized_equipment_[JAP_ai_extra_equipment_text_amphibious_mechanized_equipment]
+                    amount = 450
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_amphibious_chassis_[JAP_ai_extra_equipment_text_heavy_tank_amphibious_chassis]
+                    amount = 400
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_destroyer_chassis_[JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis]
+                    amount = 20
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_artillery_chassis_[JAP_ai_extra_equipment_text_heavy_tank_artillery_chassis]
+                    amount = 10
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = heavy_tank_aa_chassis_[JAP_ai_extra_equipment_text_heavy_tank_aa_chassis]
+                    amount = 20
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_flame_chassis_[JAP_ai_extra_equipment_text_medium_tank_flame_chassis]
+                    amount = 15
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_amphibious_mechanized_equipment = "[GetJAP_cr_amphibious_mechanized_equipment]"
+            JAP_ai_extra_equipment_text_heavy_tank_amphibious_chassis = "[GetJAP_cr_heavy_tank_amphibious_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_destroyer_chassis = "[GetJAP_cr_heavy_tank_destroyer_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_artillery_chassis = "[GetJAP_cr_heavy_tank_artillery_chassis]"
+            JAP_ai_extra_equipment_text_heavy_tank_aa_chassis = "[GetJAP_cr_heavy_tank_aa_chassis]"
+            JAP_ai_extra_equipment_text_medium_tank_flame_chassis = "[GetJAP_cr_medium_tank_flame_chassis]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 50
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = armored_support_vehicle_1
+            amount = 30
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = helicopter_equipment_1
+            amount = 40
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = land_cruiser_chassis_1
+            amount = 1
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_marine_modern_mechanized_tank_package = {
+    if = {
+        limit = { has_template = "日本海軍現代機械化戦車師団" }
+        meta_effect = {
+            text = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment_[JAP_ai_extra_equipment_text_infantry_equipment]
+                    amount = 1000
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = amphibious_mechanized_equipment_[JAP_ai_extra_equipment_text_amphibious_mechanized_equipment]
+                    amount = 450
+                    producer = JAP
+                }
+                add_equipment_to_stockpile = {
+                    type = medium_tank_flame_chassis_[JAP_ai_extra_equipment_text_medium_tank_flame_chassis]
+                    amount = 15
+                    producer = JAP
+                }
+            }
+            JAP_ai_extra_equipment_text_infantry_equipment = "[GetJAP_cr_infantry_equipment]"
+            JAP_ai_extra_equipment_text_amphibious_mechanized_equipment = "[GetJAP_cr_amphibious_mechanized_equipment]"
+            JAP_ai_extra_equipment_text_medium_tank_flame_chassis = "[GetJAP_cr_medium_tank_flame_chassis]"
+        }
+        add_equipment_to_stockpile = {
+            type = support_equipment_1
+            amount = 80
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = motorized_equipment
+            amount = 25
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = armored_support_vehicle_1
+            amount = 30
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = helicopter_equipment_1
+            amount = 50
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = modern_tank_chassis_1
+            amount = 450
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = modern_tank_destroyer_chassis_1
+            amount = 20
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = modern_tank_artillery_chassis_1
+            amount = 10
+            producer = JAP
+        }
+        add_equipment_to_stockpile = {
+            type = modern_tank_aa_chassis_1
+            amount = 20
+            producer = JAP
+        }
+    }
+}
+
+JAP_ai_extra_equipment_grant_cycle_optional_armor_packages = {
+    JAP_ai_extra_equipment_grant_cycle_land_cruiser_amphibious_package = yes
+    JAP_ai_extra_equipment_grant_cycle_land_cruiser_amphibious_package = yes
+    JAP_ai_extra_equipment_grant_cycle_marine_modern_mechanized_tank_package = yes
+    JAP_ai_extra_equipment_grant_cycle_marine_modern_mechanized_tank_package = yes
 }
 
 JAP_ai_extra_equipment_grant_combat_common_package = {
@@ -6578,70 +7078,67 @@ JAP_ai_extra_equipment_grant_land_cruiser_package = {
     }
 }
 
-# AI extra equipment multipliers and cycle entry
-JAP_ai_extra_equipment_grant_all_main_packages = {
-    JAP_ai_extra_equipment_grant_infantry_tank_package = yes
-    JAP_ai_extra_equipment_grant_mechanized_tank_package = yes
-    JAP_ai_extra_equipment_grant_amphibious_medium_package = yes
-    JAP_ai_extra_equipment_grant_heavy_tank_package = yes
-    JAP_ai_extra_equipment_grant_heavy_amphibious_package = yes
-    JAP_ai_extra_equipment_grant_modern_tank_package = yes
-    JAP_ai_extra_equipment_grant_land_cruiser_package = yes
+# AI extra equipment cycle entry
+JAP_ai_extra_equipment_grant_cycle_armor_normal_package = {
+    JAP_ai_extra_equipment_grant_cycle_special_infantry_tank_package = yes
+    JAP_ai_extra_equipment_grant_cycle_mechanized_tank_package = yes
+    JAP_ai_extra_equipment_grant_cycle_optional_armor_packages = yes
 }
 
-JAP_ai_extra_equipment_grant_main_multiplier_1 = {
-    JAP_ai_extra_equipment_grant_all_main_packages = yes
+JAP_ai_extra_equipment_grant_cycle_armor_hard_package = {
+    JAP_ai_extra_equipment_grant_cycle_special_infantry_tank_package = yes
+    JAP_ai_extra_equipment_grant_cycle_amphibious_mechanized_package = yes
+    JAP_ai_extra_equipment_grant_cycle_amphibious_mechanized_package = yes
+    JAP_ai_extra_equipment_grant_cycle_optional_armor_packages = yes
 }
 
-JAP_ai_extra_equipment_grant_main_multiplier_2 = {
-    JAP_ai_extra_equipment_grant_main_multiplier_1 = yes
-    JAP_ai_extra_equipment_grant_all_main_packages = yes
+JAP_ai_extra_equipment_grant_cycle_armor_lunatic_package = {
+    JAP_ai_extra_equipment_grant_cycle_special_infantry_tank_package = yes
+    JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package = yes
+    JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package = yes
+    JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package = yes
+    JAP_ai_extra_equipment_grant_cycle_optional_armor_packages = yes
 }
 
-JAP_ai_extra_equipment_grant_line_infantry_multiplier_1 = {
-    JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+JAP_ai_extra_equipment_grant_cycle_armor_extra_package = {
+    JAP_ai_extra_equipment_grant_cycle_armor_lunatic_package = yes
+    JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package = yes
 }
 
-JAP_ai_extra_equipment_grant_line_infantry_multiplier_2 = {
-    JAP_ai_extra_equipment_grant_line_infantry_multiplier_1 = yes
-    JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
-}
-
-JAP_ai_extra_equipment_grant_line_infantry_multiplier_3 = {
-    JAP_ai_extra_equipment_grant_line_infantry_multiplier_2 = yes
-    JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+JAP_ai_extra_equipment_grant_cycle_armor_phantasm_package = {
+    JAP_ai_extra_equipment_grant_cycle_armor_extra_package = yes
+    JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package = yes
 }
 
 JAP_ai_extra_equipment_grant_cycle_by_difficulty = {
     if = {
         limit = { Rance_nd_is_easy = yes }
-        JAP_ai_extra_equipment_grant_main_multiplier_1 = yes
-        JAP_ai_extra_equipment_grant_line_infantry_multiplier_1 = yes
+        JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
     }
     else_if = {
         limit = { Rance_nd_is_normal = yes }
-        JAP_ai_extra_equipment_grant_main_multiplier_2 = yes
-        JAP_ai_extra_equipment_grant_line_infantry_multiplier_2 = yes
+        JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+        JAP_ai_extra_equipment_grant_cycle_armor_normal_package = yes
     }
     else_if = {
         limit = { Rance_nd_is_hard = yes }
-        JAP_ai_extra_equipment_grant_main_multiplier_2 = yes
-        JAP_ai_extra_equipment_grant_line_infantry_multiplier_2 = yes
+        JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+        JAP_ai_extra_equipment_grant_cycle_armor_hard_package = yes
     }
     else_if = {
         limit = { Rance_nd_is_lunatic = yes }
-        JAP_ai_extra_equipment_grant_main_multiplier_1 = yes
-        JAP_ai_extra_equipment_grant_line_infantry_multiplier_3 = yes
+        JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+        JAP_ai_extra_equipment_grant_cycle_armor_lunatic_package = yes
     }
     else_if = {
         limit = { Rance_nd_is_extra = yes }
-        JAP_ai_extra_equipment_grant_main_multiplier_2 = yes
-        JAP_ai_extra_equipment_grant_line_infantry_multiplier_3 = yes
+        JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+        JAP_ai_extra_equipment_grant_cycle_armor_extra_package = yes
     }
     else_if = {
         limit = { Rance_nd_is_phantasm = yes }
-        JAP_ai_extra_equipment_grant_main_multiplier_2 = yes
-        JAP_ai_extra_equipment_grant_line_infantry_multiplier_3 = yes
+        JAP_ai_extra_equipment_grant_cycle_line_infantry_package = yes
+        JAP_ai_extra_equipment_grant_cycle_armor_phantasm_package = yes
     }
 }
 
@@ -6656,6 +7153,7 @@ JAP_ai_extra_equipment_grant_cycle = {
             check_variable = { JAP_ai_dynamic_grant_loop < JAP.JAP_ai_dynamic_final_multiplier }
         }
         JAP_ai_extra_equipment_grant_cycle_by_difficulty = yes
+        JAP_ai_extra_units_grant_cycle_by_difficulty = yes
         add_to_temp_variable = { JAP_ai_dynamic_grant_loop = 1 }
     }
 }

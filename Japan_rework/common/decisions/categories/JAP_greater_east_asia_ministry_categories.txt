@@ -5,7 +5,7 @@ JAP_greater_east_asia_ministry_decisions = {
 		original_tag = JAP
 	}
 	visible = {
-		has_completed_focus = JAP_new_order_in_east_asia
+		has_completed_focus = JAP_rework_co_prosperity_sphere_start
 	}
 	available = {
 		is_subject = no

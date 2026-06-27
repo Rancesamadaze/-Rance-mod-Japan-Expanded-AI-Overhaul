@@ -1,4 +1,7 @@
 ﻿l_english:
+ JAP_rework_co_prosperity_sphere_start:0 "The Greater East Asia Co-Prosperity Sphere"
+ JAP_rework_co_prosperity_sphere_start_desc:0 "We must form a union in Asia in order to ensure economic self-sufficiency and cooperation among the member states, along with resisting the influence of Western imperialism and Soviet communism. Of course however, this is an effective propaganda tool to enforce our hegemony over the continent."
+
  # --- focus tooltips ---
  Jap_rance_irago_custom_tt:0 "[Getranceirago]"
  JAP_irago_artillery:0 "Gain Irago Experimental Artillery"

@@ -65,7 +65,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 | `JAP_add_or_modify_imperial_army` | `JAP_imperial_army_dm` / `JAP_national_army_dm` | 陆军奖励；若已转为国民军动态修正，会修改国民军 |
 | `JAP_add_or_modify_imperial_navy` | `JAP_imperial_navy_dm` / `JAP_japanese_navy_dm` | 海军奖励；若已转为日本海军动态修正，会修改日本海军 |
 | `JAP_add_or_modify_army_and_naval_air_services` | `JAP_army_and_naval_air_services_dm` / `JAP_japanese_airforce_dm` | 陆海军航空队/空军奖励 |
-| `JAP_add_or_modify_east_asia_co_prosperity_sphere` | `JAP_east_asia_co_prosperity_sphere_dm` | 大东亚共荣圈相关奖励 |
+| `JAP_add_or_modify_east_asia_co_prosperity_sphere` | `JAP_east_asia_co_prosperity_sphere_dm` | 原版共荣圈 DM；`东亚新秩序` 先给予空壳，后续大东亚共荣圈/属国上供只维护变量 |
 | `JAP_add_or_modify_imperial_way` | `JAP_the_imperial_way_dm` | 皇道派相关奖励 |
 | `JAP_add_or_modify_advanced_weapon_projects` | `JAP_advanced_weapon_projects_dm` | 先进武器项目相关奖励 |
 | `JAP_add_or_modify_civilian_cabinet` | `JAP_civilian_cabinet_modifier` | 文官内阁相关奖励 |

@@ -1,0 +1,16 @@
+focus_tree = {
+	id = JAP_rework_special_subject_focus_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+	default = no
+	initial_show_position = {
+		focus = JAP_rework_co_prosperity_sphere_start
+	}
+	continuous_focus_position = { x = 20 y = 1200 }
+	shared_focus = JAP_rework_co_prosperity_sphere_start
+}

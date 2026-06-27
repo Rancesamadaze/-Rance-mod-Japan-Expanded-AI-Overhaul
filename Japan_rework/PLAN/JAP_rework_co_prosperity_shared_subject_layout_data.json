@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "storageKey": "JAP_rework_co_prosperity_shared_subject_layout_v2",
+  "source": "JAP_rework_co_prosperity_shared_subject_layout.html",
+  "description": "Git-tracked layout data for JAP_rework_co_prosperity_shared subject focus planning.",
+  "nodes": [
+    {
+      "title": "大东亚共荣圈",
+      "id": "JAP_rework_co_prosperity_sphere_start",
+      "x": 40,
+      "y": 0,
+      "kind": "joint",
+      "status": "scripted",
+      "icon": "GFX_focus_JAP_greater_east_asian_co_properity_sphere",
+      "locked": true,
+      "summary": "当前已在 JAP_rework_co_prosperity_shared.txt 写入。属国视角使用固定坐标 x = 40, y = 0；JAP 专用 offset 不参与本视图。当前根节点 available 限定 tag = JAP，属国侧后续节点是否可自行选择需在实装时另行定义。",
+      "parents": [],
+      "positionReference": ""
+    },
+    {
+      "title": "联合大本营",
+      "id": "JAP_rework_subject_placeholder_focus_1",
+      "x": 40,
+      "y": 3,
+      "kind": "joint",
+      "status": "draft",
+      "icon": "GFX_goal_JAP_rework_todo_icon",
+      "summary": "三军国策始发\n给发起者三军经验额外奖励\n解锁各属国增加MIO等级的决议\n解锁各属国获取日本以通过决议获取的编制和设计的决议",
+      "parents": [
+        "JAP_rework_co_prosperity_sphere_start"
+      ],
+      "positionReference": "JAP_rework_co_prosperity_sphere_start",
+      "relativePosition": {
+        "reference": "JAP_rework_co_prosperity_sphere_start",
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "title": "共荣圈陆军",
+      "id": "JAP_rework_subject_placeholder_focus_2",
+      "x": 34,
+      "y": 5,
+      "kind": "joint",
+      "status": "draft",
+      "icon": "GFX_goal_generic_army_doctrines",
+      "summary": "陆军起点\n",
+      "parents": [
+        "JAP_rework_subject_placeholder_focus_1"
+      ],
+      "positionReference": "JAP_rework_subject_placeholder_focus_1",
+      "relativePosition": {
+        "reference": "JAP_rework_subject_placeholder_focus_1",
+        "x": -6,
+        "y": 2
+      }
+    },
+    {
+      "title": "共荣圈海军",
+      "id": "JAP_rework_subject_placeholder_focus_3",
+      "x": 40,
+      "y": 5,
+      "kind": "joint",
+      "status": "draft",
+      "icon": "GFX_goal_generic_army_doctrines",
+      "summary": "海军起点",
+      "parents": [
+        "JAP_rework_subject_placeholder_focus_1"
+      ],
+      "positionReference": "JAP_rework_subject_placeholder_focus_1",
+      "relativePosition": {
+        "reference": "JAP_rework_subject_placeholder_focus_1",
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "title": "共荣圈空军",
+      "id": "JAP_rework_subject_placeholder_focus_4",
+      "x": 46,
+      "y": 5,
+      "kind": "joint",
+      "status": "draft",
+      "icon": "GFX_goal_generic_air_doctrine",
+      "summary": "",
+      "parents": [
+        "JAP_rework_subject_placeholder_focus_1"
+      ],
+      "positionReference": "JAP_rework_subject_placeholder_focus_1",
+      "relativePosition": {
+        "reference": "JAP_rework_subject_placeholder_focus_1",
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "title": "大东亚省",
+      "id": "JAP_rework_subject_placeholder_focus_5",
+      "x": 27,
+      "y": 3,
+      "kind": "joint",
+      "status": "draft",
+      "icon": "GFX_goal_generic_political_pressure",
+      "summary": "",
+      "parents": [
+        "JAP_rework_co_prosperity_sphere_start"
+      ],
+      "positionReference": "JAP_rework_co_prosperity_sphere_start",
+      "relativePosition": {
+        "reference": "JAP_rework_co_prosperity_sphere_start",
+        "x": -13,
+        "y": 3
+      }
+    },
+    {
+      "title": "东亚开发事务局",
+      "id": "JAP_rework_subject_placeholder_focus_6",
+      "x": 53,
+      "y": 2,
+      "kind": "joint",
+      "status": "draft",
+      "icon": "GFX_goal_generic_construct_civ_factory",
+      "summary": "经济起点",
+      "parents": [
+        "JAP_rework_co_prosperity_sphere_start"
+      ],
+      "positionReference": "JAP_rework_co_prosperity_sphere_start",
+      "relativePosition": {
+        "reference": "JAP_rework_co_prosperity_sphere_start",
+        "x": 13,
+        "y": 2
+      }
+    }
+  ],
+  "selectedId": "JAP_rework_subject_placeholder_focus_2",
+  "zoom": 0.55
+}

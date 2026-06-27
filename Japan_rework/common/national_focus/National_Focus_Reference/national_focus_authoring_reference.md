@@ -304,6 +304,43 @@ When writing `joint_focus`, keep these three reward scopes clearly separated:
 - originator-only reward
 - member-only reward
 
+### Joint Focus Attachment And Member Selection
+
+原版调查结论（v1.19）：
+
+- `joint_focus = { ... }` 是顶层共享国策定义，通常放在独立共享分支文件里；它不需要包在 `focus_tree = { ... }` 内。
+- 国家国策树接入 `joint_focus` 分支时，仍使用 `shared_focus = ROOT_FOCUS_ID`。例如 ABDACOM 分支在 `abdacom_shared_branch.txt` 中定义根节点 `ABDA_abdacom`，美国、英国、法国、荷兰、印度尼西亚、澳大利亚等国家树用 `shared_focus = ABDA_abdacom` 接入。
+- 北欧分支同理：丹麦、芬兰、挪威、瑞典、冰岛的国家树用 `shared_focus = NORDIC_form_joint_alliance` 接入。该根节点本身是普通 `shared_focus`，后续协作节点才大量使用 `joint_focus`。
+- 后续 `joint_focus` 节点用普通 `prerequisite` 和 `relative_position_id` 接到根节点或前置联合节点上。
+
+`joint_trigger` 的用途不是控制分支显示，也不是替代 `available`。它是在一个 `joint_focus` 完成时筛选哪些国家算作联合参与成员。北欧分支把这点拆得很清楚：
+
+```txt
+available = {
+    NORDIC_basic_available_trigger = yes
+    ...
+}
+
+joint_trigger = {
+    NORDIC_basic_joint_trigger = yes
+}
+```
+
+北欧 `NORDIC_basic_available_trigger` 用于检查当前点国策的国家是否可点，并要求至少有一个盟友也满足联合成员条件；`NORDIC_basic_joint_trigger` 则用于筛选联合成员：北欧联盟领导国，或独立、北欧、与 `global.NORDIC_alliance_leader` 同阵营的国家。
+
+因此编写联合国策时应分清四层：
+
+- `allow_branch` / 国家树接入：决定共享分支能否出现在某国家树中。
+- `available`：决定当前国家能否点击该国策。
+- `joint_trigger`：决定哪些国家会作为联合成员参与本次联合国策结算。
+- `completion_reward` / `completion_reward_joint_originator` / `completion_reward_joint_member`：分别处理共同奖励、发起国奖励、成员国奖励。
+
+北欧例子：
+
+- `NORDIC_northern_command` 写 `joint_trigger` 和普通 `completion_reward`，表示通过联合成员筛选的参与者都获得同一套奖励。
+- `NORDIC_political_cooperation` 区分 `completion_reward_joint_originator` 和 `completion_reward_joint_member`，发起国获得更多政治点和意识形态支持，成员国获得较低版本。
+- `NORDIC_materiel_design` 同样区分发起国和成员国，发起国科技加成强于成员国。
+
 ## Continuous Focus Palette
 
 Continuous focuses belong to `continuous_focus_palette`, not a normal `focus_tree`.

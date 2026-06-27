@@ -1,0 +1,1904 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JAP_rework_co_prosperity_shared 属国视角布局</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f5f2;
+      --panel: #ffffff;
+      --ink: #242923;
+      --muted: #6f776d;
+      --line: #d8ddd3;
+      --grid: rgba(82, 92, 78, 0.14);
+      --grid-strong: rgba(82, 92, 78, 0.28);
+      --accent: #2f6f64;
+      --accent-2: #b74f38;
+      --accent-3: #466ca6;
+      --accent-4: #a67622;
+      --node: #fffdfa;
+      --node-shadow: 0 8px 22px rgba(41, 47, 38, 0.12);
+      --node-w: 156px;
+      --node-h: 92px;
+      --radius: 8px;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(244, 245, 242, 0.96)),
+        var(--bg);
+      color: var(--ink);
+      letter-spacing: 0;
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      min-height: 34px;
+      padding: 7px 10px;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+    }
+
+    button:hover {
+      border-color: #98a28f;
+      background: #f7f9f5;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button.primary {
+      border-color: #1f5f55;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    button.danger {
+      border-color: #c8a199;
+      color: #923c2e;
+    }
+
+    button.icon {
+      width: 34px;
+      padding: 0;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 9px;
+    }
+
+    textarea {
+      min-height: 82px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    select[multiple] {
+      min-height: 96px;
+      padding: 6px;
+    }
+
+    .app {
+      height: 100vh;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr) 360px;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .topbar {
+      grid-column: 1 / -1;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 750;
+      overflow-wrap: anywhere;
+    }
+
+    .title .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: #fff;
+      color: #4e554c;
+      white-space: nowrap;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .side,
+    .inspector {
+      min-height: 0;
+      overflow: auto;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .side {
+      border-right: 1px solid var(--line);
+    }
+
+    .inspector {
+      border-left: 1px solid var(--line);
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.25;
+      font-weight: 750;
+      color: #30372d;
+    }
+
+    .stack {
+      display: grid;
+      gap: 9px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .row > * {
+      min-width: 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .field {
+      display: grid;
+      gap: 5px;
+    }
+
+    .field label,
+    .check label {
+      font-size: 12px;
+      color: #555e51;
+      line-height: 1.25;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      align-items: center;
+      gap: 8px;
+      min-height: 28px;
+    }
+
+    .check input {
+      width: auto;
+      margin: 0;
+    }
+
+    .tiny {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid #d2d9cc;
+      border-radius: 6px;
+      padding: 3px 7px;
+      background: #fafbf8;
+      color: #4c554a;
+      font-size: 11px;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    .stage-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .main {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      background: #ecefea;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(248, 249, 246, 0.94);
+    }
+
+    .toolbar .left,
+    .toolbar .right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .board-wrap {
+      min-height: 0;
+      overflow: auto;
+      position: relative;
+      background: #eef1ec;
+      cursor: grab;
+    }
+
+    .board-wrap.panning {
+      cursor: grabbing;
+    }
+
+    .board {
+      position: relative;
+      min-width: 1200px;
+      min-height: 720px;
+      isolation: isolate;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+        linear-gradient(var(--grid-strong) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px);
+      background-size:
+        132px 118px,
+        132px 118px,
+        264px 236px,
+        264px 236px;
+      background-position: 48px 50px, 48px 50px, 48px 50px, 48px 50px;
+    }
+
+    .ruler-x,
+    .ruler-y {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      color: rgba(59, 67, 56, 0.55);
+      font-size: 11px;
+    }
+
+    .ruler-x {
+      top: 26px;
+      transform: translateX(-50%);
+    }
+
+    .ruler-y {
+      left: 18px;
+      transform: translateY(-50%);
+    }
+
+    .links {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .links path {
+      fill: none;
+      stroke: rgba(52, 61, 49, 0.38);
+      stroke-width: 2;
+    }
+
+    .links path.joint {
+      stroke: rgba(47, 111, 100, 0.56);
+      stroke-width: 3;
+    }
+
+    .links path.position {
+      stroke: rgba(183, 79, 56, 0.5);
+      stroke-width: 2;
+      stroke-dasharray: 6 5;
+    }
+
+    .node {
+      position: absolute;
+      z-index: 4;
+      width: var(--node-w);
+      min-height: var(--node-h);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5px;
+      border: 2px solid #cfd8c9;
+      border-top-width: 5px;
+      border-radius: var(--radius);
+      background: var(--node);
+      box-shadow: var(--node-shadow);
+      padding: 8px 9px 7px;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .node:active {
+      cursor: grabbing;
+    }
+
+    .node.selected {
+      outline: 3px solid rgba(47, 111, 100, 0.22);
+      border-color: #2f6f64;
+    }
+
+    .node.parent-pick-target {
+      outline: 3px solid rgba(183, 79, 56, 0.28);
+      border-color: #b74f38;
+    }
+
+    .node.position-pick-target {
+      outline: 3px solid rgba(126, 100, 174, 0.28);
+      border-color: #7e64ae;
+    }
+
+    .node.hidden-by-filter {
+      display: none;
+    }
+
+    .node .node-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      color: #5f695b;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .node .node-title {
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .node .node-id {
+      color: #667061;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 10px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .node .node-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      color: #566052;
+      font-size: 11px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 18px;
+      padding: 1px 5px;
+      border-radius: 5px;
+      border: 1px solid #d9ded4;
+      background: #f7f8f5;
+      color: #4f594b;
+      white-space: nowrap;
+    }
+
+    .status.scripted {
+      border-color: #aac8bf;
+      color: #255f55;
+      background: #eef8f5;
+    }
+
+    .status.draft {
+      border-color: #d8c591;
+      color: #735516;
+      background: #fff8e7;
+    }
+
+    .status.review {
+      border-color: #b9c6e1;
+      color: #385987;
+      background: #f0f5ff;
+    }
+
+    .coords {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      white-space: nowrap;
+    }
+
+    .bottom {
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .selection-line {
+      min-width: 0;
+      color: #4d554a;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .export-area {
+      min-height: 250px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 12px;
+      white-space: pre;
+      overflow: auto;
+    }
+
+    .empty {
+      border: 1px dashed #c7cec1;
+      border-radius: var(--radius);
+      padding: 16px;
+      color: var(--muted);
+      background: #fbfcfa;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1180px) {
+      .app {
+        grid-template-columns: 270px minmax(0, 1fr);
+      }
+
+      .inspector {
+        grid-column: 1 / -1;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .inspector .section {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto minmax(520px, 1fr) auto;
+      }
+
+      .topbar,
+      .toolbar,
+      .bottom {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .side {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        max-height: 44vh;
+      }
+
+      .inspector {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title">
+        <h1>JAP_rework_co_prosperity_shared 属国视角布局</h1>
+        <div class="meta">
+          <span class="pill">源文件 common/national_focus/JAP_rework_co_prosperity_shared.txt</span>
+          <span class="pill">接入树 JAP_rework_special_subject_focus_tree</span>
+          <span class="pill">忽略 JAP 专用 offset</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="fitBtn" type="button">适配</button>
+        <button id="exportScriptBtn" type="button">导出脚本草案</button>
+        <button id="exportJsonBtn" type="button">导出 JSON</button>
+        <button id="downloadDataFileBtn" type="button">下载数据文件</button>
+        <button id="resetBtn" type="button" class="danger">重置</button>
+      </div>
+    </header>
+
+    <aside class="side">
+      <section class="section">
+        <h2>视图</h2>
+        <div class="stack">
+          <div class="split">
+            <div class="field">
+              <label for="snapX">横向步长</label>
+              <input id="snapX" type="number" min="1" step="1" value="1">
+            </div>
+            <div class="field">
+              <label for="snapY">纵向步长</label>
+              <input id="snapY" type="number" min="1" step="1" value="1">
+            </div>
+          </div>
+          <div class="check">
+            <input id="showDrafts" type="checkbox" checked>
+            <label for="showDrafts">显示规划节点</label>
+          </div>
+          <div class="check">
+            <input id="showReview" type="checkbox" checked>
+            <label for="showReview">显示待审节点</label>
+          </div>
+          <div class="check">
+            <input id="showScripted" type="checkbox" checked>
+            <label for="showScripted">显示已写入节点</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>新增</h2>
+        <div class="stack">
+          <div class="field">
+            <label for="newTitleInput">显示名称</label>
+            <input id="newTitleInput" type="text" placeholder="输入国策显示名">
+          </div>
+          <div class="field">
+            <label for="newIconInput">图标</label>
+            <select id="newIconInput"></select>
+          </div>
+          <button id="addNodeBtn" type="button" class="primary">新增节点</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>属国侧原则</h2>
+        <div class="chips">
+          <span class="chip">统一联合国策树</span>
+          <span class="chip">共同变量强化</span>
+          <span class="chip">每国动态修正读取</span>
+          <span class="chip">特色内容走决议/精神</span>
+          <span class="chip">轻量 AI 与积分循环</span>
+          <span class="chip">追赶机制后置</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>节点列表</h2>
+        <div class="stage-list" id="nodeList"></div>
+      </section>
+    </aside>
+
+    <main class="main">
+      <div class="toolbar">
+        <div class="left">
+          <button id="zoomOutBtn" type="button" class="icon" title="缩小">-</button>
+          <button id="zoomInBtn" type="button" class="icon" title="放大">+</button>
+          <span class="pill" id="zoomText">100%</span>
+          <span class="pill" id="nodeCount">0 节点</span>
+        </div>
+        <div class="right">
+          <span class="pill">根节点 x=40 y=0</span>
+          <span class="pill">拖动后自动吸附坐标</span>
+          <span class="pill">拖动画布空白处平移</span>
+          <span class="pill">导出强制相对坐标</span>
+        </div>
+      </div>
+
+      <div class="board-wrap" id="boardWrap">
+        <div class="board" id="board">
+          <svg class="links" id="links" aria-hidden="true"></svg>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="selection-line" id="selectionLine">未选择节点</div>
+        <div class="tiny" id="layoutState">相对坐标检查</div>
+        <div class="tiny" id="saveState">localStorage 自动保存</div>
+      </div>
+    </main>
+
+    <aside class="inspector">
+      <section class="section" id="editorSection">
+        <h2>节点</h2>
+        <div id="editorEmpty" class="empty">选择一个节点后编辑。</div>
+        <div id="editorForm" class="stack" hidden>
+          <div class="field">
+            <label for="nodeTitleInput">显示名</label>
+            <input id="nodeTitleInput" type="text">
+          </div>
+          <div class="field">
+            <label for="nodeIdInput">ID</label>
+            <input id="nodeIdInput" type="text">
+          </div>
+          <div class="split">
+            <div class="field">
+              <label for="nodeXInput">画布 x</label>
+              <input id="nodeXInput" type="number" step="1">
+            </div>
+            <div class="field">
+              <label for="nodeYInput">画布 y</label>
+              <input id="nodeYInput" type="number" step="1">
+            </div>
+          </div>
+          <div class="field">
+            <label for="nodeRelativeInput">落地相对坐标</label>
+            <input id="nodeRelativeInput" type="text" readonly>
+          </div>
+          <div class="split">
+            <div class="field">
+              <label for="nodeKindInput">类型</label>
+              <select id="nodeKindInput">
+                <option value="joint">joint_focus</option>
+                <option value="shared">shared_focus</option>
+                <option value="ordinary">focus</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="nodeStatusInput">状态</label>
+              <select id="nodeStatusInput">
+                <option value="draft">规划中</option>
+                <option value="review">待审</option>
+                <option value="scripted">已写入</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="nodeParentInput">前置</label>
+            <div class="row">
+              <select id="nodeParentInput" multiple></select>
+              <button id="pickParentBtn" type="button">点选</button>
+              <button id="clearParentBtn" type="button">清空</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="nodePositionReferenceInput">位置参照</label>
+            <div class="row">
+              <select id="nodePositionReferenceInput"></select>
+              <button id="pickPositionReferenceBtn" type="button">点选</button>
+              <button id="clearPositionReferenceBtn" type="button">清空</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="nodeIconInput">图标</label>
+            <select id="nodeIconInput"></select>
+          </div>
+          <div class="field">
+            <label for="nodeSummaryInput">备注</label>
+            <textarea id="nodeSummaryInput"></textarea>
+          </div>
+          <div class="row">
+            <button id="duplicateBtn" type="button">复制</button>
+            <button id="deleteBtn" type="button" class="danger">删除</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>导出</h2>
+        <div class="stack">
+          <div class="row">
+            <button id="copyExportBtn" type="button">复制</button>
+            <button id="importJsonBtn" type="button">导入 JSON</button>
+            <button id="importDataFileBtn" type="button">导入数据文件</button>
+          </div>
+          <input id="dataFileInput" type="file" accept="application/json,.json" hidden>
+          <textarea id="exportBox" class="export-area" spellcheck="false"></textarea>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "JAP_rework_co_prosperity_shared_subject_layout_v2";
+    const DATA_FILE_NAME = "JAP_rework_co_prosperity_shared_subject_layout_data.json";
+    const GRID_X = 132;
+    const GRID_Y = 118;
+    const NODE_W = 156;
+    const NODE_H = 92;
+    const PAD_X = 48;
+    const PAD_Y = 50;
+
+    const iconOptions = [
+      { label: "待制作", value: "GFX_goal_JAP_rework_todo_icon" },
+      { label: "共荣圈", value: "GFX_focus_JAP_greater_east_asian_co_properity_sphere" },
+      { label: "科研", value: "GFX_focus_research" },
+      { label: "海军", value: "GFX_goal_generic_navy_carrier" },
+      { label: "陆军", value: "GFX_goal_generic_army_doctrines" },
+      { label: "空军", value: "GFX_goal_generic_air_doctrine" },
+      { label: "政治", value: "GFX_goal_generic_political_pressure" },
+      { label: "经济", value: "GFX_goal_generic_construct_civ_factory" },
+      { label: "军工", value: "GFX_goal_generic_construct_mil_factory" },
+      { label: "同盟", value: "GFX_goal_generic_alliance" },
+      { label: "生产", value: "GFX_goal_generic_production" }
+    ];
+
+    const defaultNodes = [
+      {
+        title: "共荣圈共同起点",
+        id: "JAP_rework_co_prosperity_sphere_start",
+        x: 40,
+        y: 0,
+        kind: "joint",
+        status: "scripted",
+        parents: [],
+        positionReference: "",
+        icon: "GFX_focus_JAP_greater_east_asian_co_properity_sphere",
+        locked: true,
+        summary: "当前已在 JAP_rework_co_prosperity_shared.txt 写入。属国视角使用固定坐标 x = 40, y = 0；JAP 专用 offset 不参与本视图。当前根节点 available 限定 tag = JAP，属国侧后续节点是否可自行选择需在实装时另行定义。"
+      }
+    ];
+
+    const state = {
+      nodes: [],
+      selectedId: "",
+      zoom: 1,
+      bounds: { minX: 28, maxX: 56, minY: -1, maxY: 12 },
+      exportMode: "script",
+      parentPickTargetId: "",
+      positionPickTargetId: "",
+      suppressBoardClick: false
+    };
+
+    const els = {
+      boardWrap: document.getElementById("boardWrap"),
+      board: document.getElementById("board"),
+      links: document.getElementById("links"),
+      nodeList: document.getElementById("nodeList"),
+      nodeCount: document.getElementById("nodeCount"),
+      selectionLine: document.getElementById("selectionLine"),
+      layoutState: document.getElementById("layoutState"),
+      saveState: document.getElementById("saveState"),
+      exportBox: document.getElementById("exportBox"),
+      dataFileInput: document.getElementById("dataFileInput"),
+      newTitleInput: document.getElementById("newTitleInput"),
+      newIconInput: document.getElementById("newIconInput"),
+      editorEmpty: document.getElementById("editorEmpty"),
+      editorForm: document.getElementById("editorForm"),
+      nodeTitleInput: document.getElementById("nodeTitleInput"),
+      nodeIdInput: document.getElementById("nodeIdInput"),
+      nodeXInput: document.getElementById("nodeXInput"),
+      nodeYInput: document.getElementById("nodeYInput"),
+      nodeRelativeInput: document.getElementById("nodeRelativeInput"),
+      nodeKindInput: document.getElementById("nodeKindInput"),
+      nodeStatusInput: document.getElementById("nodeStatusInput"),
+      nodeParentInput: document.getElementById("nodeParentInput"),
+      nodePositionReferenceInput: document.getElementById("nodePositionReferenceInput"),
+      nodeIconInput: document.getElementById("nodeIconInput"),
+      nodeSummaryInput: document.getElementById("nodeSummaryInput"),
+      pickParentBtn: document.getElementById("pickParentBtn"),
+      clearParentBtn: document.getElementById("clearParentBtn"),
+      pickPositionReferenceBtn: document.getElementById("pickPositionReferenceBtn"),
+      clearPositionReferenceBtn: document.getElementById("clearPositionReferenceBtn"),
+      snapX: document.getElementById("snapX"),
+      snapY: document.getElementById("snapY"),
+      showDrafts: document.getElementById("showDrafts"),
+      showReview: document.getElementById("showReview"),
+      showScripted: document.getElementById("showScripted"),
+      zoomText: document.getElementById("zoomText")
+    };
+
+    function clone(value) {
+      return JSON.parse(JSON.stringify(value));
+    }
+
+    function compactIds(values, excludedId = "") {
+      return Array.from(new Set((values || [])
+        .map((value) => String(value || "").trim())
+        .filter((value) => value && value !== excludedId)));
+    }
+
+    function getParentIds(node) {
+      if (!node) return [];
+      if (Array.isArray(node.parents)) return compactIds(node.parents, node.id);
+      return compactIds(node.parent ? [node.parent] : [], node.id);
+    }
+
+    function setParentIds(node, ids) {
+      node.parents = compactIds(ids, node.id);
+      delete node.parent;
+    }
+
+    function normalizeNode(node) {
+      const normalized = Object.assign({}, node);
+      normalized.title = normalized.title || normalized.id || "未命名国策";
+      normalized.id = normalized.id || uniquePlaceholderId();
+      normalized.x = Number.isFinite(Number(normalized.x)) ? Number(normalized.x) : 40;
+      normalized.y = Number.isFinite(Number(normalized.y)) ? Number(normalized.y) : 0;
+      normalized.kind = normalized.kind || "joint";
+      normalized.status = normalized.status || "draft";
+      normalized.icon = normalized.icon || iconOptions[0].value;
+      normalized.summary = normalized.summary || "";
+      normalized.parents = getParentIds(normalized);
+      const hasPositionReference = Object.prototype.hasOwnProperty.call(normalized, "positionReference");
+      normalized.positionReference = String(
+        hasPositionReference ? normalized.positionReference : normalized.relativePosition?.reference || normalized.parents[0] || ""
+      ).trim();
+      if (normalized.positionReference === normalized.id || isRootNode(normalized)) normalized.positionReference = "";
+      if (isRootNode(normalized)) normalized.parents = [];
+      delete normalized.parent;
+      delete normalized.lane;
+      delete normalized.relativePosition;
+      return normalized;
+    }
+
+    function normalizeNodes(nodes) {
+      return nodes.map((node) => normalizeNode(node));
+    }
+
+    function nodeForSnapshot(node) {
+      const snapshotNode = normalizeNode(node);
+      const relative = getRelativePosition(snapshotNode);
+      if (relative.mode === "relative") {
+        snapshotNode.relativePosition = {
+          reference: relative.reference.id,
+          x: relative.x,
+          y: relative.y
+        };
+      } else if (relative.mode === "missing") {
+        snapshotNode.relativePosition = {
+          reference: snapshotNode.positionReference || "",
+          x: null,
+          y: null,
+          error: "missing_reference"
+        };
+      }
+      return snapshotNode;
+    }
+
+    function getLayoutSnapshot() {
+      return {
+        schemaVersion: 2,
+        storageKey: STORAGE_KEY,
+        source: "JAP_rework_co_prosperity_shared_subject_layout.html",
+        description: "Git-tracked layout data for JAP_rework_co_prosperity_shared subject focus planning.",
+        nodes: state.nodes.map((node) => nodeForSnapshot(node)),
+        selectedId: state.selectedId,
+        zoom: state.zoom
+      };
+    }
+
+    function load() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          state.nodes = normalizeNodes(clone(defaultNodes));
+          return;
+        }
+        const saved = JSON.parse(raw);
+        state.nodes = normalizeNodes(Array.isArray(saved.nodes) ? saved.nodes : clone(defaultNodes));
+        state.selectedId = saved.selectedId || state.nodes[0]?.id || "";
+        state.zoom = Number(saved.zoom) || 1;
+      } catch (error) {
+        state.nodes = normalizeNodes(clone(defaultNodes));
+      }
+    }
+
+    function save() {
+      const snapshot = getLayoutSnapshot();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot));
+      els.saveState.textContent = "已保存 " + new Date().toLocaleTimeString("zh-CN", { hour12: false });
+    }
+
+    function getNode(id) {
+      return state.nodes.find((node) => node.id === id);
+    }
+
+    function isRootNode(node) {
+      return Boolean(node && node.id === "JAP_rework_co_prosperity_sphere_start");
+    }
+
+    function getPositionReferenceId(node) {
+      if (!node || isRootNode(node)) return "";
+      return String(node.positionReference || "").trim();
+    }
+
+    function getRelativePosition(node) {
+      if (!node) {
+        return { mode: "none", text: "" };
+      }
+      if (isRootNode(node)) {
+        return {
+          mode: "root",
+          x: Number(node.x),
+          y: Number(node.y),
+          text: "根节点使用绝对坐标 x=" + node.x + " y=" + node.y
+        };
+      }
+      const reference = getNode(getPositionReferenceId(node));
+      if (!reference) {
+        return {
+          mode: "missing",
+          text: "缺少位置参照国策，不能导出相对坐标"
+        };
+      }
+      const dx = Number(node.x) - Number(reference.x);
+      const dy = Number(node.y) - Number(reference.y);
+      return {
+        mode: "relative",
+        reference,
+        x: dx,
+        y: dy,
+        text: "relative_position_id = " + reference.id + " | x=" + dx + " y=" + dy
+      };
+    }
+
+    function getMissingParentNodes() {
+      return state.nodes.filter((node) => {
+        if (isRootNode(node)) return false;
+        const parents = getParentIds(node);
+        return !parents.length || parents.some((id) => !getNode(id));
+      });
+    }
+
+    function getMissingPositionReferenceNodes() {
+      return state.nodes.filter((node) => !isRootNode(node) && !getNode(getPositionReferenceId(node)));
+    }
+
+    function visibleByFilter(node) {
+      if (node.status === "draft" && !els.showDrafts.checked) return false;
+      if (node.status === "review" && !els.showReview.checked) return false;
+      if (node.status === "scripted" && !els.showScripted.checked) return false;
+      return true;
+    }
+
+    function calculateBounds() {
+      const xs = state.nodes.map((node) => Number(node.x));
+      const ys = state.nodes.map((node) => Number(node.y));
+      state.bounds = {
+        minX: Math.min(28, ...xs) - 1,
+        maxX: Math.max(56, ...xs) + 1,
+        minY: Math.min(-1, ...ys) - 1,
+        maxY: Math.max(12, ...ys) + 2
+      };
+    }
+
+    function xToPx(x) {
+      return PAD_X + (x - state.bounds.minX) * GRID_X;
+    }
+
+    function yToPx(y) {
+      return PAD_Y + (y - state.bounds.minY) * GRID_Y;
+    }
+
+    function pxToX(px) {
+      return state.bounds.minX + (px - PAD_X) / GRID_X;
+    }
+
+    function pxToY(py) {
+      return state.bounds.minY + (py - PAD_Y) / GRID_Y;
+    }
+
+    function getViewportCenterGridPosition() {
+      const centerX = (els.boardWrap.scrollLeft + els.boardWrap.clientWidth / 2) / state.zoom - NODE_W / 2;
+      const centerY = (els.boardWrap.scrollTop + els.boardWrap.clientHeight / 2) / state.zoom - NODE_H / 2;
+      return {
+        x: snap(pxToX(centerX), els.snapX.value),
+        y: snap(pxToY(centerY), els.snapY.value)
+      };
+    }
+
+    function snap(value, step) {
+      const safeStep = Math.max(1, Number(step) || 1);
+      return Math.round(value / safeStep) * safeStep;
+    }
+
+    function applyBoardSize() {
+      const width = PAD_X * 2 + (state.bounds.maxX - state.bounds.minX + 1) * GRID_X;
+      const height = PAD_Y * 2 + (state.bounds.maxY - state.bounds.minY + 1) * GRID_Y;
+      els.board.style.width = width + "px";
+      els.board.style.height = height + "px";
+      els.board.style.transform = "scale(" + state.zoom + ")";
+      els.board.style.transformOrigin = "0 0";
+      els.board.style.marginRight = Math.max(0, width * (state.zoom - 1)) + "px";
+      els.board.style.marginBottom = Math.max(0, height * (state.zoom - 1)) + "px";
+      els.links.setAttribute("width", width);
+      els.links.setAttribute("height", height);
+      els.links.setAttribute("viewBox", "0 0 " + width + " " + height);
+      els.zoomText.textContent = Math.round(state.zoom * 100) + "%";
+    }
+
+    function renderGuides() {
+      els.board.querySelectorAll(".ruler-x,.ruler-y").forEach((el) => el.remove());
+
+      for (let x = state.bounds.minX; x <= state.bounds.maxX; x += 2) {
+        const div = document.createElement("div");
+        div.className = "ruler-x";
+        div.style.left = xToPx(x) + NODE_W / 2 + "px";
+        div.textContent = "x " + x;
+        els.board.insertBefore(div, els.links);
+      }
+
+      for (let y = state.bounds.minY; y <= state.bounds.maxY; y += 1) {
+        const div = document.createElement("div");
+        div.className = "ruler-y";
+        div.style.top = yToPx(y) + NODE_H / 2 + "px";
+        div.textContent = "y " + y;
+        els.board.insertBefore(div, els.links);
+      }
+    }
+
+    function renderTemplates() {
+      const iconOptionHtml = iconOptions.map((item) => {
+        return '<option value="' + escapeAttr(item.value) + '">' + escapeHtml(item.label) + " | " + escapeHtml(item.value) + "</option>";
+      }).join("");
+      els.newIconInput.innerHTML = iconOptionHtml;
+      els.nodeIconInput.innerHTML = iconOptionHtml;
+    }
+
+    function renderNodes() {
+      els.board.querySelectorAll(".node").forEach((el) => el.remove());
+
+      state.nodes.forEach((node) => {
+        const relative = getRelativePosition(node);
+        const el = document.createElement("article");
+        el.className = [
+          "node",
+          node.id === state.selectedId ? "selected" : "",
+          node.id === state.parentPickTargetId ? "parent-pick-target" : "",
+          node.id === state.positionPickTargetId ? "position-pick-target" : "",
+          visibleByFilter(node) ? "" : "hidden-by-filter"
+        ].join(" ").trim();
+        el.dataset.id = node.id;
+        el.style.left = xToPx(Number(node.x)) + "px";
+        el.style.top = yToPx(Number(node.y)) + "px";
+        el.innerHTML = [
+          '<div class="node-kicker">',
+          '<span>' + (node.kind || "shared") + '</span>',
+          '<span class="status ' + (node.status || "draft") + '">' + statusLabel(node.status) + '</span>',
+          "</div>",
+          '<div class="node-title">' + escapeHtml(node.title || node.id) + "</div>",
+          '<div class="node-id">' + escapeHtml(node.id) + "</div>",
+          '<div class="node-footer">',
+          '<span class="coords">x=' + node.x + " y=" + node.y + "</span>",
+          '<span class="rel-coords">' + escapeHtml(relative.mode === "relative" ? "rel " + relative.x + "," + relative.y : relative.mode === "missing" ? "缺参照" : "root") + "</span>",
+          "</div>"
+        ].join("");
+        el.addEventListener("pointerdown", onNodePointerDown);
+        el.addEventListener("click", (event) => {
+          event.stopPropagation();
+          handleNodeClick(node.id);
+        });
+        els.board.appendChild(el);
+      });
+    }
+
+    function renderLinks() {
+      const fragments = [];
+      state.nodes.forEach((node) => {
+        if (!visibleByFilter(node)) return;
+        const addLink = (fromNode, className) => {
+          if (!fromNode || !visibleByFilter(fromNode)) return;
+          const startX = xToPx(Number(fromNode.x)) + NODE_W / 2;
+          const startY = yToPx(Number(fromNode.y)) + NODE_H;
+          const endX = xToPx(Number(node.x)) + NODE_W / 2;
+          const endY = yToPx(Number(node.y));
+          const midY = startY + Math.max(28, (endY - startY) / 2);
+          const d = "M " + startX + " " + startY + " C " + startX + " " + midY + ", " + endX + " " + midY + ", " + endX + " " + endY;
+          fragments.push('<path class="' + className + '" d="' + d + '"></path>');
+        };
+        const parents = getParentIds(node);
+        parents.forEach((parentId) => addLink(getNode(parentId), node.kind === "joint" ? "joint" : ""));
+        const referenceId = getPositionReferenceId(node);
+        if (referenceId && !parents.includes(referenceId)) {
+          addLink(getNode(referenceId), "position");
+        }
+      });
+      els.links.innerHTML = fragments.join("");
+    }
+
+    function renderList() {
+      const sorted = [...state.nodes].sort((a, b) => Number(a.y) - Number(b.y) || Number(a.x) - Number(b.x));
+      els.nodeList.innerHTML = sorted.map((node) => {
+        return [
+          '<button type="button" data-id="' + escapeAttr(node.id) + '" class="' + (node.id === state.selectedId ? "primary" : "") + '">',
+          escapeHtml(node.title || node.id),
+          '<span class="tiny coords"> x=' + node.x + " y=" + node.y + "</span>",
+          "</button>"
+        ].join("");
+      }).join("");
+      els.nodeList.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => selectNode(button.dataset.id));
+      });
+    }
+
+    function renderParentSelects() {
+      const selected = getNode(state.selectedId);
+      const parentOptions = [];
+      const positionOptions = ['<option value="">无</option>'];
+      state.nodes.forEach((node) => {
+        if (selected && node.id === selected.id) return;
+        if (!selected || !wouldCreateCycle(selected.id, [node.id])) {
+          parentOptions.push('<option value="' + escapeAttr(node.id) + '">' + escapeHtml(node.title || node.id) + "</option>");
+        }
+        positionOptions.push('<option value="' + escapeAttr(node.id) + '">' + escapeHtml(node.title || node.id) + "</option>");
+      });
+      els.nodeParentInput.innerHTML = parentOptions.join("");
+      els.nodePositionReferenceInput.innerHTML = positionOptions.join("");
+      if (selected) {
+        const parents = new Set(getParentIds(selected));
+        parents.forEach((parentId) => ensureSelectValue(els.nodeParentInput, parentId));
+        Array.from(els.nodeParentInput.options).forEach((option) => {
+          option.selected = parents.has(option.value);
+        });
+        ensureSelectValue(els.nodePositionReferenceInput, getPositionReferenceId(selected));
+        els.nodePositionReferenceInput.value = getPositionReferenceId(selected);
+      }
+    }
+
+    function renderEditor() {
+      const node = getNode(state.selectedId);
+      renderParentSelects();
+      if (!node) {
+        els.editorEmpty.hidden = false;
+        els.editorForm.hidden = true;
+        els.selectionLine.textContent = "未选择节点";
+        return;
+      }
+
+      els.editorEmpty.hidden = true;
+      els.editorForm.hidden = false;
+      els.nodeTitleInput.value = node.title || "";
+      els.nodeIdInput.value = node.id || "";
+      els.nodeIdInput.disabled = Boolean(node.locked);
+      els.nodeXInput.value = node.x;
+      els.nodeYInput.value = node.y;
+      els.nodeRelativeInput.value = getRelativePosition(node).text;
+      els.nodeKindInput.value = node.kind || "shared";
+      els.nodeStatusInput.value = node.status || "draft";
+      ensureSelectValue(els.nodeIconInput, node.icon || "");
+      els.nodeIconInput.value = node.icon || "";
+      els.nodeSummaryInput.value = node.summary || "";
+      document.getElementById("deleteBtn").disabled = Boolean(node.locked);
+      els.pickParentBtn.textContent = state.parentPickTargetId === node.id ? "取消" : "点选";
+      els.clearParentBtn.disabled = Boolean(node.locked) || !getParentIds(node).length;
+      els.pickPositionReferenceBtn.textContent = state.positionPickTargetId === node.id ? "取消" : "点选";
+      els.clearPositionReferenceBtn.disabled = Boolean(node.locked) || !getPositionReferenceId(node);
+      if (state.parentPickTargetId === node.id) {
+        els.selectionLine.textContent = "正在为 " + (node.title || node.id) + " 点选前置国策；点击已有前置可移除";
+      } else if (state.positionPickTargetId === node.id) {
+        els.selectionLine.textContent = "正在为 " + (node.title || node.id) + " 点选位置参照国策";
+      } else {
+        els.selectionLine.textContent = (node.title || node.id) + " | " + node.id + " | x=" + node.x + " y=" + node.y;
+      }
+    }
+
+    function renderExport() {
+      if (state.exportMode === "json") {
+        els.exportBox.value = JSON.stringify(getLayoutSnapshot(), null, 2);
+      } else {
+        els.exportBox.value = makeScriptExport();
+      }
+    }
+
+    function render() {
+      calculateBounds();
+      applyBoardSize();
+      renderGuides();
+      renderNodes();
+      renderLinks();
+      renderList();
+      renderEditor();
+      renderExport();
+      els.nodeCount.textContent = state.nodes.length + " 节点";
+      renderLayoutState();
+    }
+
+    function renderLayoutState() {
+      const missingParents = getMissingParentNodes();
+      const missingReferences = getMissingPositionReferenceNodes();
+      if (missingParents.length || missingReferences.length) {
+        els.layoutState.textContent = "缺前置 " + missingParents.length + " 个，缺位置参照 " + missingReferences.length + " 个；脚本导出会跳过无效节点";
+      } else {
+        els.layoutState.textContent = "除根节点外均按位置参照导出相对坐标";
+      }
+    }
+
+    function scrollNodeIntoView(id, smooth = true) {
+      const nodeEl = Array.from(els.board.querySelectorAll(".node")).find((el) => el.dataset.id === id);
+      if (!nodeEl) return;
+      nodeEl.scrollIntoView({
+        behavior: smooth ? "smooth" : "auto",
+        block: "nearest",
+        inline: "nearest"
+      });
+    }
+
+    function selectNode(id) {
+      state.selectedId = id;
+      state.parentPickTargetId = "";
+      state.positionPickTargetId = "";
+      save();
+      render();
+      requestAnimationFrame(() => scrollNodeIntoView(id));
+    }
+
+    function handleNodeClick(id) {
+      if (state.parentPickTargetId) {
+        applyPickedParent(id);
+        return;
+      }
+      if (state.positionPickTargetId) {
+        applyPickedPositionReference(id);
+        return;
+      }
+      selectNode(id);
+    }
+
+    function updateSelected(patch) {
+      const node = getNode(state.selectedId);
+      if (!node) return;
+      Object.assign(node, patch);
+      save();
+      render();
+    }
+
+    function addNodeFromTemplate() {
+      const title = els.newTitleInput.value.trim() || "未命名国策";
+      const parent = getNode(state.selectedId) || getNode("JAP_rework_co_prosperity_sphere_start") || state.nodes[0];
+      const position = getViewportCenterGridPosition();
+      const node = {
+        title,
+        id: uniquePlaceholderId(),
+        x: position.x,
+        y: position.y,
+        kind: "joint",
+        status: "draft",
+        parents: parent ? [parent.id] : [],
+        positionReference: parent ? parent.id : "",
+        icon: els.newIconInput.value || iconOptions[0].value,
+        summary: ""
+      };
+      state.nodes.push(node);
+      state.selectedId = node.id;
+      state.parentPickTargetId = "";
+      state.positionPickTargetId = "";
+      els.newTitleInput.value = "";
+      save();
+      render();
+      requestAnimationFrame(() => scrollNodeIntoView(node.id));
+      els.newTitleInput.focus();
+    }
+
+    function duplicateSelected() {
+      const node = getNode(state.selectedId);
+      if (!node) return;
+      const copy = clone(node);
+      copy.locked = false;
+      copy.id = uniqueId(node.id + "_copy");
+      copy.title = uniqueTitle((node.title || node.id) + " 副本");
+      copy.x = Number(copy.x) + 1;
+      copy.y = Number(copy.y) + 1;
+      copy.status = "draft";
+      state.nodes.push(copy);
+      state.selectedId = copy.id;
+      save();
+      render();
+      requestAnimationFrame(() => scrollNodeIntoView(copy.id));
+    }
+
+    function deleteSelected() {
+      const node = getNode(state.selectedId);
+      if (!node || node.locked) return;
+      state.nodes = state.nodes.filter((item) => item.id !== node.id);
+      state.nodes.forEach((item) => {
+        setParentIds(item, getParentIds(item).filter((parentId) => parentId !== node.id));
+        if (item.positionReference === node.id) item.positionReference = getParentIds(item)[0] || "";
+      });
+      state.selectedId = state.nodes[0]?.id || "";
+      save();
+      render();
+    }
+
+    function resetLayout() {
+      if (!window.confirm("重置此页面的本地布局数据？")) return;
+      state.nodes = normalizeNodes(clone(defaultNodes));
+      state.selectedId = state.nodes[0].id;
+      state.zoom = 1;
+      state.parentPickTargetId = "";
+      state.positionPickTargetId = "";
+      save();
+      render();
+    }
+
+    function makeScriptExport() {
+      const lines = [];
+      lines.push("# JAP_rework_co_prosperity_shared subject-view layout draft");
+      lines.push("# Root joint focus already exists in common/national_focus/JAP_rework_co_prosperity_shared.txt.");
+      lines.push("# Non-root nodes are emitted with x/y relative to their chosen positionReference focus.");
+      lines.push("");
+
+      const sorted = [...state.nodes].sort((a, b) => Number(a.y) - Number(b.y) || Number(a.x) - Number(b.x));
+      sorted.forEach((node) => {
+        if (node.id === "JAP_rework_co_prosperity_sphere_start") return;
+        const relative = getRelativePosition(node);
+        const parentIds = getParentIds(node);
+        const validParents = parentIds.filter((id) => getNode(id));
+        if (!validParents.length || validParents.length !== parentIds.length) {
+          lines.push("# ERROR: " + node.id + " 缺少有效前置国策，未导出脚本块。");
+          lines.push("");
+          return;
+        }
+        if (relative.mode === "missing") {
+          lines.push("# ERROR: " + node.id + " 缺少有效位置参照国策，未导出脚本块。");
+          lines.push("");
+          return;
+        }
+        const reference = relative.reference;
+        const type = node.kind === "joint" ? "joint_focus" : "shared_focus";
+        if (node.status !== "scripted") {
+          lines.push("# status = " + statusLabel(node.status));
+        }
+        if (node.summary) {
+          lines.push("# " + node.summary.replace(/\s+/g, " ").trim());
+        }
+        lines.push(type + " = {");
+        lines.push("\tid = " + node.id);
+        lines.push("\ticon = " + (node.icon || "GFX_goal_generic_political_pressure"));
+        lines.push("\tx = " + relative.x);
+        lines.push("\ty = " + relative.y);
+        lines.push("\trelative_position_id = " + reference.id);
+        if (validParents.length === 1) {
+          lines.push("\tprerequisite = { focus = " + validParents[0] + " }");
+        } else {
+          lines.push("\tprerequisite = {");
+          validParents.forEach((parentId) => lines.push("\t\tfocus = " + parentId));
+          lines.push("\t}");
+        }
+        lines.push("\tcost = 5");
+        lines.push("\tavailable_if_capitulated = no");
+        lines.push("\tsearch_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY }");
+        if (node.kind === "joint") {
+          lines.push("\tjoint_trigger = { JAP_rework_is_japanese_special_subject = yes }");
+          lines.push("\tcompletion_reward_joint_member = { }");
+        } else {
+          lines.push("\tcompletion_reward = { }");
+        }
+        lines.push("}");
+        lines.push("");
+      });
+      return lines.join("\n");
+    }
+
+    function applyLayoutData(parsed) {
+      const nodes = Array.isArray(parsed) ? parsed : parsed.nodes;
+      if (!Array.isArray(nodes)) throw new Error("missing nodes");
+      state.nodes = normalizeNodes(nodes);
+      state.selectedId = parsed.selectedId && getNode(parsed.selectedId) ? parsed.selectedId : state.nodes[0]?.id || "";
+      state.zoom = Number(parsed.zoom) || state.zoom || 1;
+      state.parentPickTargetId = "";
+      state.positionPickTargetId = "";
+      save();
+      render();
+      if (state.selectedId) requestAnimationFrame(() => scrollNodeIntoView(state.selectedId));
+    }
+
+    function importJson() {
+      try {
+        const parsed = JSON.parse(els.exportBox.value);
+        applyLayoutData(parsed);
+        state.exportMode = "json";
+      } catch (error) {
+        window.alert("JSON 无法导入。");
+      }
+    }
+
+    function importDataFile(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          applyLayoutData(JSON.parse(String(reader.result || "")));
+          state.exportMode = "json";
+          renderExport();
+          els.saveState.textContent = "已导入 " + file.name;
+        } catch (error) {
+          window.alert("数据文件无法导入。");
+        }
+      };
+      reader.readAsText(file, "utf-8");
+    }
+
+    function downloadDataFile() {
+      const snapshot = getLayoutSnapshot();
+      const blob = new Blob([JSON.stringify(snapshot, null, 2) + "\n"], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = DATA_FILE_NAME;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      els.saveState.textContent = "已生成数据文件下载";
+    }
+
+    function uniquePlaceholderId() {
+      let index = 1;
+      let candidate = "JAP_rework_subject_placeholder_focus_" + index;
+      while (getNode(candidate)) {
+        index += 1;
+        candidate = "JAP_rework_subject_placeholder_focus_" + index;
+      }
+      return candidate;
+    }
+
+    function uniqueId(base, ignoreId = "") {
+      const cleanBase = String(base || "JAP_rework_subject_new_focus").replace(/[^A-Za-z0-9_]/g, "_");
+      let candidate = cleanBase;
+      let index = 2;
+      while (getNode(candidate) && candidate !== ignoreId) {
+        candidate = cleanBase + "_" + index;
+        index += 1;
+      }
+      return candidate;
+    }
+
+    function wouldCreateCycle(childId, parentIds) {
+      const stack = compactIds(Array.isArray(parentIds) ? parentIds : [parentIds]);
+      if (!childId || stack.includes(childId)) return true;
+      const seen = new Set();
+      while (stack.length) {
+        const currentId = stack.pop();
+        if (currentId === childId) return true;
+        if (seen.has(currentId)) continue;
+        seen.add(currentId);
+        const current = getNode(currentId);
+        getParentIds(current).forEach((parentId) => stack.push(parentId));
+      }
+      return false;
+    }
+
+    function applyPickedParent(parentId) {
+      const target = getNode(state.parentPickTargetId);
+      const parent = getNode(parentId);
+      if (!target || !parent) {
+        state.parentPickTargetId = "";
+        save();
+        render();
+        return;
+      }
+      if (target.locked || target.id === parent.id) {
+        window.alert("这个前置会造成无效或循环关系。");
+        return;
+      }
+      const currentParents = getParentIds(target);
+      const nextParents = currentParents.includes(parent.id)
+        ? currentParents.filter((id) => id !== parent.id)
+        : currentParents.concat(parent.id);
+      if (wouldCreateCycle(target.id, nextParents)) {
+        window.alert("这个前置会造成无效或循环关系。");
+        return;
+      }
+      setParentIds(target, nextParents);
+      if (!getPositionReferenceId(target) && nextParents.length) {
+        target.positionReference = nextParents[0];
+      }
+      state.selectedId = target.id;
+      state.parentPickTargetId = target.id;
+      save();
+      render();
+      requestAnimationFrame(() => scrollNodeIntoView(target.id));
+    }
+
+    function applyPickedPositionReference(referenceId) {
+      const target = getNode(state.positionPickTargetId);
+      const reference = getNode(referenceId);
+      if (!target || !reference) {
+        state.positionPickTargetId = "";
+        save();
+        render();
+        return;
+      }
+      if (target.locked || target.id === reference.id) {
+        window.alert("位置参照不能选择节点自身。");
+        return;
+      }
+      target.positionReference = reference.id;
+      state.selectedId = target.id;
+      state.positionPickTargetId = "";
+      save();
+      render();
+      requestAnimationFrame(() => scrollNodeIntoView(target.id));
+    }
+
+    function ensureSelectValue(select, value) {
+      if (!value) return;
+      const exists = Array.from(select.options).some((option) => option.value === value);
+      if (exists) return;
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = "自定义 | " + value;
+      select.appendChild(option);
+    }
+
+    function uniqueTitle(base) {
+      const existing = new Set(state.nodes.map((node) => node.title));
+      let candidate = base;
+      let index = 2;
+      while (existing.has(candidate)) {
+        candidate = base + " " + index;
+        index += 1;
+      }
+      return candidate;
+    }
+
+    function statusLabel(status) {
+      if (status === "scripted") return "已写入";
+      if (status === "review") return "待审";
+      return "规划中";
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/`/g, "&#096;");
+    }
+
+    function onNodePointerDown(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const el = event.currentTarget;
+      const id = el.dataset.id;
+      const node = getNode(id);
+      if (!node) return;
+      if (state.parentPickTargetId || state.positionPickTargetId) return;
+      el.setPointerCapture(event.pointerId);
+      state.selectedId = id;
+      save();
+      els.board.querySelectorAll(".node.selected").forEach((item) => item.classList.remove("selected"));
+      el.classList.add("selected");
+      renderList();
+      renderEditor();
+      renderExport();
+      const start = {
+        pointerX: event.clientX,
+        pointerY: event.clientY,
+        nodeX: Number(node.x),
+        nodeY: Number(node.y)
+      };
+
+      function move(moveEvent) {
+        const dxPx = (moveEvent.clientX - start.pointerX) / state.zoom;
+        const dyPx = (moveEvent.clientY - start.pointerY) / state.zoom;
+        const nextX = snap(start.nodeX + dxPx / GRID_X, els.snapX.value);
+        const nextY = snap(start.nodeY + dyPx / GRID_Y, els.snapY.value);
+        node.x = nextX;
+        node.y = nextY;
+        save();
+        el.style.left = xToPx(Number(node.x)) + "px";
+        el.style.top = yToPx(Number(node.y)) + "px";
+        const footer = el.querySelector(".coords");
+        if (footer) footer.textContent = "x=" + node.x + " y=" + node.y;
+        const relative = getRelativePosition(node);
+        const relFooter = el.querySelector(".rel-coords");
+        if (relFooter) relFooter.textContent = relative.mode === "relative" ? "rel " + relative.x + "," + relative.y : relative.mode === "missing" ? "缺参照" : "root";
+        renderLinks();
+        els.selectionLine.textContent = (node.title || node.id) + " | " + node.id + " | x=" + node.x + " y=" + node.y;
+        els.nodeRelativeInput.value = relative.text;
+        renderLayoutState();
+      }
+
+      function up() {
+        el.releasePointerCapture(event.pointerId);
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerup", up);
+        render();
+      }
+
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerup", up);
+    }
+
+    function bindInputs() {
+      const bindings = [
+        [els.nodeTitleInput, "title", (value) => value],
+        [els.nodeIdInput, "id", (value) => uniqueId(value)],
+        [els.nodeXInput, "x", (value) => Number(value)],
+        [els.nodeYInput, "y", (value) => Number(value)],
+        [els.nodeKindInput, "kind", (value) => value],
+        [els.nodeStatusInput, "status", (value) => value],
+        [els.nodePositionReferenceInput, "positionReference", (value) => value],
+        [els.nodeIconInput, "icon", (value) => value]
+      ];
+
+      bindings.forEach(([input, key, transform]) => {
+        input.addEventListener("change", () => {
+          const node = getNode(state.selectedId);
+          if (!node) return;
+          if (key === "id" && node.locked) return;
+          if ((key === "positionReference" || key === "kind" || key === "status") && node.locked) return;
+          if (key === "id") {
+            const oldId = node.id;
+            const newId = uniqueId(input.value, oldId);
+            node.id = newId;
+            state.nodes.forEach((item) => {
+              setParentIds(item, getParentIds(item).map((parentId) => parentId === oldId ? newId : parentId));
+              if (item.positionReference === oldId) item.positionReference = newId;
+            });
+            state.selectedId = newId;
+          } else if (key === "positionReference") {
+            const referenceId = transform(input.value);
+            if (referenceId === node.id) {
+              window.alert("位置参照不能选择节点自身。");
+            } else {
+              node.positionReference = referenceId;
+            }
+          } else {
+            node[key] = transform(input.value);
+          }
+          state.parentPickTargetId = "";
+          state.positionPickTargetId = "";
+          save();
+          render();
+        });
+      });
+
+      els.nodeParentInput.addEventListener("change", () => {
+        const node = getNode(state.selectedId);
+        if (!node || node.locked) return;
+        const parentIds = Array.from(els.nodeParentInput.selectedOptions).map((option) => option.value);
+        if (wouldCreateCycle(node.id, parentIds)) {
+          window.alert("这个前置会造成循环关系。");
+          render();
+          return;
+        }
+        setParentIds(node, parentIds);
+        if (!getPositionReferenceId(node) && parentIds.length) node.positionReference = parentIds[0];
+        state.parentPickTargetId = "";
+        state.positionPickTargetId = "";
+        save();
+        render();
+      });
+
+      [els.showDrafts, els.showReview, els.showScripted].forEach((input) => {
+        input.addEventListener("change", render);
+      });
+
+      els.nodeSummaryInput.addEventListener("input", () => {
+        const node = getNode(state.selectedId);
+        if (!node) return;
+        node.summary = els.nodeSummaryInput.value;
+        save();
+        renderExport();
+      });
+    }
+
+    function toggleParentPick() {
+      const node = getNode(state.selectedId);
+      if (!node || node.locked) return;
+      state.parentPickTargetId = state.parentPickTargetId === node.id ? "" : node.id;
+      state.positionPickTargetId = "";
+      save();
+      render();
+    }
+
+    function clearSelectedParent() {
+      const node = getNode(state.selectedId);
+      if (!node || node.locked) return;
+      setParentIds(node, []);
+      state.parentPickTargetId = "";
+      state.positionPickTargetId = "";
+      save();
+      render();
+    }
+
+    function togglePositionReferencePick() {
+      const node = getNode(state.selectedId);
+      if (!node || node.locked) return;
+      state.positionPickTargetId = state.positionPickTargetId === node.id ? "" : node.id;
+      state.parentPickTargetId = "";
+      save();
+      render();
+    }
+
+    function clearSelectedPositionReference() {
+      const node = getNode(state.selectedId);
+      if (!node || node.locked) return;
+      node.positionReference = "";
+      state.positionPickTargetId = "";
+      state.parentPickTargetId = "";
+      save();
+      render();
+    }
+
+    function onBoardPointerDown(event) {
+      if (event.target !== els.board) return;
+      event.preventDefault();
+      const start = {
+        pointerX: event.clientX,
+        pointerY: event.clientY,
+        scrollLeft: els.boardWrap.scrollLeft,
+        scrollTop: els.boardWrap.scrollTop,
+        moved: false
+      };
+      els.board.setPointerCapture(event.pointerId);
+      els.boardWrap.classList.add("panning");
+
+      function move(moveEvent) {
+        const dx = moveEvent.clientX - start.pointerX;
+        const dy = moveEvent.clientY - start.pointerY;
+        if (Math.abs(dx) + Math.abs(dy) > 3) start.moved = true;
+        els.boardWrap.scrollLeft = start.scrollLeft - dx;
+        els.boardWrap.scrollTop = start.scrollTop - dy;
+      }
+
+      function up() {
+        els.board.releasePointerCapture(event.pointerId);
+        els.board.removeEventListener("pointermove", move);
+        els.board.removeEventListener("pointerup", up);
+        els.boardWrap.classList.remove("panning");
+        state.suppressBoardClick = start.moved;
+        setTimeout(() => {
+          state.suppressBoardClick = false;
+        }, 0);
+      }
+
+      els.board.addEventListener("pointermove", move);
+      els.board.addEventListener("pointerup", up);
+    }
+
+    function fitToRoot() {
+      const root = getNode("JAP_rework_co_prosperity_sphere_start") || state.nodes[0];
+      if (!root) return;
+      const left = Math.max(0, xToPx(Number(root.x)) - 260);
+      const top = Math.max(0, yToPx(Number(root.y)) - 120);
+      els.boardWrap.scrollTo({ left: left * state.zoom, top: top * state.zoom, behavior: "smooth" });
+    }
+
+    function changeZoom(delta) {
+      state.zoom = Math.min(1.6, Math.max(0.55, Math.round((state.zoom + delta) * 20) / 20));
+      save();
+      render();
+    }
+
+    document.getElementById("addNodeBtn").addEventListener("click", addNodeFromTemplate);
+    els.newTitleInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        addNodeFromTemplate();
+      }
+    });
+    document.getElementById("duplicateBtn").addEventListener("click", duplicateSelected);
+    document.getElementById("deleteBtn").addEventListener("click", deleteSelected);
+    els.pickParentBtn.addEventListener("click", toggleParentPick);
+    els.clearParentBtn.addEventListener("click", clearSelectedParent);
+    els.pickPositionReferenceBtn.addEventListener("click", togglePositionReferencePick);
+    els.clearPositionReferenceBtn.addEventListener("click", clearSelectedPositionReference);
+    document.getElementById("resetBtn").addEventListener("click", resetLayout);
+    document.getElementById("fitBtn").addEventListener("click", fitToRoot);
+    document.getElementById("zoomInBtn").addEventListener("click", () => changeZoom(0.1));
+    document.getElementById("zoomOutBtn").addEventListener("click", () => changeZoom(-0.1));
+    document.getElementById("exportScriptBtn").addEventListener("click", () => {
+      state.exportMode = "script";
+      renderExport();
+    });
+    document.getElementById("exportJsonBtn").addEventListener("click", () => {
+      state.exportMode = "json";
+      renderExport();
+    });
+    document.getElementById("copyExportBtn").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(els.exportBox.value);
+      els.saveState.textContent = "已复制导出内容";
+    });
+    document.getElementById("importJsonBtn").addEventListener("click", importJson);
+    document.getElementById("downloadDataFileBtn").addEventListener("click", downloadDataFile);
+    document.getElementById("importDataFileBtn").addEventListener("click", () => {
+      els.dataFileInput.value = "";
+      els.dataFileInput.click();
+    });
+    els.dataFileInput.addEventListener("change", () => importDataFile(els.dataFileInput.files[0]));
+    els.board.addEventListener("pointerdown", onBoardPointerDown);
+    els.board.addEventListener("click", (event) => {
+      if (state.suppressBoardClick) return;
+      if (event.target !== els.board) return;
+      state.selectedId = "";
+      state.parentPickTargetId = "";
+      state.positionPickTargetId = "";
+      save();
+      render();
+    });
+
+    load();
+    renderTemplates();
+    bindInputs();
+    if (!state.selectedId && state.nodes[0]) state.selectedId = state.nodes[0].id;
+    render();
+    requestAnimationFrame(fitToRoot);
+  </script>
+</body>
+</html>

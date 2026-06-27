@@ -9,7 +9,7 @@
 | 阶段 | 入口 | 触发条件 | 内容 |
 | --- | --- | --- | --- |
 | 60 天循环启动前 | `JAP_ai_opening_equipment_resupply` | 满足 `Rance_is_jap_ai`、开局步兵/实验装甲阶段、陆空动态补给规则开启 | 填线步兵包 + 100 轻战 + 50 CAS |
-| 60 天陆空循环 | `JAP_ai_extra_equipment_grant_cycle_mission` | 满足 `Rance_is_jap_ai`、陆空动态补给规则开启 | 按动态最终倍率循环结算陆军额外装备 + 空军额外装备 |
+| 60 天陆空循环 | `JAP_ai_extra_equipment_grant_cycle_mission` | 满足 `Rance_is_jap_ai`、陆空动态补给规则开启 | 按动态最终倍率循环结算陆军 1:1 维护装备 + 免费部队 + 空军额外装备 |
 
 陆空动态补给规则：
 
@@ -31,7 +31,8 @@ has_game_rule = {
 | Boss 模式与陆空动态补给规则 | `common/game_rules/000_Rance_game_rules.txt`、`localisation/simp_chinese/Rance_game_rules_l_simp_chinese.yml` |
 | 开局补给决议 | `common/decisions/JAP_rework_ai_decision.txt` |
 | 60 天陆空循环接入 | `common/decisions/JAP_rework_equipment_design_decision.txt` |
-| 单装备效果、包组、倍率入口 | `common/scripted_effects/JAP_equipment_scripted_effects.txt` |
+| 陆军装备包与循环入口 | `common/scripted_effects/JAP_equipment_scripted_effects.txt` |
+| 陆军免费部队刷师效果 | `common/scripted_effects/JAP_templates_scripted_effects.txt` |
 | 动态型号后缀 | `common/scripted_localisation/JAP_equipment_scripted_loc.txt` |
 | 决议名称与说明 | `localisation/simp_chinese/JAP_decisions_l_simp_chinese.yml` |
 
@@ -81,6 +82,8 @@ if = {
 }
 hidden_effect = { activate_mission = JAP_ai_extra_equipment_grant_cycle_mission }
 ```
+
+陆军入口 `JAP_ai_extra_equipment_grant_cycle` 内部按 `JAP_ai_dynamic_final_multiplier` 循环。每个动态 tick 先调用 `JAP_ai_extra_equipment_grant_cycle_by_difficulty` 发本 tick 免费部队的 1:1 维护装备，再调用 `JAP_ai_extra_units_grant_cycle_by_difficulty` 刷出对应部队。
 
 `JAP_ai_land_production_template_suppression_cycle_mission` 仍是 45 天编制检查循环，但只维护训练抑制与扩编意愿，不再调用陆空额外装备。
 
@@ -139,8 +142,8 @@ meta_effect = {
 - `GetJAP_cr_*` 只返回装备后缀，例如 `1/2/3/4/5`。
 - `type = *_[...]` 拼出最终装备 key，例如 `small_plane_airframe_3`。
 - 固定单型号装备直接写具体 key，例如 `support_equipment_1`、`mothership_equipment_0`。
-- `amount` 读取国家变量；不要在效果里写死数量。
-- `producer = ROOT` 沿用现有额外装备发放写法。
+- 通用、开局、应急和空军 cycle 效果的 `amount` 读取国家变量；陆军 60 天免费部队 1:1 维护包当前使用固定数值，避免旧存档缺新增变量导致发放为 0。
+- `producer` 沿用所在效果的既有写法；陆军 scripted effect 多用 `producer = JAP`，决议上下文可见 `producer = ROOT`。
 
 如果新增动态型号装备，需要同时确认：
 
@@ -166,9 +169,9 @@ meta_effect = {
 | `JAP_ai_extra_equipment_grant_anti_tank_equipment_unit` | `JAP_ai_extra_equipment_anti_tank_equipment_unit_amount` | 400 |
 | `JAP_ai_extra_equipment_grant_anti_air_equipment_unit` | `JAP_ai_extra_equipment_anti_air_equipment_unit_amount` | 200 |
 
-### 60 天循环专用填线装备
+### 旧 60 天循环变量
 
-这些效果只给 `JAP_ai_extra_equipment_grant_cycle` 的填线倍率入口使用；开局补给和紧急补给仍走上面的原始单装备效果。
+以下变量和小效果仍保留在代码中，供旧通用 helper 或未来回滚参考；当前陆军 60 天主循环已不再用它们作为主入口数值。当前主循环改用按模板 1:1 维护的固定数值包，避免旧存档缺新增变量。
 
 | 装备效果 | 数量变量 | 数量 |
 | --- | --- | ---: |
@@ -178,7 +181,7 @@ meta_effect = {
 | `JAP_ai_extra_equipment_grant_cycle_anti_tank_equipment_unit` | `JAP_ai_extra_equipment_cycle_anti_tank_equipment_unit_amount` | 100 |
 | `JAP_ai_extra_equipment_grant_cycle_anti_air_equipment_unit` | `JAP_ai_extra_equipment_cycle_anti_air_equipment_unit_amount` | 50 |
 
-### 主战装备
+### 通用主战装备变量
 
 | 装备效果 | 数量变量 | 数量 |
 | --- | --- | ---: |
@@ -200,45 +203,63 @@ meta_effect = {
 | `JAP_ai_extra_equipment_grant_modern_tank_artillery_chassis_unit` | `JAP_ai_extra_equipment_modern_tank_artillery_chassis_unit_amount` | 125 |
 | `JAP_ai_extra_equipment_grant_modern_tank_aa_chassis_unit` | `JAP_ai_extra_equipment_modern_tank_aa_chassis_unit_amount` | 125 |
 
-## 陆军包组和启用 flag
+这些通用主战变量仍供旧通用主战包或非主循环复用，不代表当前 60 天免费部队维护口径。
 
-陆军额外装备保留编制包组。填线包始终发放；主战包组由持久 flag 启用，flag 一旦设置不需要随模板阶段替换清除。
+## 陆军 60 天维护包和刷师
 
-| 包组效果 | 启用 flag | 内容 |
+当前陆军主循环不再按旧的 `all_main_packages + main/line multiplier` 扫描已启用装备族，而是按本 tick 免费刷出的模板直接发对应维护包。装备包在 `common/scripted_effects/JAP_equipment_scripted_effects.txt`，刷师效果在 `common/scripted_effects/JAP_templates_scripted_effects.txt`。
+
+### 维护包口径
+
+| 包 | 效果 | 口径 |
 | --- | --- | --- |
-| `JAP_ai_extra_equipment_grant_line_infantry_package` | 无 | 开局/非主循环填线包：步兵装备、支援装备 x2、火炮、反坦、防空 |
-| `JAP_ai_extra_equipment_grant_cycle_line_infantry_package` | 无 | 60 天循环专用填线包：削弱后的步兵装备、支援装备 x2、火炮、反坦、防空 |
-| `JAP_ai_extra_equipment_grant_infantry_tank_package` | `JAP_ai_extra_equipment_infantry_tank_package_started` | 公共包 + 中坦系列 + 重坦歼/重防空支援兜底 |
-| `JAP_ai_extra_equipment_grant_mechanized_tank_package` | `JAP_ai_extra_equipment_mechanized_tank_package_started` | 公共包 + 机械化 + 中坦系列 + 重坦歼/重防空支援 |
-| `JAP_ai_extra_equipment_grant_amphibious_medium_package` | `JAP_ai_extra_equipment_amphibious_medium_package_started` | 公共包 + 两栖机械化 + 两栖中坦 + 中坦衍生 + 重坦歼/重防空支援 |
-| `JAP_ai_extra_equipment_grant_modern_tank_package` | `JAP_ai_extra_equipment_modern_tank_package_started` | 公共包 + 两栖机械化 + 现代坦克系列 |
-| `JAP_ai_extra_equipment_grant_heavy_tank_package` | `JAP_ai_extra_equipment_heavy_tank_package_started` | 公共包 + 机械化 + 重坦系列 |
-| `JAP_ai_extra_equipment_grant_heavy_amphibious_package` | `JAP_ai_extra_equipment_heavy_amphibious_package_started` | 公共包 + 两栖机械化 + 重型两栖 + 重坦衍生 |
-| `JAP_ai_extra_equipment_grant_land_cruiser_package` | `JAP_ai_extra_equipment_land_cruiser_package_started` | 陆巡底盘 |
+| 步兵 x2 | `JAP_ai_extra_equipment_grant_cycle_line_infantry_package` | `日本步兵师` x2 |
+| 特种步坦 | `JAP_ai_extra_equipment_grant_cycle_special_infantry_tank_package` | `日本特种步坦师` x1 |
+| 机坦 | `JAP_ai_extra_equipment_grant_cycle_mechanized_tank_package` | `日本机坦师` x1 |
+| 两栖机坦 | `JAP_ai_extra_equipment_grant_cycle_amphibious_mechanized_package` | `日本两栖机坦师` x1 |
+| 重两栖 | `JAP_ai_extra_equipment_grant_cycle_heavy_amphibious_mechanized_package` | `日本两栖重机坦师` x1 |
+| 陆巡附加 | `JAP_ai_extra_equipment_grant_cycle_land_cruiser_amphibious_package` | `日本陆巡两栖重机坦师` x1 完整包 |
+| 现代附加 | `JAP_ai_extra_equipment_grant_cycle_marine_modern_mechanized_tank_package` | `日本海陆现代机坦师` x1 完整包 |
 
-这些 flag 在 `common/decisions/JAP_rework_equipment_design_decision.txt` 的对应 AI 编制创建决议中设置。
+陆巡附加包和现代附加包都是完整模板维护包，不是只补陆巡或现代坦克底盘。
 
-陆军单装备效果内部还会检查对应 `JAP_has_cr_*` 设计 flag；缺少该装备设计时，只跳过该单项发放，不阻断同一包组内的其他装备。
+常规装备固定数值：
 
-## 陆军难度倍率
+| 包 | 步兵装备 | 支援 | 火炮 | 反坦 | 防空 | 摩托 | 机械化 | 两栖机械化 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 步兵 x2 | 5000 | 250 | 200 | 125 | 100 | 100 | 0 | 0 |
+| 特种步坦 | 1600 | 80 | 0 | 0 | 0 | 25 | 0 | 0 |
+| 机坦 | 850 | 80 | 0 | 0 | 0 | 25 | 350 | 0 |
+| 两栖机坦 | 850 | 80 | 0 | 0 | 0 | 25 | 0 | 400 |
+| 重两栖 | 1000 | 80 | 0 | 0 | 0 | 25 | 0 | 450 |
+| 陆巡附加 | 1000 | 50 | 0 | 0 | 0 | 0 | 0 | 450 |
+| 现代附加 | 1000 | 80 | 0 | 0 | 0 | 25 | 0 | 450 |
 
-`JAP_ai_extra_equipment_grant_cycle_by_difficulty` 是单轮难度包，使用精确难度触发器，不使用 `Rance_nd_more_than_*` 比较型触发器。外层 `JAP_ai_extra_equipment_grant_cycle` 按 `JAP_ai_dynamic_final_multiplier` 循环调用该单轮包。
+装甲与特殊装备固定数值：
 
-| 难度 | 主力包组调用倍率 | 填线步兵包调用倍率 |
-| --- | ---: | ---: |
-| `EASY` | 1 | 1 |
-| `NORMAL` | 2 | 2 |
-| `HARD` | 2 | 2 |
-| `LUNATIC` | 1 | 3 |
-| `EXTRA` | 2 | 3 |
-| `PHANTASM` | 2 | 3 |
+| 包 | 主要补给 |
+| --- | --- |
+| 特种步坦 | 中坦 300、中坦歼 150、中自火 10、中防空 10、重坦歼 10、重防空 10、中喷火 15、装甲支援车 30、直升机 50 |
+| 机坦 | 中坦 300、中坦歼 150、中自火 10、中防空 10、重坦歼 10、重防空 10、中喷火 15、装甲支援车 30、直升机 50 |
+| 两栖机坦 | 两栖中坦 300、中坦歼 150、中自火 10、中防空 10、重坦歼 10、重防空 10、中喷火 15、装甲支援车 30、直升机 50 |
+| 重两栖 | 两栖重坦 400、重坦歼 20、重自火 10、重防空 20、中喷火 15、装甲支援车 30、直升机 50 |
+| 陆巡附加 | 两栖重坦 400、重坦歼 20、重自火 10、重防空 20、中喷火 15、装甲支援车 30、直升机 40、陆巡 1 |
+| 现代附加 | 现代坦克 450、现代坦歼 20、现代自火 10、现代防空 20、中喷火 15、装甲支援车 30、直升机 50 |
 
-说明：
+### 难度调度
 
-- 主力包组调用倍率作用于已启用的主战编制包组。
-- 填线倍率作用于 `JAP_ai_extra_equipment_grant_cycle_line_infantry_package`。
-- 高难度会启用更多装备族，因此“装备族数量增加”本身也是动态难度的一部分。
-- 动态最终倍率在上述单轮难度包外层生效；开局补给和应急炮兵类补给不受该倍率影响。
+`JAP_ai_extra_equipment_grant_cycle_by_difficulty` 和 `JAP_ai_extra_units_grant_cycle_by_difficulty` 使用同一难度表。外层 `JAP_ai_extra_equipment_grant_cycle` 按 `JAP_ai_dynamic_final_multiplier` 循环调用，因此和平、战争、投降进度和 Boss 模式会同步放大装备包与刷师数量。
+
+| 难度 | 步兵 x2 | 特种步坦 | 机坦 | 两栖机坦 | 重两栖 | 陆巡附加 | 现代附加 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `EASY` | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `NORMAL` | 1 | 1 | 1 | 0 | 0 | 若模板可用 x2 | 若模板可用 x2 |
+| `HARD` | 1 | 1 | 0 | 2 | 0 | 若模板可用 x2 | 若模板可用 x2 |
+| `LUNATIC` | 1 | 1 | 0 | 0 | 3 | 若模板可用 x2 | 若模板可用 x2 |
+| `EXTRA` | 1 | 1 | 0 | 0 | 4 | 若模板可用 x2 | 若模板可用 x2 |
+| `PHANTASM` | 1 | 1 | 0 | 0 | 5 | 若模板可用 x2 | 若模板可用 x2 |
+
+刷师效果统一在模板存在时执行；常规首都刷师不使用 `allow_spawning_on_enemy_provs = yes`。实装沿用项目既有 `capital_scope`、`owner = prev`、`start_equipment_factor = 1.0` 写法。
 
 ## 空军数量变量
 
@@ -301,19 +322,20 @@ meta_effect = {
 
 ### 调整数量
 
-1. 若调整 60 天主循环，只改 `history/countries/JAP - Japan.txt` 中对应 `JAP_ai_extra_air_equipment_cycle_*_amount` 或陆军 `*_cycle_*_amount` 变量。
-2. 若调整开局补给、应急补给、或未来非主循环复用包，才改对应通用 `*_amount` 变量。
-3. 确认该变量仍被 `common/scripted_effects/JAP_equipment_scripted_effects.txt` 引用。
-4. 更新本文表格。
+1. 若调整陆军 60 天免费部队维护包，优先改 `JAP_ai_extra_equipment_grant_cycle_*_package` 中的固定数值，并同步本文件。原始设计计划已归档到 `Reference/ai_extra_equipment_units_plan_archive.md`；若变动影响正式版 overlay，另行更新或新增 `release_maintenance/` 同步记录。
+2. 若需要旧存档外的热调能力，再把对应固定数值拆成 `JAP_ai_extra_equipment_cycle_*_amount` 变量，并在 `history/countries/JAP - Japan.txt` 初始化。
+3. 若调整空军 60 天主循环，只改 `history/countries/JAP - Japan.txt` 中对应 `JAP_ai_extra_air_equipment_cycle_*_amount` 变量。
+4. 若调整开局补给、应急补给、或未来非主循环复用包，才改对应通用 `*_amount` 变量。
+5. 确认被调整的变量或固定数值仍被 `common/scripted_effects/JAP_equipment_scripted_effects.txt` 引用。
+6. 更新本文表格。
 
 ### 新增陆军装备
 
-1. 在历史文件新增数量变量。
-2. 在 `JAP_equipment_scripted_effects.txt` 新增单装备效果。
+1. 判断装备是否只服务 60 天免费部队维护包。若是，优先直接接入对应 `JAP_ai_extra_equipment_grant_cycle_*_package`。
+2. 若装备会被开局、应急或非主循环复用，再在历史文件新增数量变量并新增单装备效果。
 3. 若装备型号会变化，补或复用 `GetJAP_cr_*` 动态后缀。
-4. 把单装备效果接入合适的陆军包组。
-5. 若需要新包组，新增持久 flag，并在对应 AI 编制创建决议中设置。
-6. 更新本文的数量表和包组表。
+4. 把装备接入合适的陆军维护包，并确认刷师效果的模板口径同步。
+5. 更新本文的数量表和包组表。
 
 ### 新增空军装备
 
@@ -325,26 +347,29 @@ meta_effect = {
 6. 如果是后期特殊装备，在对应总包内加设计 flag 门槛。
 7. 更新本文的空军数量表和门槛说明。
 
-### 改难度倍率
+### 改难度调度
 
 陆军改：
 
 - `JAP_ai_extra_equipment_grant_cycle`
-- `JAP_ai_extra_equipment_grant_main_multiplier_*`
-- `JAP_ai_extra_equipment_grant_line_infantry_multiplier_*`
+- `JAP_ai_extra_equipment_grant_cycle_by_difficulty`
+- `JAP_ai_extra_units_grant_cycle_by_difficulty`
+- 对应 `JAP_ai_extra_equipment_grant_cycle_armor_*_package`
+- 对应 `JAP_ai_extra_units_spawn_armor_*`
 
 空军改：
 
 - `JAP_ai_extra_air_equipment_grant_cycle`
 - `JAP_ai_extra_air_equipment_grant_multiplier_*`
 
-改完同步更新本文的陆军/空军倍率表。
+改完同步更新本文的陆军/空军调度表。
 
 ## 快速检查命令
 
 ```powershell
 rg -n "JAP_ai_opening_equipment_resupply|JAP_ai_opening_air_equipment" common history localisation Reference
 rg -n "rance_japan_ai_land_air_dynamic_supply|JAP_ai_extra_equipment_grant_loop_start|JAP_ai_extra_equipment_grant_cycle_mission|JAP_ai_extra_equipment_grant_cycle|JAP_ai_extra_air_equipment_grant_cycle" common/decisions common/scripted_effects common/game_rules
+rg -n "JAP_ai_extra_units_grant_cycle_by_difficulty|JAP_ai_extra_units_spawn_armor|JAP_ai_extra_equipment_grant_cycle_armor" common/scripted_effects Reference PLAN
 rg -n "JAP_ai_extra_equipment_.*_amount|JAP_ai_extra_air_equipment_.*_amount|JAP_ai_opening_air_equipment_.*_amount" history common/scripted_effects
 rg -n "GetJAP_cr_.*plane|JAP_has_cr_.*plane|JAP_has_cr_mothership|JAP_has_cr_strat_bomber" common/scripted_localisation common/scripted_effects common/decisions history
 ```
@@ -352,6 +377,7 @@ rg -n "GetJAP_cr_.*plane|JAP_has_cr_.*plane|JAP_has_cr_mothership|JAP_has_cr_str
 重点看：
 
 - 数量变量是否全部初始化并被效果引用。
+- 陆军 60 天维护包与刷师调度是否仍是一张表，特别是陆巡/现代附加槽是否同步 x2。
 - `meta_effect` 拼接出来的装备 key 是否存在。
 - 开局补给是否仍只在陆空动态补给规则开启、且处于开局步兵/实验装甲阶段时生效。
 - 45 天编制检查 mission 是否不再调用陆空发放。

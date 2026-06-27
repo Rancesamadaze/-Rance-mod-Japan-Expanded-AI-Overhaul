@@ -867,6 +867,258 @@ JAP_start_land_cruiser_marine_modern_mechanized_tanks_5 = {
         }
     }
 }
+JAP_ai_extra_units_spawn_infantry_common = {
+    if = {
+        limit = { has_template = "Japanese Infantry Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Infantry Division\" start_experience_factor = 0.30 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+}
+
+JAP_ai_extra_units_spawn_armor_normal = {
+    if = {
+        limit = { has_template = "Japanese Special Infantry-Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Special Infantry-Tank Division\" start_experience_factor = 0.40 start_equipment_factor = 1.0"
+                owner = prev
+                count = 1
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Mechanized Tank Division\" start_experience_factor = 0.40 start_equipment_factor = 1.0"
+                owner = prev
+                count = 1
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Land Cruiser Heavy Amphibious Mechanized Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Land Cruiser Heavy Amphibious Mechanized Division\" start_experience_factor = 0.40 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Marine Modern Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Marine Modern Mechanized Tank Division\" start_experience_factor = 0.40 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+}
+
+JAP_ai_extra_units_spawn_armor_hard = {
+    if = {
+        limit = { has_template = "Japanese Special Infantry-Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Special Infantry-Tank Division\" start_experience_factor = 0.55 start_equipment_factor = 1.0"
+                owner = prev
+                count = 1
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Amphibious Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Amphibious Mechanized Tank Division\" start_experience_factor = 0.55 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Land Cruiser Heavy Amphibious Mechanized Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Land Cruiser Heavy Amphibious Mechanized Division\" start_experience_factor = 0.55 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Marine Modern Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Marine Modern Mechanized Tank Division\" start_experience_factor = 0.55 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+}
+
+JAP_ai_extra_units_spawn_armor_lunatic = {
+    if = {
+        limit = { has_template = "Japanese Special Infantry-Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Special Infantry-Tank Division\" start_experience_factor = 0.70 start_equipment_factor = 1.0"
+                owner = prev
+                count = 1
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Heavy Amphibious Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Heavy Amphibious Mechanized Tank Division\" start_experience_factor = 0.70 start_equipment_factor = 1.0"
+                owner = prev
+                count = 3
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Land Cruiser Heavy Amphibious Mechanized Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Land Cruiser Heavy Amphibious Mechanized Division\" start_experience_factor = 0.70 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Marine Modern Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Marine Modern Mechanized Tank Division\" start_experience_factor = 0.70 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+}
+
+JAP_ai_extra_units_spawn_armor_extra = {
+    if = {
+        limit = { has_template = "Japanese Special Infantry-Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Special Infantry-Tank Division\" start_experience_factor = 0.85 start_equipment_factor = 1.0"
+                owner = prev
+                count = 1
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Heavy Amphibious Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Heavy Amphibious Mechanized Tank Division\" start_experience_factor = 0.85 start_equipment_factor = 1.0"
+                owner = prev
+                count = 4
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Land Cruiser Heavy Amphibious Mechanized Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Land Cruiser Heavy Amphibious Mechanized Division\" start_experience_factor = 0.85 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Marine Modern Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Marine Modern Mechanized Tank Division\" start_experience_factor = 0.85 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+}
+
+JAP_ai_extra_units_spawn_armor_phantasm = {
+    if = {
+        limit = { has_template = "Japanese Special Infantry-Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Special Infantry-Tank Division\" start_experience_factor = 1.00 start_equipment_factor = 1.0"
+                owner = prev
+                count = 1
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Heavy Amphibious Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Heavy Amphibious Mechanized Tank Division\" start_experience_factor = 1.00 start_equipment_factor = 1.0"
+                owner = prev
+                count = 5
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Land Cruiser Heavy Amphibious Mechanized Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Land Cruiser Heavy Amphibious Mechanized Division\" start_experience_factor = 1.00 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+    if = {
+        limit = { has_template = "Japanese Marine Modern Mechanized Tank Division" }
+        capital_scope = {
+            create_unit = {
+                division = "division_template = \"Japanese Marine Modern Mechanized Tank Division\" start_experience_factor = 1.00 start_equipment_factor = 1.0"
+                owner = prev
+                count = 2
+            }
+        }
+    }
+}
+
+JAP_ai_extra_units_grant_cycle_by_difficulty = {
+    JAP_ai_extra_units_spawn_infantry_common = yes
+    if = {
+        limit = { Rance_nd_is_normal = yes }
+        JAP_ai_extra_units_spawn_armor_normal = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_hard = yes }
+        JAP_ai_extra_units_spawn_armor_hard = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_lunatic = yes }
+        JAP_ai_extra_units_spawn_armor_lunatic = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_extra = yes }
+        JAP_ai_extra_units_spawn_armor_extra = yes
+    }
+    else_if = {
+        limit = { Rance_nd_is_phantasm = yes }
+        JAP_ai_extra_units_spawn_armor_phantasm = yes
+    }
+}
+
 JAP_maintainance_equipment_common = {
     add_equipment_to_stockpile = {
         type = infantry_equipment

@@ -25,6 +25,178 @@ JAP_rework_debug_decisions = {
 		}
 	}
 
+	JAP_debug_read_infantry_equipment_ai_counts = {
+		icon = generic_military
+		priority = 995
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_read_infantry_equipment_ai_counts_tt
+			hidden_effect = {
+				set_variable = {
+					var = JAP_debug_infantry_equipment_num_equipment
+					value = num_equipment@infantry_equipment
+				}
+				set_variable = {
+					var = JAP_debug_infantry_equipment_in_armies_k
+					value = num_equipment_in_armies_k@infantry_equipment
+				}
+				set_variable = {
+					var = JAP_debug_infantry_equipment_target_in_armies_k
+					value = num_target_equipment_in_armies_k@infantry_equipment
+				}
+				set_variable = {
+					var = JAP_debug_infantry_equipment_replenishment_ratio
+					value = JAP_debug_infantry_equipment_num_equipment
+				}
+				divide_variable = {
+					var = JAP_debug_infantry_equipment_replenishment_ratio
+					value = 1000
+				}
+				add_to_variable = {
+					var = JAP_debug_infantry_equipment_replenishment_ratio
+					value = JAP_debug_infantry_equipment_in_armies_k
+				}
+				set_variable = {
+					var = JAP_debug_infantry_equipment_replenishment_denom
+					value = JAP_debug_infantry_equipment_target_in_armies_k
+				}
+				add_to_variable = {
+					var = JAP_debug_infantry_equipment_replenishment_denom
+					value = 0.01
+				}
+				divide_variable = {
+					var = JAP_debug_infantry_equipment_replenishment_ratio
+					value = JAP_debug_infantry_equipment_replenishment_denom
+				}
+				if = {
+					limit = {
+						stockpile_ratio = {
+							archetype = infantry_equipment
+							ratio < 1
+						}
+					}
+					set_variable = {
+						var = JAP_debug_infantry_equipment_stockpile_ratio_lt_1
+						value = 1
+					}
+				}
+				else = {
+					set_variable = {
+						var = JAP_debug_infantry_equipment_stockpile_ratio_lt_1
+						value = 0
+					}
+				}
+				if = {
+					limit = {
+						has_equipment = { infantry_equipment < -100 }
+					}
+					set_variable = {
+						var = JAP_debug_infantry_equipment_has_equipment_lt_minus_100
+						value = 1
+					}
+				}
+				else = {
+					set_variable = {
+						var = JAP_debug_infantry_equipment_has_equipment_lt_minus_100
+						value = 0
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { JAP_debug_infantry_equipment_num_equipment < -100 }
+					}
+					set_variable = {
+						var = JAP_debug_infantry_equipment_num_equipment_lt_minus_100
+						value = 1
+					}
+				}
+				else = {
+					set_variable = {
+						var = JAP_debug_infantry_equipment_num_equipment_lt_minus_100
+						value = 0
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_add_10000_infantry_equipment = {
+		icon = generic_military
+		priority = 994
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_add_10000_infantry_equipment_tt
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 10000
+				producer = ROOT
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_debug_damage_capital_state_army_units = {
+		icon = generic_military
+		priority = 993
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_debug_damage_capital_state_army_units_tt
+			capital_scope = {
+				damage_units = {
+					state = THIS
+					limit = { tag = ROOT }
+					damage = 0.75
+					org_damage = 0.75
+					str_damage = 0.75
+					ratio = yes
+					army = yes
+					navy = no
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	JAP_debug_complete_new_order_in_east_asia = {
 		icon = generic_political_address
 		priority = 999

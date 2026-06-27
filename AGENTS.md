@@ -48,6 +48,11 @@ mixed into the outer repository.
 ## Editing Rules
 
 - Prefer live file inspection over memory or assumptions.
+- When a request is read-only and asks to investigate or report on a complex
+  vanilla/mod system, prefer spawning sub-agents for well-bounded parallel
+  evidence gathering when available. Keep each sub-agent read-only, assign
+  non-overlapping file or mechanic slices, and have the main agent verify and
+  synthesize conclusions from live files.
 - Preserve each target file's current encoding and line endings.
 - For `Japan_rework`, follow its root `AGENTS.md` and any deeper directory
   `AGENTS.md` before editing.

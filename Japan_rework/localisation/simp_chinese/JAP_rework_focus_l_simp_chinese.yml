@@ -1,4 +1,7 @@
 ﻿l_simp_chinese:
+ JAP_rework_co_prosperity_sphere_start:0 "大东亚共荣圈"
+ JAP_rework_co_prosperity_sphere_start_desc:0 "我们必须在亚洲建立一个联合体，实现经济自给自足与成员国间的合作，并抵御西方帝国主义与苏联共产主义的干涉。当然，这也将成为我们在亚洲实行霸权统治的宣传工具。"
+
  # --- focus tooltips ---
  Jap_rance_irago_custom_tt:0 "[Getranceirago]"
  JAP_irago_artillery:0 "获得伊良湖实验火炮"

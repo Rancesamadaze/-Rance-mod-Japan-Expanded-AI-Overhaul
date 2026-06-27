@@ -1,0 +1,260 @@
+joint_focus = {
+	id = JAP_rework_co_prosperity_sphere_start
+	icon = GFX_focus_JAP_greater_east_asian_co_properity_sphere
+	x = 40
+	y = 0
+
+	# Keep the Japan entry roughly 32 columns to the right of JAP_the_imperial_defense_plan.
+	offset = {
+		x = 70
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_sea_purge_the_kodoha_faction
+			has_dlc = "No Compromise, No Surrender"
+		}
+	}
+	offset = {
+		x = 86
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+		}
+	}
+	offset = {
+		x = 66
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_okadas_military_purge_speech
+			NOT = {
+				has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
+				has_completed_focus = JAP_organize_a_general_election
+			}
+		}
+	}
+	offset = {
+		x = 124
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
+		}
+	}
+	offset = {
+		x = 124
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_organize_a_general_election
+		}
+	}
+	offset = {
+		x = 78
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_support_the_kodoha_faction
+		}
+	}
+	offset = {
+		x = 73
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_strengthen_civilian_government
+		}
+	}
+	offset = {
+		x = 75
+		y = 0
+		trigger = {
+			tag = JAP
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = JAP_the_unthinkable_option
+		}
+	}
+	offset = {
+		x = 128
+		y = 0
+		trigger = {
+			tag = JAP
+			OR = {
+				NOT = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					OR = {
+						AND = {
+							has_dlc = "No Compromise, No Surrender"
+							has_completed_focus = JAP_sea_purge_the_kodoha_faction
+						}
+						has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+						has_completed_focus = JAP_okadas_military_purge_speech
+						has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
+						has_completed_focus = JAP_organize_a_general_election
+						has_completed_focus = JAP_support_the_kodoha_faction
+						has_completed_focus = JAP_strengthen_civilian_government
+						has_completed_focus = JAP_the_unthinkable_option
+					}
+				}
+			}
+		}
+	}
+	cost = 5
+	available_if_capitulated = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
+	allow_branch = {
+		OR = {
+			JAP_rework_is_japanese_special_subject = yes
+			AND = {
+				tag = JAP
+				IF = {
+					limit = {
+						has_game_rule = {
+							rule = obsolete_focus_branches_visibility
+							option = HIDE
+						}
+					}
+					NOT = {
+						has_completed_focus = JAP_the_unthinkable_option
+						has_completed_focus = JAP_support_the_kodoha_faction
+						has_completed_focus = JAP_strengthen_civilian_government
+						has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors
+						has_completed_focus = JAP_okadas_military_purge_speech
+						has_completed_focus = JAP_a_red_sun_rises_for_a_new_era
+						has_completed_focus = JAP_organize_a_general_election
+					}
+				}
+			}
+		}
+	}
+	available = {
+		tag = JAP
+		has_completed_focus = JAP_new_order_in_east_asia
+		has_completed_focus = JAP_imperial_rule_assistance_association
+	}
+	joint_trigger = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward_joint_originator = {
+		if = {
+			limit = { tag = JAP }
+			hidden_effect = {
+				if = {
+					limit = { tag = JAP }
+					JAP_log_completed_focus_order = yes
+					log = "[JAP FOCUS ORDER] [?JAP_completed_focus_order_index|0] [GetDateText] JAP_rework_co_prosperity_sphere_start"
+				}
+			}
+			hidden_effect = {
+				set_rule = { can_create_factions = yes }
+			}
+			add_political_power = 75
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_unlock_greater_east_asia_ministry_decisions_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			JAP_add_or_modify_east_asia_co_prosperity_sphere = yes
+			add_to_variable = { JAP_east_asia_co_prosperity_sphere_autonomy_manpower_share_from_subjects = 0.05 tooltip = autonomy_manpower_share_from_subjects_tt }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction_from_template = faction_template_geacps_faction
+			}
+			ELSE_IF = {
+				limit = {
+					is_faction_leader = yes
+				}
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					set_faction_manifest = faction_manifest_strategic_resource_control
+					add_faction_goal_slot = {
+						category = medium_term
+						value = 1
+					}
+					add_faction_goal_slot = {
+						category = long_term
+						value = 1
+					}
+					add_faction_goal = faction_goal_secure_the_oil_supply
+					add_faction_goal = faction_goal_war_on_communism_in_asia
+					set_faction_rule = joining_rule_asia_pacific_ocenania_only
+					set_faction_rule = faction_peace_rule_puppeting_focus
+				}
+				set_faction_name = JAP_greater_east_asian_co_prosperity_sphere
+			}
+			ELSE_IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				add_faction_initiative = 1
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			country_event = {
+				id = SEA_japan_foreign_policy.40
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_sea_greater_east_asian_co_properity_sphere_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_sea_greater_east_asian_co_properity_sphere_2_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = {
+				decision = JAP_empower_the_yi_dynasty_decision
+				show_effect_tooltip = no
+			}
+			hidden_effect = {
+				news_event = {
+					id = SEA_japan_news_events.02
+					days = 4
+				}
+			}
+		}
+	}
+}
