@@ -1,0 +1,190 @@
+# Joint General Headquarters commands for Japanese special subjects.
+
+JAP_rework_subject_assembly_southeast_asia_theater_buffer = {
+	allowed = {
+		always = yes
+	}
+
+	enable = {
+		JAP_rework_is_japanese_special_subject = yes
+		JAP = {
+			has_country_flag = JAP_rework_subject_assembly_southeast_asia_theater_active
+			JAP_rework_subject_assembly_southeast_asia_theater_staging_available = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 62302
+		ratio = 0.30
+		states = {
+			325 # 云南
+			599 # 广西
+			594 # 南宁
+			592 # 广州
+			593 # 广东
+			591 # 海南
+		}
+		area = JAP_rework_southeast_asia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_rework_subject_assembly_south_asia_theater_buffer = {
+	allowed = {
+		always = yes
+	}
+
+	enable = {
+		JAP_rework_is_japanese_special_subject = yes
+		JAP = {
+			has_country_flag = JAP_rework_subject_assembly_south_asia_theater_active
+			JAP_rework_subject_assembly_south_asia_theater_staging_available = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 62303
+		ratio = 0.30
+		states = {
+			322 # 那曲
+			757 # 日喀则
+			758 # 阿里
+			995 # 勃固
+		}
+		area = JAP_rework_south_asia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_rework_subject_assembly_east_indies_australia_theater_buffer = {
+	allowed = {
+		always = yes
+	}
+
+	enable = {
+		JAP_rework_is_japanese_special_subject = yes
+		JAP = {
+			has_country_flag = JAP_rework_subject_assembly_east_indies_australia_theater_active
+			JAP_rework_subject_assembly_east_indies_australia_theater_staging_available = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 62304
+		ratio = 0.30
+		states = {
+			336 # 马来亚
+			1021 # 新加坡
+		}
+		area = JAP_rework_east_indies_australia_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_rework_subject_assembly_pacific_theater_buffer = {
+	allowed = {
+		always = yes
+	}
+
+	enable = {
+		JAP_rework_is_japanese_special_subject = yes
+		JAP = {
+			has_country_flag = JAP_rework_subject_assembly_pacific_theater_active
+			JAP_rework_subject_assembly_pacific_theater_staging_available = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 62305
+		ratio = 0.30
+		states = {
+			528 # 北九州
+			1018 # 南九州
+		}
+		area = JAP_rework_pacific_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_rework_subject_assembly_northern_east_theater_buffer = {
+	allowed = {
+		always = yes
+	}
+
+	enable = {
+		JAP_rework_is_japanese_special_subject = yes
+		JAP = {
+			has_country_flag = JAP_rework_subject_assembly_northern_east_theater_active
+			JAP_rework_subject_assembly_northern_east_theater_staging_available = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 62306
+		ratio = 0.30
+		states = {
+			536 # 北海道
+			610 # 热河
+			716 # 辽宁
+			328 # 吉林
+			714 # 黑龙江
+			527 # 平安-黄海
+			1028 # 咸镜
+		}
+		area = JAP_rework_northern_east_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}
+
+JAP_rework_subject_assembly_northern_west_theater_buffer = {
+	allowed = {
+		always = yes
+	}
+
+	enable = {
+		JAP_rework_is_japanese_special_subject = yes
+		JAP = {
+			has_country_flag = JAP_rework_subject_assembly_northern_west_theater_active
+			JAP_rework_subject_assembly_northern_west_theater_staging_available = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 62307
+		ratio = 0.30
+		states = {
+			617 # 乌鲁木齐
+			618 # 准噶尔
+			604 # 青海
+			621 # 绥远
+			611 # 察哈尔
+			330 # 乌兰巴托
+		}
+		area = JAP_rework_northern_west_theater
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
+	}
+}

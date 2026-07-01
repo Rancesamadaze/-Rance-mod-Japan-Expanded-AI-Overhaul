@@ -1,0 +1,58 @@
+# Japan-scope staging gates for Joint General Headquarters subject theater assembly.
+
+JAP_rework_subject_assembly_southeast_asia_theater_staging_available = {
+	OR = {
+		325 = { is_controlled_by_ROOT_or_ally = yes } # 云南
+		599 = { is_controlled_by_ROOT_or_ally = yes } # 广西
+		594 = { is_controlled_by_ROOT_or_ally = yes } # 南宁
+		592 = { is_controlled_by_ROOT_or_ally = yes } # 广州
+		593 = { is_controlled_by_ROOT_or_ally = yes } # 广东
+		591 = { is_controlled_by_ROOT_or_ally = yes } # 海南
+	}
+}
+
+JAP_rework_subject_assembly_south_asia_theater_staging_available = {
+	OR = {
+		322 = { is_controlled_by_ROOT_or_ally = yes } # 那曲
+		757 = { is_controlled_by_ROOT_or_ally = yes } # 日喀则
+		758 = { is_controlled_by_ROOT_or_ally = yes } # 阿里
+		995 = { is_controlled_by_ROOT_or_ally = yes } # 勃固
+	}
+}
+
+JAP_rework_subject_assembly_east_indies_australia_theater_staging_available = {
+	OR = {
+		336 = { is_controlled_by_ROOT_or_ally = yes } # 马来亚
+		1021 = { is_controlled_by_ROOT_or_ally = yes } # 新加坡
+	}
+}
+
+JAP_rework_subject_assembly_pacific_theater_staging_available = {
+	OR = {
+		528 = { is_controlled_by_ROOT_or_ally = yes } # 北九州
+		1018 = { is_controlled_by_ROOT_or_ally = yes } # 南九州
+	}
+}
+
+JAP_rework_subject_assembly_northern_east_theater_staging_available = {
+	OR = {
+		536 = { is_controlled_by_ROOT_or_ally = yes } # 北海道
+		610 = { is_controlled_by_ROOT_or_ally = yes } # 热河
+		716 = { is_controlled_by_ROOT_or_ally = yes } # 辽宁
+		328 = { is_controlled_by_ROOT_or_ally = yes } # 吉林
+		714 = { is_controlled_by_ROOT_or_ally = yes } # 黑龙江
+		527 = { is_controlled_by_ROOT_or_ally = yes } # 平安-黄海
+		1028 = { is_controlled_by_ROOT_or_ally = yes } # 咸镜
+	}
+}
+
+JAP_rework_subject_assembly_northern_west_theater_staging_available = {
+	OR = {
+		617 = { is_controlled_by_ROOT_or_ally = yes } # 乌鲁木齐
+		618 = { is_controlled_by_ROOT_or_ally = yes } # 准噶尔
+		604 = { is_controlled_by_ROOT_or_ally = yes } # 青海
+		621 = { is_controlled_by_ROOT_or_ally = yes } # 绥远
+		611 = { is_controlled_by_ROOT_or_ally = yes } # 察哈尔
+		330 = { is_controlled_by_ROOT_or_ally = yes } # 乌兰巴托
+	}
+}

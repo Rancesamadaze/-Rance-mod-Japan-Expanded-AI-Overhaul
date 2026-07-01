@@ -1,8 +1,8 @@
 ﻿l_simp_chinese:
  # --- special subject country names ---
- MAN_JAP_fascism_autonomy_jap_rework_imperial_governor_generalship:0 "满洲总督府"
- MAN_JAP_fascism_autonomy_jap_rework_imperial_governor_generalship_DEF:0 "满洲总督府"
- MAN_JAP_fascism_autonomy_jap_rework_imperial_governor_generalship_ADJ:0 "满洲"
- MAN_jap_rework_imperial_governor_generalship:0 "满洲总督府"
- MAN_jap_rework_imperial_governor_generalship_DEF:0 "满洲总督府"
- MAN_jap_rework_imperial_governor_generalship_ADJ:0 "满洲"
+ MAN_JAP_fascism_autonomy_jap_rework_imperial_garrison_command:0 "满洲镇守府"
+ MAN_JAP_fascism_autonomy_jap_rework_imperial_garrison_command_DEF:0 "满洲镇守府"
+ MAN_JAP_fascism_autonomy_jap_rework_imperial_garrison_command_ADJ:0 "满洲"
+ MAN_jap_rework_imperial_garrison_command:0 "满洲镇守府"
+ MAN_jap_rework_imperial_garrison_command_DEF:0 "满洲镇守府"
+ MAN_jap_rework_imperial_garrison_command_ADJ:0 "满洲"

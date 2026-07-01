@@ -283,7 +283,7 @@ MAN_restored = {
 	color_ui = rgb { 224 139 5 }
 }
 
-MAN_jap_rework_imperial_governor_generalship = {
+MAN_jap_rework_imperial_garrison_command = {
 	color = rgb { 185 155 155 }
 	color_ui = rgb { 185 155 155 }
 }

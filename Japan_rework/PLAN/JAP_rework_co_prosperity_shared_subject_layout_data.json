@@ -19,12 +19,12 @@
     },
     {
       "title": "联合大本营",
-      "id": "JAP_rework_subject_placeholder_focus_1",
+      "id": "JAP_rework_joint_general_headquarters",
       "x": 40,
-      "y": 3,
+      "y": 1,
       "kind": "joint",
-      "status": "draft",
-      "icon": "GFX_goal_JAP_rework_todo_icon",
+      "status": "scripted",
+      "icon": "GFX_focus_JAP_rework_joint_general_headquarters",
       "summary": "三军国策始发\n给发起者三军经验额外奖励\n解锁各属国增加MIO等级的决议\n解锁各属国获取日本以通过决议获取的编制和设计的决议",
       "parents": [
         "JAP_rework_co_prosperity_sphere_start"
@@ -33,75 +33,75 @@
       "relativePosition": {
         "reference": "JAP_rework_co_prosperity_sphere_start",
         "x": 0,
-        "y": 3
+        "y": 1
       }
     },
     {
       "title": "共荣圈陆军",
-      "id": "JAP_rework_subject_placeholder_focus_2",
+      "id": "JAP_rework_co_prosperity_army",
       "x": 34,
-      "y": 5,
+      "y": 2,
       "kind": "joint",
-      "status": "draft",
-      "icon": "GFX_goal_generic_army_doctrines",
-      "summary": "陆军起点\n",
+      "status": "scripted",
+      "icon": "GFX_focus_JAP_rework_co_prosperity_army",
+      "summary": "陆军线路起点。当前已落地 joint_focus 骨架、专用图标和本地化，奖励待写。",
       "parents": [
-        "JAP_rework_subject_placeholder_focus_1"
+        "JAP_rework_joint_general_headquarters"
       ],
-      "positionReference": "JAP_rework_subject_placeholder_focus_1",
+      "positionReference": "JAP_rework_joint_general_headquarters",
       "relativePosition": {
-        "reference": "JAP_rework_subject_placeholder_focus_1",
+        "reference": "JAP_rework_joint_general_headquarters",
         "x": -6,
-        "y": 2
+        "y": 1
       }
     },
     {
       "title": "共荣圈海军",
-      "id": "JAP_rework_subject_placeholder_focus_3",
+      "id": "JAP_rework_co_prosperity_navy",
       "x": 40,
-      "y": 5,
+      "y": 2,
       "kind": "joint",
-      "status": "draft",
-      "icon": "GFX_goal_generic_army_doctrines",
+      "status": "scripted",
+      "icon": "GFX_focus_JAP_rework_co_prosperity_navy",
       "summary": "海军起点",
       "parents": [
-        "JAP_rework_subject_placeholder_focus_1"
+        "JAP_rework_joint_general_headquarters"
       ],
-      "positionReference": "JAP_rework_subject_placeholder_focus_1",
+      "positionReference": "JAP_rework_joint_general_headquarters",
       "relativePosition": {
-        "reference": "JAP_rework_subject_placeholder_focus_1",
+        "reference": "JAP_rework_joint_general_headquarters",
         "x": 0,
-        "y": 2
+        "y": 1
       }
     },
     {
       "title": "共荣圈空军",
-      "id": "JAP_rework_subject_placeholder_focus_4",
+      "id": "JAP_rework_co_prosperity_airforce",
       "x": 46,
-      "y": 5,
+      "y": 2,
       "kind": "joint",
-      "status": "draft",
-      "icon": "GFX_goal_generic_air_doctrine",
+      "status": "scripted",
+      "icon": "GFX_focus_JAP_rework_co_prosperity_airforce",
       "summary": "",
       "parents": [
-        "JAP_rework_subject_placeholder_focus_1"
+        "JAP_rework_joint_general_headquarters"
       ],
-      "positionReference": "JAP_rework_subject_placeholder_focus_1",
+      "positionReference": "JAP_rework_joint_general_headquarters",
       "relativePosition": {
-        "reference": "JAP_rework_subject_placeholder_focus_1",
+        "reference": "JAP_rework_joint_general_headquarters",
         "x": 6,
-        "y": 2
+        "y": 1
       }
     },
     {
       "title": "大东亚省",
-      "id": "JAP_rework_subject_placeholder_focus_5",
+      "id": "JAP_rework_ministry_of_greater_east_asia",
       "x": 27,
-      "y": 3,
+      "y": 1,
       "kind": "joint",
-      "status": "draft",
-      "icon": "GFX_goal_generic_political_pressure",
-      "summary": "",
+      "status": "scripted",
+      "icon": "GFX_focus_JAP_rework_ministry_of_greater_east_asia",
+      "summary": "政治线的起点国策，政治线用于处理共荣圈政治，维稳，法案，情报，与宗主交互的事项。当前已落地 joint_focus、专用图标、本地化与首版效果。\n已落地效果：发起者额外奖励100PP；特殊属国获得动态修正“共荣圈之治”；该动态修正广泛初始化政治、稳定、资源、建设、情报、抵抗/顺从、宗主互动与 donation 变量为 0，其中 donation 使用专门修正 industrial_factory_donations / military_factory_donations / dockyard_donations；首版实际给予 global.JAP_rework_co_prosperity_governance_political_power_gain = 0.25。后续未获得奖励的特殊属国可通过补领决议追平挂载修正，不重复初始化或叠加全局数值。\n",
       "parents": [
         "JAP_rework_co_prosperity_sphere_start"
       ],
@@ -109,14 +109,14 @@
       "relativePosition": {
         "reference": "JAP_rework_co_prosperity_sphere_start",
         "x": -13,
-        "y": 3
+        "y": 1
       }
     },
     {
       "title": "东亚开发事务局",
       "id": "JAP_rework_subject_placeholder_focus_6",
       "x": 53,
-      "y": 2,
+      "y": 1,
       "kind": "joint",
       "status": "draft",
       "icon": "GFX_goal_generic_construct_civ_factory",
@@ -128,10 +128,10 @@
       "relativePosition": {
         "reference": "JAP_rework_co_prosperity_sphere_start",
         "x": 13,
-        "y": 2
+        "y": 1
       }
     }
   ],
-  "selectedId": "JAP_rework_subject_placeholder_focus_2",
+  "selectedId": "JAP_rework_ministry_of_greater_east_asia",
   "zoom": 0.55
 }

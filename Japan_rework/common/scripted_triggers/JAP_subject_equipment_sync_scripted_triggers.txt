@@ -1,0 +1,666 @@
+# Availability helpers for Joint General Headquarters subject sync decisions.
+
+JAP_rework_subject_can_sync_japanese_templates = {
+    OR = {
+        NOT = { has_template = "属国旧军清理编制" }
+
+        AND = {
+            JAP = { has_template = "日本试验步坦师" }
+            NOT = { has_template = "日本试验步坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本步坦师" }
+            NOT = { has_template = "日本步坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本特种步坦师" }
+            NOT = { has_template = "日本特种步坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本机坦师" }
+            NOT = { has_template = "日本机坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本重型机坦师" }
+            NOT = { has_template = "日本重型机坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本两栖机坦师" }
+            NOT = { has_template = "日本两栖机坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本两栖重机坦师" }
+            NOT = { has_template = "日本两栖重机坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本陆巡两栖重机坦师" }
+            NOT = { has_template = "日本陆巡两栖重机坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本海陆现代机坦师" }
+            NOT = { has_template = "日本海陆现代机坦师" }
+        }
+
+        AND = {
+            JAP = { has_template = "日本陆巡海陆现代机坦师" }
+            NOT = { has_template = "日本陆巡海陆现代机坦师" }
+        }
+    }
+}
+
+JAP_rework_subject_can_sync_japanese_equipment_designs = {
+    OR = {
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_prototype_medium_tank_jap }
+            NOT = { has_country_flag = JAP_has_cr_design_prototype_medium_tank_jap }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_medium_tank_jap_97 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_medium_tank_jap_97 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_tank_jap_97_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_tank_jap_97_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_tank_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_tank_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_tank_jap_type_3_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_tank_jap_type_3_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_medium_tank_jap_type_5 }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_medium_tank_jap_type_5 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_medium_td_jap_ho_ni_1 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_medium_td_jap_ho_ni_1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_td_jap_ho_ni_1_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_td_jap_ho_ni_1_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_td_jap_ho_ni_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_td_jap_ho_ni_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_medium_td_jap_ho_ni_3_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_medium_td_jap_ho_ni_3_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_medium_td_jap_na_to }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_medium_td_jap_na_to }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_medium_art_jap_type_1 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_medium_art_jap_type_1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_art_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_art_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_art_jap_type_4 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_art_jap_type_4 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_medium_art_jap_type_5 }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_medium_art_jap_type_5 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_medium_aa_jap_type_1_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_medium_aa_jap_type_1_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_aa_jap_type_2_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_aa_jap_type_2_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_medium_aa_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_medium_aa_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_heavy_tank_jap_95 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_heavy_tank_jap_95 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_heavy_tank_jap_iwakuro }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_heavy_tank_jap_iwakuro }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_heavy_tank_jap_iwakuro_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_heavy_tank_jap_iwakuro_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_heavy_tank_jap_o_i }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_heavy_tank_jap_o_i }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_heavy_td_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_heavy_td_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_heavy_td_jap_ho_ri }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_heavy_td_jap_ho_ri }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_heavy_td_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_heavy_td_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_heavy_art_jap_type_1 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_heavy_art_jap_type_1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_heavy_art_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_heavy_art_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_heavy_art_jap_type_5 }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_heavy_art_jap_type_5 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_heavy_aa_jap_type_1 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_heavy_aa_jap_type_1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_heavy_aa_jap_type_2 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_heavy_aa_jap_type_2 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_heavy_aa_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_heavy_aa_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_amphibious_medium_tank_jap_97 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_amphibious_medium_tank_jap_97 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_amphibious_medium_tank_jap_type_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_amphibious_medium_tank_jap_type_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_medium_tank_jap_type_5_amphibious }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_medium_tank_jap_type_5_amphibious }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_modern_tank_jap_type_61 }
+            NOT = { has_country_flag = JAP_has_cr_design_modern_tank_jap_type_61 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_modern_td_jap_type_61 }
+            NOT = { has_country_flag = JAP_has_cr_design_modern_td_jap_type_61 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_modern_art_jap_type_61 }
+            NOT = { has_country_flag = JAP_has_cr_design_modern_art_jap_type_61 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_modern_aa_jap_type_61 }
+            NOT = { has_country_flag = JAP_has_cr_design_modern_aa_jap_type_61 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_amphibious_heavy_tank_jap_95 }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_amphibious_heavy_tank_jap_95 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_amphibious_heavy_tank_jap_type_5 }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_amphibious_heavy_tank_jap_type_5 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_advanced_amphibious_heavy_tank_jap_takeru }
+            NOT = { has_country_flag = JAP_has_cr_design_advanced_amphibious_heavy_tank_jap_takeru }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_basic_medium_flame_tank_jap_s_ki }
+            NOT = { has_country_flag = JAP_has_cr_design_basic_medium_flame_tank_jap_s_ki }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_improved_medium_flame_tank_jap_ka_ha }
+            NOT = { has_country_flag = JAP_has_cr_design_improved_medium_flame_tank_jap_ka_ha }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_jap_land_cruiser_hoshiguma }
+            NOT = { has_country_flag = JAP_has_cr_design_jap_land_cruiser_hoshiguma }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_fighter_ki27 }
+            NOT = { has_country_flag = JAP_has_cr_design_fighter_ki27 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_fighter_ki43 }
+            NOT = { has_country_flag = JAP_has_cr_design_fighter_ki43 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_fighter_ki84 }
+            NOT = { has_country_flag = JAP_has_cr_design_fighter_ki84 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_fighter_ki94 }
+            NOT = { has_country_flag = JAP_has_cr_design_fighter_ki94 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_fighter_ki201 }
+            NOT = { has_country_flag = JAP_has_cr_design_fighter_ki201 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_fighter_a5m }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_fighter_a5m }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_fighter_a6m2 }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_fighter_a6m2 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_fighter_a7m2 }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_fighter_a7m2 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_fighter_a9m }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_fighter_a9m }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cas_ki32 }
+            NOT = { has_country_flag = JAP_has_cr_design_cas_ki32 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cas_ki51 }
+            NOT = { has_country_flag = JAP_has_cr_design_cas_ki51 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cas_ki102 }
+            NOT = { has_country_flag = JAP_has_cr_design_cas_ki102 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cas_ki119 }
+            NOT = { has_country_flag = JAP_has_cr_design_cas_ki119 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cas_ki201_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_cas_ki201_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_attacker_b5n }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_attacker_b5n }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_attacker_b6n }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_attacker_b6n }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_attacker_b6n_kai }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_attacker_b6n_kai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_attacker_b7a }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_attacker_b7a }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_attacker_b8a }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_attacker_b8a }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki38 }
+            NOT = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki38 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki45 }
+            NOT = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki45 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki102 }
+            NOT = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki102 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki83 }
+            NOT = { has_country_flag = JAP_has_cr_design_heavy_fighter_ki83 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_maritime_patrol_g5m1 }
+            NOT = { has_country_flag = JAP_has_cr_design_maritime_patrol_g5m1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_maritime_patrol_g7m1 }
+            NOT = { has_country_flag = JAP_has_cr_design_maritime_patrol_g7m1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_maritime_patrol_g9p1 }
+            NOT = { has_country_flag = JAP_has_cr_design_maritime_patrol_g9p1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_mechanized_equipment_1 }
+            NOT = { has_country_flag = JAP_has_cr_design_mechanized_equipment_1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_mechanized_equipment_2 }
+            NOT = { has_country_flag = JAP_has_cr_design_mechanized_equipment_2 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_mechanized_equipment_3 }
+            NOT = { has_country_flag = JAP_has_cr_design_mechanized_equipment_3 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_amphibious_mechanized_equipment_1 }
+            NOT = { has_country_flag = JAP_has_cr_design_amphibious_mechanized_equipment_1 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_amphibious_mechanized_equipment_2 }
+            NOT = { has_country_flag = JAP_has_cr_design_amphibious_mechanized_equipment_2 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_mothership }
+            NOT = { has_country_flag = JAP_has_cr_design_mothership }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_strat_bomber }
+            NOT = { has_country_flag = JAP_has_cr_design_strat_bomber }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_akagi }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_akagi }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_shokaku }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_shokaku }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_shinano }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_shinano }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_hakuryu }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_hakuryu }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_yukihou }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_yukihou }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_ryujo }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_ryujo }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_zuiho }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_zuiho }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cv_ryuho }
+            NOT = { has_country_flag = JAP_has_cr_design_cv_ryuho }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_bb_nagato }
+            NOT = { has_country_flag = JAP_has_cr_design_bb_nagato }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_bb_kaga }
+            NOT = { has_country_flag = JAP_has_cr_design_bb_kaga }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_bb_musashi }
+            NOT = { has_country_flag = JAP_has_cr_design_bb_musashi }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_bb_yamato }
+            NOT = { has_country_flag = JAP_has_cr_design_bb_yamato }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_bb_tsushima }
+            NOT = { has_country_flag = JAP_has_cr_design_bb_tsushima }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_bb_owari }
+            NOT = { has_country_flag = JAP_has_cr_design_bb_owari }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_clt_kitakami }
+            NOT = { has_country_flag = JAP_has_cr_design_clt_kitakami }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_clt_ooi }
+            NOT = { has_country_flag = JAP_has_cr_design_clt_ooi }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ca_aoba }
+            NOT = { has_country_flag = JAP_has_cr_design_ca_aoba }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ca_unzen }
+            NOT = { has_country_flag = JAP_has_cr_design_ca_unzen }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ca_azuma }
+            NOT = { has_country_flag = JAP_has_cr_design_ca_azuma }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_ota }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_ota }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_kikuchi }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_kikuchi }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_naruse }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_naruse }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_sendai }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_sendai }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_sakawa }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_sakawa }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_suzuka }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_suzuka }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_yubari }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_yubari }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_shimanto }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_shimanto }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_noshiro }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_noshiro }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_yugumo }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_yugumo }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_kazagumo_shield }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_kazagumo_shield }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_aogumo }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_aogumo }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_mutsuki_asw }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_mutsuki_asw }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_akizuki_asw }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_akizuki_asw }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_minazuki_asw }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_minazuki_asw }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_yukikaze }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_yukikaze }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_shimakaze }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_shimakaze }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_dd_shiokaze }
+            NOT = { has_country_flag = JAP_has_cr_design_dd_shiokaze }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ss_i19 }
+            NOT = { has_country_flag = JAP_has_cr_design_ss_i19 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ss_i13 }
+            NOT = { has_country_flag = JAP_has_cr_design_ss_i13 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ss_i16 }
+            NOT = { has_country_flag = JAP_has_cr_design_ss_i16 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_ss_i404 }
+            NOT = { has_country_flag = JAP_has_cr_design_ss_i404 }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_komaru }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_komaru }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_yoshino }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_yoshino }
+        }
+
+        AND = {
+            JAP = { has_country_flag = JAP_has_cr_design_cl_jiraiya }
+            NOT = { has_country_flag = JAP_has_cr_design_cl_jiraiya }
+        }
+    }
+}

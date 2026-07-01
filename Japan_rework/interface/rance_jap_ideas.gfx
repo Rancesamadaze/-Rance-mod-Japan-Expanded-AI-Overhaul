@@ -38,21 +38,6 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_idea_MAN_rework_governor_general_base"
-		texturefile = "gfx/ideas/MAN/MAN_rework_governor_general_base.dds"
-	}
-
-	spriteType = {
-		name = "GFX_idea_MAN_rework_manchurian_industry"
-		texturefile = "gfx/ideas/MAN/MAN_rework_manchurian_industry.dds"
-	}
-
-	spriteType = {
-		name = "GFX_idea_MAN_rework_mantetsu_development"
-		texturefile = "gfx/ideas/MAN/MAN_rework_mantetsu_development.dds"
-	}
-
-	spriteType = {
 		name = "GFX_idea_JAP_our_co_prosperity_sphere"
 		texturefile = "gfx/ideas/JAP/JAP_our_co_prosperity_sphere.dds"
 	}
@@ -63,16 +48,6 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_idea_MAN_rework_research_specialization"
-		texturefile = "gfx/ideas/MAN/MAN_rework_research_specialization.dds"
-	}
-
-	spriteType = {
-		name = "GFX_idea_MAN_rework_synthetic_fuel_supply"
-		texturefile = "gfx/ideas/MAN/MAN_rework_synthetic_fuel_supply.dds"
-	}
-
-	spriteType = {
 		name = "GFX_idea_JAP_subject_resource_delivery"
 		texturefile = "gfx/ideas/JAP/JAP_subject_resource_delivery.dds"
 	}
@@ -80,5 +55,10 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_JAP_subject_dockyard_contribution"
 		texturefile = "gfx/ideas/JAP/JAP_subject_dockyard_contribution.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_JAP_rework_co_prosperity_governance"
+		texturefile = "gfx/ideas/JAP/JAP_rework_co_prosperity_governance.dds"
 	}
 }

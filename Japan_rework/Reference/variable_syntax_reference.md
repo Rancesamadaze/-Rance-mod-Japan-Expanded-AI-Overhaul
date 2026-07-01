@@ -89,6 +89,20 @@ check_variable = { my_var < 10 }
 check_variable = { my_var > 10 }
 ```
 
+注意：短写只适合 `=`、`<`、`>`。不要写 `>=` 或 `<=`，HOI4 parser 会把后面的数字读成异常 token，并可能让后续 `complete_effect`、`ai_will_do` 被误判为 trigger。
+
+需要“至少/至多”时，优先使用完整写法：
+
+```txt
+check_variable = {
+    var = my_var
+    value = 240
+    compare = greater_than_or_equals
+}
+```
+
+如果确定变量是整数，也可以把阈值换算成等价的短写 `>` / `<`。例如 `score >= 240` 可以写成 `check_variable = { score > 239 }`。
+
 检查变量是否存在：
 
 ```txt

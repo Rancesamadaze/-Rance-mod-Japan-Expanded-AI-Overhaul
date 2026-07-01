@@ -10,6 +10,6 @@ JAP_rework_is_japan_or_subject = {
 JAP_rework_is_japanese_special_subject = {
 	is_subject_of = JAP
 	OR = {
-		has_autonomy_state = autonomy_jap_rework_imperial_governor_generalship
+		has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
 	}
 }

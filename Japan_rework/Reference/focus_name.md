@@ -99,6 +99,11 @@
 | JAP_issue_the_senjinkun_military_code | 发布《战阵训》 |
 | JAP_issue_the_shinmin_no_michi_manifesto | 发布《臣民之道》宣言 |
 | JAP_sea_greater_east_asian_co_properity_sphere | 大东亚共荣圈 |
+| JAP_rework_ministry_of_greater_east_asia | 大东亚省 |
+| JAP_rework_joint_general_headquarters | 联合大本营 |
+| JAP_rework_co_prosperity_army | 共荣圈陆军 |
+| JAP_rework_co_prosperity_navy | 共荣圈海军 |
+| JAP_rework_co_prosperity_airforce | 共荣圈空军 |
 | JAP_expand_japan_manchukuo_economic_bloc | 日满经济集团 |
 | JAP_develop_the_yen_bloc | 发展日元区 |
 | JAP_the_flying_geese | 飞雁队形 |

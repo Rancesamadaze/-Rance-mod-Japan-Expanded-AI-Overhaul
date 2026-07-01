@@ -66,6 +66,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 | `JAP_add_or_modify_imperial_navy` | `JAP_imperial_navy_dm` / `JAP_japanese_navy_dm` | 海军奖励；若已转为日本海军动态修正，会修改日本海军 |
 | `JAP_add_or_modify_army_and_naval_air_services` | `JAP_army_and_naval_air_services_dm` / `JAP_japanese_airforce_dm` | 陆海军航空队/空军奖励 |
 | `JAP_add_or_modify_east_asia_co_prosperity_sphere` | `JAP_east_asia_co_prosperity_sphere_dm` | 原版共荣圈 DM；`东亚新秩序` 先给予空壳，后续大东亚共荣圈/属国上供只维护变量 |
+| `JAP_rework_add_co_prosperity_army` | `JAP_rework_co_prosperity_army_dm` | 特殊属国专用的共荣圈陆军 DM；只负责添加修正，不处理“修改”提示；读取 `global.JAP_rework_co_prosperity_army_...` 变量，初始化由 `JAP_rework_co_prosperity_army` 国策完成时执行，不放在 history |
+| `JAP_rework_add_co_prosperity_navy` | `JAP_rework_co_prosperity_navy_dm` | 特殊属国专用的共荣圈海军 DM；只负责添加修正，不处理“修改”提示；读取 `global.JAP_rework_co_prosperity_navy_...` 变量，初始化由 `JAP_rework_co_prosperity_navy` 国策完成时执行，不放在 history |
+| `JAP_rework_add_co_prosperity_airforce` | `JAP_rework_co_prosperity_airforce_dm` | 特殊属国专用的共荣圈空军 DM；只负责添加修正，不处理“修改”提示；读取 `global.JAP_rework_co_prosperity_airforce_...` 变量，初始化由 `JAP_rework_co_prosperity_airforce` 国策完成时执行，不放在 history |
+| `JAP_rework_add_co_prosperity_governance` | `JAP_rework_co_prosperity_governance_dm` | 特殊属国专用的共荣圈治理 DM；只负责添加修正，不处理“修改”提示；读取 `global.JAP_rework_co_prosperity_governance_...` 变量，初始化由 `JAP_rework_ministry_of_greater_east_asia` 国策完成时执行，不放在 history |
 | `JAP_add_or_modify_imperial_way` | `JAP_the_imperial_way_dm` | 皇道派相关奖励 |
 | `JAP_add_or_modify_advanced_weapon_projects` | `JAP_advanced_weapon_projects_dm` | 先进武器项目相关奖励 |
 | `JAP_add_or_modify_civilian_cabinet` | `JAP_civilian_cabinet_modifier` | 文官内阁相关奖励 |
@@ -118,6 +122,8 @@ JAP_add_or_modify_early_industrialization = yes
 5. 如果 modifier key 不确定，先查 `Reference/modifier_trans.md`，必要时再核对 vanilla 动态修正或 idea 示例。
 
 最常见的遗漏是只完成第 1 步和国策奖励，忘记第 3 步的历史初始化。这样新变量虽然会在后续 `add_to_variable` 时出现，但动态修正初始状态和提示更容易变得不稳定。
+
+例外：`JAP_rework_co_prosperity_army_dm`、`JAP_rework_co_prosperity_navy_dm`、`JAP_rework_co_prosperity_airforce_dm` 与 `JAP_rework_co_prosperity_governance_dm` 是特殊属国共享数值池，使用 `global.JAP_rework_co_prosperity_army_...` / `global.JAP_rework_co_prosperity_navy_...` / `global.JAP_rework_co_prosperity_airforce_...` / `global.JAP_rework_co_prosperity_governance_...` 变量，并在对应国策完成时统一初始化为 `0`。这些修正固定只在对应国策和补领决议中通过 `JAP_rework_add_co_prosperity_army = yes` / `JAP_rework_add_co_prosperity_navy = yes` / `JAP_rework_add_co_prosperity_airforce = yes` / `JAP_rework_add_co_prosperity_governance = yes` 添加；变量奖励则作为独立“追加效果”直接写 `add_to_variable`，例如 `add_to_variable = { global.JAP_rework_co_prosperity_army_experience_gain_army = 0.05 tooltip = experience_gain_army_tt }`。`JAP_rework_co_prosperity_governance_dm` 的 donation 项使用专门修正 `industrial_factory_donations` / `military_factory_donations` / `dockyard_donations`，不是自治等级的 `cic_to_overlord_factor` / `mic_to_overlord_factor`。
 
 ## 常见错误
 

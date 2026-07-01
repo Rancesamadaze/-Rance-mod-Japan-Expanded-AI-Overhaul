@@ -1,0 +1,39 @@
+JAP_rework_subject_ensure_military_industry_score_variables = {
+	if = {
+		limit = {
+			NOT = { has_variable = JAP_rework_subject_military_industry_score }
+		}
+		set_variable = { JAP_rework_subject_military_industry_score = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = JAP_rework_subject_military_industry_score_gain_multiplier }
+		}
+		set_variable = { JAP_rework_subject_military_industry_score_gain_multiplier = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = JAP_rework_subject_military_industry_score_last_gain }
+		}
+		set_variable = { JAP_rework_subject_military_industry_score_last_gain = 0 }
+	}
+}
+
+JAP_rework_subject_add_military_industry_score = {
+	JAP_rework_subject_ensure_military_industry_score_variables = yes
+	set_variable = { var = JAP_rework_subject_military_industry_score_last_gain value = num_of_military_factories }
+	multiply_variable = { var = JAP_rework_subject_military_industry_score_last_gain value = JAP_rework_subject_military_industry_score_gain_multiplier }
+	add_to_variable = { var = JAP_rework_subject_military_industry_score value = JAP_rework_subject_military_industry_score_last_gain }
+}
+
+JAP_rework_subject_spend_military_industry_score_for_land_air_supply = {
+	JAP_rework_subject_ensure_military_industry_score_variables = yes
+	subtract_from_variable = { var = JAP_rework_subject_military_industry_score value = 240 }
+	clamp_variable = {
+		var = JAP_rework_subject_military_industry_score
+		min = 0
+		max = 1000000
+	}
+	JAP_ai_extra_equipment_grant_cycle = yes
+	JAP_ai_extra_air_equipment_grant_cycle = yes
+}

@@ -1,0 +1,40 @@
+# Japan-scope flag helpers for Joint General Headquarters subject theater assembly.
+
+JAP_rework_clear_subject_theater_assembly_flags = {
+	clr_country_flag = JAP_rework_subject_assembly_southeast_asia_theater_active
+	clr_country_flag = JAP_rework_subject_assembly_south_asia_theater_active
+	clr_country_flag = JAP_rework_subject_assembly_east_indies_australia_theater_active
+	clr_country_flag = JAP_rework_subject_assembly_pacific_theater_active
+	clr_country_flag = JAP_rework_subject_assembly_northern_east_theater_active
+	clr_country_flag = JAP_rework_subject_assembly_northern_west_theater_active
+}
+
+JAP_rework_activate_subject_assembly_southeast_asia_theater = {
+	JAP_rework_clear_subject_theater_assembly_flags = yes
+	set_country_flag = JAP_rework_subject_assembly_southeast_asia_theater_active
+}
+
+JAP_rework_activate_subject_assembly_south_asia_theater = {
+	JAP_rework_clear_subject_theater_assembly_flags = yes
+	set_country_flag = JAP_rework_subject_assembly_south_asia_theater_active
+}
+
+JAP_rework_activate_subject_assembly_east_indies_australia_theater = {
+	JAP_rework_clear_subject_theater_assembly_flags = yes
+	set_country_flag = JAP_rework_subject_assembly_east_indies_australia_theater_active
+}
+
+JAP_rework_activate_subject_assembly_pacific_theater = {
+	JAP_rework_clear_subject_theater_assembly_flags = yes
+	set_country_flag = JAP_rework_subject_assembly_pacific_theater_active
+}
+
+JAP_rework_activate_subject_assembly_northern_east_theater = {
+	JAP_rework_clear_subject_theater_assembly_flags = yes
+	set_country_flag = JAP_rework_subject_assembly_northern_east_theater_active
+}
+
+JAP_rework_activate_subject_assembly_northern_west_theater = {
+	JAP_rework_clear_subject_theater_assembly_flags = yes
+	set_country_flag = JAP_rework_subject_assembly_northern_west_theater_active
+}

@@ -1,5 +1,5 @@
 autonomy_state = {
-	id = autonomy_jap_rework_imperial_governor_generalship
+	id = autonomy_jap_rework_imperial_garrison_command
 
 	is_puppet = yes
 
@@ -45,12 +45,12 @@ autonomy_state = {
 	}
 
 	allowed = {
-		has_country_flag = JAP_rework_imperial_governor_generalship_authorized
+		has_country_flag = JAP_rework_imperial_garrison_command_authorized
 		OVERLORD = { original_tag = JAP }
 	}
 
 	allowed_levels_filter = {
-		autonomy_jap_rework_imperial_governor_generalship
+		autonomy_jap_rework_imperial_garrison_command
 	}
 
 	use_for_peace_conference_weight = {

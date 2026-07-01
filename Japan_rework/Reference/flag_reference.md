@@ -33,6 +33,17 @@ if = {
 }
 ```
 
+具体装备设计同步使用第二层 flag，命名为：
+
+```txt
+JAP_has_cr_design_<effect_id_without_JAP_cr_prefix>
+```
+
+例如 `JAP_cr_basic_medium_tank_jap_97` 创建成功后设置
+`JAP_has_cr_design_basic_medium_tank_jap_97`。这一层 flag 表示某个具体装备型号已经被创建，用于区分同一 `type` 下的多个历史型号；原有 `JAP_has_cr_<type>` 仍保留为底盘、舰体或机体级别的粗粒度记录。
+
+覆盖范围是 MOD 自己通过 `JAP_cr_*` scripted effect 创建的特殊设计，包括开局历史内直接授予的基础/历史特殊设计和军需省后续解锁设计；不追踪原版默认设计。
+
 ### 陆军车辆底盘
 
 | Type | Flag |
@@ -143,3 +154,20 @@ if = {
 | `ship_hull_mega_carrier` | `JAP_has_cr_ship_hull_mega_carrier` |
 | `ship_hull_super_heavy_1` | `JAP_has_cr_ship_hull_super_heavy_1` |
 | `ship_hull_torpedo_cruiser` | `JAP_has_cr_ship_hull_torpedo_cruiser` |
+
+## 联合大本营属国军区集结 flag
+
+来源：`common/scripted_effects/JAP_subject_theater_assembly_scripted_effects.txt`
+
+用途：日本侧决议记录当前指定特殊属国集结的军区。旗帜只设置在 `JAP` 作用域；特殊属国 AI 策略通过 `JAP = { has_country_flag = ... }` 读取当前命令，避免新成立属国错过即时发放的属国自身 flag。
+
+同一时间只应保留一个 `JAP_rework_subject_assembly_*_theater_active` flag。切换军区时先调用 `JAP_rework_clear_subject_theater_assembly_flags` 清理旧命令，再设置新命令。
+
+| Theater | Flag |
+| --- | --- |
+| Southeast Asia | `JAP_rework_subject_assembly_southeast_asia_theater_active` |
+| South Asia | `JAP_rework_subject_assembly_south_asia_theater_active` |
+| East Indies-Australia | `JAP_rework_subject_assembly_east_indies_australia_theater_active` |
+| Pacific | `JAP_rework_subject_assembly_pacific_theater_active` |
+| Northern East | `JAP_rework_subject_assembly_northern_east_theater_active` |
+| Northern West | `JAP_rework_subject_assembly_northern_west_theater_active` |

@@ -1,0 +1,25 @@
+state_groups = {
+	schema = {
+		any_key = yes
+		array = state
+	}
+
+	JAP_rework_MAN_imperial_garrison_ideal_states = {
+		# Manchurian homeland
+		610 # Rehe
+		716 # Liaoning
+		745 # Dalian
+		715 # Northern Liaoning
+		328 # Jilin
+		717 # Songjiang
+		714 # Heilongjiang
+		761 # Hulunbuir
+
+		# Outer Manchuria
+		408 # Vladivostok
+		409 # Khabarovsk
+		657 # Birobidzhan
+		561 # Amur
+		560 # Nikolayevsk
+	}
+}

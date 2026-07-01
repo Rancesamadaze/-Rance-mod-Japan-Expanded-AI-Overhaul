@@ -18,6 +18,7 @@ Use `Reference/building_reference.md`, `Reference/strategic_region_reference.md`
 ## Operating Rules
 
 - Keep strategy entries gated with clear `allowed`, `enable`, and `abort` logic.
+- In AI strategy blocks, keep `allowed` limited to selectors that are stable for the relevant country across an entire playthrough. Put dynamic state such as AI/player control, focus completion, flags, subject/autonomy status, war state, equipment, controlled states, staging access, and route availability in `enable` or `abort` so newly eligible countries can enter and stale strategies can drop correctly.
 - Prefer existing Japan AI helpers, focus-completion flags, and project route/difficulty triggers instead of inventing parallel gates.
 - For Kodoha military strategy values, targets, flags, or front-control priorities, update the Kodoha reference in the same change.
 - Store AI strategy notes, examples, extracted references, and learning material under `common/ai_strategy/AI_Strategy_Reference/`, not inside live strategy files.

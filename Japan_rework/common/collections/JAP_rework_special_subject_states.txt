@@ -1,0 +1,57 @@
+JAP_rework_MAN_imperial_garrison_ideal_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+}
+
+JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = JAP
+		}
+	}
+}
+
+JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = MAN
+		}
+	}
+}
+
+JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_uncored_ideal_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = MAN
+			NOT = { is_core_of = MAN }
+		}
+	}
+}
+
+JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states = {
+	input = game:all_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = MAN
+			NOT = {
+				OR = {
+					state = 610 # Rehe
+					state = 716 # Liaoning
+					state = 745 # Dalian
+					state = 715 # Northern Liaoning
+					state = 328 # Jilin
+					state = 717 # Songjiang
+					state = 714 # Heilongjiang
+					state = 761 # Hulunbuir
+					state = 408 # Vladivostok
+					state = 409 # Khabarovsk
+					state = 657 # Birobidzhan
+					state = 561 # Amur
+					state = 560 # Nikolayevsk
+				}
+			}
+		}
+	}
+}

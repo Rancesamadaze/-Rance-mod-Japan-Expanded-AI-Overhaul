@@ -1,0 +1,266 @@
+JAP_greater_east_asia_co_prosperity_sphere_decisions = {
+	# Subject-side special subject system decisions live here.
+	JAP_rework_subject_expand_all_mios = {
+		icon = generic_factory
+		cost = 0
+		fire_only_once = yes
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_joint_general_headquarters
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_expand_all_mios_not_received_tt
+				NOT = {
+					has_country_flag = JAP_rework_received_joint_general_headquarters_mio_reward
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_expand_all_mios_tt
+			hidden_effect = {
+				every_military_industrial_organization = {
+					add_mio_size = 20
+				}
+				set_country_flag = JAP_rework_received_joint_general_headquarters_mio_reward
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_apply_co_prosperity_governance = {
+		icon = generic_political_address
+		cost = 0
+		fire_only_once = yes
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_ministry_of_greater_east_asia
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_co_prosperity_governance_not_received_tt
+				NOT = {
+					has_country_flag = JAP_rework_received_co_prosperity_governance_reward
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_co_prosperity_governance_tt
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_governance_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_apply_co_prosperity_army_doctrine = {
+		icon = generic_military
+		cost = 0
+		fire_only_once = yes
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_co_prosperity_army
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_co_prosperity_army_doctrine_not_received_tt
+				NOT = {
+					has_country_flag = JAP_rework_received_co_prosperity_army_doctrine_reward
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_co_prosperity_army_doctrine_tt
+			JAP_rework_add_co_prosperity_army = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_army_doctrine_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_apply_co_prosperity_navy_doctrine = {
+		icon = generic_navy_battleship
+		cost = 0
+		fire_only_once = yes
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_co_prosperity_navy
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_co_prosperity_navy_doctrine_not_received_tt
+				NOT = {
+					has_country_flag = JAP_rework_received_co_prosperity_navy_doctrine_reward
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_co_prosperity_navy_doctrine_tt
+			JAP_rework_add_co_prosperity_navy = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_navy_doctrine_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_apply_co_prosperity_airforce_doctrine = {
+		icon = GFX_decision_generic_air
+		cost = 0
+		fire_only_once = yes
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_co_prosperity_airforce
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_co_prosperity_airforce_doctrine_not_received_tt
+				NOT = {
+					has_country_flag = JAP_rework_received_co_prosperity_airforce_doctrine_reward
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_co_prosperity_airforce_doctrine_tt
+			JAP_rework_add_co_prosperity_airforce = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_airforce_doctrine_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_accumulate_military_industry_score = {
+		icon = generic_factory
+		cost = 0
+		days_re_enable = 30
+
+		visible = {
+			has_country_flag = JAP_rework_received_co_prosperity_army_doctrine_reward
+			has_country_flag = JAP_rework_received_co_prosperity_airforce_doctrine_reward
+		}
+
+		available = {
+			has_country_flag = JAP_rework_received_co_prosperity_army_doctrine_reward
+			has_country_flag = JAP_rework_received_co_prosperity_airforce_doctrine_reward
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_accumulate_military_industry_score_tt
+			hidden_effect = {
+				JAP_rework_subject_add_military_industry_score = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_request_land_air_supply = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_country_flag = JAP_rework_received_co_prosperity_army_doctrine_reward
+			has_country_flag = JAP_rework_received_co_prosperity_airforce_doctrine_reward
+		}
+
+		available = {
+			has_country_flag = JAP_rework_received_co_prosperity_army_doctrine_reward
+			has_country_flag = JAP_rework_received_co_prosperity_airforce_doctrine_reward
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_request_land_air_supply_available_tt
+				check_variable = {
+					var = JAP_rework_subject_military_industry_score
+					value = 240
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_request_land_air_supply_tt
+			hidden_effect = {
+				JAP_rework_subject_spend_military_industry_score_for_land_air_supply = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_sync_japanese_templates = {
+		icon = generic_army
+		cost = 0
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_joint_general_headquarters
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_can_sync_japanese_templates_tt
+				JAP_rework_subject_can_sync_japanese_templates = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_sync_japanese_templates_tt
+			hidden_effect = {
+				JAP_rework_subject_sync_japanese_templates_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	JAP_rework_subject_sync_japanese_equipment_designs = {
+		icon = generic_research
+		cost = 0
+
+		available = {
+			JAP = {
+				has_completed_focus = JAP_rework_joint_general_headquarters
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_can_sync_japanese_equipment_designs_tt
+				JAP_rework_subject_can_sync_japanese_equipment_designs = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_sync_japanese_equipment_designs_tt
+			hidden_effect = {
+				JAP_rework_subject_sync_japanese_equipment_designs_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

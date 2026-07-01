@@ -1,43 +1,334 @@
 JAP_greater_east_asia_ministry_decisions = {
 	# Japan-side special subject system decisions live here.
-	JAP_convert_MAN_to_imperial_governor_generalship = {
+	JAP_rework_subject_assemble_southeast_asia_theater = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+		}
+
+		available = {
+			is_ai = no
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_assembly_southeast_asia_theater_staging_available_tt
+				JAP_rework_subject_assembly_southeast_asia_theater_staging_available = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_assembly_southeast_asia_theater_tt
+			hidden_effect = {
+				JAP_rework_activate_subject_assembly_southeast_asia_theater = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_subject_assemble_south_asia_theater = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+		}
+
+		available = {
+			is_ai = no
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_assembly_south_asia_theater_staging_available_tt
+				JAP_rework_subject_assembly_south_asia_theater_staging_available = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_assembly_south_asia_theater_tt
+			hidden_effect = {
+				JAP_rework_activate_subject_assembly_south_asia_theater = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_subject_assemble_east_indies_australia_theater = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+		}
+
+		available = {
+			is_ai = no
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_assembly_east_indies_australia_theater_staging_available_tt
+				JAP_rework_subject_assembly_east_indies_australia_theater_staging_available = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_assembly_east_indies_australia_theater_tt
+			hidden_effect = {
+				JAP_rework_activate_subject_assembly_east_indies_australia_theater = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_subject_assemble_pacific_theater = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+		}
+
+		available = {
+			is_ai = no
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_assembly_pacific_theater_staging_available_tt
+				JAP_rework_subject_assembly_pacific_theater_staging_available = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_assembly_pacific_theater_tt
+			hidden_effect = {
+				JAP_rework_activate_subject_assembly_pacific_theater = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_subject_assemble_northern_east_theater = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+		}
+
+		available = {
+			is_ai = no
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_assembly_northern_east_theater_staging_available_tt
+				JAP_rework_subject_assembly_northern_east_theater_staging_available = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_assembly_northern_east_theater_tt
+			hidden_effect = {
+				JAP_rework_activate_subject_assembly_northern_east_theater = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_subject_assemble_northern_west_theater = {
+		icon = generic_military
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+		}
+
+		available = {
+			is_ai = no
+			custom_trigger_tooltip = {
+				tooltip = JAP_rework_subject_assembly_northern_west_theater_staging_available_tt
+				JAP_rework_subject_assembly_northern_west_theater_staging_available = yes
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_subject_assembly_northern_west_theater_tt
+			hidden_effect = {
+				JAP_rework_activate_subject_assembly_northern_west_theater = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_cancel_subject_theater_assembly = {
+		icon = GFX_decision_generic_decision
+		cost = 0
+
+		visible = {
+			has_completed_focus = JAP_rework_joint_general_headquarters
+			OR = {
+				has_country_flag = JAP_rework_subject_assembly_southeast_asia_theater_active
+				has_country_flag = JAP_rework_subject_assembly_south_asia_theater_active
+				has_country_flag = JAP_rework_subject_assembly_east_indies_australia_theater_active
+				has_country_flag = JAP_rework_subject_assembly_pacific_theater_active
+				has_country_flag = JAP_rework_subject_assembly_northern_east_theater_active
+				has_country_flag = JAP_rework_subject_assembly_northern_west_theater_active
+			}
+		}
+
+		available = {
+			is_ai = no
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_rework_cancel_subject_theater_assembly_tt
+			hidden_effect = {
+				JAP_rework_clear_subject_theater_assembly_flags = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_convert_MAN_to_imperial_garrison_command = {
 		icon = GFX_decision_generic_political_address
 		cost = 25
 		fire_only_once = yes
 
 		visible = {
+			OR = {
+				MAN = {
+					exists = yes
+					is_subject_of = ROOT
+					NOT = { has_autonomy_state = autonomy_jap_rework_imperial_garrison_command }
+				}
+				AND = {
+					MAN = { exists = no }
+					collection_size = {
+						input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+						value > 5
+					}
+				}
+			}
+		}
+
+		available = {
+			OR = {
+				MAN = {
+					is_subject_of = ROOT
+				}
+				AND = {
+					MAN = { exists = no }
+					collection_size = {
+						input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+						value > 5
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = JAP_convert_MAN_to_imperial_garrison_command_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						MAN = { exists = no }
+					}
+					JAP_rework_prepare_MAN_imperial_garrison_release_territory = yes
+					release = MAN
+				}
+				if = {
+					limit = {
+						MAN = { exists = yes }
+					}
+					MAN = {
+						set_country_flag = JAP_rework_imperial_garrison_command_authorized
+					}
+					set_autonomy = {
+						target = MAN
+						autonomy_state = autonomy_jap_rework_imperial_garrison_command
+					}
+					MAN = {
+						drop_cosmetic_tag = yes
+						set_cosmetic_tag = MAN_jap_rework_imperial_garrison_command
+						load_focus_tree = {
+							tree = JAP_rework_special_subject_focus_tree
+							keep_completed = no
+						}
+						mark_focus_tree_layout_dirty = yes
+					}
+					JAP_rework_align_MAN_imperial_garrison_territory = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_rework_regularize_MAN_imperial_garrison_territory = {
+		icon = GFX_decision_generic_political_address
+		cost = 0
+
+		visible = {
 			MAN = {
 				exists = yes
 				is_subject_of = ROOT
-				NOT = { has_autonomy_state = autonomy_jap_rework_imperial_governor_generalship }
+				has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
+			}
+			OR = {
+				collection_size = {
+					input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+					value > 0
+				}
+				collection_size = {
+					input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+					value > 0
+				}
+				collection_size = {
+					input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_uncored_ideal_states
+					value > 0
+				}
 			}
 		}
 
 		available = {
 			MAN = {
+				exists = yes
 				is_subject_of = ROOT
+				has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
+			}
+			OR = {
+				collection_size = {
+					input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+					value > 0
+				}
+				collection_size = {
+					input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+					value > 0
+				}
+				collection_size = {
+					input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_uncored_ideal_states
+					value > 0
+				}
 			}
 		}
 
 		complete_effect = {
-			custom_effect_tooltip = JAP_convert_MAN_to_imperial_governor_generalship_tt
+			custom_effect_tooltip = JAP_rework_regularize_MAN_imperial_garrison_territory_tt
 			hidden_effect = {
-				MAN = {
-					set_country_flag = JAP_rework_imperial_governor_generalship_authorized
-				}
-				set_autonomy = {
-					target = MAN
-					autonomy_state = autonomy_jap_rework_imperial_governor_generalship
-				}
-				MAN = {
-					drop_cosmetic_tag = yes
-					set_cosmetic_tag = MAN_jap_rework_imperial_governor_generalship
-					load_focus_tree = {
-						tree = JAP_rework_special_subject_focus_tree
-						keep_completed = no
-					}
-					mark_focus_tree_layout_dirty = yes
-				}
+				JAP_rework_regularize_MAN_imperial_garrison_territory_effect = yes
 			}
 		}
 

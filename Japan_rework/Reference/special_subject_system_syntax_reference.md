@@ -15,7 +15,7 @@
 
 用途：
 
-- 表达“皇国海军辖地”“皇国合作政府”“皇国总督府”“皇国卫星国”等特殊属国类型。
+- 表达“皇国海军辖地”“皇国合作政府”“皇国镇守府”“皇国卫星国”等特殊属国类型。
 - 给脚本、AI、国策、决议和本地化提供稳定的属国类型判定点。
 
 推荐写法：
@@ -73,7 +73,7 @@ autonomy_state = {
 
 - `autonomy_state` 定义本身不写 `icon =`；原版 `common/autonomous_states/*.txt` 未发现自治等级图标字段。
 - 政治界面的自治等级图标在 `interface/countrypoliticsview.gfx` 注册，命名约定是 `GFX_<自治等级 id>_icon`，例如 `GFX_autonomy_wtt_imperial_associate_icon`。
-- 本 MOD 自定义等级 `autonomy_jap_rework_imperial_governor_generalship` 对应注册名为 `GFX_autonomy_jap_rework_imperial_governor_generalship_icon`；当前复用原版 `gfx/interface/autonomy/autonomy_imperial_associate.dds`，登记在 `interface/rance_jap_autonomy.gfx`。
+- 本 MOD 自定义等级 `autonomy_jap_rework_imperial_garrison_command` 对应注册名为 `GFX_autonomy_jap_rework_imperial_garrison_command_icon`；当前使用自定义图标 `gfx/interface/autonomy/JAP_rework_imperial_garrison_command.dds`，登记在 `interface/rance_jap_autonomy.gfx`。
 
 原版参考路径：
 
@@ -95,7 +95,7 @@ autonomy_state = {
 JAP_rework_is_japanese_special_subject = {
 	is_subject_of = JAP
 	OR = {
-		has_autonomy_state = autonomy_jap_rework_imperial_governor_generalship
+		has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
 		# Future Japan special subject autonomy levels should be added here.
 	}
 }
@@ -215,26 +215,295 @@ TAG_jap_special_subject = {
 
 推荐写法：
 
-固定规划疆域先放在 `state_groups`：
+固定规划疆域先放在 `state_groups`。新版 `script_constants` 必须把 `schema` 放在分类块第一项：
 
 ```hoi4
 state_groups = {
-	JAP_rework_korea_subject_states = {
-		525
-		527
-		909
+	schema = {
+		any_key = yes
+		array = state
+	}
+
+	JAP_rework_MAN_imperial_garrison_ideal_states = {
+		# Manchurian homeland
+		610 # Rehe
+		716 # Liaoning
+		745 # Dalian
+		715 # Northern Liaoning
+		328 # Jilin
+		717 # Songjiang
+		714 # Heilongjiang
+		761 # Hulunbuir
+
+		# Outer Manchuria
+		408 # Vladivostok
+		409 # Khabarovsk
+		657 # Birobidzhan
+		561 # Amur
+		560 # Nikolayevsk
 	}
 }
 ```
 
-再用命名 collection 过滤控制状态：
+再用命名 collection 过滤控制状态。MAN 镇守府已实测通过的基础集合如下：
 
 ```hoi4
-JAP_rework_korea_subject_planned_states = {
-	input = constant:state_groups.JAP_rework_korea_subject_states
-	name = COLLECTION_JAP_REWORK_KOREA_SUBJECT_PLANNED_STATES
+JAP_rework_MAN_imperial_garrison_ideal_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
 }
 
+JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = JAP
+		}
+	}
+}
+
+JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = MAN
+		}
+	}
+}
+
+JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_uncored_ideal_states = {
+	input = constant:state_groups.JAP_rework_MAN_imperial_garrison_ideal_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = MAN
+			NOT = { is_core_of = MAN }
+		}
+	}
+}
+
+JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states = {
+	input = game:all_states
+	operators = {
+		limit = {
+			is_fully_controlled_by = MAN
+			NOT = {
+				OR = {
+					state = 610
+					state = 716
+					state = 745
+					state = 715
+					state = 328
+					state = 717
+					state = 714
+					state = 761
+					state = 408
+					state = 409
+					state = 657
+					state = 561
+					state = 560
+				}
+			}
+		}
+	}
+}
+```
+
+决议可用性用固定阈值；MAN 规划区 13 个 state，当前设立阈值用 `value > 5`：
+
+```hoi4
+collection_size = {
+	input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+	value > 5
+}
+```
+
+释放不存在的属国前，先把日本完全控制的规划区转成日本所有、设日本控制，并补核心；否则 `release = MAN` 可能因为没有可释放核心所有州而失败：
+
+```hoi4
+JAP_rework_prepare_MAN_imperial_garrison_release_territory = {
+	every_collection_element = {
+		input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+		transfer_state_to = ROOT
+		set_state_controller_to = ROOT
+		add_core_of = MAN
+	}
+}
+```
+
+设立或转换后，再把日本完全控制的规划区移交给 MAN，并给 MAN 已完全控制的规划区补核心：
+
+```hoi4
+JAP_rework_align_MAN_imperial_garrison_territory = {
+	if = {
+		limit = {
+			MAN = {
+				exists = yes
+				is_subject_of = ROOT
+			}
+		}
+
+		every_collection_element = {
+			input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+			transfer_state_to = MAN
+			set_state_controller_to = MAN
+			add_core_of = MAN
+		}
+
+		every_collection_element = {
+			input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_states
+			add_core_of = MAN
+		}
+	}
+}
+```
+
+可重复整理决议用于同时执行三类领土修正：宗主日本完全控制的规划区 state 转交给属国，属国完全控制的规划区 state 补核心，属国完全控制的规划区外 state 交还日本控制权。规划区外交还控制权时不要写 `transfer_state_to`：
+
+```hoi4
+JAP_rework_return_MAN_imperial_garrison_extra_control_to_JAP = {
+	if = {
+		limit = {
+			MAN = {
+				exists = yes
+				is_subject_of = ROOT
+				has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
+			}
+			collection_size = {
+				input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+				value > 0
+			}
+		}
+
+		every_collection_element = {
+			input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+			set_state_controller_to = ROOT
+		}
+	}
+}
+
+JAP_rework_regularize_MAN_imperial_garrison_territory_effect = {
+	JAP_rework_align_MAN_imperial_garrison_territory = yes
+	JAP_rework_return_MAN_imperial_garrison_extra_control_to_JAP = yes
+}
+```
+
+日本侧设立决议的结构：
+
+```hoi4
+visible = {
+	OR = {
+		MAN = {
+			exists = yes
+			is_subject_of = ROOT
+			NOT = { has_autonomy_state = autonomy_jap_rework_imperial_garrison_command }
+		}
+		AND = {
+			MAN = { exists = no }
+			collection_size = {
+				input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+				value > 5
+			}
+		}
+	}
+}
+
+complete_effect = {
+	hidden_effect = {
+		if = {
+			limit = { MAN = { exists = no } }
+			JAP_rework_prepare_MAN_imperial_garrison_release_territory = yes
+			release = MAN
+		}
+		if = {
+			limit = { MAN = { exists = yes } }
+			set_autonomy = {
+				target = MAN
+				autonomy_state = autonomy_jap_rework_imperial_garrison_command
+			}
+			MAN = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = MAN_jap_rework_imperial_garrison_command
+				load_focus_tree = {
+					tree = JAP_rework_special_subject_focus_tree
+					keep_completed = no
+				}
+				mark_focus_tree_layout_dirty = yes
+			}
+			JAP_rework_align_MAN_imperial_garrison_territory = yes
+		}
+	}
+}
+```
+
+日本侧可重复规整决议的结构：
+
+```hoi4
+visible = {
+	MAN = {
+		exists = yes
+		is_subject_of = ROOT
+		has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
+	}
+	OR = {
+		collection_size = {
+			input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+			value > 0
+		}
+		collection_size = {
+			input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+			value > 0
+		}
+		collection_size = {
+			input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_uncored_ideal_states
+			value > 0
+		}
+	}
+}
+
+complete_effect = {
+	hidden_effect = {
+		JAP_rework_regularize_MAN_imperial_garrison_territory_effect = yes
+	}
+}
+```
+
+如需“日本或其属国/盟友控制规划区”而不是“日本完全控制规划区”，可以换成更宽的控制判定：
+
+```hoi4
+operators = {
+	limit = {
+		OR = {
+			is_controlled_by_ROOT_or_ally = yes
+			controller = { is_subject_of = ROOT }
+		}
+	}
+}
+```
+
+风险点：
+
+- `collection_size` 的比较在原版文档中标注为 inclusive，关键阈值应实测 tooltip 和实际可用性。
+- `game:scope` 取决于 collection 的调用环境；日本侧决议、属国侧决议、事件 `FROM` 中的结果可能不同。
+- 固定规划疆域优先 `state_groups`/collection；数组更适合运行时临时列表。
+- `script_constants` 分类块必须先写 `schema`；缺失时 collection 会读成空集合，表现为领土移交、释放和数量判断全部失效。
+- `release = TAG` 前要保证释放国有核心且日本拥有/控制可释放州；MAN 范例用预处理 effect 先补核心并转为日本所有/控制。
+- “规划区外” collection 当前用 `game:all_states` 加 `NOT = { OR = { state = ... } }` 显式排除；新增或删改规划州时要同步维护这份排除表。
+- 若只是回收控制权，用 `set_state_controller_to = ROOT`；若要改变所有权，才使用 `transfer_state_to = ROOT`。
+- 宗主持有规划区领土时采用“宗主完全控制”条件，避免战争中把未完全控制的前线 state 硬转给属国。
+- 若决议只想屏蔽 AI，优先放在 `available = { is_ai = no }` 或用 `ai_will_do = { factor = 0 }`；不要在不支持该触发器的决议级 `allowed` 中写 `is_ai`。
+- 若要做“控制比例” UI，可参考 `ratio_progress`，但决议可用性首版建议用固定半数阈值，减少不确定性。
+
+原版参考路径：
+
+- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\collections\_documentation.md`
+- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\collections\collections.txt`
+- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\script_constants\state_groups.txt`
+- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\factions\_documentation.md`
+- `Reference/collections_usage_reference.md`
+- `Reference/collections_lookup_reference.md`
+
+旧的宽控制写法参考：
+
+```hoi4
 JAP_rework_korea_subject_controlled_states = {
 	input = constant:state_groups.JAP_rework_korea_subject_states
 	operators = {
@@ -245,34 +514,8 @@ JAP_rework_korea_subject_controlled_states = {
 			}
 		}
 	}
-	name = COLLECTION_JAP_REWORK_KOREA_SUBJECT_CONTROLLED_STATES
 }
 ```
-
-决议可用性用固定半数阈值：
-
-```hoi4
-collection_size = {
-	input = collection:JAP_rework_korea_subject_controlled_states
-	value > 2
-}
-```
-
-风险点：
-
-- `collection_size` 的比较在原版文档中标注为 inclusive，关键阈值应实测 tooltip 和实际可用性。
-- `game:scope` 取决于 collection 的调用环境；日本侧决议、属国侧决议、事件 `FROM` 中的结果可能不同。
-- 固定规划疆域优先 `state_groups`/collection；数组更适合运行时临时列表。
-- 若要做“控制比例”UI，可参考 `ratio_progress`，但决议可用性首版建议用固定半数阈值，减少不确定性。
-
-原版参考路径：
-
-- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\collections\_documentation.md`
-- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\collections\collections.txt`
-- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\script_constants\state_groups.txt`
-- `D:\SteamLibrary\steamapps\common\Hearts of Iron IV\common\factions\_documentation.md`
-- `Reference/collections_usage_reference.md`
-- `Reference/collections_lookup_reference.md`
 
 ## 变量、积分和动态修正
 

@@ -1,6 +1,6 @@
 ﻿l_simp_chinese:
  # --- special subject autonomy levels ---
- autonomy_jap_rework_imperial_governor_generalship:0 "皇国总督府"
+ autonomy_jap_rework_imperial_garrison_command:0 "皇国镇守府"
 
  # --- characters ---
  JAP_rework_rana: "要乐奈"

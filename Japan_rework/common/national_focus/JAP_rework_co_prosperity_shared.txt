@@ -1,3 +1,52 @@
+# 联合国策基本框架参照：
+# - 本文件只放顶层 shared_focus / joint_focus 定义，不包在 focus_tree = { } 内。
+# - 国家树通过 shared_focus = JAP_rework_co_prosperity_sphere_start 接入这条联合分支。
+# - allow_branch 控制分支是否显示，通常只写在分支根节点或第一枚节点；
+#   后续节点默认继承分支可见性，除非需要单独隐藏某个子分支。
+# - available 控制当前国家能否点击；
+#   joint_trigger 只筛选本次联合结算的参与成员，不替代 available。
+# - completion_reward 是共同奖励；completion_reward_joint_originator 只给发起国；
+#   completion_reward_joint_member 只给通过 joint_trigger 的非发起成员。
+# - 后续节点优先使用 relative_position_id 接在已有节点上，避免在大树里散写绝对坐标。
+#
+# joint_focus = {
+# 	id = JAP_rework_co_prosperity_example
+# 	icon = GFX_focus_JAP_rework_generic_political_pressure
+# 	x = 0
+# 	y = 2
+# 	relative_position_id = JAP_rework_co_prosperity_sphere_start
+# 	cost = 5
+# 	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	search_filters = { FOCUS_FILTER_POLITICAL }
+# 	prerequisite = { focus = JAP_rework_co_prosperity_sphere_start }
+# 	available = {
+# 		OR = {
+# 			tag = JAP
+# 			JAP_rework_is_japanese_special_subject = yes
+# 		}
+# 	}
+# 	joint_trigger = {
+# 		OR = {
+# 			tag = JAP
+# 			JAP_rework_is_japanese_special_subject = yes
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		factor = 1
+# 	}
+# 	completion_reward = {
+# 		# 给所有联合参与成员的共同奖励。
+# 	}
+# 	completion_reward_joint_originator = {
+# 		# 只给点下该国策的发起国。
+# 	}
+# 	completion_reward_joint_member = {
+# 		# 只给其他通过 joint_trigger 的联合成员。
+# 	}
+# }
+
 joint_focus = {
 	id = JAP_rework_co_prosperity_sphere_start
 	icon = GFX_focus_JAP_greater_east_asian_co_properity_sphere
@@ -254,6 +303,351 @@ joint_focus = {
 					id = SEA_japan_news_events.02
 					days = 4
 				}
+			}
+		}
+	}
+}
+
+joint_focus = {
+	id = JAP_rework_ministry_of_greater_east_asia
+	icon = GFX_focus_JAP_rework_ministry_of_greater_east_asia
+	x = -13
+	y = 1
+	relative_position_id = JAP_rework_co_prosperity_sphere_start
+	cost = 5
+	available_if_capitulated = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
+
+	prerequisite = {
+		focus = JAP_rework_co_prosperity_sphere_start
+	}
+
+	available = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	joint_trigger = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	completion_reward_joint_originator = {
+		add_political_power = 100
+		custom_effect_tooltip = JAP_rework_co_prosperity_governance_modifier_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_governance_add_effect_tt
+		hidden_effect = {
+			JAP_rework_initialize_co_prosperity_governance_variables = yes
+		}
+		add_to_variable = { global.JAP_rework_co_prosperity_governance_political_power_gain = 0.25 tooltip = JAP_rework_co_prosperity_governance_political_power_gain_tt }
+		custom_effect_tooltip = JAP_rework_unlock_subject_governance_decision_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_governance_effect = yes
+			}
+		}
+	}
+
+	completion_reward_joint_member = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_governance_modifier_reward_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_governance_effect = yes
+			}
+		}
+	}
+}
+
+joint_focus = {
+	id = JAP_rework_joint_general_headquarters
+	icon = GFX_focus_JAP_rework_joint_general_headquarters
+	x = 0
+	y = 1
+	relative_position_id = JAP_rework_co_prosperity_sphere_start
+	cost = 5
+	available_if_capitulated = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_ADVANCEMENTS }
+
+	prerequisite = {
+		focus = JAP_rework_co_prosperity_sphere_start
+	}
+
+	available = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	joint_trigger = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	completion_reward_joint_originator = {
+		army_experience = 50
+		navy_experience = 50
+		air_experience = 50
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_rework_joint_general_headquarters_mio_reward_tt
+		custom_effect_tooltip = JAP_rework_unlock_subject_mio_boost_decision_tt
+		custom_effect_tooltip = JAP_rework_unlock_subject_template_and_design_sync_decisions_tt
+		custom_effect_tooltip = JAP_rework_unlock_subject_theater_assembly_decisions_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { tag = JAP }
+				}
+				every_military_industrial_organization = {
+					add_mio_size = 20
+				}
+				set_country_flag = JAP_rework_received_joint_general_headquarters_mio_reward
+			}
+		}
+	}
+
+	completion_reward_joint_member = {
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			custom_effect_tooltip = JAP_rework_joint_general_headquarters_mio_reward_tt
+			hidden_effect = {
+				every_military_industrial_organization = {
+					add_mio_size = 20
+				}
+				set_country_flag = JAP_rework_received_joint_general_headquarters_mio_reward
+			}
+		}
+	}
+}
+
+joint_focus = {
+	id = JAP_rework_co_prosperity_army
+	icon = GFX_focus_JAP_rework_co_prosperity_army
+	x = -6
+	y = 1
+	relative_position_id = JAP_rework_joint_general_headquarters
+	cost = 5
+	available_if_capitulated = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_ADVANCEMENTS }
+
+	prerequisite = {
+		focus = JAP_rework_joint_general_headquarters
+	}
+
+	available = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	joint_trigger = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_army_doctrine_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_army_modifier_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_army_add_effect_tt
+		hidden_effect = {
+			JAP_rework_initialize_co_prosperity_army_variables = yes
+		}
+		add_to_variable = { global.JAP_rework_co_prosperity_army_experience_gain_army = 0.05 tooltip = experience_gain_army_tt }
+		custom_effect_tooltip = JAP_rework_unlock_subject_army_doctrine_decision_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			JAP_rework_add_co_prosperity_army = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_army_doctrine_effect = yes
+			}
+		}
+	}
+
+	completion_reward_joint_member = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_army_doctrine_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_army_modifier_reward_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			JAP_rework_add_co_prosperity_army = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_army_doctrine_effect = yes
+			}
+		}
+	}
+}
+
+joint_focus = {
+	id = JAP_rework_co_prosperity_navy
+	icon = GFX_focus_JAP_rework_co_prosperity_navy
+	x = 0
+	y = 1
+	relative_position_id = JAP_rework_joint_general_headquarters
+	cost = 5
+	available_if_capitulated = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_ADVANCEMENTS }
+
+	prerequisite = {
+		focus = JAP_rework_joint_general_headquarters
+	}
+
+	available = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	joint_trigger = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_navy_doctrine_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_navy_modifier_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_navy_add_effect_tt
+		hidden_effect = {
+			JAP_rework_initialize_co_prosperity_navy_variables = yes
+		}
+		add_to_variable = { global.JAP_rework_co_prosperity_navy_experience_gain_navy = 0.05 tooltip = experience_gain_navy_tt }
+		custom_effect_tooltip = JAP_rework_unlock_subject_navy_doctrine_decision_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			JAP_rework_add_co_prosperity_navy = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_navy_doctrine_effect = yes
+			}
+		}
+	}
+
+	completion_reward_joint_member = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_navy_doctrine_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_navy_modifier_reward_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			JAP_rework_add_co_prosperity_navy = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_navy_doctrine_effect = yes
+			}
+		}
+	}
+}
+
+joint_focus = {
+	id = JAP_rework_co_prosperity_airforce
+	icon = GFX_focus_JAP_rework_co_prosperity_airforce
+	x = 6
+	y = 1
+	relative_position_id = JAP_rework_joint_general_headquarters
+	cost = 5
+	available_if_capitulated = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_ADVANCEMENTS }
+
+	prerequisite = {
+		focus = JAP_rework_joint_general_headquarters
+	}
+
+	available = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	joint_trigger = {
+		OR = {
+			tag = JAP
+			JAP_rework_is_japanese_special_subject = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_airforce_doctrine_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_airforce_modifier_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_airforce_add_effect_tt
+		hidden_effect = {
+			JAP_rework_initialize_co_prosperity_airforce_variables = yes
+		}
+		add_to_variable = { global.JAP_rework_co_prosperity_airforce_experience_gain_air = 0.05 tooltip = experience_gain_air_tt }
+		custom_effect_tooltip = JAP_rework_unlock_subject_airforce_doctrine_decision_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			JAP_rework_add_co_prosperity_airforce = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_airforce_doctrine_effect = yes
+			}
+		}
+	}
+
+	completion_reward_joint_member = {
+		custom_effect_tooltip = JAP_rework_co_prosperity_airforce_doctrine_reward_tt
+		custom_effect_tooltip = JAP_rework_co_prosperity_airforce_modifier_reward_tt
+		if = {
+			limit = {
+				NOT = { tag = JAP }
+			}
+			JAP_rework_add_co_prosperity_airforce = yes
+			hidden_effect = {
+				JAP_rework_subject_apply_co_prosperity_airforce_doctrine_effect = yes
 			}
 		}
 	}

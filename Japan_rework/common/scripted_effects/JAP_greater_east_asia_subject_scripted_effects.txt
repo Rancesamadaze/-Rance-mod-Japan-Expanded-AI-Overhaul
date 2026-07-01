@@ -1,0 +1,59 @@
+# Japan-scope territory helpers for Greater East Asia Ministry special subjects.
+
+JAP_rework_prepare_MAN_imperial_garrison_release_territory = {
+	every_collection_element = {
+		input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+		transfer_state_to = ROOT
+		set_state_controller_to = ROOT
+		add_core_of = MAN
+	}
+}
+
+JAP_rework_align_MAN_imperial_garrison_territory = {
+	if = {
+		limit = {
+			MAN = {
+				exists = yes
+				is_subject_of = ROOT
+			}
+		}
+
+		every_collection_element = {
+			input = collection:JAP_rework_MAN_imperial_garrison_JAP_fully_controlled_states
+			transfer_state_to = MAN
+			set_state_controller_to = MAN
+			add_core_of = MAN
+		}
+
+		every_collection_element = {
+			input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_states
+			add_core_of = MAN
+		}
+	}
+}
+
+JAP_rework_return_MAN_imperial_garrison_extra_control_to_JAP = {
+	if = {
+		limit = {
+			MAN = {
+				exists = yes
+				is_subject_of = ROOT
+				has_autonomy_state = autonomy_jap_rework_imperial_garrison_command
+			}
+			collection_size = {
+				input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+				value > 0
+			}
+		}
+
+		every_collection_element = {
+			input = collection:JAP_rework_MAN_imperial_garrison_MAN_fully_controlled_outside_ideal_states
+			set_state_controller_to = ROOT
+		}
+	}
+}
+
+JAP_rework_regularize_MAN_imperial_garrison_territory_effect = {
+	JAP_rework_align_MAN_imperial_garrison_territory = yes
+	JAP_rework_return_MAN_imperial_garrison_extra_control_to_JAP = yes
+}

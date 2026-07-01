@@ -38,6 +38,9 @@ JAP_cr_prototype_medium_tank_jap = {
     }
     
     
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_prototype_medium_tank_jap
+    }
 }
 
 # 第一代：九七式中战（初始型号）
@@ -80,6 +83,9 @@ JAP_cr_basic_medium_tank_jap_97 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_medium_tank_jap_97
+    }
 }
 # 第二代：九七式中战改 (火力强化型)
 JAP_cr_improved_medium_tank_jap_97_kai = {
@@ -119,6 +125,9 @@ JAP_cr_improved_medium_tank_jap_97_kai = {
                 set_country_flag = JAP_has_cr_medium_tank_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_tank_jap_97_kai
     }
 }
 
@@ -161,6 +170,9 @@ JAP_cr_improved_medium_tank_jap_type_3 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_tank_jap_type_3
+    }
 }
 
 # 第四代：三式中战 改 (火力强化方案)
@@ -201,6 +213,9 @@ JAP_cr_improved_medium_tank_jap_type_3_kai = {
                 set_country_flag = JAP_has_cr_medium_tank_chassis_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_tank_jap_type_3_kai
     }
 }
 
@@ -243,6 +258,9 @@ JAP_cr_advanced_medium_tank_jap_type_5 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_medium_tank_jap_type_5
+    }
 }
 #中坦歼
 # 第一代：一式炮战车
@@ -283,6 +301,9 @@ JAP_cr_basic_medium_td_jap_ho_ni_1 = {
                 set_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_medium_td_jap_ho_ni_1
     }
 }
 
@@ -325,6 +346,9 @@ JAP_cr_improved_medium_td_jap_ho_ni_1_kai = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_td_jap_ho_ni_1_kai
+    }
 }
 
 # 第三代：三式炮战车
@@ -365,6 +389,9 @@ JAP_cr_improved_medium_td_jap_ho_ni_3 = {
                 set_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_td_jap_ho_ni_3
     }
 }
 
@@ -407,6 +434,9 @@ JAP_cr_advanced_medium_td_jap_ho_ni_3_kai = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_medium_td_jap_ho_ni_3_kai
+    }
 }
 
 # 第五代：五式炮战车 Na-To
@@ -447,6 +477,9 @@ JAP_cr_advanced_medium_td_jap_na_to = {
                 set_country_flag = JAP_has_cr_medium_tank_destroyer_chassis_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_medium_td_jap_na_to
     }
 }
 
@@ -490,6 +523,9 @@ JAP_cr_basic_medium_art_jap_type_1 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_medium_art_jap_type_1
+    }
 }
 
 # 第二代：三式自走炮
@@ -530,6 +566,9 @@ JAP_cr_improved_medium_art_jap_type_3 = {
                 set_country_flag = JAP_has_cr_medium_tank_artillery_chassis_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_art_jap_type_3
     }
 }
 
@@ -572,6 +611,9 @@ JAP_cr_improved_medium_art_jap_type_4 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_art_jap_type_4
+    }
 }
 
 # 第四代：五式自走炮
@@ -613,6 +655,9 @@ JAP_cr_advanced_medium_art_jap_type_5 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_medium_art_jap_type_5
+    }
 }
 #中防空
 # 第一代：九七式中型防空战车
@@ -652,6 +697,9 @@ JAP_cr_basic_medium_aa_jap_type_1_kai = {
                 set_country_flag = JAP_has_cr_medium_tank_aa_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_medium_aa_jap_type_1_kai
     }
 }
 
@@ -694,6 +742,9 @@ JAP_cr_improved_medium_aa_jap_type_2_kai = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_aa_jap_type_2_kai
+    }
 }
 
 # 第三代：五式中型防空战车
@@ -734,6 +785,9 @@ JAP_cr_advanced_medium_aa_jap_type_3 = {
                 set_country_flag = JAP_has_cr_medium_tank_aa_chassis_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_medium_aa_jap_type_3
     }
 }
 ##重型坦克
@@ -776,6 +830,9 @@ JAP_cr_basic_heavy_tank_jap_95 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_heavy_tank_jap_95
+    }
 }
 
 # 第二代：岩畔
@@ -816,6 +873,9 @@ JAP_cr_improved_heavy_tank_jap_iwakuro = {
                 set_country_flag = JAP_has_cr_heavy_tank_chassis_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_heavy_tank_jap_iwakuro
     }
 }
 
@@ -858,6 +918,9 @@ JAP_cr_improved_heavy_tank_jap_iwakuro_kai = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_heavy_tank_jap_iwakuro_kai
+    }
 }
 
 # 第四代：O-I
@@ -898,6 +961,9 @@ JAP_cr_advanced_heavy_tank_jap_o_i = {
                 set_country_flag = JAP_has_cr_heavy_tank_chassis_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_heavy_tank_jap_o_i
     }
 }
 #重型自行反坦克炮
@@ -940,6 +1006,9 @@ JAP_cr_basic_heavy_td_jap_type_3 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_heavy_td_jap_type_3
+    }
 }
 
 # 第二代：五式炮战车 Ho-Ri
@@ -981,6 +1050,9 @@ JAP_cr_improved_heavy_td_jap_ho_ri = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_heavy_td_jap_ho_ri
+    }
 }
 
 # 第三代：伊吹
@@ -1021,6 +1093,9 @@ JAP_cr_advanced_heavy_td_jap_type_3 = {
                 set_country_flag = JAP_has_cr_heavy_tank_destroyer_chassis_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_heavy_td_jap_type_3
     }
 }
 
@@ -1064,6 +1139,9 @@ JAP_cr_basic_heavy_art_jap_type_1 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_heavy_art_jap_type_1
+    }
 }
 
 # 第二代：三式重迫击炮
@@ -1104,6 +1182,9 @@ JAP_cr_improved_heavy_art_jap_type_3 = {
                 set_country_flag = JAP_has_cr_heavy_tank_artillery_chassis_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_heavy_art_jap_type_3
     }
 }
 
@@ -1146,6 +1227,9 @@ JAP_cr_advanced_heavy_art_jap_type_5 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_heavy_art_jap_type_5
+    }
 }
 #重防空
 # 第一代：九五式重型防空战车
@@ -1186,6 +1270,9 @@ JAP_cr_basic_heavy_aa_jap_type_1 = {
                 set_country_flag = JAP_has_cr_heavy_tank_aa_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_heavy_aa_jap_type_1
     }
 }
 
@@ -1228,6 +1315,9 @@ JAP_cr_improved_heavy_aa_jap_type_2 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_heavy_aa_jap_type_2
+    }
 }
 
 # 第三代：茨木
@@ -1268,6 +1358,9 @@ JAP_cr_advanced_heavy_aa_jap_type_3 = {
                 set_country_flag = JAP_has_cr_heavy_tank_aa_chassis_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_heavy_aa_jap_type_3
     }
 }
 #中两栖
@@ -1310,6 +1403,9 @@ JAP_cr_basic_amphibious_medium_tank_jap_97 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_amphibious_medium_tank_jap_97
+    }
 }
 
 # 第二代：三式水陆中战车
@@ -1351,6 +1447,9 @@ JAP_cr_improved_amphibious_medium_tank_jap_type_3 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_amphibious_medium_tank_jap_type_3
+    }
 }
 
 # 第三代：五式中战 (水陆终极形态)
@@ -1391,6 +1490,9 @@ JAP_cr_advanced_medium_tank_jap_type_5_amphibious = {
                 set_country_flag = JAP_has_cr_medium_tank_amphibious_chassis_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_medium_tank_jap_type_5_amphibious
     }
 }
 
@@ -1434,6 +1536,9 @@ JAP_cr_modern_tank_jap_type_61 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_modern_tank_jap_type_61
+    }
 }
 
 # 唯一型号：六一式对战车自走炮
@@ -1474,6 +1579,9 @@ JAP_cr_modern_td_jap_type_61 = {
                 set_country_flag = JAP_has_cr_modern_tank_destroyer_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_modern_td_jap_type_61
     }
 }
 
@@ -1516,6 +1624,9 @@ JAP_cr_modern_art_jap_type_61 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_modern_art_jap_type_61
+    }
 }
 
 # 唯一型号：六一式自行防空炮
@@ -1556,6 +1667,9 @@ JAP_cr_modern_aa_jap_type_61 = {
                 set_country_flag = JAP_has_cr_modern_tank_aa_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_modern_aa_jap_type_61
     }
 }
 
@@ -1598,6 +1712,9 @@ JAP_cr_basic_amphibious_heavy_tank_jap_95 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_amphibious_heavy_tank_jap_95
+    }
 }
 
 # 第二代：五式水陆重战车
@@ -1638,6 +1755,9 @@ JAP_cr_improved_amphibious_heavy_tank_jap_type_5 = {
                 set_country_flag = JAP_has_cr_heavy_tank_amphibious_chassis_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_amphibious_heavy_tank_jap_type_5
     }
 }
 
@@ -1680,6 +1800,9 @@ JAP_cr_advanced_amphibious_heavy_tank_jap_takeru = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_advanced_amphibious_heavy_tank_jap_takeru
+    }
 }
 # 第一代：九八式中喷火战车 S-Ki
 JAP_cr_basic_medium_flame_tank_jap_s_ki = {
@@ -1720,6 +1843,9 @@ JAP_cr_basic_medium_flame_tank_jap_s_ki = {
                 set_country_flag = JAP_has_cr_medium_tank_flame_chassis_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_basic_medium_flame_tank_jap_s_ki
     }
 }
 
@@ -1765,6 +1891,9 @@ JAP_cr_improved_medium_flame_tank_jap_ka_ha = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_improved_medium_flame_tank_jap_ka_ha
+    }
 }
 #陆地巡洋舰
 # 唯一型号：星熊 (Hoshiguma)
@@ -1809,6 +1938,9 @@ JAP_cr_jap_land_cruiser_hoshiguma = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_jap_land_cruiser_hoshiguma
+    }
 }
 ###########################现在开始是空军##############################################################################
 # 日本轻战脚本效果 - 强制纠偏系列
@@ -1842,6 +1974,9 @@ JAP_cr_fighter_ki27 = {
                 set_country_flag = JAP_has_cr_small_plane_airframe_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_fighter_ki27
     }
 }
 
@@ -1878,6 +2013,9 @@ JAP_cr_fighter_ki43 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_fighter_ki43
+    }
 }
 
 # 第三代：Ki-84 四式战 “疾风”
@@ -1913,6 +2051,9 @@ JAP_cr_fighter_ki84 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_fighter_ki84
+    }
 }
 
 # 第四代：Ki-94-II 六式战 “电光”
@@ -1947,6 +2088,9 @@ JAP_cr_fighter_ki94 = {
                 set_country_flag = JAP_has_cr_small_plane_airframe_4
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_fighter_ki94
     }
 }
 
@@ -1987,6 +2131,9 @@ JAP_cr_fighter_ki201 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_fighter_ki201
+    }
 }
 # 日本舰战脚本效果 - 强制纠偏系列
 # 第一代：A5M 九六式舰上战斗机
@@ -2018,6 +2165,9 @@ JAP_cr_cv_fighter_a5m = {
                 set_country_flag = JAP_has_cr_cv_small_plane_airframe_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_fighter_a5m
     }
 }
 
@@ -2054,6 +2204,9 @@ JAP_cr_cv_fighter_a6m2 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_fighter_a6m2
+    }
 }
 
 # 第三代：A7M2 十七式舰战 “烈风”
@@ -2088,6 +2241,9 @@ JAP_cr_cv_fighter_a7m2 = {
                 set_country_flag = JAP_has_cr_cv_small_plane_airframe_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_fighter_a7m2
     }
 }
 
@@ -2125,6 +2281,9 @@ JAP_cr_cv_fighter_a9m = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_fighter_a9m
+    }
 }
 # 日本小型袭击机脚本效果 - 强制纠偏系列
 # 第一代：Ki-32 九八轻爆
@@ -2157,6 +2316,9 @@ JAP_cr_cas_ki32 = {
                 set_country_flag = JAP_has_cr_small_plane_cas_airframe_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cas_ki32
     }
 }
 
@@ -2191,6 +2353,9 @@ JAP_cr_cas_ki51 = {
                 set_country_flag = JAP_has_cr_small_plane_cas_airframe_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cas_ki51
     }
 }
 
@@ -2228,6 +2393,9 @@ JAP_cr_cas_ki102 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cas_ki102
+    }
 }
 
 # 第四代：Ki-119 六式袭
@@ -2264,6 +2432,9 @@ JAP_cr_cas_ki119 = {
                 set_country_flag = JAP_has_cr_small_plane_cas_airframe_4
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cas_ki119
     }
 }
 
@@ -2303,6 +2474,9 @@ JAP_cr_cas_ki201_kai = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cas_ki201_kai
+    }
 }
 # 日本舰载攻击机脚本效果 - 强制纠偏系列
 # 第一代：B5N 九七式舰攻
@@ -2334,6 +2508,9 @@ JAP_cr_cv_attacker_b5n = {
                 set_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_attacker_b5n
     }
 }
 
@@ -2367,6 +2544,9 @@ JAP_cr_cv_attacker_b6n = {
                 set_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_attacker_b6n
     }
 }
 
@@ -2402,6 +2582,9 @@ JAP_cr_cv_attacker_b6n_kai = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_attacker_b6n_kai
+    }
 }
 
 # 第三代：B7A 十七式舰攻 “流星”
@@ -2433,6 +2616,9 @@ JAP_cr_cv_attacker_b7a = {
                 set_country_flag = JAP_has_cr_cv_small_plane_naval_bomber_airframe_3
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_attacker_b7a
     }
 }
 
@@ -2467,6 +2653,9 @@ JAP_cr_cv_attacker_b8a = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_attacker_b8a
+    }
 }
 # 日本重型战斗机脚本效果 - 强制纠偏系列
 # 第一代：Ki-38 九八式重战
@@ -2499,6 +2688,9 @@ JAP_cr_heavy_fighter_ki38 = {
                 set_country_flag = JAP_has_cr_medium_plane_fighter_airframe_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_heavy_fighter_ki38
     }
 }
 
@@ -2534,6 +2726,9 @@ JAP_cr_heavy_fighter_ki45 = {
                 set_country_flag = JAP_has_cr_medium_plane_fighter_airframe_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_heavy_fighter_ki45
     }
 }
 
@@ -2571,6 +2766,9 @@ JAP_cr_heavy_fighter_ki102 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_heavy_fighter_ki102
+    }
 }
 
 # 第四代：Ki-83 六式重战 “天龙”
@@ -2607,6 +2805,9 @@ JAP_cr_heavy_fighter_ki83 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_heavy_fighter_ki83
+    }
 }
 # 日本海上巡逻轰炸机脚本效果 - 强制纠偏系列
 # 第一代：G5M1 九八式陆上攻击机 “鸣神”
@@ -2641,6 +2842,9 @@ JAP_cr_maritime_patrol_g5m1 = {
                 set_country_flag = JAP_has_cr_large_plane_maritime_patrol_plane_airframe_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_maritime_patrol_g5m1
     }
 }
 
@@ -2678,6 +2882,9 @@ JAP_cr_maritime_patrol_g7m1 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_maritime_patrol_g7m1
+    }
 }
 
 # 第三代：G9P1 三式远距哨戒攻击机 “幻苍”
@@ -2714,6 +2921,9 @@ JAP_cr_maritime_patrol_g9p1 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_maritime_patrol_g9p1
+    }
 }
 #################################################################空军结束#########################################
 ##简单升级装备设计
@@ -2747,6 +2957,9 @@ JAP_cr_mechanized_equipment_1 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_mechanized_equipment_1
+    }
 }
 JAP_cr_mechanized_equipment_2 = {
     create_equipment_variant = {
@@ -2776,6 +2989,9 @@ JAP_cr_mechanized_equipment_2 = {
                 set_country_flag = JAP_has_cr_mechanized_equipment_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_mechanized_equipment_2
     }
 }
 JAP_cr_mechanized_equipment_3 = {
@@ -2807,6 +3023,9 @@ JAP_cr_mechanized_equipment_3 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_mechanized_equipment_3
+    }
 }
 JAP_cr_amphibious_mechanized_equipment_1 = {
 	create_equipment_variant = {
@@ -2837,6 +3056,9 @@ JAP_cr_amphibious_mechanized_equipment_1 = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_amphibious_mechanized_equipment_1
+    }
 }
 JAP_cr_amphibious_mechanized_equipment_2 = {
 	create_equipment_variant = {
@@ -2866,6 +3088,9 @@ JAP_cr_amphibious_mechanized_equipment_2 = {
                 set_country_flag = JAP_has_cr_amphibious_mechanized_equipment_2
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_amphibious_mechanized_equipment_2
     }
 }
 #空天母舰
@@ -2899,6 +3124,9 @@ JAP_cr_mothership = {
             }
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_mothership
+    }
 }
 #洲际轰炸机
 JAP_cr_strat_bomber = {
@@ -2930,6 +3158,9 @@ JAP_cr_strat_bomber = {
                 set_country_flag = JAP_has_cr_strat_bomber_intercontinental_equipment_1
             }
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_strat_bomber
     }
 }
 ################################################################################################################
@@ -2978,6 +3209,9 @@ JAP_cr_cv_akagi = {
             set_country_flag = JAP_has_cr_ship_design_cv_akagi
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_akagi
+    }
 }
 
 # 第二代：翔鹤级
@@ -3022,6 +3256,9 @@ JAP_cr_cv_shokaku = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cv_shokaku
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_shokaku
     }
 }
 
@@ -3069,6 +3306,9 @@ JAP_cr_cv_shinano = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cv_shinano
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_shinano
     }
 }
 
@@ -3118,6 +3358,9 @@ JAP_cr_cv_hakuryu = {
             set_country_flag = JAP_has_cr_ship_design_cv_hakuryu
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_hakuryu
+    }
 }
 ############################################################################
 # 雪凤级冰航母脚本效果 - 职能锁定版
@@ -3165,6 +3408,9 @@ JAP_cr_cv_yukihou = {
             set_country_flag = JAP_has_cr_ship_design_cv_yukihou
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_yukihou
+    }
 }
 ######################################################
 # 护航航母系列脚本 - 职能锁定版
@@ -3210,6 +3456,9 @@ JAP_cr_cv_ryujo = {
             set_country_flag = JAP_has_cr_ship_design_cv_ryujo
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_ryujo
+    }
 }
 
 # 第二代：瑞凤级
@@ -3253,6 +3502,9 @@ JAP_cr_cv_zuiho = {
             set_country_flag = JAP_has_cr_ship_design_cv_zuiho
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_zuiho
+    }
 }
 
 # 第三代：龙凤级
@@ -3295,6 +3547,9 @@ JAP_cr_cv_ryuho = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cv_ryuho
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cv_ryuho
     }
 }
 ##########################################
@@ -3345,6 +3600,9 @@ JAP_cr_bb_nagato = {
             set_country_flag = JAP_has_cr_ship_design_bb_nagato
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_bb_nagato
+    }
 }
 
 # 第二代：加贺级
@@ -3392,6 +3650,9 @@ JAP_cr_bb_kaga = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_bb_kaga
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_bb_kaga
     }
 }
 
@@ -3441,6 +3702,9 @@ JAP_cr_bb_musashi = {
             set_country_flag = JAP_has_cr_ship_design_bb_musashi
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_bb_musashi
+    }
 }
 
 # 第四代：大和级
@@ -3489,6 +3753,9 @@ JAP_cr_bb_yamato = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_bb_yamato
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_bb_yamato
     }
 }
 # 超重型战列舰系列脚本 - 职能锁定版
@@ -3542,6 +3809,9 @@ JAP_cr_bb_tsushima = {
             set_country_flag = JAP_has_cr_ship_design_bb_tsushima
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_bb_tsushima
+    }
 }
 
 # 第二代：尾张级
@@ -3591,6 +3861,9 @@ JAP_cr_bb_owari = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_bb_owari
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_bb_owari
     }
 }
 #################################
@@ -3643,6 +3916,9 @@ JAP_cr_clt_kitakami = {
             set_country_flag = JAP_has_cr_ship_design_clt_kitakami
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_clt_kitakami
+    }
 }
 
 # 第二代：大井级
@@ -3690,6 +3966,9 @@ JAP_cr_clt_ooi = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_clt_ooi
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_clt_ooi
     }
 }
 # 重巡洋舰系列脚本 - 职能锁定版
@@ -3739,6 +4018,9 @@ JAP_cr_ca_aoba = {
             set_country_flag = JAP_has_cr_ship_design_ca_aoba
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ca_aoba
+    }
 }
 
 # 第二代：云仙级
@@ -3786,6 +4068,9 @@ JAP_cr_ca_unzen = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_ca_unzen
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ca_unzen
     }
 }
 
@@ -3835,6 +4120,9 @@ JAP_cr_ca_azuma = {
             set_country_flag = JAP_has_cr_ship_design_ca_azuma
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ca_azuma
+    }
 }
 # 肉盾巡洋舰系列脚本 - 职能锁定版
 
@@ -3877,6 +4165,9 @@ JAP_cr_cl_ota = {
             set_country_flag = JAP_has_cr_ship_design_cl_ota
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_ota
+    }
 }
 
 # 第二代：菊池级
@@ -3918,6 +4209,9 @@ JAP_cr_cl_kikuchi = {
             set_country_flag = JAP_has_cr_ship_design_cl_kikuchi
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_kikuchi
+    }
 }
 
 # 第三代：鸣濑级
@@ -3958,6 +4252,9 @@ JAP_cr_cl_naruse = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cl_naruse
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_naruse
     }
 }
 # 袭击轻巡洋舰系列脚本 - 职能锁定版
@@ -4005,6 +4302,9 @@ JAP_cr_cl_sendai = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cl_sendai
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_sendai
     }
 }
 
@@ -4054,6 +4354,9 @@ JAP_cr_cl_sakawa = {
             set_country_flag = JAP_has_cr_ship_design_cl_sakawa
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_sakawa
+    }
 }
 
 # 第三代：铃鹿级
@@ -4101,6 +4404,9 @@ JAP_cr_cl_suzuka = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cl_suzuka
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_suzuka
     }
 }
 
@@ -4151,6 +4457,9 @@ JAP_cr_cl_yubari = {
             set_country_flag = JAP_has_cr_ship_design_cl_yubari
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_yubari
+    }
 }
 
 # 第二代：四万十级
@@ -4198,6 +4507,9 @@ JAP_cr_cl_shimanto = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cl_shimanto
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_shimanto
     }
 }
 
@@ -4247,6 +4559,9 @@ JAP_cr_cl_noshiro = {
             set_country_flag = JAP_has_cr_ship_design_cl_noshiro
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_noshiro
+    }
 }
 # 肉盾驱逐舰系列脚本 - 职能锁定版 (无科技赠送)
 
@@ -4286,6 +4601,9 @@ JAP_cr_dd_yugumo = {
             set_country_flag = JAP_has_cr_ship_design_dd_yugumo
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_yugumo
+    }
 }
 
 # 第二代：风云级
@@ -4324,6 +4642,9 @@ JAP_cr_dd_kazagumo_shield = {
             set_country_flag = JAP_has_cr_ship_design_dd_kazagumo_shield
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_kazagumo_shield
+    }
 }
 
 # 第三代：青云级
@@ -4361,6 +4682,9 @@ JAP_cr_dd_aogumo = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_dd_aogumo
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_aogumo
     }
 }
 # 护航驱逐舰系列脚本 - 职能锁定版 (无科技赠送)
@@ -4407,6 +4731,9 @@ JAP_cr_dd_mutsuki_asw = {
             set_country_flag = JAP_has_cr_ship_design_dd_mutsuki_asw
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_mutsuki_asw
+    }
 }
 
 # 第二代：秋月级
@@ -4450,6 +4777,9 @@ JAP_cr_dd_akizuki_asw = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_dd_akizuki_asw
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_akizuki_asw
     }
 }
 
@@ -4496,6 +4826,9 @@ JAP_cr_dd_minazuki_asw = {
             set_country_flag = JAP_has_cr_ship_design_dd_minazuki_asw
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_minazuki_asw
+    }
 }
 # 雷击驱逐舰系列脚本 - 职能锁定版 (无科技赠送)
 
@@ -4541,6 +4874,9 @@ JAP_cr_dd_yukikaze = {
             set_country_flag = JAP_has_cr_ship_design_dd_yukikaze
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_yukikaze
+    }
 }
 
 # 第二代：岛风级
@@ -4583,6 +4919,9 @@ JAP_cr_dd_shimakaze = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_dd_shimakaze
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_shimakaze
     }
 }
 
@@ -4628,6 +4967,9 @@ JAP_cr_dd_shiokaze = {
             set_country_flag = JAP_has_cr_ship_design_dd_shiokaze
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_dd_shiokaze
+    }
 }
 # 潜艇系列脚本 - 职能锁定版 (无科技赠送)
 
@@ -4670,6 +5012,9 @@ JAP_cr_ss_i19 = {
             set_country_flag = JAP_has_cr_ship_design_ss_i19
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ss_i19
+    }
 }
 
 # 第二代：伊13
@@ -4710,6 +5055,9 @@ JAP_cr_ss_i13 = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_ss_i13
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ss_i13
     }
 }
 
@@ -4752,6 +5100,9 @@ JAP_cr_ss_i16 = {
             set_country_flag = JAP_has_cr_ship_design_ss_i16
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ss_i16
+    }
 }
 # 潜水空母系列脚本 - 职能锁定版 (无科技赠送)
 
@@ -4792,6 +5143,9 @@ JAP_cr_ss_i404 = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_ss_i404
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_ss_i404
     }
 }
 # 巡逻轻巡洋舰系列脚本 - 职能锁定版 (无科技赠送)
@@ -4838,6 +5192,9 @@ JAP_cr_cl_komaru = {
             set_country_flag = JAP_has_cr_ship_design_cl_komaru
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_komaru
+    }
 }
 
 # 第二代：吉野级
@@ -4883,6 +5240,9 @@ JAP_cr_cl_yoshino = {
             set_country_flag = JAP_has_cr_ship_design_cl_yoshino
         }
     }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_yoshino
+    }
 }
 
 # 第三代：自来也
@@ -4927,6 +5287,9 @@ JAP_cr_cl_jiraiya = {
         JAP = {
             set_country_flag = JAP_has_cr_ship_design_cl_jiraiya
         }
+    }
+    hidden_effect = {
+        set_country_flag = JAP_has_cr_design_cl_jiraiya
     }
 }
 
